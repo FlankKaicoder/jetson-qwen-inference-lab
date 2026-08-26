@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Build products
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+*.o
+*.obj
+*.so
+*.dll
+*.exe
+
+# Models and inference engines
+*.pt
+*.pth
+*.safetensors
+*.onnx
+*.engine
+*.plan
+*.gguf
+*.rkllm
+*.rknn
+models/
+weights/
+checkpoints/
+artifacts/models/
+
+# Hugging Face / model caches
+.cache/
+huggingface/
+
+# Nsight raw reports
+*.nsys-rep
+*.ncu-rep
+*.qdrep
+
+# Logs (summarized CSV, JSON, and Markdown results remain trackable)
+logs/
+*.log
+
+# Secrets and credentials
+.env
+.env.*
+*.pem
+*.key
+
+# Temporary offline Git transfer bundles
+*.bundle
+
+# SSH passwords and all other credentials must never be stored in this repository.
