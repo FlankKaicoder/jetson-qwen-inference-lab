@@ -4,4 +4,4 @@
 
 | ID | 名称 | Phase | 状态 | 报告 |
 | --- | --- | --- | --- | --- |
-| Exp00 | Environment & Repository Bootstrap | Bootstrap | RUNNING | `docs/handoff/current_state.md` |
+| Exp00 | Environment & Repository Bootstrap | Bootstrap | PASS | `docs/handoff/current_state.md` |
