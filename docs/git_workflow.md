@@ -21,7 +21,14 @@
 
 ## 多端同步
 
-Windows、Jetson 与未来 GitHub 应共享同一提交历史。GitHub remote 仅在用户创建空仓库并明确要求后配置；不得猜测 URL。离线同步时可使用临时 Git bundle，验证接收端 HEAD 后删除 bundle。
+Windows、Jetson 与 GitHub 必须共享同一提交历史。当前 GitHub 仓库为 Public：
+
+- Repository：`FlankKaicoder/jetson-qwen-inference-lab`
+- URL：`https://github.com/FlankKaicoder/jetson-qwen-inference-lab`
+- 默认分支：`main`
+- Windows 与 Jetson 的 `origin`：`git@github.com:FlankKaicoder/jetson-qwen-inference-lab.git`
+
+远端 URL 不得包含 token 或其他凭据。同步前检查工作树和分支；拉取只允许安全的 fast-forward（`git pull --ff-only`），禁止 force push、rebase `main` 或历史重写。离线同步时可使用临时 Git bundle，验证接收端 HEAD 后删除 bundle。
 
 ## 提交前检查
 
