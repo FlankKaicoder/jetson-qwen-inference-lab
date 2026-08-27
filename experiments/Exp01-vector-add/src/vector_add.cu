@@ -1,6 +1,7 @@
 #include <cuda_runtime.h>
 
 #include <algorithm>
+#include <array>
 #include <chrono>
 #include <cmath>
 #include <cstdint>
@@ -40,6 +41,15 @@ constexpr int kBlockCandidates[] = {16, 32, 64, 128, 256, 512, 1024};
 constexpr std::size_t kCorrectnessSizes[] = {
     1, 31, 32, 33, 255, 256, 257, 1000, 1024, 1025, 1048576};
 constexpr std::size_t kBenchmarkSizes[] = {1048576, 4194304, 16777216};
+constexpr std::size_t kStabilityN = 16777216;
+constexpr int kStabilityBlocks[] = {32, 64, 128, 256, 512, 1024};
+constexpr int kStabilityOrders[][6] = {
+    {32, 64, 128, 256, 512, 1024},
+    {128, 256, 512, 1024, 32, 64},
+    {512, 1024, 32, 64, 128, 256},
+    {256, 128, 64, 32, 1024, 512},
+    {1024, 512, 256, 128, 64, 32},
+};
 
 struct DeviceBuffers {
     float* a = nullptr;
@@ -137,8 +147,11 @@ std::string csvEscape(const std::string& value) {
     if (value.find_first_of(",\"\n\r") == std::string::npos) return value;
     std::string escaped = "\"";
     for (char ch : value) {
-        if (ch == '"') escaped += "\"\"";
-        escaped += ch;
+        if (ch == '"') {
+            escaped += "\"\"";
+        } else {
+            escaped += ch;
+        }
     }
     escaped += '"';
     return escaped;
@@ -357,9 +370,98 @@ void writeBenchmarkError(std::ostream& out, const std::string& timestamp,
         << ",,,FAIL,,,,,," << csvEscape(error) << '\n';
 }
 
+struct StabilityObservation {
+    int round = 0;
+    int orderIndex = 0;
+    CaseResult result;
+};
+
+void writeStabilityHeader(std::ostream& out) {
+    out << "timestamp,round,order_index,N,block_size,grid_size,"
+           "warps_per_block,active_blocks_per_sm,theoretical_occupancy_pct,"
+           "warmup,repetitions,avg_kernel_latency_ms,"
+           "effective_bandwidth_GBps,correctness,max_abs_error\n";
+}
+
+void writeStabilityRow(std::ostream& out, const std::string& timestamp,
+                       const StabilityObservation& observation) {
+    const CaseResult& result = observation.result;
+    out << timestamp << ',' << observation.round << ','
+        << observation.orderIndex << ',' << result.n << ','
+        << result.blockSize << ',' << result.gridSize << ','
+        << result.warpsPerBlock << ',' << result.activeBlocksPerSm << ','
+        << std::fixed << std::setprecision(2)
+        << result.theoreticalOccupancyPct << ',' << result.warmup << ','
+        << result.repetitions << ',' << std::setprecision(6)
+        << result.avgKernelLatencyMs << ',' << std::setprecision(3)
+        << result.effectiveBandwidthGBps << ','
+        << (result.correct ? "PASS" : "FAIL") << ',' << std::scientific
+        << std::setprecision(9) << result.maxAbsError << '\n';
+}
+
+double mean(const std::vector<double>& values) {
+    double sum = 0.0;
+    for (double value : values) sum += value;
+    return sum / static_cast<double>(values.size());
+}
+
+double median(std::vector<double> values) {
+    std::sort(values.begin(), values.end());
+    const std::size_t middle = values.size() / 2;
+    if (values.size() % 2 == 1) return values[middle];
+    return (values[middle - 1] + values[middle]) / 2.0;
+}
+
+double sampleStdDev(const std::vector<double>& values, double valuesMean) {
+    if (values.size() < 2) return 0.0;
+    double squaredDifferenceSum = 0.0;
+    for (double value : values) {
+        const double difference = value - valuesMean;
+        squaredDifferenceSum += difference * difference;
+    }
+    return std::sqrt(squaredDifferenceSum /
+                     static_cast<double>(values.size() - 1));
+}
+
+void writeStabilitySummary(
+    std::ostream& out,
+    const std::vector<StabilityObservation>& observations) {
+    out << "block_size,count,mean_latency_ms,median_latency_ms,"
+           "sample_std_latency_ms,min_latency_ms,max_latency_ms,cv_pct,"
+           "mean_effective_bandwidth_GBps,"
+           "median_effective_bandwidth_GBps\n";
+    for (int block : kStabilityBlocks) {
+        std::vector<double> latencies;
+        std::vector<double> bandwidths;
+        for (const StabilityObservation& observation : observations) {
+            if (observation.result.blockSize == block) {
+                latencies.push_back(observation.result.avgKernelLatencyMs);
+                bandwidths.push_back(
+                    observation.result.effectiveBandwidthGBps);
+            }
+        }
+        if (latencies.empty()) {
+            throw std::runtime_error("missing stability observations");
+        }
+        const double latencyMean = mean(latencies);
+        const double latencyMedian = median(latencies);
+        const double latencyStdDev = sampleStdDev(latencies, latencyMean);
+        const auto latencyRange =
+            std::minmax_element(latencies.begin(), latencies.end());
+        const double cvPct =
+            latencyMean > 0.0 ? 100.0 * latencyStdDev / latencyMean : 0.0;
+        out << block << ',' << latencies.size() << ',' << std::fixed
+            << std::setprecision(6) << latencyMean << ',' << latencyMedian
+            << ',' << latencyStdDev << ',' << *latencyRange.first << ','
+            << *latencyRange.second << ',' << std::setprecision(3) << cvPct
+            << ',' << mean(bandwidths) << ',' << median(bandwidths) << '\n';
+    }
+}
+
 struct Options {
     std::string mode;
     std::string csvPath;
+    std::string summaryPath;
     std::size_t n = 0;
     int blockSize = 0;
     int warmup = 20;
@@ -385,8 +487,14 @@ Options parseOptions(int argc, char** argv) {
             options.mode = "benchmark";
         } else if (arg == "--single") {
             options.mode = "single";
+        } else if (arg == "--stability") {
+            options.mode = "stability";
+        } else if (arg == "--test-csv-escape") {
+            options.mode = "test-csv-escape";
         } else if (arg == "--csv") {
             options.csvPath = requireValue("--csv");
+        } else if (arg == "--summary") {
+            options.summaryPath = requireValue("--summary");
         } else if (arg == "--n") {
             options.n = std::stoull(requireValue("--n"));
         } else if (arg == "--block") {
@@ -401,7 +509,8 @@ Options parseOptions(int argc, char** argv) {
     }
     if (options.mode.empty()) {
         throw std::invalid_argument(
-            "select --device-info, --correctness, --benchmark, or --single");
+            "select --device-info, --correctness, --benchmark, --single, "
+            "--stability, or --test-csv-escape");
     }
     if ((options.mode == "correctness" || options.mode == "benchmark") &&
         options.csvPath.empty()) {
@@ -411,6 +520,11 @@ Options parseOptions(int argc, char** argv) {
         (options.n == 0 || options.blockSize == 0)) {
         throw std::invalid_argument("--single requires --n and --block");
     }
+    if (options.mode == "stability" &&
+        (options.csvPath.empty() || options.summaryPath.empty())) {
+        throw std::invalid_argument(
+            "--stability requires --csv and --summary");
+    }
     return options;
 }
 
@@ -419,6 +533,22 @@ Options parseOptions(int argc, char** argv) {
 int main(int argc, char** argv) {
     try {
         const Options options = parseOptions(argc, argv);
+        if (options.mode == "test-csv-escape") {
+            const std::string plainInput = "abc";
+            const std::string quotedInput = "a\"b";
+            const std::string quotedExpected = "\"a\"\"b\"";
+            const std::string plainOutput = csvEscape(plainInput);
+            const std::string quotedOutput = csvEscape(quotedInput);
+            const bool passed = plainOutput == plainInput &&
+                                quotedOutput == quotedExpected;
+            std::cout << "plain_input=" << plainInput << '\n'
+                      << "plain_output=" << plainOutput << '\n'
+                      << "quoted_input=" << quotedInput << '\n'
+                      << "quoted_output=" << quotedOutput << '\n'
+                      << "csv_escape_test=" << (passed ? "PASS" : "FAIL")
+                      << '\n';
+            return passed ? 0 : 2;
+        }
         int deviceId = 0;
         CUDA_CHECK(cudaGetDevice(&deviceId));
         cudaDeviceProp prop{};
@@ -465,6 +595,61 @@ int main(int argc, char** argv) {
                       << "correctness=" << (result.correct ? "PASS" : "FAIL")
                       << '\n';
             return result.correct ? 0 : 2;
+        }
+
+        if (options.mode == "stability") {
+            std::ofstream rawCsv(options.csvPath);
+            if (!rawCsv) {
+                throw std::runtime_error("cannot open CSV path: " +
+                                         options.csvPath);
+            }
+            std::ofstream summaryCsv(options.summaryPath);
+            if (!summaryCsv) {
+                throw std::runtime_error("cannot open summary path: " +
+                                         options.summaryPath);
+            }
+            writeStabilityHeader(rawCsv);
+            std::vector<StabilityObservation> observations;
+            bool allPassed = true;
+            std::cout << "round,order_index,N,block_size,grid_size,"
+                         "warps_per_block,active_blocks_per_sm,"
+                         "theoretical_occupancy_pct,warmup,repetitions,"
+                         "avg_kernel_latency_ms,effective_bandwidth_GBps,"
+                         "correctness,max_abs_error\n";
+            for (int round = 0; round < 5; ++round) {
+                for (int orderIndex = 0; orderIndex < 6; ++orderIndex) {
+                    const int block = kStabilityOrders[round][orderIndex];
+                    StabilityObservation observation;
+                    observation.round = round + 1;
+                    observation.orderIndex = orderIndex + 1;
+                    observation.result =
+                        runCase(kStabilityN, block, options.warmup,
+                                options.repetitions, prop);
+                    writeStabilityRow(rawCsv, utcTimestamp(), observation);
+                    const CaseResult& result = observation.result;
+                    std::cout << observation.round << ','
+                              << observation.orderIndex << ',' << result.n << ','
+                              << result.blockSize << ',' << result.gridSize << ','
+                              << result.warpsPerBlock << ','
+                              << result.activeBlocksPerSm << ',' << std::fixed
+                              << std::setprecision(2)
+                              << result.theoreticalOccupancyPct << ','
+                              << result.warmup << ',' << result.repetitions << ','
+                              << std::setprecision(6)
+                              << result.avgKernelLatencyMs << ','
+                              << std::setprecision(3)
+                              << result.effectiveBandwidthGBps << ','
+                              << (result.correct ? "PASS" : "FAIL") << ','
+                              << std::scientific << std::setprecision(9)
+                              << result.maxAbsError << '\n';
+                    allPassed = allPassed && result.correct;
+                    observations.push_back(observation);
+                }
+            }
+            writeStabilitySummary(summaryCsv, observations);
+            rawCsv.close();
+            summaryCsv.close();
+            return allPassed ? 0 : 2;
         }
 
         std::ofstream csv(options.csvPath);

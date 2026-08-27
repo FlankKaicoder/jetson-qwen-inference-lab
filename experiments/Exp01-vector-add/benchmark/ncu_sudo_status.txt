@@ -1,0 +1,7 @@
+collected_at_utc=2026-08-27T07:56:20Z
+command=sudo -n true
+sudo: a password is required
+sudo_noninteractive=FAIL
+exit_code=1
+Nsight Gate BLOCKED: interactive sudo authentication required
+No Nsight profile was attempted

@@ -1,0 +1,5 @@
+plain_input=abc
+plain_output=abc
+quoted_input=a"b
+quoted_output="a""b"
+csv_escape_test=PASS

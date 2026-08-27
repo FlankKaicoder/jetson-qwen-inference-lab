@@ -1,2 +1,2 @@
 experiment_id,name,phase,status,platform,branch,commit,baseline,result,gate,report,date
-Exp01,CUDA Vector Add,Phase 0,BLOCKED,Jetson Orin Nano Super,exp/01-vector-add,HEAD,FP32 one-element-per-thread CUDA kernel,"77/77 correctness PASS; 21/21 benchmark rows; N=16777216 block=128 2.171583 ms 92.710 GB/s; Nsight permission blocked",PARTIAL,experiments/Exp01-vector-add/README.md,2026-08-27
+Exp01,CUDA Vector Add,Phase 0,BLOCKED,Jetson Orin Nano Super,exp/01-vector-add,HEAD,FP32 one-element-per-thread CUDA kernel,"Original 77/77 correctness PASS; Exp01.1 stability 30/30 PASS; block 128 fastest 5/5 with 2.207088 ms mean; Nsight interactive sudo authentication required",PARTIAL,experiments/Exp01-vector-add/README.md,2026-08-27

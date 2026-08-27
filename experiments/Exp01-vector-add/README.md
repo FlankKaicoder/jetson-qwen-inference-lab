@@ -295,3 +295,95 @@ Occupancy 到达足够隐藏延迟的水平后，性能还受 block 调度粒度
 - Commit：提交后以 `git rev-parse HEAD` 为准。
 - Build artifact：仓库外 `/tmp/jetson-qwen-exp01-build`。
 - 本实验不 merge `main`，不 force push，不开始 Exp02。
+
+## 17. Exp01.1 Stability & Nsight Audit
+
+本节是对 Original Exp01 的稳定性与 profiler 证据审计，不是新优化实验。原始 correctness、benchmark 数据和上述历史判断均保留；本节使用更严格口径给出审计后的结论。
+
+### 17.1 当前设备状态
+
+采集时间：`2026-08-27T07:54:33Z`。完整记录见 `benchmark/raw/environment_exp01_1_20260827T075423Z.txt`。
+
+| 项目 | 只读实测 |
+| --- | --- |
+| nvpmodel | `NV Power Mode: 25W`，mode ID `1` |
+| GPU devfreq（实验前） | current `306 MHz`，min `306 MHz`，max `918 MHz`；可用频点列表另含 `1020 MHz` |
+| Memory clock | CUDA device property 报告 `918000 kHz`；非 root 用户无法读取 debugfs EMC rate，未把该值换算为模式理论带宽利用率 |
+| jetson_clocks | `--show` 需要 root，未使用 sudo；GPU min/max 不相等，证明 GPU 频率未静态锁定，整体 jetson_clocks 状态不能由非 root 输出完整确认 |
+| tegrastats | 前测 GPU 约 `49.8–50.0°C`，后测最高样本 `54.718°C`；`GR3D_FREQ` 是利用率/时钟状态信息，不是 occupancy |
+
+本轮未执行 `nvpmodel -m`、未运行无参数 `jetson_clocks`，没有修改设备性能状态。
+
+### 17.2 稳定性测量口径
+
+- `N=16,777,216`，FP32，CUDA Event kernel-only timing。
+- 每个配置每轮 `warmup=20`、`repetitions=200`；共 5 个独立 round，而不是把 repetitions 改成 1000。
+- Block：`32, 64, 128, 256, 512, 1024`。
+- 固定轮换顺序：
+  - R1：`32 64 128 256 512 1024`
+  - R2：`128 256 512 1024 32 64`
+  - R3：`512 1024 32 64 128 256`
+  - R4：`256 128 64 32 1024 512`
+  - R5：`1024 512 256 128 64 32`
+- 标准差为 5 个独立 round 的 sample standard deviation（分母 `n-1`）。
+- Raw：`benchmark/stability_raw_20260827T075423Z.csv`；summary：`benchmark/stability_summary.csv`。
+
+30/30 个独立配置运行成功且 correctness PASS，全部 `max_abs_error=0`。
+
+### 17.3 五轮统计结果
+
+| Block | Count | Mean ms | Median ms | Sample std ms | Min–max ms | CV | Mean / median GB/s |
+| ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 32 | 5 | 6.698908 | 6.682917 | 0.043458 | 6.675447–6.776365 | 0.649% | 30.055 / 30.126 |
+| 64 | 5 | 2.726844 | 2.725990 | 0.005138 | 2.723132–2.735674 | 0.188% | 73.832 / 73.854 |
+| **128** | **5** | **2.207088** | **2.206342** | **0.002887** | **2.204237–2.210511** | **0.131%** | **91.218 / 91.249** |
+| 256 | 5 | 2.257612 | 2.259078 | 0.003938 | 2.253057–2.261157 | 0.174% | 89.177 / 89.119 |
+| 512 | 5 | 2.337085 | 2.335803 | 0.002165 | 2.335330–2.339506 | 0.093% | 86.144 / 86.192 |
+| 1024 | 5 | 3.331965 | 3.329194 | 0.004461 | 3.328536–3.338169 | 0.134% | 60.423 / 60.473 |
+
+五轮最快配置分布为：`block 128 = 5/5`。每轮 `256 - 128` 延迟差分别为 `0.054815、0.056388、0.054841、0.043340、0.043235 ms`；均值差 `0.050524 ms`，约为 block 256 均值的 `2.238%`。该差异在五轮方向一致，并明显大于 block 128/256 各自 `0.002887/0.003938 ms` 的 run-to-run 标准差。因此：
+
+> block 128 在当前记录的设备状态和本测试口径下表现为稳定 observed fastest configuration。
+
+该结论不外推为所有设备、功耗模式或全部 CUDA Vector Add 的通用最优 block。
+
+### 17.4 Nsight 权限审计
+
+按授权首先执行 `sudo -n true`，返回 exit 1：`sudo: a password is required`。因此严格按任务要求停止 Nsight 部分，没有提示或猜测密码、没有修改 sudoers、没有运行四个 profile，也没有生成 `.ncu-rep`。
+
+`Nsight Gate BLOCKED: interactive sudo authentication required`。证据见 `benchmark/ncu_sudo_status.txt`。
+
+因此 block 32/128/256/1024 都没有 achieved occupancy、DRAM throughput、SM throughput、warp stall 或 transaction/sector 硬件计数器。Q1–Q3 的微架构解释仍只能由 benchmark 与 Occupancy API 约束，不能冒充 profiler 结论。
+
+### 17.5 Theoretical 与 achieved occupancy
+
+| Block | Active blocks/SM（API） | Active warps/SM（API 推导） | Theoretical occupancy | Achieved occupancy |
+| ---: | ---: | ---: | ---: | --- |
+| 32 | 16 | 16 | 33.33% | 未采集 |
+| 128 | 12 | 48 | 100.00% | 未采集 |
+| 256 | 6 | 48 | 100.00% | 未采集 |
+| 1024 | 1 | 32 | 66.67% | 未采集 |
+
+Theoretical occupancy 来自 CUDA Occupancy API 的资源驻留上限；achieved occupancy 必须来自 profiler 实际执行。本轮没有 achieved occupancy。tegrastats 的 `GR3D_FREQ` 也不是 occupancy。
+
+### 17.6 H1–H4 审计
+
+| 假设 | 最终判断 | 代码证据 | Benchmark 证据 | Occupancy API 证据 | Nsight 证据 |
+| --- | --- | --- | --- | --- | --- |
+| H1：block size 影响性能，更大不一定更快 | **SUPPORTED** | 同一 kernel 仅改变 launch block | 六个 block 的均值差异明显；128 为 5/5 最快，256/512/1024 更大但更慢 | 不同 block 形成 33.33%–100% 理论 occupancy | 无 |
+| H2：higher occupancy 不自动等于 higher performance | **SUPPORTED** | kernel 资源用量相同 | 128/256/512 均值分别 2.207088/2.257612/2.337085 ms | 三者 theoretical occupancy 均 100% | achieved occupancy 未采集 |
+| H3：Vector Add 是 memory-bound | **PARTIALLY SUPPORTED** | 每元素约 1 FLOP、12 B，算术强度约 0.0833 FLOP/B | 大规模有效带宽在 block 128 达 91.218 GB/s，计算量极低；但 effective bandwidth 不是 DRAM counter | Occupancy 提升后性能出现带宽型平台，但不是直接证明 | 无 DRAM/SM throughput counter |
+| H4：连续地址具有良好 coalescing | **PARTIALLY SUPPORTED** | warp 内 thread i 连续访问 A[i]/B[i]/C[i] | 结果与连续访问预期相容，但 latency/带宽不能直接证明 transaction efficiency | 不适用 | 无 request/sector/transaction counter |
+
+没有在未证明当前模式理论带宽的前提下计算 `92.7/102` 一类正式利用率。
+
+### 17.7 Exp01.1 Gate
+
+| Gate | 状态 | 依据 |
+| --- | --- | --- |
+| Gate A — Correctness | **PASS / FROZEN** | Original Exp01 77/77、最大误差 0；本轮未重跑完整 correctness |
+| Gate B — Stability | **PASS** | 6 blocks × 5 independent rounds 完成；raw、summary、设备状态已保存 |
+| Gate C — Nsight | **BLOCKED** | 非交互 sudo 认证失败，未获得任何 profiler counter；非代码错误 |
+| Exp01 Overall | **PARTIAL** | Gate A 与 B 通过，Gate C 受外部权限阻塞 |
+
+实现同时修复 `csvEscape()` 对原始双引号多写一个 quote 的问题；最小测试验证 `abc → abc` 与 `a"b → "a""b"` 均 PASS。旧 CSV 字段未触发该 bug，历史数据未删除、未覆盖、未重跑。

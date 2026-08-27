@@ -1,0 +1,62 @@
+collected_at_utc=2026-08-27T07:54:33Z
+measurement_scope=Exp01.1 stability pre-run read-only state
+
+## nvpmodel -q
+NV Power Mode: 25W
+1
+nvpmodel_exit=0
+
+## jetson_clocks --show (non-root; no state change)
+SOC family:tegra234  Machine:NVIDIA Jetson Orin Nano Engineering Reference Developer Kit Super
+Error: Run this script(/usr/bin/jetson_clocks) as a root user
+jetson_clocks_show_exit=1
+
+## GPU devfreq sysfs
+cur_freq=306000000
+min_freq=306000000
+max_freq=918000000
+available_frequencies=306000000 408000000 510000000 612000000 714000000 816000000 918000000 1020000000
+
+## EMC / memory frequency candidates
+EMC frequency unavailable to the non-root user
+
+## tegrastats pre-run (3 samples)
+08-27-2026 15:54:34 RAM 2103/7620MB (lfb 1x4MB) SWAP 0/3810MB (cached 0MB) CPU [0%@729,0%@729,1%@729,0%@729,0%@729,0%@729] GR3D_FREQ 0% cpu@49.062C soc2@48.562C soc0@49.312C gpu@50C tj@50C soc1@49.218C VDD_IN 4712mW/4712mW VDD_CPU_GPU_CV 558mW/558mW VDD_SOC 1517mW/1517mW
+08-27-2026 15:54:35 RAM 2103/7620MB (lfb 1x4MB) SWAP 0/3810MB (cached 0MB) CPU [0%@729,0%@729,0%@729,0%@729,0%@729,0%@729] GR3D_FREQ 0% cpu@49.125C soc2@48.531C soc0@49.093C gpu@49.843C tj@49.843C soc1@49.093C VDD_IN 4640mW/4676mW VDD_CPU_GPU_CV 479mW/519mW VDD_SOC 1517mW/1517mW
+08-27-2026 15:54:36 RAM 2103/7620MB (lfb 1x4MB) SWAP 0/3810MB (cached 0MB) CPU [0%@729,0%@729,0%@729,0%@729,0%@729,0%@729] GR3D_FREQ 0% cpu@49.218C soc2@48.468C soc0@49.25C gpu@49.843C tj@49.843C soc1@49.125C VDD_IN 4640mW/4664mW VDD_CPU_GPU_CV 479mW/505mW VDD_SOC 1517mW/1517mW
+tegrastats_pre_exit=124 (124 means expected timeout)
+
+## CUDA runtime device properties
+gpu_name=Orin
+cuda_runtime_version=12.6
+cuda_driver_api_version=12.6
+compute_capability=8.7
+sm_count=8
+warp_size=32
+max_threads_per_block=1024
+max_threads_dim=1024,1024,64
+max_grid_size=2147483647,65535,65535
+max_threads_per_multiprocessor=1536
+max_warps_per_multiprocessor=48
+max_blocks_per_multiprocessor=16
+shared_mem_per_block_bytes=49152
+shared_mem_per_multiprocessor_bytes=167936
+regs_per_block=65536
+regs_per_multiprocessor=65536
+total_global_mem_bytes=7989903360
+l2_cache_size_bytes=2097152
+memory_bus_width_bits=128
+memory_clock_rate_khz=918000
+concurrent_kernels=1
+unified_addressing=1
+kernel_registers_per_thread=12
+kernel_static_shared_mem_bytes=0
+kernel_max_threads_per_block=1024
+supported_sweep_blocks=16,32,64,128,256,512,1024
+
+## tegrastats post-run (3 samples)
+08-27-2026 15:55:05 RAM 2112/7620MB (lfb 1x4MB) SWAP 0/3810MB (cached 0MB) CPU [0%@729,0%@729,0%@729,0%@729,0%@729,0%@729] GR3D_FREQ 0% cpu@53.812C soc2@53.031C soc0@53.593C gpu@54.718C tj@54.718C soc1@53.718C VDD_IN 5674mW/5674mW VDD_CPU_GPU_CV 833mW/833mW VDD_SOC 1984mW/1984mW
+08-27-2026 15:55:06 RAM 2112/7620MB (lfb 1x4MB) SWAP 0/3810MB (cached 0MB) CPU [0%@729,0%@1344,0%@1344,0%@1344,0%@729,0%@729] GR3D_FREQ 0% cpu@53.593C soc2@52.781C soc0@53.531C gpu@54.156C tj@54.156C soc1@53.375C VDD_IN 4744mW/5209mW VDD_CPU_GPU_CV 558mW/696mW VDD_SOC 1555mW/1770mW
+08-27-2026 15:55:07 RAM 2112/7620MB (lfb 1x4MB) SWAP 0/3810MB (cached 0MB) CPU [0%@729,0%@729,0%@729,0%@729,0%@729,0%@729] GR3D_FREQ 0% cpu@53.25C soc2@52.593C soc0@53.218C gpu@54.093C tj@54.093C soc1@53.25C VDD_IN 4672mW/5030mW VDD_CPU_GPU_CV 518mW/636mW VDD_SOC 1515mW/1685mW
+tegrastats_post_exit=124 (124 means expected timeout)
+post_run_collected_at_utc=2026-08-27T07:55:08Z
