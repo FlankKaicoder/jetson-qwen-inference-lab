@@ -1,0 +1,99 @@
+collected_at_utc=2026-08-27T06:24:26Z
+
+## hostname
+nvidia-desktop
+
+## uname -a
+Linux nvidia-desktop 5.15.148-tegra #1 SMP PREEMPT Tue Jan 7 17:14:38 PST 2025 aarch64 aarch64 aarch64 GNU/Linux
+
+## /etc/os-release
+PRETTY_NAME="Ubuntu 22.04.5 LTS"
+NAME="Ubuntu"
+VERSION_ID="22.04"
+VERSION="22.04.5 LTS (Jammy Jellyfish)"
+VERSION_CODENAME=jammy
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=jammy
+
+## nvcc --version
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2024 NVIDIA Corporation
+Built on Wed_Aug_14_10:14:07_PDT_2024
+Cuda compilation tools, release 12.6, V12.6.68
+Build cuda_12.6.r12.6/compiler.34714021_0
+
+## nvidia-smi
+Thu Aug 27 14:24:26 2026
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 540.4.0                Driver Version: 540.4.0      CUDA Version: 12.6     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  Orin (nvgpu)                  N/A  | N/A              N/A |                  N/A |
+| N/A   N/A  N/A               N/A /  N/A | Not Supported        |     N/A          N/A |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+
+## tegrastats --help
+Usage: tegrastats [-option]
+Options:
+    --help                    : print this help screen
+    --interval <millisec>     : sample the information in <milliseconds>
+    --cpu_per_socket <numcpu> : display only the top <numcpu> by utilization per socket (default=6)
+				applicable only for socket-based systems
+    --logfile  <filename>     : dump the output of tegrastats to <filename>
+    --load_cfg <filename>     : load the information from <filename>
+    --readall                 : collect all stats including performance intensive stats
+    --save_cfg <filename>     : save the information to <filename>
+    --start                 : run tegrastats as a daemon process in the background
+    --stop                    : stop any running instances of tegrastats
+    --verbose                 : print verbose message
+
+## gcc --version
+gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0
+
+## g++ --version
+g++ (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0
+
+## CUDA runtime device properties
+gpu_name=Orin
+cuda_runtime_version=12.6
+cuda_driver_api_version=12.6
+compute_capability=8.7
+sm_count=8
+warp_size=32
+max_threads_per_block=1024
+max_threads_dim=1024,1024,64
+max_grid_size=2147483647,65535,65535
+max_threads_per_multiprocessor=1536
+max_warps_per_multiprocessor=48
+max_blocks_per_multiprocessor=16
+shared_mem_per_block_bytes=49152
+shared_mem_per_multiprocessor_bytes=167936
+regs_per_block=65536
+regs_per_multiprocessor=65536
+total_global_mem_bytes=7989903360
+l2_cache_size_bytes=2097152
+memory_bus_width_bits=128
+memory_clock_rate_khz=918000
+concurrent_kernels=1
+unified_addressing=1
+kernel_registers_per_thread=12
+kernel_static_shared_mem_bytes=0
+kernel_max_threads_per_block=1024
+supported_sweep_blocks=16,32,64,128,256,512,1024

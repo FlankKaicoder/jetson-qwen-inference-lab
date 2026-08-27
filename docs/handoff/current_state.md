@@ -2,42 +2,42 @@
 
 ## 当前 branch
 
-`main`
+`exp/01-vector-add`
 
 ## 当前 commit
 
-本文件随当前 `HEAD` 维护；本轮 bootstrap 的前序提交为 `4de5daaf064eef01fd416da34635aa202d27e8e6`，最终提交以 `git rev-parse HEAD` 为准。
+本文件随实验分支当前 `HEAD` 维护；Exp01 基于 `main@d42ab4aeabc751723a4a2c1036b93a5ed16d3d01`，最终提交以 `git rev-parse HEAD` 为准。
 
 ## 本轮完成
 
-- Windows 仓库在 `E:\nvidia-qwen` 初始化为 `main`。
-- 建立项目基础目录、实验模板、管理文档、Git 工作流与忽略规则。
-- 通过交互式 SSH 成功连接 Jetson `nvidia-desktop`。
-- 使用 Git bundle 在 `/home/nvidia/projects/jetson-qwen-inference-lab` 克隆同一历史，未在 Jetson 重新初始化仓库。
-- 创建 Public GitHub 仓库 `FlankKaicoder/jetson-qwen-inference-lab`，默认分支为 `main`。
-- Windows 与 Jetson 均配置同一个 SSH `origin`，并跟踪 `origin/main`。
-- Windows、GitHub 与 Jetson 三端 Git 同步验证通过。
-- 完成简洁的 Jetson 只读环境检查，未安装、升级或卸载组件。
+- 在 Jetson 从 `main` 创建 `exp/01-vector-add`，未修改或 merge `main`。
+- 实现 FP32 一元素一线程 CUDA Vector Add、CPU reference、错误检查、device-property 输出与 Occupancy API 分析。
+- 完成 11 个 N × 7 个受支持 block size 的 correctness sweep。
+- 完成 3 个 performance N × 7 个 block size 的 CUDA Event kernel-only benchmark。
+- 保存 canonical CSV、带时间戳 raw 数据、环境摘要、console log、源码、脚本与完整实验报告。
+- 检查现有 Nsight Compute 2024.3.1；未安装或修改任何软件。
 
 ## 本轮未完成
 
-- 三端 Git 同步任务无未完成项。
-- 完整 CUDA/TensorRT 环境审计留给后续独立任务。
+- Nsight representative profile 因当前用户 GPU profiling 权限不足而未执行；`ncu --list-sections` 已被拒绝。
+- Exp01 尚未 merge 到 `main`，等待用户/ChatGPT 审核。
+- Exp02 Reduction 未开始。
 
 ## 关键实验结果
 
-- Exp00 状态：`PASS`。
-- GitHub repository：`https://github.com/FlankKaicoder/jetson-qwen-inference-lab`；visibility：`Public`。
-- 三端 Git 同步：`PASS`。
-- Windows 的 GitHub HTTPS 连接测试超时，已使用现有且认证成功的 SSH key；未在 remote URL 中写入 token。
-- SSH：成功；Jetson hostname：`nvidia-desktop`。
-- Jetson 摘要：Ubuntu 22.04.5 LTS、Linux 5.15.148-tegra、Git 2.34.1、GCC/G++ 11.4.0、CUDA 12.6、TensorRT 10.3.0、Python 3.10.12；`nvidia-smi` 与 `tegrastats` 可用。
-- 本轮不包含完整 CUDA/TensorRT 环境审计，也未开展任何 CUDA、TensorRT 或 Qwen 实验。
+- Correctness Gate：`PASS`；77/77 配置通过，最大绝对误差 0。
+- Benchmark Gate：`PASS`；21/21 行完成，warmup=20、repetitions=200。
+- Nsight Gate：`BLOCKED`；错误为 `Insufficient privileges to launch app for profiling`。
+- Overall Gate：`PARTIAL`。
+- 三个测试规模最快配置均为 block 128。
+- 代表性 `N=16777216`：block 128，2.171583 ms，92.710 decimal GB/s。
+- Occupancy API：block 128/256/512 均为 100%，但 block 128 最快，说明 higher occupancy 不自动等于 higher performance。
+- 假设：H1 SUPPORTED；H2 SUPPORTED；H3 SUPPORTED；H4 INCONCLUSIVE（Nsight memory metrics 被阻塞）。
 
 ## 下一步建议
 
-等待用户明确授权下一项任务；不得自行开始 Phase 0。
+等待 ChatGPT 审核 Exp01 后决定是否接受 Nsight Gate BLOCKED，或由管理员明确开放 profiling 权限后补做代表性 profile；审核前不得进入 Exp02 Reduction。
 
 ## 工作区状态
 
-Windows 与 Jetson 均为 `main`、跟踪 `origin/main`、工作树 clean；GitHub 默认分支为 `main`。最终 `HEAD` 以三端同步后的 `git rev-parse HEAD` 为准。
+Jetson 位于 `exp/01-vector-add`；完成提交与 push 后工作树应为 clean 并跟踪 `origin/exp/01-vector-add`。Windows 保持 `main@d42ab4a` clean；未 merge `main`。
