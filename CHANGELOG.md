@@ -14,3 +14,4 @@
 - 建立无状态、仓库驱动的 Codex 工作流，新增项目状态入口并扩展实验索引与证据规则。
 - 关闭 Exp01 Nsight Compute Gate：完成 blocks 32/128/256/1024 profiling，H1–H4 最终 SUPPORTED，128 vs 256 微架构成因保持 INCONCLUSIVE，Overall Gate PASS。
 - 初始化 Exp02 CUDA Reduction V1-V7，并完成 correctness Gate A：3,087/3,087 执行通过；compute-sanitizer 在 Jetson 上不可用，记录为 N/A；Gate B/C 未开始。
+- 完成 Exp02.2 Benchmark/Stability Gate：B1/B2/B3 全部完成，所有 timed configurations correctness PASS，V5/B128 为 N=16,777,229 下最快稳定配置；Gate B PASS，Gate C 待 checkpoint 后开始。

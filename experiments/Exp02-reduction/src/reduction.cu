@@ -11,6 +11,7 @@
 #include <iomanip>
 #include <iostream>
 #include <random>
+#include <numeric>
 #include <sstream>
 #include <stdexcept>
 #include <string>
@@ -365,6 +366,117 @@ void runCorrectness(const std::string& rawPath,
     if (!allPassed) throw std::runtime_error("correctness Gate A failed");
 }
 
+struct BenchmarkResult {
+    double meanMs = 0.0;
+    double medianMs = 0.0;
+    double minMs = 0.0;
+    double maxMs = 0.0;
+    double stdMs = 0.0;
+    double cvPct = 0.0;
+    float gpu = 0.0f;
+    double reference = 0.0;
+    double absError = 0.0;
+    double normalizedError = 0.0;
+    double tolerance = 0.0;
+    std::size_t firstGrid = 0;
+    std::size_t passCount = 0;
+    std::size_t launchCount = 0;
+    bool correct = false;
+};
+
+BenchmarkResult benchmarkSingle(ReductionVersion version, int blockSize,
+                                std::size_t n, int warmup, int repetitions) {
+    if (!supportedBlock(blockSize) || n == 0 || warmup < 0 || repetitions <= 0)
+        throw std::invalid_argument("invalid benchmark configuration");
+    const std::vector<float> host = makeInput(n, Pattern::Signed);
+    DeviceBuffers device;
+    device.allocate(n);
+    CUDA_CHECK(cudaMemcpy(device.input, host.data(), n * sizeof(float), cudaMemcpyHostToDevice));
+    const std::size_t firstOutput = reductionOutputCount(version, n, blockSize);
+    const std::size_t firstGrid = version == ReductionVersion::V1GlobalMultiPass
+                                      ? (firstOutput + blockSize - 1) / blockSize
+                                      : firstOutput;
+    const std::size_t passCount = [&]() {
+        std::size_t count = n, passes = 0;
+        while (count > 1) { count = reductionOutputCount(version, count, blockSize); ++passes; }
+        return passes;
+    }();
+    const auto launchPipeline = [&]() {
+        std::size_t count = n;
+        const float* current = device.input;
+        float* output = device.ping;
+        float* spare = device.pong;
+        while (count > 1) {
+            CUDA_CHECK(launchReduction(version, current, output, count, blockSize));
+            count = reductionOutputCount(version, count, blockSize);
+            current = output;
+            std::swap(output, spare);
+        }
+        return current;
+    };
+    for (int i = 0; i < warmup; ++i) (void)launchPipeline();
+    CUDA_CHECK(cudaDeviceSynchronize());
+    std::vector<cudaEvent_t> starts(static_cast<std::size_t>(repetitions));
+    std::vector<cudaEvent_t> stops(static_cast<std::size_t>(repetitions));
+    const float* finalOutput = nullptr;
+    for (int i = 0; i < repetitions; ++i) {
+        CUDA_CHECK(cudaEventCreate(&starts[i]));
+        CUDA_CHECK(cudaEventCreate(&stops[i]));
+        CUDA_CHECK(cudaEventRecord(starts[i]));
+        finalOutput = launchPipeline();
+        CUDA_CHECK(cudaEventRecord(stops[i]));
+    }
+    CUDA_CHECK(cudaEventSynchronize(stops.back()));
+    std::vector<double> latencies;
+    latencies.reserve(static_cast<std::size_t>(repetitions));
+    for (int i = 0; i < repetitions; ++i) {
+        float elapsed = 0.0f;
+        CUDA_CHECK(cudaEventElapsedTime(&elapsed, starts[i], stops[i]));
+        latencies.push_back(static_cast<double>(elapsed));
+        CUDA_CHECK(cudaEventDestroy(stops[i]));
+        CUDA_CHECK(cudaEventDestroy(starts[i]));
+    }
+    float gpu = 0.0f;
+    CUDA_CHECK(cudaMemcpy(&gpu, finalOutput, sizeof(float), cudaMemcpyDeviceToHost));
+    const double reference = referenceSum(host);
+    const double sumAbs = absoluteSum(host);
+    const double absError = std::abs(static_cast<double>(gpu) - reference);
+    std::sort(latencies.begin(), latencies.end());
+    const double sumLatency = std::accumulate(latencies.begin(), latencies.end(), 0.0);
+    const double meanLatency = sumLatency / latencies.size();
+    double squared = 0.0;
+    for (double latency : latencies) squared += (latency - meanLatency) * (latency - meanLatency);
+    const double stdLatency = latencies.size() > 1 ? std::sqrt(squared / (latencies.size() - 1)) : 0.0;
+    BenchmarkResult result;
+    result.meanMs = meanLatency;
+    result.medianMs = latencies.size() % 2 ? latencies[latencies.size() / 2] : (latencies[latencies.size() / 2 - 1] + latencies[latencies.size() / 2]) / 2.0;
+    result.minMs = latencies.front();
+    result.maxMs = latencies.back();
+    result.stdMs = stdLatency;
+    result.cvPct = meanLatency > 0.0 ? 100.0 * stdLatency / meanLatency : 0.0;
+    result.gpu = gpu;
+    result.reference = reference;
+    result.absError = absError;
+    result.normalizedError = absError / std::max(sumAbs, 1.0);
+    result.tolerance = toleranceFor(n, sumAbs);
+    result.firstGrid = firstGrid;
+    result.passCount = passCount;
+    result.launchCount = passCount * static_cast<std::size_t>(repetitions);
+    result.correct = absError <= result.tolerance;
+    device.release();
+    return result;
+}
+
+void appendBenchmarkRow(const std::string& path, ReductionVersion version,
+                        Pattern pattern, std::size_t n, int block, int round,
+                        int warmup, int repetitions,
+                        const BenchmarkResult& result) {
+    const bool exists = static_cast<bool>(std::ifstream(path));
+    std::ofstream out(path, std::ios::app);
+    if (!out) throw std::runtime_error("cannot open benchmark CSV: " + path);
+    if (!exists) out << "timestamp,version,pattern,N,block_size,round,warmup,repetitions,mean_latency_ms,median_latency_ms,min_latency_ms,max_latency_ms,sample_std_latency_ms,cv_pct,reference_sum,gpu_sum,absolute_error,normalized_error,tolerance,correctness,first_stage_grid,total_pass_count,total_kernel_launch_count\n";
+    out << utcTimestamp() << ',' << versionName(version) << ',' << patternName(pattern) << ',' << n << ',' << block << ',' << round << ',' << warmup << ',' << repetitions << ',' << std::setprecision(12) << result.meanMs << ',' << result.medianMs << ',' << result.minMs << ',' << result.maxMs << ',' << result.stdMs << ',' << result.cvPct << ',' << std::setprecision(17) << result.reference << ',' << result.gpu << ',' << result.absError << ',' << result.normalizedError << ',' << result.tolerance << ',' << (result.correct ? "PASS" : "FAIL") << ',' << result.firstGrid << ',' << result.passCount << ',' << result.launchCount << '\n';
+}
 void printDeviceInfo() {
     int device = 0;
     CUDA_CHECK(cudaGetDevice(&device));
@@ -588,6 +700,9 @@ int main(int argc, char** argv) {
         std::size_t n = 0;
         int block = 0;
         int versionValue = 0;
+        int warmup = 20;
+        int repetitions = 100;
+        int round = 1;
         Pattern pattern = Pattern::Ones;
         for (int i = 1; i < argc; ++i) {
             const std::string arg = argv[i];
@@ -598,17 +713,28 @@ int main(int argc, char** argv) {
             if (arg == "--device-info") mode = "device-info";
             else if (arg == "--correctness") mode = "correctness";
             else if (arg == "--single") mode = "single";
+            else if (arg == "--benchmark-single") mode = "benchmark-single";
             else if (arg == "--raw") rawPath = requireValue();
             else if (arg == "--summary") summaryPath = requireValue();
             else if (arg == "--n") n = std::stoull(requireValue());
             else if (arg == "--block") block = std::stoi(requireValue());
             else if (arg == "--version") versionValue = std::stoi(requireValue());
             else if (arg == "--pattern") pattern = parsePattern(requireValue());
+            else if (arg == "--warmup") warmup = std::stoi(requireValue());
+            else if (arg == "--repetitions") repetitions = std::stoi(requireValue());
+            else if (arg == "--round") round = std::stoi(requireValue());
             else throw std::invalid_argument("unknown option: " + arg);
         }
         if (mode == "device-info") {
             printDeviceInfo();
             return 0;
+        }
+        if (mode == "benchmark-single") {
+            if (rawPath.empty() || n == 0 || block == 0 || versionValue == 0) throw std::invalid_argument("--benchmark-single requires --raw, --version, --n and --block");
+            const ReductionVersion version = parseVersion(versionValue);
+            const BenchmarkResult result = benchmarkSingle(version, block, n, warmup, repetitions);
+            appendBenchmarkRow(rawPath, version, pattern, n, block, round, warmup, repetitions, result);
+            return result.correct ? 0 : 2;
         }
         if (mode == "correctness") {
             if (rawPath.empty() || summaryPath.empty()) {

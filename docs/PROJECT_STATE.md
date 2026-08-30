@@ -90,3 +90,11 @@ Before Exp01.2 profiling on `2026-08-30`, Windows, GitHub and Jetson were clean 
 - Gate B: NOT_STARTED. Gate C: NOT_STARTED. Overall: IN_PROGRESS.
 - Compute Sanitizer discovery: N/A because compute-sanitizer is not installed on Jetson.
 - Exp01 frozen conclusions unchanged, including 128 vs 256 microarchitectural cause remains inconclusive.
+
+## Exp02.2 Benchmark Update (2026-08-31)
+
+- Gate A PASS; Gate B PASS; Gate C NOT_STARTED; Overall IN_PROGRESS.
+- B1/B2/B3 raw and summary artifacts saved under experiments/Exp02-reduction/benchmark/raw/.
+- Final B3 candidates: V1/B512, V2-V7/B128. V5 is fastest at 1.626439 ms mean for N=16777229.
+- V6 vs V7 paired delta (V6-V7) = 0.333762 ms, 95% CI [0.316896, 0.350628] ms; significant in favor of V7.
+- No Exp03 started; no Exp01 content changed.

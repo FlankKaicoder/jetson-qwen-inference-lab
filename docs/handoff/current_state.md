@@ -57,3 +57,9 @@
 - V1-V7 implemented; correctness matrix 3,087/3,087 PASS. Max absolute error 1.1754035949707031e-4 (V5 signed N=1048589 B=256); max normalized error 2.086155075380606e-8.
 - Compute Sanitizer discovery: N/A, command not installed. Gate A PASS; Gate B/C NOT_STARTED; Overall IN_PROGRESS.
 - No Exp01 files or conclusions modified; no benchmark or Nsight run.
+
+## Exp02.2 Benchmark Gate (2026-08-31)
+- Gate B PASS after B1 block survey, B2 scaling and B3 five-round stability; Gate C not started at checkpoint.
+- Final blocks V1/B512, V2-V7/B128. V5 fastest 1.626439 ms mean (N=16777229); V7 vs V6 paired CI [0.316896, 0.350628] ms.
+- Artifacts: benchmark/raw/block_survey_20260830T172929Z.csv, scaling_20260830T172929Z.csv, stability_20260830T172929Z.csv, summaries, block_candidates and paired_comparisons.
+- Next permitted action is Gate C only after checkpoint commit/push; Exp03 not started.

@@ -1,0 +1,8 @@
+version,primary_block,secondary_block,reason
+V1,512,128,lowest three-round mean; secondary retained for tie review
+V2,128,256,lowest three-round mean; secondary retained for tie review
+V3,128,256,lowest three-round mean; secondary retained for tie review
+V4,128,256,lowest three-round mean; secondary retained for tie review
+V5,128,256,lowest three-round mean; secondary retained for tie review
+V6,128,256,lowest three-round mean; secondary retained for tie review
+V7,128,256,lowest three-round mean; secondary retained for tie review

@@ -27,3 +27,9 @@ experiments/Exp02-reduction/scripts/run_correctness.sh
 
 Build output stays under `/tmp/jetson-qwen-exp02-build`. This phase does not run benchmark or Nsight profiling.
 
+
+## Exp02.2 Benchmark Gate
+
+Gate B is PASS. B1/B2/B3 were completed with CUDA Event timing over the complete GPU reduction pipeline. All measured configurations passed the frozen correctness criterion. The final stability winner is V5/B128 at 1.626439 ms mean for N=16,777,229; V7/B128 is 2.321449 ms and V6/B128 is 2.655211 ms. V7 vs V6 paired 95% CI is [0.316896, 0.350628] ms for delta=V6-V7. Detailed raw evidence and limitations are in notes/benchmark_analysis.md.
+
+Gate A = PASS; Gate B = PASS; Gate C = NOT_STARTED; Overall = IN_PROGRESS. Exp03 has not started.
