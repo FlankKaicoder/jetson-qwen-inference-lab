@@ -40,4 +40,4 @@ ChatGPT复盘
 
 代码跑通不等于实验完成。每个实验还必须有正确性验证、可复现 Benchmark、性能分析、结论、学习复盘和 Git 归档。
 
-实验与协作规则见 [docs/project_management.md](docs/project_management.md)，路线见 [ROADMAP.md](ROADMAP.md)，当前交接状态见 [docs/handoff/current_state.md](docs/handoff/current_state.md)。
+新会话应先阅读 [AGENTS.md](AGENTS.md) 和 [docs/PROJECT_STATE.md](docs/PROJECT_STATE.md)，再从 [docs/experiment_index.md](docs/experiment_index.md) 进入当前实验报告与结果证据。实验与协作规则见 [docs/project_management.md](docs/project_management.md)，路线见 [ROADMAP.md](ROADMAP.md)。[docs/handoff/current_state.md](docs/handoff/current_state.md) 仅作为辅助交接，不是项目状态的唯一来源。
