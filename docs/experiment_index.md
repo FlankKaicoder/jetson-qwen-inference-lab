@@ -8,3 +8,5 @@
 | Exp01 | CUDA Vector Add + stability and Nsight audits | `exp/01-vector-add` | `PASS` | Overall `PASS`; A `PASS / FROZEN`, B `PASS`, C `PASS` | `249ddfb0a6873765bc391922111acfdd489e6d5c`, `74087eddc3815c45bae655978b57e99279dd4bd8`, `HEAD` (Gate C closure) | `experiments/Exp01-vector-add/README.md` | `experiments/Exp01-vector-add/benchmark/` | Block 128 fastest in 5/5 stability rounds; memory-bound and coalescing hypotheses supported; precise 128/256 cause remains inconclusive after complete NCU profiling. | Owner review; Exp02 may be designed only after explicit authorization. |
 
 No other experiment directory or completed experiment result was present when this index was verified on `2026-08-30`. Exp02 has not started.
+
+| Exp02 | CUDA Reduction initialization and correctness | exp/02-reduction | IN_PROGRESS | Gate A PASS; B/C NOT_STARTED | pending | experiments/Exp02-reduction/README.md | experiments/Exp02-reduction/benchmark/raw/ | V1-V7: 3,087/3,087 correctness PASS; sanitizer N/A. | Exp02 benchmark authorization |

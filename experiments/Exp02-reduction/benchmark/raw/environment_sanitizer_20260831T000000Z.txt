@@ -1,0 +1,15 @@
+nvidia-desktop
+Linux nvidia-desktop 5.15.148-tegra #1 SMP PREEMPT Tue Jan 7 17:14:38 PST 2025 aarch64 aarch64 aarch64 GNU/Linux
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2024 NVIDIA Corporation
+Built on Wed_Aug_14_10:14:07_PDT_2024
+Cuda compilation tools, release 12.6, V12.6.68
+Build cuda_12.6.r12.6/compiler.34714021_0
+gpu_name=Orin
+compute_capability=8.7
+cuda_runtime_version=12060
+sm_count=8
+warp_size=32
+max_threads_per_block=1024
+supported_blocks=32,64,128,256,512,1024
+compute-sanitizer=N/A (command not found)

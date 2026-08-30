@@ -82,3 +82,11 @@ Review and accept the closed Exp01 evidence. If the project owner explicitly aut
 ## Last Verified Git State
 
 Before Exp01.2 profiling on `2026-08-30`, Windows, GitHub and Jetson were clean at `exp/01-vector-add@e10f2c06c7d90844cbf425e5ef6c32a413e314ec`; local and remote `main` were `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01`. The final closure commit and push/pull state must be verified from Git at session end.
+
+## Exp02.0/Exp02.1 Update (2026-08-31)
+
+- Branch: exp/02-reduction; starting HEAD: d3ee5725374d780fcd3ae84fd9aa57e4d238ffb1.
+- Exp02 Gate A: PASS. V1-V7 correctness: 3,087/3,087 executions PASS; max absolute error 1.1754035949707031e-4; max normalized error 2.086155075380606e-8.
+- Gate B: NOT_STARTED. Gate C: NOT_STARTED. Overall: IN_PROGRESS.
+- Compute Sanitizer discovery: N/A because compute-sanitizer is not installed on Jetson.
+- Exp01 frozen conclusions unchanged, including 128 vs 256 microarchitectural cause remains inconclusive.

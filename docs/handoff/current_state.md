@@ -51,3 +51,9 @@
 ## Push / 工作区状态
 
 最终 commit、GitHub push、Jetson fast-forward 与三端 clean 状态必须由本轮结束时的 Git 命令验证，不能从本段预先推断。
+
+## Exp02.0/Exp02.1 (2026-08-31)
+- Branch: exp/02-reduction initialized from d3ee572 and synchronized to GitHub/Jetson.
+- V1-V7 implemented; correctness matrix 3,087/3,087 PASS. Max absolute error 1.1754035949707031e-4 (V5 signed N=1048589 B=256); max normalized error 2.086155075380606e-8.
+- Compute Sanitizer discovery: N/A, command not installed. Gate A PASS; Gate B/C NOT_STARTED; Overall IN_PROGRESS.
+- No Exp01 files or conclusions modified; no benchmark or Nsight run.
