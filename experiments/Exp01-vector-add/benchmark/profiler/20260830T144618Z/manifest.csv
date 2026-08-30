@@ -1,0 +1,2 @@
+block_size,profile_status,correctness,report_path,details_path,raw_csv_path
+32,PASS,PASS,/tmp/jetson-qwen-exp01-ncu/20260830T144618Z/block32.ncu-rep,/home/nvidia/projects/jetson-qwen-inference-lab/experiments/Exp01-vector-add/benchmark/profiler/20260830T144618Z/block32_details.txt,/home/nvidia/projects/jetson-qwen-inference-lab/experiments/Exp01-vector-add/benchmark/profiler/20260830T144618Z/block32_raw_metrics.csv

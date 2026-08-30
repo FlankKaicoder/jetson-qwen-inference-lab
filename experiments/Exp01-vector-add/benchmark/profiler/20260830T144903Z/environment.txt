@@ -1,0 +1,17 @@
+collected_at_utc=2026-08-30T14:49:14Z
+hostname=nvidia-desktop
+repository=/home/nvidia/projects/jetson-qwen-inference-lab
+branch=exp/01-vector-add
+head=e10f2c06c7d90844cbf425e5ef6c32a413e314ec
+n=16777216
+warmup=20
+repetitions=200
+profiled_launch=first measured launch after 20 warmup launches
+kernel_filter=regex:vectorAddKernel
+launch_skip=20
+launch_count=1
+sections=LaunchStats,Occupancy,SpeedOfLight,MemoryWorkloadAnalysis_Tables,SchedulerStats,WarpStateStats,SourceCounters
+ncu_report_dir=/tmp/jetson-qwen-exp01-ncu/20260830T144903Z
+NVIDIA (R) Nsight Compute Command Line Profiler
+Copyright (c) 2018-2024 NVIDIA Corporation
+Version 2024.3.1.0 (build 34702747) (public-release)

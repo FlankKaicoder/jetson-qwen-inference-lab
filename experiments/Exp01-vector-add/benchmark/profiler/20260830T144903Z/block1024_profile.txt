@@ -1,0 +1,17 @@
+==PROF== Connected to process 15430 (/tmp/jetson-qwen-exp01-build/vector_add)
+==PROF== Profiling "vectorAddKernel": 0%....50%....100% - 29 passes
+N=16777216
+block_size=1024
+grid_size=16384
+total_threads=16777216
+warps_per_block=32
+extra_logical_threads=0
+active_blocks_per_sm=1
+active_warps_per_sm=32
+theoretical_occupancy_pct=66.6667
+avg_kernel_latency_ms=21.222
+effective_bandwidth_GBps=9.4867
+max_abs_error=0
+correctness=PASS
+==PROF== Disconnected from process 15430
+==PROF== Report: /tmp/jetson-qwen-exp01-ncu/20260830T144903Z/block1024.ncu-rep

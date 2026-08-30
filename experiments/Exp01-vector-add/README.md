@@ -387,3 +387,53 @@ Theoretical occupancy 来自 CUDA Occupancy API 的资源驻留上限；achieved
 | Exp01 Overall | **PARTIAL** | Gate A 与 B 通过，Gate C 受外部权限阻塞 |
 
 实现同时修复 `csvEscape()` 对原始双引号多写一个 quote 的问题；最小测试验证 `abc → abc` 与 `a"b → "a""b"` 均 PASS。旧 CSV 字段未触发该 bug，历史数据未删除、未覆盖、未重跑。
+
+## 18. Exp01.2 Nsight Compute Gate Closure
+
+Gate C 已在 `2026-08-30` 恢复并关闭。完整方法、原始指标解释和 128/256 分析见 `notes/exp01_2_nsight_compute.md`；统一数值摘要见 `benchmark/ncu_profile_summary_20260830T144903Z.csv`，Git 可审查 raw/details 位于 `benchmark/profiler/20260830T144618Z/` 与 `benchmark/profiler/20260830T144903Z/`。四个 `.ncu-rep` 仅保留在 Jetson `/tmp/jetson-qwen-exp01-ncu/`，未提交 Git。
+
+### 18.1 Environment and methodology
+
+- CUDA 12.6 / Nsight Compute 2024.3.1.0。
+- `sudo -n ncu --version` 与 `sudo -n ncu --list-sections` PASS；未修改 sudoers。
+- 原 workload：`N=16,777,216`、FP32、warmup 20、repetitions 200、原 `vectorAddKernel`。
+- Blocks：32、128、256、1024。
+- Sections：`LaunchStats`、`Occupancy`、`SpeedOfLight`、`MemoryWorkloadAnalysis_Tables`、`SchedulerStats`、`WarpStateStats`、`SourceCounters`。
+- kernel filter 为 `regex:vectorAddKernel`；跳过 20 个 warmup launch，只 profile 第一个 measured launch。NCU replay latency 不作为 benchmark latency。
+- 四个 profile 均成功，target correctness 均 PASS、最大误差 0。
+
+### 18.2 Key profiler comparison
+
+| Metric | 32 | 128 | 256 | 1024 |
+| --- | ---: | ---: | ---: | ---: |
+| Existing benchmark mean latency (ms) | 6.698908 | 2.207088 | 2.257612 | 3.331965 |
+| Theoretical occupancy (%) | 33.33 | 100.00 | 100.00 | 66.67 |
+| Achieved occupancy (%) | 24.69 | 85.85 | 83.37 | 57.25 |
+| Theoretical active blocks/SM | 16 | 12 | 6 | 1 |
+| Theoretical / achieved active warps/SM | 16 / 12.59 | 48 / 40.36 | 48 / 39.36 | 32 / 28.04 |
+| Registers/thread | 16 | 16 | 16 | 16 |
+| Static / dynamic shared memory | 0 / 0 | 0 / 0 | 0 / 0 | 0 / 0 |
+| SM throughput (%) | 6.65 | 21.21 | 21.14 | 15.07 |
+| Memory / L2 throughput (%) | 32.75 | 82.45 | 87.38 | 48.88 |
+| DRAM throughput | N/A | N/A | N/A | N/A |
+| Main warp stall | long scoreboard | long scoreboard | long scoreboard | long scoreboard |
+| Load/store bytes per sector | 32 / 32 | 32 / 32 | 32 / 32 | 32 / 32 |
+
+NCU 在该集成平台将直接 `DRAM Throughput` 报为 N/A，因此没有估算该值。对 128/256，SM throughput 近似相同，memory throughput 不支持“256 memory 利用更差”，stall 与 coalescing 也近似；profile SM frequency 还分别为 509.98/407.99 MHz。故不能从当前 metrics 建立可靠的 128 更快因果链。
+
+**128 vs 256 final Case C：`microarchitectural cause remains inconclusive`。**
+
+### 18.3 Final hypothesis and Gate status
+
+| Item | Final status |
+| --- | --- |
+| H1 | `SUPPORTED` |
+| H2 | `SUPPORTED` |
+| H3 | `SUPPORTED` — memory throughput 明显高于 SM throughput，且 long scoreboard 主导 |
+| H4 | `SUPPORTED` — 32 B/sector，L2 theoretical sectors 等于 ideal，excessive sectors 为 0 |
+| Gate A — Correctness | `PASS / FROZEN` |
+| Gate B — Stability | `PASS` |
+| Gate C — Nsight | `PASS` |
+| Exp01 Overall | `PASS` |
+
+Exp01 已关闭并标记 `READY_FOR_EXP02`。本轮未开始 Exp02。

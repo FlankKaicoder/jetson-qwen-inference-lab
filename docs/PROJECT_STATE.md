@@ -13,69 +13,72 @@
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
 | Current phase | Phase 0 — GPU execution model and CUDA foundations |
-| Current experiment | Exp01 — CUDA Vector Add + Exp01.1 stability/profiling audit |
+| Current experiment | No active experiment; Exp01 is closed. Exp02 has not started. |
 | Current branch | `exp/01-vector-add` |
-| Current HEAD | Resolve from `git rev-parse HEAD`; this state was reconstructed from starting HEAD `74087eddc3815c45bae655978b57e99279dd4bd8` and is maintained in the governance commit built on it. |
+| Current HEAD | Resolve from `git rev-parse HEAD`; Exp01 Gate C closure was built from starting HEAD `e10f2c06c7d90844cbf425e5ef6c32a413e314ec`. |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Exp00 — Environment & Repository Bootstrap (`PASS`) |
-| Experiment status | `BLOCKED` (profiler evidence blocked; correctness and stability passed) |
-| Current Gate | Exp01 Overall `PARTIAL`: Gate A `PASS / FROZEN`, Gate B `PASS`, Gate C `BLOCKED` |
+| Last completed experiment | Exp01 — CUDA Vector Add + stability and Nsight Compute audits |
+| Experiment status | `PASS` |
+| Current Gate | Exp01 Overall `PASS`: Gate A `PASS / FROZEN`, Gate B `PASS`, Gate C `PASS` |
+| Readiness | `READY_FOR_EXP02`; no Exp02 work is authorized or started. |
 
 ## Confirmed Findings
 
 - Baseline is FP32 `C[i] = A[i] + B[i]`, one element per thread, with bounds checking.
 - Original correctness sweep: 11 sizes × 7 supported block sizes = 77/77 `PASS`; maximum absolute error `0`.
 - Original benchmark: `N = 2^20, 2^22, 2^24`; block sizes `16, 32, 64, 128, 256, 512, 1024`; warmup `20`; repetitions `200`; CUDA Event kernel-only timing.
-- At `N=16,777,216`, original block 128 result was `2.171583 ms` and `92.710 GB/s` effective bandwidth.
-- Exp01.1 stability audit used `N=16,777,216`, six block sizes, five independent rounds, warmup `20` and repetitions `200` per configuration; all 30/30 runs passed correctness.
-- Block 128 was observed fastest in 5/5 rounds: mean/median/sample standard deviation `2.207088/2.206342/0.002887 ms`; block 256 mean was `2.257612 ms`.
-- CUDA Occupancy API reports theoretical occupancy of 100% for blocks 128, 256 and 512; their measured latency differs, supporting H2 that higher/equal theoretical occupancy does not determine performance.
-- H1 and H2 are `SUPPORTED`. H3 (memory-bound) and H4 (coalescing) are `PARTIALLY SUPPORTED` under the final Exp01.1 audit.
+- Exp01.1 stability: `N=16,777,216`, six block sizes, five independent rounds; 30/30 correctness PASS. Block 128 was fastest in 5/5 rounds with mean `2.207088 ms`; block 256 mean was `2.257612 ms`.
+- Nsight Compute 2024.3.1 successfully profiled blocks 32, 128, 256 and 1024 using the original workload. All four target runs passed correctness.
+- Theoretical occupancy for 32/128/256/1024 is `33.33/100.00/100.00/66.67%`; achieved occupancy is `24.69/85.85/83.37/57.25%`.
+- SM throughput is `6.65/21.21/21.14/15.07%`; memory/L2 throughput is `32.75/82.45/87.38/48.88%`.
+- Long scoreboard is the main reported warp stall for every profiled block.
+- Global loads/stores use 32 B/sector; L2 theoretical global sectors equal ideal sectors and excessive sectors are zero for all four blocks.
+- H1, H2, H3 and H4 are `SUPPORTED` under the final evidence set.
 
 ## Rejected / Disproven Hypotheses
 
-- “Larger block size is necessarily faster” is disproven by the measured sweep; block 128 outperformed 256, 512 and 1024 under the recorded conditions.
-- “Equal or higher theoretical occupancy guarantees equal or better latency” is disproven by blocks 128, 256 and 512 sharing 100% theoretical occupancy but having different latency.
+- “Larger block size is necessarily faster” is disproven; block 128 outperformed 256, 512 and 1024 under the recorded benchmark conditions.
+- “Equal or higher occupancy guarantees equal or better latency” is disproven; blocks 128 and 256 both have 100% theoretical occupancy and close achieved occupancy, but different stable benchmark means.
 
 No repository evidence records a formally `REJECT`-status experiment.
 
-## Open Questions and Evidence Limits
+## Remaining Inconclusive / N/A Items
 
-- Achieved occupancy: `UNKNOWN` — no profiler counter was collected.
-- DRAM throughput and SM compute throughput: `UNKNOWN` — no profiler counter was collected.
-- Warp stall reasons: `UNKNOWN`.
-- Memory request/sector/transaction evidence and actual coalescing efficiency: `UNKNOWN`; H4 remains only `PARTIALLY SUPPORTED` from source address pattern.
-- Nsight Systems execution or report: `UNKNOWN`; no repository record or `.nsys-rep` exists.
-- Formal current-mode theoretical memory-bandwidth utilization: `INCONCLUSIVE`; the audit intentionally did not infer it from an unverified denominator.
-- Whether Exp01 should be accepted without profiler evidence or re-profiled with authorized access remains an external review decision.
+- 128 vs 256 precise cause: `microarchitectural cause remains inconclusive`. Occupancy, SM, stall and coalescing metrics are close; 256's normalized memory throughput is higher, not lower.
+- Profile SM frequency differed for 128/256 (`509.98/407.99 MHz`), so profiler duration and raw traffic rate cannot provide a clean causal comparison of the independent benchmark gap.
+- Direct NCU `DRAM Throughput`: `N/A` on this integrated platform; it was not estimated.
+- Nsight Systems: `UNKNOWN` and not required for the completed Gate C definition.
 
 ## Known Blockers
 
-- Nsight Compute profiling requires interactive sudo or administrator-enabled non-root performance-counter access. `sudo -n true` failed with `sudo: a password is required`; no profile was attempted.
-- Exp01 is not merged to `main`.
+- No blocker remains for Exp01.
+- Exp01 is not merged to `main`; merging requires explicit direction.
 
 ## Current Artifacts
 
-- Experiment report: `experiments/Exp01-vector-add/README.md`
+- Main report: `experiments/Exp01-vector-add/README.md`
 - Stability audit: `experiments/Exp01-vector-add/notes/exp01_1_stability_and_profile.md`
-- Original correctness: `experiments/Exp01-vector-add/benchmark/correctness_results.csv`
-- Original benchmark: `experiments/Exp01-vector-add/benchmark/vector_add_benchmark.csv`
+- Nsight closure report: `experiments/Exp01-vector-add/notes/exp01_2_nsight_compute.md`
+- Original correctness/benchmark: `experiments/Exp01-vector-add/benchmark/correctness_results.csv`, `experiments/Exp01-vector-add/benchmark/vector_add_benchmark.csv`
 - Stability raw/summary: `experiments/Exp01-vector-add/benchmark/stability_raw_20260827T075423Z.csv`, `experiments/Exp01-vector-add/benchmark/stability_summary.csv`
-- Environment evidence: `experiments/Exp01-vector-add/benchmark/environment.txt`, `experiments/Exp01-vector-add/benchmark/raw/environment_exp01_1_20260827T075423Z.txt`
-- Nsight blockers: `experiments/Exp01-vector-add/benchmark/ncu_sections.txt`, `experiments/Exp01-vector-add/benchmark/ncu_sudo_status.txt`
-- Important commits: `249ddfb0a6873765bc391922111acfdd489e6d5c`, `74087eddc3815c45bae655978b57e99279dd4bd8`
+- NCU summary: `experiments/Exp01-vector-add/benchmark/ncu_profile_summary_20260830T144903Z.csv`
+- NCU TXT/CSV evidence: `experiments/Exp01-vector-add/benchmark/profiler/20260830T144618Z/`, `experiments/Exp01-vector-add/benchmark/profiler/20260830T144903Z/`
+- Reproducible runner: `experiments/Exp01-vector-add/scripts/run_ncu_profile.sh`
+- `.ncu-rep` files: Jetson-local `/tmp/jetson-qwen-exp01-ncu/20260830T144618Z/` and `/tmp/jetson-qwen-exp01-ncu/20260830T144903Z/`; intentionally outside Git.
+- Important prior commits: `249ddfb0a6873765bc391922111acfdd489e6d5c`, `74087eddc3815c45bae655978b57e99279dd4bd8`, `e10f2c06c7d90844cbf425e5ef6c32a413e314ec`.
 
 ## Required Next Action
 
-Obtain the external project review decision for Exp01: either accept the documented `PARTIAL` Gate or explicitly authorize and arrange Nsight Compute access for the missing profiler evidence. Do not start Exp02 until that decision is recorded.
+Review and accept the closed Exp01 evidence. If the project owner explicitly authorizes the next experiment, design Exp02 from the roadmap in a new task. Do not start Exp02 automatically.
 
 ## Do-not-repeat Work
 
-- Do not rerun or overwrite the Original Exp01 correctness/benchmark or Exp01.1 stability artifacts merely to reconstruct context.
-- Do not repeat the non-interactive sudo probe without a changed authorization/access condition.
-- Do not claim achieved occupancy, DRAM/SM throughput, warp stalls, transaction efficiency or Nsight Systems results without new repository evidence.
-- Do not start Exp02, change the roadmap, merge to `main`, or modify device power/clock state without explicit direction.
+- Do not rerun or overwrite Original Exp01 correctness/benchmark, Exp01.1 stability, or Exp01.2 profiler artifacts merely to reconstruct context.
+- Do not repeat the completed sudo/NCU permission setup or modify sudoers.
+- Do not claim a precise 128/256 microarchitectural cause; the final evidence-backed status is `INCONCLUSIVE`.
+- Do not estimate direct DRAM throughput where NCU reports `N/A`.
+- Do not start Exp02, merge `main`, change the roadmap, or modify device power/clock state without explicit direction.
 
 ## Last Verified Git State
 
-On `2026-08-30`, before this governance change: Windows was clean on `exp/01-vector-add@74087eddc3815c45bae655978b57e99279dd4bd8`, tracking `origin/exp/01-vector-add`; local and remote `main` were `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01`. Jetson and GitHub parity was supplied as a known baseline but was not independently contacted in this session; after push, verify remote state from Git and do not infer Jetson state from Windows alone.
+Before Exp01.2 profiling on `2026-08-30`, Windows, GitHub and Jetson were clean at `exp/01-vector-add@e10f2c06c7d90844cbf425e5ef6c32a413e314ec`; local and remote `main` were `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01`. The final closure commit and push/pull state must be verified from Git at session end.
