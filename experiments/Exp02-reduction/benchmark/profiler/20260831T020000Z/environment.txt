@@ -1,0 +1,9 @@
+collected_at_utc=2026-08-31T01:50:00Z
+platform=Jetson Orin Nano Super (Orin)
+cuda=12.6 / nvcc V12.6.68
+ncu=NVIDIA Nsight Compute 2024.3.1.0
+ncu_version_check=PASS
+sudo_ncu_version_check=PASS
+sudo_ncu_list_sections=PASS
+sections=LaunchStats,Occupancy,SpeedOfLight,MemoryWorkloadAnalysis_Tables,SchedulerStats,WarpStateStats,SourceCounters
+rep_location=/tmp/jetson-qwen-exp02-ncu/20260831T020000Z/*.ncu-rep

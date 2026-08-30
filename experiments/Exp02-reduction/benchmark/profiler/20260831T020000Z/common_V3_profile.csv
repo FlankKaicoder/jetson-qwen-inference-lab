@@ -1,0 +1,4 @@
+==PROF== Connected to process 20262 (/tmp/jetson-qwen-exp02-build/reduction)
+==PROF== Profiling "reductionSharedIndexed": 0%....50%....100% - 29 passes
+==PROF== Disconnected from process 20262
+==PROF== Report: /tmp/jetson-qwen-exp02-ncu/20260831T020000Z/common_V3.ncu-rep

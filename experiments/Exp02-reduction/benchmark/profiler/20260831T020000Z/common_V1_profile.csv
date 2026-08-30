@@ -1,0 +1,4 @@
+==PROF== Connected to process 20087 (/tmp/jetson-qwen-exp02-build/reduction)
+==PROF== Profiling "reductionGlobalPass": 0%....50%....100% - 29 passes
+==PROF== Disconnected from process 20087
+==PROF== Report: /tmp/jetson-qwen-exp02-ncu/20260831T020000Z/common_V1.ncu-rep

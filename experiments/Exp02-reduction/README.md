@@ -2,7 +2,7 @@
 
 ## Status
 
-Exp02.0 initialization and Exp02.1 correctness are the current scope. Gate B (Benchmark/Stability) and Gate C (Nsight/Microarchitecture) remain `NOT_STARTED`; Overall remains `IN_PROGRESS`.
+Exp02.0 initialization, Exp02.1 correctness, Exp02.2 benchmark/stability and Exp02.3 Nsight profiling are complete. Gate A, Gate B and Gate C are `PASS`; Overall is `PASS`; `READY_FOR_EXP03`. Exp03 has not started.
 
 ## Learning objective
 
@@ -32,4 +32,10 @@ Build output stays under `/tmp/jetson-qwen-exp02-build`. This phase does not run
 
 Gate B is PASS. B1/B2/B3 were completed with CUDA Event timing over the complete GPU reduction pipeline. All measured configurations passed the frozen correctness criterion. The final stability winner is V5/B128 at 1.626439 ms mean for N=16,777,229; V7/B128 is 2.321449 ms and V6/B128 is 2.655211 ms. V7 vs V6 paired 95% CI is [0.316896, 0.350628] ms for delta=V6-V7. Detailed raw evidence and limitations are in notes/benchmark_analysis.md.
 
-Gate A = PASS; Gate B = PASS; Gate C = NOT_STARTED; Overall = IN_PROGRESS. Exp03 has not started.
+Gate A = PASS; Gate B = PASS; Gate C = PASS; Overall = PASS; READY_FOR_EXP03. Exp03 has not started.
+
+## Exp02.3 Nsight Gate
+
+Gate C is PASS. NCU 2024.3.1 profiled V1-V7 at N=16,777,229/B=256 using first-stage kernels, plus V5 at B64/B128/B256/B512. V3 had 6,952,266 observed shared bank conflicts versus V4 48,955; V7 reduced shared loads/stores and barrier stall relative to V6. Full metric evidence and limitations are in notes/nsight_analysis.md and benchmark/profiler/20260831T020000Z/.
+
+Final status: Gate A PASS; Gate B PASS; Gate C PASS; Overall PASS; READY_FOR_EXP03. Exp03 was NOT started.

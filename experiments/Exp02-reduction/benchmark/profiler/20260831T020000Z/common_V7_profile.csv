@@ -1,0 +1,4 @@
+==PROF== Connected to process 20606 (/tmp/jetson-qwen-exp02-build/reduction)
+==PROF== Profiling "reductionShuffle": 0%....50%....100% - 29 passes
+==PROF== Disconnected from process 20606
+==PROF== Report: /tmp/jetson-qwen-exp02-ncu/20260831T020000Z/common_V7.ncu-rep

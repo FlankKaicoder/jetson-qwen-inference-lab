@@ -7,20 +7,20 @@
 | Field | Verified value |
 | --- | --- |
 | Project | `jetson-qwen-inference-lab` / Jetson Qwen Transformer AI Infra Optimization Lab |
-| Current date | `2026-08-30` |
+| Current date | `2026-08-31` |
 | Repository | `FlankKaicoder/jetson-qwen-inference-lab` |
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
 | Current phase | Phase 0 — GPU execution model and CUDA foundations |
-| Current experiment | No active experiment; Exp01 is closed. Exp02 has not started. |
-| Current branch | `exp/01-vector-add` |
-| Current HEAD | Resolve from `git rev-parse HEAD`; Exp01 Gate C closure was built from starting HEAD `e10f2c06c7d90844cbf425e5ef6c32a413e314ec`. |
+| Current experiment | No active experiment; Exp02 is closed. Exp03 has not started. |
+| Current branch | `exp/02-reduction` |
+| Current HEAD | Resolve from `git rev-parse HEAD`; this branch's latest commit is the Exp02 closeout. |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Exp01 — CUDA Vector Add + stability and Nsight Compute audits |
+| Last completed experiment | Exp02 — CUDA Reduction initialization, benchmark and Nsight audit |
 | Experiment status | `PASS` |
-| Current Gate | Exp01 Overall `PASS`: Gate A `PASS / FROZEN`, Gate B `PASS`, Gate C `PASS` |
-| Readiness | `READY_FOR_EXP02`; no Exp02 work is authorized or started. |
+| Current Gate | Exp02 Overall `PASS`: Gate A `PASS`, Gate B `PASS`, Gate C `PASS` |
+| Readiness | `READY_FOR_EXP03`; Exp03 has not started. |
 
 ## Confirmed Findings
 
@@ -87,14 +87,21 @@ Before Exp01.2 profiling on `2026-08-30`, Windows, GitHub and Jetson were clean 
 
 - Branch: exp/02-reduction; starting HEAD: d3ee5725374d780fcd3ae84fd9aa57e4d238ffb1.
 - Exp02 Gate A: PASS. V1-V7 correctness: 3,087/3,087 executions PASS; max absolute error 1.1754035949707031e-4; max normalized error 2.086155075380606e-8.
-- Gate B: NOT_STARTED. Gate C: NOT_STARTED. Overall: IN_PROGRESS.
+- Gate B: PASS. Gate C: PASS. Overall: PASS.
 - Compute Sanitizer discovery: N/A because compute-sanitizer is not installed on Jetson.
 - Exp01 frozen conclusions unchanged, including 128 vs 256 microarchitectural cause remains inconclusive.
 
 ## Exp02.2 Benchmark Update (2026-08-31)
 
-- Gate A PASS; Gate B PASS; Gate C NOT_STARTED; Overall IN_PROGRESS.
+- Gate A PASS; Gate B PASS; Gate C PASS; Overall PASS; READY_FOR_EXP03.
 - B1/B2/B3 raw and summary artifacts saved under experiments/Exp02-reduction/benchmark/raw/.
 - Final B3 candidates: V1/B512, V2-V7/B128. V5 is fastest at 1.626439 ms mean for N=16777229.
 - V6 vs V7 paired delta (V6-V7) = 0.333762 ms, 95% CI [0.316896, 0.350628] ms; significant in favor of V7.
 - No Exp03 started; no Exp01 content changed.
+
+## Exp02.3 Nsight / Final Update (2026-08-31)
+
+- Gate A PASS; Gate B PASS; Gate C PASS; Overall PASS; READY_FOR_EXP03.
+- NCU 2024.3.1 first-stage common profiles V1-V7 at B256 plus V5 B64/B128/B256/B512 sweep completed. Direct DRAM throughput remains N/A where unsupported; no estimate made.
+- H2 is PARTIALLY_SUPPORTED due low measured divergence despite modulo source; H3 SUPPORTED by V3/V4 bank-conflict counters; H5 PARTIALLY_SUPPORTED; H6 SUPPORTED; H7 SUPPORTED; H8 SUPPORTED; H9 INCONCLUSIVE.
+- Exp03 was NOT started. Exp01 remains frozen unchanged.

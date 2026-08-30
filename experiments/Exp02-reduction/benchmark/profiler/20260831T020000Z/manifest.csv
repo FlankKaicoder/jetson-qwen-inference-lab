@@ -1,0 +1,12 @@
+tag,version,block_size,N,launch_skip,kernel,raw_csv,details_txt,rep_location
+common_V1,V1,256,16777229,0,reductionGlobalPass,common_V1_raw.csv,common_V1_details.txt,/tmp/jetson-qwen-exp02-ncu/20260831T020000Z/common_V1.ncu-rep
+common_V2,V2,256,16777229,0,reductionSharedModulo,common_V2_raw.csv,common_V2_details.txt,/tmp/jetson-qwen-exp02-ncu/20260831T020000Z/common_V2.ncu-rep
+common_V3,V3,256,16777229,0,reductionSharedIndexed,common_V3_raw.csv,common_V3_details.txt,/tmp/jetson-qwen-exp02-ncu/20260831T020000Z/common_V3.ncu-rep
+common_V4,V4,256,16777229,0,reductionSharedSequential,common_V4_raw.csv,common_V4_details.txt,/tmp/jetson-qwen-exp02-ncu/20260831T020000Z/common_V4.ncu-rep
+common_V5,V5,256,16777229,0,reductionFirstAddLoad,common_V5_raw.csv,common_V5_details.txt,/tmp/jetson-qwen-exp02-ncu/20260831T020000Z/common_V5.ncu-rep
+common_V6,V6,256,16777229,0,reductionSharedWarpTail,common_V6_raw.csv,common_V6_details.txt,/tmp/jetson-qwen-exp02-ncu/20260831T020000Z/common_V6.ncu-rep
+common_V7,V7,256,16777229,0,reductionShuffle,common_V7_raw.csv,common_V7_details.txt,/tmp/jetson-qwen-exp02-ncu/20260831T020000Z/common_V7.ncu-rep
+sweep_V5_B64,V5,64,16777229,0,reductionFirstAddLoad,sweep_V5_B64_raw.csv,sweep_V5_B64_details.txt,/tmp/jetson-qwen-exp02-ncu/20260831T020000Z/sweep_V5_B64.ncu-rep
+sweep_V5_B128,V5,128,16777229,0,reductionFirstAddLoad,sweep_V5_B128_raw.csv,sweep_V5_B128_details.txt,/tmp/jetson-qwen-exp02-ncu/20260831T020000Z/sweep_V5_B128.ncu-rep
+sweep_V5_B256,V5,256,16777229,0,reductionFirstAddLoad,sweep_V5_B256_raw.csv,sweep_V5_B256_details.txt,/tmp/jetson-qwen-exp02-ncu/20260831T020000Z/sweep_V5_B256.ncu-rep
+sweep_V5_B512,V5,512,16777229,0,reductionFirstAddLoad,sweep_V5_B512_raw.csv,sweep_V5_B512_details.txt,/tmp/jetson-qwen-exp02-ncu/20260831T020000Z/sweep_V5_B512.ncu-rep

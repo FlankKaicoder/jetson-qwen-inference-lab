@@ -1,0 +1,4 @@
+==PROF== Connected to process 20952 (/tmp/jetson-qwen-exp02-build/reduction)
+==PROF== Profiling "reductionFirstAddLoad": 0%....50%....100% - 29 passes
+==PROF== Disconnected from process 20952
+==PROF== Report: /tmp/jetson-qwen-exp02-ncu/20260831T020000Z/sweep_V5_B512.ncu-rep

@@ -1,0 +1,117 @@
+[20434] reduction@127.0.0.1
+  reductionFirstAddLoad(const float *, float *, unsigned long) (32769, 1, 1)x(256, 1, 1), Context 1, Stream 7, Device 0, CC 8.7
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ----------- ------------
+    Metric Name             Metric Unit Metric Value
+    ----------------------- ----------- ------------
+    SM Frequency                    Mhz       699.33
+    Elapsed Cycles                cycle    1,684,662
+    Memory Throughput                 %        70.59
+    Duration                         ms         2.41
+    L1/TEX Cache Throughput           %        69.34
+    L2 Cache Throughput               %        39.00
+    SM Active Cycles              cycle    1,508,247
+    Compute (SM) Throughput           %        62.84
+    ----------------------- ----------- ------------
+
+    INF   Compute and Memory are well-balanced: To reduce runtime, both computation and memory traffic must be reduced. 
+          Check both the Compute Workload Analysis and Memory Workload Analysis sections.                               
+
+    Section: Memory Workload Analysis Tables
+    OPT   Est. Local Speedup: 0.00183%                                                                                  
+          The memory access pattern for global loads from DRAM might not be optimal. On average, only 32.0 of the 32    
+          bytes transmitted per sector are utilized by each thread. This applies to the 100.0% of sectors missed in     
+          L2. This could possibly be caused by a stride between threads. Check the Source Counters section for          
+          uncoalesced global loads.                                                                                     
+    ----- --------------------------------------------------------------------------------------------------------------
+    OPT   Est. Speedup: 61.77%                                                                                          
+          The memory access pattern for global stores to L1TEX might not be optimal. On average, only 4.0 of the 32     
+          bytes transmitted per sector are utilized by each thread. This could possibly be caused by a stride between   
+          threads. Check the Source Counters section for uncoalesced global stores.                                     
+
+    Section: Scheduler Statistics
+    ---------------------------- ----------- ------------
+    Metric Name                  Metric Unit Metric Value
+    ---------------------------- ----------- ------------
+    One or More Eligible                   %        63.00
+    Issued Warp Per Scheduler                        0.63
+    No Eligible                            %        37.00
+    Active Warps Per Scheduler          warp        11.00
+    Eligible Warps Per Scheduler        warp         1.26
+    ---------------------------- ----------- ------------
+
+    Section: Warp State Statistics
+    ---------------------------------------- ----------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ---------------------------------------- ----------- ------------
+    Warp Cycles Per Issued Instruction             cycle        17.46
+    Warp Cycles Per Executed Instruction           cycle        17.46
+    Avg. Active Threads Per Warp                                31.83
+    Avg. Not Predicated Off Threads Per Warp                    21.40
+    ---------------------------------------- ----------- ------------
+
+    OPT   Est. Local Speedup: 32.74%                                                                                    
+          On average, each warp of this kernel spends 5.7 cycles being stalled waiting for a scoreboard dependency on a 
+          L1TEX (local, global, surface, texture) operation. Find the instruction producing the data being waited upon  
+          to identify the culprit. To reduce the number of cycles waiting on L1TEX data accesses verify the memory      
+          access patterns are optimal for the target architecture, attempt to increase cache hit rates by increasing    
+          data locality (coalescing), or by changing the cache configuration. Consider moving frequently used data to   
+          shared memory. This stall type represents about 32.7% of the total average of 17.5 cycles between issuing     
+          two instructions.                                                                                             
+    ----- --------------------------------------------------------------------------------------------------------------
+    INF   Check the Warp Stall Sampling (All Samples) table for the top stall locations in your source based on         
+          sampling data. The Kernel Profiling Guide                                                                     
+          (https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#metrics-reference) provides more details    
+          on each stall reason.                                                                                         
+    ----- --------------------------------------------------------------------------------------------------------------
+    OPT   Est. Speedup: 20.81%                                                                                          
+          Instructions are executed in warps, which are groups of 32 threads. Optimal instruction throughput is         
+          achieved if all 32 threads of a warp execute the same instruction. The chosen launch configuration, early     
+          thread completion, and divergent flow control can significantly lower the number of active threads in a warp  
+          per cycle. This kernel achieves an average of 31.8 threads being active per cycle. This is further reduced    
+          to 21.4 threads per warp due to predication. The compiler may use predication to avoid an actual branch.      
+          Instead, all instructions are scheduled, but a per-thread condition code or predicate controls which threads  
+          execute the instructions. Try to avoid different execution paths within a warp when possible.                 
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   256
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                 32,769
+    Registers Per Thread             register/thread              16
+    Shared Memory Configuration Size           Kbyte           16.38
+    Driver Shared Memory Per Block       Kbyte/block            1.02
+    Dynamic Shared Memory Per Block      Kbyte/block            1.02
+    Static Shared Memory Per Block        byte/block               0
+    # SMs                                         SM               8
+    Threads                                   thread       8,388,864
+    Uses Green Context                                             0
+    Waves Per SM                                              682.69
+    -------------------------------- --------------- ---------------
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Block Limit SM                        block           16
+    Block Limit Registers                 block           16
+    Block Limit Shared Mem                block            8
+    Block Limit Warps                     block            6
+    Theoretical Active Warps per SM        warp           48
+    Theoretical Occupancy                     %          100
+    Achieved Occupancy                        %        90.77
+    Achieved Active Warps Per SM           warp        43.57
+    ------------------------------- ----------- ------------
+
+    Section: Source Counters
+    ------------------------- ----------- ------------
+    Metric Name               Metric Unit Metric Value
+    ------------------------- ----------- ------------
+    Branch Instructions Ratio           %         0.10
+    Branch Instructions              inst    2,916,441
+    Branch Efficiency                   %          100
+    Avg. Divergent Branches                          0
+    ------------------------- ----------- ------------
+

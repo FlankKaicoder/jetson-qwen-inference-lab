@@ -4,11 +4,11 @@
 
 ## 当前 branch
 
-`exp/01-vector-add`
+`exp/02-reduction`
 
 ## 当前 commit
 
-本轮 starting HEAD 为 `e10f2c06c7d90844cbf425e5ef6c32a413e314ec`。Exp01 Gate C closure 的最终 commit 以 `git rev-parse HEAD` 为准。
+本轮 starting HEAD 为 `692b3f44b78c1b42dd8ad3b23ed432c47696b871`；最终 Exp02 closeout commit 以 `git rev-parse HEAD` 为准。
 
 ## 本轮完成
 
@@ -17,7 +17,7 @@
 - 新增最小 runner，沿用原 `N=16,777,216`、FP32 kernel、warmup 20、repetitions 200，只 profile blocks 32/128/256/1024 的第一个 measured launch。
 - 四个 profile 均成功、correctness PASS、最大误差 0；`.ncu-rep` 仅保留在 Jetson `/tmp`，Git 只保存 TXT/CSV。
 - 完成 occupancy、SM、memory、warp stall、coalescing 和 128/256 正式分析。
-- Gate C 更新为 `PASS`，Exp01 Overall 更新为 `PASS`；未开始 Exp02。
+- Exp01 保持冻结；Exp02 Gate A/B/C 均为 `PASS`，Overall 为 `PASS`；Exp03 未开始。
 
 ## 关键实验结果
 
@@ -55,7 +55,7 @@
 ## Exp02.0/Exp02.1 (2026-08-31)
 - Branch: exp/02-reduction initialized from d3ee572 and synchronized to GitHub/Jetson.
 - V1-V7 implemented; correctness matrix 3,087/3,087 PASS. Max absolute error 1.1754035949707031e-4 (V5 signed N=1048589 B=256); max normalized error 2.086155075380606e-8.
-- Compute Sanitizer discovery: N/A, command not installed. Gate A PASS; Gate B/C NOT_STARTED; Overall IN_PROGRESS.
+- Compute Sanitizer discovery: N/A, command not installed. Gate A/B/C PASS; Overall PASS; READY_FOR_EXP03.
 - No Exp01 files or conclusions modified; no benchmark or Nsight run.
 
 ## Exp02.2 Benchmark Gate (2026-08-31)
@@ -63,3 +63,9 @@
 - Final blocks V1/B512, V2-V7/B128. V5 fastest 1.626439 ms mean (N=16777229); V7 vs V6 paired CI [0.316896, 0.350628] ms.
 - Artifacts: benchmark/raw/block_survey_20260830T172929Z.csv, scaling_20260830T172929Z.csv, stability_20260830T172929Z.csv, summaries, block_candidates and paired_comparisons.
 - Next permitted action is Gate C only after checkpoint commit/push; Exp03 not started.
+
+## Exp02 Final Closeout (2026-08-31)
+- Gate A/B/C all PASS; Overall PASS; READY_FOR_EXP03. Exp03 was NOT started.
+- Final benchmark winner V5/B128, 1.626439 ms mean at N=16777229; V7 vs V6 paired CI [0.316896, 0.350628] ms.
+- NCU common profiles V1-V7 and V5 B64/B128/B256/B512 sweep saved under benchmark/profiler/20260831T020000Z; .ncu-rep remains Jetson /tmp only.
+- H1 SUPPORTED, H2 PARTIALLY_SUPPORTED, H3 SUPPORTED, H4 SUPPORTED, H5 PARTIALLY_SUPPORTED, H6 SUPPORTED, H7 SUPPORTED, H8 SUPPORTED, H9 INCONCLUSIVE.

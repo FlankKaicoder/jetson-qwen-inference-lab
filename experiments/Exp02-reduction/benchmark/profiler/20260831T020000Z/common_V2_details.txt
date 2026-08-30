@@ -1,0 +1,95 @@
+[20175] reduction@127.0.0.1
+  reductionSharedModulo(const float *, float *, unsigned long) (65537, 1, 1)x(256, 1, 1), Context 1, Stream 7, Device 0, CC 8.7
+    Section: GPU Speed Of Light Throughput
+    ----------------------- ----------- ------------
+    Metric Name             Metric Unit Metric Value
+    ----------------------- ----------- ------------
+    SM Frequency                    Mhz       911.01
+    Elapsed Cycles                cycle    5,821,708
+    Memory Throughput                 %        35.18
+    Duration                         ms         6.39
+    L1/TEX Cache Throughput           %        35.22
+    L2 Cache Throughput               %        11.52
+    SM Active Cycles              cycle 5,742,583.88
+    Compute (SM) Throughput           %        71.72
+    ----------------------- ----------- ------------
+
+    OPT   Compute is more heavily utilized than Memory: Look at the Compute Workload Analysis section to see what the   
+          compute pipelines are spending their time doing. Also, consider whether any computation is redundant and      
+          could be reduced or moved to look-up tables.                                                                  
+
+    Section: Memory Workload Analysis Tables
+    OPT   Est. Local Speedup: 1.788e-05%                                                                                
+          The memory access pattern for global loads from DRAM might not be optimal. On average, only 32.0 of the 32    
+          bytes transmitted per sector are utilized by each thread. This applies to the 100.0% of sectors missed in     
+          L2. This could possibly be caused by a stride between threads. Check the Source Counters section for          
+          uncoalesced global loads.                                                                                     
+    ----- --------------------------------------------------------------------------------------------------------------
+    OPT   Est. Speedup: 30.78%                                                                                          
+          The memory access pattern for global stores to L1TEX might not be optimal. On average, only 4.0 of the 32     
+          bytes transmitted per sector are utilized by each thread. This could possibly be caused by a stride between   
+          threads. Check the Source Counters section for uncoalesced global stores.                                     
+
+    Section: Scheduler Statistics
+    ---------------------------- ----------- ------------
+    Metric Name                  Metric Unit Metric Value
+    ---------------------------- ----------- ------------
+    One or More Eligible                   %        71.78
+    Issued Warp Per Scheduler                        0.72
+    No Eligible                            %        28.22
+    Active Warps Per Scheduler          warp        11.37
+    Eligible Warps Per Scheduler        warp         1.95
+    ---------------------------- ----------- ------------
+
+    Section: Warp State Statistics
+    ---------------------------------------- ----------- ------------
+    Metric Name                              Metric Unit Metric Value
+    ---------------------------------------- ----------- ------------
+    Warp Cycles Per Issued Instruction             cycle        15.84
+    Warp Cycles Per Executed Instruction           cycle        15.84
+    Avg. Active Threads Per Warp                                31.92
+    Avg. Not Predicated Off Threads Per Warp                    24.16
+    ---------------------------------------- ----------- ------------
+
+    Section: Launch Statistics
+    -------------------------------- --------------- ---------------
+    Metric Name                          Metric Unit    Metric Value
+    -------------------------------- --------------- ---------------
+    Block Size                                                   256
+    Function Cache Configuration                     CachePreferNone
+    Grid Size                                                 65,537
+    Registers Per Thread             register/thread              16
+    Shared Memory Configuration Size           Kbyte           16.38
+    Driver Shared Memory Per Block       Kbyte/block            1.02
+    Dynamic Shared Memory Per Block      Kbyte/block            1.02
+    Static Shared Memory Per Block        byte/block               0
+    # SMs                                         SM               8
+    Threads                                   thread      16,777,472
+    Uses Green Context                                             0
+    Waves Per SM                                            1,365.35
+    -------------------------------- --------------- ---------------
+
+    Section: Occupancy
+    ------------------------------- ----------- ------------
+    Metric Name                     Metric Unit Metric Value
+    ------------------------------- ----------- ------------
+    Block Limit SM                        block           16
+    Block Limit Registers                 block           16
+    Block Limit Shared Mem                block            8
+    Block Limit Warps                     block            6
+    Theoretical Active Warps per SM        warp           48
+    Theoretical Occupancy                     %          100
+    Achieved Occupancy                        %        95.19
+    Achieved Active Warps Per SM           warp        45.69
+    ------------------------------- ----------- ------------
+
+    Section: Source Counters
+    ------------------------- ----------- ------------
+    Metric Name               Metric Unit Metric Value
+    ------------------------- ----------- ------------
+    Branch Instructions Ratio           %         0.05
+    Branch Instructions              inst    6,881,386
+    Branch Efficiency                   %       100.00
+    Avg. Divergent Branches                       0.03
+    ------------------------- ----------- ------------
+
