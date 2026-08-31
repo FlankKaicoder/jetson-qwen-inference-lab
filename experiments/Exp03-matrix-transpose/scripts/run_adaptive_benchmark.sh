@@ -61,6 +61,7 @@ done
   echo "kind=$kind"
   echo "warmup_target_ms=$warm_target"
   echo "measurement_target_ms=$measure_target"
+  echo "measurement_safety_factor=2.0"
   echo "calibration_iterations=50"
   echo "min_warmup=20"
   echo "max_warmup=20000"
@@ -80,6 +81,7 @@ for dimension in "${dims[@]}"; do
   for version in V1 V2 V3 V4; do
     "$binary" --version "$version" --width "$width" --height "$height" \
       --calibrate --calibration-warmup 20 --calibration-iterations 50 \
+      --warmup-target-ms "$warm_target" --max-warmup 20000 \
       --calibration-output "$calibration" > "${out_dir}/cal_${width}x${height}_${version}.txt"
   done
 done
@@ -105,6 +107,7 @@ for dimension in "${dims[@]}"; do
       "$binary" --version "$version" --width "$width" --height "$height" \
         --adaptive --trial "$trial" --calibrated-ms "$calibrated_ms" \
         --warmup-target-ms "$warm_target" --measurement-target-ms "$measure_target" \
+        --measurement-safety-factor 2.0 \
         --min-warmup 20 --max-warmup 20000 --min-measurement 100 --max-measurement 10000 \
         --raw "$raw_tmp" --telemetry-script "${script_dir}/capture_tegrastats.sh" \
         --telemetry-output "$telemetry"
