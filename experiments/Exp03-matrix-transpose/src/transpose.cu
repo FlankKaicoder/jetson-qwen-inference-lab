@@ -58,7 +58,9 @@ struct Row { std::string version, pattern; std::size_t width,height; int repeat;
 std::string utcTimestamp() { std::time_t t=std::time(nullptr); std::tm tm{}; gmtime_r(&t,&tm); std::ostringstream s; s<<std::put_time(&tm,"%Y-%m-%dT%H:%M:%SZ"); return s.str(); }
 
 Row runCase(TransposeVersion version, Pattern pattern, std::size_t width, std::size_t height, int repeat) {
-  const bool tiled = version == TransposeVersion::V3Tiled || version == TransposeVersion::V4Padded;\n  const int gridY = static_cast<int>((height + (tiled ? TILE_DIM : BLOCK_ROWS) - 1) / (tiled ? TILE_DIM : BLOCK_ROWS));\n  Row row{versionName(version),patternName(pattern),width,height,repeat,static_cast<int>((width+TILE_DIM-1)/TILE_DIM),gridY,TILE_DIM,BLOCK_ROWS,false,false,"PASS",""};
+  const bool tiled = version == TransposeVersion::V3Tiled || version == TransposeVersion::V4Padded;
+  const int gridY = static_cast<int>((height + (tiled ? TILE_DIM : BLOCK_ROWS) - 1) / (tiled ? TILE_DIM : BLOCK_ROWS));
+  Row row{versionName(version),patternName(pattern),width,height,repeat,static_cast<int>((width+TILE_DIM-1)/TILE_DIM),gridY,TILE_DIM,BLOCK_ROWS,false,false,"PASS",""};
   try {
     const auto input=makeInput(width,height,pattern); std::vector<float> expected(width*height), actual(width*height);
     if (version == TransposeVersion::V1Copy) expected=input; else cpuTranspose(input,expected,width,height);
