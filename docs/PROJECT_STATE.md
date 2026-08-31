@@ -18,7 +18,7 @@
 | Current HEAD | Resolve from `git rev-parse HEAD`; Exp03 correctness closure is the latest commit. |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Exp03.1 — CUDA Matrix Transpose correctness |
-| Experiment status | `PASS` |
+| Experiment status | `IN_PROGRESS` |
 | Current Gate | Exp03 Gate A `PASS`; Gate B `NOT_STARTED`; Gate C `NOT_STARTED` |
 | Readiness | `READY_FOR_EXP03_BENCHMARK`; formal benchmark and Nsight have not started. |
 
