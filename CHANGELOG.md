@@ -16,3 +16,4 @@
 - 初始化 Exp02 CUDA Reduction V1-V7，并完成 correctness Gate A：3,087/3,087 执行通过；compute-sanitizer 在 Jetson 上不可用，记录为 N/A；Gate B/C 未开始。
 - 完成 Exp02.2 Benchmark/Stability Gate：B1/B2/B3 全部完成，所有 timed configurations correctness PASS，V5/B128 为 N=16,777,229 下最快稳定配置；Gate B PASS，Gate C 待 checkpoint 后开始。
 - 完成 Exp02.3 Nsight Gate 与最终收口：V1-V7 common-block profile、V5 block sweep 和 H1-H9 分析完成；Gate A/B/C 均 PASS，Overall PASS，READY_FOR_EXP03；Exp03 未开始。
+- 初始化 Exp03 CUDA Matrix Transpose（V0-V4）并完成 Correctness Gate：828/828 bitwise exact PASS，修复 V1/V2 非 tiled grid_y 边界 bug；Gate A PASS，Gate B/C 未开始，READY_FOR_EXP03_BENCHMARK。

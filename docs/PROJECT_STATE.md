@@ -13,14 +13,14 @@
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
 | Current phase | Phase 0 — GPU execution model and CUDA foundations |
-| Current experiment | No active experiment; Exp02 is closed. Exp03 has not started. |
-| Current branch | `exp/02-reduction` |
-| Current HEAD | Resolve from `git rev-parse HEAD`; this branch's latest commit is the Exp02 closeout. |
+| Current experiment | Exp03 — CUDA Matrix Transpose; Gate A closed, Gates B/C not started. |
+| Current branch | `exp/03-matrix-transpose` |
+| Current HEAD | Resolve from `git rev-parse HEAD`; Exp03 correctness closure is the latest commit. |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Exp02 — CUDA Reduction initialization, benchmark and Nsight audit |
+| Last completed experiment | Exp03.1 — CUDA Matrix Transpose correctness |
 | Experiment status | `PASS` |
-| Current Gate | Exp02 Overall `PASS`: Gate A `PASS`, Gate B `PASS`, Gate C `PASS` |
-| Readiness | `READY_FOR_EXP03`; Exp03 has not started. |
+| Current Gate | Exp03 Gate A `PASS`; Gate B `NOT_STARTED`; Gate C `NOT_STARTED` |
+| Readiness | `READY_FOR_EXP03_BENCHMARK`; formal benchmark and Nsight have not started. |
 
 ## Confirmed Findings
 
@@ -51,8 +51,8 @@ No repository evidence records a formally `REJECT`-status experiment.
 
 ## Known Blockers
 
-- No blocker remains for Exp01.
-- Exp01 is not merged to `main`; merging requires explicit direction.
+- No blocker remains for Exp03 Gate A.
+- Exp03 is not merged to `main`; merging requires explicit direction.
 
 ## Current Artifacts
 
@@ -69,7 +69,7 @@ No repository evidence records a formally `REJECT`-status experiment.
 
 ## Required Next Action
 
-Review and accept the closed Exp01 evidence. If the project owner explicitly authorizes the next experiment, design Exp02 from the roadmap in a new task. Do not start Exp02 automatically.
+Review and accept the Exp03 Gate A evidence. Formal benchmark requires explicit authorization; do not start Gate B automatically.
 
 ## Do-not-repeat Work
 
@@ -104,4 +104,13 @@ Before Exp01.2 profiling on `2026-08-30`, Windows, GitHub and Jetson were clean 
 - Gate A PASS; Gate B PASS; Gate C PASS; Overall PASS; READY_FOR_EXP03.
 - NCU 2024.3.1 first-stage common profiles V1-V7 at B256 plus V5 B64/B128/B256/B512 sweep completed. Direct DRAM throughput remains N/A where unsupported; no estimate made.
 - H2 is PARTIALLY_SUPPORTED due low measured divergence despite modulo source; H3 SUPPORTED by V3/V4 bank-conflict counters; H5 PARTIALLY_SUPPORTED; H6 SUPPORTED; H7 SUPPORTED; H8 SUPPORTED; H9 INCONCLUSIVE.
-- Exp03 was NOT started. Exp01 remains frozen unchanged.
+- Exp03 correctness was completed without benchmark or Nsight; Exp01 remains frozen unchanged.
+
+## Exp03.0/Exp03.1 Update (2026-08-31)
+
+- Branch: exp/03-matrix-transpose; initialized from Exp02 closeout `8293d6a`.
+- Fixed geometry: TILE_DIM=32, BLOCK_ROWS=8, block(32,8); V0 CPU, V1 copy, V2 naive, V3 tiled, V4 padded.
+- Final correctness: 828/828 bitwise PASS (V1-V4 each 207/207); guard failures 0; CUDA failures 0.
+- Initial V1/V2 grid_y boundary bug was fixed and the complete matrix rerun; failed raw evidence was retained on Jetson.
+- Gate A PASS; Gate B/C NOT_STARTED; Overall IN_PROGRESS; READY_FOR_EXP03_BENCHMARK.
+- Formal benchmark, Nsight Compute, Exp04 and performance ranking were NOT started.

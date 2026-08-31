@@ -38,6 +38,10 @@ The output allocation has 16 guard words before and after the logical output, in
 
 No hypothesis is a conclusion before the relevant Gate.
 
+## Gate A result
+
+The final correctness run (`correctness_20260831T044304Z.csv`) passed 828/828 executions: each of V1-V4 passed 207/207 cases, with zero guard failures and zero CUDA failures. An initial V1/V2 non-tiled `grid_y` bug left rows uncovered for heights greater than `BLOCK_ROWS`; it was fixed by using `ceil(height/BLOCK_ROWS)` and the complete matrix was rerun. The failed first attempt remains retained as historical evidence on Jetson and is not used for the final PASS.
+
 ## Gate definitions and deferred work
 
 Gate A requires all 828 bitwise passes, guard PASS, CUDA runtime PASS, rectangular/partial/tiny/large coverage and source mechanism audit. Gate B and C remain `NOT_STARTED` in this phase. Future benchmark candidates are 1024x1024, 2048x2048, 4096x4096, 4093x4096 and 4096x4093 using CUDA Events, warmup, repetitions and rotating order; no timing is run here. Future NCU work will use only metrics actually supported by Jetson's installed Nsight Compute and will separate effective matrix bandwidth from direct DRAM throughput.

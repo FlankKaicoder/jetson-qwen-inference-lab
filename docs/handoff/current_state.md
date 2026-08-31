@@ -4,11 +4,11 @@
 
 ## 当前 branch
 
-`exp/02-reduction`
+`exp/03-matrix-transpose`
 
 ## 当前 commit
 
-本轮 starting HEAD 为 `692b3f44b78c1b42dd8ad3b23ed432c47696b871`；最终 Exp02 closeout commit 以 `git rev-parse HEAD` 为准。
+本轮 starting HEAD 为 `8293d6a203989e981c2f6cf927eaa667681a525a`；Exp03 correctness closure commit 以 `git rev-parse HEAD` 为准。
 
 ## 本轮完成
 
@@ -65,7 +65,15 @@
 - Next permitted action is Gate C only after checkpoint commit/push; Exp03 not started.
 
 ## Exp02 Final Closeout (2026-08-31)
-- Gate A/B/C all PASS; Overall PASS; READY_FOR_EXP03. Exp03 was NOT started.
+- Exp02 Gate A/B/C all PASS; Overall PASS; READY_FOR_EXP03. Exp03 was then initialized on a new branch; its Gate A is PASS and Gates B/C are not started.
 - Final benchmark winner V5/B128, 1.626439 ms mean at N=16777229; V7 vs V6 paired CI [0.316896, 0.350628] ms.
 - NCU common profiles V1-V7 and V5 B64/B128/B256/B512 sweep saved under benchmark/profiler/20260831T020000Z; .ncu-rep remains Jetson /tmp only.
 - H1 SUPPORTED, H2 PARTIALLY_SUPPORTED, H3 SUPPORTED, H4 SUPPORTED, H5 PARTIALLY_SUPPORTED, H6 SUPPORTED, H7 SUPPORTED, H8 SUPPORTED, H9 INCONCLUSIVE.
+
+## Exp03.0/Exp03.1 (2026-08-31)
+- Branch: exp/03-matrix-transpose; initialized from Exp02 closeout `8293d6a`.
+- Final correctness artifact: `experiments/Exp03-matrix-transpose/benchmark/raw/correctness_20260831T044304Z.csv`; summary: `correctness_summary_20260831T044304Z.csv`.
+- V1/V2/V3/V4 each passed 207/207; total 828/828 bitwise exact; guard and CUDA failures 0.
+- Initial V1/V2 non-tiled grid_y bug was fixed and all cases rerun; failed first attempt retained on Jetson.
+- Gate A PASS; Gate B/C NOT_STARTED; Overall IN_PROGRESS; READY_FOR_EXP03_BENCHMARK.
+- Formal benchmark, Nsight Compute and Exp04 were NOT started.
