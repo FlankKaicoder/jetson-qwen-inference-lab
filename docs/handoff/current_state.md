@@ -93,5 +93,13 @@
 
 ## Exp03.3 Nsight / Final Closeout (2026-08-31)
 - NCU raw/details/summary artifacts are under `experiments/Exp03-matrix-transpose/profiling/raw/20260831T121500Z/`; `.ncu-rep` remains Jetson-local `/tmp/jetson-qwen-exp03-ncu-20260831T121500Z/`.
+
+## Exp04.0 Initial GEMM Foundation (2026-08-31)
+
+- Host-created branch: `exp/04-gemm`, base `fab89aef074f35fac3e98d9ba82a4b08e8560841`; clean before work.
+- Added `experiments/Exp04-gemm/` design, V0 CPU FP32 reference, V1 naive one-thread-per-output CUDA GEMM, correctness and adaptive benchmark scripts.
+- Jetson execution was not available from this executor (`ssh jetson` alias unresolved; local/WSL `nvcc` unavailable). Correctness and benchmark were not run; Gate A1 is `NOT_EXECUTED` and current readiness is `BLOCKED_BEFORE_EXP04_V1_VALIDATION`.
+- Git index/ref writes were also denied by the executor (`.git/index.lock` permission denied); no commit or push was created. Host must commit/push after restoring Git metadata write access.
+- V2 Shared Memory Tiling, V3 WMMA, double buffering and `cp.async` are not started.
 - Gate C C1/C2/C3 PASS. H1-H4 SUPPORTED: V2 store sectors/request 32.105 with 14,735,372 excessive sectors; V3/V4 shared bank conflicts 16,349,795 vs 53,953; achieved occupancy V1/V2/V3/V4 79.20/79.26/94.28/94.47%.
 - Exp03 Gate A/B/C PASS; Overall PASS/CLOSED; Readiness READY_FOR_EXP04. Exp04 has not started. Direct DRAM throughput is unavailable and not estimated.

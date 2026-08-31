@@ -1,0 +1,22 @@
+Exp04 initial environment record
+collected_at_utc=2026-08-31 (repository initialization)
+repository_branch=exp/04-gemm
+repository_head=fab89aef074f35fac3e98d9ba82a4b08e8560841
+working_tree_before_changes=clean
+
+Jetson reference from repository project state (not re-queried in this executor run):
+gpu=Jetson Orin Nano Super / Orin
+compute_capability=8.7
+cuda=12.6
+nvcc=/usr/local/cuda-12.6/bin/nvcc
+nsight_compute=2024.3.1.0
+
+Executor checks:
+local_nvcc=unavailable
+ssh_probe=BLOCKED: hostname alias 'jetson' could not be resolved
+wsl_probe=BLOCKED: WSL instance creation access denied
+correctness_run=NOT_EXECUTED
+benchmark_run=NOT_EXECUTED
+profiler_run=NOT_EXECUTED
+
+No device power mode, clocks, sudoers, SSH configuration, or Git automation was modified.

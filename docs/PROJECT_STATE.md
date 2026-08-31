@@ -13,14 +13,14 @@
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
 | Current phase | Phase 0 — GPU execution model and CUDA foundations |
-| Current experiment | Exp03 — CUDA Matrix Transpose; Gates A/B/C passed and experiment closed. |
-| Current branch | `exp/03-matrix-transpose` |
-| Current HEAD | Resolve from `git rev-parse HEAD`; Exp03 correctness closure is the latest commit. |
+| Current experiment | Exp04 — CUDA GEMM initial V0/V1 stage; Jetson execution pending executor access. |
+| Current branch | `exp/04-gemm` |
+| Current HEAD | `fab89aef074f35fac3e98d9ba82a4b08e8560841` at Exp04 initialization; changes are uncommitted because Git metadata write is blocked in this executor. |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Exp03.1 — CUDA Matrix Transpose correctness |
-| Experiment status | `IN_PROGRESS` |
-| Current Gate | Exp03 Gate A `PASS`; Gate B `PASS`; Gate C `PASS` |
-| Readiness | `READY_FOR_EXP04`; Exp03 closed, Exp04 not started. |
+| Experiment status | `BLOCKED` (Jetson CUDA executor unavailable; Git commit unavailable) |
+| Current Gate | Exp03 Gate A/B/C `PASS`; Exp04 Gate A1 `NOT_EXECUTED` |
+| Readiness | `BLOCKED_BEFORE_EXP04_V1_VALIDATION`; V2/V3 not started. |
 
 ## Confirmed Findings
 
@@ -133,3 +133,10 @@ Before Exp01.2 profiling on `2026-08-30`, Windows, GitHub and Jetson were clean 
 - V2 global stores: 32.105 sectors/request and 14,735,372 excessive sectors versus 4.000 sectors/request and zero excessive sectors for V1/V3/V4. V3 shared conflicts: 16,349,795 total; V4: 53,953 total and zero excessive wavefronts.
 - Achieved occupancy: V1 79.20%, V2 79.26%, V3 94.28%, V4 94.47%. Gate C C1/C2/C3 PASS; H1-H4 SUPPORTED. Direct DRAM throughput remains unavailable and is not estimated.
 - Exp03 Overall PASS / CLOSED; READY_FOR_EXP04. Exp04 was not started.
+
+## Exp04.0 Initial GEMM Foundation (2026-08-31)
+
+- Branch `exp/04-gemm` was created by the host at `fab89aef074f35fac3e98d9ba82a4b08e8560841`; working tree was clean before initialization.
+- Added V0 CPU FP32 reference, V1 one-thread-per-output naive FP32 CUDA kernel, correctness and adaptive benchmark scripts, and design documents under `experiments/Exp04-gemm/`.
+- Jetson execution was not possible in this executor: `ssh jetson` alias could not be resolved and no local/WSL `nvcc` was available. The environment record marks CUDA 12.6, Orin CC 8.7 and NCU 2024.3.1.0 as repository-reference values, not a fresh probe.
+- Gate A1, benchmark results and Nsight Gate are `NOT_EXECUTED`; no performance conclusion is made. V2 Shared Memory Tiling, V3 WMMA, double buffering and `cp.async` remain not started.
