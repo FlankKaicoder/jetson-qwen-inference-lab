@@ -1,0 +1,26 @@
+collected_at_utc=2026-08-31T14:16:27Z
+nvidia-desktop
+Linux nvidia-desktop 5.15.148-tegra #1 SMP PREEMPT Tue Jan 7 17:14:38 PST 2025 aarch64 aarch64 aarch64 GNU/Linux
+git_branch=exp/04-gemm
+git_head=50689df5229592780a106b2350e13bab66d173e5
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2024 NVIDIA Corporation
+Built on Wed_Aug_14_10:14:07_PDT_2024
+Cuda compilation tools, release 12.6, V12.6.68
+Build cuda_12.6.r12.6/compiler.34714021_0
+gpu_name=Orin
+compute_capability=8.7
+cuda_runtime_version=12060
+sm_count=8
+warp_size=32
+block=16x16
+warmup_target_ms=1000
+measurement_target_ms=500
+measurement_safety_factor=2.0
+trials=7
+timing=CUDA Event kernel-only
+FLOPs=2*M*N*K
+shape=256x256x256,calibrated_ms=0.71428000927
+shape=512x512x512,calibrated_ms=1.84422242641
+shape=1024x1024x1024,calibrated_ms=20.8658714294
+shape=512x384x640,calibrated_ms=1.76298081875

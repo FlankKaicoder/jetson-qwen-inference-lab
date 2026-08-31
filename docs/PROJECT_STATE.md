@@ -18,9 +18,9 @@
 | Current HEAD | `fab89aef074f35fac3e98d9ba82a4b08e8560841` at Exp04 initialization; changes are uncommitted because Git metadata write is blocked in this executor. |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Exp03.1 — CUDA Matrix Transpose correctness |
-| Experiment status | `BLOCKED` (Jetson CUDA executor unavailable; Git commit unavailable) |
-| Current Gate | Exp03 Gate A/B/C `PASS`; Exp04 Gate A1 `NOT_EXECUTED` |
-| Readiness | `BLOCKED_BEFORE_EXP04_V1_VALIDATION`; V2/V3 not started. |
+| Experiment status | `RUNNING` (Exp04 V0/V1 foundation and initial evidence complete) |
+| Current Gate | Exp03 Gate A/B/C `PASS`; Exp04 Gate A1 `PASS`; final B/C `NOT_STARTED` |
+| Readiness | `READY_FOR_EXP04_V2`; V2/V3 not started. |
 
 ## Confirmed Findings
 
@@ -138,5 +138,5 @@ Before Exp01.2 profiling on `2026-08-30`, Windows, GitHub and Jetson were clean 
 
 - Branch `exp/04-gemm` was created by the host at `fab89aef074f35fac3e98d9ba82a4b08e8560841`; working tree was clean before initialization.
 - Added V0 CPU FP32 reference, V1 one-thread-per-output naive FP32 CUDA kernel, correctness and adaptive benchmark scripts, and design documents under `experiments/Exp04-gemm/`.
-- Jetson execution was not possible in this executor: `ssh jetson` alias could not be resolved and no local/WSL `nvcc` was available. The environment record marks CUDA 12.6, Orin CC 8.7 and NCU 2024.3.1.0 as repository-reference values, not a fresh probe.
-- Gate A1, benchmark results and Nsight Gate are `NOT_EXECUTED`; no performance conclusion is made. V2 Shared Memory Tiling, V3 WMMA, double buffering and `cp.async` remain not started.
+- Jetson execution was restored: V1 built with CUDA 12.6 on Orin CC 8.7; NCU 2024.3.1.0 was confirmed. Correctness passed 13/13 with intact canaries and no CUDA failures. Adaptive V1 benchmark raw/summary artifacts were collected for four shapes with seven trials each; CV stayed below 0.51%. The 256^3 actual event window was 341 ms and is recorded as a calibration observation.
+- Exp04 Gate A1 is `PASS`; final Gate B/C remain `NOT_STARTED`. V2 Shared Memory Tiling, V3 WMMA, double buffering and `cp.async` remain not started. Readiness is `READY_FOR_EXP04_V2`.
