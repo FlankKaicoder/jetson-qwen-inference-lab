@@ -100,8 +100,8 @@
 - Added `experiments/Exp04-gemm/` design, V0 CPU FP32 reference, V1 naive one-thread-per-output CUDA GEMM, correctness and adaptive benchmark scripts.
 - Jetson execution was restored. V1 built with CUDA 12.6 on Orin CC 8.7; NCU 2024.3.1.0 confirmed. Correctness passed 13/13 with canaries intact and no CUDA failures. Adaptive V1 benchmark collected seven trials for four shapes; CV <= 0.505%. Raw/summary files were copied into the Windows worktree.
 - Initialization commit `50689df` was pushed successfully. Result commit is pending this closeout.
-- Exp04 is closed: A1/A2/A3/B/C all `PASS`. V2-T16 was selected from T8/T16/T32 survey; V3 WMMA used FP16 inputs with FP32 accumulation and has HMMA.16816.F32 SASS evidence. Formal benchmark and NCU artifacts are committed; the initial short-window V1 256^3 trials remain retained as diagnostic data and the corrected post-warmup trials are used for Gate B.
-- Final readiness: `EXP04 CLOSED - READY_FOR_EXP05_LEARNING_REVIEW`. Double buffering/cp.async were not required; Exp05 was not started.
+- Exp04 V2/V3 execution, formal benchmark and NCU/HMMA SASS evidence are present. A1/A2/B/C pass, but A3 is `INCONCLUSIVE` because the WMMA raw correctness CSV has only the FP16-quantized reference and lacks the required original-FP32 precision-impact comparison. The initial short-window V1 256^3 trials remain retained; corrected post-warmup trials are used for Gate B.
+- Readiness is `BLOCKED_ON_WMMA_FP32_REFERENCE_COMPARISON`. Double buffering/cp.async were not required; Exp05 was not started.
 - V2 Shared Memory Tiling, V3 WMMA, double buffering and `cp.async` are not started.
 - Gate C C1/C2/C3 PASS. H1-H4 SUPPORTED: V2 store sectors/request 32.105 with 14,735,372 excessive sectors; V3/V4 shared bank conflicts 16,349,795 vs 53,953; achieved occupancy V1/V2/V3/V4 79.20/79.26/94.28/94.47%.
 - Exp03 Gate A/B/C PASS; Overall PASS/CLOSED; Readiness READY_FOR_EXP04. Exp04 has not started. Direct DRAM throughput is unavailable and not estimated.

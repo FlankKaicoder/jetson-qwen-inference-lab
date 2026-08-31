@@ -18,9 +18,9 @@
 | Current HEAD | `fab89aef074f35fac3e98d9ba82a4b08e8560841` at Exp04 initialization; changes are uncommitted because Git metadata write is blocked in this executor. |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Exp03.1 — CUDA Matrix Transpose correctness |
-| Experiment status | `PASS` (Exp04 closed) |
-| Current Gate | Exp03 Gate A/B/C `PASS`; Exp04 A1/A2/A3/B/C `PASS` |
-| Readiness | `EXP04 CLOSED - READY_FOR_EXP05_LEARNING_REVIEW` |
+| Experiment status | `INCONCLUSIVE` (Exp04 closure evidence gap) |
+| Current Gate | Exp03 Gate A/B/C `PASS`; Exp04 A1/A2/B/C `PASS`; A3 `INCONCLUSIVE` |
+| Readiness | `BLOCKED_ON_WMMA_FP32_REFERENCE_COMPARISON` |
 
 ## Confirmed Findings
 
@@ -140,4 +140,4 @@ Before Exp01.2 profiling on `2026-08-30`, Windows, GitHub and Jetson were clean 
 - Added V0 CPU FP32 reference, V1 one-thread-per-output naive FP32 CUDA kernel, correctness and adaptive benchmark scripts, and design documents under `experiments/Exp04-gemm/`.
 - Jetson execution was restored: V1 built with CUDA 12.6 on Orin CC 8.7; NCU 2024.3.1.0 was confirmed. Correctness passed 13/13 with intact canaries and no CUDA failures. Adaptive V1 benchmark raw/summary artifacts were collected for four shapes with seven trials each; CV stayed below 0.51%. The 256^3 actual event window was 341 ms and is recorded as a calibration observation.
 - Exp04 Gate A1 is `PASS`; final Gate B/C remain `NOT_STARTED`. V2 Shared Memory Tiling, V3 WMMA, double buffering and `cp.async` remain not started. Readiness is `READY_FOR_EXP04_V2`.
-- Exp04 closed on `2026-08-31`: A1/A2/A3/B/C all PASS. V2-T16 selected by bounded survey; WMMA FP16xFP16 FP32-acc SASS contains HMMA.16816.F32. Formal benchmark and NCU summaries are under `experiments/Exp04-gemm/`. Double buffering/cp.async were not required and Exp05 was not started.
+- Exp04 V2/V3 execution, formal benchmark and NCU/SASS evidence are present, but closure is `INCONCLUSIVE` because the WMMA raw correctness artifact lacks the required original-FP32-reference precision-impact comparison. V2-T16 was selected by bounded survey; SASS contains HMMA.16816.F32. Double buffering/cp.async were not required and Exp05 was not started.

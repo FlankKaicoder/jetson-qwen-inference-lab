@@ -4,7 +4,7 @@
 
 This first stage establishes a CPU FP32 reference (V0) and the simplest one-thread-per-output CUDA FP32 kernel (V1). It intentionally stops before shared-memory tiling, WMMA/Tensor Cores, vectorization, register tiling, double buffering, or `cp.async`.
 
-Status: `PASS / CLOSED`
+Status: `INCONCLUSIVE` (A3 evidence completion pending)
 
 ## Reproduction
 
@@ -38,4 +38,4 @@ The initial V1 adaptive benchmark used seven trials for `256^3`, `512^3`, `1024^
 
 V2-T8/T16/T32 correctness passed 13/13 each; the bounded survey selected V2-T16. V3-WMMA-FP16 correctness passed 8/8 aligned cases. Formal cross-version benchmark and Gate C are documented in `docs/exp04_summary.md` and `docs/nsight_analysis.md`.
 
-Exp04 is `PASS / CLOSED`; readiness is `EXP04 CLOSED - READY_FOR_EXP05_LEARNING_REVIEW`. Double buffering is not required by the current scope; `cp.async` and Exp05 execution remain not started.
+Exp04 closure is currently `INCONCLUSIVE`: the required original-FP32-reference WMMA precision-impact comparison is not yet present in raw evidence. Double buffering is not required by the current scope; `cp.async` and Exp05 execution remain not started.

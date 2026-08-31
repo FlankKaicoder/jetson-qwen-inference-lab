@@ -4,7 +4,7 @@
 
 - Gate A1: `PASS`, inherited V1 13/13.
 - Gate A2: `PASS`, V2-T8/T16/T32 each 13/13 on the same matrix set (39/39).
-- Gate A3: `PASS`, WMMA aligned set 8/8; canaries intact and CUDA checks passed.
+- Gate A3: `INCONCLUSIVE`: WMMA aligned set 8/8 passed against the FP16-quantized/FP32-accumulation reference with intact canaries and no CUDA failures, but the required parallel comparison against the original FP32 reference was not emitted into the raw CSV and must be added before closure.
 - Gate B: `PASS` for the final retained cross-version set after the post-warmup `256^3` V1 correction. All retained trials have CV <= 0.50% and actual windows >= 500 ms.
 - Gate C: `PASS` for the defined NCU/SASS evidence set.
 
@@ -17,4 +17,4 @@ H6 (GEMM performance needs movement, reuse, compute, scheduler and occupancy tog
 
 ## Closure scope
 
-V2 Shared Memory Tiling and V3 Tensor Core WMMA are complete for this V2.0 scope. Double buffering is not required; `cp.async` and advanced swizzling are not started. Exp05 is not started.
+V2 Shared Memory Tiling is complete for this V2.0 scope. V3 execution and SASS evidence are present, but final closure is blocked on the missing original-FP32 WMMA precision-impact row. Double buffering is not required; `cp.async` and advanced swizzling are not started. Exp05 is not started.
