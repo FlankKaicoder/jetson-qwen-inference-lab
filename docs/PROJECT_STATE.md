@@ -13,14 +13,14 @@
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
 | Current phase | Phase 0 — GPU execution model and CUDA foundations |
-| Current experiment | Exp04 — CUDA GEMM initial V0/V1 stage; Jetson execution pending executor access. |
+| Current experiment | Exp04 — CUDA GEMM tiling and WMMA; closed. |
 | Current branch | `exp/04-gemm` |
-| Current HEAD | `fab89aef074f35fac3e98d9ba82a4b08e8560841` at Exp04 initialization; changes are uncommitted because Git metadata write is blocked in this executor. |
+| Current HEAD | Verify with Git at session start; Exp04 closure includes dual-reference WMMA raw evidence. |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Exp03.1 — CUDA Matrix Transpose correctness |
-| Experiment status | `INCONCLUSIVE` (Exp04 closure evidence gap) |
-| Current Gate | Exp03 Gate A/B/C `PASS`; Exp04 A1/A2/B/C `PASS`; A3 `INCONCLUSIVE` |
-| Readiness | `BLOCKED_ON_WMMA_FP32_REFERENCE_COMPARISON` |
+| Experiment status | `PASS / CLOSED` (Exp04) |
+| Current Gate | Exp03 Gate A/B/C `PASS`; Exp04 A1/A2/A3/B/C `PASS` |
+| Readiness | `READY_FOR_EXP05_DESIGN` (only on explicit authorization) |
 
 ## Confirmed Findings
 
@@ -140,4 +140,4 @@ Before Exp01.2 profiling on `2026-08-30`, Windows, GitHub and Jetson were clean 
 - Added V0 CPU FP32 reference, V1 one-thread-per-output naive FP32 CUDA kernel, correctness and adaptive benchmark scripts, and design documents under `experiments/Exp04-gemm/`.
 - Jetson execution was restored: V1 built with CUDA 12.6 on Orin CC 8.7; NCU 2024.3.1.0 was confirmed. Correctness passed 13/13 with intact canaries and no CUDA failures. Adaptive V1 benchmark raw/summary artifacts were collected for four shapes with seven trials each; CV stayed below 0.51%. The 256^3 actual event window was 341 ms and is recorded as a calibration observation.
 - Exp04 Gate A1 is `PASS`; final Gate B/C remain `NOT_STARTED`. V2 Shared Memory Tiling, V3 WMMA, double buffering and `cp.async` remain not started. Readiness is `READY_FOR_EXP04_V2`.
-- Exp04 V2/V3 execution, formal benchmark and NCU/SASS evidence are present, but closure is `INCONCLUSIVE` because the WMMA raw correctness artifact lacks the required original-FP32-reference precision-impact comparison. V2-T16 was selected by bounded survey; SASS contains HMMA.16816.F32. Double buffering/cp.async were not required and Exp05 was not started.
+- Exp04 V2/V3 execution, formal benchmark and NCU/SASS evidence are present. The dual-reference raw artifact `experiments/Exp04-gemm/benchmark/raw/wmma_correctness_dual_reference_20260831T165518Z.csv` closes the original-FP32 precision-impact evidence gap: Track A passes implementation correctness, while Track B measures end-to-end mixed-precision numerical impact including FP16 input quantization. A1/A2/A3/B/C and Overall are `PASS / CLOSED`. V2-T16 was selected by bounded survey; SASS contains HMMA.16816.F32. Double buffering/cp.async were not required and Exp05 was not started.
