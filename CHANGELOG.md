@@ -20,3 +20,4 @@
 
 - 完成 Exp03.2 两轮正式 Benchmark；correctness/timing PASS，但多项配置 CV 持续超过 5%，Gate B INCONCLUSIVE，Gate C 未开始。
 - 完成 Exp03.2b stability diagnosis 与 Formal Benchmark V2：time-based warmup、adaptive CUDA Event window、7 trials 和只读 telemetry 使全部配置 CV <= 0.791%；Gate B PASS，Gate C 待执行。
+- 完成 Exp03.3 Nsight Compute 与收口：V1-V4 4096x4096 profile 取得 global sector、shared bank-conflict、occupancy、warp-state 证据；H1-H4 SUPPORTED，Gate A/B/C PASS，Exp03 CLOSED，READY_FOR_EXP04。

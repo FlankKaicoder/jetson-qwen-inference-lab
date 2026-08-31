@@ -1,0 +1,4 @@
+==PROF== Connected to process 43239 (/tmp/jetson-qwen-exp03-build/transpose_benchmark)
+==PROF== Profiling "copyKernel" - 0 (1/1): 0%....50%....100% - 29 passes
+==PROF== Disconnected from process 43239
+==PROF== Report: /tmp/jetson-qwen-exp03-ncu-20260831T121500Z/ncu_v1_4096_20260831T121500Z.ncu-rep

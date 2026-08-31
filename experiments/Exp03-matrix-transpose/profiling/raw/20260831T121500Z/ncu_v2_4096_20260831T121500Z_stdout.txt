@@ -1,0 +1,4 @@
+==PROF== Connected to process 43352 (/tmp/jetson-qwen-exp03-build/transpose_benchmark)
+==PROF== Profiling "naiveKernel" - 0 (1/1): 0%....50%....100% - 29 passes
+==PROF== Disconnected from process 43352
+==PROF== Report: /tmp/jetson-qwen-exp03-ncu-20260831T121500Z/ncu_v2_4096_20260831T121500Z.ncu-rep

@@ -90,3 +90,8 @@
 - Formal Benchmark V2: `benchmark_v2_20260831T113200Z.csv`; 168/168 trials retained, all 24 CVs <= 0.791%, minimum actual timed window 793.641 ms.
 - Gate B: B1/B2/B3 PASS. Fixed short measurement window is a SUPPORTED CONTRIBUTOR; DVFS/device-state contribution INCONCLUSIVE because frequency fields were unavailable.
 - Gate C is the next permitted action. No kernels, power mode, clocks, sudoers, SSH/Git automation, Exp01 or Exp02 were modified.
+
+## Exp03.3 Nsight / Final Closeout (2026-08-31)
+- NCU raw/details/summary artifacts are under `experiments/Exp03-matrix-transpose/profiling/raw/20260831T121500Z/`; `.ncu-rep` remains Jetson-local `/tmp/jetson-qwen-exp03-ncu-20260831T121500Z/`.
+- Gate C C1/C2/C3 PASS. H1-H4 SUPPORTED: V2 store sectors/request 32.105 with 14,735,372 excessive sectors; V3/V4 shared bank conflicts 16,349,795 vs 53,953; achieved occupancy V1/V2/V3/V4 79.20/79.26/94.28/94.47%.
+- Exp03 Gate A/B/C PASS; Overall PASS/CLOSED; Readiness READY_FOR_EXP04. Exp04 has not started. Direct DRAM throughput is unavailable and not estimated.

@@ -13,14 +13,14 @@
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
 | Current phase | Phase 0 — GPU execution model and CUDA foundations |
-| Current experiment | Exp03 — CUDA Matrix Transpose; Gates A/B passed, Gate C not started. |
+| Current experiment | Exp03 — CUDA Matrix Transpose; Gates A/B/C passed and experiment closed. |
 | Current branch | `exp/03-matrix-transpose` |
 | Current HEAD | Resolve from `git rev-parse HEAD`; Exp03 correctness closure is the latest commit. |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Exp03.1 — CUDA Matrix Transpose correctness |
 | Experiment status | `IN_PROGRESS` |
-| Current Gate | Exp03 Gate A `PASS`; Gate B `PASS`; Gate C `NOT_STARTED` |
-| Readiness | `READY_FOR_EXP03_NCU`; Nsight has not started. |
+| Current Gate | Exp03 Gate A `PASS`; Gate B `PASS`; Gate C `PASS` |
+| Readiness | `READY_FOR_EXP04`; Exp03 closed, Exp04 not started. |
 
 ## Confirmed Findings
 
@@ -126,3 +126,10 @@ Before Exp01.2 profiling on `2026-08-30`, Windows, GitHub and Jetson were clean 
 - Adaptive Diagnostic A used per-configuration calibration, >=1 s warmup, >=500 ms actual CUDA Event window, deterministic rotation, seven trials and read-only telemetry.
 - All 4096^2 versions passed CV <=5%; Diagnostic B was not run. Formal Benchmark V2 retained 168 trials and all 24 configurations had CV <=0.791%.
 - Gate B is PASS. Fixed short measurement window is a supported contributor; DVFS contribution remains inconclusive. Gate C is permitted but not yet started.
+
+## Exp03.3 Nsight / Final Closeout (2026-08-31)
+
+- NCU 2024.3.1 profiled isolated 4096x4096 V1-V4 launches with installed sections and existing `sudo -n` permission. All pre/post profiling sanity checks passed and raw CSV/TXT artifacts are committed; `.ncu-rep` files remain Jetson-local under `/tmp/jetson-qwen-exp03-ncu-20260831T121500Z/`.
+- V2 global stores: 32.105 sectors/request and 14,735,372 excessive sectors versus 4.000 sectors/request and zero excessive sectors for V1/V3/V4. V3 shared conflicts: 16,349,795 total; V4: 53,953 total and zero excessive wavefronts.
+- Achieved occupancy: V1 79.20%, V2 79.26%, V3 94.28%, V4 94.47%. Gate C C1/C2/C3 PASS; H1-H4 SUPPORTED. Direct DRAM throughput remains unavailable and is not estimated.
+- Exp03 Overall PASS / CLOSED; READY_FOR_EXP04. Exp04 was not started.

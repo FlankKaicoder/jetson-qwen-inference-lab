@@ -1,0 +1,21 @@
+collected_at_utc=2026-08-31T12:03:29Z
+nvidia-desktop
+Linux nvidia-desktop 5.15.148-tegra #1 SMP PREEMPT Tue Jan 7 17:14:38 PST 2025 aarch64 aarch64 aarch64 GNU/Linux
+git_branch=exp/03-matrix-transpose
+git_head=dbc028fc319a0986861c17f34de9995839347aac
+git_status=
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2024 NVIDIA Corporation
+Built on Wed_Aug_14_10:14:07_PDT_2024
+Cuda compilation tools, release 12.6, V12.6.68
+Build cuda_12.6.r12.6/compiler.34714021_0
+NVIDIA (R) Nsight Compute Command Line Profiler
+Copyright (c) 2018-2024 NVIDIA Corporation
+Version 2024.3.1.0 (build 34702747) (public-release)
+Orin cc 8.7
+width=4096
+height=4096
+TILE_DIM=32
+BLOCK_ROWS=8
+launch_skip=1
+launch_count=1

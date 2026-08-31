@@ -2,7 +2,7 @@
 
 ## Status
 
-Exp03.0/Exp03.1 correctness and Exp03.2b adaptive benchmark are complete. Gate A and Gate B are `PASS`; Gate C is `NOT_STARTED`; Overall is `IN_PROGRESS`. Formal Benchmark V2 resolved the fixed-count stability problem without changing kernels, power mode or clocks. Exp04 was not started.
+Exp03.0/Exp03.1 correctness, Exp03.2b adaptive benchmark and Exp03.3 Nsight Compute are complete. Gates A, B and C are `PASS`; Overall is `PASS`; readiness is `READY_FOR_EXP04`. Formal Benchmark V2 resolved the fixed-count stability problem without changing kernels, power mode or clocks. Exp04 was not started.
 
 ## Learning objective
 
@@ -34,8 +34,8 @@ Each case records dimensions and 2D launch metadata, checks all CUDA allocation/
 
 - Gate A: `PASS` after all 828 executions passed bitwise correctness, guards and CUDA checks; source mechanism audit passed. One V1/V2 launch-geometry bug was found and fixed before the final run: non-tiled kernels now use `grid_y=ceil(height/BLOCK_ROWS)`.
 - Gate B: `PASS`; adaptive CUDA Event timing retained all seven trials and all 24 Formal Benchmark V2 configurations had CV <= 0.791%. The fixed short window is a supported contributor to historical instability; DVFS contribution remains inconclusive.
-- Gate C: `NOT_STARTED`; no Nsight Compute run was performed.
-- Overall: `IN_PROGRESS`; investigate stability before any profiling.
+- Gate C: `PASS`; NCU 2024.3.1 profiled isolated 4096x4096 V1-V4 launches. Global sector inflation, shared bank conflicts, occupancy and warp-state evidence were collected; see `notes/nsight_analysis.md`.
+- Overall: `PASS`; Exp03 is closed. Exp04 has not been started.
 
 ## Reproduction
 
