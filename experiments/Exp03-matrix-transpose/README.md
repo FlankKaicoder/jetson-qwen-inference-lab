@@ -2,7 +2,7 @@
 
 ## Status
 
-Exp03.0/Exp03.1 correctness and Exp03.2 formal benchmark are complete. Gate A is `PASS`; Gate B is `INCONCLUSIVE` because repeated trial-level CV exceeded 5% for several configurations; Gate C is `NOT_STARTED`; Overall is `IN_PROGRESS`. Nsight Compute and Exp04 were not started.
+Exp03.0/Exp03.1 correctness and Exp03.2b adaptive benchmark are complete. Gate A and Gate B are `PASS`; Gate C is `NOT_STARTED`; Overall is `IN_PROGRESS`. Formal Benchmark V2 resolved the fixed-count stability problem without changing kernels, power mode or clocks. Exp04 was not started.
 
 ## Learning objective
 
@@ -33,7 +33,7 @@ Each case records dimensions and 2D launch metadata, checks all CUDA allocation/
 ## Gates
 
 - Gate A: `PASS` after all 828 executions passed bitwise correctness, guards and CUDA checks; source mechanism audit passed. One V1/V2 launch-geometry bug was found and fixed before the final run: non-tiled kernels now use `grid_y=ceil(height/BLOCK_ROWS)`.
-- Gate B: `INCONCLUSIVE`; CUDA Event timing and correctness sanity passed, but repeated runs retained CV >5% for multiple configurations. No rows were deleted and no power/clocks were changed.
+- Gate B: `PASS`; adaptive CUDA Event timing retained all seven trials and all 24 Formal Benchmark V2 configurations had CV <= 0.791%. The fixed short window is a supported contributor to historical instability; DVFS contribution remains inconclusive.
 - Gate C: `NOT_STARTED`; no Nsight Compute run was performed.
 - Overall: `IN_PROGRESS`; investigate stability before any profiling.
 

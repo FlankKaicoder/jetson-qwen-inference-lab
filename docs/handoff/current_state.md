@@ -84,3 +84,9 @@
 - Protocol: six dimensions, V1-V4, warmup 20, repetitions 100, five trials, CUDA Event kernel-only timing, deterministic rotation.
 - Correctness sanity passed, but repeated CV >5% remained; Gate B INCONCLUSIVE; Gate C NOT_STARTED.
 - No power/clocks changed; do not profile until stability is resolved.
+
+## Exp03.2b Stability Diagnosis (2026-08-31)
+- Valid Diagnostic A: `stability_diagnostic_A_20260831T112500Z.csv`; all 4096^2 CVs 0.111-1.047%, so Diagnostic B was not run.
+- Formal Benchmark V2: `benchmark_v2_20260831T113200Z.csv`; 168/168 trials retained, all 24 CVs <= 0.791%, minimum actual timed window 793.641 ms.
+- Gate B: B1/B2/B3 PASS. Fixed short measurement window is a SUPPORTED CONTRIBUTOR; DVFS/device-state contribution INCONCLUSIVE because frequency fields were unavailable.
+- Gate C is the next permitted action. No kernels, power mode, clocks, sudoers, SSH/Git automation, Exp01 or Exp02 were modified.

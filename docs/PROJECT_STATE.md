@@ -13,14 +13,14 @@
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
 | Current phase | Phase 0 — GPU execution model and CUDA foundations |
-| Current experiment | Exp03 — CUDA Matrix Transpose; Gate A closed, Gates B/C not started. |
+| Current experiment | Exp03 — CUDA Matrix Transpose; Gates A/B passed, Gate C not started. |
 | Current branch | `exp/03-matrix-transpose` |
 | Current HEAD | Resolve from `git rev-parse HEAD`; Exp03 correctness closure is the latest commit. |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Exp03.1 — CUDA Matrix Transpose correctness |
 | Experiment status | `IN_PROGRESS` |
-| Current Gate | Exp03 Gate A `PASS`; Gate B `INCONCLUSIVE`; Gate C `NOT_STARTED` |
-| Readiness | `BLOCKED_ON_BENCHMARK_STABILITY`; Nsight has not started. |
+| Current Gate | Exp03 Gate A `PASS`; Gate B `PASS`; Gate C `NOT_STARTED` |
+| Readiness | `READY_FOR_EXP03_NCU`; Nsight has not started. |
 
 ## Confirmed Findings
 
@@ -120,3 +120,9 @@ Before Exp01.2 profiling on `2026-08-30`, Windows, GitHub and Jetson were clean 
 - Two complete benchmark runs used six dimensions, V1-V4, warmup 20, 100 repetitions and five trials with deterministic rotation.
 - CUDA Event timing and correctness sanity passed, but CV >5% persisted; Gate B is INCONCLUSIVE.
 - Gate C was not started because benchmark stability is unresolved. No power mode or clocks were changed.
+
+## Exp03.2b Stability Update (2026-08-31)
+
+- Adaptive Diagnostic A used per-configuration calibration, >=1 s warmup, >=500 ms actual CUDA Event window, deterministic rotation, seven trials and read-only telemetry.
+- All 4096^2 versions passed CV <=5%; Diagnostic B was not run. Formal Benchmark V2 retained 168 trials and all 24 configurations had CV <=0.791%.
+- Gate B is PASS. Fixed short measurement window is a supported contributor; DVFS contribution remains inconclusive. Gate C is permitted but not yet started.
