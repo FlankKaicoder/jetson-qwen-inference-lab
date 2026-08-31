@@ -31,12 +31,7 @@ const char* patternName(Pattern p) {
     case Pattern::Sequential: return "sequential"; case Pattern::Signed: return "signed_seeded"; }
   return "unknown";
 }
-Pattern parsePattern(const std::string& s) {
-  if (s == "coordinate") return Pattern::Coordinate;
-  if (s == "sequential") return Pattern::Sequential;
-  if (s == "signed") return Pattern::Signed;
-  throw std::invalid_argument("unknown pattern");
-}
+
 std::vector<float> makeInput(std::size_t width, std::size_t height, Pattern p) {
   std::vector<float> v(width * height); std::mt19937 rng(kSeed);
   std::uniform_int_distribution<std::int32_t> d(-1000000, 1000000);
@@ -77,7 +72,7 @@ Row runCase(TransposeVersion version, Pattern pattern, std::size_t width, std::s
   return row;
 }
 void writeHeader(std::ostream& o){o<<"timestamp,version,width,height,input_pattern,repeat,grid_x,grid_y,block_x,block_y,tile_dim,block_rows,correctness,guard_status,cuda_status,error_message\n";}
-void writeRow(std::ostream& o,const Row&r){o<<utcTimestamp()<<','<<r.version<<','<<r.width<<','<<r.height<<','<<r.pattern<<','<<r.repeat<<','<<r.gridX<<','<<r.gridY<<','<<r.blockX<<','<<r.blockY<<','<<TILE_DIM<<','<<BLOCK_ROWS<<','<<(r.pass?"PASS":"FAIL")<<','<<(r.guard?"PASS":"FAIL")<<','<<r.cudaStatus<<',"'<<r.error<<"\"\n";}
+void writeRow(std::ostream& o,const Row&r){o<<utcTimestamp()<<','<<r.version<<','<<r.width<<','<<r.height<<','<<r.pattern<<','<<r.repeat<<','<<r.gridX<<','<<r.gridY<<','<<r.blockX<<','<<r.blockY<<','<<TILE_DIM<<','<<BLOCK_ROWS<<','<<(r.pass?"PASS":"FAIL")<<','<<(r.guard?"PASS":"FAIL")<<','<<r.cudaStatus<<",\""<<r.error<<"\"\n";}
 }
 
 __global__ void copyKernel(const float* in,float* out,std::size_t w,std::size_t h){std::size_t x=blockIdx.x*blockDim.x+threadIdx.x,y=blockIdx.y*blockDim.y+threadIdx.y;if(x<w&&y<h)out[y*w+x]=in[y*w+x];}
