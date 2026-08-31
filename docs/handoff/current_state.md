@@ -102,6 +102,6 @@
 - Initialization commit `50689df` was pushed successfully. Result commit is pending this closeout.
 - Exp04 V2/V3 execution, formal benchmark and NCU/HMMA SASS evidence are present. The dual-reference artifact `experiments/Exp04-gemm/benchmark/raw/wmma_correctness_dual_reference_20260831T165518Z.csv` records 8/8 aligned WMMA cases against an FP16-quantized reference (Track A) and original FP32 reference (Track B). A1/A2/A3/B/C and Overall are `PASS / CLOSED`. Track B measures end-to-end mixed-precision numerical impact including FP16 input quantization.
 - Readiness is `READY_FOR_EXP05_DESIGN` only after explicit authorization. Double buffering/cp.async were not required; Exp05 was not started.
-- V2 Shared Memory Tiling and V3 WMMA are complete; double buffering and `cp.async` are not started.
+- V2 Shared Memory Tiling and V3 WMMA are complete; double buffering and `cp.async` are not started. Earlier V0/V1-only wording is historical and superseded by this closeout state.
 - Gate C C1/C2/C3 PASS. H1-H4 SUPPORTED: V2 store sectors/request 32.105 with 14,735,372 excessive sectors; V3/V4 shared bank conflicts 16,349,795 vs 53,953; achieved occupancy V1/V2/V3/V4 79.20/79.26/94.28/94.47%.
 - Exp03 Gate A/B/C PASS; Overall PASS/CLOSED; Readiness READY_FOR_EXP04. Exp04 has not started. Direct DRAM throughput is unavailable and not estimated.
