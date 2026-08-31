@@ -1,0 +1,7 @@
+NCU version: /usr/local/cuda-12.6/bin/ncu 2024.3.1.0
+Device: Jetson Orin CC 8.7
+Sections: LaunchStats Occupancy SpeedOfLight MemoryWorkloadAnalysis MemoryWorkloadAnalysis_Tables SchedulerStats WarpStateStats SourceCounters
+Representative shape: 1024x1024x1024
+Kernel launch: sudo -n ncu --csv --page raw --launch-skip 20 --launch-count 1 ... /tmp/jetson-qwen-exp04-build/gemm --benchmark-single
+Profiles: V1.ncu-rep, V2-T16.ncu-rep, V3-WMMA-FP16.ncu-rep (Jetson /tmp only; not committed)
+NCU CSV exports and SASS dump are committed; NCU duration is instrumentation observation, not formal latency.

@@ -4,7 +4,7 @@
 
 This first stage establishes a CPU FP32 reference (V0) and the simplest one-thread-per-output CUDA FP32 kernel (V1). It intentionally stops before shared-memory tiling, WMMA/Tensor Cores, vectorization, register tiling, double buffering, or `cp.async`.
 
-Status: `RUNNING` (Gate A1 passed; V1 benchmark evidence recorded)
+Status: `PASS / CLOSED`
 
 ## Reproduction
 
@@ -36,4 +36,6 @@ Jetson Orin (CC 8.7, CUDA 12.6) built V1 successfully. Gate A1 passed 13/13 case
 
 The initial V1 adaptive benchmark used seven trials for `256^3`, `512^3`, `1024^3` and `512x384x640`. Mean latency/GFLOPS were `0.243670 ms / 137.704 GFLOPS`, `1.826164 ms / 146.997 GFLOPS`, `20.862597 ms / 102.935 GFLOPS`, and `1.755451 ms / 143.358 GFLOPS`, respectively. CV was `0.0349%`, `0.5045%`, `0.1473%`, and `0.1161%`. The `256^3` actual event window was 341 ms due to calibration drift; this is retained as a methodology observation, not a final stability gate.
 
-Readiness for the next authorized stage is `READY_FOR_EXP04_V2`. V2 Shared Memory Tiling, V3 WMMA, double buffering and `cp.async` remain not started.
+V2-T8/T16/T32 correctness passed 13/13 each; the bounded survey selected V2-T16. V3-WMMA-FP16 correctness passed 8/8 aligned cases. Formal cross-version benchmark and Gate C are documented in `docs/exp04_summary.md` and `docs/nsight_analysis.md`.
+
+Exp04 is `PASS / CLOSED`; readiness is `EXP04 CLOSED - READY_FOR_EXP05_LEARNING_REVIEW`. Double buffering is not required by the current scope; `cp.async` and Exp05 execution remain not started.
