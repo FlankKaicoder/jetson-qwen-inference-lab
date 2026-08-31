@@ -77,3 +77,10 @@
 - Initial V1/V2 non-tiled grid_y bug was fixed and all cases rerun; failed first attempt retained on Jetson.
 - Gate A PASS; Gate B/C NOT_STARTED; Overall IN_PROGRESS; READY_FOR_EXP03_BENCHMARK.
 - Formal benchmark, Nsight Compute and Exp04 were NOT started.
+
+
+## Exp03.2 Benchmark (2026-08-31)
+- Two complete benchmark runs: benchmark_20260831T075957Z.csv and benchmark_20260831T080838Z.csv.
+- Protocol: six dimensions, V1-V4, warmup 20, repetitions 100, five trials, CUDA Event kernel-only timing, deterministic rotation.
+- Correctness sanity passed, but repeated CV >5% remained; Gate B INCONCLUSIVE; Gate C NOT_STARTED.
+- No power/clocks changed; do not profile until stability is resolved.

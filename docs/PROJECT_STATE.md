@@ -19,8 +19,8 @@
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Exp03.1 — CUDA Matrix Transpose correctness |
 | Experiment status | `IN_PROGRESS` |
-| Current Gate | Exp03 Gate A `PASS`; Gate B `NOT_STARTED`; Gate C `NOT_STARTED` |
-| Readiness | `READY_FOR_EXP03_BENCHMARK`; formal benchmark and Nsight have not started. |
+| Current Gate | Exp03 Gate A `PASS`; Gate B `INCONCLUSIVE`; Gate C `NOT_STARTED` |
+| Readiness | `BLOCKED_ON_BENCHMARK_STABILITY`; Nsight has not started. |
 
 ## Confirmed Findings
 
@@ -114,3 +114,9 @@ Before Exp01.2 profiling on `2026-08-30`, Windows, GitHub and Jetson were clean 
 - Initial V1/V2 grid_y boundary bug was fixed and the complete matrix rerun; failed raw evidence was retained on Jetson.
 - Gate A PASS; Gate B/C NOT_STARTED; Overall IN_PROGRESS; READY_FOR_EXP03_BENCHMARK.
 - Formal benchmark, Nsight Compute, Exp04 and performance ranking were NOT started.
+
+## Exp03.2 Benchmark Update (2026-08-31)
+
+- Two complete benchmark runs used six dimensions, V1-V4, warmup 20, 100 repetitions and five trials with deterministic rotation.
+- CUDA Event timing and correctness sanity passed, but CV >5% persisted; Gate B is INCONCLUSIVE.
+- Gate C was not started because benchmark stability is unresolved. No power mode or clocks were changed.

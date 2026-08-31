@@ -45,3 +45,8 @@ The final correctness run (`correctness_20260831T044304Z.csv`) passed 828/828 ex
 ## Gate definitions and deferred work
 
 Gate A requires all 828 bitwise passes, guard PASS, CUDA runtime PASS, rectangular/partial/tiny/large coverage and source mechanism audit. Gate B and C remain `NOT_STARTED` in this phase. Future benchmark candidates are 1024x1024, 2048x2048, 4096x4096, 4093x4096 and 4096x4093 using CUDA Events, warmup, repetitions and rotating order; no timing is run here. Future NCU work will use only metrics actually supported by Jetson's installed Nsight Compute and will separate effective matrix bandwidth from direct DRAM throughput.
+
+
+## Benchmark Gate B result
+
+Two complete six-dimension benchmark runs used CUDA Event kernel-only timing, warmup 20, 100 repetitions, five trials and deterministic rotation. Correctness sanity and timing scope passed, but CV >5% persisted in multiple configurations (repeat: V3/1024^2 21.70%, V4/1024^2 18.19%, V1/4096^2 10.25%, V4/4096^2 6.57%). Gate B is INCONCLUSIVE; Gate C remains NOT_STARTED and no profiling was run. No power mode or clocks changed.

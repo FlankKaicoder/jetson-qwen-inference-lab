@@ -2,7 +2,7 @@
 
 ## Status
 
-Exp03.0 initialization and Exp03.1 correctness are complete. Gate A is `PASS`; Gate B (Benchmark/Stability) and Gate C (Nsight/Microarchitecture) are `NOT_STARTED`; Overall is `IN_PROGRESS`; `READY_FOR_EXP03_BENCHMARK`. Formal benchmark, Nsight Compute, performance ranking and Exp04 were not started.
+Exp03.0/Exp03.1 correctness and Exp03.2 formal benchmark are complete. Gate A is `PASS`; Gate B is `INCONCLUSIVE` because repeated trial-level CV exceeded 5% for several configurations; Gate C is `NOT_STARTED`; Overall is `IN_PROGRESS`. Nsight Compute and Exp04 were not started.
 
 ## Learning objective
 
@@ -26,14 +26,14 @@ V3 and V4 use the same mapping, guards, synchronization and block geometry. Thei
 
 The harness covers 23 dimensions, three deterministic FP32 patterns (coordinate-coded, sequential, fixed-seed signed), four GPU versions and three independent executions per case: 828 executions. The formal run at `2026-08-31T04:43Z` recorded V1/V2/V3/V4 = 207/207 PASS. V1 is compared bitwise with input; V2-V4 are compared bitwise with the CPU V0 reference. It covers tiny, single-row/column, square, rectangular, exact-tile and partial-tile matrices, including 4093/4096 boundaries.
 
-Each case records dimensions and 2D launch metadata, checks all CUDA allocation/copy/launch/last-error/synchronization calls, and validates prefix/suffix output canaries. The canary is an auxiliary OOB check, not an equivalent to Compute Sanitizer; Compute Sanitizer is recorded as `N/A` and was not installed or run.
+The benchmark used six dimensions, V1-V4, 20 warmups, 100 measured launches per trial, five trials and deterministic rotation. Two complete runs were recorded (`075957Z` and controlled repeat `080838Z`); all benchmark sanity checks passed, but stability did not meet the frozen CV <= 5% criterion.`n`nEach case records dimensions and 2D launch metadata, checks all CUDA allocation/copy/launch/last-error/synchronization calls, and validates prefix/suffix output canaries. The canary is an auxiliary OOB check, not an equivalent to Compute Sanitizer; Compute Sanitizer is recorded as `N/A` and was not installed or run.
 
 ## Gates
 
 - Gate A: `PASS` after all 828 executions passed bitwise correctness, guards and CUDA checks; source mechanism audit passed. One V1/V2 launch-geometry bug was found and fixed before the final run: non-tiled kernels now use `grid_y=ceil(height/BLOCK_ROWS)`.
-- Gate B: `NOT_STARTED`; no formal benchmark or stability run was performed.
+- Gate B: `INCONCLUSIVE`; CUDA Event timing and correctness sanity passed, but repeated runs retained CV >5% for multiple configurations. No rows were deleted and no power/clocks were changed.
 - Gate C: `NOT_STARTED`; no Nsight Compute run was performed.
-- Overall: `IN_PROGRESS`; next authorized state is `READY_FOR_EXP03_BENCHMARK`.
+- Overall: `IN_PROGRESS`; investigate stability before any profiling.
 
 ## Reproduction
 
