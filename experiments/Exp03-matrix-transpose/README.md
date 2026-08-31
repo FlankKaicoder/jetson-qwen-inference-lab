@@ -26,7 +26,9 @@ V3 and V4 use the same mapping, guards, synchronization and block geometry. Thei
 
 The harness covers 23 dimensions, three deterministic FP32 patterns (coordinate-coded, sequential, fixed-seed signed), four GPU versions and three independent executions per case: 828 executions. The formal run at `2026-08-31T04:43Z` recorded V1/V2/V3/V4 = 207/207 PASS. V1 is compared bitwise with input; V2-V4 are compared bitwise with the CPU V0 reference. It covers tiny, single-row/column, square, rectangular, exact-tile and partial-tile matrices, including 4093/4096 boundaries.
 
-The benchmark used six dimensions, V1-V4, 20 warmups, 100 measured launches per trial, five trials and deterministic rotation. Two complete runs were recorded (`075957Z` and controlled repeat `080838Z`); all benchmark sanity checks passed, but stability did not meet the frozen CV <= 5% criterion.`n`nEach case records dimensions and 2D launch metadata, checks all CUDA allocation/copy/launch/last-error/synchronization calls, and validates prefix/suffix output canaries. The canary is an auxiliary OOB check, not an equivalent to Compute Sanitizer; Compute Sanitizer is recorded as `N/A` and was not installed or run.
+The benchmark used six dimensions, V1-V4, 20 warmups, 100 measured launches per trial, five trials and deterministic rotation. Two complete runs were recorded (`075957Z` and controlled repeat `080838Z`); all benchmark sanity checks passed, but stability did not meet the frozen CV <= 5% criterion.
+
+Each case records dimensions and 2D launch metadata, checks all CUDA allocation/copy/launch/last-error/synchronization calls, and validates prefix/suffix output canaries. The canary is an auxiliary OOB check, not an equivalent to Compute Sanitizer; Compute Sanitizer is recorded as `N/A` and was not installed or run.
 
 ## Gates
 
