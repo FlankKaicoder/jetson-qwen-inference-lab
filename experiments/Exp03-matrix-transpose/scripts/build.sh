@@ -6,4 +6,5 @@ build_dir="${EXP03_BUILD_DIR:-/tmp/jetson-qwen-exp03-build}"
 mkdir -p "${build_dir}"
 "${NVCC:-/usr/local/cuda-12.6/bin/nvcc}" -O3 -lineinfo -std=c++17 -Xcompiler=-Wall,-Wextra \
   "${experiment_dir}/src/transpose.cu" -o "${build_dir}/transpose"
+"${NVCC:-/usr/local/cuda-12.6/bin/nvcc}" -O3 -lineinfo -std=c++17 -DEXP03_KERNEL_ONLY -Xcompiler=-Wall,-Wextra "${experiment_dir}/src/transpose.cu" "${experiment_dir}/src/transpose_benchmark.cu" -o "${build_dir}/transpose_benchmark"
 echo "binary=${build_dir}/transpose"
