@@ -1,0 +1,25 @@
+{
+  "status": "THEORETICAL_ESTIMATE",
+  "formula": "2 * num_hidden_layers * num_key_value_heads * head_dim * dtype_bytes * batch_size * sequence_length",
+  "layers": 28,
+  "kv_heads": 8,
+  "head_dim": 128,
+  "batch_size": 1,
+  "fp16_or_bf16_bytes_per_token": 114688,
+  "fp16_or_bf16_kib_per_token": 112,
+  "sequence_length_bytes": {
+    "128": 14680064,
+    "512": 58720256,
+    "1024": 117440512,
+    "2048": 234881024,
+    "4096": 469762048,
+    "8192": 939524096,
+    "32768": 3758096384,
+    "40960": 4697620480
+  },
+  "notes": [
+    "K and V are both included; batch size multiplies every value.",
+    "This excludes cache metadata, allocation padding, temporary attention buffers, activations, engine memory and all non-KV runtime memory.",
+    "FP16 and BF16 both use two bytes per cache element."
+  ]
+}

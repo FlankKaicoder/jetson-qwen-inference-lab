@@ -1,0 +1,13 @@
+Phase 2.1.9 read-only environment audit
+Host: nvidia-desktop
+User: nvidia
+Python: 3.10.12
+PyTorch: 2.5.0a0+872d972e41.nv24.08
+CUDA: 12.6
+TensorRT: 10.3.0
+ONNX: 1.22.0
+GPU: Orin
+Nsight Compute: 2024.3.1.0
+Venv: /home/nvidia/.venvs/jetson-qwen-phase2-trt-tools
+pip check: No broken requirements found.
+Safety: no package, CUDA, TensorRT, JetPack, PyTorch, power, clock or swap modification.

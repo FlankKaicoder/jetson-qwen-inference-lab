@@ -1,0 +1,43 @@
+{
+  "status": "THEORETICAL_ESTIMATE",
+  "source": "Phase 1 frozen config and model manifest; no weights read or loaded",
+  "serialized_element_count": 751632384,
+  "loaded_unique_element_count_with_tied_embeddings": 596049920,
+  "layout_elements": {
+    "token_embedding": 155582464,
+    "decoder_layer_count": 28,
+    "per_decoder_layer": {
+      "q_proj": 2097152,
+      "k_proj": 1048576,
+      "v_proj": 1048576,
+      "o_proj": 2097152,
+      "q_norm": 128,
+      "k_norm": 128,
+      "input_rmsnorm": 1024,
+      "post_attention_rmsnorm": 1024,
+      "gate_proj": 3145728,
+      "up_proj": 3145728,
+      "down_proj": 3145728,
+      "total": 15730944
+    },
+    "all_decoder_layers": 440466432,
+    "final_rmsnorm": 1024,
+    "lm_head_serialized": 155582464
+  },
+  "serialized_total_check": 751632384,
+  "tie_explanation": "The serialized file includes both embedding and lm_head tensors. tie_word_embeddings=true makes them one shared parameter in the loaded module, reducing unique loaded elements by 155582464.",
+  "precision_bytes": {
+    "fp32": 4,
+    "fp16": 2,
+    "bf16": 2
+  },
+  "weight_memory_bytes": {
+    "fp32_serialized_lower_bound": 3006529536,
+    "fp16_or_bf16_serialized_lower_bound": 1503264768,
+    "fp16_or_bf16_unique_tied_lower_bound": 1192099840
+  },
+  "limitations": [
+    "TensorRT engine constant storage, alignment, tactic workspace, CUDA context, activation buffers and runtime duplication are not measured here.",
+    "ONNX export may not preserve tied-weight storage, so the serialized FP16/BF16 figure is the conservative model-weight planning bound."
+  ]
+}

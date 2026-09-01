@@ -164,3 +164,11 @@
 - Synthetic FP16 single decoder block (RMSNorm, RoPE, 16Q/8KV GQA, causal attention, SwiGLU) used the recorded Qwen3-0.6B dimensions but loaded no checkpoint. ONNX checker passed (201 nodes); TensorRT parser had zero errors; FP16 build and batch 1/2 dynamic-profile CUDA execution passed with finite FP16 `[B,8,1024]` output.
 - Numerical comparisons are informational only: batch 1/2 max abs 0.005859375 and RMSE 0.000831708/0.000835744. TensorRT warned about FP16 Reduce/Pow overflow risk and default-stream synchronization; retain both limitations.
 - Gate A/B/C PASS, Gate D SUPPORTED, Phase 2.1.8 PASS/BOUNDED. Evidence commit `fe0edb8e4239e2e91137f7a6862d59511ed3b74c` is pushed. This does not change Phase 2.1 INT8/INT4 `INCONCLUSIVE` status. No full Qwen3 export, INT8, INT4, TensorRT-LLM, benchmark, Phase 2.2 or Phase 3 was started; BF16 reference unchanged.
+
+## Phase 2.1.9 Full Qwen3 TensorRT Architecture Audit (2026-09-02)
+
+- Starting branch/HEAD: `phase/02-qwen3-quantization@6e2976c1e3b77d3f9f23775b90c1e4e36a2e4dc5`; Windows and Jetson were clean before the audit.
+- Read-only architecture audit used frozen config and manifest metadata only. No checkpoint tensor load, full ONNX export, TensorRT engine build, inference or benchmark occurred.
+- Qwen3-0.6B map: 28 layers, 1024 hidden, 16Q/8KV heads, head dim 128, MLP 3072, vocab 151936, max positions 40960, tied embeddings. Serialized FP16/BF16 weight lower bound 1.400 GiB; batch-1 KV cache 112 KiB/token, 448 MiB at 4096 and 4.375 GiB at 40960.
+- Gate A/B/C PASS; Gate D `BLOCKED_NEEDS_RUNTIME_WORK`. Native TensorRT is partial pending full export and an explicit KV-cache/prefill/decode runtime; TensorRT-LLM remains blocked by current SM87/software-stack intersection; HF TensorRT backend is unknown.
+- Report: `experiments/Phase2-qwen3-quantization/docs/phase2_1_9_full_qwen3_tensorRT_architecture_audit.md`; evidence: `experiments/Phase2-qwen3-quantization/artifacts/phase2_1_9_20260901/`.

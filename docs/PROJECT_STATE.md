@@ -7,20 +7,20 @@
 | Field | Verified value |
 | --- | --- |
 | Project | `jetson-qwen-inference-lab` / Jetson Qwen Transformer AI Infra Optimization Lab |
-| Current date | `2026-09-01` |
+| Current date | `2026-09-02` |
 | Repository | `FlankKaicoder/jetson-qwen-inference-lab` |
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
 | Current phase | Phase 2 — LLM Quantization |
-| Current experiment | Phase 2.1.8 — Qwen3-like decoder block TensorRT feasibility |
+| Current experiment | Phase 2.1.9 — Full Qwen3 TensorRT architecture audit |
 | Current branch | `phase/02-qwen3-quantization` |
-| Current HEAD | Verify with `git rev-parse HEAD`; Phase 2.1.8 evidence commit `fe0edb8e4239e2e91137f7a6862d59511ed3b74c` |
+| Current HEAD | Verify with `git rev-parse HEAD`; Phase 2.1.9 audit evidence is ready for commit |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Exp04 — CUDA GEMM tiling and WMMA |
-| Experiment status | Phase 1.0 `PASS WITH CONSTRAINTS / CLOSED`; Phase 1.1 `PASS / CLOSED`; Phase 1.2 `PASS / CLOSED`; Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8 `PASS / BOUNDED` |
-| Current Gate | Phase 2.1.8 A/B/C `PASS`; D `SUPPORTED`; underlying Phase 2.1 remains `INCONCLUSIVE` |
-| Readiness | Synthetic Qwen3-like FP16 decoder-block path is ready only for its bounded feasibility objective; full Qwen3 export/quantization or Phase 2.2 requires explicit authorization; Phase 3 is not started |
+| Experiment status | Phase 1.0 `PASS WITH CONSTRAINTS / CLOSED`; Phase 1.1 `PASS / CLOSED`; Phase 1.2 `PASS / CLOSED`; Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8 `PASS / BOUNDED`; Phase 2.1.9 `PASS / BOUNDED` |
+| Current Gate | Phase 2.1.9 A/B/C `PASS`; D `BLOCKED_NEEDS_RUNTIME_WORK`; underlying Phase 2.1 remains `INCONCLUSIVE` |
+| Readiness | Full Qwen3 TensorRT route is mapped but requires runtime work; no engine design/build is authorized by this audit; Phase 2.2 and Phase 3 are not started |
 
 ## Confirmed Findings
 
@@ -114,9 +114,18 @@ No repository evidence records a formally `REJECT`-status experiment.
 - Gate A/B/C `PASS`; Gate D `SUPPORTED`; Phase 2.1.8 `PASS / BOUNDED`. Underlying Phase 2.1 INT8/INT4 result remains `INCONCLUSIVE`.
 - Report: `experiments/Phase2-qwen3-quantization/docs/phase2_1_8_qwen3_block_feasibility.md`; evidence: `experiments/Phase2-qwen3-quantization/artifacts/phase2_1_8_20260901/`; ONNX and engine stay Jetson-local under `/tmp/phase2_1_8_qwen3_block/`.
 
+## Phase 2.1.9 Full Qwen3 TensorRT Architecture Audit (2026-09-02)
+
+- Read-only audit used the frozen Qwen3-0.6B config/revision and Phase 1 manifest; no checkpoint tensor was loaded, no full ONNX was exported and no engine/inference/benchmark was run.
+- Config: 28 layers, hidden 1024, 16 Q heads, 8 KV heads, head dimension 128, intermediate 3072, vocabulary 151,936, max positions 40,960, RoPE theta 1,000,000, RMSNorm epsilon 1e-6, tied embeddings. Full map: `experiments/Phase2-qwen3-quantization/docs/qwen3_full_architecture.md`.
+- Theoretical serialized weight lower bounds: 2.800 GiB FP32 and 1.400 GiB FP16/BF16; tied unique loaded lower bound 1,192,099,840 bytes. KV cache is 114,688 bytes/token per batch-1 sequence in FP16/BF16, reaching 448 MiB at 4096 and 4.375 GiB at 40960. These are planning estimates, not capacity measurements.
+- Native TensorRT is `PARTIAL` because the synthetic block path works but full export, persistent KV cache, prefill/decode scheduling, sampling and runtime memory ownership are unimplemented. Current TensorRT-LLM is `BLOCKED_NEEDS_RUNTIME_WORK` by the documented SM87/software-stack intersection; HF TensorRT backend remains `UNKNOWN`.
+- Gate A/B/C `PASS`; Gate D `BLOCKED_NEEDS_RUNTIME_WORK`; Phase 2.1.9 `PASS / BOUNDED`. Underlying Phase 2.1 INT8/INT4 status remains `INCONCLUSIVE`.
+- Report: `experiments/Phase2-qwen3-quantization/docs/phase2_1_9_full_qwen3_tensorRT_architecture_audit.md`; evidence: `experiments/Phase2-qwen3-quantization/artifacts/phase2_1_9_20260901/`.
+
 ## Required Next Action
 
-Review the Phase 2.1.8 bounded decoder-block evidence. Do not start full Qwen3 export, INT8, INT4, TensorRT-LLM, benchmarking, Phase 2.2 or Phase 3 without explicit authorization.
+Review the Phase 2.1.9 architecture and memory evidence. Do not start full Qwen3 export, engine build, INT8, INT4, TensorRT-LLM, benchmarking, Phase 2.2 or Phase 3 without explicit authorization.
 
 ## Do-not-repeat Work
 
