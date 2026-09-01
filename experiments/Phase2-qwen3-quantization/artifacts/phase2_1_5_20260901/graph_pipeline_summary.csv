@@ -1,0 +1,7 @@
+graph,shape,onnx_checker,trt_parser,engine_build,cuda_execute,output_dtype,output_shape,output_finite
+linear,M=1,PASS,PASS,PASS,PASS,DataType.HALF,[1,3072],true
+linear,M=32,PASS,PASS,PASS,PASS,DataType.HALF,[32,3072],true
+mlp,M=1,PASS,PASS,PASS,PASS,DataType.HALF,[1,1024],true
+mlp,M=32,PASS,PASS,PASS,PASS,DataType.HALF,[32,1024],true
+rmsnorm_linear,M=1,PASS,PASS,PASS,PASS,DataType.HALF,[1,3072],true
+rmsnorm_linear,M=32,PASS,PASS,PASS,PASS,DataType.HALF,[32,3072],true

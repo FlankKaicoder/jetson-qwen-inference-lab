@@ -20,3 +20,9 @@ See `docs/phase2_0_quantization_backend_audit.md` and timestamped artifacts for 
 ## Phase 2.1 TensorRT capability audit
 
 The authorized follow-on audit is documented in `docs/phase2_1_tensorrt_capability_audit.md`. The frozen Jetson environment exposes TensorRT 10.3 FP16 and explicit Q/DQ INT8 construction and synthetic CUDA execution. The ONNX route is blocked because `onnx` is absent and package installation is forbidden. INT4 flags/types are visible, but no public packed weight-only construction path was identified. No Qwen3 quantization or formal performance benchmark was run.
+
+## Phase 2.1.5 TensorRT graph pipeline enablement
+
+Phase 2.1.5 is a bounded synthetic follow-up and is `PASS`. An isolated tools venv at `/home/nvidia/.venvs/jetson-qwen-phase2-trt-tools` supplies ONNX 1.22, GraphSurgeon, Polygraphy and the existing NVIDIA Torch/TensorRT stack. Three FP16 opset-17 graphs (Linear, MLP/GELU, and RMSNorm-like arithmetic plus Linear) passed PyTorch export, `onnx.checker`, TensorRT parsing/building, and CUDA execution for dynamic `M=1` and `M=32` (6/6 cases, finite correctly typed outputs).
+
+This validates only the synthetic `PyTorch -> ONNX -> TensorRT -> CUDA` plumbing. It does not claim Qwen3 exportability, INT8/INT4 support, performance, memory, power, or production readiness. Evidence and the stop-point rationale are in `docs/phase2_1_5_graph_enablement.md` and `artifacts/phase2_1_5_20260901/`. Phase 2.2 and Phase 3 remain unstarted.

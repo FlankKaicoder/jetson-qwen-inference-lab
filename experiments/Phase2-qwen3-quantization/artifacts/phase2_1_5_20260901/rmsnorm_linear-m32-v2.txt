@@ -1,0 +1,5 @@
+[09/01/2026-19:00:47] [TRT] [W] DLA requests all profiles have same min, max, and opt value. All dla layers are falling back to GPU
+[09/01/2026-19:00:47] [TRT] [W] Detected layernorm nodes in FP16.
+[09/01/2026-19:00:47] [TRT] [W] Running layernorm after self-attention with FP16 Reduce or Pow may cause overflow. Forcing Reduce or Pow Layers in FP32 precision, or exporting the model to use INormalizationLayer (available with ONNX opset >= 17) can help preserving accuracy.
+[09/01/2026-19:00:50] [TRT] [W] Using default stream in enqueueV3() may lead to performance issues due to additional calls to cudaStreamSynchronize() by TensorRT to ensure correct synchronization. Please use non-default stream instead.
+{"engine": "PASS", "engine_bytes": 6343892, "gpu_execute": true, "inputs": ["input"], "node_count": 10, "onnx": "PASS", "operators": ["Mul", "ReduceMean", "Constant", "Add", "Sqrt", "Constant", "Div", "Mul", "Mul", "Gemm"], "output_dtype": "DataType.HALF", "output_finite": true, "output_shape": [32, 3072], "outputs": ["output"], "parser_errors": [], "trt_parse": "PASS"}

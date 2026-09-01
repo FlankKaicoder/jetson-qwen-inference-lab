@@ -13,14 +13,14 @@
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
 | Current phase | Phase 2 — LLM Quantization |
-| Current experiment | Phase 2.1 — TensorRT INT8 / INT4 capability audit |
+| Current experiment | Phase 2.1.5 — TensorRT graph pipeline enablement |
 | Current branch | `phase/02-qwen3-quantization` |
 | Current HEAD | `HEAD` (Phase 2.0 audit in progress); Phase 1 closeout `1f59fc0a3ebb43eab6a4f213c143092292601749` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Exp04 — CUDA GEMM tiling and WMMA |
-| Experiment status | Phase 1.0 `PASS WITH CONSTRAINTS / CLOSED`; Phase 1.1 `PASS / CLOSED`; Phase 1.2 `PASS / CLOSED`; Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE` |
-| Current Gate | Phase 2.1 Gate A `PASS`; Gate B/C `PARTIAL PASS`; Gate D `PARTIALLY_SUPPORTED / BLOCKED` |
-| Readiness | Phase 2.1 stopped after capability audit; Phase 2.2 and Phase 3 are not started |
+| Experiment status | Phase 1.0 `PASS WITH CONSTRAINTS / CLOSED`; Phase 1.1 `PASS / CLOSED`; Phase 1.2 `PASS / CLOSED`; Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED` |
+| Current Gate | Phase 2.1.5 Overall `PASS`; underlying Phase 2.1 remains `INCONCLUSIVE` |
+| Readiness | Phase 2.1.5 closed; any Qwen3 export/quantization or Phase 2.2 work requires explicit authorization; Phase 3 is not started |
 
 ## Confirmed Findings
 
@@ -98,9 +98,16 @@ No repository evidence records a formally `REJECT`-status experiment.
 - INT4 flag/DataType/API surface exists, but no public packed weight-only construction path was identified; Gate D `PARTIALLY_SUPPORTED / BLOCKED`. Overall Phase 2.1 `INCONCLUSIVE`; no performance, memory or power claim.
 - Report: `experiments/Phase2-qwen3-quantization/docs/phase2_1_tensorrt_capability_audit.md`; evidence: `experiments/Phase2-qwen3-quantization/artifacts/phase2_1_20260901/`.
 
+## Phase 2.1.5 TensorRT Graph Pipeline Enablement (2026-09-01)
+
+- Isolated tools venv `/home/nvidia/.venvs/jetson-qwen-phase2-trt-tools` uses NumPy 1.26.4, `ml_dtypes` 0.5.4 and `typing_extensions` 4.15.0; `pip check` passes. Existing NVIDIA PyTorch 2.5.0a0, CUDA 12.6, TensorRT 10.3.0 and NCU 2024.3.1.0 remain unchanged.
+- Synthetic FP16 opset-17 Linear, MLP/GELU and RMSNorm-like+Linear graphs passed export and ONNX checker (3/3), TensorRT parser/build and CUDA `execute_async_v3` for M=1/32 (6/6); output buffers use context-resolved shapes and declared `DataType.HALF`.
+- Gate A/B/C and Overall are `PASS` for graph-pipeline enablement only. No Qwen3 export, quantization, benchmark, memory/power measurement, or Nsight profile was run. Phase 2.2 and Phase 3 remain unstarted.
+- Report: `experiments/Phase2-qwen3-quantization/docs/phase2_1_5_graph_enablement.md`; evidence: `experiments/Phase2-qwen3-quantization/artifacts/phase2_1_5_20260901/`.
+
 ## Required Next Action
 
-Review the Phase 2.0 backend audit and authorize any follow-up compatibility investigation. Do not start Phase 2.1 or Exp05 automatically.
+Review the Phase 2.1.5 synthetic graph enablement evidence and explicitly authorize any further Phase 2.2 work. Do not start Qwen3 export/quantization, TensorRT-LLM, benchmarking, or Phase 3 automatically.
 
 ## Do-not-repeat Work
 

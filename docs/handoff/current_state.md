@@ -148,3 +148,11 @@
 - PyTorch 2.5/Transformers 4.57.3 requires eager attention because the installed SDPA lacks `enable_gqa`; the failed SDPA run is retained. This is not a performance conclusion.
 - Minimum checkpoint MemAvailable was 2,746,023,936 bytes; successful-run swap delta was 68,157,440 bytes and stable. No OOM or offload occurred.
 - Formal report: `experiments/Phase1-qwen3-baseline/docs/phase1_1_hf_bf16_reference.md`. Phase 1.2, Phase 2, TensorRT-LLM, TensorRT engine work, and Exp05 are not started.
+
+## Phase 2.1.5 TensorRT Graph Pipeline Enablement (2026-09-01)
+
+- Branch/starting HEAD: `phase/02-qwen3-quantization@def7e66b91e81cd6a42bc8975897ebfcdabf6fda`; only the new graph-pipeline scripts were untracked at start.
+- Isolated tools venv `/home/nvidia/.venvs/jetson-qwen-phase2-trt-tools` now imports ONNX 1.22.0, ONNX GraphSurgeon 0.6.1, Polygraphy 0.53.4, TensorRT 10.3.0 and the existing NVIDIA PyTorch 2.5.0a0/CUDA 12.6. NumPy 1.26.4, `ml_dtypes` 0.5.4 and `typing_extensions` 4.15.0 are local to this venv; `pip check` passes.
+- Synthetic Linear, MLP/GELU and RMSNorm-like+Linear FP16 opset-17 graphs passed export/checker (3/3), TensorRT parser/build and CUDA execution at M=1/32 (6/6), with context-resolved output shape and `DataType.HALF` allocation. RMSNorm FP16 overflow warning is retained as a risk note.
+- Gate A/B/C and Overall `PASS` for this bounded plumbing audit. No Qwen3 export/quantization, benchmark, memory/power measurement, Nsight profile, TensorRT-LLM or Phase 2.2/3 work was started.
+- Report: `experiments/Phase2-qwen3-quantization/docs/phase2_1_5_graph_enablement.md`; evidence: `experiments/Phase2-qwen3-quantization/artifacts/phase2_1_5_20260901/`. Engines/ONNX remain Jetson-local under `/tmp`.

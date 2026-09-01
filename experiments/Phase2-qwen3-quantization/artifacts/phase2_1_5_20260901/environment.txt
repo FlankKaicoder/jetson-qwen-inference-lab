@@ -1,0 +1,20 @@
+hostname=nvidia-desktop
+python 3.10.12 (main, Jul 15 2026, 23:40:17) [GCC 11.4.0]
+torch 2.5.0a0+872d972e41.nv24.08 /usr/local/lib/python3.10/dist-packages/torch/__init__.py
+numpy 1.26.4 /home/nvidia/.venvs/jetson-qwen-phase2-trt-tools/lib/python3.10/site-packages/numpy/__init__.py
+onnx 1.22.0
+onnx_graphsurgeon 0.6.1
+polygraphy 0.53.4
+tensorrt 10.3.0
+cuda_available True
+device Orin
+torch_cuda 12.6
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2024 NVIDIA Corporation
+Built on Wed_Aug_14_10:14:07_PDT_2024
+Cuda compilation tools, release 12.6, V12.6.68
+Build cuda_12.6.r12.6/compiler.34714021_0
+NVIDIA (R) Nsight Compute Command Line Profiler
+Copyright (c) 2018-2024 NVIDIA Corporation
+Version 2024.3.1.0 (build 34702747) (public-release)
+No broken requirements found.

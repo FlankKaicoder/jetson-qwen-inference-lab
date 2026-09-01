@@ -1,0 +1,1 @@
+{'status': 'EXPORT_PASS', 'path': '/tmp/phase2_1_5_graph_pipeline/artifacts_20260901/linear.onnx', 'opset': 17}

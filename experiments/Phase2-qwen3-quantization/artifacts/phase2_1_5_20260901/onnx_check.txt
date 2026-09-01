@@ -1,0 +1,3 @@
+{"inputs": ["input"], "nodes": 1, "operators": ["Gemm"], "opset": 17, "outputs": ["output"], "path": "/tmp/phase2_1_5_graph_pipeline/artifacts_20260901/linear.onnx"}
+{"inputs": ["input"], "nodes": 15, "operators": ["Gemm", "Mul", "Mul", "Constant", "Mul", "Add", "Constant", "Mul", "Tanh", "Constant", "Add", "Mul", "Constant", "Mul", "Gemm"], "opset": 17, "outputs": ["output"], "path": "/tmp/phase2_1_5_graph_pipeline/artifacts_20260901/mlp.onnx"}
+{"inputs": ["input"], "nodes": 10, "operators": ["Mul", "ReduceMean", "Constant", "Add", "Sqrt", "Constant", "Div", "Mul", "Mul", "Gemm"], "opset": 17, "outputs": ["output"], "path": "/tmp/phase2_1_5_graph_pipeline/artifacts_20260901/rmsnorm_linear.onnx"}
