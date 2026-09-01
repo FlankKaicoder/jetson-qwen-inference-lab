@@ -15,7 +15,7 @@
 | Current phase | Phase 2 — LLM Quantization |
 | Current experiment | Phase 2.1.5 — TensorRT graph pipeline enablement |
 | Current branch | `phase/02-qwen3-quantization` |
-| Current HEAD | `HEAD` (Phase 2.0 audit in progress); Phase 1 closeout `1f59fc0a3ebb43eab6a4f213c143092292601749` |
+| Current HEAD | `fbcb0b83578cb1c6a6c9b0a2eace6bf40a7fe27a` (Phase 2.1.5 graph pipeline closeout); Phase 1 closeout `1f59fc0a3ebb43eab6a4f213c143092292601749` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Exp04 — CUDA GEMM tiling and WMMA |
 | Experiment status | Phase 1.0 `PASS WITH CONSTRAINTS / CLOSED`; Phase 1.1 `PASS / CLOSED`; Phase 1.2 `PASS / CLOSED`; Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED` |
