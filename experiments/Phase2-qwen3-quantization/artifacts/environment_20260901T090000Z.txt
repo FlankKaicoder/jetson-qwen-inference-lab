@@ -1,0 +1,16 @@
+host=nvidia-desktop
+jetson_user=nvidia
+python=/home/nvidia/.venvs/jetson-qwen-phase2-quant/bin/python
+python_version=3.10.12
+venv=/home/nvidia/.venvs/jetson-qwen-phase2-quant
+phase1_venv=/home/nvidia/.venvs/jetson-qwen-phase1-hf (preserved)
+torch=2.5.0a0+872d972e41.nv24.08
+torch_file=/usr/local/lib/python3.10/dist-packages/torch
+torch_cuda=12.6
+device=Orin
+compute_capability=(8, 7)
+bf16=True
+nvcc=12.6.68
+ncu=2024.3.1.0
+power_mode=not changed
+system_packages=not changed

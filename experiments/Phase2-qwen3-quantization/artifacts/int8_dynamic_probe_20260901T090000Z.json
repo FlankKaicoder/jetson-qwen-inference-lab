@@ -1,0 +1,1 @@
+{"scheme":"A8W8","status":"BLOCKED_BY_TORCHAO_IMPORT","quantization":"NOT_REACHED","cuda_forward":"NOT_REACHED","finite":"UNKNOWN","cpu_fallback":"UNKNOWN","error":"torchao import failed: missing torch._C._distributed_c10d"}

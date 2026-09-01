@@ -14,12 +14,12 @@
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
 | Current phase | Phase 2 — LLM Quantization |
 | Current experiment | Phase 2.0 — Qwen3 quantization backend feasibility audit |
-| Current branch | `phase/01-qwen3-baseline` |
-| Current HEAD | `HEAD` (Phase 1.2 closeout); Phase 1.2 starting point `9a8f825cadcd2c8b9b30d1d58ec30c2cf9139e8f` |
+| Current branch | `phase/02-qwen3-quantization` |
+| Current HEAD | `HEAD` (Phase 2.0 audit in progress); Phase 1 closeout `1f59fc0a3ebb43eab6a4f213c143092292601749` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Exp04 — CUDA GEMM tiling and WMMA |
 | Experiment status | Phase 1.0 `PASS WITH CONSTRAINTS / CLOSED`; Phase 1.1 `PASS / CLOSED`; Phase 1.2 `PASS / CLOSED`; Phase 1 `PASS / CLOSED`; Phase 2.0 `RUNNING` |
-| Current Gate | Phase 1.2 Gate A/B/C/D `PASS` |
+| Current Gate | Phase 2.0 Gate A `PASS`; Gate B/C `BLOCKED`; Gate D `INCONCLUSIVE` |
 | Readiness | Phase 2.0 backend audit in progress; Phase 2.1 and Exp05 are not started |
 
 ## Confirmed Findings
@@ -83,9 +83,16 @@ No repository evidence records a formally `REJECT`-status experiment.
 - Model-load allocator delta was 1,192,638,976 bytes; minimum checkpoint MemAvailable was 2,746,023,936 bytes. Successful-run swap increased 68,157,440 bytes and remained stable; no OOM occurred.
 - Gate A/B/C/D: `PASS`; Phase 1.1: `PASS / CLOSED`. Report: `experiments/Phase1-qwen3-baseline/docs/phase1_1_hf_bf16_reference.md`.
 
+## Phase 2.0 Quantization Backend Audit (2026-09-01)
+
+- Isolated venv `/home/nvidia/.venvs/jetson-qwen-phase2-quant` preserved NVIDIA Torch 2.5.0a0 and CUDA 12.6; Phase 1 venv remains untouched.
+- TorchAO 0.12.0 installed with a safe `--dry-run --no-deps` plan, but import failed on missing `torch._C._distributed_c10d` from eagerly imported Float8/distributed support. W8A16, A8W8 and W4A16 probes were not claimed as executable.
+- Native operator names `_weight_int4pack_mm` and `_weight_int8pack_mm` are present, but operator presence is not runtime quantization evidence. No full model, formal benchmark, TensorRT engine or bitsandbytes build was run.
+- Gate A `PASS`; Gate B/C `BLOCKED`; Gate D `INCONCLUSIVE`; Phase 2.0 remains `RUNNING/BLOCKED` pending an explicitly authorized compatible backend path.
+
 ## Required Next Action
 
-Review Phase 1.2 evidence and decide the next Phase 1 runtime direction. Do not start profiler work, TensorRT-LLM work, quantization, Phase 2, or Exp05 automatically.
+Review the Phase 2.0 backend audit and authorize any follow-up compatibility investigation. Do not start Phase 2.1 or Exp05 automatically.
 
 ## Do-not-repeat Work
 

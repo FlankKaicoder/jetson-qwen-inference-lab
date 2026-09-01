@@ -1,0 +1,7 @@
+pip=24.0
+command: python -m pip install --dry-run --no-deps torchao==0.12.0
+output: Would install torchao-0.12.0
+command: python -m pip install --no-deps torchao==0.12.0
+output: Successfully installed torchao-0.12.0
+wheel: torchao-0.12.0-py3-none-any.whl (pure Python)
+no torch dependency requested

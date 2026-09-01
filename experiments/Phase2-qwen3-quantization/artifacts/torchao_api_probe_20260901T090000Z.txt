@@ -1,0 +1,8 @@
+TorchAO version: 0.12.0
+Source definitions found: quantize_, Int8WeightOnlyConfig, Int8DynamicActivationInt8WeightConfig, Int4WeightOnlyConfig
+import result: FAIL
+error: ModuleNotFoundError: No module named 'torch._C._distributed_c10d'; 'torch._C' is not a package
+import path: torchao -> quantization -> dtypes.floatx -> torchao.float8 -> torch.distributed._functional_collectives
+int4 operator: AVAILABLE (torch.ops.aten._weight_int4pack_mm)
+int8-related operators: _weight_int8pack_mm, quantized_gru, quantized_lstm
+pip check: hf-xet and regex are missing in isolated venv; no torch conflict reported
