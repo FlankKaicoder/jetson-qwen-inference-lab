@@ -13,14 +13,14 @@
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
 | Current phase | Phase 1 — Qwen3 Baseline Deployment |
-| Current experiment | Phase 1.0 — runtime feasibility audit complete; Phase 1.1 not started |
+| Current experiment | Phase 1.1 — HF BF16 dependency environment established; model/inference not started |
 | Current branch | `phase/01-qwen3-baseline` |
 | Current HEAD | `HEAD` (Phase 1.0 audit commit after closeout); starting point `9ede5e03773d23194f06059c339f32d539f7b7be` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Exp04 — CUDA GEMM tiling and WMMA |
-| Experiment status | Phase 1.0 `PASS WITH CONSTRAINTS`; Exp04 remains `PASS / CLOSED` |
-| Current Gate | Gate P1.0 `PASS WITH CONSTRAINTS` |
-| Readiness | `READY_FOR_PHASE1_1_DESIGN` (only on explicit authorization) |
+| Experiment status | Phase 1.0 `PASS WITH CONSTRAINTS`; Phase 1.1 `IN PROGRESS`; Exp04 `PASS / CLOSED` |
+| Current Gate | Gate A `PASS`; Gates B/C/D `NOT STARTED` |
+| Readiness | `READY_FOR_PHASE1_1_MODEL_ACQUISITION` |
 
 ## Confirmed Findings
 
@@ -67,9 +67,17 @@ No repository evidence records a formally `REJECT`-status experiment.
 - `.ncu-rep` files: Jetson-local `/tmp/jetson-qwen-exp01-ncu/20260830T144618Z/` and `/tmp/jetson-qwen-exp01-ncu/20260830T144903Z/`; intentionally outside Git.
 - Important prior commits: `249ddfb0a6873765bc391922111acfdd489e6d5c`, `74087eddc3815c45bae655978b57e99279dd4bd8`, `e10f2c06c7d90844cbf425e5ef6c32a413e314ec`.
 
+## Phase 1.1 Dependency Checkpoint (2026-09-01)
+
+- Formal venv: `/home/nvidia/.venvs/jetson-qwen-phase1-hf`, created with `--system-site-packages`; system NVIDIA PyTorch remains unchanged at `/usr/local/lib/python3.10/dist-packages/torch`.
+- Gate A is `PASS`: pinned HF packages import, `pip check` passes, CUDA remains available on Orin SM87, and BF16 is supported.
+- Ordinary pip resolution attempted PyPI `torch-2.13.0`; installation was blocked and replaced by wheel-only `--no-deps` installation. No PyPI Torch was installed.
+- `/home/nvidia/.venvs/jetson-qwen-phase1` is preserved untouched as `FAILED_PARTIAL_ENV`.
+- Evidence: `experiments/Phase1-qwen3-baseline/artifacts/phase1_1_*`.
+
 ## Required Next Action
 
-Review and accept the Exp03 Gate A evidence. Formal benchmark requires explicit authorization; do not start Gate B automatically.
+Continue Phase 1.1 Gate B model revision acquisition only after review; do not start formal benchmark or later phases.
 
 ## Do-not-repeat Work
 

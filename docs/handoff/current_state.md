@@ -113,3 +113,11 @@
 - Latest TensorRT-LLM natively supports Qwen3 but SM87 is absent from its tested hardware matrix and the current release dependencies do not match JetPack 6.2. The Jetson-specific 0.12 branch supports SM87/CUDA 12.6 but its code accepts only Qwen/Qwen2/Qwen2-MoE, not Qwen3.
 - No packages, weights, source trees or containers were downloaded or installed; no engine, inference, power/clock or system configuration operation occurred. Phase 1.1, Phase 2 quantization and Exp05 Softmax are not started.
 - Primary report: `experiments/Phase1-qwen3-baseline/docs/phase1_0_runtime_feasibility_audit.md`; environment evidence: `experiments/Phase1-qwen3-baseline/artifacts/environment_audit_20260901T125855+0800.txt`.
+
+## Phase 1.1 Dependency Checkpoint (2026-09-01)
+
+- Formal venv `/home/nvidia/.venvs/jetson-qwen-phase1-hf` is active with `system-site-packages=true`; NVIDIA PyTorch `2.5.0a0+872d972e41.nv24.08` and CUDA 12.6 were preserved.
+- Transformers `4.57.3`, Accelerate `1.14.0`, HF Hub `0.36.2`, Safetensors `0.8.0`, Tokenizers `0.22.2`, Regex `2026.9.3`, and hf-xet `1.6.0` import; `pip check` passes.
+- Gate A: `PASS`; Gates B/C/D: `NOT STARTED`. Ordinary resolver's PyPI Torch plan was avoided with wheel-only `--no-deps` installation.
+- Failed partial `/home/nvidia/.venvs/jetson-qwen-phase1` was preserved untouched. Dependency evidence is under `experiments/Phase1-qwen3-baseline/artifacts/phase1_1_*`.
+- Next action: review and perform Gate B exact Qwen3 revision acquisition. No inference, formal benchmark, TensorRT-LLM, Phase 1.2, Phase 2, or Exp05 started.

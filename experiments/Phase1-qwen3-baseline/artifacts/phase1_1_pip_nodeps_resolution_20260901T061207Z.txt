@@ -1,0 +1,25 @@
+timestamp=20260901T061207Z
+python=/home/nvidia/.venvs/jetson-qwen-phase1-hf/bin/python
+pip=pip 22.0.2 from /home/nvidia/.venvs/jetson-qwen-phase1-hf/lib/python3.10/site-packages/pip (python 3.10)
+method=pip download --no-deps --only-binary=:all: (no environment mutation)
+Collecting transformers==4.57.3
+  Using cached transformers-4.57.3-py3-none-any.whl (12.0 MB)
+Collecting accelerate==1.14.0
+  Using cached accelerate-1.14.0-py3-none-any.whl (389 kB)
+Collecting huggingface-hub==0.36.2
+  Using cached huggingface_hub-0.36.2-py3-none-any.whl (566 kB)
+Collecting safetensors==0.8.0
+  Using cached safetensors-0.8.0-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (502 kB)
+Collecting tokenizers==0.22.2
+  Using cached tokenizers-0.22.2-cp39-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (3.3 MB)
+Saved ./phase1_1_nodeps_wheels_20260901T061207Z/transformers-4.57.3-py3-none-any.whl
+Saved ./phase1_1_nodeps_wheels_20260901T061207Z/accelerate-1.14.0-py3-none-any.whl
+Saved ./phase1_1_nodeps_wheels_20260901T061207Z/huggingface_hub-0.36.2-py3-none-any.whl
+Saved ./phase1_1_nodeps_wheels_20260901T061207Z/safetensors-0.8.0-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+Saved ./phase1_1_nodeps_wheels_20260901T061207Z/tokenizers-0.22.2-cp39-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+Successfully downloaded transformers accelerate huggingface-hub safetensors tokenizers
+accelerate-1.14.0-py3-none-any.whl 389246
+huggingface_hub-0.36.2-py3-none-any.whl 566395
+safetensors-0.8.0-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl 502844
+tokenizers-0.22.2-cp39-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl 3290736
+transformers-4.57.3-py3-none-any.whl 11993463

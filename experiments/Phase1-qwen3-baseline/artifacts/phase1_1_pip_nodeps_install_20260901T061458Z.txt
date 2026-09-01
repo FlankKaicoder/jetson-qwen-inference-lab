@@ -1,0 +1,22 @@
+timestamp=20260901T061458Z
+venv=/home/nvidia/.venvs/jetson-qwen-phase1-hf
+command=wheel-only installation with --no-deps
+packages=transformers==4.57.3 accelerate==1.14.0 huggingface-hub==0.36.2 safetensors==0.8.0 tokenizers==0.22.2 regex==2026.9.3 hf-xet==1.6.0
+
+[pip_check]
+No broken requirements found.
+
+[verify]
+torch: 2.5.0a0+872d972e41.nv24.08
+torch_file: /usr/local/lib/python3.10/dist-packages/torch/__init__.py
+torch_cuda: 12.6
+transformers: 4.57.3
+accelerate: 1.14.0
+safetensors: 0.8.0
+huggingface_hub: 0.36.2
+tokenizers: 0.22.2
+regex: 2026.9.3
+cuda: True
+device: Orin
+capability: (8, 7)
+bf16: True
