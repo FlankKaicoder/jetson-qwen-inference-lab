@@ -1,0 +1,96 @@
+&&&& RUNNING TensorRT.trtexec [TensorRT v100300] # /usr/src/tensorrt/bin/trtexec --loadEngine=/tmp/phase2_1_trt_engines/20260901T/linear_fp16_2048.engine --dumpLayerInfo --dumpProfile --shapes=input:1x1024
+[09/01/2026-17:30:50] [I] === Model Options ===
+[09/01/2026-17:30:50] [I] Format: *
+[09/01/2026-17:30:50] [I] Model:
+[09/01/2026-17:30:50] [I] Output:
+[09/01/2026-17:30:50] [I]
+[09/01/2026-17:30:50] [I] === System Options ===
+[09/01/2026-17:30:50] [I] Device: 0
+[09/01/2026-17:30:50] [I] DLACore:
+[09/01/2026-17:30:50] [I] Plugins:
+[09/01/2026-17:30:50] [I] setPluginsToSerialize:
+[09/01/2026-17:30:50] [I] dynamicPlugins:
+[09/01/2026-17:30:50] [I] ignoreParsedPluginLibs: 0
+[09/01/2026-17:30:50] [I]
+[09/01/2026-17:30:50] [I] === Inference Options ===
+[09/01/2026-17:30:50] [I] Batch: Explicit
+[09/01/2026-17:30:50] [I] Input inference shape : input=1x1024
+[09/01/2026-17:30:50] [I] Iterations: 10
+[09/01/2026-17:30:50] [I] Duration: 3s (+ 200ms warm up)
+[09/01/2026-17:30:50] [I] Sleep time: 0ms
+[09/01/2026-17:30:50] [I] Idle time: 0ms
+[09/01/2026-17:30:50] [I] Inference Streams: 1
+[09/01/2026-17:30:50] [I] ExposeDMA: Disabled
+[09/01/2026-17:30:50] [I] Data transfers: Enabled
+[09/01/2026-17:30:50] [I] Spin-wait: Disabled
+[09/01/2026-17:30:50] [I] Multithreading: Disabled
+[09/01/2026-17:30:50] [I] CUDA Graph: Disabled
+[09/01/2026-17:30:50] [I] Separate profiling: Disabled
+[09/01/2026-17:30:50] [I] Time Deserialize: Disabled
+[09/01/2026-17:30:50] [I] Time Refit: Disabled
+[09/01/2026-17:30:50] [I] NVTX verbosity: 0
+[09/01/2026-17:30:50] [I] Persistent Cache Ratio: 0
+[09/01/2026-17:30:50] [I] Optimization Profile Index: 0
+[09/01/2026-17:30:50] [I] Weight Streaming Budget: 100.000000%
+[09/01/2026-17:30:50] [I] Inputs:
+[09/01/2026-17:30:50] [I] Debug Tensor Save Destinations:
+[09/01/2026-17:30:50] [I] === Reporting Options ===
+[09/01/2026-17:30:50] [I] Verbose: Disabled
+[09/01/2026-17:30:50] [I] Averages: 10 inferences
+[09/01/2026-17:30:50] [I] Percentiles: 90,95,99
+[09/01/2026-17:30:50] [I] Dump refittable layers:Disabled
+[09/01/2026-17:30:50] [I] Dump output: Disabled
+[09/01/2026-17:30:50] [I] Profile: Enabled
+[09/01/2026-17:30:50] [I] Export timing to JSON file:
+[09/01/2026-17:30:50] [I] Export output to JSON file:
+[09/01/2026-17:30:50] [I] Export profile to JSON file:
+[09/01/2026-17:30:50] [I]
+[09/01/2026-17:30:50] [I] === Device Information ===
+[09/01/2026-17:30:51] [I] Available Devices:
+[09/01/2026-17:30:51] [I]   Device 0: "Orin" UUID: GPU-ef0f6b6d-a9c2-5170-8101-b9467cdecf1f
+[09/01/2026-17:30:51] [I] Selected Device: Orin
+[09/01/2026-17:30:51] [I] Selected Device ID: 0
+[09/01/2026-17:30:51] [I] Selected Device UUID: GPU-ef0f6b6d-a9c2-5170-8101-b9467cdecf1f
+[09/01/2026-17:30:51] [I] Compute Capability: 8.7
+[09/01/2026-17:30:51] [I] SMs: 8
+[09/01/2026-17:30:51] [I] Device Global Memory: 7619 MiB
+[09/01/2026-17:30:51] [I] Shared Memory per SM: 164 KiB
+[09/01/2026-17:30:51] [I] Memory Bus Width: 128 bits (ECC disabled)
+[09/01/2026-17:30:51] [I] Application Compute Clock Rate: 1.02 GHz
+[09/01/2026-17:30:51] [I] Application Memory Clock Rate: 0.918 GHz
+[09/01/2026-17:30:51] [I]
+[09/01/2026-17:30:51] [I] Note: The application clock rates do not reflect the actual clock rates that the GPU is currently running at.
+[09/01/2026-17:30:51] [I]
+[09/01/2026-17:30:51] [I] TensorRT version: 10.3.0
+[09/01/2026-17:30:51] [I] Loading standard plugins
+[09/01/2026-17:30:51] [I] [TRT] Loaded engine size: 4 MiB
+[09/01/2026-17:30:51] [I] Engine deserialized in 0.0290695 sec.
+[09/01/2026-17:30:51] [I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 4 (MiB)
+[09/01/2026-17:30:51] [I] Setting persistentCacheLimit to 0 bytes.
+[09/01/2026-17:30:51] [I] Set shape of input tensor input to: 1x1024
+[09/01/2026-17:30:51] [I] Created execution context with device memory size: 0.125 MiB
+[09/01/2026-17:30:51] [I] Using random values for input input
+[09/01/2026-17:30:51] [I] Input binding for input with dimensions 1x1024 is created.
+[09/01/2026-17:30:51] [I] Output binding for output with dimensions 1x2048 is created.
+[09/01/2026-17:30:51] [I] Layer Information:
+[09/01/2026-17:30:51] [I] [TRT] The profiling verbosity was set to ProfilingVerbosity::kLAYER_NAMES_ONLY when the engine was built, so only the layer names will be returned. Rebuild the engine with ProfilingVerbosity::kDETAILED to get more verbose layer information.
+[09/01/2026-17:30:51] [I] Layers:
+__mye26_0_myl0_0
+linear_matmul_myl0_1
+Reformatting CopyNode for Output Tensor 0 to {ForeignNode[weight...linear_matmul]}
+
+Bindings:
+input
+output
+[09/01/2026-17:30:51] [I] Starting inference
+[09/01/2026-17:30:54] [I] The e2e network timing is not reported since it is inaccurate due to the extra synchronizations when the profiler is enabled.
+[09/01/2026-17:30:54] [I] To show e2e network timing report, add --separateProfileRun to profile layer timing in a separate run or remove --dumpProfile to disable the profiler.
+[09/01/2026-17:30:54] [I]
+[09/01/2026-17:30:54] [I] === Profile (5998 iterations ) ===
+[09/01/2026-17:30:54] [I]    Time(ms)     Avg.(ms)   Median(ms)   Time(%)   Layer
+[09/01/2026-17:30:54] [I]       12.40       0.0021       0.0021       2.3   __mye26_0_myl0_0
+[09/01/2026-17:30:54] [I]      479.58       0.0800       0.0737      87.6   linear_matmul_myl0_1
+[09/01/2026-17:30:54] [I]       55.27       0.0092       0.0084      10.1   Reformatting CopyNode for Output Tensor 0 to {ForeignNode[weight...linear_matmul]}
+[09/01/2026-17:30:54] [I]      547.26       0.0912       0.0842     100.0   Total
+[09/01/2026-17:30:54] [I]
+&&&& PASSED TensorRT.trtexec [TensorRT v100300] # /usr/src/tensorrt/bin/trtexec --loadEngine=/tmp/phase2_1_trt_engines/20260901T/linear_fp16_2048.engine --dumpLayerInfo --dumpProfile --shapes=input:1x1024

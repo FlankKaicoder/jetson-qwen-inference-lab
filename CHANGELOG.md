@@ -25,3 +25,4 @@
 - 完成 Phase 1.1 Qwen3-0.6B exact-revision Hugging Face BF16 reference：Gate A/B/C/D PASS；模型全参数 `cuda:0`、forward finite、3/3 bounded generations PASS，并记录 unified-memory/allocator/tegrastats 证据；Phase 1.2 未开始。
 - 完成 Phase 1.2 Qwen3-0.6B BF16/eager formal benchmark：manual KV-cache loop 与 `generate()` 8/8 token 一致；ISL 32/128/512/1024 各 10 trials，全部 TTFT/TPOT CV <5%；Gate A/B/C/D PASS，Phase 1.2 CLOSED。
 - Phase 1 overall formally closed as `PASS / CLOSED`; TensorRT-LLM backport is not a prerequisite for closure and remains a later runtime investigation.
+- Completed Phase 2.1 TensorRT capability audit: direct synthetic FP16 and explicit Q/DQ INT8 Linear execution passed on Orin SM87; ONNX parser route blocked by missing frozen-venv package; INT4 weight-only construction path not identified. No Qwen3 quantization, formal performance claim, TensorRT-LLM or Phase 2.2 work started.

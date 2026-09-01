@@ -1,0 +1,1 @@
+{"execute_async_v3": true, "input_device": "cuda:0", "input_shape": [1, 1024], "max_abs_error": 0.6613835096359253, "mean_abs_error": 0.1434631645679474, "numerical_status": "PASS", "output_device": "cuda:0", "output_finite": true, "output_shape": [1, 3072], "relative_error": 292.9103088378906}

@@ -13,14 +13,14 @@
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
 | Current phase | Phase 2 — LLM Quantization |
-| Current experiment | Phase 2.0 — Qwen3 quantization backend feasibility audit |
+| Current experiment | Phase 2.1 — TensorRT INT8 / INT4 capability audit |
 | Current branch | `phase/02-qwen3-quantization` |
 | Current HEAD | `HEAD` (Phase 2.0 audit in progress); Phase 1 closeout `1f59fc0a3ebb43eab6a4f213c143092292601749` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Exp04 — CUDA GEMM tiling and WMMA |
-| Experiment status | Phase 1.0 `PASS WITH CONSTRAINTS / CLOSED`; Phase 1.1 `PASS / CLOSED`; Phase 1.2 `PASS / CLOSED`; Phase 1 `PASS / CLOSED`; Phase 2.0 `RUNNING` |
-| Current Gate | Phase 2.0 Gate A `PASS`; Gate B/C `BLOCKED`; Gate D `INCONCLUSIVE` |
-| Readiness | Phase 2.0 backend audit in progress; Phase 2.1 and Exp05 are not started |
+| Experiment status | Phase 1.0 `PASS WITH CONSTRAINTS / CLOSED`; Phase 1.1 `PASS / CLOSED`; Phase 1.2 `PASS / CLOSED`; Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE` |
+| Current Gate | Phase 2.1 Gate A `PASS`; Gate B/C `PARTIAL PASS`; Gate D `PARTIALLY_SUPPORTED / BLOCKED` |
+| Readiness | Phase 2.1 stopped after capability audit; Phase 2.2 and Phase 3 are not started |
 
 ## Confirmed Findings
 
@@ -89,6 +89,14 @@ No repository evidence records a formally `REJECT`-status experiment.
 - TorchAO 0.12.0 installed with a safe `--dry-run --no-deps` plan, but import failed on missing `torch._C._distributed_c10d` from eagerly imported Float8/distributed support. W8A16, A8W8 and W4A16 probes were not claimed as executable.
 - Native operator names `_weight_int4pack_mm` and `_weight_int8pack_mm` are present, but operator presence is not runtime quantization evidence. No full model, formal benchmark, TensorRT engine or bitsandbytes build was run.
 - Gate A `PASS`; Gate B/C `BLOCKED`; Gate D `INCONCLUSIVE`; Phase 2.0 remains `RUNNING/BLOCKED` pending an explicitly authorized compatible backend path.
+
+## Phase 2.1 TensorRT Capability Audit (2026-09-01)
+
+- Frozen Jetson venv verified with Orin SM87, CUDA 12.6, TensorRT Python 10.3.0, `trtexec` v100300 and NVIDIA PyTorch 2.5.0a0. No package/system changes were made.
+- ONNX tooling is absent (`onnx`, Polygraphy and ONNX GraphSurgeon); the requested parser path is `BLOCKED_NO_ONNX_PACKAGE`.
+- Direct TensorRT fallback built/executed synthetic `1024 -> {1024,2048,3072}` Linear: FP16 3/3 engines and 6/6 M=1/32 executions PASS; explicit Q/DQ INT8 3/3 engines and 6/6 executions finite with numerical error recorded, status PARTIALLY SUPPORTED.
+- INT4 flag/DataType/API surface exists, but no public packed weight-only construction path was identified; Gate D `PARTIALLY_SUPPORTED / BLOCKED`. Overall Phase 2.1 `INCONCLUSIVE`; no performance, memory or power claim.
+- Report: `experiments/Phase2-qwen3-quantization/docs/phase2_1_tensorrt_capability_audit.md`; evidence: `experiments/Phase2-qwen3-quantization/artifacts/phase2_1_20260901/`.
 
 ## Required Next Action
 

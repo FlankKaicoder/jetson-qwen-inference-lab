@@ -1,0 +1,17 @@
+Phase 2.1 TensorRT capability audit evidence
+Date: 2026-09-01
+Host: Jetson Orin Nano Super, SM 8.7
+CUDA: 12.6
+TensorRT Python: 10.3.0
+trtexec banner: TensorRT v100300
+PyTorch: 2.5.0a0+872d972e41.nv24.08
+PyTorch file: /usr/local/lib/python3.10/dist-packages/torch/__init__.py
+PyTorch CUDA device: Orin (cuda:0)
+Frozen venv: /home/nvidia/.venvs/jetson-qwen-phase2-quant
+ONNX: unavailable in frozen venv; probe status BLOCKED_NO_ONNX_PACKAGE
+Polygraphy: unavailable
+ONNX GraphSurgeon: unavailable
+ONNX Runtime: available (not used for TensorRT build)
+TensorRT Python API: DataType.INT8, DataType.INT4, BuilderFlag.INT8, BuilderFlag.INT4, add_quantize, add_dequantize present
+trtexec help: --fp16, --int8, --int4, --calib, --dumpLayerInfo, --dumpProfile present
+Restriction: no package, CUDA, TensorRT, PyTorch, model, power, clock, or swap changes

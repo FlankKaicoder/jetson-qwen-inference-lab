@@ -89,6 +89,14 @@
 - Gate A PASS; Gate B/C NOT_STARTED; Overall IN_PROGRESS; READY_FOR_EXP03_BENCHMARK.
 - Formal benchmark, Nsight Compute and Exp04 were NOT started.
 
+## Phase 2.1 TensorRT Capability Audit (2026-09-01)
+
+- Starting branch/HEAD: `phase/02-qwen3-quantization@be8a3e262ff39dc69c2f434b8d3b3d182a157b38`; frozen venv and Jetson checkout were verified clean before probe work.
+- Jetson Orin SM87, CUDA 12.6, TensorRT 10.3.0, `trtexec` v100300 and NVIDIA PyTorch 2.5.0a0 were confirmed. No package/system changes were made.
+- ONNX/Polygraphy/ONNX GraphSurgeon are absent; ONNX parser route is `BLOCKED_NO_ONNX_PACKAGE`. Direct TensorRT Python network fallback is clearly labeled in the report.
+- Synthetic FP16 Linear built 3/3 and executed 6/6 (M=1/32). Explicit Q/DQ INT8 built 3/3 and executed 6/6 finite with error recorded; status `PARTIALLY SUPPORTED`. INT4 surface flags/types exist, but no public packed weight-only construction path was identified; Gate D `PARTIALLY_SUPPORTED / BLOCKED`.
+- Report: `experiments/Phase2-qwen3-quantization/docs/phase2_1_tensorrt_capability_audit.md`; artifacts: `experiments/Phase2-qwen3-quantization/artifacts/phase2_1_20260901/`. No Qwen3 quantization, TensorRT-LLM, Qwen engine, Phase 2.2 or Phase 3 work started.
+
 
 ## Exp03.2 Benchmark (2026-08-31)
 - Two complete benchmark runs: benchmark_20260831T075957Z.csv and benchmark_20260831T080838Z.csv.
