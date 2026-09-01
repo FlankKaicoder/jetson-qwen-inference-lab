@@ -121,3 +121,11 @@
 - Gate A: `PASS`; Gates B/C/D: `NOT STARTED`. Ordinary resolver's PyPI Torch plan was avoided with wheel-only `--no-deps` installation.
 - Failed partial `/home/nvidia/.venvs/jetson-qwen-phase1` was preserved untouched. Dependency evidence is under `experiments/Phase1-qwen3-baseline/artifacts/phase1_1_*`.
 - Next action: review and perform Gate B exact Qwen3 revision acquisition. No inference, formal benchmark, TensorRT-LLM, Phase 1.2, Phase 2, or Exp05 started.
+
+## Phase 1.1 BF16 Reference Closeout (2026-09-01)
+
+- Model `Qwen/Qwen3-0.6B` revision `c1899de289a04d12100db370d81485cdf75e47ca` is stored outside Git; weight SHA256 is `f47f71177f32bcd101b7573ec9171e6a57f4f4d31148d38e382306f42996874b`.
+- Gate A/B/C/D are `PASS`; Phase 1.1 is `PASS / CLOSED`. BF16 placement is `cuda:0` only, forward is finite, and three bounded deterministic generations pass.
+- PyTorch 2.5/Transformers 4.57.3 requires eager attention because the installed SDPA lacks `enable_gqa`; the failed SDPA run is retained. This is not a performance conclusion.
+- Minimum checkpoint MemAvailable was 2,746,023,936 bytes; successful-run swap delta was 68,157,440 bytes and stable. No OOM or offload occurred.
+- Formal report: `experiments/Phase1-qwen3-baseline/docs/phase1_1_hf_bf16_reference.md`. Phase 1.2, Phase 2, TensorRT-LLM, TensorRT engine work, and Exp05 are not started.

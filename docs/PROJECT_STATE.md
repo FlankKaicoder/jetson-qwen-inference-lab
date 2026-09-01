@@ -13,14 +13,14 @@
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
 | Current phase | Phase 1 — Qwen3 Baseline Deployment |
-| Current experiment | Phase 1.1 — HF BF16 dependency environment established; model/inference not started |
+| Current experiment | Phase 1.1 — Qwen3-0.6B HF BF16 reference complete |
 | Current branch | `phase/01-qwen3-baseline` |
 | Current HEAD | `HEAD` (Phase 1.0 audit commit after closeout); starting point `9ede5e03773d23194f06059c339f32d539f7b7be` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Exp04 — CUDA GEMM tiling and WMMA |
-| Experiment status | Phase 1.0 `PASS WITH CONSTRAINTS`; Phase 1.1 `IN PROGRESS`; Exp04 `PASS / CLOSED` |
-| Current Gate | Gate A `PASS`; Gates B/C/D `NOT STARTED` |
-| Readiness | `READY_FOR_PHASE1_1_MODEL_ACQUISITION` |
+| Experiment status | Phase 1.0 `PASS WITH CONSTRAINTS`; Phase 1.1 `PASS / CLOSED`; Exp04 `PASS / CLOSED` |
+| Current Gate | Phase 1.1 Gate A/B/C/D `PASS` |
+| Readiness | `READY_FOR_PHASE1_2_DESIGN` (only on explicit authorization) |
 
 ## Confirmed Findings
 
@@ -75,9 +75,17 @@ No repository evidence records a formally `REJECT`-status experiment.
 - `/home/nvidia/.venvs/jetson-qwen-phase1` is preserved untouched as `FAILED_PARTIAL_ENV`.
 - Evidence: `experiments/Phase1-qwen3-baseline/artifacts/phase1_1_*`.
 
+## Phase 1.1 BF16 Reference Closeout (2026-09-01)
+
+- Exact model: `Qwen/Qwen3-0.6B@c1899de289a04d12100db370d81485cdf75e47ca`; `model.safetensors` SHA256 `f47f71177f32bcd101b7573ec9171e6a57f4f4d31148d38e382306f42996874b`.
+- Qwen3 loaded with BF16 parameters on `cuda:0` only, with no CPU/disk offload. Forward logits were finite and all three deterministic bounded generations passed semantic sanity.
+- Current PyTorch 2.5 SDPA lacks the `enable_gqa` argument required by Transformers 4.57.3's SDPA path; the functional reference explicitly uses built-in eager attention. No performance conclusion is attached to this choice.
+- Model-load allocator delta was 1,192,638,976 bytes; minimum checkpoint MemAvailable was 2,746,023,936 bytes. Successful-run swap increased 68,157,440 bytes and remained stable; no OOM occurred.
+- Gate A/B/C/D: `PASS`; Phase 1.1: `PASS / CLOSED`. Report: `experiments/Phase1-qwen3-baseline/docs/phase1_1_hf_bf16_reference.md`.
+
 ## Required Next Action
 
-Continue Phase 1.1 Gate B model revision acquisition only after review; do not start formal benchmark or later phases.
+Review Phase 1.1 evidence. Phase 1.2 formal benchmark requires explicit authorization and a separate methodology; do not start it automatically.
 
 ## Do-not-repeat Work
 

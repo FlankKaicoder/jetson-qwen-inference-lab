@@ -1,0 +1,148 @@
+{
+  "schema_version": 1,
+  "source_functional": "/home/nvidia/phase1_1_reference_run_20260901T070021Z/phase1_1_functional_20260901T070021Z.json",
+  "source_tegrastats": "/home/nvidia/phase1_1_reference_run_20260901T070021Z/phase1_1_tegrastats_20260901T070021Z.log",
+  "checkpoints": [
+    {
+      "stage": "M0_before_model_load",
+      "timestamp": "2026-09-01T07:00:27.402669+00:00",
+      "system": {
+        "MemTotal": 7989940224,
+        "MemAvailable": 4100358144,
+        "SwapTotal": 3994951680,
+        "SwapFree": 3700563968,
+        "SwapUsed": 294387712
+      },
+      "torch_cuda_allocator": {
+        "allocated": 0,
+        "reserved": 0,
+        "max_allocated": 0,
+        "max_reserved": 0
+      },
+      "cuda_mem_info": {
+        "free": 4075433984,
+        "total": 7989940224
+      }
+    },
+    {
+      "stage": "M1_after_model_load",
+      "timestamp": "2026-09-01T07:00:31.970959+00:00",
+      "system": {
+        "MemTotal": 7989940224,
+        "MemAvailable": 3239448576,
+        "SwapTotal": 3994951680,
+        "SwapFree": 3700563968,
+        "SwapUsed": 294387712
+      },
+      "torch_cuda_allocator": {
+        "allocated": 1192638976,
+        "reserved": 1509949440,
+        "max_allocated": 1503803392,
+        "max_reserved": 1509949440
+      },
+      "cuda_mem_info": {
+        "free": 3234508800,
+        "total": 7989940224
+      }
+    },
+    {
+      "stage": "M2_after_forward",
+      "timestamp": "2026-09-01T07:00:33.127787+00:00",
+      "system": {
+        "MemTotal": 7989940224,
+        "MemAvailable": 2749599744,
+        "SwapTotal": 3994951680,
+        "SwapFree": 3632406528,
+        "SwapUsed": 362545152
+      },
+      "torch_cuda_allocator": {
+        "allocated": 1201159680,
+        "reserved": 1509949440,
+        "max_allocated": 1503803392,
+        "max_reserved": 1509949440
+      },
+      "cuda_mem_info": {
+        "free": 2745352192,
+        "total": 7989940224
+      }
+    },
+    {
+      "stage": "M3_after_generation_1",
+      "timestamp": "2026-09-01T07:00:34.410558+00:00",
+      "system": {
+        "MemTotal": 7989940224,
+        "MemAvailable": 2747166720,
+        "SwapTotal": 3994951680,
+        "SwapFree": 3632406528,
+        "SwapUsed": 362545152
+      },
+      "torch_cuda_allocator": {
+        "allocated": 1201161216,
+        "reserved": 1514143744,
+        "max_allocated": 1503803392,
+        "max_reserved": 1514143744
+      },
+      "cuda_mem_info": {
+        "free": 2744971264,
+        "total": 7989940224
+      }
+    },
+    {
+      "stage": "M4_after_generation_2",
+      "timestamp": "2026-09-01T07:00:34.779083+00:00",
+      "system": {
+        "MemTotal": 7989940224,
+        "MemAvailable": 2747166720,
+        "SwapTotal": 3994951680,
+        "SwapFree": 3632406528,
+        "SwapUsed": 362545152
+      },
+      "torch_cuda_allocator": {
+        "allocated": 1201161216,
+        "reserved": 1514143744,
+        "max_allocated": 1503803392,
+        "max_reserved": 1514143744
+      },
+      "cuda_mem_info": {
+        "free": 2744971264,
+        "total": 7989940224
+      }
+    },
+    {
+      "stage": "M5_after_generation_3",
+      "timestamp": "2026-09-01T07:00:36.273556+00:00",
+      "system": {
+        "MemTotal": 7989940224,
+        "MemAvailable": 2746023936,
+        "SwapTotal": 3994951680,
+        "SwapFree": 3632406528,
+        "SwapUsed": 362545152
+      },
+      "torch_cuda_allocator": {
+        "allocated": 1201161216,
+        "reserved": 1514143744,
+        "max_allocated": 1503803392,
+        "max_reserved": 1514143744
+      },
+      "cuda_mem_info": {
+        "free": 2743828480,
+        "total": 7989940224
+      }
+    }
+  ],
+  "derived": {
+    "model_load_memavailable_delta_bytes": 860909568,
+    "model_load_torch_allocated_delta_bytes": 1192638976,
+    "post_load_to_final_memavailable_delta_bytes": 493424640,
+    "post_load_to_final_torch_allocated_delta_bytes": 8522240,
+    "successful_run_swap_delta_bytes": 68157440,
+    "minimum_memavailable_bytes": 2746023936,
+    "maximum_swap_used_bytes": 362545152,
+    "maximum_torch_allocated_bytes": 1503803392,
+    "maximum_torch_reserved_bytes": 1514143744,
+    "tegrastats_sample_count": 79,
+    "tegrastats_peak_ram_used_mb": 4869,
+    "tegrastats_peak_swap_used_mb": 346,
+    "tegrastats_total_ram_mb": 7620
+  }
+}

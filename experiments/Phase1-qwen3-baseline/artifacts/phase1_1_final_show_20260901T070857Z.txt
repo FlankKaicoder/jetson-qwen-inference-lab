@@ -1,0 +1,98 @@
+Name: torch
+Version: 2.5.0a0+872d972e41.nv24.8
+Summary: Tensors and Dynamic neural networks in Python with strong GPU acceleration
+Home-page: https://pytorch.org/
+Author: PyTorch Team
+Author-email: packages@pytorch.org
+License: BSD-3
+Location: /usr/local/lib/python3.10/dist-packages
+Requires: filelock, fsspec, jinja2, networkx, sympy, typing-extensions
+Required-by: accelerate, torchvision, ultralytics, ultralytics-thop
+---
+Name: transformers
+Version: 4.57.3
+Summary: State-of-the-art Machine Learning for JAX, PyTorch and TensorFlow
+Home-page: https://github.com/huggingface/transformers
+Author: The Hugging Face team (past and future) with the help of all our contributors (https://github.com/huggingface/transformers/graphs/contributors)
+Author-email: transformers@huggingface.co
+License: Apache 2.0 License
+Location: /home/nvidia/.venvs/jetson-qwen-phase1-hf/lib/python3.10/site-packages
+Requires: filelock, huggingface-hub, numpy, packaging, pyyaml, regex, requests, safetensors, tokenizers, tqdm
+Required-by:
+---
+Name: accelerate
+Version: 1.14.0
+Summary: Accelerate
+Home-page: https://github.com/huggingface/accelerate
+Author: The Hugging Face team
+Author-email: transformers@huggingface.co
+License: Apache
+Location: /home/nvidia/.venvs/jetson-qwen-phase1-hf/lib/python3.10/site-packages
+Requires: huggingface_hub, numpy, packaging, psutil, pyyaml, safetensors, torch
+Required-by:
+---
+Name: huggingface_hub
+Version: 0.36.2
+Summary: Client library to download and publish models, datasets and other repos on the huggingface.co hub
+Home-page: https://github.com/huggingface/huggingface_hub
+Author: Hugging Face, Inc.
+Author-email: julien@huggingface.co
+License: Apache
+Location: /home/nvidia/.venvs/jetson-qwen-phase1-hf/lib/python3.10/site-packages
+Requires: filelock, fsspec, hf-xet, packaging, pyyaml, requests, tqdm, typing-extensions
+Required-by: accelerate, tokenizers, transformers
+---
+Name: safetensors
+Version: 0.8.0
+Summary:
+Home-page:
+Author:
+Author-email: Nicolas Patry <patry.nicolas@protonmail.com>, Luc Georges <luc@huggingface.co>, Daniël De Kok <daniel.dekok@huggingface.co>
+License:
+Location: /home/nvidia/.venvs/jetson-qwen-phase1-hf/lib/python3.10/site-packages
+Requires:
+Required-by: accelerate, transformers
+---
+Name: tokenizers
+Version: 0.22.2
+Summary:
+Home-page:
+Author:
+Author-email: Nicolas Patry <patry.nicolas@protonmail.com>, Anthony Moi <anthony@huggingface.co>
+License:
+Location: /home/nvidia/.venvs/jetson-qwen-phase1-hf/lib/python3.10/site-packages
+Requires: huggingface-hub
+Required-by: transformers
+---
+Name: regex
+Version: 2026.9.3
+Summary: Alternative regular expression module, to replace re.
+Home-page:
+Author:
+Author-email: Matthew Barnett <regex@mrabarnett.plus.com>
+License:
+Location: /home/nvidia/.venvs/jetson-qwen-phase1-hf/lib/python3.10/site-packages
+Requires:
+Required-by: transformers
+---
+Name: hf-xet
+Version: 1.6.0
+Summary: Fast transfer of large files with the Hugging Face Hub.
+Home-page:
+Author:
+Author-email:
+License:
+Location: /home/nvidia/.venvs/jetson-qwen-phase1-hf/lib/python3.10/site-packages
+Requires:
+Required-by: huggingface_hub
+---
+Name: pillow
+Version: 11.3.0
+Summary: Python Imaging Library (Fork)
+Home-page:
+Author:
+Author-email: "Jeffrey A. Clark" <aclark@aclark.net>
+License:
+Location: /home/nvidia/.venvs/jetson-qwen-phase1-hf/lib/python3.10/site-packages
+Requires:
+Required-by: matplotlib, torchvision, ultralytics

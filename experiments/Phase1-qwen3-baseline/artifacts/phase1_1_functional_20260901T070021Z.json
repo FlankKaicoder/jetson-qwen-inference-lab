@@ -1,0 +1,240 @@
+{
+  "schema_version": 1,
+  "started_at": "2026-09-01T07:00:27.280435+00:00",
+  "snapshot_path": "/home/nvidia/models/qwen3-0.6b-c1899de289a04d12100db370d81485cdf75e47ca",
+  "protocol": {
+    "batch_size": 1,
+    "dtype": "torch.bfloat16",
+    "device": "cuda:0",
+    "local_files_only": true,
+    "enable_thinking": false,
+    "do_sample": false,
+    "max_new_tokens": 32,
+    "attention_implementation": "eager",
+    "purpose": "deterministic functional smoke test, not a performance or quality benchmark"
+  },
+  "memory_checkpoints": [
+    {
+      "stage": "M0_before_model_load",
+      "timestamp": "2026-09-01T07:00:27.402669+00:00",
+      "system": {
+        "MemTotal": 7989940224,
+        "MemAvailable": 4100358144,
+        "SwapTotal": 3994951680,
+        "SwapFree": 3700563968,
+        "SwapUsed": 294387712
+      },
+      "torch_cuda_allocator": {
+        "allocated": 0,
+        "reserved": 0,
+        "max_allocated": 0,
+        "max_reserved": 0
+      },
+      "cuda_mem_info": {
+        "free": 4075433984,
+        "total": 7989940224
+      }
+    },
+    {
+      "stage": "M1_after_model_load",
+      "timestamp": "2026-09-01T07:00:31.970959+00:00",
+      "system": {
+        "MemTotal": 7989940224,
+        "MemAvailable": 3239448576,
+        "SwapTotal": 3994951680,
+        "SwapFree": 3700563968,
+        "SwapUsed": 294387712
+      },
+      "torch_cuda_allocator": {
+        "allocated": 1192638976,
+        "reserved": 1509949440,
+        "max_allocated": 1503803392,
+        "max_reserved": 1509949440
+      },
+      "cuda_mem_info": {
+        "free": 3234508800,
+        "total": 7989940224
+      }
+    },
+    {
+      "stage": "M2_after_forward",
+      "timestamp": "2026-09-01T07:00:33.127787+00:00",
+      "system": {
+        "MemTotal": 7989940224,
+        "MemAvailable": 2749599744,
+        "SwapTotal": 3994951680,
+        "SwapFree": 3632406528,
+        "SwapUsed": 362545152
+      },
+      "torch_cuda_allocator": {
+        "allocated": 1201159680,
+        "reserved": 1509949440,
+        "max_allocated": 1503803392,
+        "max_reserved": 1509949440
+      },
+      "cuda_mem_info": {
+        "free": 2745352192,
+        "total": 7989940224
+      }
+    },
+    {
+      "stage": "M3_after_generation_1",
+      "timestamp": "2026-09-01T07:00:34.410558+00:00",
+      "system": {
+        "MemTotal": 7989940224,
+        "MemAvailable": 2747166720,
+        "SwapTotal": 3994951680,
+        "SwapFree": 3632406528,
+        "SwapUsed": 362545152
+      },
+      "torch_cuda_allocator": {
+        "allocated": 1201161216,
+        "reserved": 1514143744,
+        "max_allocated": 1503803392,
+        "max_reserved": 1514143744
+      },
+      "cuda_mem_info": {
+        "free": 2744971264,
+        "total": 7989940224
+      }
+    },
+    {
+      "stage": "M4_after_generation_2",
+      "timestamp": "2026-09-01T07:00:34.779083+00:00",
+      "system": {
+        "MemTotal": 7989940224,
+        "MemAvailable": 2747166720,
+        "SwapTotal": 3994951680,
+        "SwapFree": 3632406528,
+        "SwapUsed": 362545152
+      },
+      "torch_cuda_allocator": {
+        "allocated": 1201161216,
+        "reserved": 1514143744,
+        "max_allocated": 1503803392,
+        "max_reserved": 1514143744
+      },
+      "cuda_mem_info": {
+        "free": 2744971264,
+        "total": 7989940224
+      }
+    },
+    {
+      "stage": "M5_after_generation_3",
+      "timestamp": "2026-09-01T07:00:36.273556+00:00",
+      "system": {
+        "MemTotal": 7989940224,
+        "MemAvailable": 2746023936,
+        "SwapTotal": 3994951680,
+        "SwapFree": 3632406528,
+        "SwapUsed": 362545152
+      },
+      "torch_cuda_allocator": {
+        "allocated": 1201161216,
+        "reserved": 1514143744,
+        "max_allocated": 1503803392,
+        "max_reserved": 1514143744
+      },
+      "cuda_mem_info": {
+        "free": 2743828480,
+        "total": 7989940224
+      }
+    }
+  ],
+  "runtime": {
+    "torch": "2.5.0a0+872d972e41.nv24.08",
+    "torch_file": "/usr/local/lib/python3.10/dist-packages/torch/__init__.py",
+    "torch_cuda": "12.6",
+    "device_name": "Orin",
+    "capability": [
+      8,
+      7
+    ],
+    "bf16_supported": true
+  },
+  "tokenizer": {
+    "class": "Qwen2TokenizerFast",
+    "vocab_size": 151669,
+    "eos_token_id": 151645,
+    "pad_token_id": 151643,
+    "chat_template_present": true
+  },
+  "model": {
+    "class": "Qwen3ForCausalLM",
+    "model_type": "qwen3",
+    "architectures": [
+      "Qwen3ForCausalLM"
+    ],
+    "num_hidden_layers": 28,
+    "hidden_size": 1024,
+    "intermediate_size": 3072,
+    "num_attention_heads": 16,
+    "num_key_value_heads": 8,
+    "head_dim": 128,
+    "parameter_count": 596049920,
+    "trainable_parameter_count": 596049920,
+    "parameter_devices": [
+      "cuda:0"
+    ],
+    "parameter_dtypes": [
+      "torch.bfloat16"
+    ],
+    "hf_device_map": {
+      "": "cuda:0"
+    }
+  },
+  "forward": {
+    "input_tokens": 14,
+    "input_shape": [
+      1,
+      14
+    ],
+    "attention_mask_shape": [
+      1,
+      14
+    ],
+    "logits_shape": [
+      1,
+      14,
+      151936
+    ],
+    "logits_dtype": "torch.bfloat16",
+    "finite": true,
+    "logits_min": -32.5,
+    "logits_max": 35.75
+  },
+  "generations": [
+    {
+      "case": "arithmetic",
+      "prompt": "What is 2 + 3? Reply with only the number.",
+      "input_tokens": 26,
+      "generated_tokens": 8,
+      "stop_reason": "eos",
+      "output": "2 + 3 = 5",
+      "nonempty": true,
+      "token_ids_valid": true
+    },
+    {
+      "case": "chinese",
+      "prompt": "中国的首都是哪里？只回答城市名。",
+      "input_tokens": 22,
+      "generated_tokens": 2,
+      "stop_reason": "eos",
+      "output": "北京",
+      "nonempty": true,
+      "token_ids_valid": true
+    },
+    {
+      "case": "cuda",
+      "prompt": "In one short sentence, what does CUDA stand for?",
+      "input_tokens": 23,
+      "generated_tokens": 11,
+      "stop_reason": "eos",
+      "output": "CUDA stands for **Compute Unified Device Architecture**.",
+      "nonempty": true,
+      "token_ids_valid": true
+    }
+  ],
+  "completed_at": "2026-09-01T07:00:36.274845+00:00",
+  "status": "PASS"
+}
