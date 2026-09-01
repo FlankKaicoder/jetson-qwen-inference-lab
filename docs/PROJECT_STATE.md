@@ -15,7 +15,7 @@
 | Current phase | Phase 2 — LLM Quantization |
 | Current experiment | Phase 2.1.8 — Qwen3-like decoder block TensorRT feasibility |
 | Current branch | `phase/02-qwen3-quantization` |
-| Current HEAD | `bb4dea8286fea60448e476dd82e789822cfd3f54` at Phase 2.1.8 start; closeout commit pending |
+| Current HEAD | Verify with `git rev-parse HEAD`; Phase 2.1.8 evidence commit `fe0edb8e4239e2e91137f7a6862d59511ed3b74c` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Exp04 — CUDA GEMM tiling and WMMA |
 | Experiment status | Phase 1.0 `PASS WITH CONSTRAINTS / CLOSED`; Phase 1.1 `PASS / CLOSED`; Phase 1.2 `PASS / CLOSED`; Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8 `PASS / BOUNDED` |
