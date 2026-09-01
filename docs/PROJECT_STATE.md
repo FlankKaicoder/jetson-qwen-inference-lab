@@ -13,14 +13,14 @@
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
 | Current phase | Phase 2 — LLM Quantization |
-| Current experiment | Phase 2.1.5 — TensorRT graph pipeline enablement |
+| Current experiment | Phase 2.1.8 — Qwen3-like decoder block TensorRT feasibility |
 | Current branch | `phase/02-qwen3-quantization` |
-| Current HEAD | `fbcb0b83578cb1c6a6c9b0a2eace6bf40a7fe27a` (Phase 2.1.5 graph pipeline closeout); Phase 1 closeout `1f59fc0a3ebb43eab6a4f213c143092292601749` |
+| Current HEAD | `bb4dea8286fea60448e476dd82e789822cfd3f54` at Phase 2.1.8 start; closeout commit pending |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Exp04 — CUDA GEMM tiling and WMMA |
-| Experiment status | Phase 1.0 `PASS WITH CONSTRAINTS / CLOSED`; Phase 1.1 `PASS / CLOSED`; Phase 1.2 `PASS / CLOSED`; Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED` |
-| Current Gate | Phase 2.1.5 Overall `PASS`; underlying Phase 2.1 remains `INCONCLUSIVE` |
-| Readiness | Phase 2.1.5 closed; any Qwen3 export/quantization or Phase 2.2 work requires explicit authorization; Phase 3 is not started |
+| Experiment status | Phase 1.0 `PASS WITH CONSTRAINTS / CLOSED`; Phase 1.1 `PASS / CLOSED`; Phase 1.2 `PASS / CLOSED`; Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8 `PASS / BOUNDED` |
+| Current Gate | Phase 2.1.8 A/B/C `PASS`; D `SUPPORTED`; underlying Phase 2.1 remains `INCONCLUSIVE` |
+| Readiness | Synthetic Qwen3-like FP16 decoder-block path is ready only for its bounded feasibility objective; full Qwen3 export/quantization or Phase 2.2 requires explicit authorization; Phase 3 is not started |
 
 ## Confirmed Findings
 
@@ -105,9 +105,18 @@ No repository evidence records a formally `REJECT`-status experiment.
 - Gate A/B/C and Overall are `PASS` for graph-pipeline enablement only. No Qwen3 export, quantization, benchmark, memory/power measurement, or Nsight profile was run. Phase 2.2 and Phase 3 remain unstarted.
 - Report: `experiments/Phase2-qwen3-quantization/docs/phase2_1_5_graph_enablement.md`; evidence: `experiments/Phase2-qwen3-quantization/artifacts/phase2_1_5_20260901/`.
 
+## Phase 2.1.8 Qwen3-like Decoder Block Feasibility (2026-09-01)
+
+- Existing isolated tools venv: NVIDIA PyTorch `2.5.0a0+872d972e41.nv24.08`, CUDA `12.6`, TensorRT `10.3.0`, ONNX `1.22.0`, Orin and Nsight Compute `2024.3.1.0`; `pip check` passed. No package or system change was made.
+- A synthetic FP16 Qwen3-like single decoder block uses recorded Qwen3-0.6B dimensions (1024 hidden, 16 Q heads, 8 KV heads, 128 head dimension, 3072 intermediate), RMSNorm, RoPE, GQA, causal softmax attention and SwiGLU. No checkpoint was loaded.
+- Opset-17 export and ONNX checker passed (201 nodes); TensorRT parser had zero errors, FP16 engine build passed, and dynamic batch 1/2 CUDA executions were finite with expected shapes and FP16 output. PyTorch comparison is informational only; its absolute/RMSE values are recorded without a formal accuracy claim.
+- TensorRT FP16 Reduce/Pow normalization-overflow and default-stream synchronization warnings remain explicit limitations. This establishes only the bounded synthetic decoder-block feasibility path, not full-model or production readiness.
+- Gate A/B/C `PASS`; Gate D `SUPPORTED`; Phase 2.1.8 `PASS / BOUNDED`. Underlying Phase 2.1 INT8/INT4 result remains `INCONCLUSIVE`.
+- Report: `experiments/Phase2-qwen3-quantization/docs/phase2_1_8_qwen3_block_feasibility.md`; evidence: `experiments/Phase2-qwen3-quantization/artifacts/phase2_1_8_20260901/`; ONNX and engine stay Jetson-local under `/tmp/phase2_1_8_qwen3_block/`.
+
 ## Required Next Action
 
-Review the Phase 2.1.5 synthetic graph enablement evidence and explicitly authorize any further Phase 2.2 work. Do not start Qwen3 export/quantization, TensorRT-LLM, benchmarking, or Phase 3 automatically.
+Review the Phase 2.1.8 bounded decoder-block evidence. Do not start full Qwen3 export, INT8, INT4, TensorRT-LLM, benchmarking, Phase 2.2 or Phase 3 without explicit authorization.
 
 ## Do-not-repeat Work
 

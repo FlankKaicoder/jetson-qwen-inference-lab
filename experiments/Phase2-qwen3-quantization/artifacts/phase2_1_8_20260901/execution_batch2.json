@@ -1,0 +1,9 @@
+{
+  "cuda_execute": "PASS",
+  "batch": 2,
+  "input_shape": [2, 8, 1024],
+  "output_shape": [2, 8, 1024],
+  "output_dtype": "DataType.HALF",
+  "output_finite": true,
+  "engine": "qwen3_block.engine (Jetson-local dynamic profile)"
+}

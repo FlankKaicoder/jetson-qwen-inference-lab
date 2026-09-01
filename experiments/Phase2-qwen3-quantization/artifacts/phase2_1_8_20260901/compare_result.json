@@ -1,0 +1,9 @@
+{
+  "executed": true,
+  "shape_equal": true,
+  "finite": true,
+  "max_abs_error": 0.005859375,
+  "max_rel_error": 366.2109375,
+  "rmse": 0.0008317075553350151,
+  "tolerance": "informational only; FP16 graph comparison, no Gate accuracy threshold"
+}

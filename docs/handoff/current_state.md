@@ -156,3 +156,11 @@
 - Synthetic Linear, MLP/GELU and RMSNorm-like+Linear FP16 opset-17 graphs passed export/checker (3/3), TensorRT parser/build and CUDA execution at M=1/32 (6/6), with context-resolved output shape and `DataType.HALF` allocation. RMSNorm FP16 overflow warning is retained as a risk note.
 - Gate A/B/C and Overall `PASS` for this bounded plumbing audit. No Qwen3 export/quantization, benchmark, memory/power measurement, Nsight profile, TensorRT-LLM or Phase 2.2/3 work was started.
 - Report: `experiments/Phase2-qwen3-quantization/docs/phase2_1_5_graph_enablement.md`; evidence: `experiments/Phase2-qwen3-quantization/artifacts/phase2_1_5_20260901/`. Engines/ONNX remain Jetson-local under `/tmp`.
+
+## Phase 2.1.8 Qwen3-like Decoder Block Feasibility (2026-09-01)
+
+- Starting branch/HEAD: `phase/02-qwen3-quantization@bb4dea8286fea60448e476dd82e789822cfd3f54`; Windows and Jetson were clean before the audit.
+- Existing tools venv only: PyTorch `2.5.0a0+872d972e41.nv24.08`, CUDA `12.6`, TensorRT `10.3.0`, ONNX `1.22.0`; `pip check` passed. No package, CUDA, TensorRT, JetPack, power or clock setting was changed.
+- Synthetic FP16 single decoder block (RMSNorm, RoPE, 16Q/8KV GQA, causal attention, SwiGLU) used the recorded Qwen3-0.6B dimensions but loaded no checkpoint. ONNX checker passed (201 nodes); TensorRT parser had zero errors; FP16 build and batch 1/2 dynamic-profile CUDA execution passed with finite FP16 `[B,8,1024]` output.
+- Numerical comparisons are informational only: batch 1/2 max abs 0.005859375 and RMSE 0.000831708/0.000835744. TensorRT warned about FP16 Reduce/Pow overflow risk and default-stream synchronization; retain both limitations.
+- Gate A/B/C PASS, Gate D SUPPORTED, Phase 2.1.8 PASS/BOUNDED. This does not change Phase 2.1 INT8/INT4 `INCONCLUSIVE` status. No full Qwen3 export, INT8, INT4, TensorRT-LLM, benchmark, Phase 2.2 or Phase 3 was started; BF16 reference unchanged.

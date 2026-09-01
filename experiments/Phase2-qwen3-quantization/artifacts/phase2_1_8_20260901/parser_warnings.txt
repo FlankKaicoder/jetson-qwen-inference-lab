@@ -1,0 +1,6 @@
+TensorRT 10.3 warnings during FP16 build:
+[TRT] DLA requests all profiles have same min, max, and opt value. All DLA layers fall back to GPU.
+[TRT] Detected layernorm nodes in FP16.
+[TRT] Running layernorm after self-attention with FP16 Reduce or Pow may cause overflow; FP32 reduction or INormalizationLayer is suggested.
+[TRT] enqueueV3 default stream may add synchronization overhead.
+PyTorch ONNX export warning: torch.tensor results in RoPE are registered as constants (theta is intentionally fixed for this feasibility graph).
