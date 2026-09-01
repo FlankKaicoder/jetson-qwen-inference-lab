@@ -1,0 +1,31 @@
+Phase 1.2 environment and read-only clock evidence
+captured: 2026-09-01 Asia/Shanghai
+
+git_branch=phase/01-qwen3-baseline
+git_starting_commit=9a8f825cadcd2c8b9b30d1d58ec30c2cf9139e8f
+jetson_hostname=nvidia-desktop
+os=Ubuntu 22.04.5 LTS
+kernel=Linux 5.15.148-tegra aarch64
+l4t_release=R36.4.3
+nvidia_l4t_core=36.4.3-20250107174145
+nvidia_l4t_cuda=36.4.3-20250107174145
+cuda=12.6
+torch=2.5.0a0+872d972e41.nv24.08
+transformers=4.57.3
+accelerate=1.14.0
+device=Orin
+compute_capability=8.7
+bf16_supported=true
+power_mode_start=25W
+power_mode_end=25W
+
+jetson_clocks --show (read-only):
+CPU governor=schedutil, min=729600 kHz, max=1344000 kHz
+GPU min=306000000 Hz, max=918000000 Hz
+EMC min=204000000 Hz, max=3199000000 Hz, FreqOverride=0
+Active GPU TPCs=4
+Fan control=nvfancontrol
+
+No nvpmodel, clock, fan, swap, CUDA, PyTorch, or Transformers setting was changed.
+The per-run JSON files retain the runtime, model, Git, power-mode, timing, and trial metadata.
+L4T and read-only clock-query evidence are recorded in this experiment-level sidecar.

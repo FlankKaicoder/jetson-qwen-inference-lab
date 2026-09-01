@@ -2,7 +2,7 @@
 
 Status: `IN PROGRESS`
 
-Phase 1 starts with an audit-first runtime decision. Phase 1.1 is complete; Phase 1 remains in progress and Phase 1.2 has not started.
+Phase 1 starts with an audit-first runtime decision. Phase 1.2 is complete; Phase 1 remains in progress pending owner review of the next runtime direction.
 
 ## Phase 1.0 result
 
@@ -26,3 +26,12 @@ Evidence and full rationale are in [docs/phase1_0_runtime_feasibility_audit.md](
 - Minimum checkpoint MemAvailable was 2,746,023,936 bytes; successful-run swap grew by 68,157,440 bytes and then remained stable; no OOM or offload occurred.
 - PyTorch 2.5 requires the built-in eager attention path because its SDPA API does not accept Transformers' `enable_gqa` argument. This is recorded as a functional compatibility constraint, not a performance conclusion.
 - Gate A/B/C/D: `PASS`. Phase 1.1: `PASS / CLOSED`. Full report: [docs/phase1_1_hf_bf16_reference.md](docs/phase1_1_hf_bf16_reference.md).
+
+## Phase 1.2 result
+
+- Exact BF16/eager batch-1 baseline used ISL 32/128/512/1024, fixed OSL 32, two warmups, ten formal trials, fresh process per shape, CUDA Event prefill timing, and synchronized wall TTFT/TPOT/E2E timing.
+- Manual KV-cache loop matched `generate()` for 8/8 tokens; all 40 formal trials had valid cache growth and exact OSL.
+- Median prefill GPU latency for ISL 32/128/512/1024 was 128.828/128.385/300.934/614.409 ms. Median TPOT was 125.206/121.168/118.440/115.542 ms.
+- All TTFT and TPOT CV values were below 5%. The gated 1024 pilot and formal run completed without OOM or CUDA errors.
+- `VDD_IN` and thermal evidence is board-level, not process-exclusive. Peak observed GPU/TJ temperature was 58.312 C; no power mode or clock setting changed.
+- Gate A/B/C/D: `PASS`. Phase 1.2: `PASS / CLOSED`. Full report: [docs/phase1_2_formal_benchmark.md](docs/phase1_2_formal_benchmark.md).

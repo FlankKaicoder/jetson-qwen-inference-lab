@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "mode": "validate",
+  "started_at": "2026-09-01T07:49:05.714174+00:00",
+  "git": {
+    "commit": "9a8f825cadcd2c8b9b30d1d58ec30c2cf9139e8f",
+    "branch": "phase/01-qwen3-baseline"
+  },
+  "platform": {
+    "device": "Orin",
+    "compute_capability": [
+      8,
+      7
+    ],
+    "torch": "2.5.0a0+872d972e41.nv24.08",
+    "torch_file": "/usr/local/lib/python3.10/dist-packages/torch/__init__.py",
+    "torch_cuda": "12.6",
+    "transformers": "4.57.3"
+  },
+  "model": {
+    "repo": "Qwen/Qwen3-0.6B",
+    "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+    "weight_sha256": "f47f71177f32bcd101b7573ec9171e6a57f4f4d31148d38e382306f42996874b",
+    "snapshot": "/home/nvidia/models/qwen3-0.6b-c1899de289a04d12100db370d81485cdf75e47ca",
+    "dtype": "torch.bfloat16",
+    "attention_implementation": "eager",
+    "batch": 1
+  },
+  "shape": {
+    "isl": 32,
+    "osl": 32
+  },
+  "protocol": {
+    "warmups": 0,
+    "initial_trials": 0,
+    "stability_extension_trials": 5,
+    "stability_cv_threshold_percent": 5.0,
+    "fresh_process": true,
+    "fixed_output_length_despite_eos": true,
+    "selection": "greedy argmax",
+    "gpu_timing": "CUDA Events around model forward only",
+    "wall_timing": "perf_counter_ns with CUDA synchronization at boundaries"
+  },
+  "power_mode_start": {
+    "exit_code": 0,
+    "stdout": "NV Power Mode: 25W\n1",
+    "stderr": ""
+  },
+  "memory_before_model_load": {
+    "MemTotal": 7989940224,
+    "MemAvailable": 4121194496,
+    "SwapTotal": 3994951680,
+    "SwapFree": 3635552256,
+    "SwapUsed": 359399424
+  },
+  "input_construction": {
+    "algorithm": "tokenize 'Hello world. ' without special tokens, repeat, truncate to exact ISL",
+    "seed_text": "Hello world. ",
+    "seed_token_count": 4,
+    "actual_isl": 32,
+    "padding": false
+  },
+  "model_loaded_at_ns": 1788248954162173261,
+  "memory_after_model_load": {
+    "timestamp_ns": 1788248954163708981,
+    "system": {
+      "MemTotal": 7989940224,
+      "MemAvailable": 2970402816,
+      "SwapTotal": 3994951680,
+      "SwapFree": 3635552256,
+      "SwapUsed": 359399424
+    },
+    "torch_cuda_allocator": {
+      "allocated": 1192639488,
+      "reserved": 1509949440,
+      "max_allocated": 1503803392,
+      "max_reserved": 1509949440
+    },
+    "cuda_mem_info": {
+      "free": 2964467712,
+      "total": 7989940224
+    }
+  },
+  "loaded_idle_start_ns": 1788248954165002264,
+  "loaded_idle_end_ns": 1788248959170259415,
+  "method_validation": {
+    "prompt": "What is 2 + 3? Reply with only the number.",
+    "input_tokens": 26,
+    "reference_token_ids": [
+      17,
+      488,
+      220,
+      18,
+      284,
+      220,
+      20,
+      151645
+    ],
+    "manual_token_ids": [
+      17,
+      488,
+      220,
+      18,
+      284,
+      220,
+      20,
+      151645
+    ],
+    "tokens_equal": true,
+    "cache_class": "DynamicCache",
+    "cache_lengths": [
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33
+    ],
+    "cache_lengths_expected": [
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33
+    ],
+    "cache_growth_valid": true,
+    "timing_accounting_error_ms": 2.5290899999999965,
+    "timing_accounting_tolerance_ms": 10.38240149,
+    "timing_accounting_valid": true,
+    "pass": true
+  },
+  "memory_at_end": {
+    "timestamp_ns": 1788248962046037832,
+    "system": {
+      "MemTotal": 7989940224,
+      "MemAvailable": 2685988864,
+      "SwapTotal": 3994951680,
+      "SwapFree": 3616415744,
+      "SwapUsed": 378535936
+    },
+    "torch_cuda_allocator": {
+      "allocated": 1201159168,
+      "reserved": 1514143744,
+      "max_allocated": 1503803392,
+      "max_reserved": 1514143744
+    },
+    "cuda_mem_info": {
+      "free": 2685267968,
+      "total": 7989940224
+    }
+  },
+  "power_mode_end": {
+    "exit_code": 0,
+    "stdout": "NV Power Mode: 25W\n1",
+    "stderr": ""
+  },
+  "completed_at": "2026-09-01T07:49:22.068172+00:00",
+  "status": "PASS"
+}

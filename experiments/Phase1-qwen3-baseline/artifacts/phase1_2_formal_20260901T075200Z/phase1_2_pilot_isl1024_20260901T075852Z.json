@@ -1,0 +1,981 @@
+{
+  "schema_version": 1,
+  "mode": "pilot",
+  "started_at": "2026-09-01T07:58:57.707633+00:00",
+  "git": {
+    "commit": "9a8f825cadcd2c8b9b30d1d58ec30c2cf9139e8f",
+    "branch": "phase/01-qwen3-baseline"
+  },
+  "platform": {
+    "device": "Orin",
+    "compute_capability": [
+      8,
+      7
+    ],
+    "torch": "2.5.0a0+872d972e41.nv24.08",
+    "torch_file": "/usr/local/lib/python3.10/dist-packages/torch/__init__.py",
+    "torch_cuda": "12.6",
+    "transformers": "4.57.3"
+  },
+  "model": {
+    "repo": "Qwen/Qwen3-0.6B",
+    "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+    "weight_sha256": "f47f71177f32bcd101b7573ec9171e6a57f4f4d31148d38e382306f42996874b",
+    "snapshot": "/home/nvidia/models/qwen3-0.6b-c1899de289a04d12100db370d81485cdf75e47ca",
+    "dtype": "torch.bfloat16",
+    "attention_implementation": "eager",
+    "batch": 1
+  },
+  "shape": {
+    "isl": 1024,
+    "osl": 32
+  },
+  "protocol": {
+    "warmups": 0,
+    "initial_trials": 0,
+    "stability_extension_trials": 5,
+    "stability_cv_threshold_percent": 5.0,
+    "fresh_process": true,
+    "fixed_output_length_despite_eos": true,
+    "selection": "greedy argmax",
+    "gpu_timing": "CUDA Events around model forward only",
+    "wall_timing": "perf_counter_ns with CUDA synchronization at boundaries"
+  },
+  "power_mode_start": {
+    "exit_code": 0,
+    "stdout": "NV Power Mode: 25W\n1",
+    "stderr": ""
+  },
+  "memory_before_model_load": {
+    "MemTotal": 7989940224,
+    "MemAvailable": 4027940864,
+    "SwapTotal": 3994951680,
+    "SwapFree": 3618250752,
+    "SwapUsed": 376700928
+  },
+  "input_construction": {
+    "algorithm": "tokenize 'Hello world. ' without special tokens, repeat, truncate to exact ISL",
+    "seed_text": "Hello world. ",
+    "seed_token_count": 4,
+    "actual_isl": 1024,
+    "padding": false
+  },
+  "model_loaded_at_ns": 1788249672796017344,
+  "memory_after_model_load": {
+    "timestamp_ns": 1788249672797544427,
+    "system": {
+      "MemTotal": 7989940224,
+      "MemAvailable": 2970480640,
+      "SwapTotal": 3994951680,
+      "SwapFree": 3618250752,
+      "SwapUsed": 376700928
+    },
+    "torch_cuda_allocator": {
+      "allocated": 1192647168,
+      "reserved": 1509949440,
+      "max_allocated": 1503803392,
+      "max_reserved": 1509949440
+    },
+    "cuda_mem_info": {
+      "free": 2968813568,
+      "total": 7989940224
+    }
+  },
+  "loaded_idle_start_ns": 1788249672798859458,
+  "loaded_idle_end_ns": 1788249677804134576,
+  "pilot": {
+    "epoch_start_ns": 1788249677822230483,
+    "epoch_end_ns": 1788249683081600681,
+    "isl": 1024,
+    "osl": 32,
+    "prefill_gpu_ms": 1376.3896484375,
+    "prefill_tokens_per_second": 743.9753714818049,
+    "inference_ttft_ms": 1377.892965,
+    "decode_step_gpu_ms": [
+      161.15919494628906,
+      123.4797134399414,
+      120.58895874023438,
+      121.1872329711914,
+      120.17388916015625,
+      122.85807800292969,
+      120.82825469970703,
+      122.30169677734375,
+      120.57830047607422,
+      122.44652557373047,
+      121.51936340332031,
+      121.78924560546875,
+      121.68732452392578,
+      122.54585266113281,
+      120.5815658569336,
+      120.7438735961914,
+      120.46121978759766,
+      122.0733413696289,
+      120.51334381103516,
+      120.22134399414062,
+      121.40064239501953,
+      121.90889739990234,
+      120.14482879638672,
+      122.16470336914062,
+      121.06201934814453,
+      121.68246459960938,
+      120.45667266845703,
+      121.44786834716797,
+      122.11151885986328,
+      121.9458236694336,
+      121.74060821533203
+    ],
+    "decode_step_wall_ms": [
+      161.945233,
+      123.701271,
+      120.826036,
+      121.640862,
+      120.67143,
+      123.099393,
+      121.025437,
+      122.72402,
+      121.014043,
+      122.937928,
+      121.750909,
+      121.987219,
+      122.136864,
+      122.748087,
+      120.782333,
+      121.16899,
+      120.896902,
+      122.275938,
+      120.929832,
+      120.416539,
+      121.61127,
+      122.104563,
+      120.347116,
+      122.828681,
+      121.2655,
+      121.881172,
+      120.677736,
+      121.665857,
+      122.48513,
+      122.134731,
+      121.94085
+    ],
+    "tpot_ms": 125.20894093548387,
+    "direct_mean_decode_wall_ms": 123.02006038709678,
+    "decode_tokens_per_second": 7.9866500948623775,
+    "e2e_ms": 5259.370134,
+    "e2e_output_tokens_per_second": 6.084378772494281,
+    "timing_accounting_error_ms": 67.85529700000006,
+    "timing_accounting_tolerance_ms": 52.593701339999996,
+    "cache_class": "DynamicCache",
+    "cache_lengths": [
+      1024,
+      1025,
+      1026,
+      1027,
+      1028,
+      1029,
+      1030,
+      1031,
+      1032,
+      1033,
+      1034,
+      1035,
+      1036,
+      1037,
+      1038,
+      1039,
+      1040,
+      1041,
+      1042,
+      1043,
+      1044,
+      1045,
+      1046,
+      1047,
+      1048,
+      1049,
+      1050,
+      1051,
+      1052,
+      1053,
+      1054,
+      1055
+    ],
+    "cache_lengths_expected": [
+      1024,
+      1025,
+      1026,
+      1027,
+      1028,
+      1029,
+      1030,
+      1031,
+      1032,
+      1033,
+      1034,
+      1035,
+      1036,
+      1037,
+      1038,
+      1039,
+      1040,
+      1041,
+      1042,
+      1043,
+      1044,
+      1045,
+      1046,
+      1047,
+      1048,
+      1049,
+      1050,
+      1051,
+      1052,
+      1053,
+      1054,
+      1055
+    ],
+    "cache_growth_valid": true,
+    "fixed_output_token_ids": [
+      9707,
+      1879,
+      13,
+      220,
+      9707,
+      1879,
+      13,
+      220,
+      9707,
+      1879,
+      13,
+      220,
+      9707,
+      1879,
+      13,
+      220,
+      9707,
+      1879,
+      13,
+      220,
+      9707,
+      1879,
+      13,
+      220,
+      9707,
+      1879,
+      13,
+      220,
+      9707,
+      1879,
+      13,
+      220
+    ],
+    "memory_steps": [
+      {
+        "step": "prefill",
+        "timestamp_ns": 1788249679201954013,
+        "system": {
+          "MemTotal": 7989940224,
+          "MemAvailable": 2343194624,
+          "SwapTotal": 3994951680,
+          "SwapFree": 3532529664,
+          "SwapUsed": 462422016
+        },
+        "torch_cuda_allocator": {
+          "allocated": 1630436352,
+          "reserved": 1891631104,
+          "max_allocated": 1632532992,
+          "max_reserved": 1891631104
+        },
+        "cuda_mem_info": {
+          "free": 2333777920,
+          "total": 7989940224
+        }
+      },
+      {
+        "step": 1,
+        "timestamp_ns": 1788249679366341643,
+        "system": {
+          "MemTotal": 7989940224,
+          "MemAvailable": 2442657792,
+          "SwapTotal": 3994951680,
+          "SwapFree": 3531218944,
+          "SwapUsed": 463732736
+        },
+        "torch_cuda_allocator": {
+          "allocated": 1319688704,
+          "reserved": 1891631104,
+          "max_allocated": 1639126016,
+          "max_reserved": 1891631104
+        },
+        "cuda_mem_info": {
+          "free": 2433757184,
+          "total": 7989940224
+        }
+      },
+      {
+        "step": 2,
+        "timestamp_ns": 1788249679492266891,
+        "system": {
+          "MemTotal": 7989940224,
+          "MemAvailable": 2441883648,
+          "SwapTotal": 3994951680,
+          "SwapFree": 3531218944,
+          "SwapUsed": 463732736
+        },
+        "torch_cuda_allocator": {
+          "allocated": 1319784960,
+          "reserved": 1891631104,
+          "max_allocated": 1639126016,
+          "max_reserved": 1891631104
+        },
+        "cuda_mem_info": {
+          "free": 2432983040,
+          "total": 7989940224
+        }
+      },
+      {
+        "step": 3,
+        "timestamp_ns": 1788249679615245122,
+        "system": {
+          "MemTotal": 7989940224,
+          "MemAvailable": 2442375168,
+          "SwapTotal": 3994951680,
+          "SwapFree": 3531218944,
+          "SwapUsed": 463732736
+        },
+        "torch_cuda_allocator": {
+          "allocated": 1319866880,
+          "reserved": 1891631104,
+          "max_allocated": 1639126016,
+          "max_reserved": 1891631104
+        },
+        "cuda_mem_info": {
+          "free": 2433392640,
+          "total": 7989940224
+        }
+      },
+      {
+        "step": 4,
+        "timestamp_ns": 1788249679739539311,
+        "system": {
+          "MemTotal": 7989940224,
+          "MemAvailable": 2442616832,
+          "SwapTotal": 3994951680,
+          "SwapFree": 3531218944,
+          "SwapUsed": 463732736
+        },
+        "torch_cuda_allocator": {
+          "allocated": 1319938560,
+          "reserved": 1891631104,
+          "max_allocated": 1639126016,
+          "max_reserved": 1891631104
+        },
+        "cuda_mem_info": {
+          "free": 2433536000,
+          "total": 7989940224
+        }
+      },
+      {
+        "step": 5,
+        "timestamp_ns": 1788249679862460672,
+        "system": {
+          "MemTotal": 7989940224,
+          "MemAvailable": 2438762496,
+          "SwapTotal": 3994951680,
+          "SwapFree": 3531218944,
+          "SwapUsed": 463732736
+        },
+        "torch_cuda_allocator": {
+          "allocated": 1319494144,
+          "reserved": 1891631104,
+          "max_allocated": 1639126016,
+          "max_reserved": 1891631104
+        },
+        "cuda_mem_info": {
+          "free": 2436624384,
+          "total": 7989940224
+        }
+      },
+      {
+        "step": 6,
+        "timestamp_ns": 1788249679987898164,
+        "system": {
+          "MemTotal": 7989940224,
+          "MemAvailable": 2434412544,
+          "SwapTotal": 3994951680,
+          "SwapFree": 3531218944,
+          "SwapUsed": 463732736
+        },
+        "torch_cuda_allocator": {
+          "allocated": 1319608832,
+          "reserved": 1891631104,
+          "max_allocated": 1639126016,
+          "max_reserved": 1891631104
+        },
+        "cuda_mem_info": {
+          "free": 2432274432,
+          "total": 7989940224
+        }
+      },
+      {
+        "step": 7,
+        "timestamp_ns": 1788249680110997227,
+        "system": {
+          "MemTotal": 7989940224,
+          "MemAvailable": 2434412544,
+          "SwapTotal": 3994951680,
+          "SwapFree": 3531218944,
+          "SwapUsed": 463732736
+        },
+        "torch_cuda_allocator": {
+          "allocated": 1319723520,
+          "reserved": 1891631104,
+          "max_allocated": 1639126016,
+          "max_reserved": 1891631104
+        },
+        "cuda_mem_info": {
+          "free": 2432274432,
+          "total": 7989940224
+        }
+      },
+      {
+        "step": 8,
+        "timestamp_ns": 1788249680236556096,
+        "system": {
+          "MemTotal": 7989940224,
+          "MemAvailable": 2434412544,
+          "SwapTotal": 3994951680,
+          "SwapFree": 3531218944,
+          "SwapUsed": 463732736
+        },
+        "torch_cuda_allocator": {
+          "allocated": 1319838208,
+          "reserved": 1891631104,
+          "max_allocated": 1639126016,
+          "max_reserved": 1891631104
+        },
+        "cuda_mem_info": {
+          "free": 2432274432,
+          "total": 7989940224
+        }
+      },
+      {
+        "step": 9,
+        "timestamp_ns": 1788249680359967474,
+        "system": {
+          "MemTotal": 7989940224,
+          "MemAvailable": 2434412544,
+          "SwapTotal": 3994951680,
+          "SwapFree": 3531218944,
+          "SwapUsed": 463732736
+        },
+        "torch_cuda_allocator": {
+          "allocated": 1319952896,
+          "reserved": 1891631104,
+          "max_allocated": 1639126016,
+          "max_reserved": 1891631104
+        },
+        "cuda_mem_info": {
+          "free": 2432274432,
+          "total": 7989940224
+        }
+      },
+      {
+        "step": 10,
+        "timestamp_ns": 1788249680485189000,
+        "system": {
+          "MemTotal": 7989940224,
+          "MemAvailable": 2440744960,
+          "SwapTotal": 3994951680,
+          "SwapFree": 3531218944,
+          "SwapUsed": 463732736
+        },
+        "torch_cuda_allocator": {
+          "allocated": 1320067584,
+          "reserved": 1891631104,
+          "max_allocated": 1639126016,
+          "max_reserved": 1891631104
+        },
+        "cuda_mem_info": {
+          "free": 2438782976,
+          "total": 7989940224
+        }
+      },
+      {
+        "step": 11,
+        "timestamp_ns": 1788249680609295130,
+        "system": {
+          "MemTotal": 7989940224,
+          "MemAvailable": 2440978432,
+          "SwapTotal": 3994951680,
+          "SwapFree": 3531218944,
+          "SwapUsed": 463732736
+        },
+        "torch_cuda_allocator": {
+          "allocated": 1320182272,
+          "reserved": 1891631104,
+          "max_allocated": 1639126016,
+          "max_reserved": 1891631104
+        },
+        "cuda_mem_info": {
+          "free": 2439032832,
+          "total": 7989940224
+        }
+      },
+      {
+        "step": 12,
+        "timestamp_ns": 1788249680732973860,
+        "system": {
+          "MemTotal": 7989940224,
+          "MemAvailable": 2440978432,
+          "SwapTotal": 3994951680,
+          "SwapFree": 3531218944,
+          "SwapUsed": 463732736
+        },
+        "torch_cuda_allocator": {
+          "allocated": 1320296960,
+          "reserved": 1891631104,
+          "max_allocated": 1639126016,
+          "max_reserved": 1891631104
+        },
+        "cuda_mem_info": {
+          "free": 2439032832,
+          "total": 7989940224
+        }
+      },
+      {
+        "step": 13,
+        "timestamp_ns": 1788249680858692455,
+        "system": {
+          "MemTotal": 7989940224,
+          "MemAvailable": 2440720384,
+          "SwapTotal": 3994951680,
+          "SwapFree": 3531218944,
+          "SwapUsed": 463732736
+        },
+        "torch_cuda_allocator": {
+          "allocated": 1320411648,
+          "reserved": 1891631104,
+          "max_allocated": 1639126016,
+          "max_reserved": 1891631104
+        },
+        "cuda_mem_info": {
+          "free": 2438774784,
+          "total": 7989940224
+        }
+      },
+      {
+        "step": 14,
+        "timestamp_ns": 1788249680983110868,
+        "system": {
+          "MemTotal": 7989940224,
+          "MemAvailable": 2440761344,
+          "SwapTotal": 3994951680,
+          "SwapFree": 3531218944,
+          "SwapUsed": 463732736
+        },
+        "torch_cuda_allocator": {
+          "allocated": 1320526336,
+          "reserved": 1891631104,
+          "max_allocated": 1639126016,
+          "max_reserved": 1891631104
+        },
+        "cuda_mem_info": {
+          "free": 2438815744,
+          "total": 7989940224
+        }
+      },
+      {
+        "step": 15,
+        "timestamp_ns": 1788249681105548518,
+        "system": {
+          "MemTotal": 7989940224,
+          "MemAvailable": 2440761344,
+          "SwapTotal": 3994951680,
+          "SwapFree": 3531218944,
+          "SwapUsed": 463732736
+        },
+        "torch_cuda_allocator": {
+          "allocated": 1320641024,
+          "reserved": 1891631104,
+          "max_allocated": 1639126016,
+          "max_reserved": 1891631104
+        },
+        "cuda_mem_info": {
+          "free": 2438815744,
+          "total": 7989940224
+        }
+      },
+      {
+        "step": 16,
+        "timestamp_ns": 1788249681228404285,
+        "system": {
+          "MemTotal": 7989940224,
+          "MemAvailable": 2440761344,
+          "SwapTotal": 3994951680,
+          "SwapFree": 3531218944,
+          "SwapUsed": 463732736
+        },
+        "torch_cuda_allocator": {
+          "allocated": 1320755712,
+          "reserved": 1891631104,
+          "max_allocated": 1639126016,
+          "max_reserved": 1891631104
+        },
+        "cuda_mem_info": {
+          "free": 2438815744,
+          "total": 7989940224
+        }
+      },
+      {
+        "step": 17,
+        "timestamp_ns": 1788249681350984698,
+        "system": {
+          "MemTotal": 7989940224,
+          "MemAvailable": 2440761344,
+          "SwapTotal": 3994951680,
+          "SwapFree": 3531218944,
+          "SwapUsed": 463732736
+        },
+        "torch_cuda_allocator": {
+          "allocated": 1320870400,
+          "reserved": 1891631104,
+          "max_allocated": 1639126016,
+          "max_reserved": 1891631104
+        },
+        "cuda_mem_info": {
+          "free": 2438815744,
+          "total": 7989940224
+        }
+      },
+      {
+        "step": 18,
+        "timestamp_ns": 1788249681475953070,
+        "system": {
+          "MemTotal": 7989940224,
+          "MemAvailable": 2440761344,
+          "SwapTotal": 3994951680,
+          "SwapFree": 3531218944,
+          "SwapUsed": 463732736
+        },
+        "torch_cuda_allocator": {
+          "allocated": 1322009088,
+          "reserved": 1891631104,
+          "max_allocated": 1639126016,
+          "max_reserved": 1891631104
+        },
+        "cuda_mem_info": {
+          "free": 2438815744,
+          "total": 7989940224
+        }
+      },
+      {
+        "step": 19,
+        "timestamp_ns": 1788249681598473318,
+        "system": {
+          "MemTotal": 7989940224,
+          "MemAvailable": 2440761344,
+          "SwapTotal": 3994951680,
+          "SwapFree": 3531218944,
+          "SwapUsed": 463732736
+        },
+        "torch_cuda_allocator": {
+          "allocated": 1322052096,
+          "reserved": 1891631104,
+          "max_allocated": 1639126016,
+          "max_reserved": 1891631104
+        },
+        "cuda_mem_info": {
+          "free": 2438815744,
+          "total": 7989940224
+        }
+      },
+      {
+        "step": 20,
+        "timestamp_ns": 1788249681720532500,
+        "system": {
+          "MemTotal": 7989940224,
+          "MemAvailable": 2440761344,
+          "SwapTotal": 3994951680,
+          "SwapFree": 3531218944,
+          "SwapUsed": 463732736
+        },
+        "torch_cuda_allocator": {
+          "allocated": 1322095104,
+          "reserved": 1891631104,
+          "max_allocated": 1639126016,
+          "max_reserved": 1891631104
+        },
+        "cuda_mem_info": {
+          "free": 2438815744,
+          "total": 7989940224
+        }
+      },
+      {
+        "step": 21,
+        "timestamp_ns": 1788249681844071176,
+        "system": {
+          "MemTotal": 7989940224,
+          "MemAvailable": 2440531968,
+          "SwapTotal": 3994951680,
+          "SwapFree": 3531218944,
+          "SwapUsed": 463732736
+        },
+        "torch_cuda_allocator": {
+          "allocated": 1322138112,
+          "reserved": 1891631104,
+          "max_allocated": 1639126016,
+          "max_reserved": 1891631104
+        },
+        "cuda_mem_info": {
+          "free": 2438586368,
+          "total": 7989940224
+        }
+      },
+      {
+        "step": 22,
+        "timestamp_ns": 1788249681967864082,
+        "system": {
+          "MemTotal": 7989940224,
+          "MemAvailable": 2440531968,
+          "SwapTotal": 3994951680,
+          "SwapFree": 3531218944,
+          "SwapUsed": 463732736
+        },
+        "torch_cuda_allocator": {
+          "allocated": 1322181120,
+          "reserved": 1891631104,
+          "max_allocated": 1639126016,
+          "max_reserved": 1891631104
+        },
+        "cuda_mem_info": {
+          "free": 2438586368,
+          "total": 7989940224
+        }
+      },
+      {
+        "step": 23,
+        "timestamp_ns": 1788249682089939579,
+        "system": {
+          "MemTotal": 7989940224,
+          "MemAvailable": 2440531968,
+          "SwapTotal": 3994951680,
+          "SwapFree": 3531218944,
+          "SwapUsed": 463732736
+        },
+        "torch_cuda_allocator": {
+          "allocated": 1322228224,
+          "reserved": 1891631104,
+          "max_allocated": 1639126016,
+          "max_reserved": 1891631104
+        },
+        "cuda_mem_info": {
+          "free": 2438586368,
+          "total": 7989940224
+        }
+      },
+      {
+        "step": 24,
+        "timestamp_ns": 1788249682215409489,
+        "system": {
+          "MemTotal": 7989940224,
+          "MemAvailable": 2440531968,
+          "SwapTotal": 3994951680,
+          "SwapFree": 3531218944,
+          "SwapUsed": 463732736
+        },
+        "torch_cuda_allocator": {
+          "allocated": 1322275328,
+          "reserved": 1891631104,
+          "max_allocated": 1639126016,
+          "max_reserved": 1891631104
+        },
+        "cuda_mem_info": {
+          "free": 2438586368,
+          "total": 7989940224
+        }
+      },
+      {
+        "step": 25,
+        "timestamp_ns": 1788249682338356453,
+        "system": {
+          "MemTotal": 7989940224,
+          "MemAvailable": 2440531968,
+          "SwapTotal": 3994951680,
+          "SwapFree": 3531218944,
+          "SwapUsed": 463732736
+        },
+        "torch_cuda_allocator": {
+          "allocated": 1322322432,
+          "reserved": 1891631104,
+          "max_allocated": 1639126016,
+          "max_reserved": 1891631104
+        },
+        "cuda_mem_info": {
+          "free": 2438586368,
+          "total": 7989940224
+        }
+      },
+      {
+        "step": 26,
+        "timestamp_ns": 1788249682461971637,
+        "system": {
+          "MemTotal": 7989940224,
+          "MemAvailable": 2440531968,
+          "SwapTotal": 3994951680,
+          "SwapFree": 3531218944,
+          "SwapUsed": 463732736
+        },
+        "torch_cuda_allocator": {
+          "allocated": 1322369536,
+          "reserved": 1891631104,
+          "max_allocated": 1639126016,
+          "max_reserved": 1891631104
+        },
+        "cuda_mem_info": {
+          "free": 2438586368,
+          "total": 7989940224
+        }
+      },
+      {
+        "step": 27,
+        "timestamp_ns": 1788249682584390521,
+        "system": {
+          "MemTotal": 7989940224,
+          "MemAvailable": 2440531968,
+          "SwapTotal": 3994951680,
+          "SwapFree": 3531218944,
+          "SwapUsed": 463732736
+        },
+        "torch_cuda_allocator": {
+          "allocated": 1322416640,
+          "reserved": 1891631104,
+          "max_allocated": 1639126016,
+          "max_reserved": 1891631104
+        },
+        "cuda_mem_info": {
+          "free": 2438586368,
+          "total": 7989940224
+        }
+      },
+      {
+        "step": 28,
+        "timestamp_ns": 1788249682707986439,
+        "system": {
+          "MemTotal": 7989940224,
+          "MemAvailable": 2440531968,
+          "SwapTotal": 3994951680,
+          "SwapFree": 3531218944,
+          "SwapUsed": 463732736
+        },
+        "torch_cuda_allocator": {
+          "allocated": 1322465792,
+          "reserved": 1891631104,
+          "max_allocated": 1639126016,
+          "max_reserved": 1891631104
+        },
+        "cuda_mem_info": {
+          "free": 2438586368,
+          "total": 7989940224
+        }
+      },
+      {
+        "step": 29,
+        "timestamp_ns": 1788249682833125952,
+        "system": {
+          "MemTotal": 7989940224,
+          "MemAvailable": 2440015872,
+          "SwapTotal": 3994951680,
+          "SwapFree": 3531218944,
+          "SwapUsed": 463732736
+        },
+        "torch_cuda_allocator": {
+          "allocated": 1322514944,
+          "reserved": 1891631104,
+          "max_allocated": 1639126016,
+          "max_reserved": 1891631104
+        },
+        "cuda_mem_info": {
+          "free": 2438070272,
+          "total": 7989940224
+        }
+      },
+      {
+        "step": 30,
+        "timestamp_ns": 1788249682956842201,
+        "system": {
+          "MemTotal": 7989940224,
+          "MemAvailable": 2440015872,
+          "SwapTotal": 3994951680,
+          "SwapFree": 3531218944,
+          "SwapUsed": 463732736
+        },
+        "torch_cuda_allocator": {
+          "allocated": 1322562048,
+          "reserved": 1891631104,
+          "max_allocated": 1639126016,
+          "max_reserved": 1891631104
+        },
+        "cuda_mem_info": {
+          "free": 2438070272,
+          "total": 7989940224
+        }
+      },
+      {
+        "step": 31,
+        "timestamp_ns": 1788249683080441825,
+        "system": {
+          "MemTotal": 7989940224,
+          "MemAvailable": 2440015872,
+          "SwapTotal": 3994951680,
+          "SwapFree": 3531218944,
+          "SwapUsed": 463732736
+        },
+        "torch_cuda_allocator": {
+          "allocated": 1322611200,
+          "reserved": 1891631104,
+          "max_allocated": 1639126016,
+          "max_reserved": 1891631104
+        },
+        "cuda_mem_info": {
+          "free": 2438070272,
+          "total": 7989940224
+        }
+      }
+    ]
+  },
+  "pilot_memory_gate": {
+    "minimum_memavailable_bytes": 2343194624,
+    "maximum_swap_used_bytes": 463732736,
+    "swap_growth_from_preload_bytes": 87031808,
+    "memavailable_threshold_bytes": 1610612736,
+    "swap_growth_threshold_bytes": 536870912,
+    "pass": true
+  },
+  "memory_at_end": {
+    "timestamp_ns": 1788249683083276032,
+    "system": {
+      "MemTotal": 7989940224,
+      "MemAvailable": 2440015872,
+      "SwapTotal": 3994951680,
+      "SwapFree": 3531218944,
+      "SwapUsed": 463732736
+    },
+    "torch_cuda_allocator": {
+      "allocated": 1201166848,
+      "reserved": 1891631104,
+      "max_allocated": 1639126016,
+      "max_reserved": 1891631104
+    },
+    "cuda_mem_info": {
+      "free": 2438070272,
+      "total": 7989940224
+    }
+  },
+  "power_mode_end": {
+    "exit_code": 0,
+    "stdout": "NV Power Mode: 25W\n1",
+    "stderr": ""
+  },
+  "completed_at": "2026-09-01T08:01:23.111926+00:00",
+  "status": "PASS"
+}

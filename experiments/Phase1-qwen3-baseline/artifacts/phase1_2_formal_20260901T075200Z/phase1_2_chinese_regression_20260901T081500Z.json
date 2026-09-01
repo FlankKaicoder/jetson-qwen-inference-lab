@@ -1,0 +1,13 @@
+{
+  "prompt": "中国的首都是哪里？只回答城市名。",
+  "input_tokens": 22,
+  "generated_tokens": 2,
+  "output": "北京",
+  "token_ids": [
+    68990,
+    151645
+  ],
+  "semantic_sanity": true,
+  "dtype": "torch.bfloat16",
+  "attention_implementation": "eager"
+}

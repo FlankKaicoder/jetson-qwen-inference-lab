@@ -1,0 +1,5 @@
+isl,rail,idle_samples,idle_mean_w,idle_median_w,active_samples,active_mean_w,active_median_w,active_peak_w,active_minus_idle_mean_w,peak_gpu_temp_c,peak_cpu_temp_c,peak_soc_temp_c,peak_tj_temp_c,peak_ram_used_mb,peak_swap_used_mb,scope
+32,VDD_IN,24,4.7665,4.72,195,7.152041025641027,7.147,7.265,2.385541025641027,52.031,51.406,50.937,52.031,4872,361,board-level telemetry; not process-exclusive
+128,VDD_IN,25,4.79932,4.712,189,7.419269841269841,7.384,7.976,2.6199498412698414,53.25,52.593,51.906,53.25,4958,361,board-level telemetry; not process-exclusive
+512,VDD_IN,24,4.768208333333333,4.712,193,8.560072538860103,8.081,11.612,3.79186420552677,55.093,53.5,52.656,55.093,4953,359,board-level telemetry; not process-exclusive
+1024,VDD_IN,24,4.7807916666666666,4.712,204,10.933362745098039,10.374,16.537,6.1525710784313725,58.312,56.781,55.218,58.312,5121,513,board-level telemetry; not process-exclusive

@@ -52,6 +52,17 @@
 
 最终 commit、GitHub push、Jetson fast-forward 与三端 clean 状态必须由本轮结束时的 Git 命令验证，不能从本段预先推断。
 
+## Phase 1.2 Formal Benchmark (2026-09-01)
+
+- Starting branch/HEAD: `phase/01-qwen3-baseline@9a8f825cadcd2c8b9b30d1d58ec30c2cf9139e8f`.
+- Qwen3-0.6B exact revision, BF16, eager attention, batch 1; Jetson Orin SM87, CUDA 12.6, NVIDIA PyTorch 2.5.0a0, Transformers 4.57.3.
+- Manual KV-cache method validation: 8/8 tokens equal to `generate()`, DynamicCache lengths valid, Gate A PASS.
+- Formal ISL 32/128/512/1024: 10 trials each, fixed OSL 32, all TTFT/TPOT CV <= 3.042%, no OOM/CUDA failure; Gates B/C/D PASS; Phase 1.2 PASS/CLOSED.
+- Results: `experiments/Phase1-qwen3-baseline/artifacts/phase1_2_formal_20260901T075200Z/`; report: `experiments/Phase1-qwen3-baseline/docs/phase1_2_formal_benchmark.md`.
+- Summary CSV: `phase1_2_summary_20260901T081200Z.csv`; all-trials CSV and board-level `VDD_IN`/thermal summary are in the same directory.
+- Required Chinese functional regression returned `北京`; no model/runtime settings were changed. No profiler, quantization, TensorRT-LLM, TensorRT engine, Phase 2, or Exp05 work started.
+- Next action: owner review only; do not automatically start a new Phase 1 direction.
+
 ## Exp02.0/Exp02.1 (2026-08-31)
 - Branch: exp/02-reduction initialized from d3ee572 and synchronized to GitHub/Jetson.
 - V1-V7 implemented; correctness matrix 3,087/3,087 PASS. Max absolute error 1.1754035949707031e-4 (V5 signed N=1048589 B=256); max normalized error 2.086155075380606e-8.

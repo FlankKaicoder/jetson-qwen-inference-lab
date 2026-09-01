@@ -23,3 +23,4 @@
 - 完成 Exp03.3 Nsight Compute 与收口：V1-V4 4096x4096 profile 取得 global sector、shared bank-conflict、occupancy、warp-state 证据；H1-H4 SUPPORTED，Gate A/B/C PASS，Exp03 CLOSED，READY_FOR_EXP04。
 - 完成 Phase 1.0 Qwen3-0.6B runtime feasibility audit：确认当前 JetPack 6.2/CUDA 12.6/TensorRT 10.3/PyTorch 环境，识别最新 TensorRT-LLM 的 SM87/软件栈断层与 `v0.12.0-jetson` 的 Qwen3 支持缺口；Gate P1.0 `PASS WITH CONSTRAINTS`，推荐 Phase 1.1 先建立 HF PyTorch BF16 reference baseline，未安装或运行任何 runtime/model。
 - 完成 Phase 1.1 Qwen3-0.6B exact-revision Hugging Face BF16 reference：Gate A/B/C/D PASS；模型全参数 `cuda:0`、forward finite、3/3 bounded generations PASS，并记录 unified-memory/allocator/tegrastats 证据；Phase 1.2 未开始。
+- 完成 Phase 1.2 Qwen3-0.6B BF16/eager formal benchmark：manual KV-cache loop 与 `generate()` 8/8 token 一致；ISL 32/128/512/1024 各 10 trials，全部 TTFT/TPOT CV <5%；Gate A/B/C/D PASS，Phase 1.2 CLOSED，Phase 1 仍 IN PROGRESS。

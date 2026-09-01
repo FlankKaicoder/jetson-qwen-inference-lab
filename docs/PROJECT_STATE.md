@@ -13,14 +13,14 @@
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
 | Current phase | Phase 1 — Qwen3 Baseline Deployment |
-| Current experiment | Phase 1.1 — Qwen3-0.6B HF BF16 reference complete |
+| Current experiment | Phase 1.2 — Qwen3-0.6B BF16 formal LLM benchmark complete |
 | Current branch | `phase/01-qwen3-baseline` |
-| Current HEAD | `HEAD` (Phase 1.0 audit commit after closeout); starting point `9ede5e03773d23194f06059c339f32d539f7b7be` |
+| Current HEAD | `HEAD` (Phase 1.2 closeout); Phase 1.2 starting point `9a8f825cadcd2c8b9b30d1d58ec30c2cf9139e8f` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Exp04 — CUDA GEMM tiling and WMMA |
-| Experiment status | Phase 1.0 `PASS WITH CONSTRAINTS`; Phase 1.1 `PASS / CLOSED`; Exp04 `PASS / CLOSED` |
-| Current Gate | Phase 1.1 Gate A/B/C/D `PASS` |
-| Readiness | `READY_FOR_PHASE1_2_DESIGN` (only on explicit authorization) |
+| Experiment status | Phase 1.0 `PASS WITH CONSTRAINTS`; Phase 1.1 `PASS / CLOSED`; Phase 1.2 `PASS / CLOSED`; Phase 1 remains `IN PROGRESS` |
+| Current Gate | Phase 1.2 Gate A/B/C/D `PASS` |
+| Readiness | Owner review required before any next Phase 1 direction; Phase 2 and Exp05 are not started |
 
 ## Confirmed Findings
 
@@ -85,7 +85,7 @@ No repository evidence records a formally `REJECT`-status experiment.
 
 ## Required Next Action
 
-Review Phase 1.1 evidence. Phase 1.2 formal benchmark requires explicit authorization and a separate methodology; do not start it automatically.
+Review Phase 1.2 evidence and decide the next Phase 1 runtime direction. Do not start profiler work, TensorRT-LLM work, quantization, Phase 2, or Exp05 automatically.
 
 ## Do-not-repeat Work
 
