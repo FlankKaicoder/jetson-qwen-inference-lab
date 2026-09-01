@@ -12,15 +12,15 @@
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 1 — Qwen3 Baseline Deployment |
-| Current experiment | Phase 1.2 — Qwen3-0.6B BF16 formal LLM benchmark complete |
+| Current phase | Phase 2 — LLM Quantization |
+| Current experiment | Phase 2.0 — Qwen3 quantization backend feasibility audit |
 | Current branch | `phase/01-qwen3-baseline` |
 | Current HEAD | `HEAD` (Phase 1.2 closeout); Phase 1.2 starting point `9a8f825cadcd2c8b9b30d1d58ec30c2cf9139e8f` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Exp04 — CUDA GEMM tiling and WMMA |
-| Experiment status | Phase 1.0 `PASS WITH CONSTRAINTS`; Phase 1.1 `PASS / CLOSED`; Phase 1.2 `PASS / CLOSED`; Phase 1 remains `IN PROGRESS` |
+| Experiment status | Phase 1.0 `PASS WITH CONSTRAINTS / CLOSED`; Phase 1.1 `PASS / CLOSED`; Phase 1.2 `PASS / CLOSED`; Phase 1 `PASS / CLOSED`; Phase 2.0 `RUNNING` |
 | Current Gate | Phase 1.2 Gate A/B/C/D `PASS` |
-| Readiness | Owner review required before any next Phase 1 direction; Phase 2 and Exp05 are not started |
+| Readiness | Phase 2.0 backend audit in progress; Phase 2.1 and Exp05 are not started |
 
 ## Confirmed Findings
 

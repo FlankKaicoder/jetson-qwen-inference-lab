@@ -61,7 +61,7 @@
 - Results: `experiments/Phase1-qwen3-baseline/artifacts/phase1_2_formal_20260901T075200Z/`; report: `experiments/Phase1-qwen3-baseline/docs/phase1_2_formal_benchmark.md`.
 - Summary CSV: `phase1_2_summary_20260901T081200Z.csv`; all-trials CSV and board-level `VDD_IN`/thermal summary are in the same directory.
 - Required Chinese functional regression returned `北京`; no model/runtime settings were changed. No profiler, quantization, TensorRT-LLM, TensorRT engine, Phase 2, or Exp05 work started.
-- Next action: owner review only; do not automatically start a new Phase 1 direction.
+- Phase 1 overall is now `PASS / CLOSED`; TensorRT-LLM backport is not a prerequisite for closure. Phase 2.0 quantization audit is the authorized next action.
 
 ## Exp02.0/Exp02.1 (2026-08-31)
 - Branch: exp/02-reduction initialized from d3ee572 and synchronized to GitHub/Jetson.

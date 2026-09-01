@@ -1,8 +1,8 @@
 # Phase 1 - Qwen3 Baseline Deployment
 
-Status: `IN PROGRESS`
+Status: `PASS / CLOSED`
 
-Phase 1 starts with an audit-first runtime decision. Phase 1.2 is complete; Phase 1 remains in progress pending owner review of the next runtime direction.
+Phase 1 completed its audit-first runtime decision, BF16 functional reference, and formal benchmark. TensorRT-LLM backport is not a prerequisite for closing Phase 1; it remains a later runtime investigation.
 
 ## Phase 1.0 result
 
