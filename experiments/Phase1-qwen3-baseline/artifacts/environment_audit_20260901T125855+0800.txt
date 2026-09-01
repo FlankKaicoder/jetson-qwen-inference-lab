@@ -1,0 +1,73 @@
+Phase 1.0 Qwen3 baseline runtime feasibility environment audit
+Audit time: 2026-09-01T12:58:55+08:00
+Mode: read-only; no installation, download, build, inference, or system configuration change
+
+Repository start
+  Windows path: E:\nvidia-qwen
+  Branch before audit: exp/04-gemm
+  Starting HEAD: 9ede5e03773d23194f06059c339f32d539f7b7be
+  Windows status: clean
+  GitHub exp/04-gemm: 9ede5e03773d23194f06059c339f32d539f7b7be
+  Jetson exp/04-gemm: 9ede5e03773d23194f06059c339f32d539f7b7be, clean
+  Phase branch created: phase/01-qwen3-baseline
+
+Jetson hardware and OS
+  hostname: nvidia-desktop
+  model: NVIDIA Jetson Orin Nano Engineering Reference Developer Kit Super
+  architecture: aarch64
+  CPU: 6 x Cortex-A78AE
+  kernel: 5.15.148-tegra
+  OS: Ubuntu 22.04.5 LTS
+  L4T: R36.4.3, GCID 38968081, 2025-01-08
+  JetPack metapackage: NOT_INSTALLED
+  JetPack release inferred from NVIDIA's L4T mapping: JetPack 6.2
+  RAM: 7.4 GiB total, 3.8 GiB available at audit
+  swap: 3.7 GiB zram total, 6 MiB used
+  root filesystem: 233 GiB total, 180 GiB available
+  jtop: 4.3.2
+  tegrastats: three one-second read-only samples; GPU idle; about 3.6/7.6 GB RAM; GPU about 48.4 C
+
+CUDA and TensorRT
+  /usr/local/cuda -> /usr/local/cuda-12.6 (resolved)
+  nvcc on PATH: NOT_AVAILABLE
+  /usr/local/cuda-12.6/bin/nvcc: CUDA 12.6, V12.6.68
+  PyTorch device: Orin
+  compute capability: 8.7
+  TensorRT Debian packages: 10.3.0.30-1+cuda12.5
+  TensorRT Python: 10.3.0
+  trtexec on PATH: NOT_AVAILABLE
+  trtexec absolute path: /usr/src/tensorrt/bin/trtexec, TensorRT v100300
+
+Python
+  system interpreter: /usr/bin/python3, Python 3.10.12
+  pip: 25.1.1 at /usr/local/lib/python3.10/dist-packages
+  active venv: NONE
+  project pyvenv.cfg: NONE within max depth 3
+  user site: /home/nvidia/.local/lib/python3.10/site-packages
+  system/local sites: /usr/local/lib/python3.10/dist-packages; /usr/lib/python3/dist-packages; /usr/lib/python3.10/dist-packages
+  torch: 2.5.0a0+872d972e41.nv24.08
+  torch CUDA: 12.6; cuda available: true; BF16 supported: true
+  torchvision: 0.20.0a0+afc54f7
+  transformers: NOT AVAILABLE
+  accelerate: NOT AVAILABLE
+  safetensors: NOT AVAILABLE
+  huggingface-hub: NOT AVAILABLE
+  tensorrt_llm Python: NOT AVAILABLE
+  trtllm-build/trtllm-serve/trtllm-bench: NOT AVAILABLE
+
+Container and assets
+  docker: NOT AVAILABLE
+  nvidia-container-cli: NOT AVAILABLE
+  installed docker/nvidia-container packages: NONE
+  Hugging Face cache: NOT PRESENT
+  TensorRT-LLM source/package under ~/.local: NONE
+  scoped /home/nvidia, /home/nvidia/projects, /home/nvidia/models search: no Qwen model, checkpoint, or TensorRT-LLM tree; repository name itself matched the Qwen term
+
+Official runtime metadata
+  TensorRT-LLM latest release: v1.2.1, published 2026-04-20T11:51:33Z
+  v0.12.0-jetson tip: 9d38cb7d1e77473ba27d5ee3b099e2e8eeacffe4
+  v0.12.0-jetson tip date: 2025-12-16T23:57:14Z
+
+Commands were limited to uname, OS/package queries, free/df/swapon/lscpu, device-tree model,
+short tegrastats sampling, compiler/runtime version queries, Python imports/package metadata,
+container capability queries, and bounded user-directory asset searches. No credential file or token was read.

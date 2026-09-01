@@ -105,3 +105,11 @@
 - V2 Shared Memory Tiling and V3 WMMA are complete; double buffering and `cp.async` are not started. Earlier V0/V1-only wording is historical and superseded by this closeout state.
 - Gate C C1/C2/C3 PASS. H1-H4 SUPPORTED: V2 store sectors/request 32.105 with 14,735,372 excessive sectors; V3/V4 shared bank conflicts 16,349,795 vs 53,953; achieved occupancy V1/V2/V3/V4 79.20/79.26/94.28/94.47%.
 - Exp03 Gate A/B/C PASS; Overall PASS/CLOSED; Readiness READY_FOR_EXP04. Exp04 has not started. Direct DRAM throughput is unavailable and not estimated.
+
+## Phase 1.0 Qwen3 Runtime Feasibility Audit (2026-09-01)
+
+- Branch `phase/01-qwen3-baseline`, created from Exp04 closeout `9ede5e03773d23194f06059c339f32d539f7b7be` after Windows/GitHub/Jetson clean synchronization was verified.
+- Gate P1.0 is `PASS WITH CONSTRAINTS`. The recommended Phase 1.1 path is Hugging Face Transformers plus the existing NVIDIA Jetson PyTorch/CUDA stack, starting with a bounded BF16 reference baseline.
+- Latest TensorRT-LLM natively supports Qwen3 but SM87 is absent from its tested hardware matrix and the current release dependencies do not match JetPack 6.2. The Jetson-specific 0.12 branch supports SM87/CUDA 12.6 but its code accepts only Qwen/Qwen2/Qwen2-MoE, not Qwen3.
+- No packages, weights, source trees or containers were downloaded or installed; no engine, inference, power/clock or system configuration operation occurred. Phase 1.1, Phase 2 quantization and Exp05 Softmax are not started.
+- Primary report: `experiments/Phase1-qwen3-baseline/docs/phase1_0_runtime_feasibility_audit.md`; environment evidence: `experiments/Phase1-qwen3-baseline/artifacts/environment_audit_20260901T125855+0800.txt`.

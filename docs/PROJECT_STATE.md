@@ -7,20 +7,20 @@
 | Field | Verified value |
 | --- | --- |
 | Project | `jetson-qwen-inference-lab` / Jetson Qwen Transformer AI Infra Optimization Lab |
-| Current date | `2026-08-31` |
+| Current date | `2026-09-01` |
 | Repository | `FlankKaicoder/jetson-qwen-inference-lab` |
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 0 — GPU execution model and CUDA foundations |
-| Current experiment | Exp04 — CUDA GEMM tiling and WMMA; closed. |
-| Current branch | `exp/04-gemm` |
-| Current HEAD | Verify with Git at session start; Exp04 closure includes dual-reference WMMA raw evidence. |
+| Current phase | Phase 1 — Qwen3 Baseline Deployment |
+| Current experiment | Phase 1.0 — runtime feasibility audit complete; Phase 1.1 not started |
+| Current branch | `phase/01-qwen3-baseline` |
+| Current HEAD | `HEAD` (Phase 1.0 audit commit after closeout); starting point `9ede5e03773d23194f06059c339f32d539f7b7be` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Exp04 — CUDA GEMM tiling and WMMA |
-| Experiment status | `PASS / CLOSED` (Exp04) |
-| Current Gate | Exp03 Gate A/B/C `PASS`; Exp04 A1/A2/A3/B/C `PASS` |
-| Readiness | `READY_FOR_EXP05_DESIGN` (only on explicit authorization) |
+| Experiment status | Phase 1.0 `PASS WITH CONSTRAINTS`; Exp04 remains `PASS / CLOSED` |
+| Current Gate | Gate P1.0 `PASS WITH CONSTRAINTS` |
+| Readiness | `READY_FOR_PHASE1_1_DESIGN` (only on explicit authorization) |
 
 ## Confirmed Findings
 
@@ -141,3 +141,12 @@ Before Exp01.2 profiling on `2026-08-30`, Windows, GitHub and Jetson were clean 
 - Jetson execution was restored: V1 built with CUDA 12.6 on Orin CC 8.7; NCU 2024.3.1.0 was confirmed. Correctness passed 13/13 with intact canaries and no CUDA failures. Adaptive V1 benchmark raw/summary artifacts were collected for four shapes with seven trials each; CV stayed below 0.51%. The 256^3 actual event window was 341 ms and is recorded as a calibration observation.
 - At the initial V0/V1 checkpoint, Exp04 Gate A1 was `PASS`; final Gate B/C, V2 Shared Memory Tiling, V3 WMMA, double buffering and `cp.async` were not started. That historical checkpoint was superseded by the later Exp04 closure evidence below.
 - Exp04 V2/V3 execution, formal benchmark and NCU/SASS evidence are present. The dual-reference raw artifact `experiments/Exp04-gemm/benchmark/raw/wmma_correctness_dual_reference_20260831T165518Z.csv` closes the original-FP32 precision-impact evidence gap: Track A passes implementation correctness, while Track B measures end-to-end mixed-precision numerical impact including FP16 input quantization. A1/A2/A3/B/C and Overall are `PASS / CLOSED`. V2-T16 was selected by bounded survey; SASS contains HMMA.16816.F32. Double buffering/cp.async were not required and Exp05 was not started.
+
+## Phase 1.0 Runtime Feasibility Audit (2026-09-01)
+
+- Started from clean, synchronized Exp04 closeout `9ede5e03773d23194f06059c339f32d539f7b7be`; branch `phase/01-qwen3-baseline`.
+- Jetson: Orin Nano Super, aarch64, Ubuntu 22.04.5, L4T 36.4.3 / JetPack 6.2 mapping, 7.4 GiB RAM, CUDA 12.6, TensorRT 10.3, NVIDIA PyTorch 2.5.0a0 with CUDA and BF16 available.
+- Transformers, TensorRT-LLM, Docker, NVIDIA Container CLI and model assets are absent. No package/model/runtime was installed or downloaded.
+- Latest TensorRT-LLM natively supports Qwen3 but does not list SM87 in the official tested hardware matrix and requires a newer CUDA/TensorRT/PyTorch stack. `v0.12.0-jetson` targets SM87/CUDA 12.6 but supports Qwen through Qwen2, not Qwen3.
+- Gate P1.0: `PASS WITH CONSTRAINTS`. Recommended Phase 1.1 path is an isolated Hugging Face Transformers BF16 reference baseline using the existing NVIDIA Jetson PyTorch stack. Phase 1.1, Phase 2 and Exp05 are not started.
+- Report: `experiments/Phase1-qwen3-baseline/docs/phase1_0_runtime_feasibility_audit.md`.
