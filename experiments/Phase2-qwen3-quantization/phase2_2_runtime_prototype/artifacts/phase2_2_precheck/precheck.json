@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "scope": "Phase 2.2 preparation only; no model load, ONNX export, TensorRT engine, benchmark or quantization",
+  "windows": {
+    "repository": "E:\\nvidia-qwen",
+    "branch": "phase/02-qwen3-quantization",
+    "head": "0baf237ed9004a418e3cafa597a51d2cf024d738",
+    "working_tree": "clean"
+  },
+  "jetson": {
+    "repository": "/home/nvidia/projects/jetson-qwen-inference-lab",
+    "branch": "phase/02-qwen3-quantization",
+    "head": "0baf237ed9004a418e3cafa597a51d2cf024d738",
+    "working_tree": "clean",
+    "venv": "/home/nvidia/.venvs/jetson-qwen-phase2-trt-tools",
+    "torch": "2.5.0a0+872d972e41.nv24.08",
+    "cuda": "12.6",
+    "tensorrt": "10.3.0",
+    "gpu": "Orin",
+    "pip_check": "No broken requirements found."
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "status": "THEORETICAL_ESTIMATE",
+  "formula": "2 * layers * kv_heads * head_dim * dtype_size * batch_size * tokens",
+  "config": {
+    "layers": 28,
+    "kv_heads": 8,
+    "head_dim": 128,
+    "dtype_size": 2,
+    "dtypes": [
+      "fp16",
+      "bf16"
+    ]
+  },
+  "bytes_per_token_batch_1": 114688,
+  "estimates": {
+    "batch_1": {
+      "1024": 117440512,
+      "4096": 469762048,
+      "8192": 939524096,
+      "32768": 3758096384,
+      "40960": 4697620480
+    },
+    "batch_2": {
+      "1024": 234881024,
+      "4096": 939524096,
+      "8192": 1879048192,
+      "32768": 7516192768,
+      "40960": 9395240960
+    }
+  },
+  "limitation": "KV cache only; excludes engine weights, activations, workspace, metadata and allocator overhead. This is not a runtime capacity claim."
+}

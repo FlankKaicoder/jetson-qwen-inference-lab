@@ -34,3 +34,7 @@ A single Qwen3-like block with the recorded Qwen3-0.6B dimensions and synthetic 
 ## Phase 2.1.9 Full Qwen3 TensorRT architecture audit
 
 This read-only audit maps the full Qwen3-0.6B architecture, theoretical weight/KV-cache memory and native TensorRT versus TensorRT-LLM runtime contracts without loading weights or building an engine. Gate A/B/C are `PASS` as environment, architecture and theoretical planning evidence. Gate D is `BLOCKED_NEEDS_RUNTIME_WORK`: full-model export, persistent KV cache, prefill/decode scheduling, sampling and memory ownership remain unimplemented. See `docs/phase2_1_9_full_qwen3_tensorRT_architecture_audit.md`.
+
+## Phase 2.2 runtime prototype preparation
+
+The CPU-only preparation under `phase2_2_runtime_prototype/` defines KV-cache ownership, prefill/decode request types, theoretical memory estimation and the future Gate A-D plan. Synthetic byte-layout validation passes; no Qwen3 checkpoint, CUDA/TensorRT execution, engine, benchmark or quantization was run. See `phase2_2_runtime_prototype/docs/phase2_2_runtime_design.md`.

@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "scope": "CPU-only synthetic byte-layout validation; no CUDA, TensorRT or Qwen3 checkpoint",
+  "allocation": {
+    "batch_size": 1,
+    "capacity_tokens": 4,
+    "bytes_allocated": 256
+  },
+  "append": {
+    "layer0_end": 2,
+    "layer1_end": 2,
+    "visible_after_one_layer": 0,
+    "visible_after_all_layers": 2,
+    "first_key_bytes_match": true
+  },
+  "interface": {
+    "decode_position_before_reset": 2
+  },
+  "reset": {
+    "sequence_length_after_reset": 0
+  },
+  "pass_conditions": {
+    "partial_layer_not_visible": true,
+    "all_layers_visible": true,
+    "payload_round_trip": true,
+    "decode_uses_visible_position": true,
+    "reset_invalidates_logical_sequence": true
+  }
+}

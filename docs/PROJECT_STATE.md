@@ -13,14 +13,14 @@
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
 | Current phase | Phase 2 — LLM Quantization |
-| Current experiment | Phase 2.1.9 — Full Qwen3 TensorRT architecture audit |
+| Current experiment | Phase 2.2 preparation — Qwen3 TensorRT FP16 runtime prototype design |
 | Current branch | `phase/02-qwen3-quantization` |
-| Current HEAD | Verify with `git rev-parse HEAD`; Phase 2.1.9 audit evidence is ready for commit |
+| Current HEAD | Verify with `git rev-parse HEAD`; Phase 2.2 preparation closeout pending |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Exp04 — CUDA GEMM tiling and WMMA |
-| Experiment status | Phase 1.0 `PASS WITH CONSTRAINTS / CLOSED`; Phase 1.1 `PASS / CLOSED`; Phase 1.2 `PASS / CLOSED`; Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8 `PASS / BOUNDED`; Phase 2.1.9 `PASS / BOUNDED` |
-| Current Gate | Phase 2.1.9 A/B/C `PASS`; D `BLOCKED_NEEDS_RUNTIME_WORK`; underlying Phase 2.1 remains `INCONCLUSIVE` |
-| Readiness | Full Qwen3 TensorRT route is mapped but requires runtime work; no engine design/build is authorized by this audit; Phase 2.2 and Phase 3 are not started |
+| Experiment status | Phase 1.0 `PASS WITH CONSTRAINTS / CLOSED`; Phase 1.1 `PASS / CLOSED`; Phase 1.2 `PASS / CLOSED`; Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8 `PASS / BOUNDED`; Phase 2.1.9 `PASS / BOUNDED`; Phase 2.2 preparation `PREPARED` |
+| Current Gate | Phase 2.2 preparation Gate A/B `PREPARED`; Gate C/D `NOT_STARTED`; Phase 2.1.9 production route remains `BLOCKED_NEEDS_RUNTIME_WORK` |
+| Readiness | CPU-side runtime design and KV-cache prototype are prepared; runtime execution, full export/engine and Phase 2.2 execution require explicit authorization |
 
 ## Confirmed Findings
 
@@ -125,7 +125,7 @@ No repository evidence records a formally `REJECT`-status experiment.
 
 ## Required Next Action
 
-Review the Phase 2.1.9 architecture and memory evidence. Do not start full Qwen3 export, engine build, INT8, INT4, TensorRT-LLM, benchmarking, Phase 2.2 or Phase 3 without explicit authorization.
+Review the Phase 2.2 runtime prototype preparation. Do not start full Qwen3 export, engine build, TensorRT execution, INT8, INT4, TensorRT-LLM, benchmarking or Phase 3 without explicit authorization.
 
 ## Do-not-repeat Work
 

@@ -172,3 +172,10 @@
 - Qwen3-0.6B map: 28 layers, 1024 hidden, 16Q/8KV heads, head dim 128, MLP 3072, vocab 151936, max positions 40960, tied embeddings. Serialized FP16/BF16 weight lower bound 1.400 GiB; batch-1 KV cache 112 KiB/token, 448 MiB at 4096 and 4.375 GiB at 40960.
 - Gate A/B/C PASS; Gate D `BLOCKED_NEEDS_RUNTIME_WORK`. Native TensorRT is partial pending full export and an explicit KV-cache/prefill/decode runtime; TensorRT-LLM remains blocked by current SM87/software-stack intersection; HF TensorRT backend is unknown.
 - Report: `experiments/Phase2-qwen3-quantization/docs/phase2_1_9_full_qwen3_tensorRT_architecture_audit.md`; evidence: `experiments/Phase2-qwen3-quantization/artifacts/phase2_1_9_20260901/`.
+
+## Phase 2.2 Runtime Prototype Preparation (2026-09-02)
+
+- Starting branch/HEAD: `phase/02-qwen3-quantization@0baf237ed9004a418e3cafa597a51d2cf024d738`; Windows and Jetson were clean before preparation.
+- Added CPU-only `KVCacheManager`, prefill/decode request dataclasses, KV memory estimate script, attention/runtime design notes and Gate A-D plan under `experiments/Phase2-qwen3-quantization/phase2_2_runtime_prototype/`.
+- Synthetic byte-layout validation passed for allocation, partial-layer visibility, all-layer sequence advancement, payload round-trip, decode position and reset. Batch 1/2 cache estimates are theoretical only.
+- No Qwen3 checkpoint load, full ONNX export, TensorRT execution/engine, benchmark, INT8, INT4 or TensorRT-LLM work occurred. Runtime execution remains unstarted and requires explicit authorization.
