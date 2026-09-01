@@ -14,7 +14,7 @@ Qwen/Qwen3-0.6B at revision `c1899de289a04d12100db370d81485cdf75e47ca`, weight S
 
 The isolated venv `/home/nvidia/.venvs/jetson-qwen-phase2-quant` uses system site packages. Its Torch resolves to `/usr/local/lib/python3.10/dist-packages/torch`, version `2.5.0a0+872d972e41.nv24.08`, CUDA `12.6`, device `Orin`, capability `(8, 7)`. The Phase 1 venv was not modified.
 
-HF packages were installed with `--no-deps` at the already validated versions. `pip check` reports only the expected missing optional/runtime packages `hf-xet` and `regex` in this isolated venv; this does not alter Torch. TorchAO `0.12.0` dry-run (pip 24.0) planned only `torchao-0.12.0`; installation completed with `--no-deps`.
+HF packages were installed with `--no-deps` at the already validated versions, including `regex==2026.9.3` and `hf-xet==1.6.0`; `pip check` then reported `No broken requirements found.` This does not alter Torch. TorchAO `0.12.0` dry-run (pip 24.0) planned only `torchao-0.12.0`; installation completed with `--no-deps`.
 
 ## TorchAO result
 

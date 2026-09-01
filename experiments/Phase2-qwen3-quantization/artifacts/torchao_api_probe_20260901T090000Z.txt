@@ -5,4 +5,4 @@ error: ModuleNotFoundError: No module named 'torch._C._distributed_c10d'; 'torch
 import path: torchao -> quantization -> dtypes.floatx -> torchao.float8 -> torch.distributed._functional_collectives
 int4 operator: AVAILABLE (torch.ops.aten._weight_int4pack_mm)
 int8-related operators: _weight_int8pack_mm, quantized_gru, quantized_lstm
-pip check: hf-xet and regex are missing in isolated venv; no torch conflict reported
+pip check after exact no-deps regex==2026.9.3 and hf-xet==1.6.0 install: No broken requirements found.
