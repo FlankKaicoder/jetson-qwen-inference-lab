@@ -249,3 +249,11 @@ Before Exp01.2 profiling on `2026-08-30`, Windows, GitHub and Jetson were clean 
 - D1 proved the canonical FP16 embedding input byte-identical between portable and TensorRT (`sha256 da04f533...`, zero error). D2 still diverged progressively through the decoder to Layer 27 (`relative-L2 2.004247`, cosine `0.534268`).
 - D3 host-staged and direct-device paths failed identically. Both runtimes used stream pointer 0 with explicit synchronization; the prefill engine exposes only `hidden_states` FP16 and `position_ids` INT64 inputs. No pointer, stream, lifetime, binding, or auxiliary-input defect was confirmed.
 - C1 remains `BLOCKED`; no fix, engine rebuild, B4.2 overwrite, OOM or exit 137 occurred. Report: `phase2_2c1_decoder_boundary_diagnostic.md`; raw evidence: `phase2_2c1d_20260902T180000Z_c1d_diagnostic.json`.
+
+## Phase 2.2-C1E Layerwise Divergence Localization (2026-09-02)
+
+- Reused the existing B4.2 prefill engine, C1 canonical embedding reference, and 28-file handoff; no engine rebuild or decoder/runtime modification occurred.
+- All exposed `hidden_l0`..`hidden_l27` outputs are `[1,8,1024]` FP16 and finite. D0 reproduced PASS (`relative-L2 0.0201395`, cosine `0.9997966`).
+- First non-zero difference is Layer 0 (`max_abs 0.01171875`, relative-L2 `0.00378768`, cosine `0.9999921`). First relative-L2 > 0.10 is Layer 21; first cosine < 0.99 is Layer 22; Layer 27 reaches relative-L2 `2.004247`, cosine `0.5342684`.
+- Component attribution is `NOT PERFORMED` because the engine exposes no RMSNorm/attention/MLP intermediates. C1 remains `BLOCKED`; C2 must not start. No OOM, exit 137, benchmark, profiler or quantization work occurred.
+- Report: `phase2_2c1_layerwise_divergence_report.md`; raw evidence: `phase2_2c1e_layerwise_20260902T190000Z.json`.
