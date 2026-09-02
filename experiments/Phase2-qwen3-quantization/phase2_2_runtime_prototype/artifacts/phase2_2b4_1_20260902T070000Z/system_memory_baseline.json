@@ -1,0 +1,11 @@
+{
+  "captured_before_phase1_probe": true,
+  "mem_total_kb": 7765456,
+  "mem_available_kb": 5169920,
+  "swap_total_kb": 3898364,
+  "swap_free_kb": 2018292,
+  "torch_cuda_probe": "recorded by phase1_known_good_memory_probe.json",
+  "phase1_historical_min_mem_available_bytes": 2746023936,
+  "phase1_historical_successful_swap_delta_bytes": 68157440,
+  "interpretation": "SYSTEM_MEMORY_PRESSURE_PRESENT relative to the Phase 1 successful-run baseline, but not by itself proof of intrinsic model limit"
+}

@@ -1,0 +1,23 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "decoder_layers": 28,
+  "required_tensors_per_layer": 11,
+  "decoder_bf16_bytes": 880932864,
+  "decoder_fp16_bytes": 880932864,
+  "estimated_live_copies": {
+    "b4_states_cpu_bf16": 880932864,
+    "single_hf_layer_cuda_bf16_approx": 31461888,
+    "single_portable_layer_cuda_bf16_approx": 31461888,
+    "handoff_state_copy_if_materialized": 880932864,
+    "fp16_duplicate_if_materialized": 880932864,
+    "simultaneous_states_handoff_fp16_lower_bound": 2642798592
+  },
+  "risks": [
+    "B4 runners materialize all 28 layer states in a Python dict before execution.",
+    "HF and portable reference trees retain per-layer outputs and caches for all steps.",
+    "torch.save of a giant nested handoff creates another serialization/materialization phase.",
+    "load_state_dict copies CPU tensors into a CUDA layer while source state remains live."
+  ],
+  "not_an_actual_peak": true,
+  "conclusion": "ROOT_CAUSE_PARTIALLY_LOCALIZED"
+}
