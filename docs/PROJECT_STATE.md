@@ -19,8 +19,8 @@
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Exp04 — CUDA GEMM tiling and WMMA |
 | Experiment status | Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8/2.1.9 `PASS / BOUNDED`; Phase 2.2-A `PARTIAL / BOUNDED PASS`; Phase 2.2-B1/B2/B3 `PASS / BOUNDED`; Phase 2.2-B4.1 `PASS / CLOSED`; Phase 2.2-B4.2 `PASS / BOUNDED`; Phase 2.2-C0 `PASS / DESIGN ONLY`; Phase 2.2-C1 `BLOCKED` |
-| Current Gate | Phase 2.2-C1 embedding-only gates PASS; decoder integration BLOCKED by numerical mismatch |
-| Readiness | C1 blocked; C2 must not start until integration mismatch is diagnosed and explicitly authorized |
+| Current Gate | Phase 2.2-C1 embedding-only gates PASS; C1D boundary diagnostic complete; decoder integration remains BLOCKED |
+| Readiness | C1 blocked; C2 must not start. D0 PASS, D1 byte-identical, D3 host/direct identical failure; no stream/pointer/binding root cause confirmed |
 
 ## Confirmed Findings
 
@@ -242,3 +242,10 @@ Before Exp01.2 profiling on `2026-08-30`, Windows, GitHub and Jetson were clean 
 - Real `model.embed_tokens.weight` (`[151936,1024]`, BF16) audit, one-node Gather ONNX export, TensorRT 10.3 FP16 build and embedding-only numerical validation passed. Evidence: `phase2_2c1_20260902T090000Z`.
 - Passing embedding output was handed once to the unchanged B4.2 28-layer prefill engine. Outputs were finite and shape-correct, but final Layer 27 hidden comparison failed: relative-L2 `2.00425`, cosine `0.534268`.
 - C1 is `BLOCKED`; likely next step is a narrow pre-decoder embedding-output comparison. No B4.2 code/engine, benchmark, profiler, quantization or C2 work was modified or started.
+
+## Phase 2.2-C1D Decoder Boundary Diagnostic (2026-09-02)
+
+- D0 reproduced the current B4.2 random-hidden control (`relative-L2 0.02014`, cosine `0.999797`, PASS).
+- D1 proved the canonical FP16 embedding input byte-identical between portable and TensorRT (`sha256 da04f533...`, zero error). D2 still diverged progressively through the decoder to Layer 27 (`relative-L2 2.004247`, cosine `0.534268`).
+- D3 host-staged and direct-device paths failed identically. Both runtimes used stream pointer 0 with explicit synchronization; the prefill engine exposes only `hidden_states` FP16 and `position_ids` INT64 inputs. No pointer, stream, lifetime, binding, or auxiliary-input defect was confirmed.
+- C1 remains `BLOCKED`; no fix, engine rebuild, B4.2 overwrite, OOM or exit 137 occurred. Report: `phase2_2c1_decoder_boundary_diagnostic.md`; raw evidence: `phase2_2c1d_20260902T180000Z_c1d_diagnostic.json`.

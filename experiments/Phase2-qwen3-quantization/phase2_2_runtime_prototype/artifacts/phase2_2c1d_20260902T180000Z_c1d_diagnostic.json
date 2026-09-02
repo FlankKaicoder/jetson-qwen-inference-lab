@@ -1,0 +1,3066 @@
+{
+  "starting": {
+    "input_ids": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    ],
+    "position_ids": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    ]
+  },
+  "stream_pointer": 0,
+  "engine_contract": {
+    "embedding": {
+      "engine": "/tmp/phase2_2c1_20260902T090000Z/embedding_fp16.engine",
+      "num_io_tensors": 2,
+      "stream_ptr": 0,
+      "tensors": [
+        {
+          "index": 0,
+          "name": "input_ids",
+          "mode": "TensorIOMode.INPUT",
+          "dtype": "DataType.INT64",
+          "shape": [
+            -1,
+            -1
+          ]
+        },
+        {
+          "index": 1,
+          "name": "hidden_states",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            -1,
+            -1,
+            1024
+          ]
+        }
+      ]
+    },
+    "decoder_prefill": {
+      "engine": "/tmp/phase2_2b4_2_20260902T082326Z/prefill_28layer.engine",
+      "num_io_tensors": 86,
+      "stream_ptr": 0,
+      "tensors": [
+        {
+          "index": 0,
+          "name": "hidden_states",
+          "mode": "TensorIOMode.INPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            -1,
+            1024
+          ]
+        },
+        {
+          "index": 1,
+          "name": "position_ids",
+          "mode": "TensorIOMode.INPUT",
+          "dtype": "DataType.INT64",
+          "shape": [
+            1,
+            -1
+          ]
+        },
+        {
+          "index": 2,
+          "name": "hidden_l0",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            -1,
+            1024
+          ]
+        },
+        {
+          "index": 3,
+          "name": "hidden_l1",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            -1,
+            1024
+          ]
+        },
+        {
+          "index": 4,
+          "name": "hidden_l2",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            -1,
+            1024
+          ]
+        },
+        {
+          "index": 5,
+          "name": "hidden_l3",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            -1,
+            1024
+          ]
+        },
+        {
+          "index": 6,
+          "name": "hidden_l4",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            -1,
+            1024
+          ]
+        },
+        {
+          "index": 7,
+          "name": "hidden_l5",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            -1,
+            1024
+          ]
+        },
+        {
+          "index": 8,
+          "name": "hidden_l6",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            -1,
+            1024
+          ]
+        },
+        {
+          "index": 9,
+          "name": "hidden_l7",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            -1,
+            1024
+          ]
+        },
+        {
+          "index": 10,
+          "name": "hidden_l8",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            -1,
+            1024
+          ]
+        },
+        {
+          "index": 11,
+          "name": "hidden_l9",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            -1,
+            1024
+          ]
+        },
+        {
+          "index": 12,
+          "name": "hidden_l10",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            -1,
+            1024
+          ]
+        },
+        {
+          "index": 13,
+          "name": "hidden_l11",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            -1,
+            1024
+          ]
+        },
+        {
+          "index": 14,
+          "name": "hidden_l12",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            -1,
+            1024
+          ]
+        },
+        {
+          "index": 15,
+          "name": "hidden_l13",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            -1,
+            1024
+          ]
+        },
+        {
+          "index": 16,
+          "name": "hidden_l14",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            -1,
+            1024
+          ]
+        },
+        {
+          "index": 17,
+          "name": "hidden_l15",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            -1,
+            1024
+          ]
+        },
+        {
+          "index": 18,
+          "name": "hidden_l16",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            -1,
+            1024
+          ]
+        },
+        {
+          "index": 19,
+          "name": "hidden_l17",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            -1,
+            1024
+          ]
+        },
+        {
+          "index": 20,
+          "name": "hidden_l18",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            -1,
+            1024
+          ]
+        },
+        {
+          "index": 21,
+          "name": "hidden_l19",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            -1,
+            1024
+          ]
+        },
+        {
+          "index": 22,
+          "name": "hidden_l20",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            -1,
+            1024
+          ]
+        },
+        {
+          "index": 23,
+          "name": "hidden_l21",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            -1,
+            1024
+          ]
+        },
+        {
+          "index": 24,
+          "name": "hidden_l22",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            -1,
+            1024
+          ]
+        },
+        {
+          "index": 25,
+          "name": "hidden_l23",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            -1,
+            1024
+          ]
+        },
+        {
+          "index": 26,
+          "name": "hidden_l24",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            -1,
+            1024
+          ]
+        },
+        {
+          "index": 27,
+          "name": "hidden_l25",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            -1,
+            1024
+          ]
+        },
+        {
+          "index": 28,
+          "name": "hidden_l26",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            -1,
+            1024
+          ]
+        },
+        {
+          "index": 29,
+          "name": "hidden_l27",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            -1,
+            1024
+          ]
+        },
+        {
+          "index": 30,
+          "name": "present_k0",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 31,
+          "name": "present_k1",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 32,
+          "name": "present_k2",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 33,
+          "name": "present_k3",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 34,
+          "name": "present_k4",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 35,
+          "name": "present_k5",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 36,
+          "name": "present_k6",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 37,
+          "name": "present_k7",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 38,
+          "name": "present_k8",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 39,
+          "name": "present_k9",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 40,
+          "name": "present_k10",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 41,
+          "name": "present_k11",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 42,
+          "name": "present_k12",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 43,
+          "name": "present_k13",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 44,
+          "name": "present_k14",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 45,
+          "name": "present_k15",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 46,
+          "name": "present_k16",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 47,
+          "name": "present_k17",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 48,
+          "name": "present_k18",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 49,
+          "name": "present_k19",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 50,
+          "name": "present_k20",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 51,
+          "name": "present_k21",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 52,
+          "name": "present_k22",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 53,
+          "name": "present_k23",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 54,
+          "name": "present_k24",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 55,
+          "name": "present_k25",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 56,
+          "name": "present_k26",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 57,
+          "name": "present_k27",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 58,
+          "name": "present_v0",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 59,
+          "name": "present_v1",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 60,
+          "name": "present_v2",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 61,
+          "name": "present_v3",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 62,
+          "name": "present_v4",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 63,
+          "name": "present_v5",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 64,
+          "name": "present_v6",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 65,
+          "name": "present_v7",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 66,
+          "name": "present_v8",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 67,
+          "name": "present_v9",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 68,
+          "name": "present_v10",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 69,
+          "name": "present_v11",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 70,
+          "name": "present_v12",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 71,
+          "name": "present_v13",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 72,
+          "name": "present_v14",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 73,
+          "name": "present_v15",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 74,
+          "name": "present_v16",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 75,
+          "name": "present_v17",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 76,
+          "name": "present_v18",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 77,
+          "name": "present_v19",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 78,
+          "name": "present_v20",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 79,
+          "name": "present_v21",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 80,
+          "name": "present_v22",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 81,
+          "name": "present_v23",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 82,
+          "name": "present_v24",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 83,
+          "name": "present_v25",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 84,
+          "name": "present_v26",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        },
+        {
+          "index": 85,
+          "name": "present_v27",
+          "mode": "TensorIOMode.OUTPUT",
+          "dtype": "DataType.HALF",
+          "shape": [
+            1,
+            8,
+            -1,
+            128
+          ]
+        }
+      ]
+    }
+  },
+  "D0_b4_2_control": {
+    "input": {
+      "shape": [
+        1,
+        8,
+        1024
+      ],
+      "dtype": "torch.float16",
+      "device": "cuda:0",
+      "strides": [
+        8192,
+        1024,
+        1
+      ],
+      "numel": 8192,
+      "nbytes": 16384,
+      "contiguous": true,
+      "sha256_raw": "e8bf0a8f82a2275dc913bb1826290fe24f54ace0af6d17f1ec150d97f44cd107",
+      "data_ptr": 9849857024
+    },
+    "portable_layer27": {
+      "shape": [
+        1,
+        8,
+        1024
+      ],
+      "dtype": "torch.float16",
+      "device": "cuda:0",
+      "strides": [
+        8192,
+        1024,
+        1
+      ],
+      "numel": 8192,
+      "nbytes": 16384,
+      "contiguous": true,
+      "sha256_raw": "0824a79c14f57218f7b3c492cd7a178cf79fc6ace624cb8442e6451201806cfa",
+      "data_ptr": 9851505664
+    },
+    "trt_layer27": {
+      "shape": [
+        1,
+        8,
+        1024
+      ],
+      "dtype": "torch.float16",
+      "device": "cuda:0",
+      "strides": [
+        8192,
+        1024,
+        1
+      ],
+      "numel": 8192,
+      "nbytes": 16384,
+      "contiguous": true,
+      "sha256_raw": "61ba2a062891efe64708d83bd128c6122f0b0a6dd632e1065fdaab761b02262d",
+      "data_ptr": 9851292672
+    },
+    "metric": {
+      "shape_equal": true,
+      "finite": true,
+      "max_abs_error": 5.0,
+      "rmse": 0.5099916458129883,
+      "relative_l2": 0.020139548927545547,
+      "cosine": 0.9997965693473816
+    },
+    "execution": {
+      "context_id": 281470576032624,
+      "stream_ptr": 0,
+      "input_ptrs": {
+        "hidden_states": 9849857024,
+        "position_ids": 9849856512
+      },
+      "output_ptrs": {
+        "hidden_l0": 9850407936,
+        "hidden_l1": 9850457088,
+        "hidden_l2": 9850555392,
+        "hidden_l3": 9850604544,
+        "hidden_l4": 9850670080,
+        "hidden_l5": 9850702848,
+        "hidden_l6": 9850752000,
+        "hidden_l7": 9850817536,
+        "hidden_l8": 9850850304,
+        "hidden_l9": 9850899456,
+        "hidden_l10": 9850964992,
+        "hidden_l11": 9850997760,
+        "hidden_l12": 9851046912,
+        "hidden_l13": 9851112448,
+        "hidden_l14": 9851194368,
+        "hidden_l15": 9851259904,
+        "hidden_l16": 9850131456,
+        "hidden_l17": 9850244096,
+        "hidden_l18": 9850260480,
+        "hidden_l19": 9850293248,
+        "hidden_l20": 9850309632,
+        "hidden_l21": 9851145216,
+        "hidden_l22": 9851161600,
+        "hidden_l23": 9851390976,
+        "hidden_l24": 9851407360,
+        "hidden_l25": 9850188800,
+        "hidden_l26": 9850205184,
+        "hidden_l27": 9851292672,
+        "present_k0": 9851309056,
+        "present_k1": 9851325440,
+        "present_k2": 9851341824,
+        "present_k3": 9851440128,
+        "present_k4": 9851456512,
+        "present_k5": 9851472896,
+        "present_k6": 9851489280,
+        "present_k7": 9851522048,
+        "present_k8": 9851538432,
+        "present_k9": 9851554816,
+        "present_k10": 9851571200,
+        "present_k11": 9851587584,
+        "present_k12": 9851603968,
+        "present_k13": 9851620352,
+        "present_k14": 9851636736,
+        "present_k15": 9851653120,
+        "present_k16": 9851669504,
+        "present_k17": 9851685888,
+        "present_k18": 9851702272,
+        "present_k19": 9851718656,
+        "present_k20": 9851735040,
+        "present_k21": 9851751424,
+        "present_k22": 9851767808,
+        "present_k23": 9851784192,
+        "present_k24": 9851800576,
+        "present_k25": 9851816960,
+        "present_k26": 9851833344,
+        "present_k27": 9851849728,
+        "present_v0": 9851866112,
+        "present_v1": 9851882496,
+        "present_v2": 9851898880,
+        "present_v3": 9851915264,
+        "present_v4": 9851931648,
+        "present_v5": 10791170048,
+        "present_v6": 10791186432,
+        "present_v7": 10791202816,
+        "present_v8": 10791219200,
+        "present_v9": 10791235584,
+        "present_v10": 10791251968,
+        "present_v11": 10791268352,
+        "present_v12": 10791284736,
+        "present_v13": 10791301120,
+        "present_v14": 10791317504,
+        "present_v15": 10791333888,
+        "present_v16": 10791350272,
+        "present_v17": 10791366656,
+        "present_v18": 10791383040,
+        "present_v19": 10791399424,
+        "present_v20": 10791415808,
+        "present_v21": 10791432192,
+        "present_v22": 10791448576,
+        "present_v23": 10791464960,
+        "present_v24": 10791481344,
+        "present_v25": 10791497728,
+        "present_v26": 10791514112,
+        "present_v27": 10791530496
+      }
+    },
+    "status": "PASS"
+  },
+  "D1_boundary_fingerprint": {
+    "A_portable_fp16": {
+      "shape": [
+        1,
+        8,
+        1024
+      ],
+      "dtype": "torch.float16",
+      "device": "cuda:0",
+      "strides": [
+        8192,
+        1024,
+        1
+      ],
+      "numel": 8192,
+      "nbytes": 16384,
+      "contiguous": true,
+      "sha256_raw": "da04f5331a23473a72c65952945c87ba03e10ec84e57de2ae456e62e0bff2e2f",
+      "data_ptr": 9849857024
+    },
+    "B_trt_output": {
+      "shape": [
+        1,
+        8,
+        1024
+      ],
+      "dtype": "torch.float16",
+      "device": "cuda:0",
+      "strides": [
+        8192,
+        1024,
+        1
+      ],
+      "numel": 8192,
+      "nbytes": 16384,
+      "contiguous": true,
+      "sha256_raw": "da04f5331a23473a72c65952945c87ba03e10ec84e57de2ae456e62e0bff2e2f",
+      "data_ptr": 10791546880
+    },
+    "metric_A_vs_B": {
+      "shape_equal": true,
+      "finite": true,
+      "max_abs_error": 0.0,
+      "rmse": 0.0,
+      "relative_l2": 0.0,
+      "cosine": 1.0000004768371582
+    },
+    "byte_identical": true,
+    "first_difference": null,
+    "execution": {
+      "context_id": 281470185713136,
+      "stream_ptr": 0,
+      "input_ptrs": {
+        "input_ids": 9849856000
+      },
+      "output_ptrs": {
+        "hidden_states": 10791546880
+      }
+    }
+  },
+  "D2_canonical_hidden": {
+    "portable_layer27": {
+      "shape": [
+        1,
+        8,
+        1024
+      ],
+      "dtype": "torch.float16",
+      "device": "cuda:0",
+      "strides": [
+        8192,
+        1024,
+        1
+      ],
+      "numel": 8192,
+      "nbytes": 16384,
+      "contiguous": true,
+      "sha256_raw": "03d3a47f54bb7a6adc3ce87562d78f861d9b4787a0b537ef85d7d35325a44801",
+      "data_ptr": 10793062400
+    },
+    "trt_layer27": {
+      "shape": [
+        1,
+        8,
+        1024
+      ],
+      "dtype": "torch.float16",
+      "device": "cuda:0",
+      "strides": [
+        8192,
+        1024,
+        1
+      ],
+      "numel": 8192,
+      "nbytes": 16384,
+      "contiguous": true,
+      "sha256_raw": "5c03a0b1d6bb3ab2ad34729b3505eef3ea9597ac47b4f3d8ba4069571cc50698",
+      "data_ptr": 10793046016
+    },
+    "metric": {
+      "shape_equal": true,
+      "finite": true,
+      "max_abs_error": 4268.0,
+      "rmse": 56.926300048828125,
+      "relative_l2": 2.004246950149536,
+      "cosine": 0.5342683792114258
+    },
+    "layerwise": [
+      {
+        "layer": 0,
+        "metric": {
+          "shape_equal": true,
+          "finite": true,
+          "max_abs_error": 0.01171875,
+          "rmse": 0.0008671738905832171,
+          "relative_l2": 0.003787680296227336,
+          "cosine": 0.9999921321868896
+        },
+        "trt_sha256_raw": "02a38a9112b0cacb8160f258d7f227e601f01406e335df5764a30757d5c36fec"
+      },
+      {
+        "layer": 1,
+        "metric": {
+          "shape_equal": true,
+          "finite": true,
+          "max_abs_error": 0.015625,
+          "rmse": 0.0016290999483317137,
+          "relative_l2": 0.0046831401996314526,
+          "cosine": 0.9999885559082031
+        },
+        "trt_sha256_raw": "371c81ad56dde9982481a8b2102d6402b36e79a6476327184c328cf74599340f"
+      },
+      {
+        "layer": 2,
+        "metric": {
+          "shape_equal": true,
+          "finite": true,
+          "max_abs_error": 12.0,
+          "rmse": 0.13647571206092834,
+          "relative_l2": 0.002169331070035696,
+          "cosine": 1.0000009536743164
+        },
+        "trt_sha256_raw": "ba4b80eb1cccd80b13b65624bce3ae554fd82754eca49e9f19f4853c5106001c"
+      },
+      {
+        "layer": 3,
+        "metric": {
+          "shape_equal": true,
+          "finite": true,
+          "max_abs_error": 12.0,
+          "rmse": 0.3601592183113098,
+          "relative_l2": 0.005724852904677391,
+          "cosine": 0.999987781047821
+        },
+        "trt_sha256_raw": "e963aff241aef0380223390383e74e46906fa59612e9e8502d26388632ba96d5"
+      },
+      {
+        "layer": 4,
+        "metric": {
+          "shape_equal": true,
+          "finite": true,
+          "max_abs_error": 12.0,
+          "rmse": 0.40353816747665405,
+          "relative_l2": 0.006414347793906927,
+          "cosine": 0.9999843239784241
+        },
+        "trt_sha256_raw": "14e522a986f2452a78889d704ee65cf4b297fc4f55d12be0e6e7d55871bb37fe"
+      },
+      {
+        "layer": 5,
+        "metric": {
+          "shape_equal": true,
+          "finite": true,
+          "max_abs_error": 12.0,
+          "rmse": 0.5212764143943787,
+          "relative_l2": 0.008285616524517536,
+          "cosine": 0.9999706149101257
+        },
+        "trt_sha256_raw": "c364861abd0f8cabff01981c269bcb3616257b233426768fb47b613c04fcbcce"
+      },
+      {
+        "layer": 6,
+        "metric": {
+          "shape_equal": true,
+          "finite": true,
+          "max_abs_error": 12.0,
+          "rmse": 0.6139732599258423,
+          "relative_l2": 0.009758811444044113,
+          "cosine": 0.9999576807022095
+        },
+        "trt_sha256_raw": "a2187c210744a6ac93aef07683068b3a22528e5e2483dd07d661fc0719fc9537"
+      },
+      {
+        "layer": 7,
+        "metric": {
+          "shape_equal": true,
+          "finite": true,
+          "max_abs_error": 12.0,
+          "rmse": 0.6728710532188416,
+          "relative_l2": 0.010694772936403751,
+          "cosine": 0.9999483227729797
+        },
+        "trt_sha256_raw": "abee14fb7834075e1c9ead16bbb05ca8b97551808f6921f774cf2c20f1e9e995"
+      },
+      {
+        "layer": 8,
+        "metric": {
+          "shape_equal": true,
+          "finite": true,
+          "max_abs_error": 16.0,
+          "rmse": 0.8296554684638977,
+          "relative_l2": 0.013195451349020004,
+          "cosine": 0.9999198317527771
+        },
+        "trt_sha256_raw": "692f52879c57ff6066e72b78ac1cb4221e576a67de5907605d383cd6f3a1bb15"
+      },
+      {
+        "layer": 9,
+        "metric": {
+          "shape_equal": true,
+          "finite": true,
+          "max_abs_error": 20.0,
+          "rmse": 0.9656378626823425,
+          "relative_l2": 0.015368254855275154,
+          "cosine": 0.9998916387557983
+        },
+        "trt_sha256_raw": "3a566cbc31ec9eb61443c29cd3f6dbb0da6a6a8a53a35318547e35917bc3ef20"
+      },
+      {
+        "layer": 10,
+        "metric": {
+          "shape_equal": true,
+          "finite": true,
+          "max_abs_error": 20.0,
+          "rmse": 1.0628116130828857,
+          "relative_l2": 0.016914255917072296,
+          "cosine": 0.9998668432235718
+        },
+        "trt_sha256_raw": "279acd9d847b8724f7051a90492a241aee71a65ceaab6a640a28498367e00b12"
+      },
+      {
+        "layer": 11,
+        "metric": {
+          "shape_equal": true,
+          "finite": true,
+          "max_abs_error": 24.0,
+          "rmse": 1.1739871501922607,
+          "relative_l2": 0.018695103004574776,
+          "cosine": 0.9998383522033691
+        },
+        "trt_sha256_raw": "d2da808cca09da3a1bdd9955267120aa6903897a349c9640108f675f68472228"
+      },
+      {
+        "layer": 12,
+        "metric": {
+          "shape_equal": true,
+          "finite": true,
+          "max_abs_error": 28.0,
+          "rmse": 1.335624098777771,
+          "relative_l2": 0.021282918751239777,
+          "cosine": 0.9997900128364563
+        },
+        "trt_sha256_raw": "12b23180bfc4885933d932ad46d541ea6f0324700b68ca348755cf30e1e96df1"
+      },
+      {
+        "layer": 13,
+        "metric": {
+          "shape_equal": true,
+          "finite": true,
+          "max_abs_error": 32.0,
+          "rmse": 1.447503924369812,
+          "relative_l2": 0.023081311956048012,
+          "cosine": 0.9997535347938538
+        },
+        "trt_sha256_raw": "9feff4f4281796819f6c1cb5c9295fe179e4a1f46b61b58491c5c906096d29a9"
+      },
+      {
+        "layer": 14,
+        "metric": {
+          "shape_equal": true,
+          "finite": true,
+          "max_abs_error": 36.0,
+          "rmse": 1.591303825378418,
+          "relative_l2": 0.025391509756445885,
+          "cosine": 0.999703586101532
+        },
+        "trt_sha256_raw": "6e2a825685b5fbee48c7923634c319c828070f1cceae423bda798c13e5bb0769"
+      },
+      {
+        "layer": 15,
+        "metric": {
+          "shape_equal": true,
+          "finite": true,
+          "max_abs_error": 36.0,
+          "rmse": 2.0220224857330322,
+          "relative_l2": 0.03226213529706001,
+          "cosine": 0.999506950378418
+        },
+        "trt_sha256_raw": "aa5549489da1d78055eb239ba94296371cffafec44534eec8a01863bb4b14a0d"
+      },
+      {
+        "layer": 16,
+        "metric": {
+          "shape_equal": true,
+          "finite": true,
+          "max_abs_error": 36.0,
+          "rmse": 2.528001070022583,
+          "relative_l2": 0.04032527655363083,
+          "cosine": 0.9992154240608215
+        },
+        "trt_sha256_raw": "8620b1739f770fadb40da4aa073b79d97b606261af72433c9caa6177610fd199"
+      },
+      {
+        "layer": 17,
+        "metric": {
+          "shape_equal": true,
+          "finite": true,
+          "max_abs_error": 36.0,
+          "rmse": 3.117300271987915,
+          "relative_l2": 0.049715619534254074,
+          "cosine": 0.998796820640564
+        },
+        "trt_sha256_raw": "f733f70f8d3c7b004de367f667438ab6ca689a04b5644b11b74281f34d49471c"
+      },
+      {
+        "layer": 18,
+        "metric": {
+          "shape_equal": true,
+          "finite": true,
+          "max_abs_error": 41.84375,
+          "rmse": 3.885507106781006,
+          "relative_l2": 0.0618964359164238,
+          "cosine": 0.9981171488761902
+        },
+        "trt_sha256_raw": "049935dfa11490352dbc78623f330d08d55d6170fa5114a990d108c4b8276570"
+      },
+      {
+        "layer": 19,
+        "metric": {
+          "shape_equal": true,
+          "finite": true,
+          "max_abs_error": 54.03125,
+          "rmse": 4.664977550506592,
+          "relative_l2": 0.0741019994020462,
+          "cosine": 0.997275710105896
+        },
+        "trt_sha256_raw": "93d29311bed3e7dc06f663f0e97e87348c7e7815b50dbe603e0e6189c640b66b"
+      },
+      {
+        "layer": 20,
+        "metric": {
+          "shape_equal": true,
+          "finite": true,
+          "max_abs_error": 72.1875,
+          "rmse": 5.758697032928467,
+          "relative_l2": 0.09132523834705353,
+          "cosine": 0.995853841304779
+        },
+        "trt_sha256_raw": "538f68edffed2d93001b5425ac421f08f711cabc8453c4ce88f3e5a36a4eb9ae"
+      },
+      {
+        "layer": 21,
+        "metric": {
+          "shape_equal": true,
+          "finite": true,
+          "max_abs_error": 108.03125,
+          "rmse": 7.866157054901123,
+          "relative_l2": 0.12438899278640747,
+          "cosine": 0.9923028349876404
+        },
+        "trt_sha256_raw": "bb93b42a88b460fa00894cc9c152314991fe06c618bcb560879484250650ebaa"
+      },
+      {
+        "layer": 22,
+        "metric": {
+          "shape_equal": true,
+          "finite": true,
+          "max_abs_error": 131.6875,
+          "rmse": 9.38558578491211,
+          "relative_l2": 0.14804613590240479,
+          "cosine": 0.9890944957733154
+        },
+        "trt_sha256_raw": "d88403974094dad4e777ad77428f2697d998327f32cb8086461c29b6489dca38"
+      },
+      {
+        "layer": 23,
+        "metric": {
+          "shape_equal": true,
+          "finite": true,
+          "max_abs_error": 193.25,
+          "rmse": 11.799805641174316,
+          "relative_l2": 0.18518799543380737,
+          "cosine": 0.9828994274139404
+        },
+        "trt_sha256_raw": "8f789a107529c2156c95ec0f0df889ebc0f0a034f37021b5148e1e9135cb4bfc"
+      },
+      {
+        "layer": 24,
+        "metric": {
+          "shape_equal": true,
+          "finite": true,
+          "max_abs_error": 229.484375,
+          "rmse": 14.94188404083252,
+          "relative_l2": 0.23302923142910004,
+          "cosine": 0.9729402661323547
+        },
+        "trt_sha256_raw": "480baa78b0e2a8533dee25244a039fece4684cc1019e79e537c21f7124f51917"
+      },
+      {
+        "layer": 25,
+        "metric": {
+          "shape_equal": true,
+          "finite": true,
+          "max_abs_error": 267.71875,
+          "rmse": 19.676250457763672,
+          "relative_l2": 0.30322811007499695,
+          "cosine": 0.9544131755828857
+        },
+        "trt_sha256_raw": "7c2a20644c9b2dc42d7ba70645cd9921a005944465f51ff9bc9f6043220c4fcd"
+      },
+      {
+        "layer": 26,
+        "metric": {
+          "shape_equal": true,
+          "finite": true,
+          "max_abs_error": 224.0,
+          "rmse": 21.471174240112305,
+          "relative_l2": 0.3420383632183075,
+          "cosine": 0.9457322955131531
+        },
+        "trt_sha256_raw": "d25c20ebebe7212e47b3b34f10bb509667a71edd67b37e57b14413b2c23ba69b"
+      },
+      {
+        "layer": 27,
+        "metric": {
+          "shape_equal": true,
+          "finite": true,
+          "max_abs_error": 4268.0,
+          "rmse": 56.926300048828125,
+          "relative_l2": 2.004246950149536,
+          "cosine": 0.5342683792114258
+        },
+        "trt_sha256_raw": "5c03a0b1d6bb3ab2ad34729b3505eef3ea9597ac47b4f3d8ba4069571cc50698"
+      }
+    ],
+    "execution": {
+      "context_id": 281470185797488,
+      "stream_ptr": 0,
+      "input_ptrs": {
+        "hidden_states": 9849857024,
+        "position_ids": 9849856512
+      },
+      "output_ptrs": {
+        "hidden_l0": 10791751680,
+        "hidden_l1": 10791800832,
+        "hidden_l2": 10791849984,
+        "hidden_l3": 10791899136,
+        "hidden_l4": 10791948288,
+        "hidden_l5": 10791997440,
+        "hidden_l6": 10792046592,
+        "hidden_l7": 10792095744,
+        "hidden_l8": 10792144896,
+        "hidden_l9": 10792194048,
+        "hidden_l10": 10792243200,
+        "hidden_l11": 10792292352,
+        "hidden_l12": 10792341504,
+        "hidden_l13": 10792390656,
+        "hidden_l14": 10792439808,
+        "hidden_l15": 10792488960,
+        "hidden_l16": 10792538112,
+        "hidden_l17": 10792587264,
+        "hidden_l18": 10792636416,
+        "hidden_l19": 10792734720,
+        "hidden_l20": 10792783872,
+        "hidden_l21": 10791677952,
+        "hidden_l22": 10792685568,
+        "hidden_l23": 10792701952,
+        "hidden_l24": 10792980480,
+        "hidden_l25": 10792996864,
+        "hidden_l26": 10793029632,
+        "hidden_l27": 10793046016,
+        "present_k0": 10792833024,
+        "present_k1": 10792849408,
+        "present_k2": 10792865792,
+        "present_k3": 10792882176,
+        "present_k4": 10792898560,
+        "present_k5": 10792914944,
+        "present_k6": 10792931328,
+        "present_k7": 10792947712,
+        "present_k8": 10793078784,
+        "present_k9": 10793095168,
+        "present_k10": 10793111552,
+        "present_k11": 10793127936,
+        "present_k12": 10793144320,
+        "present_k13": 10793160704,
+        "present_k14": 10793177088,
+        "present_k15": 10793193472,
+        "present_k16": 10793209856,
+        "present_k17": 10793226240,
+        "present_k18": 10793242624,
+        "present_k19": 10791170048,
+        "present_k20": 10791186432,
+        "present_k21": 10791202816,
+        "present_k22": 10791219200,
+        "present_k23": 10791235584,
+        "present_k24": 10791251968,
+        "present_k25": 10791268352,
+        "present_k26": 10791284736,
+        "present_k27": 10791301120,
+        "present_v0": 10791317504,
+        "present_v1": 10791333888,
+        "present_v2": 10791350272,
+        "present_v3": 10791366656,
+        "present_v4": 10791383040,
+        "present_v5": 10791399424,
+        "present_v6": 10791415808,
+        "present_v7": 10791432192,
+        "present_v8": 10791448576,
+        "present_v9": 10791464960,
+        "present_v10": 10791481344,
+        "present_v11": 10791497728,
+        "present_v12": 10791514112,
+        "present_v13": 10791530496,
+        "present_v14": 9850016768,
+        "present_v15": 9850033152,
+        "present_v16": 9850049536,
+        "present_v17": 9850065920,
+        "present_v18": 9850082304,
+        "present_v19": 9850098688,
+        "present_v20": 9850115072,
+        "present_v21": 9850131456,
+        "present_v22": 9850147840,
+        "present_v23": 9850164224,
+        "present_v24": 9850180608,
+        "present_v25": 9850196992,
+        "present_v26": 9850213376,
+        "present_v27": 9850229760
+      }
+    }
+  },
+  "D3_host_staged": {
+    "staged_input": {
+      "shape": [
+        1,
+        8,
+        1024
+      ],
+      "dtype": "torch.float16",
+      "device": "cuda:0",
+      "strides": [
+        8192,
+        1024,
+        1
+      ],
+      "numel": 8192,
+      "nbytes": 16384,
+      "contiguous": true,
+      "sha256_raw": "da04f5331a23473a72c65952945c87ba03e10ec84e57de2ae456e62e0bff2e2f",
+      "data_ptr": 10791817216
+    },
+    "layer27": {
+      "shape": [
+        1,
+        8,
+        1024
+      ],
+      "dtype": "torch.float16",
+      "device": "cuda:0",
+      "strides": [
+        8192,
+        1024,
+        1
+      ],
+      "numel": 8192,
+      "nbytes": 16384,
+      "contiguous": true,
+      "sha256_raw": "5c03a0b1d6bb3ab2ad34729b3505eef3ea9597ac47b4f3d8ba4069571cc50698",
+      "data_ptr": 9850246144
+    },
+    "metric_vs_portable_canonical": {
+      "shape_equal": true,
+      "finite": true,
+      "max_abs_error": 4268.0,
+      "rmse": 56.926300048828125,
+      "relative_l2": 2.004246950149536,
+      "cosine": 0.5342683792114258
+    },
+    "execution": {
+      "context_id": 281470044767344,
+      "stream_ptr": 0,
+      "input_ptrs": {
+        "hidden_states": 10791817216,
+        "position_ids": 9849856512
+      },
+      "output_ptrs": {
+        "hidden_l0": 10792062976,
+        "hidden_l1": 10792112128,
+        "hidden_l2": 10792357888,
+        "hidden_l3": 10792407040,
+        "hidden_l4": 10792652800,
+        "hidden_l5": 10791768064,
+        "hidden_l6": 10791784448,
+        "hidden_l7": 10791964672,
+        "hidden_l8": 10791981056,
+        "hidden_l9": 10792013824,
+        "hidden_l10": 10792030208,
+        "hidden_l11": 10792259584,
+        "hidden_l12": 10792275968,
+        "hidden_l13": 10792308736,
+        "hidden_l14": 10792325120,
+        "hidden_l15": 10792554496,
+        "hidden_l16": 10792570880,
+        "hidden_l17": 10792603648,
+        "hidden_l18": 10792620032,
+        "hidden_l19": 10791694336,
+        "hidden_l20": 10791710720,
+        "hidden_l21": 10791727104,
+        "hidden_l22": 10791563264,
+        "hidden_l23": 10791579648,
+        "hidden_l24": 10791596032,
+        "hidden_l25": 10791612416,
+        "hidden_l26": 10791628800,
+        "hidden_l27": 9850246144,
+        "present_k0": 9850262528,
+        "present_k1": 9850278912,
+        "present_k2": 9850295296,
+        "present_k3": 9850311680,
+        "present_k4": 9850328064,
+        "present_k5": 9850344448,
+        "present_k6": 9850360832,
+        "present_k7": 9850377216,
+        "present_k8": 9850393600,
+        "present_k9": 9850409984,
+        "present_k10": 9850426368,
+        "present_k11": 9850442752,
+        "present_k12": 9850459136,
+        "present_k13": 9850475520,
+        "present_k14": 9850491904,
+        "present_k15": 9850508288,
+        "present_k16": 9850524672,
+        "present_k17": 9850541056,
+        "present_k18": 9850557440,
+        "present_k19": 9850573824,
+        "present_k20": 9850590208,
+        "present_k21": 9850606592,
+        "present_k22": 9850622976,
+        "present_k23": 9850639360,
+        "present_k24": 9850655744,
+        "present_k25": 9850672128,
+        "present_k26": 9850688512,
+        "present_k27": 9850704896,
+        "present_v0": 9850721280,
+        "present_v1": 9850737664,
+        "present_v2": 9850754048,
+        "present_v3": 9850770432,
+        "present_v4": 9850786816,
+        "present_v5": 9850803200,
+        "present_v6": 9850819584,
+        "present_v7": 9850835968,
+        "present_v8": 9850852352,
+        "present_v9": 9850868736,
+        "present_v10": 9850885120,
+        "present_v11": 9850901504,
+        "present_v12": 9850917888,
+        "present_v13": 9850934272,
+        "present_v14": 9850950656,
+        "present_v15": 9850967040,
+        "present_v16": 9850983424,
+        "present_v17": 9850999808,
+        "present_v18": 9851016192,
+        "present_v19": 9851032576,
+        "present_v20": 9851048960,
+        "present_v21": 9851065344,
+        "present_v22": 9851081728,
+        "present_v23": 9851098112,
+        "present_v24": 9851114496,
+        "present_v25": 9851130880,
+        "present_v26": 9851147264,
+        "present_v27": 9851163648
+      }
+    }
+  },
+  "D3_direct_device": {
+    "direct_input": {
+      "shape": [
+        1,
+        8,
+        1024
+      ],
+      "dtype": "torch.float16",
+      "device": "cuda:0",
+      "strides": [
+        8192,
+        1024,
+        1
+      ],
+      "numel": 8192,
+      "nbytes": 16384,
+      "contiguous": true,
+      "sha256_raw": "da04f5331a23473a72c65952945c87ba03e10ec84e57de2ae456e62e0bff2e2f",
+      "data_ptr": 10791546880
+    },
+    "layer27": {
+      "shape": [
+        1,
+        8,
+        1024
+      ],
+      "dtype": "torch.float16",
+      "device": "cuda:0",
+      "strides": [
+        8192,
+        1024,
+        1
+      ],
+      "numel": 8192,
+      "nbytes": 16384,
+      "contiguous": true,
+      "sha256_raw": "5c03a0b1d6bb3ab2ad34729b3505eef3ea9597ac47b4f3d8ba4069571cc50698",
+      "data_ptr": 10793046016
+    },
+    "metric_vs_portable_canonical": {
+      "shape_equal": true,
+      "finite": true,
+      "max_abs_error": 4268.0,
+      "rmse": 56.926300048828125,
+      "relative_l2": 2.004246950149536,
+      "cosine": 0.5342683792114258
+    },
+    "execution": {
+      "context_id": 281470185797488,
+      "stream_ptr": 0,
+      "input_ptrs": {
+        "hidden_states": 9849857024,
+        "position_ids": 9849856512
+      },
+      "output_ptrs": {
+        "hidden_l0": 10791751680,
+        "hidden_l1": 10791800832,
+        "hidden_l2": 10791849984,
+        "hidden_l3": 10791899136,
+        "hidden_l4": 10791948288,
+        "hidden_l5": 10791997440,
+        "hidden_l6": 10792046592,
+        "hidden_l7": 10792095744,
+        "hidden_l8": 10792144896,
+        "hidden_l9": 10792194048,
+        "hidden_l10": 10792243200,
+        "hidden_l11": 10792292352,
+        "hidden_l12": 10792341504,
+        "hidden_l13": 10792390656,
+        "hidden_l14": 10792439808,
+        "hidden_l15": 10792488960,
+        "hidden_l16": 10792538112,
+        "hidden_l17": 10792587264,
+        "hidden_l18": 10792636416,
+        "hidden_l19": 10792734720,
+        "hidden_l20": 10792783872,
+        "hidden_l21": 10791677952,
+        "hidden_l22": 10792685568,
+        "hidden_l23": 10792701952,
+        "hidden_l24": 10792980480,
+        "hidden_l25": 10792996864,
+        "hidden_l26": 10793029632,
+        "hidden_l27": 10793046016,
+        "present_k0": 10792833024,
+        "present_k1": 10792849408,
+        "present_k2": 10792865792,
+        "present_k3": 10792882176,
+        "present_k4": 10792898560,
+        "present_k5": 10792914944,
+        "present_k6": 10792931328,
+        "present_k7": 10792947712,
+        "present_k8": 10793078784,
+        "present_k9": 10793095168,
+        "present_k10": 10793111552,
+        "present_k11": 10793127936,
+        "present_k12": 10793144320,
+        "present_k13": 10793160704,
+        "present_k14": 10793177088,
+        "present_k15": 10793193472,
+        "present_k16": 10793209856,
+        "present_k17": 10793226240,
+        "present_k18": 10793242624,
+        "present_k19": 10791170048,
+        "present_k20": 10791186432,
+        "present_k21": 10791202816,
+        "present_k22": 10791219200,
+        "present_k23": 10791235584,
+        "present_k24": 10791251968,
+        "present_k25": 10791268352,
+        "present_k26": 10791284736,
+        "present_k27": 10791301120,
+        "present_v0": 10791317504,
+        "present_v1": 10791333888,
+        "present_v2": 10791350272,
+        "present_v3": 10791366656,
+        "present_v4": 10791383040,
+        "present_v5": 10791399424,
+        "present_v6": 10791415808,
+        "present_v7": 10791432192,
+        "present_v8": 10791448576,
+        "present_v9": 10791464960,
+        "present_v10": 10791481344,
+        "present_v11": 10791497728,
+        "present_v12": 10791514112,
+        "present_v13": 10791530496,
+        "present_v14": 9850016768,
+        "present_v15": 9850033152,
+        "present_v16": 9850049536,
+        "present_v17": 9850065920,
+        "present_v18": 9850082304,
+        "present_v19": 9850098688,
+        "present_v20": 9850115072,
+        "present_v21": 9850131456,
+        "present_v22": 9850147840,
+        "present_v23": 9850164224,
+        "present_v24": 9850180608,
+        "present_v25": 9850196992,
+        "present_v26": 9850213376,
+        "present_v27": 9850229760
+      }
+    }
+  },
+  "D4_stream_pointer_audit": {
+    "embedding_stream": 0,
+    "decoder_stream": 0,
+    "same_stream": true,
+    "embedding_output_ptr": 10791546880,
+    "decoder_input_ptr": 9849857024,
+    "explicit_sync_after_each_enqueue": true,
+    "producer_consumer_ordering": "same current stream plus synchronize after embedding and decoder"
+  },
+  "D5_binding_contract": [
+    {
+      "index": 0,
+      "name": "hidden_states",
+      "mode": "TensorIOMode.INPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        -1,
+        1024
+      ]
+    },
+    {
+      "index": 1,
+      "name": "position_ids",
+      "mode": "TensorIOMode.INPUT",
+      "dtype": "DataType.INT64",
+      "shape": [
+        1,
+        -1
+      ]
+    },
+    {
+      "index": 2,
+      "name": "hidden_l0",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        -1,
+        1024
+      ]
+    },
+    {
+      "index": 3,
+      "name": "hidden_l1",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        -1,
+        1024
+      ]
+    },
+    {
+      "index": 4,
+      "name": "hidden_l2",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        -1,
+        1024
+      ]
+    },
+    {
+      "index": 5,
+      "name": "hidden_l3",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        -1,
+        1024
+      ]
+    },
+    {
+      "index": 6,
+      "name": "hidden_l4",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        -1,
+        1024
+      ]
+    },
+    {
+      "index": 7,
+      "name": "hidden_l5",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        -1,
+        1024
+      ]
+    },
+    {
+      "index": 8,
+      "name": "hidden_l6",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        -1,
+        1024
+      ]
+    },
+    {
+      "index": 9,
+      "name": "hidden_l7",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        -1,
+        1024
+      ]
+    },
+    {
+      "index": 10,
+      "name": "hidden_l8",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        -1,
+        1024
+      ]
+    },
+    {
+      "index": 11,
+      "name": "hidden_l9",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        -1,
+        1024
+      ]
+    },
+    {
+      "index": 12,
+      "name": "hidden_l10",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        -1,
+        1024
+      ]
+    },
+    {
+      "index": 13,
+      "name": "hidden_l11",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        -1,
+        1024
+      ]
+    },
+    {
+      "index": 14,
+      "name": "hidden_l12",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        -1,
+        1024
+      ]
+    },
+    {
+      "index": 15,
+      "name": "hidden_l13",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        -1,
+        1024
+      ]
+    },
+    {
+      "index": 16,
+      "name": "hidden_l14",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        -1,
+        1024
+      ]
+    },
+    {
+      "index": 17,
+      "name": "hidden_l15",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        -1,
+        1024
+      ]
+    },
+    {
+      "index": 18,
+      "name": "hidden_l16",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        -1,
+        1024
+      ]
+    },
+    {
+      "index": 19,
+      "name": "hidden_l17",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        -1,
+        1024
+      ]
+    },
+    {
+      "index": 20,
+      "name": "hidden_l18",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        -1,
+        1024
+      ]
+    },
+    {
+      "index": 21,
+      "name": "hidden_l19",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        -1,
+        1024
+      ]
+    },
+    {
+      "index": 22,
+      "name": "hidden_l20",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        -1,
+        1024
+      ]
+    },
+    {
+      "index": 23,
+      "name": "hidden_l21",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        -1,
+        1024
+      ]
+    },
+    {
+      "index": 24,
+      "name": "hidden_l22",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        -1,
+        1024
+      ]
+    },
+    {
+      "index": 25,
+      "name": "hidden_l23",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        -1,
+        1024
+      ]
+    },
+    {
+      "index": 26,
+      "name": "hidden_l24",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        -1,
+        1024
+      ]
+    },
+    {
+      "index": 27,
+      "name": "hidden_l25",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        -1,
+        1024
+      ]
+    },
+    {
+      "index": 28,
+      "name": "hidden_l26",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        -1,
+        1024
+      ]
+    },
+    {
+      "index": 29,
+      "name": "hidden_l27",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        -1,
+        1024
+      ]
+    },
+    {
+      "index": 30,
+      "name": "present_k0",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 31,
+      "name": "present_k1",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 32,
+      "name": "present_k2",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 33,
+      "name": "present_k3",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 34,
+      "name": "present_k4",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 35,
+      "name": "present_k5",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 36,
+      "name": "present_k6",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 37,
+      "name": "present_k7",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 38,
+      "name": "present_k8",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 39,
+      "name": "present_k9",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 40,
+      "name": "present_k10",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 41,
+      "name": "present_k11",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 42,
+      "name": "present_k12",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 43,
+      "name": "present_k13",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 44,
+      "name": "present_k14",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 45,
+      "name": "present_k15",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 46,
+      "name": "present_k16",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 47,
+      "name": "present_k17",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 48,
+      "name": "present_k18",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 49,
+      "name": "present_k19",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 50,
+      "name": "present_k20",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 51,
+      "name": "present_k21",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 52,
+      "name": "present_k22",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 53,
+      "name": "present_k23",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 54,
+      "name": "present_k24",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 55,
+      "name": "present_k25",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 56,
+      "name": "present_k26",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 57,
+      "name": "present_k27",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 58,
+      "name": "present_v0",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 59,
+      "name": "present_v1",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 60,
+      "name": "present_v2",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 61,
+      "name": "present_v3",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 62,
+      "name": "present_v4",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 63,
+      "name": "present_v5",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 64,
+      "name": "present_v6",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 65,
+      "name": "present_v7",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 66,
+      "name": "present_v8",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 67,
+      "name": "present_v9",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 68,
+      "name": "present_v10",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 69,
+      "name": "present_v11",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 70,
+      "name": "present_v12",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 71,
+      "name": "present_v13",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 72,
+      "name": "present_v14",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 73,
+      "name": "present_v15",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 74,
+      "name": "present_v16",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 75,
+      "name": "present_v17",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 76,
+      "name": "present_v18",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 77,
+      "name": "present_v19",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 78,
+      "name": "present_v20",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 79,
+      "name": "present_v21",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 80,
+      "name": "present_v22",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 81,
+      "name": "present_v23",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 82,
+      "name": "present_v24",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 83,
+      "name": "present_v25",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 84,
+      "name": "present_v26",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    },
+    {
+      "index": 85,
+      "name": "present_v27",
+      "mode": "TensorIOMode.OUTPUT",
+      "dtype": "DataType.HALF",
+      "shape": [
+        1,
+        8,
+        -1,
+        128
+      ]
+    }
+  ],
+  "conclusion": "NOT_CONFIRMED_BY_BOUNDARY_OR_STREAM_TEST"
+}
