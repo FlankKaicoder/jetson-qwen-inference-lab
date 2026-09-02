@@ -1,5 +1,15 @@
 # Current State
 
+## Phase 2.2-C1 Closeout (2026-09-03)
+
+- Starting HEAD: `baa162800624b97b9667c396ee09d4db6a91bff3`; branch `phase/02-qwen3-quantization`.
+- New script: `experiments/Phase2-qwen3-quantization/phase2_2_runtime_prototype/src/phase2_2c1/c1_closeout_corrected_runtime.py`.
+- New Jetson-local engines: `/tmp/phase2_2c1_closeout_20260903T004926/`.
+- Exact C1 embedding output remained byte-identical. Corrected prefill/decode outputs were finite; decode 8->12 passed exact KV prefix preservation and pointer isolation.
+- Layer 0 corrected relative-L2 `0.0038153231`; Layer 27 `2.0046324720` versus portable reference. Final gate: `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`.
+- Evidence: `experiments/Phase2-qwen3-quantization/phase2_2_runtime_prototype/artifacts/phase2_2c1_closeout_20260903T004926/`; report `.../docs/phase2_2c1_closeout.md`.
+- C2 must not start.
+
 本文件是辅助交接。独立恢复工作应以 `AGENTS.md`、`docs/PROJECT_STATE.md`、`docs/experiment_index.md`、实验报告和 raw artifacts 为主。
 
 ## 当前 branch

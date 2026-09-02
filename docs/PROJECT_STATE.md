@@ -13,14 +13,14 @@
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
 | Current phase | Phase 2 — LLM Quantization |
-| Current experiment | Phase 2.2-C1J — Qwen3 Layer 0 RoPE numerical root-cause diagnostic |
+| Current experiment | Phase 2.2-C1 closeout — corrected 28-layer decoder validation |
 | Current branch | `phase/02-qwen3-quantization` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Exp04 — CUDA GEMM tiling and WMMA |
 | Experiment status | Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8/2.1.9 `PASS / BOUNDED`; Phase 2.2-A `PARTIAL / BOUNDED PASS`; Phase 2.2-B1/B2/B3 `PASS / BOUNDED`; Phase 2.2-B4.1 `PASS / CLOSED`; Phase 2.2-B4.2 `PASS / BOUNDED`; Phase 2.2-C0 `PASS / DESIGN ONLY`; Phase 2.2-C1 `BLOCKED` |
-| Current Gate | Phase 2.2-C1 embedding-only gates PASS; C1D boundary diagnostic complete; decoder integration remains BLOCKED |
-| Readiness | C1 blocked; C2 must not start. D0 PASS, D1 byte-identical, D3 host/direct identical failure; no stream/pointer/binding root cause confirmed |
+| Current Gate | Phase 2.2-C1 `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`; embedding and runtime functional checks PASS, full-stack numerical agreement unresolved |
+| Readiness | C1 closed with numerical limitation; C2 must not start. Corrected 28-layer prefill/decode validated functionally, Layer 27 relative-L2 remains ~2.00463 |
 
 ## Confirmed Findings
 
