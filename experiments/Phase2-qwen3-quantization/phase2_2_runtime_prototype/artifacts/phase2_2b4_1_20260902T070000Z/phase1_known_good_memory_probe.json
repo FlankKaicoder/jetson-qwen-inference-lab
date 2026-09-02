@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "rows": [
+    {
+      "label": "before_load",
+      "MemAvailable": 5040418816,
+      "SwapUsed": 1925337088,
+      "cuda_free": 4903251968,
+      "cuda_total": 7989940224,
+      "allocated": 0,
+      "reserved": 0,
+      "max_allocated": 0,
+      "max_reserved": 0
+    },
+    {
+      "label": "after_load",
+      "MemAvailable": 4054503424,
+      "SwapUsed": 1925337088,
+      "cuda_free": 3932180480,
+      "cuda_total": 7989940224,
+      "allocated": 1192638976,
+      "reserved": 1509949440,
+      "max_allocated": 1503803392,
+      "max_reserved": 1509949440
+    },
+    {
+      "label": "after_forward",
+      "MemAvailable": 3576070144,
+      "SwapUsed": 1925337088,
+      "cuda_free": 3549044736,
+      "cuda_total": 7989940224,
+      "allocated": 1201996800,
+      "reserved": 1509949440,
+      "max_allocated": 1503803392,
+      "max_reserved": 1509949440
+    }
+  ],
+  "finite_logits": true,
+  "logits_shape": [1, 2, 151936],
+  "device": "cuda:0"
+}

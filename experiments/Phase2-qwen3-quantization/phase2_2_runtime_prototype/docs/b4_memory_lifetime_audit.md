@@ -17,4 +17,8 @@ The HF path retains CPU copies of every per-layer hidden/K/V output for prefill 
 
 ## Root-cause conclusion
 
-The failure is not evidence that the intrinsic Qwen3 model cannot fit: Phase 1 loaded the exact full model successfully with a recorded model-load allocator delta of 1,192,638,976 bytes and minimum MemAvailable of 2,746,023,936 bytes. B4 instead combines all-layer CPU materialization, repeated CUDA copies, retained reference trees and handoff construction. The evidence supports `ROOT_CAUSE_PARTIALLY_LOCALIZED`; a true streaming design must read, use, hash, and release one layer at a time and must never construct a giant nested handoff.
+The failure is not evidence that the intrinsic Qwen3 model cannot fit: Phase 1 loaded the exact full model successfully with a recorded model-load allocator delta of 1,192,638,976 bytes and minimum MemAvailable of 2,746,023,936 bytes. B4 instead combines all-layer CPU materialization, repeated CUDA copies, retained reference trees and handoff construction. Before dynamic recovery, the evidence supported `ROOT_CAUSE_PARTIALLY_LOCALIZED`; a true streaming design had to read, use, hash, and release one layer at a time and never construct a giant nested handoff.
+
+## B4.1 dynamic confirmation
+
+The Phase 1 known-good exact-model load and short forward passed. A 28-file streaming extraction then completed with only one layer state live at a time, followed by fresh-process 4-layer, 8-layer and 28-layer oracle runs. The 28-layer run completed prefill and one `8->9` decode with flat allocator reservation and only expected KV growth. This dynamic contrast confirms `IMPLEMENTATION_MEMORY_LIFETIME_CONFIRMED`; it does not invalidate or overwrite the original exit-137 evidence.

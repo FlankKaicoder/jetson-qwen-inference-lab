@@ -199,3 +199,7 @@ Real Qwen3 layers 0-3 were mapped and reproduced exactly by HF/portable BF16. A 
 ## Phase 2.2-B4 checkpoint (2026-09-02)
 
 B4 preflight verified the frozen model identity, then the monolithic 28-layer HF oracle was killed with exit 137 before artifact output. The predefined 7x4 partitioned fallback was attempted once and was also killed with exit 137. No handoff, ONNX export, TensorRT build or runtime validation was started. Status is `BLOCKED_BY_28L_ORACLE_MEMORY`; existing B3 evidence and the Jetson stash backup remain untouched.
+
+## Phase 2.2-B4.1 checkpoint (2026-09-02)
+
+The exact Phase 1 BF16 full-model load and short forward passed, excluding a current intrinsic model-load failure under the measured state. Static audit plus dynamic recovery confirm `IMPLEMENTATION_MEMORY_LIFETIME_CONFIRMED`: old B4 retained all 28 CPU layer states, overlapping CUDA copies and large reference/handoff trees. Streaming extraction produced 28 independently hashed `/tmp` layer files, while fresh-process 4-layer, 8-layer and one 28-layer oracle attempt showed fixed allocator reservation and expected KV-only growth. The 28-layer `S=8` prefill and one decode `8->9` passed without exit 137. B4.1 is `PASS / CLOSED`; decision `B4_ORACLE_MEMORY_PATH_RECOVERED`. No 28-layer ONNX/TensorRT, benchmark, profiler, quantization or later phase started. The pre-existing Jetson stash remains preserved.

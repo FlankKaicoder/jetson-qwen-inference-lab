@@ -13,14 +13,14 @@
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
 | Current phase | Phase 2 — LLM Quantization |
-| Current experiment | Phase 2.2-B4 — real Qwen3 28-layer decoder stack feasibility |
+| Current experiment | Phase 2.2-B4.1 — 28-layer oracle memory recovery |
 | Current branch | `phase/02-qwen3-quantization` |
-| Current HEAD | Verify with `git rev-parse HEAD`; Phase 2.2 preparation closeout pending |
+| Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Exp04 — CUDA GEMM tiling and WMMA |
-| Experiment status | Phase 1.0 `PASS WITH CONSTRAINTS / CLOSED`; Phase 1.1 `PASS / CLOSED`; Phase 1.2 `PASS / CLOSED`; Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8 `PASS / BOUNDED`; Phase 2.1.9 `PASS / BOUNDED`; Phase 2.2-A `PARTIAL / BOUNDED PASS`; Phase 2.2-B1 `PASS / BOUNDED` |
-| Current Gate | Phase 2.2-B4 `BLOCKED_BY_28L_ORACLE_MEMORY`; monolithic and predefined 7x4 oracle attempts were killed with exit 137 |
-| Readiness | B3 four-layer stack remains validated; 28-layer runtime feasibility is blocked by Jetson oracle resource pressure |
+| Experiment status | Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8/2.1.9 `PASS / BOUNDED`; Phase 2.2-A `PARTIAL / BOUNDED PASS`; Phase 2.2-B1/B2/B3 `PASS / BOUNDED`; Phase 2.2-B4.1 `PASS / CLOSED` |
+| Current Gate | Phase 2.2-B4.1 `PASS / CLOSED`; `IMPLEMENTATION_MEMORY_LIFETIME_CONFIRMED` |
+| Readiness | `B4_ORACLE_MEMORY_PATH_RECOVERED`; B4 TensorRT continuation requires explicit authorization |
 
 ## Confirmed Findings
 
@@ -125,7 +125,7 @@ No repository evidence records a formally `REJECT`-status experiment.
 
 ## Required Next Action
 
-Review the Phase 2.2 runtime prototype preparation. Do not start full Qwen3 export, engine build, TensorRT execution, INT8, INT4, TensorRT-LLM, benchmarking or Phase 3 without explicit authorization.
+Owner review of Phase 2.2-B4.1 evidence. Do not begin B4 TensorRT continuation, 28-layer ONNX export/build, benchmarking, profiling, INT8/INT4, TensorRT-LLM, Phase 2.2-C/D, Phase 2.3 or Phase 3 without explicit authorization.
 
 ## Do-not-repeat Work
 
@@ -214,3 +214,11 @@ Before Exp01.2 profiling on `2026-08-30`, Windows, GitHub and Jetson were clean 
 - CUDA execution passed for prefill `B=1,S=8` and dynamic decode cache lengths 8->9->10->11->12. Outputs were finite, shape-correct and `cuda:0` resident. Independent reference/TRT cache chains show zero prefix mutation in all decode steps.
 - Runtime binds CUDA `data_ptr()` addresses and uses `torch.cuda.current_stream()` with explicit synchronization. TensorRT default-stream and FP16 Reduce/Pow normalization warnings remain limitations.
 - Phase 2.2-A is `PARTIAL / BOUNDED PASS` (C1-C5 bounded PASS). No production accuracy, capacity, performance or full-model readiness claim is made; Phase 2.2-B remains not started.
+
+## Phase 2.2-B4.1 Oracle Memory Recovery (2026-09-02)
+
+- The bounded Phase 1 regression probe loaded the exact BF16 model and completed one short forward; current intrinsic full-model loading remains viable.
+- Static audit confirmed 880,932,864 bytes of all-layer CPU BF16 state plus overlapping CUDA copies, retained reference trees and giant handoff construction in the failed B4 lifecycle.
+- Streaming extraction produced 28 independently hashed Jetson-local layer files totaling 881,044,080 bytes without an all-layer Python state dictionary.
+- Fresh-process 4-layer and 8-layer diagnostics showed fixed allocator reservation and expected KV-only growth. The single recovered 28-layer attempt passed `S=8` prefill and one decode `8->9` with no exit 137.
+- Phase 2.2-B4.1 is `PASS / CLOSED`; decision `B4_ORACLE_MEMORY_PATH_RECOVERED`; root cause `IMPLEMENTATION_MEMORY_LIFETIME_CONFIRMED`. No ONNX/TensorRT, benchmark, profiler or quantization work was run.

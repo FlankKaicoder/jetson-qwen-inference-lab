@@ -1,0 +1,4 @@
+captured=2026-09-02 Asia/Shanghai
+windows_stash=none
+jetson_stash=stash@{0}: On 02-qwen3-quantization: preserve b3 generated evidence before fast-forward
+preservation_policy=no_pop_no_apply_no_drop_no_clear

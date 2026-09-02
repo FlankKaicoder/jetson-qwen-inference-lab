@@ -1,0 +1,9 @@
+captured=2026-09-02 Asia/Shanghai
+windows_path=E:\nvidia-qwen
+windows_branch=phase/02-qwen3-quantization
+windows_head=049917d187e181a25bb54c0b54f59b3c3b882e52
+windows_working_tree=clean_before_b4_1_continuation
+jetson_path=/home/nvidia/projects/jetson-qwen-inference-lab
+jetson_branch=phase/02-qwen3-quantization
+jetson_head=049917d187e181a25bb54c0b54f59b3c3b882e52
+jetson_working_tree=clean_before_b4_1_continuation
