@@ -1,0 +1,142 @@
+{
+  "status": "PASS",
+  "operator_gate": "FINAL_RMSNORM_OPERATOR = PASS",
+  "selected_variant": "fp32_reduce",
+  "same_input": {
+    "synthetic_prefill": {
+      "shape": [
+        1,
+        8,
+        1024
+      ],
+      "cuda": true,
+      "variants": {
+        "native": {
+          "shape_equal": true,
+          "finite": true,
+          "max_abs": 0.015625,
+          "mean_abs": 0.0013609096640720963,
+          "rmse": 0.0023093456402420998,
+          "relative_l2": 0.0005905467551201582,
+          "cosine": 0.9999991059303284
+        },
+        "fp32_reduce": {
+          "shape_equal": true,
+          "finite": true,
+          "max_abs": 0.015625,
+          "mean_abs": 0.0013609096640720963,
+          "rmse": 0.0023093456402420998,
+          "relative_l2": 0.0005905467551201582,
+          "cosine": 0.9999991059303284
+        }
+      }
+    },
+    "synthetic_decode": {
+      "shape": [
+        1,
+        1,
+        1024
+      ],
+      "cuda": true,
+      "variants": {
+        "native": {
+          "shape_equal": true,
+          "finite": true,
+          "max_abs": 0.015625,
+          "mean_abs": 0.000523097813129425,
+          "rmse": 0.0013750798534601927,
+          "relative_l2": 0.00035069460864178836,
+          "cosine": 0.9999998807907104
+        },
+        "fp32_reduce": {
+          "shape_equal": true,
+          "finite": true,
+          "max_abs": 0.015625,
+          "mean_abs": 0.000523097813129425,
+          "rmse": 0.0013750798534601927,
+          "relative_l2": 0.00035069460864178836,
+          "cosine": 0.9999998807907104
+        }
+      }
+    }
+  },
+  "decoder_integration": {
+    "prefill": {
+      "shape": [
+        1,
+        8,
+        1024
+      ],
+      "dtype": "torch.float16",
+      "finite": true,
+      "cuda": true,
+      "baseline_vs_selected": {
+        "shape_equal": true,
+        "finite": true,
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "rmse": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 0.9999994039535522
+      }
+    },
+    "decode": {
+      "shape": [
+        1,
+        1,
+        1024
+      ],
+      "dtype": "torch.float16",
+      "finite": true,
+      "cuda": true,
+      "baseline_vs_selected": {
+        "shape_equal": true,
+        "finite": true,
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "rmse": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      }
+    },
+    "same_layer27_input": {
+      "shape_equal": true,
+      "finite": true,
+      "max_abs": 27.109375,
+      "mean_abs": 0.013814909383654594,
+      "rmse": 0.3224474787712097,
+      "relative_l2": 0.08413004875183105,
+      "cosine": 0.996454119682312
+    }
+  },
+  "full_path": {
+    "status": "END_TO_END_DIAGNOSTIC_ONLY",
+    "reason": "C1 decoder drift"
+  },
+  "memory": {
+    "trace": [
+      {
+        "stage": "start",
+        "maxrss": 366080,
+        "mem_available_bytes": 5667188736,
+        "swap_used_bytes": 1984737280,
+        "cuda_free_bytes": 5576900608,
+        "cuda_total_bytes": 7989940224,
+        "torch_allocated_bytes": 0,
+        "torch_reserved_bytes": 0
+      },
+      {
+        "stage": "complete",
+        "maxrss": 1400540,
+        "mem_available_bytes": 4533264384,
+        "swap_used_bytes": 1984737280,
+        "cuda_free_bytes": 4527112192,
+        "cuda_total_bytes": 7989940224,
+        "torch_allocated_bytes": 41984,
+        "torch_reserved_bytes": 2097152
+      }
+    ],
+    "oom": false,
+    "exit137": false
+  }
+}

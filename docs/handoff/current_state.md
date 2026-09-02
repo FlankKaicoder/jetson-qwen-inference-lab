@@ -264,3 +264,18 @@ reduced Q/K RoPE relative-L2 from `0.0927107111/0.0144213885` to
 `MemAvailable` was `2,551,443,456` bytes; no OOM or exit 137 occurred. C1
 remains `BLOCKED`; no repair, C1L, C2, benchmark, Nsight, quantization or
 production rebuild started. Await explicit owner direction.
+
+## Phase 2.2-C2 checkpoint (2026-09-03)
+
+Starting HEAD was `cb4aeabddc9b960f0a6b5ab8ae3c7549d8c2b3db`. Added
+`src/phase2_2c2/c2_final_rmsnorm.py`, the C2 report and compact artifacts under
+`artifacts/phase2_2c2_20260903T/`. Jetson audit confirmed pinned Qwen3
+`model.norm` / `model.norm.weight`, shape `[1024]`, BF16, epsilon `1e-6`.
+Independent native and FP32-reduction TensorRT engines built successfully.
+Synthetic same-input relative-L2 was `0.000590547` for `[1,8,1024]` and
+`0.000350695` for `[1,1,1024]`; both variants matched on this device and
+`fp32_reduce` was selected for explicit source semantics. Decoder-to-final-norm
+prefill/decode integration passed with finite CUDA FP16 outputs. Same Layer27
+input portable-vs-TRT relative-L2 was `0.08413005`, recorded separately from
+the operator gate. No OOM/exit 137 occurred. C2 is `PASS / BOUNDED`; stop and
+await explicit authorization for C3 LM Head.

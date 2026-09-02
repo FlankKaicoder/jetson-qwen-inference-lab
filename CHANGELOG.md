@@ -4,6 +4,12 @@
 
 ## [Unreleased]
 
+### Phase 2.2-C2 (2026-09-03)
+
+- Integrated and validated the pinned Qwen3 final RMSNorm as an independent TensorRT FP16 component. `model.norm.weight` was confirmed at shape `[1024]`, BF16, epsilon `1e-6`, with checkpoint and weight hashes recorded.
+- Built independent native and explicit FP32-reduction TensorRT engines. Synthetic same-input operator metrics passed for prefill/decode; the FP32-reduction semantic path was selected. Existing C1 embedding and corrected 28-layer decoder assets remained read-only.
+- Decoder-to-final-norm prefill `[1,8,1024]` and decode `[1,1,1024]` CUDA integration passed with no OOM or exit 137. Full-path comparisons remain `END_TO_END_DIAGNOSTIC_ONLY` because of the closed C1 decoder drift. C2 result: `PASS / BOUNDED`; C3 was not started.
+
 ### Added
 
 - 初始化项目结构、实验规范、Git 工作流与交接文档。

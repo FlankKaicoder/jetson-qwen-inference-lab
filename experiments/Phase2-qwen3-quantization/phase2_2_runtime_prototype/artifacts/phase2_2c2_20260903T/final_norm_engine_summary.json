@@ -1,0 +1,12 @@
+{
+  "native": {
+    "status": "PASS",
+    "engine": "/tmp/phase2_2c2_20260903T/final_rmsnorm_native.engine",
+    "engine_bytes": 48756
+  },
+  "fp32_reduce": {
+    "status": "PASS",
+    "engine": "/tmp/phase2_2c2_20260903T/final_rmsnorm_fp32_reduce.engine",
+    "engine_bytes": 50020
+  }
+}

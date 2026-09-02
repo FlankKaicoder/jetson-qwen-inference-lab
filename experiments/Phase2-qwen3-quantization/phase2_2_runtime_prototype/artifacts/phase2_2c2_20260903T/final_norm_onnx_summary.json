@@ -1,0 +1,14 @@
+{
+  "native": {
+    "status": "PASS",
+    "bytes": 2808,
+    "node_count": 9,
+    "initializer_count": 1
+  },
+  "fp32_reduce": {
+    "status": "PASS",
+    "bytes": 4994,
+    "node_count": 11,
+    "initializer_count": 1
+  }
+}
