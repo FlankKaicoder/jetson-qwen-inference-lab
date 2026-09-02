@@ -14,10 +14,10 @@ The previous B2 preflight stopped because `phase2-trt-tools` could not import `t
 
 ## Gates
 
-ENV-A existing environment audit: PASS.  
-ENV-B NVIDIA PyTorch identity: PASS.  
-ENV-C HF dependencies in one selected environment: BLOCKED; dual-env route available.  
-ENV-D ONNX/TensorRT capability: PASS in `phase2-trt-tools`.  
+ENV-A existing environment audit: PASS.
+ENV-B NVIDIA PyTorch identity: PASS.
+ENV-C HF dependencies in one selected environment: BLOCKED; dual-env route available.
+ENV-D ONNX/TensorRT capability: PASS in `phase2-trt-tools`.
 ENV-E pip check: PASS in both environments.
 
 Overall: `SOLUTION_C_DUAL_ENV_REQUIRED`; `B2_ENVIRONMENT_READY` is not claimed for a single combined environment.
