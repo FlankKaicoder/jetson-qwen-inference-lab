@@ -1,0 +1,4 @@
+status=PASS; opset=17; graph=real Qwen3 Layer0 portable FP16
+inputs=hidden_states [1,1,1024] FP16; position_ids [1,1] INT64; past_k/past_v [1,8,L,128] FP16
+outputs=hidden_out [1,1,1024]; present_k/present_v [1,8,L+1,128] FP16
+dynamic past length profile L=1..16; binary retained only /tmp/phase2_2b2_trt_20260902/decode.onnx

@@ -1,0 +1,8 @@
+venv=/home/nvidia/.venvs/jetson-qwen-phase1-hf
+torch=2.5.0a0+872d972e41.nv24.08 (/usr/local/lib/python3.10/dist-packages/torch)
+transformers=4.57.3
+safetensors=0.8.0
+tensorrt=10.3.0
+cuda=12.6
+device=Orin
+pip_check=PASS

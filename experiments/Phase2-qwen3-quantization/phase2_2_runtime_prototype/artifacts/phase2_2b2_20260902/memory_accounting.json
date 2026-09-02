@@ -1,0 +1,1 @@
+{"layer_id":0,"parameter_count":15730944,"bf16_weight_bytes":31461888,"fp16_trt_weight_bytes":31461888,"kv_layout":"[1,8,L,128] FP16","kv_bytes":{"L=8":16384,"L=9":18432,"L=10":20480,"L=11":22528,"L=12":24576},"limitation":"single real layer only; excludes full model, workspace and allocator overhead"}

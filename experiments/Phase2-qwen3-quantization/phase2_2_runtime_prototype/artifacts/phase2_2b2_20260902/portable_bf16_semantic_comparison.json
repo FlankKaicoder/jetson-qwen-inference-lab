@@ -1,0 +1,188 @@
+{
+  "prefill": {
+    "phase": "prefill",
+    "hidden": {
+      "shape_equal": true,
+      "finite": true,
+      "max_abs": 0.0,
+      "mean_abs": 0.0,
+      "rmse": 0.0
+    },
+    "k": {
+      "shape_equal": true,
+      "finite": true,
+      "max_abs": 0.0,
+      "mean_abs": 0.0,
+      "rmse": 0.0
+    },
+    "v": {
+      "shape_equal": true,
+      "finite": true,
+      "max_abs": 0.0,
+      "mean_abs": 0.0,
+      "rmse": 0.0
+    }
+  },
+  "decode": [
+    {
+      "step": 0,
+      "past_length": 8,
+      "present_length": 9,
+      "hidden": {
+        "shape_equal": true,
+        "finite": true,
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "rmse": 0.0
+      },
+      "k": {
+        "shape_equal": true,
+        "finite": true,
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "rmse": 0.0
+      },
+      "v": {
+        "shape_equal": true,
+        "finite": true,
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "rmse": 0.0
+      },
+      "new_k": {
+        "shape_equal": true,
+        "finite": true,
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "rmse": 0.0
+      },
+      "new_v": {
+        "shape_equal": true,
+        "finite": true,
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "rmse": 0.0
+      }
+    },
+    {
+      "step": 1,
+      "past_length": 9,
+      "present_length": 10,
+      "hidden": {
+        "shape_equal": true,
+        "finite": true,
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "rmse": 0.0
+      },
+      "k": {
+        "shape_equal": true,
+        "finite": true,
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "rmse": 0.0
+      },
+      "v": {
+        "shape_equal": true,
+        "finite": true,
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "rmse": 0.0
+      },
+      "new_k": {
+        "shape_equal": true,
+        "finite": true,
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "rmse": 0.0
+      },
+      "new_v": {
+        "shape_equal": true,
+        "finite": true,
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "rmse": 0.0
+      }
+    },
+    {
+      "step": 2,
+      "past_length": 10,
+      "present_length": 11,
+      "hidden": {
+        "shape_equal": true,
+        "finite": true,
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "rmse": 0.0
+      },
+      "k": {
+        "shape_equal": true,
+        "finite": true,
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "rmse": 0.0
+      },
+      "v": {
+        "shape_equal": true,
+        "finite": true,
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "rmse": 0.0
+      },
+      "new_k": {
+        "shape_equal": true,
+        "finite": true,
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "rmse": 0.0
+      },
+      "new_v": {
+        "shape_equal": true,
+        "finite": true,
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "rmse": 0.0
+      }
+    },
+    {
+      "step": 3,
+      "past_length": 11,
+      "present_length": 12,
+      "hidden": {
+        "shape_equal": true,
+        "finite": true,
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "rmse": 0.0
+      },
+      "k": {
+        "shape_equal": true,
+        "finite": true,
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "rmse": 0.0
+      },
+      "v": {
+        "shape_equal": true,
+        "finite": true,
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "rmse": 0.0
+      },
+      "new_k": {
+        "shape_equal": true,
+        "finite": true,
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "rmse": 0.0
+      },
+      "new_v": {
+        "shape_equal": true,
+        "finite": true,
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "rmse": 0.0
+      }
+    }
+  ]
+}

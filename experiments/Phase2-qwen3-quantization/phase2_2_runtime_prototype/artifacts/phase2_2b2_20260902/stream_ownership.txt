@@ -1,0 +1,5 @@
+runtime stream=torch.cuda.current_stream()
+TensorRT enqueue=execute_async_v3 on current stream; explicit synchronize before result inspection
+KV input/output device=cuda:0
+host payload roundtrip=false
+TensorRT default-stream warning=WARNING_REMAINS

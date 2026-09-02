@@ -1,0 +1,4 @@
+status=WARNING_REMAINS
+HF RMSNorm: FP32 pow/mean/rsqrt accumulation, cast back to input dtype.
+Portable layer: same explicit FP32 accumulation policy.
+TensorRT: warning retained that FP16 Reduce/Pow after attention may overflow; no production accuracy claim.

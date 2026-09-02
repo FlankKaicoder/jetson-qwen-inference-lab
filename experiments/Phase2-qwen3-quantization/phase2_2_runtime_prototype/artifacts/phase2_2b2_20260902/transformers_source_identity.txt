@@ -1,0 +1,3 @@
+module=transformers.models.qwen3.modeling_qwen3
+classes=Qwen3DecoderLayer,Qwen3Attention,Qwen3RMSNorm,Qwen3MLP,Qwen3RotaryEmbedding
+functions=apply_rotary_pos_emb,repeat_kv

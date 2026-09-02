@@ -1,0 +1,1 @@
+{"status":"PASS","dtype":"BF16","layer_id":0,"prefill":"finite; [1,8,1024] hidden and [1,8,8,128] K/V","decode":"finite; cache lengths 8->12","cache_semantics":"post-RoPE K, projected V"}

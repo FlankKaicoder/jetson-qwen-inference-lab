@@ -1,0 +1,341 @@
+{
+  "status": "PASS",
+  "prefill": {
+    "hidden": {
+      "max_abs": 0.0069580078125,
+      "rmse": 0.0011786604300141335,
+      "finite": true,
+      "shape_equal": true
+    },
+    "k": {
+      "max_abs": 0.875,
+      "rmse": 0.024199161678552628,
+      "finite": true,
+      "shape_equal": true
+    },
+    "v": {
+      "max_abs": 0.001953125,
+      "rmse": 0.00026114145293831825,
+      "finite": true,
+      "shape_equal": true
+    },
+    "shapes": {
+      "hidden_out": [
+        1,
+        8,
+        1024
+      ],
+      "present_k": [
+        1,
+        8,
+        8,
+        128
+      ],
+      "present_v": [
+        1,
+        8,
+        8,
+        128
+      ]
+    },
+    "devices": {
+      "hidden_out": "cuda:0",
+      "present_k": "cuda:0",
+      "present_v": "cuda:0"
+    }
+  },
+  "decode": [
+    {
+      "step": 0,
+      "past_length": 8,
+      "present_length": 9,
+      "hidden": {
+        "max_abs": 0.00390625,
+        "rmse": 0.001077650347724557,
+        "finite": true,
+        "shape_equal": true
+      },
+      "k": {
+        "max_abs": 0.875,
+        "rmse": 0.02365567535161972,
+        "finite": true,
+        "shape_equal": true
+      },
+      "v": {
+        "max_abs": 0.001953125,
+        "rmse": 0.0002619897713884711,
+        "finite": true,
+        "shape_equal": true
+      },
+      "hf_bf16_vs_trt_fp16": {
+        "hidden": {
+          "max_abs": 0.015625,
+          "rmse": 0.0031932920683175325,
+          "finite": true,
+          "shape_equal": true
+        },
+        "k": {
+          "max_abs": 1.25,
+          "rmse": 0.04187227040529251,
+          "finite": true,
+          "shape_equal": true
+        },
+        "v": {
+          "max_abs": 0.0029296875,
+          "rmse": 0.0004994838964194059,
+          "finite": true,
+          "shape_equal": true
+        }
+      },
+      "prefix_k": {
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "finite": true,
+        "shape_equal": true
+      },
+      "prefix_v": {
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "finite": true,
+        "shape_equal": true
+      },
+      "new_k": {
+        "max_abs": 0.4375,
+        "rmse": 0.018748978152871132,
+        "finite": true,
+        "shape_equal": true
+      },
+      "new_v": {
+        "max_abs": 0.00146484375,
+        "rmse": 0.0002686800726223737,
+        "finite": true,
+        "shape_equal": true
+      },
+      "devices": {
+        "hidden_out": "cuda:0",
+        "present_k": "cuda:0",
+        "present_v": "cuda:0"
+      }
+    },
+    {
+      "step": 1,
+      "past_length": 9,
+      "present_length": 10,
+      "hidden": {
+        "max_abs": 0.00537109375,
+        "rmse": 0.0010630522156134248,
+        "finite": true,
+        "shape_equal": true
+      },
+      "k": {
+        "max_abs": 0.875,
+        "rmse": 0.02288842760026455,
+        "finite": true,
+        "shape_equal": true
+      },
+      "v": {
+        "max_abs": 0.001953125,
+        "rmse": 0.00026284524938091636,
+        "finite": true,
+        "shape_equal": true
+      },
+      "hf_bf16_vs_trt_fp16": {
+        "hidden": {
+          "max_abs": 0.0126953125,
+          "rmse": 0.0031936296727508307,
+          "finite": true,
+          "shape_equal": true
+        },
+        "k": {
+          "max_abs": 1.25,
+          "rmse": 0.041891928762197495,
+          "finite": true,
+          "shape_equal": true
+        },
+        "v": {
+          "max_abs": 0.0029296875,
+          "rmse": 0.0005034750211052597,
+          "finite": true,
+          "shape_equal": true
+        }
+      },
+      "prefix_k": {
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "finite": true,
+        "shape_equal": true
+      },
+      "prefix_v": {
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "finite": true,
+        "shape_equal": true
+      },
+      "new_k": {
+        "max_abs": 0.375,
+        "rmse": 0.014229610562324524,
+        "finite": true,
+        "shape_equal": true
+      },
+      "new_v": {
+        "max_abs": 0.00146484375,
+        "rmse": 0.0002704226353671402,
+        "finite": true,
+        "shape_equal": true
+      },
+      "devices": {
+        "hidden_out": "cuda:0",
+        "present_k": "cuda:0",
+        "present_v": "cuda:0"
+      }
+    },
+    {
+      "step": 2,
+      "past_length": 10,
+      "present_length": 11,
+      "hidden": {
+        "max_abs": 0.005126953125,
+        "rmse": 0.0010643478017300367,
+        "finite": true,
+        "shape_equal": true
+      },
+      "k": {
+        "max_abs": 0.875,
+        "rmse": 0.02233465015888214,
+        "finite": true,
+        "shape_equal": true
+      },
+      "v": {
+        "max_abs": 0.001953125,
+        "rmse": 0.0002636555291246623,
+        "finite": true,
+        "shape_equal": true
+      },
+      "hf_bf16_vs_trt_fp16": {
+        "hidden": {
+          "max_abs": 0.01953125,
+          "rmse": 0.0033720037899911404,
+          "finite": true,
+          "shape_equal": true
+        },
+        "k": {
+          "max_abs": 1.25,
+          "rmse": 0.041828472167253494,
+          "finite": true,
+          "shape_equal": true
+        },
+        "v": {
+          "max_abs": 0.0029296875,
+          "rmse": 0.0005048378370702267,
+          "finite": true,
+          "shape_equal": true
+        }
+      },
+      "prefix_k": {
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "finite": true,
+        "shape_equal": true
+      },
+      "prefix_v": {
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "finite": true,
+        "shape_equal": true
+      },
+      "new_k": {
+        "max_abs": 0.375,
+        "rmse": 0.0157607588917017,
+        "finite": true,
+        "shape_equal": true
+      },
+      "new_v": {
+        "max_abs": 0.00146484375,
+        "rmse": 0.000271625496679917,
+        "finite": true,
+        "shape_equal": true
+      },
+      "devices": {
+        "hidden_out": "cuda:0",
+        "present_k": "cuda:0",
+        "present_v": "cuda:0"
+      }
+    },
+    {
+      "step": 3,
+      "past_length": 11,
+      "present_length": 12,
+      "hidden": {
+        "max_abs": 0.005859375,
+        "rmse": 0.0010716385440900922,
+        "finite": true,
+        "shape_equal": true
+      },
+      "k": {
+        "max_abs": 0.875,
+        "rmse": 0.022219883278012276,
+        "finite": true,
+        "shape_equal": true
+      },
+      "v": {
+        "max_abs": 0.001953125,
+        "rmse": 0.0002636248536873609,
+        "finite": true,
+        "shape_equal": true
+      },
+      "hf_bf16_vs_trt_fp16": {
+        "hidden": {
+          "max_abs": 0.015625,
+          "rmse": 0.0034443095792084932,
+          "finite": true,
+          "shape_equal": true
+        },
+        "k": {
+          "max_abs": 1.75,
+          "rmse": 0.04377187788486481,
+          "finite": true,
+          "shape_equal": true
+        },
+        "v": {
+          "max_abs": 0.0029296875,
+          "rmse": 0.0005071894265711308,
+          "finite": true,
+          "shape_equal": true
+        }
+      },
+      "prefix_k": {
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "finite": true,
+        "shape_equal": true
+      },
+      "prefix_v": {
+        "max_abs": 0.0,
+        "rmse": 0.0,
+        "finite": true,
+        "shape_equal": true
+      },
+      "new_k": {
+        "max_abs": 0.5,
+        "rmse": 0.020915912464261055,
+        "finite": true,
+        "shape_equal": true
+      },
+      "new_v": {
+        "max_abs": 0.001708984375,
+        "rmse": 0.0002632868126966059,
+        "finite": true,
+        "shape_equal": true
+      },
+      "devices": {
+        "hidden_out": "cuda:0",
+        "present_k": "cuda:0",
+        "present_v": "cuda:0"
+      }
+    }
+  ],
+  "prefix_unchanged": true,
+  "all_finite": true,
+  "host_payload_roundtrip": false,
+  "stream": "torch.cuda.current_stream with explicit synchronize"
+}

@@ -1,0 +1,1 @@
+{"B2-1":"PASS","B2-2":"PASS","B2-3":"PASS","B2-4":"PASS","B2-5":"PASS","B2-6":"PASS","B2-7":"PASS","B2-8":"ACCEPTABLE_FOR_NEXT_FEASIBILITY_STEP","overall":"PASS / BOUNDED","decision":"READY_FOR_REAL_MULTILAYER_INTEGRATION","limitations":["FP16 Reduce/Pow warning remains","no production accuracy claim","no benchmark or profiler"]}

@@ -190,3 +190,6 @@ Four logical layers reuse the Phase 2.2-A synthetic FP16 prefill/decode engines.
 ## Phase 2.2-B2.0 checkpoint (2026-09-02)
 
 Environment bridge audit selected `SOLUTION_C_DUAL_ENV_REQUIRED`. The frozen `phase1-hf` venv has Transformers 4.57.3 and Safetensors 0.8.0; `phase2-trt-tools` has ONNX 1.22, Polygraphy 0.53.4 and TensorRT 10.3 but lacks Transformers/Safetensors. Both preserve NVIDIA PyTorch and pass `pip check`. The installed pip lacks `--dry-run`, so no package installation was attempted. B2 scientific execution remains not started; evidence is under `phase2_2b2_env_20260902/`.
+## Phase 2.2-B2 checkpoint (2026-09-02)
+
+Real frozen Qwen3-0.6B Layer 0 integration completed through the dual-env bridge. Model revision and safetensors hash match the frozen identity; 11 Layer 0 tensors (15,730,944 params, 31,461,888 BF16 bytes) mapped exactly. HF Transformers BF16 and portable BF16 match at zero error for prefill and four decode steps; cross-env reproduction also matches exactly. Portable FP16 real layer exported and TensorRT 10.3 built/executed dynamic decode 8->12 with finite CUDA outputs, zero prefix mutation and bounded new-slot errors. B2-1 through B2-8 are `PASS / BOUNDED`; decision `READY_FOR_REAL_MULTILAYER_INTEGRATION`. No full model or 28-layer runtime was built.

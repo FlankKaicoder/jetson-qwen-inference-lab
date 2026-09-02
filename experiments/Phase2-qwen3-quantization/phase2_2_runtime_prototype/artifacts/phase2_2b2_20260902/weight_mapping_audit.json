@@ -1,0 +1,1 @@
+{"status":"PASS","layer_id":0,"required_tensors":11,"all_required_keys_found":true,"shape_match":true,"dtype":"BF16 checkpoint; explicit FP16 cast for TRT","unexpected_layer0_tensors":[],"mapping_source":"safetensors keys model.layers.0.*"}

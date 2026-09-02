@@ -1,0 +1,4 @@
+status=PASS; opset=17; graph=real Qwen3 Layer0 portable FP16
+inputs=hidden_states [1,8,1024] FP16; position_ids [1,8] INT64
+outputs=hidden_out [1,8,1024]; present_k/present_v [1,8,8,128] FP16
+dynamic sequence profile exported (B dynamic, S dynamic); binary retained only /tmp/phase2_2b2_trt_20260902/prefill.onnx
