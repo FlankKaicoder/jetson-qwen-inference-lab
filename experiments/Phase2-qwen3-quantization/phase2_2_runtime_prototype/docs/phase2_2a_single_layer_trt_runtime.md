@@ -39,4 +39,4 @@ Overall Phase 2.2-A: **PARTIAL / BOUNDED PASS**. The bounded integration path is
 
 ## Explicit stop
 
-No real Qwen3 checkpoint was loaded. No full Qwen3 export or TensorRT engine was performed. No formal benchmark or Nsight profiler was run. No INT8, INT4 or TensorRT-LLM work was performed. Phase 2.2-B and Phase 3 have not started. The Phase 1 BF16 reference remains unchanged.
+No real Qwen3 checkpoint was loaded. No full Qwen3 export or full-model TensorRT engine was built; the only engines are this bounded synthetic single-layer pair. No formal benchmark or Nsight profiler was run. No INT8, INT4 or TensorRT-LLM work was performed. Phase 2.2-B and Phase 3 have not started. The Phase 1 BF16 reference remains unchanged.
