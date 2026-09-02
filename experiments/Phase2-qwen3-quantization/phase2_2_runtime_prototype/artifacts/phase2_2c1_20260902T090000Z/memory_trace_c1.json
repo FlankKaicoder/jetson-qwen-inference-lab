@@ -1,0 +1,62 @@
+[
+  {
+    "stage": "start",
+    "mem_available_bytes": 4998098944,
+    "swap_used_bytes": 1899855872,
+    "vmrss": "348908 kB",
+    "vmswap": "0 kB",
+    "cuda_free_bytes": 4967362560,
+    "cuda_total_bytes": 7989940224,
+    "torch_allocated_bytes": 0,
+    "torch_reserved_bytes": 0,
+    "maxrss": 386792
+  },
+  {
+    "stage": "after_reference",
+    "mem_available_bytes": 4964057088,
+    "swap_used_bytes": 1899855872,
+    "vmrss": "388404 kB",
+    "vmswap": "0 kB",
+    "cuda_free_bytes": 4964007936,
+    "cuda_total_bytes": 7989940224,
+    "torch_allocated_bytes": 0,
+    "torch_reserved_bytes": 0,
+    "maxrss": 389612
+  },
+  {
+    "stage": "embedding_engine_complete",
+    "mem_available_bytes": 4878671872,
+    "swap_used_bytes": 1899855872,
+    "vmrss": "545732 kB",
+    "vmswap": "0 kB",
+    "cuda_free_bytes": 4878364672,
+    "cuda_total_bytes": 7989940224,
+    "torch_allocated_bytes": 16896,
+    "torch_reserved_bytes": 2097152,
+    "maxrss": 794948
+  },
+  {
+    "stage": "trt_embedding_to_decoder",
+    "mem_available_bytes": 4403441664,
+    "swap_used_bytes": 1899593728,
+    "vmrss": "736136 kB",
+    "vmswap": "0 kB",
+    "cuda_free_bytes": 4403113984,
+    "cuda_total_bytes": 7989940224,
+    "torch_allocated_bytes": 1393664,
+    "torch_reserved_bytes": 2097152,
+    "maxrss": 1427872
+  },
+  {
+    "stage": "portable_reference_complete",
+    "mem_available_bytes": 3221467136,
+    "swap_used_bytes": 1911390208,
+    "vmrss": "1439820 kB",
+    "vmswap": "288 kB",
+    "cuda_free_bytes": 3205935104,
+    "cuda_total_bytes": 7989940224,
+    "torch_allocated_bytes": 892236800,
+    "torch_reserved_bytes": 905969664,
+    "maxrss": 1439820
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "engine_bytes": 311199084,
+  "parser_errors": [],
+  "fp16_only": true,
+  "input": "input_ids int64 [B,S] dynamic",
+  "output": "hidden_states float16 [B,S,1024] dynamic"
+}

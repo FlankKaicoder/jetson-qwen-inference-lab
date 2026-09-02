@@ -1,0 +1,131 @@
+{
+  "status": "PASS",
+  "weight": {
+    "shape": [
+      151936,
+      1024
+    ],
+    "dtype": "torch.bfloat16",
+    "sha256": "8f29acf519434862d95613b2b4f6b9d14933a5e4d16baebf8ac0b33b410acfb6"
+  },
+  "cases": [
+    {
+      "case": "short",
+      "input_ids": [
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "shape": [
+        1,
+        3,
+        1024
+      ],
+      "dtype": "torch.float16",
+      "cuda": true,
+      "hf_bf16": {
+        "shape_equal": true,
+        "finite": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "rmse": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0000003576278687
+      },
+      "hf_fp16": {
+        "shape_equal": true,
+        "finite": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "rmse": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0000003576278687
+      },
+      "finite": true
+    },
+    {
+      "case": "prefill",
+      "input_ids": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "shape": [
+        1,
+        8,
+        1024
+      ],
+      "dtype": "torch.float16",
+      "cuda": true,
+      "hf_bf16": {
+        "shape_equal": true,
+        "finite": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "rmse": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0000004768371582
+      },
+      "hf_fp16": {
+        "shape_equal": true,
+        "finite": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "rmse": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0000004768371582
+      },
+      "finite": true
+    },
+    {
+      "case": "alternate",
+      "input_ids": [
+        [
+          151935,
+          17,
+          42,
+          999,
+          2048,
+          7,
+          12345,
+          31415
+        ]
+      ],
+      "shape": [
+        1,
+        8,
+        1024
+      ],
+      "dtype": "torch.float16",
+      "cuda": true,
+      "hf_bf16": {
+        "shape_equal": true,
+        "finite": true,
+        "max_abs_error": 1.4901161193847656e-08,
+        "mean_abs_error": 2.2737367544323206e-12,
+        "rmse": 1.6970302940677584e-10,
+        "relative_l2": 6.65798882693025e-09,
+        "cosine": 1.0000008344650269
+      },
+      "hf_fp16": {
+        "shape_equal": true,
+        "finite": true,
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "rmse": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0000008344650269
+      },
+      "finite": true
+    }
+  ]
+}

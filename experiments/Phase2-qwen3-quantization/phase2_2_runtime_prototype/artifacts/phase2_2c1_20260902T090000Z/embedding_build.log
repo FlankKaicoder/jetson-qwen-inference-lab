@@ -1,0 +1,3 @@
+[09/02/2026-17:23:55] [TRT] [W] ModelImporter.cpp:420: Make sure input input_ids has Int64 binding.
+[09/02/2026-17:23:55] [TRT] [W] DLA requests all profiles have same min, max, and opt value. All dla layers are falling back to GPU
+{"status": "PASS", "engine_bytes": 311199084, "parser_errors": [], "fp16_only": true, "input": "input_ids int64 [B,S] dynamic", "output": "hidden_states float16 [B,S,1024] dynamic"}

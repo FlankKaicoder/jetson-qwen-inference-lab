@@ -13,14 +13,14 @@
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
 | Current phase | Phase 2 — LLM Quantization |
-| Current experiment | Phase 2.2-C0 — full Qwen3 runtime architecture audit |
+| Current experiment | Phase 2.2-C1 — Qwen3 embedding integration |
 | Current branch | `phase/02-qwen3-quantization` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Exp04 — CUDA GEMM tiling and WMMA |
-| Experiment status | Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8/2.1.9 `PASS / BOUNDED`; Phase 2.2-A `PARTIAL / BOUNDED PASS`; Phase 2.2-B1/B2/B3 `PASS / BOUNDED`; Phase 2.2-B4.1 `PASS / CLOSED`; Phase 2.2-B4.2 `PASS / BOUNDED`; Phase 2.2-C0 `PASS / DESIGN ONLY` |
-| Current Gate | Phase 2.2-C0 architecture audit `PASS`; C1-C5 `NOT STARTED` |
-| Readiness | C0 design complete; explicit authorization required before C1 implementation |
+| Experiment status | Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8/2.1.9 `PASS / BOUNDED`; Phase 2.2-A `PARTIAL / BOUNDED PASS`; Phase 2.2-B1/B2/B3 `PASS / BOUNDED`; Phase 2.2-B4.1 `PASS / CLOSED`; Phase 2.2-B4.2 `PASS / BOUNDED`; Phase 2.2-C0 `PASS / DESIGN ONLY`; Phase 2.2-C1 `BLOCKED` |
+| Current Gate | Phase 2.2-C1 embedding-only gates PASS; decoder integration BLOCKED by numerical mismatch |
+| Readiness | C1 blocked; C2 must not start until integration mismatch is diagnosed and explicitly authorized |
 
 ## Confirmed Findings
 
@@ -236,3 +236,9 @@ Before Exp01.2 profiling on `2026-08-30`, Windows, GitHub and Jetson were clean 
 - Added `docs/phase2_2c_runtime_architecture.md`, documenting the full text-to-token pipeline and the boundary between the verified 28-layer decoder runtime and the not-yet-implemented full generation runtime.
 - C0 records the planned C1 Embedding, C2 Final RMSNorm, C3 LM Head, C4 Greedy Sampling and C5 End-to-End Token Agreement stages with validation and memory-ownership constraints.
 - C0 is `PASS / DESIGN ONLY`; no code, weights, engine, benchmark, profiler, quantization or generation loop was executed or modified. C1-C5 remain `NOT STARTED`.
+
+## Phase 2.2-C1 Embedding Integration (2026-09-02)
+
+- Real `model.embed_tokens.weight` (`[151936,1024]`, BF16) audit, one-node Gather ONNX export, TensorRT 10.3 FP16 build and embedding-only numerical validation passed. Evidence: `phase2_2c1_20260902T090000Z`.
+- Passing embedding output was handed once to the unchanged B4.2 28-layer prefill engine. Outputs were finite and shape-correct, but final Layer 27 hidden comparison failed: relative-L2 `2.00425`, cosine `0.534268`.
+- C1 is `BLOCKED`; likely next step is a narrow pre-decoder embedding-output comparison. No B4.2 code/engine, benchmark, profiler, quantization or C2 work was modified or started.

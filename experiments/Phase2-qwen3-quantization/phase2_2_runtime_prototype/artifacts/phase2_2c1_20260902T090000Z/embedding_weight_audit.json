@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "model": "Qwen/Qwen3-0.6B",
+  "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "checkpoint_sha256": "f47f71177f32bcd101b7573ec9171e6a57f4f4d31148d38e382306f42996874b",
+  "module_path": "model.embed_tokens",
+  "checkpoint_key": "model.embed_tokens.weight",
+  "shape": [
+    151936,
+    1024
+  ],
+  "dtype": "torch.bfloat16",
+  "numel": 155582464,
+  "bf16_bytes": 311164928,
+  "fp16_bytes": 311164928,
+  "weight_sha256_bf16": "8f29acf519434862d95613b2b4f6b9d14933a5e4d16baebf8ac0b33b410acfb6",
+  "vocab_size": 151936,
+  "hidden_size": 1024,
+  "tied_to_lm_head": true,
+  "tie_evidence": "Qwen3 config tie_word_embeddings=true; lm_head shares embed_tokens weight"
+}

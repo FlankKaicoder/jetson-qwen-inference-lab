@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "opset": 17,
+  "bytes": 311165133,
+  "node_count": 1,
+  "initializer_count": 1,
+  "operators": {
+    "Gather": 1
+  },
+  "input": "input_ids int64 [B,S]",
+  "output": "hidden_states float16 [B,S,1024]"
+}

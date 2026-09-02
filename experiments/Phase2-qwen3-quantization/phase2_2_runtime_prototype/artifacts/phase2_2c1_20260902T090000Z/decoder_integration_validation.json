@@ -1,0 +1,34 @@
+{
+  "status": "BLOCKED_NUMERICAL_MISMATCH",
+  "input_ids": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  ],
+  "embedding_to_decoder": "BLOCKED_NUMERICAL_MISMATCH",
+  "decoder_output_shape": [
+    1,
+    8,
+    1024
+  ],
+  "decoder_output_dtype": "torch.float16",
+  "decoder_output_cuda": true,
+  "final_hidden_layer": 27,
+  "final_hidden_metric": {
+    "shape_equal": true,
+    "finite": true,
+    "max_abs_error": 4268.0,
+    "mean_abs_error": 21.917423248291016,
+    "rmse": 56.926300048828125,
+    "relative_l2": 2.0042483806610107,
+    "cosine": 0.534268319606781
+  },
+  "all_decoder_outputs_finite": true
+}
