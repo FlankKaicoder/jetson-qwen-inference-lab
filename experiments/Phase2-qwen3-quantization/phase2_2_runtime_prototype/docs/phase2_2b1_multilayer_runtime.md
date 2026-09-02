@@ -1,6 +1,6 @@
 # Phase 2.2-B1 — Multi-Layer TensorRT Runtime Prototype
 
-Date: 2026-09-02  
+Date: 2026-09-02
 Scope: four logical layers using one shared synthetic Qwen3-like FP16 decoder engine; no benchmark.
 
 ## Motivation and architecture
