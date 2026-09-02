@@ -227,3 +227,7 @@ Starting HEAD was `b8c9bc8edbb123e989a8a734eac6627077608336` on `phase/02-qwen3-
 ## Phase 2.2-C1H checkpoint (2026-09-02)
 
 Starting HEAD was `64d8d5eefb832a51edf22e119001d0cfb709010a` on `phase/02-qwen3-quantization`. Added `src/phase2_2c1/c1h_softmax_semantics.py` and timestamped raw C1H evidence. The final masked pre-softmax input was nearly identical (relative-L2 `1.9496e-7`, FP16 sentinel `-65504.0`). Same-input native and explicit FP32 TensorRT softmax matched portable output; both differed from the FP32 oracle by `0.000154608`. Layer 0 explicit FP32-softmax-only A/B remained at relative-L2 `0.003787680`, identical to unchanged B4.2. Result is `SOFTMAX_HYPOTHESIS_REJECTED`; C1 remains blocked and no C1I/C2 or repair started. Minimum MemAvailable was `2,617,298,944` bytes; no OOM/exit 137. Report: `phase2_2c1_softmax_semantics.md`.
+
+## Phase 2.2-C1I checkpoint (2026-09-02)
+
+Starting HEAD was `38660352861bad99b46ddb854e7648b6005935b4` on `phase/02-qwen3-quantization`. Added `src/phase2_2c1/c1i_qk_rope_numerics.py` and report. Fresh Layer 0 probe/micro engines reused B4.2 read-only. Input RMSNorm/Q/K projection/Q/K norm remained below `0.002` relative-L2; Q RoPE micro `0.092710741`, K RoPE micro `0.014421386`, QK raw `0.043750536`. Result `ROPE_MAJOR_SOURCE_CONFIRMED`; exact cast/cache mechanism remains unknown. One initial run failed profile construction and is preserved; the completed run had no OOM/exit 137. C1 remains blocked; do not start C1J or C2.

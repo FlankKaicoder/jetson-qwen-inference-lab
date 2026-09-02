@@ -280,3 +280,10 @@ Before Exp01.2 profiling on `2026-08-30`, Windows, GitHub and Jetson were clean 
 - Final masked pre-softmax inputs were nearly identical (relative-L2 `1.9496e-7`), with FP16 causal sentinel `-65504.0` and no infinities. Native and explicit FP32 TensorRT softmax both matched the portable output exactly and had oracle relative-L2 `0.000154608`.
 - Layer 0 explicit FP32-softmax-only final relative-L2 was `0.003787680`, identical to unchanged B4.2 control. Result: `SOFTMAX_HYPOTHESIS_REJECTED`; C1 remains `BLOCKED`, no repair/C1I/C2 started.
 - Minimum `MemAvailable` was `2,617,298,944` bytes, maximum RSS `3,623,332` KiB, with no OOM/exit 137. Report: `phase2_2c1_softmax_semantics.md`; raw JSON: `artifacts/c1h_20260902T210000Z/c1h_softmax_semantics_20260902T210000Z.json`.
+
+## Phase 2.2-C1I Q/K and RoPE Numerics (2026-09-02)
+
+- Added the diagnostic-only `c1i_qk_rope_numerics.py` and ran fresh Layer 0 probe/micro engines against the unchanged B4.2 control and canonical embedding input.
+- Input RMSNorm, Q projection, K projection, Q norm and K norm remained below `0.002` relative-L2. Same-input Q RoPE reached `0.092710741` and K RoPE `0.014421386`; full probe QK raw reached `0.043750536`.
+- Result: `ROPE_MAJOR_SOURCE_CONFIRMED` as the major upstream source in this diagnostic. Exact cast/cache mechanism is not yet isolated; C1 remains `BLOCKED`, C1J/C2 must not start.
+- Raw evidence: `phase2_2_runtime_prototype/artifacts/c1i_20260902T223000Z.json`; report: `phase2_2c1_qk_rope_numerics.md`. Valid FP32 A/B variants all remained at final relative-L2 `0.034715209`; no OOM/exit 137 or B4.2 regression occurred.
