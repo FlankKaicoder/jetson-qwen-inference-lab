@@ -257,3 +257,11 @@ Before Exp01.2 profiling on `2026-08-30`, Windows, GitHub and Jetson were clean 
 - First non-zero difference is Layer 0 (`max_abs 0.01171875`, relative-L2 `0.00378768`, cosine `0.9999921`). First relative-L2 > 0.10 is Layer 21; first cosine < 0.99 is Layer 22; Layer 27 reaches relative-L2 `2.004247`, cosine `0.5342684`.
 - Component attribution is `NOT PERFORMED` because the engine exposes no RMSNorm/attention/MLP intermediates. C1 remains `BLOCKED`; C2 must not start. No OOM, exit 137, benchmark, profiler or quantization work occurred.
 - Report: `phase2_2c1_layerwise_divergence_report.md`; raw evidence: `phase2_2c1e_layerwise_20260902T190000Z.json`.
+
+## Phase 2.2-C1F Layer 0 Component Attribution (2026-09-02)
+
+- Starting HEAD was `6e48add7acdb40a64f13920efd7bb27b615ec3bb`; the existing B4.2 prefill engine and canonical C1 input were reused without rebuild or runtime modification.
+- The actual Qwen3 Layer 0 structure was recorded: input/post-attention RMSNorm, 16Q/8KV GQA, per-head Q/K normalization, rotary dimension 128 with theta 1,000,000, output projection, residuals and SwiGLU MLP.
+- B4.2 exposes 84 outputs (hidden_l0..hidden_l27, present_k0..present_k27, present_v0..present_v27) and no internal component bindings. All requested component metrics are therefore `NOT_AVAILABLE`; first divergent operator is `UNKNOWN`.
+- Existing B3 `attention_l0` partial evidence measured max abs `0.01171875`, relative-L2 `0.00316544`, cosine `0.99999416`; this is not 28-layer operator attribution. C1 remains `BLOCKED`; C2 must not start.
+- Result: `COMPONENT_LOCALIZATION_BLOCKED`. Raw evidence: `experiments/Phase2-qwen3-quantization/phase2_2_runtime_prototype/artifacts/phase2_2c1f_layer0_component_20260902T193000Z.json`; report: `experiments/Phase2-qwen3-quantization/phase2_2_runtime_prototype/docs/phase2_2c1_layer0_component_attribution.md`.

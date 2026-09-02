@@ -1,0 +1,360 @@
+{
+  "experiment": "Phase 2.2-C1F",
+  "objective": "Qwen3 Layer 0 component-level numerical attribution",
+  "input_contract": {
+    "shape": [
+      1,
+      8,
+      1024
+    ],
+    "dtype": "torch.float16",
+    "position_ids": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    ],
+    "same_canonical_embedding": true
+  },
+  "layer0_structure": {
+    "input_rmsnorm": true,
+    "q_projection": [
+      16,
+      128
+    ],
+    "k_projection": [
+      8,
+      128
+    ],
+    "v_projection": [
+      8,
+      128
+    ],
+    "q_norm": true,
+    "k_norm": true,
+    "rotary_dimension": 128,
+    "rope_theta": 1000000.0,
+    "gqa": {
+      "q_heads": 16,
+      "kv_heads": 8,
+      "repeat_factor": 2
+    },
+    "output_projection": true,
+    "residuals": [
+      "attention",
+      "mlp"
+    ],
+    "post_attention_rmsnorm": true,
+    "mlp": "SwiGLU: silu(gate_projection) * up_projection -> down_projection"
+  },
+  "b4_2_contract": {
+    "output_count": 84,
+    "output_names": [
+      "hidden_l0",
+      "hidden_l1",
+      "hidden_l2",
+      "hidden_l3",
+      "hidden_l4",
+      "hidden_l5",
+      "hidden_l6",
+      "hidden_l7",
+      "hidden_l8",
+      "hidden_l9",
+      "hidden_l10",
+      "hidden_l11",
+      "hidden_l12",
+      "hidden_l13",
+      "hidden_l14",
+      "hidden_l15",
+      "hidden_l16",
+      "hidden_l17",
+      "hidden_l18",
+      "hidden_l19",
+      "hidden_l20",
+      "hidden_l21",
+      "hidden_l22",
+      "hidden_l23",
+      "hidden_l24",
+      "hidden_l25",
+      "hidden_l26",
+      "hidden_l27",
+      "present_k0",
+      "present_k1",
+      "present_k2",
+      "present_k3",
+      "present_k4",
+      "present_k5",
+      "present_k6",
+      "present_k7",
+      "present_k8",
+      "present_k9",
+      "present_k10",
+      "present_k11",
+      "present_k12",
+      "present_k13",
+      "present_k14",
+      "present_k15",
+      "present_k16",
+      "present_k17",
+      "present_k18",
+      "present_k19",
+      "present_k20",
+      "present_k21",
+      "present_k22",
+      "present_k23",
+      "present_k24",
+      "present_k25",
+      "present_k26",
+      "present_k27",
+      "present_v0",
+      "present_v1",
+      "present_v2",
+      "present_v3",
+      "present_v4",
+      "present_v5",
+      "present_v6",
+      "present_v7",
+      "present_v8",
+      "present_v9",
+      "present_v10",
+      "present_v11",
+      "present_v12",
+      "present_v13",
+      "present_v14",
+      "present_v15",
+      "present_v16",
+      "present_v17",
+      "present_v18",
+      "present_v19",
+      "present_v20",
+      "present_v21",
+      "present_v22",
+      "present_v23",
+      "present_v24",
+      "present_v25",
+      "present_v26",
+      "present_v27"
+    ],
+    "component_bindings": [],
+    "component_binding_status": "NONE"
+  },
+  "component_metrics": {
+    "input_rmsnorm": {
+      "status": "NOT_AVAILABLE",
+      "reference_shape": [
+        1,
+        8,
+        1024
+      ],
+      "reference_dtype": "torch.float16"
+    },
+    "q_projection": {
+      "status": "NOT_AVAILABLE",
+      "reference_shape": [
+        1,
+        8,
+        16,
+        128
+      ],
+      "reference_dtype": "torch.float16"
+    },
+    "k_projection": {
+      "status": "NOT_AVAILABLE",
+      "reference_shape": [
+        1,
+        8,
+        8,
+        128
+      ],
+      "reference_dtype": "torch.float16"
+    },
+    "v_projection": {
+      "status": "NOT_AVAILABLE",
+      "reference_shape": [
+        1,
+        8,
+        8,
+        128
+      ],
+      "reference_dtype": "torch.float16"
+    },
+    "q_norm": {
+      "status": "NOT_AVAILABLE",
+      "reference_shape": [
+        1,
+        16,
+        8,
+        128
+      ],
+      "reference_dtype": "torch.float16"
+    },
+    "k_norm": {
+      "status": "NOT_AVAILABLE",
+      "reference_shape": [
+        1,
+        8,
+        8,
+        128
+      ],
+      "reference_dtype": "torch.float16"
+    },
+    "q_rope": {
+      "status": "NOT_AVAILABLE",
+      "reference_shape": [
+        1,
+        16,
+        8,
+        128
+      ],
+      "reference_dtype": "torch.float16"
+    },
+    "k_rope": {
+      "status": "NOT_AVAILABLE",
+      "reference_shape": [
+        1,
+        8,
+        8,
+        128
+      ],
+      "reference_dtype": "torch.float16"
+    },
+    "attention_output": {
+      "status": "NOT_AVAILABLE",
+      "reference_shape": [
+        1,
+        8,
+        1024
+      ],
+      "reference_dtype": "torch.float16"
+    },
+    "post_attention_hidden": {
+      "status": "NOT_AVAILABLE",
+      "reference_shape": [
+        1,
+        8,
+        1024
+      ],
+      "reference_dtype": "torch.float16"
+    },
+    "post_attention_rmsnorm": {
+      "status": "NOT_AVAILABLE",
+      "reference_shape": [
+        1,
+        8,
+        1024
+      ],
+      "reference_dtype": "torch.float16"
+    },
+    "gate_projection": {
+      "status": "NOT_AVAILABLE",
+      "reference_shape": [
+        1,
+        8,
+        3072
+      ],
+      "reference_dtype": "torch.float16"
+    },
+    "up_projection": {
+      "status": "NOT_AVAILABLE",
+      "reference_shape": [
+        1,
+        8,
+        3072
+      ],
+      "reference_dtype": "torch.float16"
+    },
+    "silu_gate": {
+      "status": "NOT_AVAILABLE",
+      "reference_shape": [
+        1,
+        8,
+        3072
+      ],
+      "reference_dtype": "torch.float16"
+    },
+    "gate_up": {
+      "status": "NOT_AVAILABLE",
+      "reference_shape": [
+        1,
+        8,
+        3072
+      ],
+      "reference_dtype": "torch.float16"
+    },
+    "down_projection": {
+      "status": "NOT_AVAILABLE",
+      "reference_shape": [
+        1,
+        8,
+        1024
+      ],
+      "reference_dtype": "torch.float16"
+    },
+    "final_hidden": {
+      "status": "NOT_AVAILABLE",
+      "reference_shape": [
+        1,
+        8,
+        1024
+      ],
+      "reference_dtype": "torch.float16"
+    }
+  },
+  "first_divergent_operator": null,
+  "result": "COMPONENT_LOCALIZATION_BLOCKED",
+  "component_attribution": "BLOCKED_BY_B4_2_ARTIFACT_GRANULARITY",
+  "limitations": [
+    "B4.2 exposes only hidden_l0..hidden_l27 and present K/V outputs.",
+    "RMSNorm, Q/K/V, QK normalization, RoPE, attention and MLP tensors are not TensorRT bindings.",
+    "Reference-only component tensors are recorded for structure and shape, but cannot be compared to B4.2 candidates."
+  ],
+  "memory_or_oom": "NO OOM OR EXIT 137 OBSERVED",
+  "existing_b3_attention_output": {
+    "engine": "/tmp/phase2_2b3_trt_20260902T055036Z/prefill_4layer.engine",
+    "contract_outputs": [
+      "hidden_l0",
+      "hidden_l1",
+      "hidden_l2",
+      "hidden_l3",
+      "present_k0",
+      "present_k1",
+      "present_k2",
+      "present_k3",
+      "present_v0",
+      "present_v1",
+      "present_v2",
+      "present_v3",
+      "attention_l0",
+      "attention_l1",
+      "attention_l2",
+      "attention_l3"
+    ],
+    "metric": {
+      "shape": [
+        1,
+        8,
+        1024
+      ],
+      "candidate_shape": [
+        1,
+        8,
+        1024
+      ],
+      "shape_equal": true,
+      "dtype": "torch.float16",
+      "candidate_dtype": "torch.float16",
+      "finite": true,
+      "max_abs_error": 0.01171875,
+      "mean_abs_error": 0.000373010931070894,
+      "relative_l2": 0.00316543597728014,
+      "cosine": 0.999994158744812
+    },
+    "interpretation": "partial four-layer artifact evidence only; cannot identify the first internal operator"
+  }
+}
