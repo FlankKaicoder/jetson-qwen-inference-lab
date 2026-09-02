@@ -184,18 +184,16 @@ def main(a):
     for i in range(4):
         cross['prefill'].append({'layer': i, 'hidden': metric(h['portable_prefill']['hidden'][i], bf_pre[0][i].cpu()),
                                  'k': metric(h['portable_prefill']['k'][i], bf_pre[1][i].cpu()), 'v': metric(h['portable_prefill']['v'][i], bf_pre[2][i].cpu())})
-    for s in range(4):
-        cross['decode'].append({'step': s, 'layers': [{'layer': i,
-            'hidden': metric(h['portable_decode'][s]['hidden'][i], bf_pre[0][i].cpu() if False else bf_pre[0][i].cpu())} for i in range(4)]})
     # Re-run portable BF16 decode so cross-environment comparison follows the exact cache chain.
     bk, bv = bf_pre[1], bf_pre[2]; bf_dec = []
     for i, token in enumerate(steps):
         p = torch.tensor([[8 + i]], device='cuda', dtype=torch.long)
         hs, bk, bv, attn = bf.forward_decode(token, p, bk, bv); bf_dec.append({'hidden': hs, 'k': bk, 'v': bv, 'attn': attn})
-        cross['decode'][i] = {'step': i, 'layers': [{'layer': j,
+        cross['decode'].append({'step': i, 'layers': [{'layer': j,
             'hidden': metric(h['portable_decode'][i]['hidden'][j], hs[j].cpu()),
             'k': metric(h['portable_decode'][i]['k'][j], bk[j].cpu()),
             'v': metric(h['portable_decode'][i]['v'][j], bv[j].cpu())} for j in range(4)]}
+        )
     cross_pass = all(m['max_abs_error'] == 0.0 for row in cross['prefill'] for m in (row['hidden'], row['k'], row['v'])) and all(m['max_abs_error'] == 0.0 for row in cross['decode'] for layer in row['layers'] for m in (layer['hidden'], layer['k'], layer['v']))
     (a.out / 'cross_env_reproduction.json').write_text(json.dumps({'status': 'PASS' if cross_pass else 'BLOCKED_BY_CROSS_ENV_MULTILAYER_REPRODUCIBILITY', **cross}, indent=2) + '\n')
     if not cross_pass: raise RuntimeError('BLOCKED_BY_CROSS_ENV_MULTILAYER_REPRODUCIBILITY')
