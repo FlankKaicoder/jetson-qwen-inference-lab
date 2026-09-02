@@ -1,0 +1,26 @@
+[
+  {
+    "stage": "before_trt_build",
+    "mem_available_bytes": 4933513216,
+    "swap_used_bytes": 1775390720,
+    "vmrss": "443488 kB",
+    "vmswap": "0 kB",
+    "cuda_free_bytes": 4842766336,
+    "cuda_total_bytes": 7989940224,
+    "torch_allocated_bytes": 0,
+    "torch_reserved_bytes": 0,
+    "maxrss": 480492
+  },
+  {
+    "stage": "after_trt_build",
+    "mem_available_bytes": 1914904576,
+    "swap_used_bytes": 2632810496,
+    "vmrss": "3563460 kB",
+    "vmswap": "651128 kB",
+    "cuda_free_bytes": 1889910784,
+    "cuda_total_bytes": 7989940224,
+    "torch_allocated_bytes": 0,
+    "torch_reserved_bytes": 0,
+    "maxrss": 5866808
+  }
+]

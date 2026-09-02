@@ -1,0 +1,14 @@
+initial_read_only_preflight_before_B4.2_files:
+timestamp=20260902T082326Z
+windows_cwd=E:\nvidia-qwen
+windows_status_short=(empty)
+windows_branch=phase/02-qwen3-quantization
+windows_head=1333bd5f29fa2e321d982ad1cd46a060310bac24
+jetson_cwd=/home/nvidia/projects/jetson-qwen-inference-lab
+jetson_status_short=(empty)
+jetson_branch=phase/02-qwen3-quantization
+jetson_head=1333bd5f29fa2e321d982ad1cd46a060310bac24
+
+second_jetson_snapshot_after_B4.2_source_copy:
+?? experiments/Phase2-qwen3-quantization/phase2_2_runtime_prototype/artifacts/phase2_2b4_2_20260902T082326Z/
+?? experiments/Phase2-qwen3-quantization/phase2_2_runtime_prototype/src/phase2_2b4_2/

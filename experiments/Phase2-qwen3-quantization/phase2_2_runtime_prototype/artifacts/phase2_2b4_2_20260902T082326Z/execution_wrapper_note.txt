@@ -1,0 +1,1 @@
+Python runtime completed and gate_summary.json was written. The outer PowerShell-to-bash exit-code capture escaped $? incorrectly, leaving runtime_exit_code.txt blank and causing only the final shell exit command to report a numeric-argument error. The experiment was not rerun.

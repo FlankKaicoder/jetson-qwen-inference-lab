@@ -1,0 +1,16 @@
+{
+  "decoder_handoff_file_bytes": 881044080,
+  "raw_fp16_tensor_bytes": 880932864,
+  "kv_bytes_per_token": 114688,
+  "kv_bytes_L8": 917504,
+  "kv_bytes_L12": 1376256,
+  "onnx_bytes": {
+    "prefill": 881567403,
+    "decode": 881548681
+  },
+  "engine_bytes": {
+    "prefill": 892483860,
+    "decode": 890363012
+  },
+  "capacity_claim": "NONE"
+}

@@ -13,14 +13,14 @@
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
 | Current phase | Phase 2 — LLM Quantization |
-| Current experiment | Phase 2.2-B4.1 — 28-layer oracle memory recovery |
+| Current experiment | Phase 2.2-B4.2 — real 28-layer TensorRT decoder stack |
 | Current branch | `phase/02-qwen3-quantization` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Exp04 — CUDA GEMM tiling and WMMA |
-| Experiment status | Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8/2.1.9 `PASS / BOUNDED`; Phase 2.2-A `PARTIAL / BOUNDED PASS`; Phase 2.2-B1/B2/B3 `PASS / BOUNDED`; Phase 2.2-B4.1 `PASS / CLOSED` |
-| Current Gate | Phase 2.2-B4.1 `PASS / CLOSED`; `IMPLEMENTATION_MEMORY_LIFETIME_CONFIRMED` |
-| Readiness | `B4_ORACLE_MEMORY_PATH_RECOVERED`; B4 TensorRT continuation requires explicit authorization |
+| Experiment status | Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8/2.1.9 `PASS / BOUNDED`; Phase 2.2-A `PARTIAL / BOUNDED PASS`; Phase 2.2-B1/B2/B3 `PASS / BOUNDED`; Phase 2.2-B4.1 `PASS / CLOSED`; Phase 2.2-B4.2 `PASS / BOUNDED` |
+| Current Gate | Phase 2.2-B4.2 B4.2-1..B4.2-8 `PASS`; `REAL_28_LAYER_TRT_DECODER_STACK_FEASIBLE` |
+| Readiness | Owner review required; Phase 2.2-C and later phases remain not started |
 
 ## Confirmed Findings
 
@@ -125,7 +125,7 @@ No repository evidence records a formally `REJECT`-status experiment.
 
 ## Required Next Action
 
-Owner review of Phase 2.2-B4.1 evidence. Do not begin B4 TensorRT continuation, 28-layer ONNX export/build, benchmarking, profiling, INT8/INT4, TensorRT-LLM, Phase 2.2-C/D, Phase 2.3 or Phase 3 without explicit authorization.
+Owner review of Phase 2.2-B4.2 evidence. Do not begin embedding/final-norm/LM-head integration, full token generation, benchmarking, profiling, INT8/INT4, TensorRT-LLM, Phase 2.2-C/D, Phase 2.3 or Phase 3 without explicit authorization.
 
 ## Do-not-repeat Work
 
@@ -222,3 +222,11 @@ Before Exp01.2 profiling on `2026-08-30`, Windows, GitHub and Jetson were clean 
 - Streaming extraction produced 28 independently hashed Jetson-local layer files totaling 881,044,080 bytes without an all-layer Python state dictionary.
 - Fresh-process 4-layer and 8-layer diagnostics showed fixed allocator reservation and expected KV-only growth. The single recovered 28-layer attempt passed `S=8` prefill and one decode `8->9` with no exit 137.
 - Phase 2.2-B4.1 is `PASS / CLOSED`; decision `B4_ORACLE_MEMORY_PATH_RECOVERED`; root cause `IMPLEMENTATION_MEMORY_LIFETIME_CONFIRMED`. No ONNX/TensorRT, benchmark, profiler or quantization work was run.
+
+## Phase 2.2-B4.2 Real 28-Layer TensorRT Decoder (2026-09-02)
+
+- Frozen model identity and 28/28 B4.1 streaming handoff files passed hash validation; raw FP16 decoder tensors total 880,932,864 bytes.
+- The primary one-stack architecture succeeded: checker-valid prefill/decode ONNX graphs (881,567,403/881,548,681 bytes) parsed with zero errors and built as TensorRT 10.3 FP16 engines (892,483,860/890,363,012 bytes). The 7x4 fallback was not used.
+- B=1,S=8 prefill and decode 8->9->10->11->12 passed for all 28 layers. Hidden/K/V tensors were finite and CUDA resident; all K/V prefixes were bitwise invariant and all 28 layer caches remained pointer-isolated.
+- Selected Layer 0/3/7/15/27 numerical propagation passed the predeclared relative-L2 <=0.10 and cosine >=0.99 engineering bound; decision `ACCEPTABLE_FOR_FULL_FP16_RUNTIME_STEP`. This is not a full-model quality claim.
+- B4.2-1..B4.2-8 `PASS`; Overall `PASS / BOUNDED`; decision `REAL_28_LAYER_TRT_DECODER_STACK_FEASIBLE`. TensorRT normalization/default-stream warnings remain. No benchmark, Nsight, quantization, full token generation or later phase was started.

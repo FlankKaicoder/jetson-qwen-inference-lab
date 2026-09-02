@@ -1,0 +1,20 @@
+{
+  "source": "filesystem timestamps; one-second resolution; includes parser/build and shell overhead",
+  "total_build_wall_seconds_estimate": 227,
+  "prefill_completion_seconds_from_start": 116,
+  "decode_completion_seconds_from_prefill": 110,
+  "warnings": [
+    "[libprotobuf WARNING google/protobuf/io/coded_stream.cc:604] Reading dangerously large protocol message.  If the message turns out to be larger than 2147483647 bytes, parsing will be halted for security reasons.  To increase the limit (or to disable these warnings), see CodedInputStream::SetTotalBytesLimit() in google/protobuf/io/coded_stream.h.",
+    "[libprotobuf WARNING google/protobuf/io/coded_stream.cc:81] The total number of bytes read was 881567403",
+    "[09/02/2026-16:27:14] [TRT] [W] ModelImporter.cpp:420: Make sure input position_ids has Int64 binding.",
+    "[09/02/2026-16:27:15] [TRT] [W] DLA requests all profiles have same min, max, and opt value. All dla layers are falling back to GPU",
+    "[09/02/2026-16:27:15] [TRT] [W] Detected layernorm nodes in FP16.",
+    "[09/02/2026-16:27:15] [TRT] [W] Running layernorm after self-attention with FP16 Reduce or Pow may cause overflow. Forcing Reduce or Pow Layers in FP32 precision, or exporting the model to use INormalizationLayer (available with ONNX opset >= 17) can help preserving accuracy.",
+    "[libprotobuf WARNING google/protobuf/io/coded_stream.cc:604] Reading dangerously large protocol message.  If the message turns out to be larger than 2147483647 bytes, parsing will be halted for security reasons.  To increase the limit (or to disable these warnings), see CodedInputStream::SetTotalBytesLimit() in google/protobuf/io/coded_stream.h.",
+    "[libprotobuf WARNING google/protobuf/io/coded_stream.cc:81] The total number of bytes read was 881548681",
+    "[09/02/2026-16:29:11] [TRT] [W] ModelImporter.cpp:420: Make sure input position_ids has Int64 binding.",
+    "[09/02/2026-16:29:12] [TRT] [W] DLA requests all profiles have same min, max, and opt value. All dla layers are falling back to GPU",
+    "[09/02/2026-16:29:12] [TRT] [W] Detected layernorm nodes in FP16.",
+    "[09/02/2026-16:29:12] [TRT] [W] Running layernorm after self-attention with FP16 Reduce or Pow may cause overflow. Forcing Reduce or Pow Layers in FP32 precision, or exporting the model to use INormalizationLayer (available with ONNX opset >= 17) can help preserving accuracy."
+  ]
+}

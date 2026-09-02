@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "layers": 28,
+  "prefill_shape": [
+    1,
+    8,
+    1024
+  ],
+  "cache_shape": [
+    1,
+    8,
+    8,
+    128
+  ],
+  "all_finite_cuda": true
+}

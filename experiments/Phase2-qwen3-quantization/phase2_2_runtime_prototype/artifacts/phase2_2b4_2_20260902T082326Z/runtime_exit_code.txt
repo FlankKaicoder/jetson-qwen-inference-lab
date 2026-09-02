@@ -1,0 +1,3 @@
+python_exit_code=0
+outer_wrapper_exit_code=1
+reason=PowerShell escaped bash status variable; experiment artifacts and gate summary completed before wrapper error

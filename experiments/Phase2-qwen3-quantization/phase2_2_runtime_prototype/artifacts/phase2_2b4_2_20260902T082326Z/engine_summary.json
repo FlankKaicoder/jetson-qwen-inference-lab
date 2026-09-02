@@ -1,0 +1,12 @@
+{
+  "prefill": {
+    "status": "PASS",
+    "bytes": 892483860,
+    "parser_errors": []
+  },
+  "decode": {
+    "status": "PASS",
+    "bytes": 890363012,
+    "parser_errors": []
+  }
+}

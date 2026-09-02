@@ -1,0 +1,15 @@
+Linux nvidia-desktop 5.15.148-tegra #1 SMP PREEMPT Tue Jan 7 17:14:38 PST 2025 aarch64 aarch64 aarch64 GNU/Linux
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2024 NVIDIA Corporation
+Built on Wed_Aug_14_10:14:07_PDT_2024
+Cuda compilation tools, release 12.6, V12.6.68
+Build cuda_12.6.r12.6/compiler.34714021_0
+NVIDIA (R) Nsight Compute Command Line Profiler
+Copyright (c) 2018-2024 NVIDIA Corporation
+Version 2024.3.1.0 (build 34702747) (public-release)
+torch=2.5.0a0+872d972e41.nv24.08
+torch_cuda=12.6
+cuda_available=True
+gpu=Orin
+onnx=1.22.0
+tensorrt=10.3.0
