@@ -13,14 +13,14 @@
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
 | Current phase | Phase 2 — LLM Quantization |
-| Current experiment | Phase 2.2-B4.2 — real 28-layer TensorRT decoder stack |
+| Current experiment | Phase 2.2-C0 — full Qwen3 runtime architecture audit |
 | Current branch | `phase/02-qwen3-quantization` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Exp04 — CUDA GEMM tiling and WMMA |
-| Experiment status | Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8/2.1.9 `PASS / BOUNDED`; Phase 2.2-A `PARTIAL / BOUNDED PASS`; Phase 2.2-B1/B2/B3 `PASS / BOUNDED`; Phase 2.2-B4.1 `PASS / CLOSED`; Phase 2.2-B4.2 `PASS / BOUNDED` |
-| Current Gate | Phase 2.2-B4.2 B4.2-1..B4.2-8 `PASS`; `REAL_28_LAYER_TRT_DECODER_STACK_FEASIBLE` |
-| Readiness | Owner review required; Phase 2.2-C and later phases remain not started |
+| Experiment status | Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8/2.1.9 `PASS / BOUNDED`; Phase 2.2-A `PARTIAL / BOUNDED PASS`; Phase 2.2-B1/B2/B3 `PASS / BOUNDED`; Phase 2.2-B4.1 `PASS / CLOSED`; Phase 2.2-B4.2 `PASS / BOUNDED`; Phase 2.2-C0 `PASS / DESIGN ONLY` |
+| Current Gate | Phase 2.2-C0 architecture audit `PASS`; C1-C5 `NOT STARTED` |
+| Readiness | C0 design complete; explicit authorization required before C1 implementation |
 
 ## Confirmed Findings
 
@@ -230,3 +230,9 @@ Before Exp01.2 profiling on `2026-08-30`, Windows, GitHub and Jetson were clean 
 - B=1,S=8 prefill and decode 8->9->10->11->12 passed for all 28 layers. Hidden/K/V tensors were finite and CUDA resident; all K/V prefixes were bitwise invariant and all 28 layer caches remained pointer-isolated.
 - Selected Layer 0/3/7/15/27 numerical propagation passed the predeclared relative-L2 <=0.10 and cosine >=0.99 engineering bound; decision `ACCEPTABLE_FOR_FULL_FP16_RUNTIME_STEP`. This is not a full-model quality claim.
 - B4.2-1..B4.2-8 `PASS`; Overall `PASS / BOUNDED`; decision `REAL_28_LAYER_TRT_DECODER_STACK_FEASIBLE`. TensorRT normalization/default-stream warnings remain. No benchmark, Nsight, quantization, full token generation or later phase was started.
+
+## Phase 2.2-C0 Runtime Architecture Audit (2026-09-02)
+
+- Added `docs/phase2_2c_runtime_architecture.md`, documenting the full text-to-token pipeline and the boundary between the verified 28-layer decoder runtime and the not-yet-implemented full generation runtime.
+- C0 records the planned C1 Embedding, C2 Final RMSNorm, C3 LM Head, C4 Greedy Sampling and C5 End-to-End Token Agreement stages with validation and memory-ownership constraints.
+- C0 is `PASS / DESIGN ONLY`; no code, weights, engine, benchmark, profiler, quantization or generation loop was executed or modified. C1-C5 remain `NOT STARTED`.
