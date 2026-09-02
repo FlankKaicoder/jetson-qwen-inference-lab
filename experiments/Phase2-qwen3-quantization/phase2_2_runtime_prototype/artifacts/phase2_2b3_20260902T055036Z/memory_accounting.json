@@ -1,0 +1,22 @@
+{
+  "layers": 4,
+  "bf16_weight_bytes": 125847552,
+  "fp16_weight_bytes": 125847552,
+  "kv_bytes_all_layers_fp16": {
+    "8": 131072,
+    "9": 147456,
+    "10": 163840,
+    "11": 180224,
+    "12": 196608
+  },
+  "kv_bytes_per_token_all_layers_fp16": 16384,
+  "onnx_bytes": {
+    "prefill": 125937091,
+    "decode": 125934404
+  },
+  "engine_bytes": {
+    "prefill": 127228924,
+    "decode": 127387788
+  },
+  "limitation": "measured 4-layer prototype; not 28-layer capacity"
+}

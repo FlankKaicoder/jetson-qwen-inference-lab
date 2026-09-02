@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "layers": 4,
+  "prefill_shape": [
+    1,
+    8,
+    1024
+  ],
+  "cache_shape": [
+    1,
+    8,
+    8,
+    128
+  ],
+  "decode_lengths": [
+    9,
+    10,
+    11,
+    12
+  ],
+  "finite": true,
+  "per_layer_cache": true
+}

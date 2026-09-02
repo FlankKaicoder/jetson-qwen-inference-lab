@@ -1,0 +1,7 @@
+stage=phase2-trt-tools
+torch=2.5.0a0+872d972e41.nv24.08
+cuda=12.6
+onnx=1.22.0
+tensorrt=10.3.0
+transformers=absent_by_design
+pip_check=PASS

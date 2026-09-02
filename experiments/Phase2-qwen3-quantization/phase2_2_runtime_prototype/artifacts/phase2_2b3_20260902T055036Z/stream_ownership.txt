@@ -1,0 +1,4 @@
+stream=torch.cuda.current_stream()
+all TensorRT enqueue calls use this stream
+explicit synchronize after each execution
+GPU-resident direct data_ptr bindings; no host payload roundtrip

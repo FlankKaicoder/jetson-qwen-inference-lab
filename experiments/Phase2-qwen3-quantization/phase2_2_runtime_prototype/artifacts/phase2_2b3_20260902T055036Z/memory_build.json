@@ -1,0 +1,18 @@
+{
+  "before": {
+    "self": {
+      "VmSize": "12929464 kB",
+      "VmRSS": "1540616 kB",
+      "VmSwap": "0 kB"
+    },
+    "maxrss": 1810992
+  },
+  "after": {
+    "self": {
+      "VmSize": "15003324 kB",
+      "VmRSS": "3497160 kB",
+      "VmSwap": "84800 kB"
+    },
+    "maxrss": 4093300
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "B3-1": "PASS",
+  "B3-2": "PASS",
+  "B3-3": "PASS",
+  "B3-4": "PASS",
+  "B3-5": "PASS",
+  "B3-6": "PASS",
+  "B3-7": "ACCEPTABLE_FOR_28L_FEASIBILITY_STEP",
+  "B3-8": "PASS",
+  "overall": "PASS / BOUNDED",
+  "decision": "READY_FOR_28_LAYER_DECODER_STACK_FEASIBILITY",
+  "handoff_sha256": "ebd6af6100131228d1cddf298e9b42d8c0b4a93d29f7b6bf93c65a2c81d3a7f1"
+}

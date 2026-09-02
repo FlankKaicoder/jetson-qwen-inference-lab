@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "layers": 4,
+  "required_tensors_per_layer": 11,
+  "all_required_keys_found": true,
+  "shape_match": true,
+  "unexpected_layer_tensors": [],
+  "mapping_source": "safetensors model.layers.0..3"
+}
