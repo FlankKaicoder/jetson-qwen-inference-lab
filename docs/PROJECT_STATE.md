@@ -13,7 +13,7 @@
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
 | Current phase | Phase 2 — LLM Quantization |
-| Current experiment | Phase 2.2-C1 — Qwen3 embedding integration |
+| Current experiment | Phase 2.2-C1J — Qwen3 Layer 0 RoPE numerical root-cause diagnostic |
 | Current branch | `phase/02-qwen3-quantization` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
@@ -287,3 +287,10 @@ Before Exp01.2 profiling on `2026-08-30`, Windows, GitHub and Jetson were clean 
 - Input RMSNorm, Q projection, K projection, Q norm and K norm remained below `0.002` relative-L2. Same-input Q RoPE reached `0.092710741` and K RoPE `0.014421386`; full probe QK raw reached `0.043750536`.
 - Result: `ROPE_MAJOR_SOURCE_CONFIRMED` as the major upstream source in this diagnostic. Exact cast/cache mechanism is not yet isolated; C1 remains `BLOCKED`, C1J/C2 must not start.
 - Raw evidence: `phase2_2_runtime_prototype/artifacts/c1i_20260902T223000Z.json`; report: `phase2_2c1_qk_rope_numerics.md`. Valid FP32 A/B variants all remained at final relative-L2 `0.034715209`; no OOM/exit 137 or B4.2 regression occurred.
+
+## Phase 2.2-C1J Qwen3 Layer 0 RoPE Numerics (2026-09-03)
+
+- Starting HEAD was `b8a9d828257d4a8a0bfd0cb5805f089e34b71095`; the new diagnostic used only fresh timestamped engines and loaded B4.2 read-only.
+- Native TensorRT cache differs from the portable FP16 cache (Q cos/sin relative-L2 `0.0978644267/0.3146529794`), while the explicit FP32-cache variant matches cache values exactly. Positions `0..7`, half-split layout, rotary dimension `128`, and GQA repeat `2` are confirmed; even/odd is a negative control.
+- Result: `ROPE_PRECISION_SEMANTICS_CONFIRMED`; C1 remains `BLOCKED`, C1K/C2 must not start without authorization. B4.2 control remains `0.0037876803`; no OOM/exit 137.
+- Raw evidence: `phase2_2_runtime_prototype/artifacts/c1j_20260902T230000Z/`; report: `phase2_2c1_rope_numerics.md`.

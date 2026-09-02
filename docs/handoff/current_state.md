@@ -231,3 +231,14 @@ Starting HEAD was `64d8d5eefb832a51edf22e119001d0cfb709010a` on `phase/02-qwen3-
 ## Phase 2.2-C1I checkpoint (2026-09-02)
 
 Starting HEAD was `38660352861bad99b46ddb854e7648b6005935b4` on `phase/02-qwen3-quantization`. Added `src/phase2_2c1/c1i_qk_rope_numerics.py` and report. Fresh Layer 0 probe/micro engines reused B4.2 read-only. Input RMSNorm/Q/K projection/Q/K norm remained below `0.002` relative-L2; Q RoPE micro `0.092710741`, K RoPE micro `0.014421386`, QK raw `0.043750536`. Result `ROPE_MAJOR_SOURCE_CONFIRMED`; exact cast/cache mechanism remains unknown. One initial run failed profile construction and is preserved; the completed run had no OOM/exit 137. C1 remains blocked; do not start C1J or C2.
+
+## Phase 2.2-C1J checkpoint (2026-09-03)
+
+Starting HEAD was `b8a9d828257d4a8a0bfd0cb5805f089e34b71095`. Added
+`src/phase2_2c1/c1j_rope_numerics.py` and report. Native TensorRT RoPE cache
+differs from portable FP16 cache (Q cos/sin rel-L2 `0.0978644267/0.3146529794`),
+while a fixed FP32-cache variant matches cache values exactly. Position `0..7`,
+half-split layout, rotary dimension `128`, and GQA repeat `2` are confirmed;
+even/odd is a negative control. Result `ROPE_PRECISION_SEMANTICS_CONFIRMED`.
+B4.2 read-only control remains `0.0037876803`; no OOM/exit 137. C1 remains
+blocked; do not start C1K or C2.
