@@ -294,3 +294,11 @@ Before Exp01.2 profiling on `2026-08-30`, Windows, GitHub and Jetson were clean 
 - Native TensorRT cache differs from the portable FP16 cache (Q cos/sin relative-L2 `0.0978644267/0.3146529794`), while the explicit FP32-cache variant matches cache values exactly. Positions `0..7`, half-split layout, rotary dimension `128`, and GQA repeat `2` are confirmed; even/odd is a negative control.
 - Result: `ROPE_PRECISION_SEMANTICS_CONFIRMED`; C1 remains `BLOCKED`, C1K/C2 must not start without authorization. B4.2 control remains `0.0037876803`; no OOM/exit 137.
 - Raw evidence: `phase2_2_runtime_prototype/artifacts/c1j_20260902T230000Z/`; report: `phase2_2c1_rope_numerics.md`.
+
+## Phase 2.2-C1K RoPE Cache Precision Validation (2026-09-03)
+
+- Starting HEAD was `4967feb895a5d2675db2571dadedcca0a8d32ff9`; only a new diagnostic script and timestamped evidence/report were added.
+- Fixed portable FP16 `cos/sin` cache initializers reduced same-input Q/K RoPE relative-L2 from `0.0927107111/0.0144213885` to `0.0001572046/0.0000268356`.
+- Layer 0 final relative-L2 improved from `0.0347152092` to `0.0038153231` (`9.0989x` reduction); corrected-vs-unchanged-B4.2 control is `0.0018616138`.
+- Result is `ROPE_CACHE_FIX_VALIDATED`. C1 remains `BLOCKED`; no repair, C1L, C2, benchmark, Nsight, quantization or production rebuild started. No OOM/exit 137.
+- Raw evidence: `experiments/Phase2-qwen3-quantization/phase2_2_runtime_prototype/artifacts/c1k_20260902T163005Z/c1k_rope_cache_precision_20260902T163005Z.json`; report: `phase2_2c1_rope_cache_precision_validation.md`.

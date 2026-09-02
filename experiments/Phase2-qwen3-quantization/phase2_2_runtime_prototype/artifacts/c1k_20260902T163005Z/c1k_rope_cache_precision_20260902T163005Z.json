@@ -1,0 +1,368 @@
+{
+  "experiment": "Phase 2.2-C1K",
+  "input_contract": {
+    "shape": [
+      1,
+      8,
+      1024
+    ],
+    "dtype": "torch.float16",
+    "position_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "hidden_sha256": "da04f5331a23473a72c65952945c87ba03e10ec84e57de2ae456e62e0bff2e2f"
+  },
+  "correction": {
+    "design": "fixed portable cos/sin cache as FP16 graph initializers; FP16 multiply/add retained",
+    "only_changed": "RoPE cache precision/cast boundary",
+    "rotary_dim": 128,
+    "theta": 1000000.0,
+    "layout": "half_split_rotate_half"
+  },
+  "b4_2_control": {
+    "shape": [
+      1,
+      8,
+      1024
+    ],
+    "candidate_shape": [
+      1,
+      8,
+      1024
+    ],
+    "dtype": "torch.float16",
+    "candidate_dtype": "torch.float16",
+    "finite": true,
+    "max_abs": 0.01171875,
+    "mean_abs": 0.000636592332739383,
+    "rmse": 0.0008671738905832171,
+    "relative_l2": 0.003787680296227336,
+    "cosine": 0.9999921321868896,
+    "sha256": "c0e051a534f4395c7b50f22a87b210072b5bc90bf8b0dd12b2e8adc2a4fc954d",
+    "candidate_sha256": "02a38a9112b0cacb8160f258d7f227e601f01406e335df5764a30757d5c36fec"
+  },
+  "micro": {
+    "q": {
+      "baseline": {
+        "onnx": {
+          "status": "PASS",
+          "bytes": 3529,
+          "nodes": 46
+        },
+        "engine": {
+          "status": "PASS",
+          "bytes": 33052
+        },
+        "vs_portable_fp16": {
+          "shape": [
+            1,
+            16,
+            8,
+            128
+          ],
+          "candidate_shape": [
+            1,
+            16,
+            8,
+            128
+          ],
+          "dtype": "torch.float16",
+          "candidate_dtype": "torch.float16",
+          "finite": true,
+          "max_abs": 3.57421875,
+          "mean_abs": 0.07049478590488434,
+          "rmse": 0.2105187177658081,
+          "relative_l2": 0.0927107110619545,
+          "cosine": 0.9957017302513123,
+          "sha256": "fb9d38d45a080aa5bfd9c0924474e190cf3a19588428f293374025a17490ce2c",
+          "candidate_sha256": "54925c890619e3dbf2fc73a86f9e90a8ad63b3ad29beac70e28abcdddbb8e7d2"
+        }
+      },
+      "corrected": {
+        "onnx": {
+          "status": "PASS",
+          "bytes": 6025,
+          "nodes": 24
+        },
+        "engine": {
+          "status": "PASS",
+          "bytes": 39428
+        },
+        "vs_portable_fp16": {
+          "shape": [
+            1,
+            16,
+            8,
+            128
+          ],
+          "candidate_shape": [
+            1,
+            16,
+            8,
+            128
+          ],
+          "dtype": "torch.float16",
+          "candidate_dtype": "torch.float16",
+          "finite": true,
+          "max_abs": 0.0078125,
+          "mean_abs": 7.4505151133053e-05,
+          "rmse": 0.0003569650580175221,
+          "relative_l2": 0.0001572046021465212,
+          "cosine": 0.9999992847442627,
+          "sha256": "fb9d38d45a080aa5bfd9c0924474e190cf3a19588428f293374025a17490ce2c",
+          "candidate_sha256": "da86134c127c5c67b6fe0cdd36ab81bc0293ba4821350b93bfea957c94ee1033"
+        }
+      }
+    },
+    "k": {
+      "baseline": {
+        "onnx": {
+          "status": "PASS",
+          "bytes": 3529,
+          "nodes": 46
+        },
+        "engine": {
+          "status": "PASS",
+          "bytes": 33044
+        },
+        "vs_portable_fp16": {
+          "shape": [
+            1,
+            8,
+            8,
+            128
+          ],
+          "candidate_shape": [
+            1,
+            8,
+            8,
+            128
+          ],
+          "dtype": "torch.float16",
+          "candidate_dtype": "torch.float16",
+          "finite": true,
+          "max_abs": 5.51904296875,
+          "mean_abs": 0.08499496430158615,
+          "rmse": 0.2680123448371887,
+          "relative_l2": 0.014421388506889343,
+          "cosine": 0.9998963475227356,
+          "sha256": "ce22fabc1a5b4f366912ce72f7a14966eb7454db12980d27bc959c828f831c4b",
+          "candidate_sha256": "6636cc55db913fa1d8632414f1e784fa260eaa1d2ff5fa74d7ec52884cbea173"
+        }
+      },
+      "corrected": {
+        "onnx": {
+          "status": "PASS",
+          "bytes": 6025,
+          "nodes": 24
+        },
+        "engine": {
+          "status": "PASS",
+          "bytes": 38276
+        },
+        "vs_portable_fp16": {
+          "shape": [
+            1,
+            8,
+            8,
+            128
+          ],
+          "candidate_shape": [
+            1,
+            8,
+            8,
+            128
+          ],
+          "dtype": "torch.float16",
+          "candidate_dtype": "torch.float16",
+          "finite": true,
+          "max_abs": 0.015625,
+          "mean_abs": 8.254636486526579e-05,
+          "rmse": 0.0004987217835150659,
+          "relative_l2": 2.683556522242725e-05,
+          "cosine": 1.0000004768371582,
+          "sha256": "ce22fabc1a5b4f366912ce72f7a14966eb7454db12980d27bc959c828f831c4b",
+          "candidate_sha256": "b4f4f5ad502407756dfee00143464b514463d936066e2a33be95766f206a8226"
+        }
+      }
+    }
+  },
+  "layer0": {
+    "baseline": {
+      "onnx": {
+        "status": "PASS",
+        "bytes": 31485773,
+        "nodes": 263
+      },
+      "engine": {
+        "status": "PASS",
+        "bytes": 31936556
+      },
+      "inputs": [
+        "hidden_states",
+        "position_ids"
+      ],
+      "fixed_positions": null,
+      "vs_portable_fp16": {
+        "shape": [
+          1,
+          8,
+          1024
+        ],
+        "candidate_shape": [
+          1,
+          8,
+          1024
+        ],
+        "dtype": "torch.float16",
+        "candidate_dtype": "torch.float16",
+        "finite": true,
+        "max_abs": 0.06640625,
+        "mean_abs": 0.005821726284921169,
+        "rmse": 0.007947908714413643,
+        "relative_l2": 0.034715209156274796,
+        "cosine": 0.9993971586227417,
+        "sha256": "c0e051a534f4395c7b50f22a87b210072b5bc90bf8b0dd12b2e8adc2a4fc954d",
+        "candidate_sha256": "f44c0f114a295aee09365cbdf01561db17dc78eae52d2cb62f3f7ab09e422d5d"
+      },
+      "vs_b4_control": {
+        "shape": [
+          1,
+          8,
+          1024
+        ],
+        "candidate_shape": [
+          1,
+          8,
+          1024
+        ],
+        "dtype": "torch.float16",
+        "candidate_dtype": "torch.float16",
+        "finite": true,
+        "max_abs": 0.07421875,
+        "mean_abs": 0.005773576907813549,
+        "rmse": 0.008011626079678535,
+        "relative_l2": 0.03499436378479004,
+        "cosine": 0.9993875026702881,
+        "sha256": "02a38a9112b0cacb8160f258d7f227e601f01406e335df5764a30757d5c36fec",
+        "candidate_sha256": "f44c0f114a295aee09365cbdf01561db17dc78eae52d2cb62f3f7ab09e422d5d"
+      }
+    },
+    "corrected": {
+      "onnx": {
+        "status": "PASS",
+        "bytes": 31486881,
+        "nodes": 224
+      },
+      "engine": {
+        "status": "PASS",
+        "bytes": 31793108
+      },
+      "inputs": [
+        "hidden_states"
+      ],
+      "fixed_positions": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "vs_portable_fp16": {
+        "shape": [
+          1,
+          8,
+          1024
+        ],
+        "candidate_shape": [
+          1,
+          8,
+          1024
+        ],
+        "dtype": "torch.float16",
+        "candidate_dtype": "torch.float16",
+        "finite": true,
+        "max_abs": 0.009765625,
+        "mean_abs": 0.0006460130680352449,
+        "rmse": 0.0008735026931390166,
+        "relative_l2": 0.0038153231143951416,
+        "cosine": 0.9999918937683105,
+        "sha256": "c0e051a534f4395c7b50f22a87b210072b5bc90bf8b0dd12b2e8adc2a4fc954d",
+        "candidate_sha256": "a4fa406aa4ff4e91426d4578088c214ba3ea69c32596e4f2f65a4fdc5c9b8871"
+      },
+      "vs_b4_control": {
+        "shape": [
+          1,
+          8,
+          1024
+        ],
+        "candidate_shape": [
+          1,
+          8,
+          1024
+        ],
+        "dtype": "torch.float16",
+        "candidate_dtype": "torch.float16",
+        "finite": true,
+        "max_abs": 0.00390625,
+        "mean_abs": 0.0003011618391610682,
+        "rmse": 0.0004261985595803708,
+        "relative_l2": 0.0018616138258948922,
+        "cosine": 0.9999975562095642,
+        "sha256": "02a38a9112b0cacb8160f258d7f227e601f01406e335df5764a30757d5c36fec",
+        "candidate_sha256": "a4fa406aa4ff4e91426d4578088c214ba3ea69c32596e4f2f65a4fdc5c9b8871"
+      }
+    }
+  },
+  "improvement": {
+    "baseline_relative_l2": 0.034715209156274796,
+    "corrected_relative_l2": 0.0038153231143951416,
+    "absolute_reduction": 0.030899886041879654,
+    "factor": 9.098891002257442
+  },
+  "memory": {
+    "trace": [
+      {
+        "stage": "start",
+        "mem_available_bytes": 5354213376,
+        "cuda_free_bytes": 5299310592,
+        "cuda_total_bytes": 7989940224,
+        "torch_allocated_bytes": 0,
+        "torch_reserved_bytes": 0,
+        "maxrss": 388508
+      },
+      {
+        "stage": "reference_complete",
+        "mem_available_bytes": 4992897024,
+        "cuda_free_bytes": 4968419328,
+        "cuda_total_bytes": 7989940224,
+        "torch_allocated_bytes": 40295936,
+        "torch_reserved_bytes": 65011712,
+        "maxrss": 749328
+      },
+      {
+        "stage": "complete",
+        "mem_available_bytes": 2551443456,
+        "cuda_free_bytes": 2551336960,
+        "cuda_total_bytes": 7989940224,
+        "torch_allocated_bytes": 40918528,
+        "torch_reserved_bytes": 65011712,
+        "maxrss": 3690108
+      }
+    ],
+    "oom": false,
+    "exit137": false
+  },
+  "result": "ROPE_CACHE_FIX_VALIDATED",
+  "c1_status": "BLOCKED"
+}

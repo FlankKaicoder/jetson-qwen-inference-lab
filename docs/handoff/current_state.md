@@ -242,3 +242,15 @@ half-split layout, rotary dimension `128`, and GQA repeat `2` are confirmed;
 even/odd is a negative control. Result `ROPE_PRECISION_SEMANTICS_CONFIRMED`.
 B4.2 read-only control remains `0.0037876803`; no OOM/exit 137. C1 remains
 blocked; do not start C1K or C2.
+
+## Phase 2.2-C1K checkpoint (2026-09-03)
+
+Starting HEAD was `4967feb895a5d2675db2571dadedcca0a8d32ff9` on
+`phase/02-qwen3-quantization`. Added the diagnostic-only C1K script, report and
+raw JSON. Fixed portable FP16 `cos/sin` initializers for positions `0..7`
+reduced Q/K RoPE relative-L2 from `0.0927107111/0.0144213885` to
+`0.0001572046/0.0000268356`; Layer 0 improved from `0.0347152092` to
+`0.0038153231` (`9.0989x`). Result is `ROPE_CACHE_FIX_VALIDATED`. Minimum
+`MemAvailable` was `2,551,443,456` bytes; no OOM or exit 137 occurred. C1
+remains `BLOCKED`; no repair, C1L, C2, benchmark, Nsight, quantization or
+production rebuild started. Await explicit owner direction.
