@@ -265,3 +265,11 @@ Before Exp01.2 profiling on `2026-08-30`, Windows, GitHub and Jetson were clean 
 - B4.2 exposes 84 outputs (hidden_l0..hidden_l27, present_k0..present_k27, present_v0..present_v27) and no internal component bindings. All requested component metrics are therefore `NOT_AVAILABLE`; first divergent operator is `UNKNOWN`.
 - Existing B3 `attention_l0` partial evidence measured max abs `0.01171875`, relative-L2 `0.00316544`, cosine `0.99999416`; this is not 28-layer operator attribution. C1 remains `BLOCKED`; C2 must not start.
 - Result: `COMPONENT_LOCALIZATION_BLOCKED`. Raw evidence: `experiments/Phase2-qwen3-quantization/phase2_2_runtime_prototype/artifacts/phase2_2c1f_layer0_component_20260902T193000Z.json`; report: `experiments/Phase2-qwen3-quantization/phase2_2_runtime_prototype/docs/phase2_2c1_layer0_component_attribution.md`.
+
+## Phase 2.2-C1G Layer 0 Internal Tensor Probe (2026-09-02)
+
+- Starting HEAD was `b8c9bc8edbb123e989a8a734eac6627077608336`. Three new independent Group A/B/C Layer 0 FP16 TensorRT diagnostic engines were built; B4.2 remained read-only and was not rebuilt.
+- All probe validity checks passed against original B4.2 `hidden_l0`; Group A/C were exact and Group B was relative-L2 `0.00250531`, cosine `0.99999619`. B4.2 control remained relative-L2 `0.00378768`, cosine `0.99999213`.
+- First non-zero component difference is input RMSNorm (relative-L2 `0.000491762`). QK score difference is `1.95e-7`, then softmax rises to `0.003432333`; this is the first material amplification, reported as `FIRST_MATERIAL_OPERATOR_FOUND` with status `NARROWED / NOT CONFIRMED`.
+- MLP gate×up and down reach relative-L2 `0.005109561` and `0.005827574`, but are downstream amplification. No precision A/B or fix was performed. C1 remains `BLOCKED`; C2 must not start.
+- Report: `experiments/Phase2-qwen3-quantization/phase2_2_runtime_prototype/docs/phase2_2c1_layer0_internal_probe.md`; raw JSON: `c1g_layer0_group_a/b/c_20260902T200000Z.json`.

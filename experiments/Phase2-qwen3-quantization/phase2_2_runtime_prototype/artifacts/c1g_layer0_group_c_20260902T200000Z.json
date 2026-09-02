@@ -1,0 +1,589 @@
+{
+  "experiment": "Phase 2.2-C1G",
+  "group": "C",
+  "objective": "Qwen3 Layer 0 internal tensor probe",
+  "input_contract": {
+    "shape": [
+      1,
+      8,
+      1024
+    ],
+    "dtype": "torch.float16",
+    "position_ids": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    ],
+    "same_canonical_embedding": true
+  },
+  "layer0_structure": {
+    "hidden": 1024,
+    "q_heads": 16,
+    "kv_heads": 8,
+    "head_dim": 128,
+    "rotary_dimension": 128,
+    "rope_theta": 1000000.0,
+    "gqa_repeat": 2,
+    "rmsnorm_eps": 1e-06,
+    "mlp_intermediate": 3072
+  },
+  "b4_2_contract": {
+    "input_count": 2,
+    "output_count": 84,
+    "outputs": [
+      "hidden_l0",
+      "hidden_l1",
+      "hidden_l2",
+      "hidden_l3",
+      "hidden_l4",
+      "hidden_l5",
+      "hidden_l6",
+      "hidden_l7",
+      "hidden_l8",
+      "hidden_l9",
+      "hidden_l10",
+      "hidden_l11",
+      "hidden_l12",
+      "hidden_l13",
+      "hidden_l14",
+      "hidden_l15",
+      "hidden_l16",
+      "hidden_l17",
+      "hidden_l18",
+      "hidden_l19",
+      "hidden_l20",
+      "hidden_l21",
+      "hidden_l22",
+      "hidden_l23",
+      "hidden_l24",
+      "hidden_l25",
+      "hidden_l26",
+      "hidden_l27",
+      "present_k0",
+      "present_k1",
+      "present_k2",
+      "present_k3",
+      "present_k4",
+      "present_k5",
+      "present_k6",
+      "present_k7",
+      "present_k8",
+      "present_k9",
+      "present_k10",
+      "present_k11",
+      "present_k12",
+      "present_k13",
+      "present_k14",
+      "present_k15",
+      "present_k16",
+      "present_k17",
+      "present_k18",
+      "present_k19",
+      "present_k20",
+      "present_k21",
+      "present_k22",
+      "present_k23",
+      "present_k24",
+      "present_k25",
+      "present_k26",
+      "present_k27",
+      "present_v0",
+      "present_v1",
+      "present_v2",
+      "present_v3",
+      "present_v4",
+      "present_v5",
+      "present_v6",
+      "present_v7",
+      "present_v8",
+      "present_v9",
+      "present_v10",
+      "present_v11",
+      "present_v12",
+      "present_v13",
+      "present_v14",
+      "present_v15",
+      "present_v16",
+      "present_v17",
+      "present_v18",
+      "present_v19",
+      "present_v20",
+      "present_v21",
+      "present_v22",
+      "present_v23",
+      "present_v24",
+      "present_v25",
+      "present_v26",
+      "present_v27"
+    ]
+  },
+  "b4_2_control": {
+    "shape": [
+      1,
+      8,
+      1024
+    ],
+    "candidate_shape": [
+      1,
+      8,
+      1024
+    ],
+    "shape_equal": true,
+    "dtype": "torch.float16",
+    "candidate_dtype": "torch.float16",
+    "finite": true,
+    "max_abs": 0.01171875,
+    "mean_abs": 0.000636592332739383,
+    "rmse": 0.0008671738905832171,
+    "relative_l2": 0.003787680296227336,
+    "cosine": 0.9999921321868896
+  },
+  "probe_validity": {
+    "shape": [
+      1,
+      8,
+      1024
+    ],
+    "candidate_shape": [
+      1,
+      8,
+      1024
+    ],
+    "shape_equal": true,
+    "dtype": "torch.float16",
+    "candidate_dtype": "torch.float16",
+    "finite": true,
+    "max_abs": 0.0,
+    "mean_abs": 0.0,
+    "rmse": 0.0,
+    "relative_l2": 0.0,
+    "cosine": 0.9999995231628418,
+    "criterion": {
+      "relative_l2_max": 0.01,
+      "cosine_min": 0.9999
+    },
+    "status": "PASS"
+  },
+  "portable_reference_checkpoints": {
+    "post_attention_rmsnorm": {
+      "shape": [
+        1,
+        8,
+        1024
+      ],
+      "dtype": "torch.float16",
+      "finite": true
+    },
+    "gate_projection": {
+      "shape": [
+        1,
+        8,
+        3072
+      ],
+      "dtype": "torch.float16",
+      "finite": true
+    },
+    "up_projection": {
+      "shape": [
+        1,
+        8,
+        3072
+      ],
+      "dtype": "torch.float16",
+      "finite": true
+    },
+    "silu_gate": {
+      "shape": [
+        1,
+        8,
+        3072
+      ],
+      "dtype": "torch.float16",
+      "finite": true
+    },
+    "gate_up": {
+      "shape": [
+        1,
+        8,
+        3072
+      ],
+      "dtype": "torch.float16",
+      "finite": true
+    },
+    "down_projection": {
+      "shape": [
+        1,
+        8,
+        1024
+      ],
+      "dtype": "torch.float16",
+      "finite": true
+    },
+    "final_hidden": {
+      "shape": [
+        1,
+        8,
+        1024
+      ],
+      "dtype": "torch.float16",
+      "finite": true
+    }
+  },
+  "component_metrics": [
+    {
+      "probe": "post_attention_rmsnorm",
+      "component": "post_attention_rmsnorm",
+      "metric": {
+        "shape": [
+          1,
+          8,
+          1024
+        ],
+        "candidate_shape": [
+          1,
+          8,
+          1024
+        ],
+        "shape_equal": true,
+        "dtype": "torch.float16",
+        "candidate_dtype": "torch.float16",
+        "finite": true,
+        "max_abs": 0.017578125,
+        "mean_abs": 0.0010287436889484525,
+        "rmse": 0.0014288992388173938,
+        "relative_l2": 0.003475933102890849,
+        "cosine": 0.9999933242797852
+      }
+    },
+    {
+      "probe": "gate_projection",
+      "component": "gate_projection",
+      "metric": {
+        "shape": [
+          1,
+          8,
+          3072
+        ],
+        "candidate_shape": [
+          1,
+          8,
+          3072
+        ],
+        "shape_equal": true,
+        "dtype": "torch.float16",
+        "candidate_dtype": "torch.float16",
+        "finite": true,
+        "max_abs": 0.021484375,
+        "mean_abs": 0.001792360097169876,
+        "rmse": 0.002540118992328644,
+        "relative_l2": 0.0029499465599656105,
+        "cosine": 0.9999946355819702
+      }
+    },
+    {
+      "probe": "up_projection",
+      "component": "up_projection",
+      "metric": {
+        "shape": [
+          1,
+          8,
+          3072
+        ],
+        "candidate_shape": [
+          1,
+          8,
+          3072
+        ],
+        "shape_equal": true,
+        "dtype": "torch.float16",
+        "candidate_dtype": "torch.float16",
+        "finite": true,
+        "max_abs": 0.0078125,
+        "mean_abs": 0.000967458647210151,
+        "rmse": 0.001242032740265131,
+        "relative_l2": 0.003975600935518742,
+        "cosine": 0.9999901056289673
+      }
+    },
+    {
+      "probe": "silu_gate",
+      "component": "silu_gate",
+      "metric": {
+        "shape": [
+          1,
+          8,
+          3072
+        ],
+        "candidate_shape": [
+          1,
+          8,
+          3072
+        ],
+        "shape_equal": true,
+        "dtype": "torch.float16",
+        "candidate_dtype": "torch.float16",
+        "finite": true,
+        "max_abs": 0.009765625,
+        "mean_abs": 0.00045845797285437584,
+        "rmse": 0.0006920710438862443,
+        "relative_l2": 0.0033614018466323614,
+        "cosine": 0.9999927282333374
+      }
+    },
+    {
+      "probe": "gate_up",
+      "component": "gate_up",
+      "metric": {
+        "shape": [
+          1,
+          8,
+          3072
+        ],
+        "candidate_shape": [
+          1,
+          8,
+          3072
+        ],
+        "shape_equal": true,
+        "dtype": "torch.float16",
+        "candidate_dtype": "torch.float16",
+        "finite": true,
+        "max_abs": 0.0146484375,
+        "mean_abs": 0.00023311485711019486,
+        "rmse": 0.0004288667696528137,
+        "relative_l2": 0.005109561141580343,
+        "cosine": 0.9999860525131226
+      }
+    },
+    {
+      "probe": "down_projection",
+      "component": "down_projection",
+      "metric": {
+        "shape": [
+          1,
+          8,
+          1024
+        ],
+        "candidate_shape": [
+          1,
+          8,
+          1024
+        ],
+        "shape_equal": true,
+        "dtype": "torch.float16",
+        "candidate_dtype": "torch.float16",
+        "finite": true,
+        "max_abs": 0.0078125,
+        "mean_abs": 0.0005705684889107943,
+        "rmse": 0.0007511645671911538,
+        "relative_l2": 0.00582757405936718,
+        "cosine": 0.9999824166297913
+      }
+    },
+    {
+      "probe": "final_hidden",
+      "component": "final_hidden",
+      "metric": {
+        "shape": [
+          1,
+          8,
+          1024
+        ],
+        "candidate_shape": [
+          1,
+          8,
+          1024
+        ],
+        "shape_equal": true,
+        "dtype": "torch.float16",
+        "candidate_dtype": "torch.float16",
+        "finite": true,
+        "max_abs": 0.01171875,
+        "mean_abs": 0.000636592332739383,
+        "rmse": 0.0008671738905832171,
+        "relative_l2": 0.003787680296227336,
+        "cosine": 0.9999921321868896
+      }
+    }
+  ],
+  "first_nonzero_difference": "post_attention_rmsnorm",
+  "first_material_divergence": null,
+  "diagnostic_engine": {
+    "onnx": "/tmp/phase2_2c1g_20260902T200000Z/tmp_c/layer0_group_C.onnx",
+    "engine": "/tmp/phase2_2c1g_20260902T200000Z/tmp_c/layer0_group_C.engine",
+    "onnx_summary": {
+      "status": "PASS",
+      "bytes": 31484231,
+      "node_count": 236,
+      "initializer_count": 11,
+      "operators": {
+        "Cast": 18,
+        "Constant": 82,
+        "Pow": 4,
+        "ReduceMean": 4,
+        "Add": 8,
+        "Sqrt": 4,
+        "Div": 6,
+        "Mul": 18,
+        "Shape": 6,
+        "Gather": 4,
+        "MatMul": 9,
+        "Unsqueeze": 27,
+        "Concat": 12,
+        "Reshape": 8,
+        "Transpose": 5,
+        "Cos": 1,
+        "Sin": 1,
+        "Slice": 4,
+        "Neg": 2,
+        "ConstantOfShape": 3,
+        "Equal": 2,
+        "Where": 3,
+        "Expand": 2,
+        "Trilu": 1,
+        "Softmax": 1,
+        "Sigmoid": 1
+      },
+      "inputs": [
+        "hidden_states",
+        "position_ids"
+      ],
+      "outputs": [
+        "post_attention_rmsnorm",
+        "gate_projection",
+        "up_projection",
+        "silu_gate",
+        "gate_up",
+        "down_projection",
+        "final_hidden"
+      ]
+    },
+    "engine_summary": {
+      "status": "PASS",
+      "bytes": 31764468,
+      "parser_errors": []
+    }
+  },
+  "memory": {
+    "trace": [
+      {
+        "stage": "start",
+        "mem_available_bytes": 5004247040,
+        "vmrss": "389148 kB",
+        "cuda_free_bytes": 4933459968,
+        "cuda_total_bytes": 7989940224,
+        "torch_allocated_bytes": 0,
+        "torch_reserved_bytes": 0,
+        "maxrss": 389148
+      },
+      {
+        "stage": "layer_loaded",
+        "mem_available_bytes": 4933922816,
+        "vmrss": "433512 kB",
+        "cuda_free_bytes": 4893351936,
+        "cuda_total_bytes": 7989940224,
+        "torch_allocated_bytes": 31479296,
+        "torch_reserved_bytes": 44040192,
+        "maxrss": 464092
+      },
+      {
+        "stage": "reference_complete",
+        "mem_available_bytes": 4532027392,
+        "vmrss": "858912 kB",
+        "cuda_free_bytes": 4491456512,
+        "cuda_total_bytes": 7989940224,
+        "torch_allocated_bytes": 40494592,
+        "torch_reserved_bytes": 65011712,
+        "maxrss": 858912
+      },
+      {
+        "stage": "b4_control_complete",
+        "mem_available_bytes": 4234604544,
+        "vmrss": "1154100 kB",
+        "cuda_free_bytes": 4234121216,
+        "cuda_total_bytes": 7989940224,
+        "torch_allocated_bytes": 41870848,
+        "torch_reserved_bytes": 65011712,
+        "maxrss": 1841568
+      },
+      {
+        "stage": "onnx_export_complete",
+        "mem_available_bytes": 4163608576,
+        "vmrss": "1241284 kB",
+        "cuda_free_bytes": 4163125248,
+        "cuda_total_bytes": 7989940224,
+        "torch_allocated_bytes": 41870848,
+        "torch_reserved_bytes": 67108864,
+        "maxrss": 1841568
+      },
+      {
+        "stage": "trt_build_complete",
+        "mem_available_bytes": 2726694912,
+        "vmrss": "2250388 kB",
+        "cuda_free_bytes": 2726694912,
+        "cuda_total_bytes": 7989940224,
+        "torch_allocated_bytes": 41870848,
+        "torch_reserved_bytes": 67108864,
+        "maxrss": 2599280
+      },
+      {
+        "stage": "diagnostic_complete",
+        "mem_available_bytes": 2726694912,
+        "vmrss": "2250388 kB",
+        "cuda_free_bytes": 2726694912,
+        "cuda_total_bytes": 7989940224,
+        "torch_allocated_bytes": 42116608,
+        "torch_reserved_bytes": 67108864,
+        "maxrss": 2599280
+      }
+    ],
+    "scope": "DIAGNOSTIC_ONLY",
+    "oom": false,
+    "exit137": false
+  },
+  "error_growth": [
+    {
+      "component": "post_attention_rmsnorm",
+      "relative_l2": 0.003475933102890849,
+      "increment": 0.003475933102890849
+    },
+    {
+      "component": "gate_projection",
+      "relative_l2": 0.0029499465599656105,
+      "increment": -0.0005259865429252386
+    },
+    {
+      "component": "up_projection",
+      "relative_l2": 0.003975600935518742,
+      "increment": 0.001025654375553131
+    },
+    {
+      "component": "silu_gate",
+      "relative_l2": 0.0033614018466323614,
+      "increment": -0.0006141990888863802
+    },
+    {
+      "component": "gate_up",
+      "relative_l2": 0.005109561141580343,
+      "increment": 0.0017481592949479818
+    },
+    {
+      "component": "down_projection",
+      "relative_l2": 0.00582757405936718,
+      "increment": 0.0007180129177868366
+    },
+    {
+      "component": "final_hidden",
+      "relative_l2": 0.003787680296227336,
+      "increment": -0.002039893763139844
+    }
+  ],
+  "status": "PROBE_VALIDITY_PASS"
+}
