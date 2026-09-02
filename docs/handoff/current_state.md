@@ -182,3 +182,7 @@
 ## Phase 2.2-A checkpoint (2026-09-02)
 
 Single-layer synthetic Qwen3-like TensorRT FP16 runtime integration is bounded-pass. Evidence is under `experiments/Phase2-qwen3-quantization/phase2_2_runtime_prototype/artifacts/phase2_2a_20260902/`; report is `phase2_2a_single_layer_trt_runtime.md`. Prefill and dynamic decode engines parse/build and execute on CUDA; cache grows 8->12 with zero prefix mutation. Numerical differences are informational, and TensorRT default-stream/FP16 normalization warnings remain. No full checkpoint/export/full-model engine, benchmark, profiler, INT8/INT4 or TensorRT-LLM work was run. Phase 2.2-B and Phase 3 are not started.
+
+## Phase 2.2-B1 checkpoint (2026-09-02)
+
+Four logical layers reuse the Phase 2.2-A synthetic FP16 prefill/decode engines. B1-1 through B1-5 are `PASS / BOUNDED`: ordered hidden handoff, independent per-layer `[B,8,L,128]` caches, prefill `B=1,S=8`, decode 8->12, CUDA residency and shared runtime stream. Evidence is under `experiments/Phase2-qwen3-quantization/phase2_2_runtime_prototype/artifacts/phase2_2b1_20260902/`; report is `phase2_2b1_multilayer_runtime.md`. No 28-layer deployment, full checkpoint/export, benchmark, Nsight, INT8/INT4 or TensorRT-LLM work was run. Phase 2.2-B2 and Phase 3 are not started.

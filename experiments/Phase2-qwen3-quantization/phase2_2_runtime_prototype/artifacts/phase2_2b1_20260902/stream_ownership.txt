@@ -1,0 +1,5 @@
+runtime_stream=torch.cuda.current_stream()
+layer_streams=all four logical layer runtimes use the same current CUDA stream
+synchronization=TRTRuntime calls explicit stream.synchronize() after execute_async_v3
+host_payload_roundtrip=false
+warning=TensorRT default-stream performance warning retained from Phase 2.2-A

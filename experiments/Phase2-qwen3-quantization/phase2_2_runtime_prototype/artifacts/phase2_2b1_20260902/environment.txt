@@ -1,0 +1,10 @@
+scope=Phase 2.2-B1 bounded four-layer synthetic runtime orchestration
+host=Jetson Orin Nano Super
+cuda=12.6
+tensorrt=10.3.0
+torch=2.5.0a0+872d972e41.nv24.08
+gpu=Orin
+venv=/home/nvidia/.venvs/jetson-qwen-phase2-trt-tools
+system_changes=none
+benchmark=not run
+nsight=not run

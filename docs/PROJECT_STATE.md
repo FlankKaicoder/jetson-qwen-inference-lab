@@ -13,14 +13,14 @@
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
 | Current phase | Phase 2 — LLM Quantization |
-| Current experiment | Phase 2.2-A — bounded single-layer TensorRT FP16 KV-cache runtime integration |
+| Current experiment | Phase 2.2-B1 — bounded four-layer TensorRT runtime orchestration |
 | Current branch | `phase/02-qwen3-quantization` |
 | Current HEAD | Verify with `git rev-parse HEAD`; Phase 2.2 preparation closeout pending |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Exp04 — CUDA GEMM tiling and WMMA |
-| Experiment status | Phase 1.0 `PASS WITH CONSTRAINTS / CLOSED`; Phase 1.1 `PASS / CLOSED`; Phase 1.2 `PASS / CLOSED`; Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8 `PASS / BOUNDED`; Phase 2.1.9 `PASS / BOUNDED`; Phase 2.2-A `PARTIAL / BOUNDED PASS` |
-| Current Gate | Phase 2.2-A C1-C5 `PASS (bounded)`; full-model runtime remains not started; Phase 2.1.9 production route remains `BLOCKED_NEEDS_RUNTIME_WORK` |
-| Readiness | Single-layer synthetic runtime path validated; full Qwen3 export/engine and Phase 2.2-B require explicit authorization |
+| Experiment status | Phase 1.0 `PASS WITH CONSTRAINTS / CLOSED`; Phase 1.1 `PASS / CLOSED`; Phase 1.2 `PASS / CLOSED`; Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8 `PASS / BOUNDED`; Phase 2.1.9 `PASS / BOUNDED`; Phase 2.2-A `PARTIAL / BOUNDED PASS`; Phase 2.2-B1 `PASS / BOUNDED` |
+| Current Gate | Phase 2.2-B1 gates B1-1..B1-5 `PASS (bounded)`; 28-layer/full-model runtime remains not started; Phase 2.1.9 production route remains `BLOCKED_NEEDS_RUNTIME_WORK` |
+| Readiness | Four-layer synthetic orchestration validated; 28-layer/full Qwen3 runtime requires separate authorization |
 
 ## Confirmed Findings
 

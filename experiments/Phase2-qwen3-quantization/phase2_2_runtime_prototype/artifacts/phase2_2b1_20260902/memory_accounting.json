@@ -1,0 +1,16 @@
+{
+  "status": "PROTOTYPE_MEASUREMENT",
+  "layout": "per layer K/V [1,8,L,128] FP16",
+  "num_layers": 4,
+  "prefill_length": 8,
+  "theoretical_cache_bytes_prefill": 131072,
+  "actual_cuda_tensor_cache_bytes": {
+    "L=8": 131072,
+    "L=9": 147456,
+    "L=10": 163840,
+    "L=11": 180224,
+    "L=12": 196608
+  },
+  "bytes_per_layer_at_L=8": 32768,
+  "limitation": "Counts current K/V tensors only; excludes engine weights, workspace, activations, allocator overhead and full Qwen3 capacity."
+}
