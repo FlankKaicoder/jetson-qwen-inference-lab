@@ -1,0 +1,2 @@
+Status: NOT EXECUTED. No package installation attempted because pip lacks --dry-run and an auditable resolver plan is unavailable.
+Candidate frozen packages (not installed): transformers==4.57.3, tokenizers==0.22.2, safetensors==0.8.0, huggingface-hub==0.36.2.

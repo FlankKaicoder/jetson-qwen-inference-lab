@@ -1,0 +1,10 @@
+Environment: /home/nvidia/.venvs/jetson-qwen-phase1-hf
+torch OK 2.5.0a0+872d972e41.nv24.08 /usr/local/lib/python3.10/dist-packages/torch
+transformers OK 4.57.3
+safetensors OK 0.8.0
+onnx FAIL ModuleNotFoundError
+onnx_graphsurgeon FAIL unavailable
+polygraphy FAIL unavailable
+tensorrt OK 10.3.0 /usr/lib/python3.10/dist-packages/tensorrt
+CUDA available: True; device: Orin
+pip check: No broken requirements found.

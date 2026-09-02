@@ -1,0 +1,12 @@
+{
+  "status": "BLOCKED",
+  "decision": "SOLUTION_C_DUAL_ENV_REQUIRED",
+  "env_a": "PASS",
+  "env_b": "PASS",
+  "env_c": "BLOCKED_IN_SELECTED_SINGLE_ENV",
+  "env_d": "PASS_FOR_TRT_TOOLS",
+  "env_e": "PASS",
+  "reason": "phase2-trt-tools lacks Transformers and Safetensors; pip does not support --dry-run, so controlled extension was not attempted",
+  "scientific_b2_execution": "NOT_STARTED",
+  "package_changes": "NONE"
+}

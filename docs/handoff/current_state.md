@@ -186,3 +186,7 @@ Single-layer synthetic Qwen3-like TensorRT FP16 runtime integration is bounded-p
 ## Phase 2.2-B1 checkpoint (2026-09-02)
 
 Four logical layers reuse the Phase 2.2-A synthetic FP16 prefill/decode engines. B1-1 through B1-5 are `PASS / BOUNDED`: ordered hidden handoff, independent per-layer `[B,8,L,128]` caches, prefill `B=1,S=8`, decode 8->12, CUDA residency and shared runtime stream. Evidence is under `experiments/Phase2-qwen3-quantization/phase2_2_runtime_prototype/artifacts/phase2_2b1_20260902/`; report is `phase2_2b1_multilayer_runtime.md`. No 28-layer deployment, full checkpoint/export, benchmark, Nsight, INT8/INT4 or TensorRT-LLM work was run. Phase 2.2-B2 and Phase 3 are not started.
+
+## Phase 2.2-B2.0 checkpoint (2026-09-02)
+
+Environment bridge audit selected `SOLUTION_C_DUAL_ENV_REQUIRED`. The frozen `phase1-hf` venv has Transformers 4.57.3 and Safetensors 0.8.0; `phase2-trt-tools` has ONNX 1.22, Polygraphy 0.53.4 and TensorRT 10.3 but lacks Transformers/Safetensors. Both preserve NVIDIA PyTorch and pass `pip check`. The installed pip lacks `--dry-run`, so no package installation was attempted. B2 scientific execution remains not started; evidence is under `phase2_2b2_env_20260902/`.

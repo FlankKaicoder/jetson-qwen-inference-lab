@@ -1,0 +1,3 @@
+Command: python -m pip install --dry-run transformers==4.57.3
+Result: NOT AVAILABLE in this pip version; error: no such option: --dry-run.
+Decision: controlled install not attempted.

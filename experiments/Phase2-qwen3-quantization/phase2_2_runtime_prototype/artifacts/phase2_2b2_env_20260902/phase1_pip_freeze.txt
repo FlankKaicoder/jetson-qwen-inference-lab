@@ -1,0 +1,2 @@
+Captured from phase1-hf; complete output retained at Jetson /tmp/phase2_2b2_env_20260902/phase1_pip_freeze.txt.
+Frozen core: transformers 4.57.3; tokenizers 0.22.2; safetensors 0.8.0; huggingface-hub 0.36.2; accelerate 1.14.0; regex 2026.9.3.
