@@ -273,3 +273,10 @@ Before Exp01.2 profiling on `2026-08-30`, Windows, GitHub and Jetson were clean 
 - First non-zero component difference is input RMSNorm (relative-L2 `0.000491762`). QK score difference is `1.95e-7`, then softmax rises to `0.003432333`; this is the first material amplification, reported as `FIRST_MATERIAL_OPERATOR_FOUND` with status `NARROWED / NOT CONFIRMED`.
 - MLP gate×up and down reach relative-L2 `0.005109561` and `0.005827574`, but are downstream amplification. No precision A/B or fix was performed. C1 remains `BLOCKED`; C2 must not start.
 - Report: `experiments/Phase2-qwen3-quantization/phase2_2_runtime_prototype/docs/phase2_2c1_layer0_internal_probe.md`; raw JSON: `c1g_layer0_group_a/b/c_20260902T200000Z.json`.
+
+## Phase 2.2-C1H Attention Softmax Semantics (2026-09-02)
+
+- Starting HEAD was `64d8d5eefb832a51edf22e119001d0cfb709010a`. A new diagnostic-only script exposed raw/scaled/masked QK scores, same-input native and explicit FP32 TensorRT softmax micro engines, and an independent Layer 0 FP32-softmax-only A/B.
+- Final masked pre-softmax inputs were nearly identical (relative-L2 `1.9496e-7`), with FP16 causal sentinel `-65504.0` and no infinities. Native and explicit FP32 TensorRT softmax both matched the portable output exactly and had oracle relative-L2 `0.000154608`.
+- Layer 0 explicit FP32-softmax-only final relative-L2 was `0.003787680`, identical to unchanged B4.2 control. Result: `SOFTMAX_HYPOTHESIS_REJECTED`; C1 remains `BLOCKED`, no repair/C1I/C2 started.
+- Minimum `MemAvailable` was `2,617,298,944` bytes, maximum RSS `3,623,332` KiB, with no OOM/exit 137. Report: `phase2_2c1_softmax_semantics.md`; raw JSON: `artifacts/c1h_20260902T210000Z/c1h_softmax_semantics_20260902T210000Z.json`.
