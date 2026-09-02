@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "shape": [
+    4,
+    1024
+  ],
+  "dtype": "fp16",
+  "fp32_accumulation_reference": true,
+  "max_abs_difference": 0.001953125,
+  "rmse": 0.00033629091922193766,
+  "note": "TensorRT FP16 Reduce/Pow warning is retained; this probe is not a production accuracy bound."
+}

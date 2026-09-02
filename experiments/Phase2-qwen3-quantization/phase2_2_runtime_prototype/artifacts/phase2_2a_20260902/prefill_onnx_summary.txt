@@ -1,0 +1,6 @@
+status=PASS
+graph=synthetic single-layer Qwen3-like prefill
+opset=17
+inputs=hidden_states [B,S,1024] FP16; position_ids [B,S] INT64
+outputs=hidden_out [B,S,1024] FP16; present_k [B,8,S,128] FP16; present_v [B,8,S,128] FP16
+dynamic_profile=B=1,S=1..16

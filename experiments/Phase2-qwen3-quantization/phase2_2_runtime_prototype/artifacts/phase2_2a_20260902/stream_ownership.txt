@@ -1,0 +1,4 @@
+Runtime stream: torch.cuda.current_stream() obtained by TRTRuntime.
+Binding: all input/output tensors use tensor.data_ptr() directly on cuda:0.
+Synchronization boundary: execute_async_v3 is submitted to the current stream; runtime calls stream.synchronize() before returning outputs for validation.
+Host payload roundtrip: false. CPU reads only shapes, devices and scalar summaries; K/V payloads remain CUDA-resident.

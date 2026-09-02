@@ -13,14 +13,14 @@
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
 | Current phase | Phase 2 — LLM Quantization |
-| Current experiment | Phase 2.2 preparation — Qwen3 TensorRT FP16 runtime prototype design |
+| Current experiment | Phase 2.2-A — bounded single-layer TensorRT FP16 KV-cache runtime integration |
 | Current branch | `phase/02-qwen3-quantization` |
 | Current HEAD | Verify with `git rev-parse HEAD`; Phase 2.2 preparation closeout pending |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Exp04 — CUDA GEMM tiling and WMMA |
-| Experiment status | Phase 1.0 `PASS WITH CONSTRAINTS / CLOSED`; Phase 1.1 `PASS / CLOSED`; Phase 1.2 `PASS / CLOSED`; Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8 `PASS / BOUNDED`; Phase 2.1.9 `PASS / BOUNDED`; Phase 2.2 preparation `PREPARED` |
-| Current Gate | Phase 2.2 preparation Gate A/B `PREPARED`; Gate C/D `NOT_STARTED`; Phase 2.1.9 production route remains `BLOCKED_NEEDS_RUNTIME_WORK` |
-| Readiness | CPU-side runtime design and KV-cache prototype are prepared; runtime execution, full export/engine and Phase 2.2 execution require explicit authorization |
+| Experiment status | Phase 1.0 `PASS WITH CONSTRAINTS / CLOSED`; Phase 1.1 `PASS / CLOSED`; Phase 1.2 `PASS / CLOSED`; Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8 `PASS / BOUNDED`; Phase 2.1.9 `PASS / BOUNDED`; Phase 2.2-A `PARTIAL / BOUNDED PASS` |
+| Current Gate | Phase 2.2-A C1-C5 `PASS (bounded)`; full-model runtime remains not started; Phase 2.1.9 production route remains `BLOCKED_NEEDS_RUNTIME_WORK` |
+| Readiness | Single-layer synthetic runtime path validated; full Qwen3 export/engine and Phase 2.2-B require explicit authorization |
 
 ## Confirmed Findings
 
@@ -206,3 +206,11 @@ Before Exp01.2 profiling on `2026-08-30`, Windows, GitHub and Jetson were clean 
 - Latest TensorRT-LLM natively supports Qwen3 but does not list SM87 in the official tested hardware matrix and requires a newer CUDA/TensorRT/PyTorch stack. `v0.12.0-jetson` targets SM87/CUDA 12.6 but supports Qwen through Qwen2, not Qwen3.
 - Gate P1.0: `PASS WITH CONSTRAINTS`. Recommended Phase 1.1 path is an isolated Hugging Face Transformers BF16 reference baseline using the existing NVIDIA Jetson PyTorch stack. Phase 1.1, Phase 2 and Exp05 are not started.
 - Report: `experiments/Phase1-qwen3-baseline/docs/phase1_0_runtime_feasibility_audit.md`.
+- No Qwen3 checkpoint load, full ONNX export, TensorRT execution/engine, benchmark, INT8, INT4 or TensorRT-LLM work occurred. Runtime execution remains unstarted and requires explicit authorization.
+
+## Phase 2.2-A Single-Layer TensorRT Runtime (2026-09-02)
+
+- Bounded synthetic Qwen3-like single-layer FP16 prefill/decode ONNX graphs parsed and built with TensorRT 10.3; serialized engines remain Jetson-local under `/tmp` and are not tracked.
+- CUDA execution passed for prefill `B=1,S=8` and dynamic decode cache lengths 8->9->10->11->12. Outputs were finite, shape-correct and `cuda:0` resident. Independent reference/TRT cache chains show zero prefix mutation in all decode steps.
+- Runtime binds CUDA `data_ptr()` addresses and uses `torch.cuda.current_stream()` with explicit synchronization. TensorRT default-stream and FP16 Reduce/Pow normalization warnings remain limitations.
+- Phase 2.2-A is `PARTIAL / BOUNDED PASS` (C1-C5 bounded PASS). No production accuracy, capacity, performance or full-model readiness claim is made; Phase 2.2-B remains not started.

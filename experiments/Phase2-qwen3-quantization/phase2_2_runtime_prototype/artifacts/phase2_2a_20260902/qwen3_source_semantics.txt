@@ -1,0 +1,7 @@
+Source: /home/nvidia/.venvs/jetson-qwen-phase1-hf/lib/python3.10/site-packages/transformers/models/qwen3/modeling_qwen3.py
+Transformers version: 4.57.3
+Qwen3RMSNorm.forward: input dtype saved; hidden_states.to(torch.float32); pow(2).mean(-1, keepdim=True); rsqrt(eps); cast back to input dtype.
+Qwen3Attention.forward: q_proj/k_proj/v_proj reshape to [B,S,heads,head_dim]; q_norm and k_norm are applied before transpose and RoPE. value is reshaped/transposed without value norm.
+Cache update point: after q/k RoPE and before attention; key_states and value_states are passed to past_key_values.update(). Therefore K cache stores RoPE-applied, Q/K-normalized keys; V cache stores projected/transposed values before GQA repetition.
+repeat_kv: compact [B,8,L,128] K/V are expanded to [B,16,L,128] only for attention consumption; cache remains compact.
+Synthetic implementation follows these semantics. No Transformers source was modified.

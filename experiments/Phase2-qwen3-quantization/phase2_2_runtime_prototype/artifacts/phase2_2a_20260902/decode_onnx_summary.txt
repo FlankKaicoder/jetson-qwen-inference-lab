@@ -1,0 +1,6 @@
+status=PASS
+graph=synthetic single-layer Qwen3-like decode
+opset=17
+inputs=hidden_states [B,1,1024] FP16; position_ids [B,1] INT64; past_k/past_v [B,8,L,128] FP16
+outputs=hidden_out [B,1,1024] FP16; present_k/present_v [B,8,L+1,128] FP16
+dynamic_profile=B=1,L=1..16

@@ -4,11 +4,11 @@
 
 ## 当前 branch
 
-`exp/03-matrix-transpose`
+`phase/02-qwen3-quantization`
 
 ## 当前 commit
 
-本轮 starting HEAD 为 `8293d6a203989e981c2f6cf927eaa667681a525a`；Exp03 correctness closure commit 以 `git rev-parse HEAD` 为准。
+本轮 starting HEAD 为 `e9fa64fba35b570f67b91e9a686fd91f6190308a`；Phase 2.2-A closeout commit 以 `git rev-parse HEAD` 为准。
 
 ## 本轮完成
 
@@ -179,3 +179,6 @@
 - Added CPU-only `KVCacheManager`, prefill/decode request dataclasses, KV memory estimate script, attention/runtime design notes and Gate A-D plan under `experiments/Phase2-qwen3-quantization/phase2_2_runtime_prototype/`.
 - Synthetic byte-layout validation passed for allocation, partial-layer visibility, all-layer sequence advancement, payload round-trip, decode position and reset. Batch 1/2 cache estimates are theoretical only.
 - No Qwen3 checkpoint load, full ONNX export, TensorRT execution/engine, benchmark, INT8, INT4 or TensorRT-LLM work occurred. Runtime execution remains unstarted and requires explicit authorization.
+## Phase 2.2-A checkpoint (2026-09-02)
+
+Single-layer synthetic Qwen3-like TensorRT FP16 runtime integration is bounded-pass. Evidence is under `experiments/Phase2-qwen3-quantization/phase2_2_runtime_prototype/artifacts/phase2_2a_20260902/`; report is `phase2_2a_single_layer_trt_runtime.md`. Prefill and dynamic decode engines parse/build and execute on CUDA; cache grows 8->12 with zero prefix mutation. Numerical differences are informational, and TensorRT default-stream/FP16 normalization warnings remain. No full checkpoint/export/engine, benchmark, profiler, INT8/INT4 or TensorRT-LLM work was run. Phase 2.2-B and Phase 3 are not started.

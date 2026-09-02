@@ -1,0 +1,14 @@
+{
+  "prefill": {
+    "parse": "PASS",
+    "build": "PASS",
+    "bytes": 31793812,
+    "parser_errors": []
+  },
+  "decode": {
+    "parse": "PASS",
+    "build": "PASS",
+    "bytes": 31991108,
+    "parser_errors": []
+  }
+}
