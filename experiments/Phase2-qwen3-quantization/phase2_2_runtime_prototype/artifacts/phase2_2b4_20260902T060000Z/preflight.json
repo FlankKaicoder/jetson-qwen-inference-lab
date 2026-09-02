@@ -1,0 +1,12 @@
+{
+  "status": "BLOCKED_BY_28L_ORACLE_MEMORY",
+  "starting_head": "c41a7d2f50e3e9ead92552398a1beabaca667d4a",
+  "branch": "phase/02-qwen3-quantization",
+  "checkpoint_sha256": "f47f71177f32bcd101b7573ec9171e6a57f4f4d31148d38e382306f42996874b",
+  "monolithic_attempt": {"command": "stage_a_prepare_28.py", "exit_code": 137, "shell_result": "Killed", "artifacts_written": false},
+  "partitioned_fallback_attempt": {"command": "stage_a_partitioned.py", "exit_code": 137, "shell_result": "Killed", "artifacts_written": false},
+  "resource_snapshot_after": {"mem_available_kb": 5330140, "swap_free_kb": 1924852},
+  "tensor_rt_started": false,
+  "system_changes": false,
+  "retries_after_fallback": false
+}

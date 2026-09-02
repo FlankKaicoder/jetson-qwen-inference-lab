@@ -196,3 +196,6 @@ Real frozen Qwen3-0.6B Layer 0 integration completed through the dual-env bridge
 ## Phase 2.2-B3 checkpoint (2026-09-02)
 
 Real Qwen3 layers 0-3 were mapped and reproduced exactly by HF/portable BF16. A single four-layer TensorRT 10.3 FP16 prefill graph and a single dynamic decode graph passed ONNX checker, parser/build and CUDA execution. Decode advanced 8->12 with independent per-layer KV pointers, zero prefix mutation and finite CUDA outputs. Numerical propagation and attention-output metrics are bounded and recorded under `phase2_2b3_20260902T055036Z/`; no extrapolation to 28 layers is made. B3-1 through B3-8 are `PASS / BOUNDED`; decision `READY_FOR_28_LAYER_DECODER_STACK_FEASIBILITY`. Layers 4-27, full model, benchmark, profiler and quantization remain unstarted.
+## Phase 2.2-B4 checkpoint (2026-09-02)
+
+B4 preflight verified the frozen model identity, then the monolithic 28-layer HF oracle was killed with exit 137 before artifact output. The predefined 7x4 partitioned fallback was attempted once and was also killed with exit 137. No handoff, ONNX export, TensorRT build or runtime validation was started. Status is `BLOCKED_BY_28L_ORACLE_MEMORY`; existing B3 evidence and the Jetson stash backup remain untouched.
