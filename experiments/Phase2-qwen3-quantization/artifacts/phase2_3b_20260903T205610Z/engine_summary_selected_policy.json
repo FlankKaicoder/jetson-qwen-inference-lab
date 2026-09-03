@@ -1,0 +1,82 @@
+{
+  "candidate": {
+    "grid": [
+      {
+        "factor": 0.9,
+        "mse": 4.997216810863494e-05,
+        "range": 3.09375
+      },
+      {
+        "factor": 0.925,
+        "mse": 5.2475948227455216e-05,
+        "range": 3.1796875
+      },
+      {
+        "factor": 0.95,
+        "mse": 5.560676219366254e-05,
+        "range": 3.265625
+      },
+      {
+        "factor": 0.975,
+        "mse": 5.821193662318054e-05,
+        "range": 3.3515625
+      },
+      {
+        "factor": 1.0,
+        "mse": 6.110991515535196e-05,
+        "range": 3.4375
+      }
+    ],
+    "range": 3.09375,
+    "scale": 0.02436023622047244,
+    "scheme": "symmetric per-tensor INT8 activation",
+    "selected_factor": 0.9,
+    "source": "calibration_only_grid",
+    "zero_point": 0
+  },
+  "fp16": {
+    "engine": {
+      "build": "PASS",
+      "engine_bytes": 4204948,
+      "engine_inspector": "{\"Layers\": [{\n  \"Name\": \"__mye26_0_myl0_0\",\n  \"LayerType\": \"shape_call\",\n  \"Inputs\": [],\n  \"Outputs\": [],\n  \"TacticName\": \"\",\n  \"StreamId\": 0,\n  \"Metadata\": \"\"\n},{\n  \"Name\": \"target_q_proj_matmul_myl0_1\",\n  \"LayerType\": \"gemm\",\n  \"Inputs\": [\n  {\n    \"Name\": \"input\",\n    \"Dimensions\": [1,-1,1024],\n    \"Format/Datatype\": \"Half\"\n  },\n  {\n    \"Name\": \"weight _ ONNXTRT_Broadcast_constantHalf\",\n    \"Dimensions\": [1,1024,2048],\n    \"Format/Datatype\": \"Half\"\n  },\n  {\n    \"Name\": \"__mye104target_q_proj_matmul_alpha\",\n    \"Dimensions\": [1],\n    \"Format/Datatype\": \"Float\"\n  },\n  {\n    \"Name\": \"__mye105target_q_proj_matmul_beta\",\n    \"Dimensions\": [1],\n    \"Format/Datatype\": \"Float\"\n  }],\n  \"Outputs\": [\n  {\n    \"Name\": \"output\",\n    \"Dimensions\": [1,-1,2048],\n    \"Format/Datatype\": \"Half\"\n  }],\n  \"TacticName\": \"ampere_h16816gemm_128x64_ldg8_stages_64x3_nn_v1\",\n  \"StreamId\": 0,\n  \"Metadata\": \"[ONNX Layer: target_q_proj_matmul]\"\n}],\n\"Bindings\": [\"input\"\n,\"output\"\n]}\n",
+      "parse": "PASS",
+      "parser_errors": []
+    },
+    "engine_path": "/tmp/phase2_3b_20260903T205610/work/fp16.engine",
+    "graph": {
+      "mode": "fp16",
+      "path": "/tmp/phase2_3b_20260903T205610/work/fp16.onnx"
+    }
+  },
+  "int8_compute_proven": true,
+  "selected_policy": "BOUNDED_MSE_CLIP",
+  "selected_w8a8": {
+    "engine": {
+      "build": "PASS",
+      "engine_bytes": 2212116,
+      "engine_inspector": "{\"Layers\": [{\n  \"Name\": \"__mye212_0_myl0_0\",\n  \"LayerType\": \"shape_call\",\n  \"Inputs\": [],\n  \"Outputs\": [],\n  \"TacticName\": \"\",\n  \"StreamId\": 0,\n  \"Metadata\": \"\"\n},{\n  \"Name\": \"__myl_MulMinMaxRouCas_myl0_1\",\n  \"LayerType\": \"kgen\",\n  \"Inputs\": [\n  {\n    \"Name\": \"input\",\n    \"Dimensions\": [1,-1,1024],\n    \"Format/Datatype\": \"Half\"\n  },\n  {\n    \"Name\": \"proxy___mye575.1\",\n    \"Dimensions\": [1],\n    \"Format/Datatype\": \"Int64\"\n  },\n  {\n    \"Name\": \"proxy___mye867\",\n    \"Dimensions\": [1],\n    \"Format/Datatype\": \"Int64\"\n  },\n  {\n    \"Name\": \"proxy___mye883\",\n    \"Dimensions\": [1],\n    \"Format/Datatype\": \"Int64\"\n  },\n  {\n    \"Name\": \"proxy___mye899\",\n    \"Dimensions\": [1],\n    \"Format/Datatype\": \"Int64\"\n  },\n  {\n    \"Name\": \"proxy___mye915\",\n    \"Dimensions\": [1],\n    \"Format/Datatype\": \"Int64\"\n  },\n  {\n    \"Name\": \"proxy___mye931\",\n    \"Dimensions\": [1],\n    \"Format/Datatype\": \"Int64\"\n  },\n  {\n    \"Name\": \"proxy___mye947\",\n    \"Dimensions\": [1],\n    \"Format/Datatype\": \"Int64\"\n  },\n  {\n    \"Name\": \"__mye114_proxy.1\",\n    \"Dimensions\": [1],\n    \"Format/Datatype\": \"Int64\"\n  }],\n  \"Outputs\": [\n  {\n    \"Name\": \"__myln_k_arg__bb1_6\",\n    \"Dimensions\": [1,-1,1024],\n    \"Format/Datatype\": \"Int8\"\n  }],\n  \"TacticName\": \"__myl_MulMinMaxRouCas_0x8fa36965a78aab7541e091976b6c9834_vec\",\n  \"StreamId\": 0,\n  \"Metadata\": \"[ONNX Layer: node_of_input_q]\"\n},{\n  \"Name\": \"__myl_FcCas_myl0_2\",\n  \"LayerType\": \"fusion\",\n  \"Inputs\": [\n  {\n    \"Name\": \"__myln_k_arg__bb1_6\",\n    \"Dimensions\": [1,-1,1024],\n    \"Format/Datatype\": \"Int8\"\n  },\n  {\n    \"Name\": \"__mye835dconst\",\n    \"Dimensions\": [1,1024,2048],\n    \"Format/Datatype\": \"Int8\"\n  }],\n  \"Outputs\": [\n  {\n    \"Name\": \"output\",\n    \"Dimensions\": [1,-1,2048],\n    \"Format/Datatype\": \"Half\"\n  }],\n  \"TacticName\": \"sm80_xmma_gemm_i8f32_i8i32_f32_tn_n_tilesize64x64x64_stage4_warpsize2x2x1_tensor16x8x32_by_fusion_tactic\",\n  \"StreamId\": 0,\n  \"Metadata\": \"[ONNX Layer: target_q_proj_matmul]\\u001f[ONNX Layer: node_of_input_dq]\\u001e[ONNX Layer: node_of_input_q]\\u001f[ONNX Layer: node_of_weight_dq]\"\n}],\n\"Bindings\": [\"input\"\n,\"output\"\n]}\n",
+      "parse": "PASS",
+      "parser_errors": []
+    },
+    "engine_path": "/tmp/phase2_3b_20260903T205610/work/bounded_mse_clip.engine",
+    "graph": {
+      "mode": "w8a8",
+      "path": "/tmp/phase2_3b_20260903T205610/work/bounded_mse_clip.onnx",
+      "scale": 0.02436023622047244
+    }
+  },
+  "w8": {
+    "engine": {
+      "build": "PASS",
+      "engine_bytes": 4205668,
+      "engine_inspector": "{\"Layers\": [{\n  \"Name\": \"__mye193_0_myl0_0\",\n  \"LayerType\": \"shape_call\",\n  \"Inputs\": [],\n  \"Outputs\": [],\n  \"TacticName\": \"\",\n  \"StreamId\": 0,\n  \"Metadata\": \"\"\n},{\n  \"Name\": \"target_q_proj_matmul_myl0_1\",\n  \"LayerType\": \"gemm\",\n  \"Inputs\": [\n  {\n    \"Name\": \"input\",\n    \"Dimensions\": [1,-1,1024],\n    \"Format/Datatype\": \"Half\"\n  },\n  {\n    \"Name\": \"__mye746_dconst\",\n    \"Dimensions\": [1,1024,2048],\n    \"Format/Datatype\": \"Half\"\n  },\n  {\n    \"Name\": \"__mye727target_q_proj_matmul_alpha\",\n    \"Dimensions\": [1],\n    \"Format/Datatype\": \"Float\"\n  },\n  {\n    \"Name\": \"__mye728target_q_proj_matmul_beta\",\n    \"Dimensions\": [1],\n    \"Format/Datatype\": \"Float\"\n  }],\n  \"Outputs\": [\n  {\n    \"Name\": \"output\",\n    \"Dimensions\": [1,-1,2048],\n    \"Format/Datatype\": \"Half\"\n  }],\n  \"TacticName\": \"ampere_h16816gemm_128x64_ldg8_stages_64x3_nn_v1\",\n  \"StreamId\": 0,\n  \"Metadata\": \"[ONNX Layer: target_q_proj_matmul]\"\n}],\n\"Bindings\": [\"input\"\n,\"output\"\n]}\n",
+      "parse": "PASS",
+      "parser_errors": []
+    },
+    "engine_path": "/tmp/phase2_3b_20260903T205610/work/w8.engine",
+    "graph": {
+      "mode": "w8",
+      "path": "/tmp/phase2_3b_20260903T205610/work/w8.onnx"
+    }
+  }
+}

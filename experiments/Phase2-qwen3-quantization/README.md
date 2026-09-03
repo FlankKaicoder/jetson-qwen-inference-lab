@@ -53,3 +53,17 @@ Int8/Int8 fusion and explicit INT8 GEMM tactic, so this target/profile is
 no calibration sweep, full 28-layer quantized runtime, benchmark, Nsight or
 INT4 work was performed. See `docs/phase2_3a_explicit_qdq_feasibility.md` and
 `artifacts/phase2_3a_20260903T173658Z/`.
+
+## Phase 2.3-B Calibration / activation range audit
+
+Phase 2.3-B proved the exact real tensor entering Layer 0 `q_proj` using a
+Transformers forward-pre-hook after `input_layernorm`, then collected 24
+calibration and 12 disjoint evaluation prompts through the local tokenizer.
+GLOBAL_ABSMAX, P99.9, P99.99 and a bounded MSE clipping grid were derived from
+calibration data only. The selected policy is `BOUNDED_MSE_CLIP` with scale
+`0.0243602362`; held-out activation-only `W8A8 vs W8` relative-L2 is
+`0.019526` median, `0.020111` P95 and `0.020117` maximum. The selected dynamic
+TensorRT profile retains Int8 activation/weight fusion and an explicit Int8
+GEMM tactic. This is a target/corpus-specific calibration result; Phase 2.3-C
+has not started. See `docs/phase2_3b_calibration_activation_range_audit.md` and
+`artifacts/phase2_3b_20260903T205610Z/`.

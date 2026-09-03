@@ -1,0 +1,16 @@
+{
+  "trace": [
+    {
+      "stage": "start",
+      "mem_available_bytes": 5275590656,
+      "max_rss_bytes": 464961536
+    },
+    {
+      "stage": "complete",
+      "mem_available_bytes": 4678172672,
+      "max_rss_bytes": 1968095232
+    }
+  ],
+  "oom": false,
+  "exit137": false
+}

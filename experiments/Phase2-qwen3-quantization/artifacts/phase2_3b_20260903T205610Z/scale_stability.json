@@ -1,0 +1,106 @@
+{
+  "calibration_absmax_by_sample": [
+    {
+      "absmax": 3.0,
+      "sample_id": "cal_001"
+    },
+    {
+      "absmax": 2.640625,
+      "sample_id": "cal_002"
+    },
+    {
+      "absmax": 2.546875,
+      "sample_id": "cal_003"
+    },
+    {
+      "absmax": 2.484375,
+      "sample_id": "cal_004"
+    },
+    {
+      "absmax": 2.3125,
+      "sample_id": "cal_005"
+    },
+    {
+      "absmax": 2.375,
+      "sample_id": "cal_006"
+    },
+    {
+      "absmax": 2.5625,
+      "sample_id": "cal_007"
+    },
+    {
+      "absmax": 2.75,
+      "sample_id": "cal_008"
+    },
+    {
+      "absmax": 2.6875,
+      "sample_id": "cal_009"
+    },
+    {
+      "absmax": 2.828125,
+      "sample_id": "cal_010"
+    },
+    {
+      "absmax": 2.875,
+      "sample_id": "cal_011"
+    },
+    {
+      "absmax": 2.609375,
+      "sample_id": "cal_012"
+    },
+    {
+      "absmax": 3.125,
+      "sample_id": "cal_013"
+    },
+    {
+      "absmax": 2.625,
+      "sample_id": "cal_014"
+    },
+    {
+      "absmax": 2.796875,
+      "sample_id": "cal_015"
+    },
+    {
+      "absmax": 3.015625,
+      "sample_id": "cal_016"
+    },
+    {
+      "absmax": 3.015625,
+      "sample_id": "cal_017"
+    },
+    {
+      "absmax": 2.90625,
+      "sample_id": "cal_018"
+    },
+    {
+      "absmax": 3.203125,
+      "sample_id": "cal_019"
+    },
+    {
+      "absmax": 2.890625,
+      "sample_id": "cal_020"
+    },
+    {
+      "absmax": 2.8125,
+      "sample_id": "cal_021"
+    },
+    {
+      "absmax": 3.0,
+      "sample_id": "cal_022"
+    },
+    {
+      "absmax": 3.4375,
+      "sample_id": "cal_023"
+    },
+    {
+      "absmax": 2.90625,
+      "sample_id": "cal_024"
+    }
+  ],
+  "calibration_absmax_max_over_median": 1.2188365650969528,
+  "calibration_absmax_p95_over_median": 1.131578947368421,
+  "interpretation": "descriptive only; no arbitrary stability threshold",
+  "largest_range_sample_ids": [
+    "cal_023"
+  ]
+}

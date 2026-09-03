@@ -13,14 +13,14 @@
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
 | Current phase | Phase 2 — LLM Quantization |
-| Current experiment | Phase 2.3-A — Explicit INT8 Q/DQ feasibility and quantization baseline |
+| Current experiment | Phase 2.3-B — Calibration / Activation Range Audit |
 | Current branch | `phase/02-qwen3-quantization` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Exp04 — CUDA GEMM tiling and WMMA |
-| Experiment status | Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8/2.1.9 `PASS / BOUNDED`; Phase 2.2-A `PARTIAL / BOUNDED PASS`; Phase 2.2-B1/B2/B3 `PASS / BOUNDED`; Phase 2.2-B4.1 `PASS / CLOSED`; Phase 2.2-B4.2 `PASS / BOUNDED`; Phase 2.2-C0 `PASS / DESIGN ONLY`; Phase 2.2-C1 `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`; Phase 2.2 `CLOSED / PASS / BOUNDED`; Phase 2.3-A `PASS` |
-| Current Gate | Phase 2.3-A `PASS`; W8A8 target `INT8_COMPUTE_PROVEN`; W8 target `INT8_COMPUTE_NOT_PROVEN`; C1 decoder drift remains documented |
-| Readiness | Phase 2.2 remains frozen as `CLOSED / PASS / BOUNDED`; Phase 2.3 overall is `IN PROGRESS`; next authorized boundary is Phase 2.3-B. |
+| Experiment status | Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8/2.1.9 `PASS / BOUNDED`; Phase 2.2-A `PARTIAL / BOUNDED PASS`; Phase 2.2-B1/B2/B3 `PASS / BOUNDED`; Phase 2.2-B4.1 `PASS / CLOSED`; Phase 2.2-B4.2 `PASS / BOUNDED`; Phase 2.2-C0 `PASS / DESIGN ONLY`; Phase 2.2-C1 `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`; Phase 2.2 `CLOSED / PASS / BOUNDED`; Phase 2.3-A `PASS`; Phase 2.3-B `PASS` |
+| Current Gate | Phase 2.3-B `PASS`; selected `BOUNDED_MSE_CLIP`; selected target `INT8_COMPUTE_PROVEN`; C1 decoder drift remains documented |
+| Readiness | Phase 2.2 remains frozen as `CLOSED / PASS / BOUNDED`; Phase 2.3 overall is `IN PROGRESS`; Phase 2.3-C is the next authorized boundary and has not started. |
 
 ## Confirmed Findings
 
@@ -358,3 +358,11 @@ Before Exp01.2 profiling on `2026-08-30`, Windows, GitHub and Jetson were clean 
 - W8-QDQ is `QDQ_EXECUTION_PROVEN` with `INT8_COMPUTE_NOT_PROVEN`; W8A8-QDQ EngineInspector exposes Int8/Int8 fusion and an `i8` GEMM tactic, classified `INT8_COMPUTE_PROVEN` for this graph/profile.
 - Component deltas versus TRT FP16 are W8 relative-L2 `0.04692697` and W8A8 `0.04787614`; no final accuracy threshold, calibration sweep, performance benchmark, Nsight, full 28-layer quantized runtime or INT4 work was run.
 - Gate: `PASS`. Phase 2.3 overall is `IN PROGRESS`; Phase 2.3-B is the next authorized boundary.
+
+## Phase 2.3-B Calibration / Activation Range Audit (2026-09-03)
+
+- Exact provenance was proven for 36 real tokenizer samples: the captured tensor is post-`model.layers.0.input_layernorm` and pre-`model.layers.0.self_attn.q_proj`, with hook/direct norm equality for every sample.
+- The deterministic corpus contains 24 calibration and 12 disjoint evaluation prompts across four length groups and English, Chinese, numerical, structured, code-like and mixed categories. No random formal input was used.
+- Calibration candidates were GLOBAL_ABSMAX, P99.9, P99.99 and a bounded MSE clip grid. Held-out primary `W8A8 vs W8` activation-only relative-L2 median/P95/max were `0.019526/0.020111/0.020117` for selected `BOUNDED_MSE_CLIP`; total `W8A8 vs FP16` median/P95/max were `0.033015/0.033980/0.034272`.
+- Selected-policy detailed EngineInspector showed Int8 activation, Int8 weight and an `sm80_xmma_gemm_i8i8...` tactic; `INT8_COMPUTE_PROVEN` is limited to this graph/profile. Frozen W8-vs-FP16 median/P95 relative-L2 `0.026780/0.027547` exceeded selected A8-only median/P95 `0.019526/0.020111`, supporting weight-quantization dominance for this target/corpus.
+- Gate: `Phase 2.3-B = PASS`. Phase 2.3 remains `IN PROGRESS`; Phase 2.3-C was not started. No full-model calibration, 28-layer INT8, benchmark, Nsight, INT4, mixed precision or C1 reopening occurred.

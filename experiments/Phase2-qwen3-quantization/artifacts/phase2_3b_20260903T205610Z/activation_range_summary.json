@@ -1,0 +1,21 @@
+{
+  "calibration": {
+    "absmax_max": 3.4375,
+    "absmax_mean": 2.80859375,
+    "absmax_median": 2.8203125,
+    "absmax_min": 2.3125,
+    "absmax_p90": 3.0921875,
+    "absmax_p95": 3.19140625,
+    "absolute_p99": 0.6484375,
+    "absolute_p99.9": 1.734375,
+    "absolute_p99.99": 2.546875,
+    "global_absmax": 3.4375,
+    "global_max": 2.8125,
+    "global_min": -3.4375
+  },
+  "evaluation": {
+    "global_absmax": 3.125,
+    "global_max": 2.8125,
+    "global_min": -3.125
+  }
+}

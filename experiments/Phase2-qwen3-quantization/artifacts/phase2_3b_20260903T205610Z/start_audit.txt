@@ -1,0 +1,10 @@
+windows_repo=E:\\nvidia-qwen
+windows_branch=phase/02-qwen3-quantization
+windows_head=9a577fe16328a26e55adc4c7dad6b59dbea3c3f8
+windows_working_tree=clean_before_phase2_3b
+jetson_repo=/home/nvidia/projects/jetson-qwen-inference-lab
+jetson_branch=phase/02-qwen3-quantization
+jetson_head=a1317a06f83634406bfb732a61f57a698e6aee2d
+jetson_working_tree=pre-existing_untracked_diagnostics_preserved
+phase2_3a_artifacts=untouched
+phase2_2_and_c1_artifacts=untouched

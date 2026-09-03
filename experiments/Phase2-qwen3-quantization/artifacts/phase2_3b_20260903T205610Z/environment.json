@@ -1,0 +1,16 @@
+{
+  "compute_capability": [
+    8,
+    7
+  ],
+  "cuda": "12.6",
+  "git_branch": "phase/02-qwen3-quantization",
+  "git_head": "a1317a06f83634406bfb732a61f57a698e6aee2d",
+  "gpu": "Orin",
+  "host": "nvidia-desktop",
+  "onnx": "1.22.0",
+  "platform": "Linux-5.15.148-tegra-aarch64-with-glibc2.35",
+  "python": "3.10.12",
+  "tensorrt": "10.3.0",
+  "torch": "2.5.0a0+872d972e41.nv24.08"
+}

@@ -10,6 +10,12 @@
 - FP16, W8-QDQ and W8A8-QDQ graphs passed parser/build/execution with finite outputs. Symmetric zero-point `0` is required; non-zero zero-points are rejected by the parser.
 - W8-QDQ remains `INT8_COMPUTE_NOT_PROVEN`; W8A8 EngineInspector exposes an Int8/Int8 fusion with an `i8` GEMM tactic, classified `INT8_COMPUTE_PROVEN` for this graph/profile. Phase 2.3-A Gate is `PASS`; calibration, benchmark, Nsight and full-runtime quantization remain unstarted.
 
+### Phase 2.3-B (2026-09-03)
+
+- Proved the exact real Layer 0 `q_proj` input as post-`input_layernorm` and pre-`q_proj` using a forward-pre-hook across 24 calibration and 12 disjoint evaluation prompts.
+- Evaluated calibration-only GLOBAL_ABSMAX, P99.9, P99.99 and bounded MSE clipping candidates. Selected `BOUNDED_MSE_CLIP` at scale `0.0243602362`; held-out activation-only W8A8-vs-W8 relative-L2 was `0.019526` median, `0.020111` P95 and `0.020117` maximum.
+- Selected-policy TensorRT detailed EngineInspector retained Int8 activation/weight inputs and an explicit Int8 GEMM tactic. Phase 2.3-B Gate is `PASS`; Phase 2.3-C, full-model calibration, benchmark and Nsight remain unstarted.
+
 ### Phase 2.2-C5 (2026-09-03)
 
 - Completed the minimal real Qwen3 autoregressive runtime for prompt `Hello`: pinned tokenizer, TensorRT embedding, 28-layer prefill/decode, KV cache, Final RMSNorm, LM Head and CPU greedy sampling.

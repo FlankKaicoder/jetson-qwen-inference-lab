@@ -1,5 +1,15 @@
 # Current State
 
+## Phase 2.3-B Calibration / Activation Range Audit (2026-09-03)
+
+- Starting Windows HEAD was `9a577fe16328a26e55adc4c7dad6b59dbea3c3f8` on `phase/02-qwen3-quantization`; Jetson execution used the existing checkout at `a1317a06f83634406bfb732a61f57a698e6aee2d` and preserved its pre-existing untracked diagnostics.
+- Exact q_proj input provenance is proven: a real Transformers `model.layers.0.self_attn.q_proj` forward-pre-hook captured tensors directly after `model.layers.0.input_layernorm`; hook/direct norm equality held for all 36 samples. Capture dtype is BF16; TensorRT variants use one FP16 cast.
+- Deterministic corpus: 24 calibration and 12 disjoint evaluation prompts across four length groups and English/Chinese/numeric/structured/code/mixed categories. Actual token ranges are calibration 6-169 and evaluation 10-140.
+- Fixed calibration candidates were derived from calibration only. Selected `BOUNDED_MSE_CLIP`, range `3.09375`, scale `0.0243602362`; held-out activation-only W8A8-vs-W8 relative-L2 median/P95/max `0.019526/0.020111/0.020117`; total W8A8-vs-FP16 median/P95/max `0.033015/0.033980/0.034272`.
+- Selected-policy TensorRT detailed EngineInspector shows Int8 activation, Int8 weight and `sm80_xmma_gemm_i8i8...` GEMM tactic; `INT8_COMPUTE_PROVEN` is target/profile-specific. Gate: `Phase 2.3-B = PASS`.
+- Phase 2.3 overall remains `IN PROGRESS`; exact next boundary is `Phase 2.3-C — Layer / Operator Sensitivity`. No Phase 2.3-C/D/E/F, 28-layer INT8, INT4, benchmark, Nsight or C1 reopening occurred.
+- Report: `experiments/Phase2-qwen3-quantization/docs/phase2_3b_calibration_activation_range_audit.md`; artifacts: `experiments/Phase2-qwen3-quantization/artifacts/phase2_3b_20260903T205610Z/`. Raw BF16 q_proj inputs remain Jetson-local under `/tmp/phase2_3b_20260903T205610/capture2/` and were not committed.
+
 ## Phase 2.3-A Explicit INT8 Q/DQ Feasibility (2026-09-03)
 
 - Starting local HEAD: `219999d84025d0745298a1551d4bed9420a6ee36`; branch `phase/02-qwen3-quantization`. Jetson execution used the existing checkout at `a1317a06f83634406bfb732a61f57a698e6aee2d`, which had pre-existing untracked files that were preserved.
