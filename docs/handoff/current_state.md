@@ -310,3 +310,21 @@ TensorRT next token `42`; both top1-top2 margins are `0.421875`. Full path is
 `END_TO_END_DIAGNOSTIC_ONLY` because C1 decoder drift remains unresolved.
 Minimum `MemAvailable` was `3,139,858,432` bytes; no OOM or exit 137 occurred.
 C4 is `PASS / BOUNDED`; do not start C5 autoregressive generation.
+
+## Phase 2.2-C5 checkpoint (2026-09-03)
+
+Starting HEAD was `2bd7925ff0be23919f1ec06440941228e0dec01e` on
+`phase/02-qwen3-quantization`; Windows was clean before C5. Added only the
+diagnostic orchestration script, C5 report, Phase 2.2 closeout and compact raw
+artifacts under `phase2_2c5_20260903T/`.
+
+The pinned tokenizer maps `Hello` to `[9707]`. HF greedy generation is
+`[21806, 0, 358, 2776]`; the TensorRT runtime is
+`[0, 46309, 46309, 46309]`, diverging at step 0 under the documented C1
+decoder numerical limitation. Embedding, 28-layer prefill/decode, final norm,
+LM head, greedy sampling and tokenizer decode all executed; K/V prefixes are
+exact, cache lengths grow `1 -> 2 -> 3 -> 4`, pointers remain isolated and all
+tokens/outputs are finite. No OOM or exit 137 occurred.
+
+C5 and the aggregate Phase 2.2 runtime closeout are `PASS / BOUNDED`.
+Phase 2.3 was not started and requires explicit authorization.

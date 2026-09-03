@@ -1,0 +1,110 @@
+{
+  "status": "PASS",
+  "prompt": "Hello",
+  "tokenizer_mode": "plain_causal_prompt",
+  "input_ids": [
+    9707
+  ],
+  "prompt_token_count": 1,
+  "max_new_tokens": 4,
+  "eos_token_id": 151645,
+  "reference_generated_ids": [
+    21806,
+    0,
+    358,
+    2776
+  ],
+  "reference_steps": [
+    {
+      "step": 0,
+      "position": 1,
+      "token": 21806,
+      "valid": true,
+      "margin": {
+        "top1_token": 21806,
+        "top2_token": 14582,
+        "top1_logit": 7.84375,
+        "top2_logit": 7.75,
+        "top1_top2_margin": 0.09375
+      }
+    },
+    {
+      "step": 1,
+      "position": 2,
+      "token": 0,
+      "valid": true,
+      "margin": {
+        "top1_token": 11,
+        "top2_token": 0,
+        "top1_logit": 15.125,
+        "top2_logit": 15.125,
+        "top1_top2_margin": 0.0
+      }
+    },
+    {
+      "step": 2,
+      "position": 3,
+      "token": 358,
+      "valid": true,
+      "margin": {
+        "top1_token": 358,
+        "top2_token": 2585,
+        "top1_logit": 17.625,
+        "top2_logit": 15.125,
+        "top1_top2_margin": 2.5
+      }
+    },
+    {
+      "step": 3,
+      "position": 4,
+      "token": 2776,
+      "valid": true,
+      "margin": {
+        "top1_token": 2776,
+        "top2_token": 1184,
+        "top1_logit": 17.5,
+        "top2_logit": 17.125,
+        "top1_top2_margin": 0.375
+      }
+    }
+  ],
+  "generated_text": " Answer! I'm",
+  "full_text": "Hello Answer! I'm",
+  "stopped_reason": "MAX_NEW_TOKENS",
+  "memory": {
+    "trace": [
+      {
+        "stage": "reference_start",
+        "maxrss": 459348,
+        "mem_available_bytes": 4808712192,
+        "swap_used_bytes": 1577365504,
+        "cuda_free_bytes": 4775030784,
+        "cuda_total_bytes": 7989940224,
+        "torch_allocated_bytes": 0,
+        "torch_reserved_bytes": 0
+      },
+      {
+        "stage": "reference_model_loaded",
+        "maxrss": 1755684,
+        "mem_available_bytes": 4354191360,
+        "swap_used_bytes": 1577365504,
+        "cuda_free_bytes": 4354191360,
+        "cuda_total_bytes": 7989940224,
+        "torch_allocated_bytes": 1192115200,
+        "torch_reserved_bytes": 1216348160
+      },
+      {
+        "stage": "reference_complete",
+        "maxrss": 1755684,
+        "mem_available_bytes": 3786293248,
+        "swap_used_bytes": 1577365504,
+        "cuda_free_bytes": 3786190848,
+        "cuda_total_bytes": 7989940224,
+        "torch_allocated_bytes": 1203525120,
+        "torch_reserved_bytes": 1218445312
+      }
+    ],
+    "oom": false,
+    "exit137": false
+  }
+}

@@ -4,6 +4,12 @@
 
 ## [Unreleased]
 
+### Phase 2.2-C5 (2026-09-03)
+
+- Completed the minimal real Qwen3 autoregressive runtime for prompt `Hello`: pinned tokenizer, TensorRT embedding, 28-layer prefill/decode, KV cache, Final RMSNorm, LM Head and CPU greedy sampling.
+- HF reference IDs were `[21806, 0, 358, 2776]`; TensorRT IDs were `[0, 46309, 46309, 46309]`, diverging at step 0 under the documented C1 decoder numerical limitation. All decode outputs remained valid and finite.
+- KV prefix invariants, cache growth `1->4`, 28-way pointer isolation and tokenizer decode passed. Phase 2.2 C0-C5 closeout is `PASS / BOUNDED`; Phase 2.3 was not started.
+
 ### Phase 2.2-C4 (2026-09-03)
 
 - Added deterministic CPU/NumPy greedy sampling with explicit first-index-wins tie semantics for `[B,1,151936]` logits.

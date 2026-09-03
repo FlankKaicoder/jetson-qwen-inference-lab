@@ -13,14 +13,14 @@
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
 | Current phase | Phase 2 — LLM Quantization |
-| Current experiment | Phase 2.2-C4 — Greedy Sampling integration |
+| Current experiment | Phase 2.2-C5 — End-to-end autoregressive generation runtime |
 | Current branch | `phase/02-qwen3-quantization` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Exp04 — CUDA GEMM tiling and WMMA |
 | Experiment status | Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8/2.1.9 `PASS / BOUNDED`; Phase 2.2-A `PARTIAL / BOUNDED PASS`; Phase 2.2-B1/B2/B3 `PASS / BOUNDED`; Phase 2.2-B4.1 `PASS / CLOSED`; Phase 2.2-B4.2 `PASS / BOUNDED`; Phase 2.2-C0 `PASS / DESIGN ONLY`; Phase 2.2-C1 `BLOCKED` |
-| Current Gate | Phase 2.2-C4 `PASS / BOUNDED`; deterministic CPU greedy sampler and single-step runtime pass; C1 decoder drift remains documented |
-| Readiness | C4 closed; stop and await explicit authorization for C5 autoregressive generation. Corrected 28-layer Layer 27 relative-L2 remains ~2.00463 |
+| Current Gate | Phase 2.2-C5 `PASS / BOUNDED`; complete tokenizer-to-KV-cache autoregressive runtime functional; C1 decoder drift remains documented |
+| Readiness | Phase 2.2 C0-C5 closed as `PASS / BOUNDED`; stop and await explicit authorization for Phase 2.3. Corrected 28-layer Layer 27 relative-L2 remains ~2.00463 |
 
 ## Confirmed Findings
 
@@ -333,3 +333,19 @@ Before Exp01.2 profiling on `2026-08-30`, Windows, GitHub and Jetson were clean 
   `END_TO_END_DIAGNOSTIC_ONLY` due to C1 drift; no OOM or exit 137 occurred.
 - C4 is `PASS / BOUNDED`. C5 autoregressive generation, tokenizer loop and
   sampling policy work were not started.
+
+## Phase 2.2-C5 checkpoint (2026-09-03)
+
+- Starting HEAD was `2bd7925ff0be23919f1ec06440941228e0dec01e`. Added only the
+  orchestration script, C5 report, Phase 2.2 closeout and timestamped raw
+  traces under `artifacts/phase2_2c5_20260903T/`.
+- Pinned Qwen3 tokenizer prompt `Hello` -> input IDs `[9707]`. HF greedy
+  reference generated `[21806, 0, 358, 2776]`; the TensorRT runtime generated
+  `[0, 46309, 46309, 46309]`, diverging at step 0. This is recorded as
+  `FULL_RUNTIME_TOKEN_MISMATCH_DUE_TO_UPSTREAM_NUMERICAL_LIMITATION`; C1 was
+  not reopened.
+- TensorRT embedding -> 28-layer prefill/decode -> Final RMSNorm -> LM Head
+  completed all 3 decode steps with valid tokens, finite outputs, exact K/V
+  prefixes, cache lengths `1 -> 2 -> 3 -> 4`, and 28-way pointer isolation.
+  Pinned tokenizer decode produced `Hello!geoisgeoisgeois`. No OOM/exit 137.
+- C5 and aggregate Phase 2.2 are `PASS / BOUNDED`. Phase 2.3 was not started.

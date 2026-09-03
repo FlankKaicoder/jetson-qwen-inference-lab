@@ -1,0 +1,26 @@
+{
+  "trace": [
+    {
+      "stage": "runtime_start",
+      "maxrss": 353232,
+      "mem_available_bytes": 4897701888,
+      "swap_used_bytes": 1590210560,
+      "cuda_free_bytes": 4850200576,
+      "cuda_total_bytes": 7989940224,
+      "torch_allocated_bytes": 0,
+      "torch_reserved_bytes": 0
+    },
+    {
+      "stage": "runtime_complete",
+      "maxrss": 1368312,
+      "mem_available_bytes": 2455564288,
+      "swap_used_bytes": 1613279232,
+      "cuda_free_bytes": 2444263424,
+      "cuda_total_bytes": 7989940224,
+      "torch_allocated_bytes": 321643520,
+      "torch_reserved_bytes": 337641472
+    }
+  ],
+  "oom": false,
+  "exit137": false
+}
