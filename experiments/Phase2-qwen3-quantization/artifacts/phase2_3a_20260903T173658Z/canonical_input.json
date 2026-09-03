@@ -1,0 +1,43 @@
+{
+  "cast_location": "one-time host artifact preparation before all variants",
+  "numel": 8192,
+  "sha256_npy": "be3abe23fece3b0f3c6eb8163229777eb041ed9728524411beb4666047c93182",
+  "shape": [
+    1,
+    8,
+    1024
+  ],
+  "source": "B2 layer0_handoff.pt x",
+  "source_distribution": {
+    "dtype": "torch.bfloat16",
+    "finite": true,
+    "inf_count": 0,
+    "max": 4.125,
+    "mean": 0.0009352206252515316,
+    "min": -4.21875,
+    "nan_count": 0,
+    "shape": [
+      1,
+      8,
+      1024
+    ],
+    "std": 1.0008498430252075
+  },
+  "source_dtype": "torch.bfloat16",
+  "target_distribution": {
+    "dtype": "torch.float16",
+    "finite": true,
+    "inf_count": 0,
+    "max": 4.125,
+    "mean": 0.0009352206252515316,
+    "min": -4.21875,
+    "nan_count": 0,
+    "shape": [
+      1,
+      8,
+      1024
+    ],
+    "std": 1.0008498430252075
+  },
+  "target_dtype": "torch.float16"
+}

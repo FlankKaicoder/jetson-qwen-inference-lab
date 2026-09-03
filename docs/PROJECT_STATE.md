@@ -13,14 +13,14 @@
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
 | Current phase | Phase 2 — LLM Quantization |
-| Current experiment | Phase 2.2-C5 — End-to-end autoregressive generation runtime |
+| Current experiment | Phase 2.3-A — Explicit INT8 Q/DQ feasibility and quantization baseline |
 | Current branch | `phase/02-qwen3-quantization` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Exp04 — CUDA GEMM tiling and WMMA |
-| Experiment status | Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8/2.1.9 `PASS / BOUNDED`; Phase 2.2-A `PARTIAL / BOUNDED PASS`; Phase 2.2-B1/B2/B3 `PASS / BOUNDED`; Phase 2.2-B4.1 `PASS / CLOSED`; Phase 2.2-B4.2 `PASS / BOUNDED`; Phase 2.2-C0 `PASS / DESIGN ONLY`; Phase 2.2-C1 `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED` |
-| Current Gate | Phase 2.2-C5 `PASS / BOUNDED`; complete tokenizer-to-KV-cache autoregressive runtime functional; C1 decoder drift remains documented |
-| Readiness | Phase 2.2 C0-C5 closed as `PASS / BOUNDED`; stop and await explicit authorization for Phase 2.3. Corrected 28-layer Layer 27 relative-L2 remains ~2.00463 |
+| Experiment status | Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8/2.1.9 `PASS / BOUNDED`; Phase 2.2-A `PARTIAL / BOUNDED PASS`; Phase 2.2-B1/B2/B3 `PASS / BOUNDED`; Phase 2.2-B4.1 `PASS / CLOSED`; Phase 2.2-B4.2 `PASS / BOUNDED`; Phase 2.2-C0 `PASS / DESIGN ONLY`; Phase 2.2-C1 `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`; Phase 2.2 `CLOSED / PASS / BOUNDED`; Phase 2.3-A `PASS` |
+| Current Gate | Phase 2.3-A `PASS`; W8A8 target `INT8_COMPUTE_PROVEN`; W8 target `INT8_COMPUTE_NOT_PROVEN`; C1 decoder drift remains documented |
+| Readiness | Phase 2.2 remains frozen as `CLOSED / PASS / BOUNDED`; Phase 2.3 overall is `IN PROGRESS`; next authorized boundary is Phase 2.3-B. |
 
 ## Confirmed Findings
 
@@ -349,3 +349,12 @@ Before Exp01.2 profiling on `2026-08-30`, Windows, GitHub and Jetson were clean 
   prefixes, cache lengths `1 -> 2 -> 3 -> 4`, and 28-way pointer isolation.
   Pinned tokenizer decode produced `Hello!geoisgeoisgeois`. No OOM/exit 137.
 - C5 and aggregate Phase 2.2 are `PASS / BOUNDED`. Phase 2.3 was not started.
+
+## Phase 2.3-A Explicit INT8 Q/DQ Feasibility (2026-09-03)
+
+- Selected real Qwen3 `model.layers.0.self_attn.q_proj` from the B2 Layer 0 handoff; frozen model revision and checkpoint hash were verified.
+- One shared real `[1,8,1024]` FP16 canonical input was used for FP16, W8-QDQ and W8A8-QDQ. Weight quantization is symmetric per-tensor INT8; activation scale is a feasibility-only absmax scale, not final calibration.
+- Minimal Q/DQ sanity and all three target graphs passed ONNX checker, TensorRT 10.3 parser/build, CUDA execution and finite-output checks. Non-zero zero-point parsing is unsupported; per-channel capability probes passed parser/build for tested axes.
+- W8-QDQ is `QDQ_EXECUTION_PROVEN` with `INT8_COMPUTE_NOT_PROVEN`; W8A8-QDQ EngineInspector exposes Int8/Int8 fusion and an `i8` GEMM tactic, classified `INT8_COMPUTE_PROVEN` for this graph/profile.
+- Component deltas versus TRT FP16 are W8 relative-L2 `0.04692697` and W8A8 `0.04787614`; no final accuracy threshold, calibration sweep, performance benchmark, Nsight, full 28-layer quantized runtime or INT4 work was run.
+- Gate: `PASS`. Phase 2.3 overall is `IN PROGRESS`; Phase 2.3-B is the next authorized boundary.

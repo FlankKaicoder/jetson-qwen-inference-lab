@@ -1,0 +1,91 @@
+{
+  "build": "PASS",
+  "dq_node_count": 2,
+  "engine_bytes": 16404,
+  "engine_inspector": "{\"Layers\": [{\n  \"Name\": \"dummy_shape_call__mye749_0_myl0_0\",\n  \"LayerType\": \"shape_call\",\n  \"Inputs\": [],\n  \"Outputs\": [],\n  \"TacticName\": \"\",\n  \"StreamId\": 0,\n  \"Metadata\": \"\"\n},{\n  \"Name\": \"__myl_MinMaxRouCas_myl0_1\",\n  \"LayerType\": \"kgen\",\n  \"Inputs\": [\n  {\n    \"Name\": \"input\",\n    \"Dimensions\": [1,1,4],\n    \"Format/Datatype\": \"Half\"\n  }],\n  \"Outputs\": [\n  {\n    \"Name\": \"cast__mye721_2\",\n    \"Dimensions\": [1,1,4],\n    \"Format/Datatype\": \"Int8\"\n  }],\n  \"TacticName\": \"__myl_MinMaxRouCas_0xffe8fad0bbab34f872127180ece2c64d\",\n  \"StreamId\": 0,\n  \"Metadata\": \"[ONNX Layer: node_of_input_q]\"\n},{\n  \"Name\": \"target_q_proj_matmul_myl0_2\",\n  \"LayerType\": \"gemm\",\n  \"Inputs\": [\n  {\n    \"Name\": \"cast__mye721_2\",\n    \"Dimensions\": [1,1,4],\n    \"Format/Datatype\": \"Int8\"\n  },\n  {\n    \"Name\": \"__mye694_dconst\",\n    \"Dimensions\": [1,4,4],\n    \"Format/Datatype\": \"Int8\"\n  },\n  {\n    \"Name\": \"__mye689\",\n    \"Dimensions\": [1],\n    \"Format/Datatype\": \"Float\"\n  },\n  {\n    \"Name\": \"__mye658target_q_proj_matmul_beta\",\n    \"Dimensions\": [1],\n    \"Format/Datatype\": \"Float\"\n  }],\n  \"Outputs\": [\n  {\n    \"Name\": \"__myln_k_arg__bb1_3\",\n    \"Dimensions\": [1,1,4],\n    \"Format/Datatype\": \"Float\"\n  }],\n  \"TacticName\": \"ampere_sgemm_int8_32x32_sliced1x4_nn_v1\",\n  \"StreamId\": 0,\n  \"Metadata\": \"[ONNX Layer: target_q_proj_matmul]\\u001f[ONNX Layer: node_of_input_dq]\\u001e[ONNX Layer: node_of_input_q]\\u001f[ONNX Layer: node_of_weight_dq]\"\n},{\n  \"Name\": \"__myl_Cas_myl0_3\",\n  \"LayerType\": \"kgen\",\n  \"Inputs\": [\n  {\n    \"Name\": \"__myln_k_arg__bb1_3\",\n    \"Dimensions\": [1,1,4],\n    \"Format/Datatype\": \"Float\"\n  }],\n  \"Outputs\": [\n  {\n    \"Name\": \"output\",\n    \"Dimensions\": [1,1,4],\n    \"Format/Datatype\": \"Half\"\n  }],\n  \"TacticName\": \"__myl_Cas_0x52d67741b6a1965980d3c21066d83efb\",\n  \"StreamId\": 0,\n  \"Metadata\": \"[ONNX Layer: target_q_proj_matmul]\\u001f[ONNX Layer: node_of_input_dq]\\u001e[ONNX Layer: node_of_input_q]\\u001f[ONNX Layer: node_of_weight_dq]\"\n}],\n\"Bindings\": [\"input\"\n,\"output\"\n]}\n",
+  "execution": "PASS",
+  "finite": true,
+  "input_shape": [
+    1,
+    1,
+    4
+  ],
+  "matmul_node_count": 1,
+  "network_layers": [
+    {
+      "index": 0,
+      "name": "activation_scale",
+      "precision": "DataType.FLOAT",
+      "type": "LayerType.CONSTANT"
+    },
+    {
+      "index": 1,
+      "name": "tmp_weight",
+      "precision": "DataType.FLOAT",
+      "type": "LayerType.CONSTANT"
+    },
+    {
+      "index": 2,
+      "name": "node_of_input_q",
+      "precision": "DataType.HALF",
+      "type": "LayerType.QUANTIZE"
+    },
+    {
+      "index": 3,
+      "name": "tmp_weight_0",
+      "precision": "DataType.FLOAT",
+      "type": "LayerType.CONSTANT"
+    },
+    {
+      "index": 4,
+      "name": "node_of_input_dq",
+      "precision": "DataType.INT8",
+      "type": "LayerType.DEQUANTIZE"
+    },
+    {
+      "index": 5,
+      "name": "weight",
+      "precision": "DataType.FLOAT",
+      "type": "LayerType.CONSTANT"
+    },
+    {
+      "index": 6,
+      "name": "weight_scale",
+      "precision": "DataType.FLOAT",
+      "type": "LayerType.CONSTANT"
+    },
+    {
+      "index": 7,
+      "name": "tmp_weight_1",
+      "precision": "DataType.FLOAT",
+      "type": "LayerType.CONSTANT"
+    },
+    {
+      "index": 8,
+      "name": "node_of_weight_dq",
+      "precision": "DataType.INT8",
+      "type": "LayerType.DEQUANTIZE"
+    },
+    {
+      "index": 9,
+      "name": "ONNXTRT_Broadcast",
+      "precision": "DataType.FLOAT",
+      "type": "LayerType.SHUFFLE"
+    },
+    {
+      "index": 10,
+      "name": "target_q_proj_matmul",
+      "precision": "DataType.FLOAT",
+      "type": "LayerType.MATRIX_MULTIPLY"
+    }
+  ],
+  "onnx_checker": "PASS",
+  "output_shape": [
+    1,
+    1,
+    4
+  ],
+  "parse": "PASS",
+  "parser_errors": [],
+  "q_node_count": 1
+}

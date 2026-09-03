@@ -1,0 +1,20 @@
+{
+  "exit137": false,
+  "oom": false,
+  "trace": [
+    {
+      "cuda_free_bytes": 5223628800,
+      "cuda_total_bytes": 7989940224,
+      "mem_available_bytes": 5231095808,
+      "stage": "start",
+      "time": 1788428213.9857137
+    },
+    {
+      "cuda_free_bytes": 3222745088,
+      "cuda_total_bytes": 7989940224,
+      "mem_available_bytes": 3222745088,
+      "stage": "complete",
+      "time": 1788428277.9439206
+    }
+  ]
+}

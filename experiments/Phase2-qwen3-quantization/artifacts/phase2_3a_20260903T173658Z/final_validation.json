@@ -1,0 +1,16 @@
+{
+  "c1_reopened": false,
+  "gate": "PASS",
+  "int8_compute": "INT8_COMPUTE_PROVEN",
+  "no_formal_benchmark": true,
+  "no_nsight": true,
+  "phase": "Phase 2.3-A",
+  "phase2_2_frozen": true,
+  "quantization_delta_definition": "W8/W8A8 output vs TRT FP16 output",
+  "sanity": "PASS",
+  "w8_qdq": "PASS",
+  "w8_compute": "INT8_COMPUTE_NOT_PROVEN",
+  "w8a8_compute": "INT8_COMPUTE_PROVEN",
+  "w8a8_capability": "SUPPORTED_FOR_THIS_GRAPH",
+  "w8a8_qdq": "PASS"
+}

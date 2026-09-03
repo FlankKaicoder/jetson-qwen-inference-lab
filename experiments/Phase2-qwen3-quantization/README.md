@@ -38,3 +38,18 @@ This read-only audit maps the full Qwen3-0.6B architecture, theoretical weight/K
 ## Phase 2.2 runtime prototype preparation
 
 The CPU-only preparation under `phase2_2_runtime_prototype/` defines KV-cache ownership, prefill/decode request types, theoretical memory estimation and the future Gate A-D plan. Synthetic byte-layout validation passes; no Qwen3 checkpoint, CUDA/TensorRT execution, engine, benchmark or quantization was run. See `phase2_2_runtime_prototype/docs/phase2_2_runtime_design.md`.
+
+## Phase 2.3-A Explicit INT8 Q/DQ feasibility
+
+Phase 2.3-A selected the real `model.layers.0.self_attn.q_proj` component from
+the B2 Layer 0 handoff and used one shared real activation input for FP16,
+W8-QDQ and W8A8-QDQ variants. TensorRT 10.3 passed the independent Q/DQ
+sanity graph and all three target parser/build/execute checks with finite
+outputs. Symmetric zero-point `0` is supported; non-zero zero-points are
+rejected by the parser. W8-QDQ is `QDQ_EXECUTION_PROVEN` but its target
+arithmetic remains `INT8_COMPUTE_NOT_PROVEN`. W8A8-QDQ has an EngineInspector
+Int8/Int8 fusion and explicit INT8 GEMM tactic, so this target/profile is
+`INT8_COMPUTE_PROVEN`. Gate: `PASS`. This is a component feasibility result;
+no calibration sweep, full 28-layer quantized runtime, benchmark, Nsight or
+INT4 work was performed. See `docs/phase2_3a_explicit_qdq_feasibility.md` and
+`artifacts/phase2_3a_20260903T173658Z/`.

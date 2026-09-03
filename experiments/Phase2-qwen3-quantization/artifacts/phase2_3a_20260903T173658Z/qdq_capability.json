@@ -1,0 +1,327 @@
+{
+  "interpretation": "parser/build capability only; no INT8 arithmetic claim",
+  "rows": [
+    {
+      "build": "PASS",
+      "capability": "weight_per_tensor",
+      "dq_node_count": 1,
+      "engine_bytes": 4213692,
+      "engine_inspector": "{\"Layers\": [\"dummy_shape_call__mye671_0_myl0_0\"\n,\"target_q_proj_matmul_myl0_1\"\n],\n\"Bindings\": [\"input\"\n,\"output\"\n]}\n",
+      "input_shape": [
+        1,
+        1,
+        1024
+      ],
+      "matmul_node_count": 1,
+      "network_layers": [
+        {
+          "index": 0,
+          "name": "weight",
+          "precision": "DataType.FLOAT",
+          "type": "LayerType.CONSTANT"
+        },
+        {
+          "index": 1,
+          "name": "weight_scale",
+          "precision": "DataType.FLOAT",
+          "type": "LayerType.CONSTANT"
+        },
+        {
+          "index": 2,
+          "name": "tmp_weight",
+          "precision": "DataType.FLOAT",
+          "type": "LayerType.CONSTANT"
+        },
+        {
+          "index": 3,
+          "name": "node_of_weight_dq",
+          "precision": "DataType.INT8",
+          "type": "LayerType.DEQUANTIZE"
+        },
+        {
+          "index": 4,
+          "name": "ONNXTRT_Broadcast",
+          "precision": "DataType.FLOAT",
+          "type": "LayerType.SHUFFLE"
+        },
+        {
+          "index": 5,
+          "name": "target_q_proj_matmul",
+          "precision": "DataType.FLOAT",
+          "type": "LayerType.MATRIX_MULTIPLY"
+        }
+      ],
+      "onnx_checker": "PASS",
+      "output_shape": [
+        1,
+        1,
+        2048
+      ],
+      "parse": "PASS",
+      "parser_errors": [],
+      "q_node_count": 0
+    },
+    {
+      "build": "PASS",
+      "capability": "weight_per_channel",
+      "dq_node_count": 1,
+      "engine_bytes": 4213692,
+      "engine_inspector": "{\"Layers\": [\"dummy_shape_call__mye676_0_myl0_0\"\n,\"target_q_proj_matmul_myl0_1\"\n],\n\"Bindings\": [\"input\"\n,\"output\"\n]}\n",
+      "input_shape": [
+        1,
+        1,
+        1024
+      ],
+      "matmul_node_count": 1,
+      "network_layers": [
+        {
+          "index": 0,
+          "name": "weight",
+          "precision": "DataType.FLOAT",
+          "type": "LayerType.CONSTANT"
+        },
+        {
+          "index": 1,
+          "name": "weight_scale",
+          "precision": "DataType.FLOAT",
+          "type": "LayerType.CONSTANT"
+        },
+        {
+          "index": 2,
+          "name": "tmp_weight",
+          "precision": "DataType.FLOAT",
+          "type": "LayerType.CONSTANT"
+        },
+        {
+          "index": 3,
+          "name": "node_of_weight_dq",
+          "precision": "DataType.INT8",
+          "type": "LayerType.DEQUANTIZE"
+        },
+        {
+          "index": 4,
+          "name": "ONNXTRT_Broadcast",
+          "precision": "DataType.FLOAT",
+          "type": "LayerType.SHUFFLE"
+        },
+        {
+          "index": 5,
+          "name": "target_q_proj_matmul",
+          "precision": "DataType.FLOAT",
+          "type": "LayerType.MATRIX_MULTIPLY"
+        }
+      ],
+      "onnx_checker": "PASS",
+      "output_shape": [
+        1,
+        1,
+        2048
+      ],
+      "parse": "PASS",
+      "parser_errors": [],
+      "q_node_count": 0
+    },
+    {
+      "build": "PASS",
+      "capability": "activation_per_tensor",
+      "dq_node_count": 2,
+      "engine_bytes": 2194708,
+      "engine_inspector": "{\"Layers\": [\"dummy_shape_call__mye746_0_myl0_0\"\n,\"__myl_MulMinMaxRouCas_myl0_1\"\n,\"__myl_FcCas_myl0_2\"\n],\n\"Bindings\": [\"input\"\n,\"output\"\n]}\n",
+      "input_shape": [
+        1,
+        1,
+        1024
+      ],
+      "matmul_node_count": 1,
+      "network_layers": [
+        {
+          "index": 0,
+          "name": "activation_scale",
+          "precision": "DataType.FLOAT",
+          "type": "LayerType.CONSTANT"
+        },
+        {
+          "index": 1,
+          "name": "tmp_weight",
+          "precision": "DataType.FLOAT",
+          "type": "LayerType.CONSTANT"
+        },
+        {
+          "index": 2,
+          "name": "node_of_input_q",
+          "precision": "DataType.HALF",
+          "type": "LayerType.QUANTIZE"
+        },
+        {
+          "index": 3,
+          "name": "tmp_weight_0",
+          "precision": "DataType.FLOAT",
+          "type": "LayerType.CONSTANT"
+        },
+        {
+          "index": 4,
+          "name": "node_of_input_dq",
+          "precision": "DataType.INT8",
+          "type": "LayerType.DEQUANTIZE"
+        },
+        {
+          "index": 5,
+          "name": "weight",
+          "precision": "DataType.FLOAT",
+          "type": "LayerType.CONSTANT"
+        },
+        {
+          "index": 6,
+          "name": "weight_scale",
+          "precision": "DataType.FLOAT",
+          "type": "LayerType.CONSTANT"
+        },
+        {
+          "index": 7,
+          "name": "tmp_weight_1",
+          "precision": "DataType.FLOAT",
+          "type": "LayerType.CONSTANT"
+        },
+        {
+          "index": 8,
+          "name": "node_of_weight_dq",
+          "precision": "DataType.INT8",
+          "type": "LayerType.DEQUANTIZE"
+        },
+        {
+          "index": 9,
+          "name": "ONNXTRT_Broadcast",
+          "precision": "DataType.FLOAT",
+          "type": "LayerType.SHUFFLE"
+        },
+        {
+          "index": 10,
+          "name": "target_q_proj_matmul",
+          "precision": "DataType.FLOAT",
+          "type": "LayerType.MATRIX_MULTIPLY"
+        }
+      ],
+      "onnx_checker": "PASS",
+      "output_shape": [
+        1,
+        1,
+        2048
+      ],
+      "parse": "PASS",
+      "parser_errors": [],
+      "q_node_count": 1
+    },
+    {
+      "build": "PASS",
+      "capability": "activation_per_channel",
+      "dq_node_count": 2,
+      "engine_bytes": 4221780,
+      "engine_inspector": "{\"Layers\": [\"dummy_shape_call__mye735_0_myl0_0\"\n,\"__myl_DivMinMaxRouCasCasMulCas_myl0_1\"\n,\"target_q_proj_matmul_myl0_2\"\n],\n\"Bindings\": [\"input\"\n,\"output\"\n]}\n",
+      "input_shape": [
+        1,
+        1,
+        1024
+      ],
+      "matmul_node_count": 1,
+      "network_layers": [
+        {
+          "index": 0,
+          "name": "activation_scale",
+          "precision": "DataType.FLOAT",
+          "type": "LayerType.CONSTANT"
+        },
+        {
+          "index": 1,
+          "name": "tmp_weight",
+          "precision": "DataType.FLOAT",
+          "type": "LayerType.CONSTANT"
+        },
+        {
+          "index": 2,
+          "name": "node_of_input_q",
+          "precision": "DataType.HALF",
+          "type": "LayerType.QUANTIZE"
+        },
+        {
+          "index": 3,
+          "name": "tmp_weight_0",
+          "precision": "DataType.FLOAT",
+          "type": "LayerType.CONSTANT"
+        },
+        {
+          "index": 4,
+          "name": "node_of_input_dq",
+          "precision": "DataType.INT8",
+          "type": "LayerType.DEQUANTIZE"
+        },
+        {
+          "index": 5,
+          "name": "weight",
+          "precision": "DataType.FLOAT",
+          "type": "LayerType.CONSTANT"
+        },
+        {
+          "index": 6,
+          "name": "weight_scale",
+          "precision": "DataType.FLOAT",
+          "type": "LayerType.CONSTANT"
+        },
+        {
+          "index": 7,
+          "name": "tmp_weight_1",
+          "precision": "DataType.FLOAT",
+          "type": "LayerType.CONSTANT"
+        },
+        {
+          "index": 8,
+          "name": "node_of_weight_dq",
+          "precision": "DataType.INT8",
+          "type": "LayerType.DEQUANTIZE"
+        },
+        {
+          "index": 9,
+          "name": "ONNXTRT_Broadcast",
+          "precision": "DataType.FLOAT",
+          "type": "LayerType.SHUFFLE"
+        },
+        {
+          "index": 10,
+          "name": "target_q_proj_matmul",
+          "precision": "DataType.FLOAT",
+          "type": "LayerType.MATRIX_MULTIPLY"
+        }
+      ],
+      "onnx_checker": "PASS",
+      "output_shape": [
+        1,
+        1,
+        2048
+      ],
+      "parse": "PASS",
+      "parser_errors": [],
+      "q_node_count": 1
+    },
+    {
+      "build": "NOT_RUN",
+      "capability": "nonzero_zero_point",
+      "dq_node_count": 2,
+      "input_shape": [
+        1,
+        1,
+        1024
+      ],
+      "matmul_node_count": 1,
+      "onnx_checker": "PASS",
+      "output_shape": [
+        1,
+        1,
+        2048
+      ],
+      "parse": "FAIL",
+      "parser_errors": [
+        "In node 0 with name:  and operator: QuantizeLinear (QuantDequantLinearHelper): INVALID_NODE: Assertion failed: shiftIsAllZeros(zeroPoint): TensorRT only supports symmetric quantization. The zero point for the QuantizeLinear/DequantizeLinear operator must be all zeros."
+      ],
+      "q_node_count": 1
+    }
+  ]
+}

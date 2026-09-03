@@ -1,0 +1,39 @@
+{
+  "dequantized": {
+    "dtype": "torch.float32",
+    "finite": true,
+    "inf_count": 0,
+    "max": 0.6443405151367188,
+    "mean": -2.485059667378664e-05,
+    "min": -0.588531494140625,
+    "nan_count": 0,
+    "shape": [
+      2048,
+      1024
+    ],
+    "std": 0.031366899609565735
+  },
+  "metrics": {
+    "cosine": 0.998546838760376,
+    "finite": true,
+    "max_abs": 0.00390625,
+    "mean_abs": 0.0012666552793234587,
+    "relative_l2": 0.04668706036766794,
+    "rmse": 0.0014643172034993768,
+    "shape_equal": true
+  },
+  "original": {
+    "dtype": "torch.bfloat16",
+    "finite": true,
+    "inf_count": 0,
+    "max": 0.64453125,
+    "mean": -2.7483009034767747e-05,
+    "min": -0.58984375,
+    "nan_count": 0,
+    "shape": [
+      2048,
+      1024
+    ],
+    "std": 0.03134126216173172
+  }
+}

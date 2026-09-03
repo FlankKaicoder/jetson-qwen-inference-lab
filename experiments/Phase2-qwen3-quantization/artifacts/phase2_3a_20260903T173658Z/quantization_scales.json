@@ -1,0 +1,17 @@
+{
+  "activation_absmax": 4.21875,
+  "activation_policy": "FEASIBILITY_SCALE; NOT_FINAL_CALIBRATION_POLICY",
+  "activation_scale": 0.03321850393700788,
+  "activation_scale_dtype": "float16",
+  "activation_scale_shape": [],
+  "activation_scheme": "symmetric absmax feasibility scale",
+  "activation_zero_point": 0,
+  "weight_axis": null,
+  "weight_qmax": 127,
+  "weight_qmin": -116,
+  "weight_scale": 0.00507354736328125,
+  "weight_scale_dtype": "float16",
+  "weight_scale_shape": [],
+  "weight_scheme": "symmetric per-tensor INT8",
+  "weight_zero_point": 0
+}

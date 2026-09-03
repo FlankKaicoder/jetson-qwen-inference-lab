@@ -1,0 +1,47 @@
+{
+  "fp16": {
+    "dtype": "torch.float16",
+    "finite": true,
+    "inf_count": 0,
+    "max": 7.22265625,
+    "mean": 0.0013887787936255336,
+    "min": -7.125,
+    "nan_count": 0,
+    "shape": [
+      1,
+      8,
+      2048
+    ],
+    "std": 0.9918699264526367
+  },
+  "w8": {
+    "dtype": "torch.float16",
+    "finite": true,
+    "inf_count": 0,
+    "max": 7.2421875,
+    "mean": 0.0010903653455898166,
+    "min": -7.15234375,
+    "nan_count": 0,
+    "shape": [
+      1,
+      8,
+      2048
+    ],
+    "std": 0.9928525686264038
+  },
+  "w8a8": {
+    "dtype": "torch.float16",
+    "finite": true,
+    "inf_count": 0,
+    "max": 7.2109375,
+    "mean": 0.0011395250912755728,
+    "min": -7.14453125,
+    "nan_count": 0,
+    "shape": [
+      1,
+      8,
+      2048
+    ],
+    "std": 0.9932798147201538
+  }
+}

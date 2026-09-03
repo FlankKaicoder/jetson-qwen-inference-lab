@@ -4,6 +4,12 @@
 
 ## [Unreleased]
 
+### Phase 2.3-A (2026-09-03)
+
+- Validated an explicit TensorRT 10.3 INT8 Q/DQ path on the real Qwen3 Layer 0 `self_attn.q_proj` component using one shared canonical activation input.
+- FP16, W8-QDQ and W8A8-QDQ graphs passed parser/build/execution with finite outputs. Symmetric zero-point `0` is required; non-zero zero-points are rejected by the parser.
+- W8-QDQ remains `INT8_COMPUTE_NOT_PROVEN`; W8A8 EngineInspector exposes an Int8/Int8 fusion with an `i8` GEMM tactic, classified `INT8_COMPUTE_PROVEN` for this graph/profile. Phase 2.3-A Gate is `PASS`; calibration, benchmark, Nsight and full-runtime quantization remain unstarted.
+
 ### Phase 2.2-C5 (2026-09-03)
 
 - Completed the minimal real Qwen3 autoregressive runtime for prompt `Hello`: pinned tokenizer, TensorRT embedding, 28-layer prefill/decode, KV cache, Final RMSNorm, LM Head and CPU greedy sampling.

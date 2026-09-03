@@ -1,0 +1,62 @@
+{
+  "distribution": {
+    "dtype": "torch.float16",
+    "finite": true,
+    "inf_count": 0,
+    "max": 7.22265625,
+    "mean": 0.0013887787936255336,
+    "min": -7.125,
+    "nan_count": 0,
+    "shape": [
+      1,
+      8,
+      2048
+    ],
+    "std": 0.9918699264526367
+  },
+  "engine": {
+    "build": "PASS",
+    "engine_bytes": 4199860,
+    "engine_inspector": "{\"Layers\": [{\n  \"Name\": \"target_q_proj_matmul_myl0_0\",\n  \"LayerType\": \"gemm\",\n  \"Inputs\": [\n  {\n    \"Name\": \"input\",\n    \"Dimensions\": [1,8,1024],\n    \"Format/Datatype\": \"Half\"\n  },\n  {\n    \"Name\": \"weight _ ONNXTRT_Broadcast_constantHalf\",\n    \"Dimensions\": [1,1024,2048],\n    \"Format/Datatype\": \"Half\"\n  },\n  {\n    \"Name\": \"__mye24target_q_proj_matmul_alpha\",\n    \"Dimensions\": [1],\n    \"Format/Datatype\": \"Float\"\n  },\n  {\n    \"Name\": \"__mye25target_q_proj_matmul_beta\",\n    \"Dimensions\": [1],\n    \"Format/Datatype\": \"Float\"\n  }],\n  \"Outputs\": [\n  {\n    \"Name\": \"output\",\n    \"Dimensions\": [1,8,2048],\n    \"Format/Datatype\": \"Half\"\n  }],\n  \"TacticName\": \"ampere_h16816gemm_128x64_ldg8_stages_32x6_nn_v1\",\n  \"StreamId\": 0,\n  \"Metadata\": \"[ONNX Layer: target_q_proj_matmul]\"\n}],\n\"Bindings\": [\"input\"\n,\"output\"\n]}\n",
+    "network_layers": [
+      {
+        "index": 0,
+        "name": "weight",
+        "precision": "DataType.FLOAT",
+        "type": "LayerType.CONSTANT"
+      },
+      {
+        "index": 1,
+        "name": "ONNXTRT_Broadcast",
+        "precision": "DataType.FLOAT",
+        "type": "LayerType.SHUFFLE"
+      },
+      {
+        "index": 2,
+        "name": "target_q_proj_matmul",
+        "precision": "DataType.FLOAT",
+        "type": "LayerType.MATRIX_MULTIPLY"
+      }
+    ],
+    "parse": "PASS",
+    "parser_errors": []
+  },
+  "execution": "PASS",
+  "finite": true,
+  "graph": {
+    "dq_node_count": 0,
+    "input_shape": [
+      1,
+      8,
+      1024
+    ],
+    "matmul_node_count": 1,
+    "onnx_checker": "PASS",
+    "output_shape": [
+      1,
+      8,
+      2048
+    ],
+    "q_node_count": 0
+  }
+}

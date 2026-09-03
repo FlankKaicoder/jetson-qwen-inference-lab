@@ -1,0 +1,110 @@
+{
+  "distribution": {
+    "dtype": "torch.float16",
+    "finite": true,
+    "inf_count": 0,
+    "max": 7.2109375,
+    "mean": 0.0011395250912755728,
+    "min": -7.14453125,
+    "nan_count": 0,
+    "shape": [
+      1,
+      8,
+      2048
+    ],
+    "std": 0.9932798147201538
+  },
+  "engine": {
+    "build": "PASS",
+    "engine_bytes": 2196940,
+    "engine_inspector": "{\"Layers\": [{\n  \"Name\": \"dummy_shape_call__mye746_0_myl0_0\",\n  \"LayerType\": \"shape_call\",\n  \"Inputs\": [],\n  \"Outputs\": [],\n  \"TacticName\": \"\",\n  \"StreamId\": 0,\n  \"Metadata\": \"\"\n},{\n  \"Name\": \"__myl_MulMinMaxRouCas_myl0_1\",\n  \"LayerType\": \"kgen\",\n  \"Inputs\": [\n  {\n    \"Name\": \"input\",\n    \"Dimensions\": [1,8,1024],\n    \"Format/Datatype\": \"Half\"\n  }],\n  \"Outputs\": [\n  {\n    \"Name\": \"__myln_k_arg__bb1_2\",\n    \"Dimensions\": [1,8,1024],\n    \"Format/Datatype\": \"Int8\"\n  }],\n  \"TacticName\": \"__myl_MulMinMaxRouCas_0xbff9f82bc2450b859cf4c6a29fd87471\",\n  \"StreamId\": 0,\n  \"Metadata\": \"[ONNX Layer: node_of_input_q]\"\n},{\n  \"Name\": \"__myl_FcCas_myl0_2\",\n  \"LayerType\": \"fusion\",\n  \"Inputs\": [\n  {\n    \"Name\": \"__myln_k_arg__bb1_2\",\n    \"Dimensions\": [1,8,1024],\n    \"Format/Datatype\": \"Int8\"\n  },\n  {\n    \"Name\": \"__mye738dconst\",\n    \"Dimensions\": [1,1024,2048],\n    \"Format/Datatype\": \"Int8\"\n  }],\n  \"Outputs\": [\n  {\n    \"Name\": \"output\",\n    \"Dimensions\": [1,8,2048],\n    \"Format/Datatype\": \"Half\"\n  }],\n  \"TacticName\": \"sm80_xmma_gemm_i8f32_i8i32_f32_tn_n_tilesize32x64x64_stage6_warpsize2x2x1_tensor16x8x32_by_fusion_tactic\",\n  \"StreamId\": 0,\n  \"Metadata\": \"[ONNX Layer: target_q_proj_matmul]\\u001f[ONNX Layer: node_of_input_dq]\\u001e[ONNX Layer: node_of_input_q]\\u001f[ONNX Layer: node_of_weight_dq]\"\n}],\n\"Bindings\": [\"input\"\n,\"output\"\n]}\n",
+    "network_layers": [
+      {
+        "index": 0,
+        "name": "activation_scale",
+        "precision": "DataType.FLOAT",
+        "type": "LayerType.CONSTANT"
+      },
+      {
+        "index": 1,
+        "name": "tmp_weight",
+        "precision": "DataType.FLOAT",
+        "type": "LayerType.CONSTANT"
+      },
+      {
+        "index": 2,
+        "name": "node_of_input_q",
+        "precision": "DataType.HALF",
+        "type": "LayerType.QUANTIZE"
+      },
+      {
+        "index": 3,
+        "name": "tmp_weight_0",
+        "precision": "DataType.FLOAT",
+        "type": "LayerType.CONSTANT"
+      },
+      {
+        "index": 4,
+        "name": "node_of_input_dq",
+        "precision": "DataType.INT8",
+        "type": "LayerType.DEQUANTIZE"
+      },
+      {
+        "index": 5,
+        "name": "weight",
+        "precision": "DataType.FLOAT",
+        "type": "LayerType.CONSTANT"
+      },
+      {
+        "index": 6,
+        "name": "weight_scale",
+        "precision": "DataType.FLOAT",
+        "type": "LayerType.CONSTANT"
+      },
+      {
+        "index": 7,
+        "name": "tmp_weight_1",
+        "precision": "DataType.FLOAT",
+        "type": "LayerType.CONSTANT"
+      },
+      {
+        "index": 8,
+        "name": "node_of_weight_dq",
+        "precision": "DataType.INT8",
+        "type": "LayerType.DEQUANTIZE"
+      },
+      {
+        "index": 9,
+        "name": "ONNXTRT_Broadcast",
+        "precision": "DataType.FLOAT",
+        "type": "LayerType.SHUFFLE"
+      },
+      {
+        "index": 10,
+        "name": "target_q_proj_matmul",
+        "precision": "DataType.FLOAT",
+        "type": "LayerType.MATRIX_MULTIPLY"
+      }
+    ],
+    "parse": "PASS",
+    "parser_errors": []
+  },
+  "execution": "PASS",
+  "finite": true,
+  "graph": {
+    "dq_node_count": 2,
+    "input_shape": [
+      1,
+      8,
+      1024
+    ],
+    "matmul_node_count": 1,
+    "onnx_checker": "PASS",
+    "output_shape": [
+      1,
+      8,
+      2048
+    ],
+    "q_node_count": 1
+  }
+}

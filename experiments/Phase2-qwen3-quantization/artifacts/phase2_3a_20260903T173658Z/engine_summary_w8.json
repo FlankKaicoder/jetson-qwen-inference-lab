@@ -1,0 +1,80 @@
+{
+  "distribution": {
+    "dtype": "torch.float16",
+    "finite": true,
+    "inf_count": 0,
+    "max": 7.2421875,
+    "mean": 0.0010903653455898166,
+    "min": -7.15234375,
+    "nan_count": 0,
+    "shape": [
+      1,
+      8,
+      2048
+    ],
+    "std": 0.9928525686264038
+  },
+  "engine": {
+    "build": "PASS",
+    "engine_bytes": 4200820,
+    "engine_inspector": "{\"Layers\": [{\n  \"Name\": \"dummy_shape_call__mye671_0_myl0_0\",\n  \"LayerType\": \"shape_call\",\n  \"Inputs\": [],\n  \"Outputs\": [],\n  \"TacticName\": \"\",\n  \"StreamId\": 0,\n  \"Metadata\": \"\"\n},{\n  \"Name\": \"target_q_proj_matmul_myl0_1\",\n  \"LayerType\": \"gemm\",\n  \"Inputs\": [\n  {\n    \"Name\": \"input\",\n    \"Dimensions\": [1,8,1024],\n    \"Format/Datatype\": \"Half\"\n  },\n  {\n    \"Name\": \"__mye657_dconst\",\n    \"Dimensions\": [1,1024,2048],\n    \"Format/Datatype\": \"Half\"\n  },\n  {\n    \"Name\": \"__mye638target_q_proj_matmul_alpha\",\n    \"Dimensions\": [1],\n    \"Format/Datatype\": \"Float\"\n  },\n  {\n    \"Name\": \"__mye639target_q_proj_matmul_beta\",\n    \"Dimensions\": [1],\n    \"Format/Datatype\": \"Float\"\n  }],\n  \"Outputs\": [\n  {\n    \"Name\": \"output\",\n    \"Dimensions\": [1,8,2048],\n    \"Format/Datatype\": \"Half\"\n  }],\n  \"TacticName\": \"ampere_h16816gemm_128x64_ldg8_stages_32x6_nn_v1\",\n  \"StreamId\": 0,\n  \"Metadata\": \"[ONNX Layer: target_q_proj_matmul]\"\n}],\n\"Bindings\": [\"input\"\n,\"output\"\n]}\n",
+    "network_layers": [
+      {
+        "index": 0,
+        "name": "weight",
+        "precision": "DataType.FLOAT",
+        "type": "LayerType.CONSTANT"
+      },
+      {
+        "index": 1,
+        "name": "weight_scale",
+        "precision": "DataType.FLOAT",
+        "type": "LayerType.CONSTANT"
+      },
+      {
+        "index": 2,
+        "name": "tmp_weight",
+        "precision": "DataType.FLOAT",
+        "type": "LayerType.CONSTANT"
+      },
+      {
+        "index": 3,
+        "name": "node_of_weight_dq",
+        "precision": "DataType.INT8",
+        "type": "LayerType.DEQUANTIZE"
+      },
+      {
+        "index": 4,
+        "name": "ONNXTRT_Broadcast",
+        "precision": "DataType.FLOAT",
+        "type": "LayerType.SHUFFLE"
+      },
+      {
+        "index": 5,
+        "name": "target_q_proj_matmul",
+        "precision": "DataType.FLOAT",
+        "type": "LayerType.MATRIX_MULTIPLY"
+      }
+    ],
+    "parse": "PASS",
+    "parser_errors": []
+  },
+  "execution": "PASS",
+  "finite": true,
+  "graph": {
+    "dq_node_count": 1,
+    "input_shape": [
+      1,
+      8,
+      1024
+    ],
+    "matmul_node_count": 1,
+    "onnx_checker": "PASS",
+    "output_shape": [
+      1,
+      8,
+      2048
+    ],
+    "q_node_count": 0
+  }
+}

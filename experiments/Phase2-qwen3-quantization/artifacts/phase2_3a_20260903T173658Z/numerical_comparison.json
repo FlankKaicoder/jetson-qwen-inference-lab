@@ -1,0 +1,25 @@
+{
+  "reference_context_only": "HF BF16 vs TRT FP16 remains the frozen Phase 2.2 numerical background and is not quantization delta.",
+  "w8": {
+    "vs_trt_fp16": {
+      "cosine": 0.9988992214202881,
+      "finite": true,
+      "max_abs": 0.16796875,
+      "mean_abs": 0.037135228514671326,
+      "relative_l2": 0.04692697115326256,
+      "rmse": 0.04654558748006821,
+      "shape_equal": true
+    }
+  },
+  "w8a8": {
+    "vs_trt_fp16": {
+      "cosine": 0.9988554120063782,
+      "finite": true,
+      "max_abs": 0.181640625,
+      "mean_abs": 0.037861764430999756,
+      "relative_l2": 0.047876141874311405,
+      "rmse": 0.0474870391190052,
+      "shape_equal": true
+    }
+  }
+}

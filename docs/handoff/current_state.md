@@ -1,5 +1,14 @@
 # Current State
 
+## Phase 2.3-A Explicit INT8 Q/DQ Feasibility (2026-09-03)
+
+- Starting local HEAD: `219999d84025d0745298a1551d4bed9420a6ee36`; branch `phase/02-qwen3-quantization`. Jetson execution used the existing checkout at `a1317a06f83634406bfb732a61f57a698e6aee2d`, which had pre-existing untracked files that were preserved.
+- Selected real `model.layers.0.self_attn.q_proj` from the B2 Layer 0 handoff and reused one canonical real activation input. Frozen Qwen3 revision and checkpoint SHA256 were verified.
+- Minimal Q/DQ sanity, FP16, W8-QDQ and W8A8-QDQ all passed ONNX checker, TensorRT parser/build, CUDA execution and finite-output checks. Non-zero zero-point is rejected by TensorRT 10.3; tested per-channel axes passed parser/build.
+- W8-QDQ target arithmetic is `INT8_COMPUTE_NOT_PROVEN`; W8A8 EngineInspector shows Int8 activation/weight fusion with an `sm80_xmma_gemm_i8f32_i8i32_f32...` tactic, classified `INT8_COMPUTE_PROVEN` for this target/profile. Deltas versus TRT FP16: W8 relative-L2 `0.04692697`, W8A8 `0.04787614`.
+- Gate: `PASS`. Phase 2.3 overall is `IN PROGRESS`; next authorized boundary is Phase 2.3-B. No calibration, full 28-layer quantization, benchmark, Nsight, INT4, or C1 reopening occurred.
+- Report: `experiments/Phase2-qwen3-quantization/docs/phase2_3a_explicit_qdq_feasibility.md`; artifacts: `experiments/Phase2-qwen3-quantization/artifacts/phase2_3a_20260903T173658Z/`; ONNX/engines remain Jetson-local under `/tmp/phase2_3a_20260903T/`.
+
 ## Phase 2.2-C1 Closeout (2026-09-03)
 
 - Starting HEAD: `baa162800624b97b9667c396ee09d4db6a91bff3`; branch `phase/02-qwen3-quantization`.
