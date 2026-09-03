@@ -13,14 +13,14 @@
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
 | Current phase | Phase 2 — LLM Quantization |
-| Current experiment | Phase 2.2-C2 — final RMSNorm integration |
+| Current experiment | Phase 2.2-C3 — LM Head integration |
 | Current branch | `phase/02-qwen3-quantization` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Exp04 — CUDA GEMM tiling and WMMA |
 | Experiment status | Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8/2.1.9 `PASS / BOUNDED`; Phase 2.2-A `PARTIAL / BOUNDED PASS`; Phase 2.2-B1/B2/B3 `PASS / BOUNDED`; Phase 2.2-B4.1 `PASS / CLOSED`; Phase 2.2-B4.2 `PASS / BOUNDED`; Phase 2.2-C0 `PASS / DESIGN ONLY`; Phase 2.2-C1 `BLOCKED` |
-| Current Gate | Phase 2.2-C2 `PASS / BOUNDED`; Final RMSNorm operator and decoder-to-norm integration pass; C1 decoder drift remains documented |
-| Readiness | C2 closed; await explicit authorization for C3 LM Head. Corrected 28-layer Layer 27 relative-L2 remains ~2.00463 |
+| Current Gate | Phase 2.2-C3 `PASS / BOUNDED`; LM Head operator and read-only decoder-to-norm-to-head integration pass; C1 decoder drift remains documented |
+| Readiness | C3 closed; stop and await explicit authorization for C4. Corrected 28-layer Layer 27 relative-L2 remains ~2.00463 |
 
 ## Confirmed Findings
 
@@ -302,3 +302,19 @@ Before Exp01.2 profiling on `2026-08-30`, Windows, GitHub and Jetson were clean 
 - Layer 0 final relative-L2 improved from `0.0347152092` to `0.0038153231` (`9.0989x` reduction); corrected-vs-unchanged-B4.2 control is `0.0018616138`.
 - Result is `ROPE_CACHE_FIX_VALIDATED`. C1 remains `BLOCKED`; no repair, C1L, C2, benchmark, Nsight, quantization or production rebuild started. No OOM/exit 137.
 - Raw evidence: `experiments/Phase2-qwen3-quantization/phase2_2_runtime_prototype/artifacts/c1k_20260902T163005Z/c1k_rope_cache_precision_20260902T163005Z.json`; report: `phase2_2c1_rope_cache_precision_validation.md`.
+
+## Phase 2.2-C3 LM Head Integration (2026-09-03)
+
+- Starting HEAD was `92e8857a25c974c61ac18901424fabefaba319d4` on
+  `phase/02-qwen3-quantization`. C2 final RMSNorm remains `PASS / BOUNDED`.
+- The pinned `lm_head.weight` is `[151936,1024]`, BF16, bias-free, and exactly
+  equal to `model.embed_tokens.weight` under tied embeddings. Independent
+  TensorRT 10.3 FP16 MatMul validation passed synthetic prefill/decode and
+  last-token paths with relative-L2 `0.00169018/0.00164510`, all 9 argmax
+  results equal, and full top-5 overlap.
+- Read-only embedding -> corrected decoder -> C2 norm -> LM Head produced
+  finite `[1,8,151936]` logits. Relative-L2 `0.04533300` is explicitly
+  `END_TO_END_DIAGNOSTIC_ONLY` because C1 decoder drift remains unresolved.
+  No OOM or exit 137 occurred. C3 is `PASS / BOUNDED`; C4 and generation
+  work were not started.
+- Report: `experiments/Phase2-qwen3-quantization/phase2_2_runtime_prototype/docs/phase2_2c3_lm_head.md`; raw evidence: `artifacts/phase2_2c3_20260903T/`.

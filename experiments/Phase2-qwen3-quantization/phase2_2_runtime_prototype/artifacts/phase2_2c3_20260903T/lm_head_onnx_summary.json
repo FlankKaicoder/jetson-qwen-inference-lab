@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "path": "/tmp/phase2_2c3_20260903T024500Z/lm_head_fp16.onnx",
+  "bytes": 311165149,
+  "node_count": 1,
+  "initializer_count": 1,
+  "input": [
+    1,
+    8,
+    1024
+  ],
+  "output": [
+    1,
+    8,
+    151936
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "engine": "/tmp/phase2_2c3_20260903T024500Z/lm_head_fp16.engine",
+  "engine_bytes": 311179748,
+  "profile": {
+    "min": [
+      1,
+      1,
+      1024
+    ],
+    "opt": [
+      1,
+      8,
+      1024
+    ],
+    "max": [
+      2,
+      16,
+      1024
+    ]
+  },
+  "output": [
+    "B",
+    "S",
+    151936
+  ]
+}

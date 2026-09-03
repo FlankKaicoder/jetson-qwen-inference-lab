@@ -279,3 +279,20 @@ prefill/decode integration passed with finite CUDA FP16 outputs. Same Layer27
 input portable-vs-TRT relative-L2 was `0.08413005`, recorded separately from
 the operator gate. No OOM/exit 137 occurred. C2 is `PASS / BOUNDED`; stop and
 await explicit authorization for C3 LM Head.
+
+## Phase 2.2-C3 checkpoint (2026-09-03)
+
+Starting HEAD was `92e8857a25c974c61ac18901424fabefaba319d4` on
+`phase/02-qwen3-quantization`. Added `src/phase2_2c3/c3_lm_head.py`, the C3
+report, and compact artifacts under `artifacts/phase2_2c3_20260903T/`.
+Jetson audit confirmed `lm_head.weight` `[151936,1024]` BF16, bias-free, and
+exactly tied to `model.embed_tokens.weight` (SHA256
+`8f29acf519434862d95613b2b4f6b9d14933a5e4d16baebf8ac0b33b410acfb6`). An
+independent TensorRT 10.3 FP16 MatMul engine passed synthetic prefill/decode
+and last-token checks: relative-L2 `0.00169018/0.00164510`, argmax equal for
+all 9 tokens and full top-5 overlap. Read-only embedding -> corrected decoder
+-> C2 final norm -> LM Head produced finite `[1,8,151936]` logits; its
+relative-L2 `0.04533300` is explicitly `END_TO_END_DIAGNOSTIC_ONLY` because
+C1 decoder drift remains unresolved. No OOM/exit 137 occurred. C3 is
+`PASS / BOUNDED`; do not start C4, sampling, generation, benchmark, Nsight or
+quantization without explicit authorization.

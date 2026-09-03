@@ -1,0 +1,283 @@
+{
+  "status": "PASS",
+  "operator_gate": "LM_HEAD_OPERATOR = PASS",
+  "selected_variant": "native_fp16_matmul",
+  "same_input": {
+    "synthetic_prefill": {
+      "input_shape": [
+        1,
+        8,
+        1024
+      ],
+      "logits_shape": [
+        1,
+        8,
+        151936
+      ],
+      "cuda": true,
+      "metrics": {
+        "shape_equal": true,
+        "finite": true,
+        "max_abs": 0.01953125,
+        "mean_abs": 0.0010941025102511048,
+        "rmse": 0.0016077776672318578,
+        "relative_l2": 0.0016901773633435369,
+        "cosine": 1.0000104904174805
+      },
+      "ranking": {
+        "argmax_equal": true,
+        "argmax_reference": [
+          121365,
+          17966,
+          92993,
+          55307,
+          34536,
+          69445,
+          11797,
+          57133
+        ],
+        "argmax_tensorrt": [
+          121365,
+          17966,
+          92993,
+          55307,
+          34536,
+          69445,
+          11797,
+          57133
+        ],
+        "top5_overlap_per_token": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5
+        ],
+        "top5_overlap_min": 5,
+        "top5_overlap_mean": 5.0
+      }
+    },
+    "synthetic_decode": {
+      "input_shape": [
+        1,
+        1,
+        1024
+      ],
+      "logits_shape": [
+        1,
+        1,
+        151936
+      ],
+      "cuda": true,
+      "metrics": {
+        "shape_equal": true,
+        "finite": true,
+        "max_abs": 0.015625,
+        "mean_abs": 0.0010116449557244778,
+        "rmse": 0.0014751612907275558,
+        "relative_l2": 0.0016450989060103893,
+        "cosine": 0.9999918341636658
+      },
+      "ranking": {
+        "argmax_equal": true,
+        "argmax_reference": [
+          2629
+        ],
+        "argmax_tensorrt": [
+          2629
+        ],
+        "top5_overlap_per_token": [
+          5
+        ],
+        "top5_overlap_min": 5,
+        "top5_overlap_mean": 5.0
+      }
+    }
+  },
+  "paths": {
+    "full_prefill": {
+      "shape": [
+        1,
+        8,
+        151936
+      ],
+      "metrics": {
+        "shape_equal": true,
+        "finite": true,
+        "max_abs": 0.01953125,
+        "mean_abs": 0.0010941025102511048,
+        "rmse": 0.0016077776672318578,
+        "relative_l2": 0.0016901773633435369,
+        "cosine": 1.0000104904174805
+      },
+      "ranking": {
+        "argmax_equal": true,
+        "argmax_reference": [
+          121365,
+          17966,
+          92993,
+          55307,
+          34536,
+          69445,
+          11797,
+          57133
+        ],
+        "argmax_tensorrt": [
+          121365,
+          17966,
+          92993,
+          55307,
+          34536,
+          69445,
+          11797,
+          57133
+        ],
+        "top5_overlap_per_token": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5
+        ],
+        "top5_overlap_min": 5,
+        "top5_overlap_mean": 5.0
+      }
+    },
+    "last_token": {
+      "shape": [
+        1,
+        1,
+        151936
+      ],
+      "metrics": {
+        "shape_equal": true,
+        "finite": true,
+        "max_abs": 0.017578125,
+        "mean_abs": 0.0011159967398270965,
+        "rmse": 0.00162775837816298,
+        "relative_l2": 0.001681458204984665,
+        "cosine": 0.9999916553497314
+      },
+      "ranking": {
+        "argmax_equal": true,
+        "argmax_reference": [
+          57133
+        ],
+        "argmax_tensorrt": [
+          57133
+        ],
+        "top5_overlap_per_token": [
+          5
+        ],
+        "top5_overlap_min": 5,
+        "top5_overlap_mean": 5.0
+      }
+    }
+  },
+  "decoder_norm_lm_head": {
+    "status": "PASS",
+    "classification": "END_TO_END_DIAGNOSTIC_ONLY",
+    "reason": "C1 decoder numerical drift remains closed and unresolved",
+    "hidden_shape": [
+      1,
+      8,
+      1024
+    ],
+    "normalized_shape": [
+      1,
+      8,
+      1024
+    ],
+    "logits_shape": [
+      1,
+      8,
+      151936
+    ],
+    "finite_cuda": true,
+    "norm_same_input": {
+      "shape_equal": true,
+      "finite": true,
+      "max_abs": 27.109375,
+      "mean_abs": 0.013814909383654594,
+      "rmse": 0.3224474787712097,
+      "relative_l2": 0.08413004875183105,
+      "cosine": 0.996454119682312
+    },
+    "logits_same_input": {
+      "shape_equal": true,
+      "finite": true,
+      "max_abs": 2.333984375,
+      "mean_abs": 0.07979702204465866,
+      "rmse": 0.2467450052499771,
+      "relative_l2": 0.045333001762628555,
+      "cosine": 0.9989514946937561
+    },
+    "logits_ranking": {
+      "argmax_equal": false,
+      "argmax_reference": [
+        538,
+        53254,
+        87846,
+        2,
+        3,
+        2,
+        42,
+        42
+      ],
+      "argmax_tensorrt": [
+        0,
+        53254,
+        87846,
+        2,
+        3,
+        2,
+        42,
+        42
+      ],
+      "top5_overlap_per_token": [
+        0,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "top5_overlap_min": 0,
+      "top5_overlap_mean": 4.375
+    }
+  },
+  "memory": {
+    "trace": [
+      {
+        "stage": "start",
+        "maxrss": 360692,
+        "mem_available_bytes": 4879241216,
+        "swap_used_bytes": 1581297664,
+        "cuda_free_bytes": 4852711424,
+        "cuda_total_bytes": 7989940224,
+        "torch_allocated_bytes": 0,
+        "torch_reserved_bytes": 0
+      },
+      {
+        "stage": "complete",
+        "maxrss": 2015540,
+        "mem_available_bytes": 3094806528,
+        "swap_used_bytes": 1581297664,
+        "cuda_free_bytes": 3092185088,
+        "cuda_total_bytes": 7989940224,
+        "torch_allocated_bytes": 8588288,
+        "torch_reserved_bytes": 335544320
+      }
+    ],
+    "oom": false,
+    "exit137": false
+  }
+}

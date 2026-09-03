@@ -4,6 +4,12 @@
 
 ## [Unreleased]
 
+### Phase 2.2-C3 (2026-09-03)
+
+- Audited the pinned Qwen3 `lm_head.weight`: `[151936,1024]` BF16, bias-free, and byte-identical to `model.embed_tokens.weight` under tied embeddings.
+- Built an independent TensorRT 10.3 FP16 MatMul engine. Synthetic prefill, decode, and last-token paths passed finite/shape, argmax, and top-5 checks against the portable oracle.
+- Read-only embedding -> corrected 28-layer decoder -> C2 Final RMSNorm -> LM Head integration completed with finite CUDA logits. Full-path numerical comparisons remain `END_TO_END_DIAGNOSTIC_ONLY` due to the closed C1 decoder drift. C3 result: `PASS / BOUNDED`; C4 was not started.
+
 ### Phase 2.2-C2 (2026-09-03)
 
 - Integrated and validated the pinned Qwen3 final RMSNorm as an independent TensorRT FP16 component. `model.norm.weight` was confirmed at shape `[1024]`, BF16, epsilon `1e-6`, with checkpoint and weight hashes recorded.
