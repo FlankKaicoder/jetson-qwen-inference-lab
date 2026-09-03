@@ -4,6 +4,12 @@
 
 ## [Unreleased]
 
+### Phase 2.2-C4 (2026-09-03)
+
+- Added deterministic CPU/NumPy greedy sampling with explicit first-index-wins tie semantics for `[B,1,151936]` logits.
+- Synthetic clear-winner, near-tie, exact-tie, C3 decode and last-token logits all achieved exact integer token agreement. The read-only embedding -> decoder -> Final RMSNorm -> LM Head single-step produced token `42` on both portable and TensorRT paths.
+- C4 result: `PASS / BOUNDED`. Full path remains `END_TO_END_DIAGNOSTIC_ONLY` due to the known C1 decoder drift; C5 generation loop was not started.
+
 ### Phase 2.2-C3 (2026-09-03)
 
 - Audited the pinned Qwen3 `lm_head.weight`: `[151936,1024]` BF16, bias-free, and byte-identical to `model.embed_tokens.weight` under tied embeddings.

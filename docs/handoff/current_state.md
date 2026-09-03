@@ -296,3 +296,17 @@ relative-L2 `0.04533300` is explicitly `END_TO_END_DIAGNOSTIC_ONLY` because
 C1 decoder drift remains unresolved. No OOM/exit 137 occurred. C3 is
 `PASS / BOUNDED`; do not start C4, sampling, generation, benchmark, Nsight or
 quantization without explicit authorization.
+
+## Phase 2.2-C4 checkpoint (2026-09-03)
+
+Starting HEAD was `3a1bf6cf59be27dd0e07e415b2fe5eaeb009852c` on
+`phase/02-qwen3-quantization`. Added `src/phase2_2c4/c4_greedy_sampling.py`,
+the C4 report and `artifacts/phase2_2c4_20260903T/c4_greedy_sampling_validation.json`.
+The sampler backend is `CPU_NUMPY_ARGMAX`; reference PyTorch and NumPy agree
+exactly on clear-winner, near-tie and exact-tie logits, with first-index-wins
+tie behavior. C3 decode token `2629` and last-token `57133` agree exactly.
+The read-only single-step chain for input IDs `[0..7]` produces portable and
+TensorRT next token `42`; both top1-top2 margins are `0.421875`. Full path is
+`END_TO_END_DIAGNOSTIC_ONLY` because C1 decoder drift remains unresolved.
+Minimum `MemAvailable` was `3,139,858,432` bytes; no OOM or exit 137 occurred.
+C4 is `PASS / BOUNDED`; do not start C5 autoregressive generation.

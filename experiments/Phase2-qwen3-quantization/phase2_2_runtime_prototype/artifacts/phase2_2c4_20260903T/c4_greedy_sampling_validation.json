@@ -1,0 +1,444 @@
+{
+  "status": "PASS",
+  "gate": "PASS",
+  "sampler_backend": "CPU_NUMPY_ARGMAX",
+  "greedy_semantics": "next_token_id = argmax(logits, dim=-1); first index wins exact ties",
+  "vocab_size": 151936,
+  "synthetic": {
+    "clear_winner": {
+      "sampler": {
+        "reference_ids": [
+          12345
+        ],
+        "sampler_ids": [
+          12345
+        ],
+        "exact_integer_agreement": true,
+        "shape": [
+          1,
+          1
+        ],
+        "host_transfer_bytes": 607744,
+        "margin": {
+          "top1_ids": [
+            12345
+          ],
+          "top2_ids": [
+            54321
+          ],
+          "top1_values": [
+            4.0
+          ],
+          "top2_values": [
+            1.0
+          ],
+          "top1_top2_margin": [
+            3.0
+          ],
+          "minimum_margin": 3.0
+        },
+        "valid_range": true
+      },
+      "tie_policy": "first index wins (torch.argmax and NumPy argmax)"
+    },
+    "near_tie": {
+      "sampler": {
+        "reference_ids": [
+          23456
+        ],
+        "sampler_ids": [
+          23456
+        ],
+        "exact_integer_agreement": true,
+        "shape": [
+          1,
+          1
+        ],
+        "host_transfer_bytes": 607744,
+        "margin": {
+          "top1_ids": [
+            23456
+          ],
+          "top2_ids": [
+            23457
+          ],
+          "top1_values": [
+            1.0
+          ],
+          "top2_values": [
+            0.9998999834060669
+          ],
+          "top1_top2_margin": [
+            0.00010001659393310547
+          ],
+          "minimum_margin": 0.00010001659393310547
+        },
+        "valid_range": true
+      },
+      "tie_policy": "first index wins (torch.argmax and NumPy argmax)"
+    },
+    "exact_tie": {
+      "sampler": {
+        "reference_ids": [
+          34567
+        ],
+        "sampler_ids": [
+          34567
+        ],
+        "exact_integer_agreement": true,
+        "shape": [
+          1,
+          1
+        ],
+        "host_transfer_bytes": 607744,
+        "margin": {
+          "top1_ids": [
+            34568
+          ],
+          "top2_ids": [
+            34567
+          ],
+          "top1_values": [
+            2.0
+          ],
+          "top2_values": [
+            2.0
+          ],
+          "top1_top2_margin": [
+            0.0
+          ],
+          "minimum_margin": 0.0
+        },
+        "valid_range": true
+      },
+      "tie_policy": "first index wins (torch.argmax and NumPy argmax)"
+    }
+  },
+  "c3_same_input": {
+    "decode": {
+      "hidden_shape": [
+        1,
+        1,
+        1024
+      ],
+      "logits_shape": [
+        1,
+        1,
+        151936
+      ],
+      "logits_metrics": {
+        "shape_equal": true,
+        "finite": true,
+        "max_abs": 0.015625,
+        "mean_abs": 0.0010116449557244778,
+        "rmse": 0.0014751612907275558,
+        "relative_l2": 0.0016450989060103893,
+        "cosine": 0.9999918341636658
+      },
+      "portable": {
+        "reference_ids": [
+          2629
+        ],
+        "sampler_ids": [
+          2629
+        ],
+        "exact_integer_agreement": true,
+        "shape": [
+          1,
+          1
+        ],
+        "host_transfer_bytes": 607744,
+        "margin": {
+          "top1_ids": [
+            2629
+          ],
+          "top2_ids": [
+            3179
+          ],
+          "top1_values": [
+            4.08984375
+          ],
+          "top2_values": [
+            4.02734375
+          ],
+          "top1_top2_margin": [
+            0.0625
+          ],
+          "minimum_margin": 0.0625
+        },
+        "valid_range": true
+      },
+      "trt_logits_to_c4_sampler": {
+        "portable_ids": [
+          2629
+        ],
+        "trt_ids": [
+          2629
+        ],
+        "exact_integer_agreement": true,
+        "host_transfer_bytes": 607744,
+        "portable_margin": {
+          "top1_ids": [
+            2629
+          ],
+          "top2_ids": [
+            3179
+          ],
+          "top1_values": [
+            4.08984375
+          ],
+          "top2_values": [
+            4.02734375
+          ],
+          "top1_top2_margin": [
+            0.0625
+          ],
+          "minimum_margin": 0.0625
+        },
+        "trt_margin": {
+          "top1_ids": [
+            2629
+          ],
+          "top2_ids": [
+            3179
+          ],
+          "top1_values": [
+            4.08203125
+          ],
+          "top2_values": [
+            4.01953125
+          ],
+          "top1_top2_margin": [
+            0.0625
+          ],
+          "minimum_margin": 0.0625
+        },
+        "valid_range": true
+      }
+    },
+    "last_token": {
+      "hidden_shape": [
+        1,
+        1,
+        1024
+      ],
+      "logits_shape": [
+        1,
+        1,
+        151936
+      ],
+      "logits_metrics": {
+        "shape_equal": true,
+        "finite": true,
+        "max_abs": 0.017578125,
+        "mean_abs": 0.0011159967398270965,
+        "rmse": 0.00162775837816298,
+        "relative_l2": 0.001681458204984665,
+        "cosine": 0.9999916553497314
+      },
+      "portable": {
+        "reference_ids": [
+          57133
+        ],
+        "sampler_ids": [
+          57133
+        ],
+        "exact_integer_agreement": true,
+        "shape": [
+          1,
+          1
+        ],
+        "host_transfer_bytes": 607744,
+        "margin": {
+          "top1_ids": [
+            57133
+          ],
+          "top2_ids": [
+            62167
+          ],
+          "top1_values": [
+            3.802734375
+          ],
+          "top2_values": [
+            3.767578125
+          ],
+          "top1_top2_margin": [
+            0.03515625
+          ],
+          "minimum_margin": 0.03515625
+        },
+        "valid_range": true
+      },
+      "trt_logits_to_c4_sampler": {
+        "portable_ids": [
+          57133
+        ],
+        "trt_ids": [
+          57133
+        ],
+        "exact_integer_agreement": true,
+        "host_transfer_bytes": 607744,
+        "portable_margin": {
+          "top1_ids": [
+            57133
+          ],
+          "top2_ids": [
+            62167
+          ],
+          "top1_values": [
+            3.802734375
+          ],
+          "top2_values": [
+            3.767578125
+          ],
+          "top1_top2_margin": [
+            0.03515625
+          ],
+          "minimum_margin": 0.03515625
+        },
+        "trt_margin": {
+          "top1_ids": [
+            57133
+          ],
+          "top2_ids": [
+            62167
+          ],
+          "top1_values": [
+            3.814453125
+          ],
+          "top2_values": [
+            3.7734375
+          ],
+          "top1_top2_margin": [
+            0.041015625
+          ],
+          "minimum_margin": 0.041015625
+        },
+        "valid_range": true
+      }
+    }
+  },
+  "full_runtime_single_step": {
+    "status": "PASS",
+    "classification": "END_TO_END_DIAGNOSTIC_ONLY",
+    "reason": "C1 decoder numerical drift remains closed and unresolved",
+    "input_ids": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    ],
+    "last_input_token_id": 7,
+    "embedded_shape": [
+      1,
+      8,
+      1024
+    ],
+    "decoder_hidden_shape": [
+      1,
+      8,
+      1024
+    ],
+    "normalized_shape": [
+      1,
+      1,
+      1024
+    ],
+    "logits_shape": [
+      1,
+      1,
+      151936
+    ],
+    "finite_cuda": true,
+    "portable_next_token": [
+      42
+    ],
+    "trt_next_token": [
+      42
+    ],
+    "agreement": true,
+    "portable_margin": {
+      "top1_ids": [
+        42
+      ],
+      "top2_ids": [
+        320
+      ],
+      "top1_values": [
+        12.453125
+      ],
+      "top2_values": [
+        12.03125
+      ],
+      "top1_top2_margin": [
+        0.421875
+      ],
+      "minimum_margin": 0.421875
+    },
+    "trt_margin": {
+      "top1_ids": [
+        42
+      ],
+      "top2_ids": [
+        320
+      ],
+      "top1_values": [
+        12.4609375
+      ],
+      "top2_values": [
+        12.0390625
+      ],
+      "top1_top2_margin": [
+        0.421875
+      ],
+      "minimum_margin": 0.421875
+    },
+    "logits_metrics_same_hidden": {
+      "shape_equal": true,
+      "finite": true,
+      "max_abs": 0.09375,
+      "mean_abs": 0.009696313180029392,
+      "rmse": 0.013414718210697174,
+      "relative_l2": 0.0020430574659258127,
+      "cosine": 0.9999901652336121
+    },
+    "host_transfer_bytes": 607744,
+    "valid_range": true,
+    "optional_token_decode": {
+      "status": "NOT_RUN",
+      "reason": "not a C4 gate"
+    }
+  },
+  "memory": {
+    "trace": [
+      {
+        "stage": "start",
+        "maxrss": 355872,
+        "mem_available_bytes": 4890062848,
+        "swap_used_bytes": 1578938368,
+        "cuda_free_bytes": 4854665216,
+        "cuda_total_bytes": 7989940224,
+        "torch_allocated_bytes": 0,
+        "torch_reserved_bytes": 0
+      },
+      {
+        "stage": "complete",
+        "maxrss": 2000580,
+        "mem_available_bytes": 3139858432,
+        "swap_used_bytes": 1581297664,
+        "cuda_free_bytes": 3136552960,
+        "cuda_total_bytes": 7989940224,
+        "torch_allocated_bytes": 320361472,
+        "torch_reserved_bytes": 335544320
+      }
+    ],
+    "oom": false,
+    "exit137": false
+  }
+}
