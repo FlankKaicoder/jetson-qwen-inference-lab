@@ -4,6 +4,13 @@
 
 ## [Unreleased]
 
+### Phase 2.3-C (2026-09-03)
+
+- Audited 196 decoder Linear weights and a 34-target portable sensitivity matrix.
+- Confirmed eight deterministic TensorRT targets; per-channel QDQ parsing is
+  explicitly blocked while FP16/PT-W8/PT-W8A8 paths remain finite.
+- Gate `PASS / BOUNDED`; no benchmark, Nsight, INT4 or full quantized runtime.
+
 ### Phase 2.3-A (2026-09-03)
 
 - Validated an explicit TensorRT 10.3 INT8 Q/DQ path on the real Qwen3 Layer 0 `self_attn.q_proj` component using one shared canonical activation input.

@@ -1,0 +1,90 @@
+{
+  "L0:q_proj:fp16": "{\"Layers\": [\"__mye26_0_myl0_0\"\n,\"target_linear_matmul_myl0_1\"\n],\n\"Bindings\": [\"input\"\n,\"output\"\n]}\n",
+  "L0:q_proj:pt_w8": "{\"Layers\": [\"__mye193_0_myl0_0\"\n,\"target_linear_matmul_myl0_1\"\n],\n\"Bindings\": [\"input\"\n,\"output\"\n]}\n",
+  "L0:q_proj:pc_w8": {
+    "status": "BLOCKED",
+    "error": "RuntimeError: parse failed"
+  },
+  "L0:q_proj:pt_w8a8": "{\"Layers\": [\"__mye212_0_myl0_0\"\n,\"__myl_MulMinMaxRouCas_myl0_1\"\n,\"__myl_FcCas_myl0_2\"\n],\n\"Bindings\": [\"input\"\n,\"output\"\n]}\n",
+  "L0:q_proj:pc_w8a8": {
+    "status": "BLOCKED",
+    "error": "RuntimeError: parse failed"
+  },
+  "L1:q_proj:fp16": "{\"Layers\": [\"__mye26_0_myl0_0\"\n,\"target_linear_matmul_myl0_1\"\n],\n\"Bindings\": [\"input\"\n,\"output\"\n]}\n",
+  "L1:q_proj:pt_w8": "{\"Layers\": [\"__mye193_0_myl0_0\"\n,\"target_linear_matmul_myl0_1\"\n],\n\"Bindings\": [\"input\"\n,\"output\"\n]}\n",
+  "L1:q_proj:pc_w8": {
+    "status": "BLOCKED",
+    "error": "RuntimeError: parse failed"
+  },
+  "L1:q_proj:pt_w8a8": "{\"Layers\": [\"__mye212_0_myl0_0\"\n,\"__myl_MulMinMaxRouCas_myl0_1\"\n,\"__myl_FcCas_myl0_2\"\n],\n\"Bindings\": [\"input\"\n,\"output\"\n]}\n",
+  "L1:q_proj:pc_w8a8": {
+    "status": "BLOCKED",
+    "error": "RuntimeError: parse failed"
+  },
+  "L16:k_proj:fp16": "{\"Layers\": [\"__mye26_0_myl0_0\"\n,\"target_linear_matmul_myl0_1\"\n],\n\"Bindings\": [\"input\"\n,\"output\"\n]}\n",
+  "L16:k_proj:pt_w8": "{\"Layers\": [\"__mye190_0_myl0_0\"\n,\"target_linear_matmul_myl0_1\"\n],\n\"Bindings\": [\"input\"\n,\"output\"\n]}\n",
+  "L16:k_proj:pc_w8": {
+    "status": "BLOCKED",
+    "error": "RuntimeError: parse failed"
+  },
+  "L16:k_proj:pt_w8a8": "{\"Layers\": [\"__mye209_0_myl0_0\"\n,\"__myl_MulMinMaxRouCas_myl0_1\"\n,\"__myl_FcCas_myl0_2\"\n],\n\"Bindings\": [\"input\"\n,\"output\"\n]}\n",
+  "L16:k_proj:pc_w8a8": {
+    "status": "BLOCKED",
+    "error": "RuntimeError: parse failed"
+  },
+  "L18:v_proj:fp16": "{\"Layers\": [\"__mye26_0_myl0_0\"\n,\"target_linear_matmul_myl0_1\"\n],\n\"Bindings\": [\"input\"\n,\"output\"\n]}\n",
+  "L18:v_proj:pt_w8": "{\"Layers\": [\"__mye190_0_myl0_0\"\n,\"target_linear_matmul_myl0_1\"\n],\n\"Bindings\": [\"input\"\n,\"output\"\n]}\n",
+  "L18:v_proj:pc_w8": {
+    "status": "BLOCKED",
+    "error": "RuntimeError: parse failed"
+  },
+  "L18:v_proj:pt_w8a8": "{\"Layers\": [\"__mye209_0_myl0_0\"\n,\"__myl_MulMinMaxRouCas_myl0_1\"\n,\"__myl_FcCas_myl0_2\"\n],\n\"Bindings\": [\"input\"\n,\"output\"\n]}\n",
+  "L18:v_proj:pc_w8a8": {
+    "status": "BLOCKED",
+    "error": "RuntimeError: parse failed"
+  },
+  "L27:o_proj:fp16": "{\"Layers\": [\"__mye26_0_myl0_0\"\n,\"target_linear_matmul_myl0_1\"\n],\n\"Bindings\": [\"input\"\n,\"output\"\n]}\n",
+  "L27:o_proj:pt_w8": "{\"Layers\": [\"__mye193_0_myl0_0\"\n,\"target_linear_matmul_myl0_1\"\n],\n\"Bindings\": [\"input\"\n,\"output\"\n]}\n",
+  "L27:o_proj:pc_w8": {
+    "status": "BLOCKED",
+    "error": "RuntimeError: parse failed"
+  },
+  "L27:o_proj:pt_w8a8": "{\"Layers\": [\"__mye212_0_myl0_0\"\n,\"__myl_MulMinMaxRouCas_myl0_1\"\n,\"__myl_FcCas_myl0_2\"\n],\n\"Bindings\": [\"input\"\n,\"output\"\n]}\n",
+  "L27:o_proj:pc_w8a8": {
+    "status": "BLOCKED",
+    "error": "RuntimeError: parse failed"
+  },
+  "L27:gate_proj:fp16": "{\"Layers\": [\"__mye26_0_myl0_0\"\n,\"target_linear_matmul_myl0_1\"\n],\n\"Bindings\": [\"input\"\n,\"output\"\n]}\n",
+  "L27:gate_proj:pt_w8": "{\"Layers\": [\"__mye193_0_myl0_0\"\n,\"target_linear_matmul_myl0_1\"\n],\n\"Bindings\": [\"input\"\n,\"output\"\n]}\n",
+  "L27:gate_proj:pc_w8": {
+    "status": "BLOCKED",
+    "error": "RuntimeError: parse failed"
+  },
+  "L27:gate_proj:pt_w8a8": "{\"Layers\": [\"__mye212_0_myl0_0\"\n,\"__myl_MulMinMaxRouCas_myl0_1\"\n,\"__myl_FcCas_myl0_2\"\n],\n\"Bindings\": [\"input\"\n,\"output\"\n]}\n",
+  "L27:gate_proj:pc_w8a8": {
+    "status": "BLOCKED",
+    "error": "RuntimeError: parse failed"
+  },
+  "L27:up_proj:fp16": "{\"Layers\": [\"__mye26_0_myl0_0\"\n,\"target_linear_matmul_myl0_1\"\n],\n\"Bindings\": [\"input\"\n,\"output\"\n]}\n",
+  "L27:up_proj:pt_w8": "{\"Layers\": [\"__mye193_0_myl0_0\"\n,\"target_linear_matmul_myl0_1\"\n],\n\"Bindings\": [\"input\"\n,\"output\"\n]}\n",
+  "L27:up_proj:pc_w8": {
+    "status": "BLOCKED",
+    "error": "RuntimeError: parse failed"
+  },
+  "L27:up_proj:pt_w8a8": "{\"Layers\": [\"__mye212_0_myl0_0\"\n,\"__myl_MulMinMaxRouCas_myl0_1\"\n,\"__myl_FcCas_myl0_2\"\n],\n\"Bindings\": [\"input\"\n,\"output\"\n]}\n",
+  "L27:up_proj:pc_w8a8": {
+    "status": "BLOCKED",
+    "error": "RuntimeError: parse failed"
+  },
+  "L6:down_proj:fp16": "{\"Layers\": [\"__mye26_0_myl0_0\"\n,\"target_linear_matmul_myl0_1\"\n],\n\"Bindings\": [\"input\"\n,\"output\"\n]}\n",
+  "L6:down_proj:pt_w8": "{\"Layers\": [\"__mye193_0_myl0_0\"\n,\"target_linear_matmul_myl0_1\"\n],\n\"Bindings\": [\"input\"\n,\"output\"\n]}\n",
+  "L6:down_proj:pc_w8": {
+    "status": "BLOCKED",
+    "error": "RuntimeError: parse failed"
+  },
+  "L6:down_proj:pt_w8a8": "{\"Layers\": [\"__mye212_0_myl0_0\"\n,\"__myl_MulMinMaxRouCas_myl0_1\"\n,\"__myl_FcCas_myl0_2\"\n],\n\"Bindings\": [\"input\"\n,\"output\"\n]}\n",
+  "L6:down_proj:pc_w8a8": {
+    "status": "BLOCKED",
+    "error": "RuntimeError: parse failed"
+  }
+}

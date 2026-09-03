@@ -1,0 +1,16 @@
+{
+  "exit137": false,
+  "oom": false,
+  "trace": [
+    {
+      "max_rss_bytes": 365969408,
+      "mem_available_bytes": 5230546944,
+      "stage": "start"
+    },
+    {
+      "max_rss_bytes": 3646595072,
+      "mem_available_bytes": 2893860864,
+      "stage": "complete"
+    }
+  ]
+}

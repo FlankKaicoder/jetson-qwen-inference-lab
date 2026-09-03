@@ -1,0 +1,9 @@
+{
+  "branch": "phase/02-qwen3-quantization",
+  "head": "a1317a06f83634406bfb732a61f57a698e6aee2d",
+  "memory": {
+    "stage": "start",
+    "mem_available_bytes": 5230546944,
+    "max_rss_bytes": 365969408
+  }
+}

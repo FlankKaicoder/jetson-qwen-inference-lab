@@ -1,0 +1,14 @@
+{
+  "count": 8,
+  "rule": "Layer 0 q_proj plus worst dynamic PT-W8A8 P95 per operator, deduplicated, max 8",
+  "targets": [
+    "L0:q_proj",
+    "L1:q_proj",
+    "L16:k_proj",
+    "L18:v_proj",
+    "L27:o_proj",
+    "L27:gate_proj",
+    "L27:up_proj",
+    "L6:down_proj"
+  ]
+}

@@ -1,0 +1,259 @@
+{
+  "capture_method": "real Transformers forward-pre-hook on every target Linear",
+  "classification": "EXACT_LINEAR_INPUT_PROVEN",
+  "rows": [
+    {
+      "all_inputs_finite": true,
+      "captured_targets": 196,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_001",
+      "token_count": 8
+    },
+    {
+      "all_inputs_finite": true,
+      "captured_targets": 196,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_002",
+      "token_count": 6
+    },
+    {
+      "all_inputs_finite": true,
+      "captured_targets": 196,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_003",
+      "token_count": 13
+    },
+    {
+      "all_inputs_finite": true,
+      "captured_targets": 196,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_004",
+      "token_count": 13
+    },
+    {
+      "all_inputs_finite": true,
+      "captured_targets": 196,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_005",
+      "token_count": 10
+    },
+    {
+      "all_inputs_finite": true,
+      "captured_targets": 196,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_006",
+      "token_count": 16
+    },
+    {
+      "all_inputs_finite": true,
+      "captured_targets": 196,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_007",
+      "token_count": 18
+    },
+    {
+      "all_inputs_finite": true,
+      "captured_targets": 196,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_008",
+      "token_count": 18
+    },
+    {
+      "all_inputs_finite": true,
+      "captured_targets": 196,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_009",
+      "token_count": 31
+    },
+    {
+      "all_inputs_finite": true,
+      "captured_targets": 196,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_010",
+      "token_count": 31
+    },
+    {
+      "all_inputs_finite": true,
+      "captured_targets": 196,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_011",
+      "token_count": 32
+    },
+    {
+      "all_inputs_finite": true,
+      "captured_targets": 196,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_012",
+      "token_count": 29
+    },
+    {
+      "all_inputs_finite": true,
+      "captured_targets": 196,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_013",
+      "token_count": 36
+    },
+    {
+      "all_inputs_finite": true,
+      "captured_targets": 196,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_014",
+      "token_count": 53
+    },
+    {
+      "all_inputs_finite": true,
+      "captured_targets": 196,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_015",
+      "token_count": 55
+    },
+    {
+      "all_inputs_finite": true,
+      "captured_targets": 196,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_016",
+      "token_count": 54
+    },
+    {
+      "all_inputs_finite": true,
+      "captured_targets": 196,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_017",
+      "token_count": 54
+    },
+    {
+      "all_inputs_finite": true,
+      "captured_targets": 196,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_018",
+      "token_count": 55
+    },
+    {
+      "all_inputs_finite": true,
+      "captured_targets": 196,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_019",
+      "token_count": 118
+    },
+    {
+      "all_inputs_finite": true,
+      "captured_targets": 196,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_020",
+      "token_count": 136
+    },
+    {
+      "all_inputs_finite": true,
+      "captured_targets": 196,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_021",
+      "token_count": 110
+    },
+    {
+      "all_inputs_finite": true,
+      "captured_targets": 196,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_022",
+      "token_count": 169
+    },
+    {
+      "all_inputs_finite": true,
+      "captured_targets": 196,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_023",
+      "token_count": 115
+    },
+    {
+      "all_inputs_finite": true,
+      "captured_targets": 196,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_024",
+      "token_count": 108
+    },
+    {
+      "all_inputs_finite": true,
+      "captured_targets": 196,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "eva_025",
+      "token_count": 12
+    },
+    {
+      "all_inputs_finite": true,
+      "captured_targets": 196,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "eva_026",
+      "token_count": 10
+    },
+    {
+      "all_inputs_finite": true,
+      "captured_targets": 196,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "eva_027",
+      "token_count": 17
+    },
+    {
+      "all_inputs_finite": true,
+      "captured_targets": 196,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "eva_028",
+      "token_count": 35
+    },
+    {
+      "all_inputs_finite": true,
+      "captured_targets": 196,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "eva_029",
+      "token_count": 36
+    },
+    {
+      "all_inputs_finite": true,
+      "captured_targets": 196,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "eva_030",
+      "token_count": 33
+    },
+    {
+      "all_inputs_finite": true,
+      "captured_targets": 196,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "eva_031",
+      "token_count": 40
+    },
+    {
+      "all_inputs_finite": true,
+      "captured_targets": 196,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "eva_032",
+      "token_count": 58
+    },
+    {
+      "all_inputs_finite": true,
+      "captured_targets": 196,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "eva_033",
+      "token_count": 58
+    },
+    {
+      "all_inputs_finite": true,
+      "captured_targets": 196,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "eva_034",
+      "token_count": 140
+    },
+    {
+      "all_inputs_finite": true,
+      "captured_targets": 196,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "eva_035",
+      "token_count": 114
+    },
+    {
+      "all_inputs_finite": true,
+      "captured_targets": 196,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "eva_036",
+      "token_count": 112
+    }
+  ],
+  "target_count": 196
+}

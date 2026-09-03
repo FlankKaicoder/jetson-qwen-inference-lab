@@ -1,0 +1,17 @@
+{
+  "all_outputs_finite": true,
+  "c1_reopened": false,
+  "calibration_algorithm": "BOUNDED_MSE_CLIP",
+  "calibration_samples": 24,
+  "dynamic_targets": 34,
+  "evaluation_samples": 12,
+  "exact_linear_input_proven": true,
+  "gate": "PASS",
+  "no_28_layer_quantized_runtime": true,
+  "no_benchmark": true,
+  "no_nsight": true,
+  "phase": "Phase 2.3-C",
+  "split_disjoint": true,
+  "static_weights": 196,
+  "trt_confirmation_targets": 8
+}

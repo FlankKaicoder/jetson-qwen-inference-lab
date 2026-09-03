@@ -1,0 +1,1396 @@
+{
+  "L0:down_proj": {
+    "algorithm": "BOUNDED_MSE_CLIP",
+    "calibration_global_absmax": 8.3125,
+    "grid": [
+      {
+        "factor": 0.9,
+        "mse": 0.00026001641163020395,
+        "range": 7.48125,
+        "scale": 0.05890748031496063
+      },
+      {
+        "factor": 0.925,
+        "mse": 0.0002737465620157309,
+        "range": 7.6890625,
+        "scale": 0.06054379921259843
+      },
+      {
+        "factor": 0.95,
+        "mse": 0.0002876741054933518,
+        "range": 7.896875,
+        "scale": 0.062180118110236215
+      },
+      {
+        "factor": 0.975,
+        "mse": 0.000301968468799411,
+        "range": 8.104687499999999,
+        "scale": 0.06381643700787401
+      },
+      {
+        "factor": 1.0,
+        "mse": 0.00031612048284538713,
+        "range": 8.3125,
+        "scale": 0.0654527559055118
+      }
+    ],
+    "range": 7.48125,
+    "scale": 0.05890748031496063,
+    "scheme": "symmetric per-tensor INT8 activation",
+    "selected_factor": 0.9,
+    "zero_point": 0
+  },
+  "L0:gate_proj": {
+    "algorithm": "BOUNDED_MSE_CLIP",
+    "calibration_global_absmax": 10.875,
+    "grid": [
+      {
+        "factor": 0.9,
+        "mse": 0.0004949632129864767,
+        "range": 9.7875,
+        "scale": 0.07706692913385826
+      },
+      {
+        "factor": 0.925,
+        "mse": 0.0005209007188871814,
+        "range": 10.059375000000001,
+        "scale": 0.07920767716535435
+      },
+      {
+        "factor": 0.95,
+        "mse": 0.0005480313266161829,
+        "range": 10.331249999999999,
+        "scale": 0.08134842519685039
+      },
+      {
+        "factor": 0.975,
+        "mse": 0.0005764535453636199,
+        "range": 10.603125,
+        "scale": 0.08348917322834645
+      },
+      {
+        "factor": 1.0,
+        "mse": 0.0006068405103481685,
+        "range": 10.875,
+        "scale": 0.08562992125984252
+      }
+    ],
+    "range": 9.7875,
+    "scale": 0.07706692913385826,
+    "scheme": "symmetric per-tensor INT8 activation",
+    "selected_factor": 0.9,
+    "zero_point": 0
+  },
+  "L0:k_proj": {
+    "algorithm": "BOUNDED_MSE_CLIP",
+    "calibration_global_absmax": 3.4375,
+    "grid": [
+      {
+        "factor": 0.9,
+        "mse": 4.976139022498197e-05,
+        "range": 3.09375,
+        "scale": 0.02436023622047244
+      },
+      {
+        "factor": 0.925,
+        "mse": 5.2349944477706835e-05,
+        "range": 3.1796875,
+        "scale": 0.0250369094488189
+      },
+      {
+        "factor": 0.95,
+        "mse": 5.534656384043046e-05,
+        "range": 3.265625,
+        "scale": 0.025713582677165354
+      },
+      {
+        "factor": 0.975,
+        "mse": 5.801006833886883e-05,
+        "range": 3.3515625,
+        "scale": 0.026390255905511813
+      },
+      {
+        "factor": 1.0,
+        "mse": 6.094543656824195e-05,
+        "range": 3.4375,
+        "scale": 0.027066929133858268
+      }
+    ],
+    "range": 3.09375,
+    "scale": 0.02436023622047244,
+    "scheme": "symmetric per-tensor INT8 activation",
+    "selected_factor": 0.9,
+    "zero_point": 0
+  },
+  "L0:o_proj": {
+    "algorithm": "BOUNDED_MSE_CLIP",
+    "calibration_global_absmax": 2.296875,
+    "grid": [
+      {
+        "factor": 0.9,
+        "mse": 2.2416991517578328e-05,
+        "range": 2.0671875,
+        "scale": 0.01627706692913386
+      },
+      {
+        "factor": 0.925,
+        "mse": 2.3472841348848306e-05,
+        "range": 2.124609375,
+        "scale": 0.016729207677165354
+      },
+      {
+        "factor": 0.95,
+        "mse": 2.4676477020572445e-05,
+        "range": 2.18203125,
+        "scale": 0.017181348425196852
+      },
+      {
+        "factor": 0.975,
+        "mse": 2.5933809335280483e-05,
+        "range": 2.239453125,
+        "scale": 0.017633489173228344
+      },
+      {
+        "factor": 1.0,
+        "mse": 2.728932781792537e-05,
+        "range": 2.296875,
+        "scale": 0.01808562992125984
+      }
+    ],
+    "range": 2.0671875,
+    "scale": 0.01627706692913386,
+    "scheme": "symmetric per-tensor INT8 activation",
+    "selected_factor": 0.9,
+    "zero_point": 0
+  },
+  "L0:q_proj": {
+    "algorithm": "BOUNDED_MSE_CLIP",
+    "calibration_global_absmax": 3.4375,
+    "grid": [
+      {
+        "factor": 0.9,
+        "mse": 4.976139022498197e-05,
+        "range": 3.09375,
+        "scale": 0.02436023622047244
+      },
+      {
+        "factor": 0.925,
+        "mse": 5.2349944477706835e-05,
+        "range": 3.1796875,
+        "scale": 0.0250369094488189
+      },
+      {
+        "factor": 0.95,
+        "mse": 5.534656384043046e-05,
+        "range": 3.265625,
+        "scale": 0.025713582677165354
+      },
+      {
+        "factor": 0.975,
+        "mse": 5.801006833886883e-05,
+        "range": 3.3515625,
+        "scale": 0.026390255905511813
+      },
+      {
+        "factor": 1.0,
+        "mse": 6.094543656824195e-05,
+        "range": 3.4375,
+        "scale": 0.027066929133858268
+      }
+    ],
+    "range": 3.09375,
+    "scale": 0.02436023622047244,
+    "scheme": "symmetric per-tensor INT8 activation",
+    "selected_factor": 0.9,
+    "zero_point": 0
+  },
+  "L0:up_proj": {
+    "algorithm": "BOUNDED_MSE_CLIP",
+    "calibration_global_absmax": 10.875,
+    "grid": [
+      {
+        "factor": 0.9,
+        "mse": 0.0004949632129864767,
+        "range": 9.7875,
+        "scale": 0.07706692913385826
+      },
+      {
+        "factor": 0.925,
+        "mse": 0.0005209007188871814,
+        "range": 10.059375000000001,
+        "scale": 0.07920767716535435
+      },
+      {
+        "factor": 0.95,
+        "mse": 0.0005480313266161829,
+        "range": 10.331249999999999,
+        "scale": 0.08134842519685039
+      },
+      {
+        "factor": 0.975,
+        "mse": 0.0005764535453636199,
+        "range": 10.603125,
+        "scale": 0.08348917322834645
+      },
+      {
+        "factor": 1.0,
+        "mse": 0.0006068405103481685,
+        "range": 10.875,
+        "scale": 0.08562992125984252
+      }
+    ],
+    "range": 9.7875,
+    "scale": 0.07706692913385826,
+    "scheme": "symmetric per-tensor INT8 activation",
+    "selected_factor": 0.9,
+    "zero_point": 0
+  },
+  "L0:v_proj": {
+    "algorithm": "BOUNDED_MSE_CLIP",
+    "calibration_global_absmax": 3.4375,
+    "grid": [
+      {
+        "factor": 0.9,
+        "mse": 4.976139022498197e-05,
+        "range": 3.09375,
+        "scale": 0.02436023622047244
+      },
+      {
+        "factor": 0.925,
+        "mse": 5.2349944477706835e-05,
+        "range": 3.1796875,
+        "scale": 0.0250369094488189
+      },
+      {
+        "factor": 0.95,
+        "mse": 5.534656384043046e-05,
+        "range": 3.265625,
+        "scale": 0.025713582677165354
+      },
+      {
+        "factor": 0.975,
+        "mse": 5.801006833886883e-05,
+        "range": 3.3515625,
+        "scale": 0.026390255905511813
+      },
+      {
+        "factor": 1.0,
+        "mse": 6.094543656824195e-05,
+        "range": 3.4375,
+        "scale": 0.027066929133858268
+      }
+    ],
+    "range": 3.09375,
+    "scale": 0.02436023622047244,
+    "scheme": "symmetric per-tensor INT8 activation",
+    "selected_factor": 0.9,
+    "zero_point": 0
+  },
+  "L16:k_proj": {
+    "algorithm": "BOUNDED_MSE_CLIP",
+    "calibration_global_absmax": 67.0,
+    "grid": [
+      {
+        "factor": 0.9,
+        "mse": 0.018075764722501237,
+        "range": 60.300000000000004,
+        "scale": 0.47480314960629927
+      },
+      {
+        "factor": 0.925,
+        "mse": 0.019070300040766597,
+        "range": 61.975,
+        "scale": 0.48799212598425196
+      },
+      {
+        "factor": 0.95,
+        "mse": 0.02010767472287019,
+        "range": 63.65,
+        "scale": 0.5011811023622047
+      },
+      {
+        "factor": 0.975,
+        "mse": 0.021221640597408015,
+        "range": 65.325,
+        "scale": 0.5143700787401575
+      },
+      {
+        "factor": 1.0,
+        "mse": 0.022340671081716817,
+        "range": 67.0,
+        "scale": 0.5275590551181102
+      }
+    ],
+    "range": 60.300000000000004,
+    "scale": 0.47480314960629927,
+    "scheme": "symmetric per-tensor INT8 activation",
+    "selected_factor": 0.9,
+    "zero_point": 0
+  },
+  "L18:down_proj": {
+    "algorithm": "BOUNDED_MSE_CLIP",
+    "calibration_global_absmax": 68.5,
+    "grid": [
+      {
+        "factor": 0.9,
+        "mse": 0.016284788609482348,
+        "range": 61.65,
+        "scale": 0.48543307086614174
+      },
+      {
+        "factor": 0.925,
+        "mse": 0.017110206031550963,
+        "range": 63.362500000000004,
+        "scale": 0.4989173228346457
+      },
+      {
+        "factor": 0.95,
+        "mse": 0.017915335406238835,
+        "range": 65.075,
+        "scale": 0.5124015748031496
+      },
+      {
+        "factor": 0.975,
+        "mse": 0.01876370996857683,
+        "range": 66.7875,
+        "scale": 0.5258858267716535
+      },
+      {
+        "factor": 1.0,
+        "mse": 0.01962957895981769,
+        "range": 68.5,
+        "scale": 0.5393700787401575
+      }
+    ],
+    "range": 61.65,
+    "scale": 0.48543307086614174,
+    "scheme": "symmetric per-tensor INT8 activation",
+    "selected_factor": 0.9,
+    "zero_point": 0
+  },
+  "L18:gate_proj": {
+    "algorithm": "BOUNDED_MSE_CLIP",
+    "calibration_global_absmax": 47.0,
+    "grid": [
+      {
+        "factor": 0.9,
+        "mse": 0.008882577414624393,
+        "range": 42.300000000000004,
+        "scale": 0.3330708661417323
+      },
+      {
+        "factor": 0.925,
+        "mse": 0.009392236786273619,
+        "range": 43.475,
+        "scale": 0.3423228346456693
+      },
+      {
+        "factor": 0.95,
+        "mse": 0.00989079448239257,
+        "range": 44.65,
+        "scale": 0.35157480314960626
+      },
+      {
+        "factor": 0.975,
+        "mse": 0.01041241157023857,
+        "range": 45.824999999999996,
+        "scale": 0.36082677165354327
+      },
+      {
+        "factor": 1.0,
+        "mse": 0.01095646332638959,
+        "range": 47.0,
+        "scale": 0.3700787401574803
+      }
+    ],
+    "range": 42.300000000000004,
+    "scale": 0.3330708661417323,
+    "scheme": "symmetric per-tensor INT8 activation",
+    "selected_factor": 0.9,
+    "zero_point": 0
+  },
+  "L18:k_proj": {
+    "algorithm": "BOUNDED_MSE_CLIP",
+    "calibration_global_absmax": 116.0,
+    "grid": [
+      {
+        "factor": 0.9,
+        "mse": 0.054229601131131254,
+        "range": 104.4,
+        "scale": 0.8220472440944883
+      },
+      {
+        "factor": 0.925,
+        "mse": 0.0571770197711885,
+        "range": 107.30000000000001,
+        "scale": 0.8448818897637796
+      },
+      {
+        "factor": 0.95,
+        "mse": 0.06029100529849529,
+        "range": 110.19999999999999,
+        "scale": 0.8677165354330708
+      },
+      {
+        "factor": 0.975,
+        "mse": 0.06354078805694978,
+        "range": 113.1,
+        "scale": 0.8905511811023622
+      },
+      {
+        "factor": 1.0,
+        "mse": 0.06686074488485853,
+        "range": 116.0,
+        "scale": 0.9133858267716536
+      }
+    ],
+    "range": 104.4,
+    "scale": 0.8220472440944883,
+    "scheme": "symmetric per-tensor INT8 activation",
+    "selected_factor": 0.9,
+    "zero_point": 0
+  },
+  "L18:o_proj": {
+    "algorithm": "BOUNDED_MSE_CLIP",
+    "calibration_global_absmax": 16.375,
+    "grid": [
+      {
+        "factor": 0.9,
+        "mse": 0.0011171920438452314,
+        "range": 14.7375,
+        "scale": 0.11604330708661417
+      },
+      {
+        "factor": 0.925,
+        "mse": 0.0011781952683425818,
+        "range": 15.146875000000001,
+        "scale": 0.11926673228346457
+      },
+      {
+        "factor": 0.95,
+        "mse": 0.001241980566798399,
+        "range": 15.556249999999999,
+        "scale": 0.12249015748031494
+      },
+      {
+        "factor": 0.975,
+        "mse": 0.0013091668612711753,
+        "range": 15.965625,
+        "scale": 0.12571358267716534
+      },
+      {
+        "factor": 1.0,
+        "mse": 0.00137449938726301,
+        "range": 16.375,
+        "scale": 0.12893700787401574
+      }
+    ],
+    "range": 14.7375,
+    "scale": 0.11604330708661417,
+    "scheme": "symmetric per-tensor INT8 activation",
+    "selected_factor": 0.9,
+    "zero_point": 0
+  },
+  "L18:q_proj": {
+    "algorithm": "BOUNDED_MSE_CLIP",
+    "calibration_global_absmax": 116.0,
+    "grid": [
+      {
+        "factor": 0.9,
+        "mse": 0.054229601131131254,
+        "range": 104.4,
+        "scale": 0.8220472440944883
+      },
+      {
+        "factor": 0.925,
+        "mse": 0.0571770197711885,
+        "range": 107.30000000000001,
+        "scale": 0.8448818897637796
+      },
+      {
+        "factor": 0.95,
+        "mse": 0.06029100529849529,
+        "range": 110.19999999999999,
+        "scale": 0.8677165354330708
+      },
+      {
+        "factor": 0.975,
+        "mse": 0.06354078805694978,
+        "range": 113.1,
+        "scale": 0.8905511811023622
+      },
+      {
+        "factor": 1.0,
+        "mse": 0.06686074488485853,
+        "range": 116.0,
+        "scale": 0.9133858267716536
+      }
+    ],
+    "range": 104.4,
+    "scale": 0.8220472440944883,
+    "scheme": "symmetric per-tensor INT8 activation",
+    "selected_factor": 0.9,
+    "zero_point": 0
+  },
+  "L18:up_proj": {
+    "algorithm": "BOUNDED_MSE_CLIP",
+    "calibration_global_absmax": 47.0,
+    "grid": [
+      {
+        "factor": 0.9,
+        "mse": 0.008882577414624393,
+        "range": 42.300000000000004,
+        "scale": 0.3330708661417323
+      },
+      {
+        "factor": 0.925,
+        "mse": 0.009392236786273619,
+        "range": 43.475,
+        "scale": 0.3423228346456693
+      },
+      {
+        "factor": 0.95,
+        "mse": 0.00989079448239257,
+        "range": 44.65,
+        "scale": 0.35157480314960626
+      },
+      {
+        "factor": 0.975,
+        "mse": 0.01041241157023857,
+        "range": 45.824999999999996,
+        "scale": 0.36082677165354327
+      },
+      {
+        "factor": 1.0,
+        "mse": 0.01095646332638959,
+        "range": 47.0,
+        "scale": 0.3700787401574803
+      }
+    ],
+    "range": 42.300000000000004,
+    "scale": 0.3330708661417323,
+    "scheme": "symmetric per-tensor INT8 activation",
+    "selected_factor": 0.9,
+    "zero_point": 0
+  },
+  "L18:v_proj": {
+    "algorithm": "BOUNDED_MSE_CLIP",
+    "calibration_global_absmax": 116.0,
+    "grid": [
+      {
+        "factor": 0.9,
+        "mse": 0.054229601131131254,
+        "range": 104.4,
+        "scale": 0.8220472440944883
+      },
+      {
+        "factor": 0.925,
+        "mse": 0.0571770197711885,
+        "range": 107.30000000000001,
+        "scale": 0.8448818897637796
+      },
+      {
+        "factor": 0.95,
+        "mse": 0.06029100529849529,
+        "range": 110.19999999999999,
+        "scale": 0.8677165354330708
+      },
+      {
+        "factor": 0.975,
+        "mse": 0.06354078805694978,
+        "range": 113.1,
+        "scale": 0.8905511811023622
+      },
+      {
+        "factor": 1.0,
+        "mse": 0.06686074488485853,
+        "range": 116.0,
+        "scale": 0.9133858267716536
+      }
+    ],
+    "range": 104.4,
+    "scale": 0.8220472440944883,
+    "scheme": "symmetric per-tensor INT8 activation",
+    "selected_factor": 0.9,
+    "zero_point": 0
+  },
+  "L1:q_proj": {
+    "algorithm": "BOUNDED_MSE_CLIP",
+    "calibration_global_absmax": 3.140625,
+    "grid": [
+      {
+        "factor": 0.9,
+        "mse": 4.161466722507612e-05,
+        "range": 2.8265625,
+        "scale": 0.022256397637795276
+      },
+      {
+        "factor": 0.925,
+        "mse": 4.375055823402363e-05,
+        "range": 2.905078125,
+        "scale": 0.02287463090551181
+      },
+      {
+        "factor": 0.95,
+        "mse": 4.6043608714777896e-05,
+        "range": 2.98359375,
+        "scale": 0.023492864173228344
+      },
+      {
+        "factor": 0.975,
+        "mse": 4.848758574856523e-05,
+        "range": 3.062109375,
+        "scale": 0.024111097440944883
+      },
+      {
+        "factor": 1.0,
+        "mse": 5.0964887274555316e-05,
+        "range": 3.140625,
+        "scale": 0.02472933070866142
+      }
+    ],
+    "range": 2.8265625,
+    "scale": 0.022256397637795276,
+    "scheme": "symmetric per-tensor INT8 activation",
+    "selected_factor": 0.9,
+    "zero_point": 0
+  },
+  "L26:gate_proj": {
+    "algorithm": "BOUNDED_MSE_CLIP",
+    "calibration_global_absmax": 64.5,
+    "grid": [
+      {
+        "factor": 0.9,
+        "mse": 0.01819646094615261,
+        "range": 58.050000000000004,
+        "scale": 0.4570866141732284
+      },
+      {
+        "factor": 0.925,
+        "mse": 0.018451592419296503,
+        "range": 59.6625,
+        "scale": 0.46978346456692915
+      },
+      {
+        "factor": 0.95,
+        "mse": 0.018960462184622884,
+        "range": 61.275,
+        "scale": 0.48248031496062993
+      },
+      {
+        "factor": 0.975,
+        "mse": 0.01971558171013991,
+        "range": 62.887499999999996,
+        "scale": 0.49517716535433065
+      },
+      {
+        "factor": 1.0,
+        "mse": 0.020680462941527367,
+        "range": 64.5,
+        "scale": 0.5078740157480315
+      }
+    ],
+    "range": 58.050000000000004,
+    "scale": 0.4570866141732284,
+    "scheme": "symmetric per-tensor INT8 activation",
+    "selected_factor": 0.9,
+    "zero_point": 0
+  },
+  "L27:down_proj": {
+    "algorithm": "BOUNDED_MSE_CLIP",
+    "calibration_global_absmax": 1800.0,
+    "grid": [
+      {
+        "factor": 0.9,
+        "mse": 1.1573180730144184,
+        "range": 1620.0,
+        "scale": 12.755905511811024
+      },
+      {
+        "factor": 0.925,
+        "mse": 1.1586256449421246,
+        "range": 1665.0,
+        "scale": 13.11023622047244
+      },
+      {
+        "factor": 0.95,
+        "mse": 1.1797601679960887,
+        "range": 1710.0,
+        "scale": 13.464566929133857
+      },
+      {
+        "factor": 0.975,
+        "mse": 1.2119093934694927,
+        "range": 1755.0,
+        "scale": 13.818897637795276
+      },
+      {
+        "factor": 1.0,
+        "mse": 1.2486606687307358,
+        "range": 1800.0,
+        "scale": 14.173228346456693
+      }
+    ],
+    "range": 1620.0,
+    "scale": 12.755905511811024,
+    "scheme": "symmetric per-tensor INT8 activation",
+    "selected_factor": 0.9,
+    "zero_point": 0
+  },
+  "L27:gate_proj": {
+    "algorithm": "BOUNDED_MSE_CLIP",
+    "calibration_global_absmax": 536.0,
+    "grid": [
+      {
+        "factor": 0.9,
+        "mse": 1.0795461535453796,
+        "range": 482.40000000000003,
+        "scale": 3.798425196850394
+      },
+      {
+        "factor": 0.925,
+        "mse": 1.0983283817768097,
+        "range": 495.8,
+        "scale": 3.9039370078740157
+      },
+      {
+        "factor": 0.95,
+        "mse": 1.1292685518662136,
+        "range": 509.2,
+        "scale": 4.009448818897638
+      },
+      {
+        "factor": 0.975,
+        "mse": 1.168847141166528,
+        "range": 522.6,
+        "scale": 4.11496062992126
+      },
+      {
+        "factor": 1.0,
+        "mse": 1.2112059891223907,
+        "range": 536.0,
+        "scale": 4.2204724409448815
+      }
+    ],
+    "range": 482.40000000000003,
+    "scale": 3.798425196850394,
+    "scheme": "symmetric per-tensor INT8 activation",
+    "selected_factor": 0.9,
+    "zero_point": 0
+  },
+  "L27:k_proj": {
+    "algorithm": "BOUNDED_MSE_CLIP",
+    "calibration_global_absmax": 251.0,
+    "grid": [
+      {
+        "factor": 0.9,
+        "mse": 0.25626188268264133,
+        "range": 225.9,
+        "scale": 1.778740157480315
+      },
+      {
+        "factor": 0.925,
+        "mse": 0.27007874846458435,
+        "range": 232.175,
+        "scale": 1.8281496062992126
+      },
+      {
+        "factor": 0.95,
+        "mse": 0.2850518673658371,
+        "range": 238.45,
+        "scale": 1.87755905511811
+      },
+      {
+        "factor": 0.975,
+        "mse": 0.29995252067844075,
+        "range": 244.725,
+        "scale": 1.926968503937008
+      },
+      {
+        "factor": 1.0,
+        "mse": 0.31533046066761017,
+        "range": 251.0,
+        "scale": 1.9763779527559056
+      }
+    ],
+    "range": 225.9,
+    "scale": 1.778740157480315,
+    "scheme": "symmetric per-tensor INT8 activation",
+    "selected_factor": 0.9,
+    "zero_point": 0
+  },
+  "L27:o_proj": {
+    "algorithm": "BOUNDED_MSE_CLIP",
+    "calibration_global_absmax": 98.0,
+    "grid": [
+      {
+        "factor": 0.9,
+        "mse": 0.03931796085089445,
+        "range": 88.2,
+        "scale": 0.694488188976378
+      },
+      {
+        "factor": 0.925,
+        "mse": 0.041353519074618816,
+        "range": 90.65,
+        "scale": 0.7137795275590552
+      },
+      {
+        "factor": 0.95,
+        "mse": 0.04340057695905367,
+        "range": 93.1,
+        "scale": 0.7330708661417322
+      },
+      {
+        "factor": 0.975,
+        "mse": 0.04557567027707895,
+        "range": 95.55,
+        "scale": 0.7523622047244094
+      },
+      {
+        "factor": 1.0,
+        "mse": 0.047774065751582384,
+        "range": 98.0,
+        "scale": 0.7716535433070866
+      }
+    ],
+    "range": 88.2,
+    "scale": 0.694488188976378,
+    "scheme": "symmetric per-tensor INT8 activation",
+    "selected_factor": 0.9,
+    "zero_point": 0
+  },
+  "L27:q_proj": {
+    "algorithm": "BOUNDED_MSE_CLIP",
+    "calibration_global_absmax": 251.0,
+    "grid": [
+      {
+        "factor": 0.9,
+        "mse": 0.25626188268264133,
+        "range": 225.9,
+        "scale": 1.778740157480315
+      },
+      {
+        "factor": 0.925,
+        "mse": 0.27007874846458435,
+        "range": 232.175,
+        "scale": 1.8281496062992126
+      },
+      {
+        "factor": 0.95,
+        "mse": 0.2850518673658371,
+        "range": 238.45,
+        "scale": 1.87755905511811
+      },
+      {
+        "factor": 0.975,
+        "mse": 0.29995252067844075,
+        "range": 244.725,
+        "scale": 1.926968503937008
+      },
+      {
+        "factor": 1.0,
+        "mse": 0.31533046066761017,
+        "range": 251.0,
+        "scale": 1.9763779527559056
+      }
+    ],
+    "range": 225.9,
+    "scale": 1.778740157480315,
+    "scheme": "symmetric per-tensor INT8 activation",
+    "selected_factor": 0.9,
+    "zero_point": 0
+  },
+  "L27:up_proj": {
+    "algorithm": "BOUNDED_MSE_CLIP",
+    "calibration_global_absmax": 536.0,
+    "grid": [
+      {
+        "factor": 0.9,
+        "mse": 1.0795461535453796,
+        "range": 482.40000000000003,
+        "scale": 3.798425196850394
+      },
+      {
+        "factor": 0.925,
+        "mse": 1.0983283817768097,
+        "range": 495.8,
+        "scale": 3.9039370078740157
+      },
+      {
+        "factor": 0.95,
+        "mse": 1.1292685518662136,
+        "range": 509.2,
+        "scale": 4.009448818897638
+      },
+      {
+        "factor": 0.975,
+        "mse": 1.168847141166528,
+        "range": 522.6,
+        "scale": 4.11496062992126
+      },
+      {
+        "factor": 1.0,
+        "mse": 1.2112059891223907,
+        "range": 536.0,
+        "scale": 4.2204724409448815
+      }
+    ],
+    "range": 482.40000000000003,
+    "scale": 3.798425196850394,
+    "scheme": "symmetric per-tensor INT8 activation",
+    "selected_factor": 0.9,
+    "zero_point": 0
+  },
+  "L27:v_proj": {
+    "algorithm": "BOUNDED_MSE_CLIP",
+    "calibration_global_absmax": 251.0,
+    "grid": [
+      {
+        "factor": 0.9,
+        "mse": 0.25626188268264133,
+        "range": 225.9,
+        "scale": 1.778740157480315
+      },
+      {
+        "factor": 0.925,
+        "mse": 0.27007874846458435,
+        "range": 232.175,
+        "scale": 1.8281496062992126
+      },
+      {
+        "factor": 0.95,
+        "mse": 0.2850518673658371,
+        "range": 238.45,
+        "scale": 1.87755905511811
+      },
+      {
+        "factor": 0.975,
+        "mse": 0.29995252067844075,
+        "range": 244.725,
+        "scale": 1.926968503937008
+      },
+      {
+        "factor": 1.0,
+        "mse": 0.31533046066761017,
+        "range": 251.0,
+        "scale": 1.9763779527559056
+      }
+    ],
+    "range": 225.9,
+    "scale": 1.778740157480315,
+    "scheme": "symmetric per-tensor INT8 activation",
+    "selected_factor": 0.9,
+    "zero_point": 0
+  },
+  "L5:o_proj": {
+    "algorithm": "BOUNDED_MSE_CLIP",
+    "calibration_global_absmax": 3.078125,
+    "grid": [
+      {
+        "factor": 0.9,
+        "mse": 3.9518116409453796e-05,
+        "range": 2.7703125,
+        "scale": 0.021813484251968506
+      },
+      {
+        "factor": 0.925,
+        "mse": 4.174214457937827e-05,
+        "range": 2.8472656250000004,
+        "scale": 0.022419414370078744
+      },
+      {
+        "factor": 0.95,
+        "mse": 4.407633226340598e-05,
+        "range": 2.9242187499999996,
+        "scale": 0.023025344488188975
+      },
+      {
+        "factor": 0.975,
+        "mse": 4.643312270976215e-05,
+        "range": 3.001171875,
+        "scale": 0.02363127460629921
+      },
+      {
+        "factor": 1.0,
+        "mse": 4.884137312425688e-05,
+        "range": 3.078125,
+        "scale": 0.024237204724409447
+      }
+    ],
+    "range": 2.7703125,
+    "scale": 0.021813484251968506,
+    "scheme": "symmetric per-tensor INT8 activation",
+    "selected_factor": 0.9,
+    "zero_point": 0
+  },
+  "L6:down_proj": {
+    "algorithm": "BOUNDED_MSE_CLIP",
+    "calibration_global_absmax": 19.25,
+    "grid": [
+      {
+        "factor": 0.9,
+        "mse": 0.0014123915461823344,
+        "range": 17.325,
+        "scale": 0.13641732283464567
+      },
+      {
+        "factor": 0.925,
+        "mse": 0.0014885880324679117,
+        "range": 17.806250000000002,
+        "scale": 0.14020669291338583
+      },
+      {
+        "factor": 0.95,
+        "mse": 0.001566398233990185,
+        "range": 18.287499999999998,
+        "scale": 0.14399606299212597
+      },
+      {
+        "factor": 0.975,
+        "mse": 0.00164660724112764,
+        "range": 18.76875,
+        "scale": 0.14778543307086614
+      },
+      {
+        "factor": 1.0,
+        "mse": 0.0017286003421759233,
+        "range": 19.25,
+        "scale": 0.1515748031496063
+      }
+    ],
+    "range": 17.325,
+    "scale": 0.13641732283464567,
+    "scheme": "symmetric per-tensor INT8 activation",
+    "selected_factor": 0.9,
+    "zero_point": 0
+  },
+  "L7:v_proj": {
+    "algorithm": "BOUNDED_MSE_CLIP",
+    "calibration_global_absmax": 17.5,
+    "grid": [
+      {
+        "factor": 0.9,
+        "mse": 0.0012448565636683877,
+        "range": 15.75,
+        "scale": 0.12401574803149606
+      },
+      {
+        "factor": 0.925,
+        "mse": 0.0013067644322291017,
+        "range": 16.1875,
+        "scale": 0.12746062992125984
+      },
+      {
+        "factor": 0.95,
+        "mse": 0.0013766123835618298,
+        "range": 16.625,
+        "scale": 0.1309055118110236
+      },
+      {
+        "factor": 0.975,
+        "mse": 0.0014487772568827495,
+        "range": 17.0625,
+        "scale": 0.1343503937007874
+      },
+      {
+        "factor": 1.0,
+        "mse": 0.0015219214013389621,
+        "range": 17.5,
+        "scale": 0.1377952755905512
+      }
+    ],
+    "range": 15.75,
+    "scale": 0.12401574803149606,
+    "scheme": "symmetric per-tensor INT8 activation",
+    "selected_factor": 0.9,
+    "zero_point": 0
+  },
+  "L9:down_proj": {
+    "algorithm": "BOUNDED_MSE_CLIP",
+    "calibration_global_absmax": 18.75,
+    "grid": [
+      {
+        "factor": 0.9,
+        "mse": 0.001342032434574018,
+        "range": 16.875,
+        "scale": 0.1328740157480315
+      },
+      {
+        "factor": 0.925,
+        "mse": 0.0014143543085083365,
+        "range": 17.34375,
+        "scale": 0.13656496062992127
+      },
+      {
+        "factor": 0.95,
+        "mse": 0.001487975474447012,
+        "range": 17.8125,
+        "scale": 0.14025590551181102
+      },
+      {
+        "factor": 0.975,
+        "mse": 0.0015639848037001987,
+        "range": 18.28125,
+        "scale": 0.14394685039370078
+      },
+      {
+        "factor": 1.0,
+        "mse": 0.001641726814947712,
+        "range": 18.75,
+        "scale": 0.14763779527559054
+      }
+    ],
+    "range": 16.875,
+    "scale": 0.1328740157480315,
+    "scheme": "symmetric per-tensor INT8 activation",
+    "selected_factor": 0.9,
+    "zero_point": 0
+  },
+  "L9:gate_proj": {
+    "algorithm": "BOUNDED_MSE_CLIP",
+    "calibration_global_absmax": 26.875,
+    "grid": [
+      {
+        "factor": 0.9,
+        "mse": 0.0029129628383088857,
+        "range": 24.1875,
+        "scale": 0.1904527559055118
+      },
+      {
+        "factor": 0.925,
+        "mse": 0.0030702023844545088,
+        "range": 24.859375,
+        "scale": 0.19574311023622049
+      },
+      {
+        "factor": 0.95,
+        "mse": 0.0032335274348345897,
+        "range": 25.53125,
+        "scale": 0.20103346456692914
+      },
+      {
+        "factor": 0.975,
+        "mse": 0.0034024829316573837,
+        "range": 26.203125,
+        "scale": 0.2063238188976378
+      },
+      {
+        "factor": 1.0,
+        "mse": 0.0035752855765167624,
+        "range": 26.875,
+        "scale": 0.21161417322834647
+      }
+    ],
+    "range": 24.1875,
+    "scale": 0.1904527559055118,
+    "scheme": "symmetric per-tensor INT8 activation",
+    "selected_factor": 0.9,
+    "zero_point": 0
+  },
+  "L9:k_proj": {
+    "algorithm": "BOUNDED_MSE_CLIP",
+    "calibration_global_absmax": 26.125,
+    "grid": [
+      {
+        "factor": 0.9,
+        "mse": 0.0028032089370147637,
+        "range": 23.5125,
+        "scale": 0.18513779527559054
+      },
+      {
+        "factor": 0.925,
+        "mse": 0.002928837318904698,
+        "range": 24.165625000000002,
+        "scale": 0.19028051181102365
+      },
+      {
+        "factor": 0.95,
+        "mse": 0.003071443837446471,
+        "range": 24.818749999999998,
+        "scale": 0.19542322834645667
+      },
+      {
+        "factor": 0.975,
+        "mse": 0.0032259368939169994,
+        "range": 25.471875,
+        "scale": 0.20056594488188978
+      },
+      {
+        "factor": 1.0,
+        "mse": 0.003392512745146329,
+        "range": 26.125,
+        "scale": 0.20570866141732283
+      }
+    ],
+    "range": 23.5125,
+    "scale": 0.18513779527559054,
+    "scheme": "symmetric per-tensor INT8 activation",
+    "selected_factor": 0.9,
+    "zero_point": 0
+  },
+  "L9:o_proj": {
+    "algorithm": "BOUNDED_MSE_CLIP",
+    "calibration_global_absmax": 5.53125,
+    "grid": [
+      {
+        "factor": 0.9,
+        "mse": 0.0001280119213333819,
+        "range": 4.978125,
+        "scale": 0.0391978346456693
+      },
+      {
+        "factor": 0.925,
+        "mse": 0.00013502750152838416,
+        "range": 5.11640625,
+        "scale": 0.040286663385826774
+      },
+      {
+        "factor": 0.95,
+        "mse": 0.00014242353245208506,
+        "range": 5.2546875,
+        "scale": 0.04137549212598425
+      },
+      {
+        "factor": 0.975,
+        "mse": 0.00014974691597065734,
+        "range": 5.39296875,
+        "scale": 0.04246432086614173
+      },
+      {
+        "factor": 1.0,
+        "mse": 0.00015729326454068845,
+        "range": 5.53125,
+        "scale": 0.04355314960629921
+      }
+    ],
+    "range": 4.978125,
+    "scale": 0.0391978346456693,
+    "scheme": "symmetric per-tensor INT8 activation",
+    "selected_factor": 0.9,
+    "zero_point": 0
+  },
+  "L9:q_proj": {
+    "algorithm": "BOUNDED_MSE_CLIP",
+    "calibration_global_absmax": 26.125,
+    "grid": [
+      {
+        "factor": 0.9,
+        "mse": 0.0028032089370147637,
+        "range": 23.5125,
+        "scale": 0.18513779527559054
+      },
+      {
+        "factor": 0.925,
+        "mse": 0.002928837318904698,
+        "range": 24.165625000000002,
+        "scale": 0.19028051181102365
+      },
+      {
+        "factor": 0.95,
+        "mse": 0.003071443837446471,
+        "range": 24.818749999999998,
+        "scale": 0.19542322834645667
+      },
+      {
+        "factor": 0.975,
+        "mse": 0.0032259368939169994,
+        "range": 25.471875,
+        "scale": 0.20056594488188978
+      },
+      {
+        "factor": 1.0,
+        "mse": 0.003392512745146329,
+        "range": 26.125,
+        "scale": 0.20570866141732283
+      }
+    ],
+    "range": 23.5125,
+    "scale": 0.18513779527559054,
+    "scheme": "symmetric per-tensor INT8 activation",
+    "selected_factor": 0.9,
+    "zero_point": 0
+  },
+  "L9:up_proj": {
+    "algorithm": "BOUNDED_MSE_CLIP",
+    "calibration_global_absmax": 26.875,
+    "grid": [
+      {
+        "factor": 0.9,
+        "mse": 0.0029129628383088857,
+        "range": 24.1875,
+        "scale": 0.1904527559055118
+      },
+      {
+        "factor": 0.925,
+        "mse": 0.0030702023844545088,
+        "range": 24.859375,
+        "scale": 0.19574311023622049
+      },
+      {
+        "factor": 0.95,
+        "mse": 0.0032335274348345897,
+        "range": 25.53125,
+        "scale": 0.20103346456692914
+      },
+      {
+        "factor": 0.975,
+        "mse": 0.0034024829316573837,
+        "range": 26.203125,
+        "scale": 0.2063238188976378
+      },
+      {
+        "factor": 1.0,
+        "mse": 0.0035752855765167624,
+        "range": 26.875,
+        "scale": 0.21161417322834647
+      }
+    ],
+    "range": 24.1875,
+    "scale": 0.1904527559055118,
+    "scheme": "symmetric per-tensor INT8 activation",
+    "selected_factor": 0.9,
+    "zero_point": 0
+  },
+  "L9:v_proj": {
+    "algorithm": "BOUNDED_MSE_CLIP",
+    "calibration_global_absmax": 26.125,
+    "grid": [
+      {
+        "factor": 0.9,
+        "mse": 0.0028032089370147637,
+        "range": 23.5125,
+        "scale": 0.18513779527559054
+      },
+      {
+        "factor": 0.925,
+        "mse": 0.002928837318904698,
+        "range": 24.165625000000002,
+        "scale": 0.19028051181102365
+      },
+      {
+        "factor": 0.95,
+        "mse": 0.003071443837446471,
+        "range": 24.818749999999998,
+        "scale": 0.19542322834645667
+      },
+      {
+        "factor": 0.975,
+        "mse": 0.0032259368939169994,
+        "range": 25.471875,
+        "scale": 0.20056594488188978
+      },
+      {
+        "factor": 1.0,
+        "mse": 0.003392512745146329,
+        "range": 26.125,
+        "scale": 0.20570866141732283
+      }
+    ],
+    "range": 23.5125,
+    "scale": 0.18513779527559054,
+    "scheme": "symmetric per-tensor INT8 activation",
+    "selected_factor": 0.9,
+    "zero_point": 0
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "down_proj": "L6:down_proj",
+  "gate_proj": "L26:gate_proj",
+  "k_proj": "L16:k_proj",
+  "o_proj": "L5:o_proj",
+  "q_proj": "L1:q_proj",
+  "up_proj": "L27:up_proj",
+  "v_proj": "L7:v_proj"
+}

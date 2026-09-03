@@ -1,5 +1,13 @@
 # Current State
 
+## Phase 2.3-C Layer / Operator Sensitivity (2026-09-03)
+
+- Starting Windows HEAD was `371478d824c27d90af35eb51d66ccc9aa71ef024` on `phase/02-qwen3-quantization`; Jetson execution used checkout `a1317a06f83634406bfb732a61f57a698e6aee2d` and preserved its pre-existing untracked diagnostics.
+- All 196 decoder Linear weights were inventoried and reconstructed with PT-W8 and PC-W8. The frozen Phase 2.3-B 24/12 corpus was reused; all 34 dynamic targets have `EXACT_LINEAR_INPUT_PROVEN` hook capture and finite portable five-variant results.
+- Deterministic TRT subset contains eight targets: Layer 0 q_proj plus worst portable PT-W8A8 P95 target per operator. FP16/PT-W8/PT-W8A8 built and executed finite. TensorRT 10.3 PC-W8/PC-W8A8 per-channel QDQ parsing is `BLOCKED` and recorded as a backend limitation.
+- Phase 2.3-C Gate is `PASS / BOUNDED`; no benchmark, Nsight, INT4, 28-layer quantized runtime or C1/RoPE debugging occurred. Phase 2.3-D/E/F remain not started and require explicit authorization.
+- Report: `experiments/Phase2-qwen3-quantization/docs/phase2_3c_layer_operator_sensitivity.md`; evidence: `experiments/Phase2-qwen3-quantization/artifacts/phase2_3c_20260903T220600Z/`. Large captured tensors and payload remain Jetson-local under `/tmp/phase2_3c_20260903T_run6/` and are not Git evidence.
+
 ## Phase 2.3-B Calibration / Activation Range Audit (2026-09-03)
 
 - Starting Windows HEAD was `9a577fe16328a26e55adc4c7dad6b59dbea3c3f8` on `phase/02-qwen3-quantization`; Jetson execution used the existing checkout at `a1317a06f83634406bfb732a61f57a698e6aee2d` and preserved its pre-existing untracked diagnostics.

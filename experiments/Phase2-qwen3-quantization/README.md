@@ -67,3 +67,13 @@ TensorRT profile retains Int8 activation/weight fusion and an explicit Int8
 GEMM tactic. This is a target/corpus-specific calibration result; Phase 2.3-C
 has not started. See `docs/phase2_3b_calibration_activation_range_audit.md` and
 `artifacts/phase2_3b_20260903T205610Z/`.
+
+## Phase 2.3-C Layer / operator sensitivity
+
+Phase 2.3-C is `PASS / BOUNDED`: all 196 decoder Linear weights were audited,
+34 exact-input portable targets were evaluated, and eight deterministic targets
+were confirmed in TensorRT. FP16/PT-W8/PT-W8A8 TensorRT paths executed finite;
+per-channel PC-W8/PC-W8A8 QDQ parsing is explicitly `BLOCKED` on TensorRT 10.3.
+No benchmark, Nsight, INT4, C1 debugging or 28-layer quantized runtime was run.
+See `docs/phase2_3c_layer_operator_sensitivity.md` and
+`artifacts/phase2_3c_20260903T220600Z/`.
