@@ -1,0 +1,298 @@
+{
+  "calibration_passes": 2,
+  "classification": "EXACT_LINEAR_INPUT_PROVEN",
+  "evaluation_passes": 1,
+  "method": "real Qwen3 HF BF16 forward-pre-hook",
+  "quantized_target_count": 139,
+  "raw_activation_files_written": false,
+  "rows": [
+    {
+      "captured_targets": 139,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_001",
+      "split": "calibration",
+      "stored_activation": false,
+      "token_count": 8
+    },
+    {
+      "captured_targets": 139,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_002",
+      "split": "calibration",
+      "stored_activation": false,
+      "token_count": 6
+    },
+    {
+      "captured_targets": 139,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_003",
+      "split": "calibration",
+      "stored_activation": false,
+      "token_count": 13
+    },
+    {
+      "captured_targets": 139,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_004",
+      "split": "calibration",
+      "stored_activation": false,
+      "token_count": 13
+    },
+    {
+      "captured_targets": 139,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_005",
+      "split": "calibration",
+      "stored_activation": false,
+      "token_count": 10
+    },
+    {
+      "captured_targets": 139,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_006",
+      "split": "calibration",
+      "stored_activation": false,
+      "token_count": 16
+    },
+    {
+      "captured_targets": 139,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_007",
+      "split": "calibration",
+      "stored_activation": false,
+      "token_count": 18
+    },
+    {
+      "captured_targets": 139,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_008",
+      "split": "calibration",
+      "stored_activation": false,
+      "token_count": 18
+    },
+    {
+      "captured_targets": 139,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_009",
+      "split": "calibration",
+      "stored_activation": false,
+      "token_count": 31
+    },
+    {
+      "captured_targets": 139,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_010",
+      "split": "calibration",
+      "stored_activation": false,
+      "token_count": 31
+    },
+    {
+      "captured_targets": 139,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_011",
+      "split": "calibration",
+      "stored_activation": false,
+      "token_count": 32
+    },
+    {
+      "captured_targets": 139,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_012",
+      "split": "calibration",
+      "stored_activation": false,
+      "token_count": 29
+    },
+    {
+      "captured_targets": 139,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_013",
+      "split": "calibration",
+      "stored_activation": false,
+      "token_count": 36
+    },
+    {
+      "captured_targets": 139,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_014",
+      "split": "calibration",
+      "stored_activation": false,
+      "token_count": 53
+    },
+    {
+      "captured_targets": 139,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_015",
+      "split": "calibration",
+      "stored_activation": false,
+      "token_count": 55
+    },
+    {
+      "captured_targets": 139,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_016",
+      "split": "calibration",
+      "stored_activation": false,
+      "token_count": 54
+    },
+    {
+      "captured_targets": 139,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_017",
+      "split": "calibration",
+      "stored_activation": false,
+      "token_count": 54
+    },
+    {
+      "captured_targets": 139,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_018",
+      "split": "calibration",
+      "stored_activation": false,
+      "token_count": 55
+    },
+    {
+      "captured_targets": 139,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_019",
+      "split": "calibration",
+      "stored_activation": false,
+      "token_count": 118
+    },
+    {
+      "captured_targets": 139,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_020",
+      "split": "calibration",
+      "stored_activation": false,
+      "token_count": 136
+    },
+    {
+      "captured_targets": 139,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_021",
+      "split": "calibration",
+      "stored_activation": false,
+      "token_count": 110
+    },
+    {
+      "captured_targets": 139,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_022",
+      "split": "calibration",
+      "stored_activation": false,
+      "token_count": 169
+    },
+    {
+      "captured_targets": 139,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_023",
+      "split": "calibration",
+      "stored_activation": false,
+      "token_count": 115
+    },
+    {
+      "captured_targets": 139,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "cal_024",
+      "split": "calibration",
+      "stored_activation": false,
+      "token_count": 108
+    },
+    {
+      "captured_targets": 139,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "eva_025",
+      "split": "evaluation",
+      "stored_activation": false,
+      "token_count": 12
+    },
+    {
+      "captured_targets": 139,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "eva_026",
+      "split": "evaluation",
+      "stored_activation": false,
+      "token_count": 10
+    },
+    {
+      "captured_targets": 139,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "eva_027",
+      "split": "evaluation",
+      "stored_activation": false,
+      "token_count": 17
+    },
+    {
+      "captured_targets": 139,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "eva_028",
+      "split": "evaluation",
+      "stored_activation": false,
+      "token_count": 35
+    },
+    {
+      "captured_targets": 139,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "eva_029",
+      "split": "evaluation",
+      "stored_activation": false,
+      "token_count": 36
+    },
+    {
+      "captured_targets": 139,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "eva_030",
+      "split": "evaluation",
+      "stored_activation": false,
+      "token_count": 33
+    },
+    {
+      "captured_targets": 139,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "eva_031",
+      "split": "evaluation",
+      "stored_activation": false,
+      "token_count": 40
+    },
+    {
+      "captured_targets": 139,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "eva_032",
+      "split": "evaluation",
+      "stored_activation": false,
+      "token_count": 58
+    },
+    {
+      "captured_targets": 139,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "eva_033",
+      "split": "evaluation",
+      "stored_activation": false,
+      "token_count": 58
+    },
+    {
+      "captured_targets": 139,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "eva_034",
+      "split": "evaluation",
+      "stored_activation": false,
+      "token_count": 140
+    },
+    {
+      "captured_targets": 139,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "eva_035",
+      "split": "evaluation",
+      "stored_activation": false,
+      "token_count": 114
+    },
+    {
+      "captured_targets": 139,
+      "classification": "EXACT_LINEAR_INPUT_PROVEN",
+      "sample_id": "eva_036",
+      "split": "evaluation",
+      "stored_activation": false,
+      "token_count": 112
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "c_gate": "PASS",
+  "dynamic_target_count": 34,
+  "per_channel_boundary": "PER_CHANNEL_QDQ_CAPABILITY_EXISTS_IN_PROBES; REAL_QWEN3_LINEAR_PC_QDQ_PATH_BLOCKED",
+  "source_artifacts": "/tmp/phase2_3d_inputs",
+  "static_linear_count": 196,
+  "trt_confirmation_target_count": 8
+}

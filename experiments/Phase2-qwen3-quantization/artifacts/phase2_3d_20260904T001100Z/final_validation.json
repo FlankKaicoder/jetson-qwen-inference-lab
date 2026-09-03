@@ -1,0 +1,22 @@
+{
+  "bounded_refinement_count": 1,
+  "c_evidence_recovered": true,
+  "exit137": false,
+  "full_policy_component_validation": "PASS",
+  "gate": "PASS / BOUNDED",
+  "no_benchmark": true,
+  "no_full_runtime": true,
+  "no_nsight": true,
+  "no_pc_parser_debug": true,
+  "no_phase_e": true,
+  "oom": false,
+  "p0_p1_p2_complete": true,
+  "phase": "Phase 2.3-D",
+  "policy_entries": 196,
+  "primary_policy_final": "P2_FAMILY_GUARD_REFINED",
+  "primary_policy_prevalidation": "P2_FAMILY_GUARD",
+  "primary_scales": 139,
+  "raw_activation_files_written": false,
+  "starting_head": "a1317a06f83634406bfb732a61f57a698e6aee2d",
+  "windows_authoritative_start_head": "6fe35b42f4fd06477e406e68d079366ec56f6870"
+}

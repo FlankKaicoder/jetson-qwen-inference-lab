@@ -1,0 +1,85 @@
+{
+  "metric": "Phase 2.3-C PT-W8A8 vs F P95 relative-L2",
+  "ranking": [
+    {
+      "operator": "up_proj",
+      "p95": 0.3665403904249669,
+      "targets": [
+        "L0:up_proj",
+        "L9:up_proj",
+        "L18:up_proj",
+        "L27:up_proj"
+      ]
+    },
+    {
+      "operator": "down_proj",
+      "p95": 0.22044589331266787,
+      "targets": [
+        "L0:down_proj",
+        "L9:down_proj",
+        "L18:down_proj",
+        "L27:down_proj",
+        "L6:down_proj"
+      ]
+    },
+    {
+      "operator": "gate_proj",
+      "p95": 0.21163362063280655,
+      "targets": [
+        "L0:gate_proj",
+        "L9:gate_proj",
+        "L18:gate_proj",
+        "L27:gate_proj",
+        "L26:gate_proj"
+      ]
+    },
+    {
+      "operator": "o_proj",
+      "p95": 0.1526101978276833,
+      "targets": [
+        "L0:o_proj",
+        "L9:o_proj",
+        "L18:o_proj",
+        "L27:o_proj",
+        "L5:o_proj"
+      ]
+    },
+    {
+      "operator": "v_proj",
+      "p95": 0.0976623753297498,
+      "targets": [
+        "L0:v_proj",
+        "L9:v_proj",
+        "L18:v_proj",
+        "L27:v_proj",
+        "L7:v_proj"
+      ]
+    },
+    {
+      "operator": "k_proj",
+      "p95": 0.08501836089576124,
+      "targets": [
+        "L0:k_proj",
+        "L9:k_proj",
+        "L18:k_proj",
+        "L27:k_proj",
+        "L16:k_proj"
+      ]
+    },
+    {
+      "operator": "q_proj",
+      "p95": 0.05386137250708546,
+      "targets": [
+        "L0:q_proj",
+        "L9:q_proj",
+        "L18:q_proj",
+        "L27:q_proj",
+        "L1:q_proj"
+      ]
+    }
+  ],
+  "selected_top_two_families": [
+    "down_proj",
+    "up_proj"
+  ]
+}

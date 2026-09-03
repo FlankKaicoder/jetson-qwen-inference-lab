@@ -4,6 +4,12 @@
 
 ## [Unreleased]
 
+### Phase 2.3-D (2026-09-04)
+
+- Derived P0/P1/P2 mixed-precision policies from the Phase 2.3-C 196-Linear evidence set. The selected P2 family guard preserved all `up_proj`/`down_proj` layers and the C gate outlier as FP16.
+- Used real Qwen3 BF16 forward-pre-hooks in a two-pass streaming calibration and a disjoint 12-prompt component prevalidation. No raw activations were retained or committed.
+- One bounded robust refinement moved six additional targets to FP16. Final coverage is 63 FP16 and 133 PT-W8A8 Linear assignments; no TensorRT quantized decoder, benchmark, Nsight, INT4, or C1 work occurred.
+
 ### Phase 2.3-C (2026-09-03)
 
 - Audited 196 decoder Linear weights and a 34-target portable sensitivity matrix.

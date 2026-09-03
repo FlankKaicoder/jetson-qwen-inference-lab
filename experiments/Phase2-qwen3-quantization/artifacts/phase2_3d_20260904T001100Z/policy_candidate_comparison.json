@@ -1,0 +1,64 @@
+{
+  "P0_ALL_PT_W8A8": {
+    "c_outliers_protected": [],
+    "coverage": {
+      "fp16_linear_count": 0,
+      "fp16_linear_percent": 0.0,
+      "fp16_parameter_count": 0,
+      "fp16_parameter_percent": 0.0,
+      "int8_linear_count": 196,
+      "int8_linear_percent": 100.0,
+      "int8_parameter_count": 440401920,
+      "int8_parameter_percent": 100.0,
+      "linear_count": 196,
+      "parameter_percentage_semantics": "QUANTIZED_PARAMETER_COVERAGE_NOT_MEASURED_MEMORY_SAVING",
+      "total_parameter_count": 440401920
+    }
+  },
+  "P1_ROBUST_OUTLIER_GUARD": {
+    "c_outliers_protected": [
+      "L0:down_proj",
+      "L18:down_proj",
+      "L27:gate_proj",
+      "L27:up_proj",
+      "L6:down_proj",
+      "L9:down_proj"
+    ],
+    "coverage": {
+      "fp16_linear_count": 6,
+      "fp16_linear_percent": 3.061224489795918,
+      "fp16_parameter_count": 18874368,
+      "fp16_parameter_percent": 4.285714285714286,
+      "int8_linear_count": 190,
+      "int8_linear_percent": 96.93877551020408,
+      "int8_parameter_count": 421527552,
+      "int8_parameter_percent": 95.71428571428572,
+      "linear_count": 196,
+      "parameter_percentage_semantics": "QUANTIZED_PARAMETER_COVERAGE_NOT_MEASURED_MEMORY_SAVING",
+      "total_parameter_count": 440401920
+    }
+  },
+  "P2_FAMILY_GUARD": {
+    "c_outliers_protected": [
+      "L0:down_proj",
+      "L18:down_proj",
+      "L27:gate_proj",
+      "L27:up_proj",
+      "L6:down_proj",
+      "L9:down_proj"
+    ],
+    "coverage": {
+      "fp16_linear_count": 57,
+      "fp16_linear_percent": 29.081632653061224,
+      "fp16_parameter_count": 179306496,
+      "fp16_parameter_percent": 40.714285714285715,
+      "int8_linear_count": 139,
+      "int8_linear_percent": 70.91836734693877,
+      "int8_parameter_count": 261095424,
+      "int8_parameter_percent": 59.285714285714285,
+      "linear_count": 196,
+      "parameter_percentage_semantics": "QUANTIZED_PARAMETER_COVERAGE_NOT_MEASURED_MEMORY_SAVING",
+      "total_parameter_count": 440401920
+    }
+  }
+}

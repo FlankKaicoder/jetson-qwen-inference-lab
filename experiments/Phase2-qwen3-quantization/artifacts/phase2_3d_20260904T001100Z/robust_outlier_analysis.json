@@ -1,0 +1,37 @@
+{
+  "classification": "RELATIVE_SENSITIVITY_OUTLIER_DETECTION",
+  "coefficient": 1.5,
+  "high_outlier_boundary": 0.1664172597455914,
+  "iqr": 0.04605011762087998,
+  "metric": "PT-W8A8 vs F evaluation P95 relative-L2",
+  "not_a_production_accuracy_threshold": true,
+  "outlier_count": 6,
+  "outliers": [
+    {
+      "p95_relative_l2": 0.3665403904249669,
+      "target": "L27:up_proj"
+    },
+    {
+      "p95_relative_l2": 0.22044589331266787,
+      "target": "L6:down_proj"
+    },
+    {
+      "p95_relative_l2": 0.21163362063280655,
+      "target": "L27:gate_proj"
+    },
+    {
+      "p95_relative_l2": 0.192032598577052,
+      "target": "L0:down_proj"
+    },
+    {
+      "p95_relative_l2": 0.18076263249335128,
+      "target": "L18:down_proj"
+    },
+    {
+      "p95_relative_l2": 0.17803101981799324,
+      "target": "L9:down_proj"
+    }
+  ],
+  "q1": 0.05129196569339146,
+  "q3": 0.09734208331427144
+}

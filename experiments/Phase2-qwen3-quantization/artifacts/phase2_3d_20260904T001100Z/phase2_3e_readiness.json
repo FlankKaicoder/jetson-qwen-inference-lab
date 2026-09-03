@@ -1,0 +1,8 @@
+{
+  "PHASE2_3E_POLICY_READY": true,
+  "assignments_196": true,
+  "exact_input_provenance_complete": true,
+  "final_policy": "P2_FAMILY_GUARD_REFINED",
+  "primary_int8_scales_complete": true,
+  "scope_boundary": "No 28-layer quantized runtime was built or executed in Phase 2.3-D."
+}

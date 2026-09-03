@@ -1,0 +1,52 @@
+{
+  "decision": "ONE_INT8_TO_FP16_REFINEMENT_APPLIED",
+  "primary_prevalidation": "P2_FAMILY_GUARD",
+  "refinement_count": 1,
+  "robust_analysis": {
+    "classification": "RELATIVE_SENSITIVITY_OUTLIER_DETECTION",
+    "coefficient": 1.5,
+    "high_outlier_boundary": 0.11906109837207608,
+    "iqr": 0.02850735899832879,
+    "metric": "PT-W8A8 vs F evaluation P95 relative-L2",
+    "not_a_production_accuracy_threshold": true,
+    "outlier_count": 6,
+    "outliers": [
+      {
+        "p95_relative_l2": 0.2761885855984967,
+        "target": "L2:v_proj"
+      },
+      {
+        "p95_relative_l2": 0.22101219481374587,
+        "target": "L14:o_proj"
+      },
+      {
+        "p95_relative_l2": 0.17750936624390384,
+        "target": "L2:q_proj"
+      },
+      {
+        "p95_relative_l2": 0.1526101978276833,
+        "target": "L27:o_proj"
+      },
+      {
+        "p95_relative_l2": 0.1404049595945052,
+        "target": "L8:o_proj"
+      },
+      {
+        "p95_relative_l2": 0.1401952931675336,
+        "target": "L2:k_proj"
+      }
+    ],
+    "q1": 0.047792700876254104,
+    "q3": 0.0763000598745829
+  },
+  "second_refinement_performed": false,
+  "targets_changed_int8_to_fp16": [
+    "L14:o_proj",
+    "L27:o_proj",
+    "L2:k_proj",
+    "L2:q_proj",
+    "L2:v_proj",
+    "L8:o_proj"
+  ],
+  "validation_metric": "PT-W8A8 vs F evaluation P95 relative-L2"
+}

@@ -1,11 +1,21 @@
 # Current State
 
+## Phase 2.3-D Mixed Precision Policy (2026-09-04)
+
+- Starting Windows HEAD was `6fe35b42f4fd06477e406e68d079366ec56f6870` on `phase/02-qwen3-quantization`. Jetson execution deliberately used the historical `a1317a06f83634406bfb732a61f57a698e6aee2d` checkout; its existing untracked diagnostics were not changed.
+- Phase 2.3-C evidence was recovered as 196 static Linear weights, 34 portable dynamic targets, and eight TRT confirmations. The C family ranking selects `up_proj` and `down_proj`; no monotonic layer-position rule was claimed. TensorRT PC QDQ remains `BLOCKED` for the real Qwen3 Linear harness.
+- P0/P1/P2 policies are complete. P2 prevalidation preserves 57 FP16 and quantizes 139 Linear modules. A real HF BF16 hook path streamed every calibration/evaluation prompt without writing raw activation tensors; calibration uses the frozen symmetric per-tensor INT8 `[-127,127]`, zero-point 0, five-factor bounded-MSE grid.
+- The held-out 12-prompt component validation was finite for all P2 quantized assignments. Its one allowed robust refinement moves `L2:v_proj`, `L14:o_proj`, `L2:q_proj`, `L27:o_proj`, `L8:o_proj`, and `L2:k_proj` to FP16. Final policy: 63 FP16 / 133 PT-W8A8 Linear assignments.
+- Gate: `PASS / BOUNDED`. No TensorRT quantized decoder, ONNX, engine, full 28-layer quantized runtime, benchmark, Nsight, INT4, or C1/RoPE work occurred. Phase 2.3-E is policy-ready but `NOT STARTED` and requires explicit authorization.
+- Evidence: `experiments/Phase2-qwen3-quantization/artifacts/phase2_3d_20260904T001100Z/`; report: `experiments/Phase2-qwen3-quantization/docs/phase2_3d_mixed_precision_policy.md`.
+- Process safety deviation: two newly-created Jetson `/tmp` D temporary directories were removed with `rm -rf` during setup. No repository, historical artifact, model, engine, or diagnostic was deleted; no subsequent cleanup was performed.
+
 ## Phase 2.3-C Layer / Operator Sensitivity (2026-09-03)
 
 - Starting Windows HEAD was `371478d824c27d90af35eb51d66ccc9aa71ef024` on `phase/02-qwen3-quantization`; Jetson execution used checkout `a1317a06f83634406bfb732a61f57a698e6aee2d` and preserved its pre-existing untracked diagnostics.
 - All 196 decoder Linear weights were inventoried and reconstructed with PT-W8 and PC-W8. The frozen Phase 2.3-B 24/12 corpus was reused; all 34 dynamic targets have `EXACT_LINEAR_INPUT_PROVEN` hook capture and finite portable five-variant results.
 - Deterministic TRT subset contains eight targets: Layer 0 q_proj plus worst portable PT-W8A8 P95 target per operator. FP16/PT-W8/PT-W8A8 built and executed finite. TensorRT 10.3 PC-W8/PC-W8A8 per-channel QDQ parsing is `BLOCKED` and recorded as a backend limitation.
-- Phase 2.3-C Gate is `PASS / BOUNDED`; no benchmark, Nsight, INT4, 28-layer quantized runtime or C1/RoPE debugging occurred. Phase 2.3-D/E/F remain not started and require explicit authorization.
+- Phase 2.3-C Gate is `PASS / BOUNDED`; no benchmark, Nsight, INT4, 28-layer quantized runtime or C1/RoPE debugging occurred. Phase 2.3-D subsequently completed; Phase 2.3-E/F remain not started and require explicit authorization.
 - Report: `experiments/Phase2-qwen3-quantization/docs/phase2_3c_layer_operator_sensitivity.md`; evidence: `experiments/Phase2-qwen3-quantization/artifacts/phase2_3c_20260903T220600Z/`. Large captured tensors and payload remain Jetson-local under `/tmp/phase2_3c_20260903T_run6/` and are not Git evidence.
 
 ## Phase 2.3-B Calibration / Activation Range Audit (2026-09-03)

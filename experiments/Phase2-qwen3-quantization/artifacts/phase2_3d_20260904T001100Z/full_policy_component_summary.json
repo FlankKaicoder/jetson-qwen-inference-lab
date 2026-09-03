@@ -1,0 +1,26 @@
+{
+  "aggregate_quantized": {
+    "clipping_percent": {
+      "max": 0.0244140625,
+      "mean": 0.0011043580125707747,
+      "median": 0.0,
+      "p95": 0.005996436448185705
+    },
+    "cosine": {
+      "max": 0.9998829364776611,
+      "mean": 0.9977088960454904,
+      "median": 0.9985402524471283,
+      "p95": 0.999448972940445
+    },
+    "finite_failures": 0,
+    "relative_l2": {
+      "max": 0.27925296990991627,
+      "mean": 0.06125600764853973,
+      "median": 0.054082057173876166,
+      "p95": 0.1008826613516967
+    }
+  },
+  "preserved_fp16_target_count": 57,
+  "quantized_target_count": 139,
+  "status": "PASS"
+}

@@ -1,0 +1,51 @@
+[
+  {
+    "cuda_allocated_bytes": 0,
+    "cuda_reserved_bytes": 0,
+    "max_rss_bytes": 403972096,
+    "mem_available_bytes": 5340446720,
+    "stage": "start"
+  },
+  {
+    "cuda_allocated_bytes": 1192114688,
+    "cuda_reserved_bytes": 1216348160,
+    "max_rss_bytes": 1702916096,
+    "mem_available_bytes": 4485677056,
+    "stage": "model_loaded"
+  },
+  {
+    "cuda_allocated_bytes": 1200634368,
+    "cuda_reserved_bytes": 1375731712,
+    "max_rss_bytes": 1702916096,
+    "mem_available_bytes": 3783790592,
+    "stage": "calibration_pass1"
+  },
+  {
+    "cuda_allocated_bytes": 1200634368,
+    "cuda_reserved_bytes": 1379926016,
+    "max_rss_bytes": 1702916096,
+    "mem_available_bytes": 3739213824,
+    "stage": "calibration_pass2"
+  },
+  {
+    "cuda_allocated_bytes": 1722825216,
+    "cuda_reserved_bytes": 1757413376,
+    "max_rss_bytes": 1914310656,
+    "mem_available_bytes": 3033948160,
+    "stage": "quantized_weights_ready"
+  },
+  {
+    "cuda_allocated_bytes": 1722825216,
+    "cuda_reserved_bytes": 1820327936,
+    "max_rss_bytes": 1914310656,
+    "mem_available_bytes": 2915786752,
+    "stage": "evaluation_complete"
+  },
+  {
+    "cuda_allocated_bytes": 1722825216,
+    "cuda_reserved_bytes": 1820327936,
+    "max_rss_bytes": 1914310656,
+    "mem_available_bytes": 2911473664,
+    "stage": "final"
+  }
+]

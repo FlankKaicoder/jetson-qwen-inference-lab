@@ -65,7 +65,7 @@ calibration data only. The selected policy is `BOUNDED_MSE_CLIP` with scale
 `0.019526` median, `0.020111` P95 and `0.020117` maximum. The selected dynamic
 TensorRT profile retains Int8 activation/weight fusion and an explicit Int8
 GEMM tactic. This is a target/corpus-specific calibration result; Phase 2.3-C
-has not started. See `docs/phase2_3b_calibration_activation_range_audit.md` and
+subsequently completed. See `docs/phase2_3b_calibration_activation_range_audit.md` and
 `artifacts/phase2_3b_20260903T205610Z/`.
 
 ## Phase 2.3-C Layer / operator sensitivity
@@ -77,3 +77,20 @@ per-channel PC-W8/PC-W8A8 QDQ parsing is explicitly `BLOCKED` on TensorRT 10.3.
 No benchmark, Nsight, INT4, C1 debugging or 28-layer quantized runtime was run.
 See `docs/phase2_3c_layer_operator_sensitivity.md` and
 `artifacts/phase2_3c_20260903T220600Z/`.
+
+## Phase 2.3-D Mixed precision policy
+
+Phase 2.3-D is `PASS / BOUNDED`. It derives P0/P1/P2 assignments from the
+Phase 2.3-C evidence and selects P2 family guard: all `up_proj` and
+`down_proj` projections plus the C `L27:gate_proj` outlier remain FP16. Real
+HF BF16 forward-pre-hooks calibrate the 139 P2 INT8 candidates in two streaming
+passes over 24 prompts, then validate them one prompt at a time on 12 disjoint
+prompts without retaining activation files. One fixed robust refinement adds
+six FP16 assignments, leaving the final policy at 63 FP16 and 133 PT-W8A8
+Linear modules.
+
+This remains portable component prevalidation. It did not build a TensorRT
+quantized decoder, export ONNX, run a 28-layer runtime, benchmark, profile,
+perform INT4 work, or reopen C1. See `docs/phase2_3d_mixed_precision_policy.md`
+and `artifacts/phase2_3d_20260904T001100Z/`. Phase 2.3-E is not started and
+requires explicit authorization.

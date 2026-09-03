@@ -7,20 +7,20 @@
 | Field | Verified value |
 | --- | --- |
 | Project | `jetson-qwen-inference-lab` / Jetson Qwen Transformer AI Infra Optimization Lab |
-| Current date | `2026-09-03` |
+| Current date | `2026-09-04` |
 | Repository | `FlankKaicoder/jetson-qwen-inference-lab` |
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
 | Current phase | Phase 2 — LLM Quantization |
-| Current experiment | Phase 2.3-C — Layer / Operator Sensitivity |
+| Current experiment | Phase 2.3-D — Mixed Precision Policy |
 | Current branch | `phase/02-qwen3-quantization` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Exp04 — CUDA GEMM tiling and WMMA |
-| Experiment status | Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8/2.1.9 `PASS / BOUNDED`; Phase 2.2-A `PARTIAL / BOUNDED PASS`; Phase 2.2-B1/B2/B3 `PASS / BOUNDED`; Phase 2.2-B4.1 `PASS / CLOSED`; Phase 2.2-B4.2 `PASS / BOUNDED`; Phase 2.2-C0 `PASS / DESIGN ONLY`; Phase 2.2-C1 `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`; Phase 2.2 `CLOSED / PASS / BOUNDED`; Phase 2.3-A `PASS`; Phase 2.3-B `PASS` |
-| Current Gate | Phase 2.3-C `PASS / BOUNDED`; 196 static weights, 34 portable targets, 8 TRT confirmations; per-channel TRT QDQ parser limitation recorded; C1 decoder drift remains documented |
-| Readiness | Phase 2.2 remains frozen as `CLOSED / PASS / BOUNDED`; Phase 2.3 overall is `IN PROGRESS`; Phase 2.3-C is complete and Phase 2.3-D awaits explicit authorization. |
+| Experiment status | Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8/2.1.9 `PASS / BOUNDED`; Phase 2.2-A `PARTIAL / BOUNDED PASS`; Phase 2.2-B1/B2/B3 `PASS / BOUNDED`; Phase 2.2-B4.1 `PASS / CLOSED`; Phase 2.2-B4.2 `PASS / BOUNDED`; Phase 2.2-C0 `PASS / DESIGN ONLY`; Phase 2.2-C1 `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`; Phase 2.2 `CLOSED / PASS / BOUNDED`; Phase 2.3-A/B `PASS`; Phase 2.3-C/D `PASS / BOUNDED` |
+| Current Gate | Phase 2.3-D `PASS / BOUNDED`; final mixed policy preserves 63/196 Linear layers FP16 and assigns 133 PT-W8A8; no quantized TensorRT runtime was built |
+| Readiness | Phase 2.2 remains frozen as `CLOSED / PASS / BOUNDED`; C1 remains `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`; Phase 2.3 overall is `IN PROGRESS`; Phase 2.3-E is policy-ready but awaits explicit authorization. |
 
 ## Confirmed Findings
 
