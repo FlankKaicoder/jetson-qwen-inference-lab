@@ -225,7 +225,7 @@ def functional_mode(args) -> dict:
             {"hidden_states": hidden[:, -1:, :]})["normalized_hidden_states"]})["logits"]
         legacy_rows = [{"hidden": hidden.detach().cpu(), "logits": legacy_logits.detach().cpu(),
                         "ks": [k.detach().cpu() for k in ks], "vs": [v.detach().cpu() for v in vs],
-                        "invariants": []}]
+                        "invariants": {}}]
         prev_ks, prev_vs = ks, vs
         old_len = seq_len
         for step in range(decode_steps):
@@ -257,7 +257,7 @@ def functional_mode(args) -> dict:
             {"hidden_states": hidden[:, -1:, :]})["normalized_hidden_states"]})["logits"]
         persistent_rows = [{"hidden": hidden.detach().cpu(), "logits": persistent_logits.detach().cpu(),
                             "ks": [k.detach().cpu() for k in ks], "vs": [v.detach().cpu() for v in vs],
-                            "invariants": []}]
+                        "invariants": {}}]
         prev_ks, prev_vs = ks, vs
         old_len = seq_len
         for step in range(decode_steps):
