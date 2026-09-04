@@ -1,0 +1,28 @@
+{
+  "timestamp_utc": "20260904T121007Z",
+  "repository_artifacts": [
+    "rank1_h16816_details.csv",
+    "rank1_h16816_raw.csv",
+    "rank1_h16816.log",
+    "rank2_f16f32_details.csv",
+    "rank2_f16f32.log",
+    "rank2b_f16f32_decode1_details.csv",
+    "rank2b_f16f32_decode1_raw.csv",
+    "rank2b_f16f32_decode1.log",
+    "rank3_f16f16_decode1_details.csv",
+    "rank3_f16f16_decode1_raw.csv",
+    "rank3_f16f16_decode1.log",
+    "three_gemm_key_metrics_raw.csv",
+    "three_gemm_key_metrics.log",
+    "ncu_artifact_manifest.json"
+  ],
+  "jetson_local_only_reports": [
+    "/tmp/phase3e_kernel_attribution_20260904T121007Z/ncu/rank1_h16816.ncu-rep",
+    "/tmp/phase3e_kernel_attribution_20260904T121007Z/ncu/rank2b_f16f32_decode1.ncu-rep",
+    "/tmp/phase3e_kernel_attribution_20260904T121007Z/ncu/rank3_f16f16_decode1.ncu-rep",
+    "/tmp/phase3e_kernel_attribution_20260904T121007Z/ncu/three_gemm_key_metrics.ncu-rep"
+  ],
+  "failed_attempt": "rank2_f16f32_details.csv and rank2_f16f32.log record the prefill-only filter that found no matching rank-2 kernel; rank2b is the successful one-decode-step retry.",
+  "key_metrics_scope": "Despite its file name, three_gemm_key_metrics profiles three launches of rank-1 h16816 only. It is supplemental rank-1 stability evidence, not three-kernel coverage.",
+  "raw_reports_policy": "Raw .ncu-rep files remain Jetson-local and are not committed."
+}

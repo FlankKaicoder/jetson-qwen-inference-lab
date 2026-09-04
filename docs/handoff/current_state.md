@@ -1,3 +1,26 @@
+## Phase 3-E TensorRT Kernel Attribution (2026-09-04)
+
+- Branch is `phase/03e-tensorrt-kernel-attribution`; starting checkpoint was
+  `8b8a3530d9eed1e221419e41d24c9a4d8071cb02`. Code commits are `8e34c85`,
+  `7b20282`, `b6ce658`, `b39bfec` and `ab65133`; the closeout commit must be
+  verified with Git.
+- EngineInspector evidence is canonical under
+  `results/phase3e_kernel_attribution/20260904T121007Z/inspector_v2/`. FP16
+  engines expose compact layer names, so tactic/shape remain
+  `UNKNOWN_NO_DETAILED_INSPECTOR`; Mixed engines expose detailed metadata.
+- NCU trigger was satisfied by FP16 rank-2 at 35.31% and h16816 at 20.28%
+  FP16 / 26.78% Mixed. Three unique GEMM kernels were profiled with narrow
+  filters and `--clock-control none`; raw `.ncu-rep` stays Jetson-local.
+- Rank-1 h16816: 97.06% memory/L2, 39.57% SM, 39.673148% HMMA active and
+  24.78% achieved occupancy. Rank-2/3: 71.92-76.88% memory/L2, 25.62-29.60%
+  SM, 17.167166-17.697509% HMMA active and 24.25-24.68% achieved occupancy.
+  Direct DRAM is `N/A`.
+- Final Gate is `PASS / BOUNDED / NO_PROVEN_CUDA_OPTIMIZATION_TARGET`. The
+  low HMMA signal on ranks 2/3 is potential, not proof; compact FP16 operator
+  attribution remains UNKNOWN. Phase 4 was not started.
+- Report: `docs/phase3e_kernel_attribution.md`; evidence:
+  `results/phase3e_kernel_attribution/20260904T121007Z/`.
+
 ## Phase 3-D0 CUDA Graph Feasibility (2026-09-04)
 
 - Branch is `phase/03d0-cuda-graph-feasibility`; starting checkpoint was
@@ -184,11 +207,11 @@
 
 ## 当前 branch
 
-`phase/03d0-cuda-graph-feasibility`
+`phase/03e-tensorrt-kernel-attribution`
 
 ## 当前 commit
 
-Phase 3-D0 starting checkpoint 为 `93e799fb2002f7b9884a9e3867ce93faf23cc173`；final closeout commit 以 `git rev-parse HEAD` 为准。
+Phase 3-E starting checkpoint 为 `8b8a3530d9eed1e221419e41d24c9a4d8071cb02`；final closeout commit 以 `git rev-parse HEAD` 为准。
 
 ## 本轮完成
 

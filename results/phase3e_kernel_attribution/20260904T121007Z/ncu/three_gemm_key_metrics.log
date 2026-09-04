@@ -1,0 +1,27 @@
+==WARNING== Note: Running with unmodified GPU clocks. If not controlled otherwise, profiling results may be inconsistent.
+==PROF== Connected to process 713347 (/usr/bin/python3.10)
+[09/04/2026-20:40:20] [TRT] [W] Using default stream in enqueueV3() may lead to performance issues due to additional calls to cudaStreamSynchronize() by TensorRT to ensure correct synchronization. Please use non-default stream instead.
+[09/04/2026-20:40:20] [TRT] [W] Using default stream in enqueueV3() may lead to performance issues due to additional calls to cudaStreamSynchronize() by TensorRT to ensure correct synchronization. Please use non-default stream instead.
+[09/04/2026-20:40:20] [TRT] [W] Using default stream in enqueueV3() may lead to performance issues due to additional calls to cudaStreamSynchronize() by TensorRT to ensure correct synchronization. Please use non-default stream instead.
+[09/04/2026-20:40:20] [TRT] [W] Using default stream in enqueueV3() may lead to performance issues due to additional calls to cudaStreamSynchronize() by TensorRT to ensure correct synchronization. Please use non-default stream instead.
+==PROF== Profiling "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 0%....50%....100% - 5 passes
+==PROF== Profiling "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 0%.
+==WARNING== Backing up device memory in system memory. Kernel replay might be slow. Consider using "--replay-mode application" to avoid memory save-and-restore.
+...50%....100% - 5 passes
+==PROF== Profiling "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 0%....50%....100% - 5 passes
+[09/04/2026-20:41:06] [TRT] [W] Using default stream in enqueueV3() may lead to performance issues due to additional calls to cudaStreamSynchronize() by TensorRT to ensure correct synchronization. Please use non-default stream instead.
+{
+  "profiled": true,
+  "label": "fp16_persistent_context_lifetime",
+  "runtime": "fp16",
+  "lifetime": "persistent_context_lifetime",
+  "mixed": false,
+  "persistent": true,
+  "engine_dir": "/tmp/phase2_2b4_2_20260902T082326Z",
+  "seq_len": 8,
+  "decode_steps": 1,
+  "context_creations": 5,
+  "initialization_s": 7.166716156993061
+}
+==PROF== Disconnected from process 713347
+==PROF== Report: /tmp/phase3e_kernel_attribution_20260904T121007Z/ncu/three_gemm_key_metrics.ncu-rep

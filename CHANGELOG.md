@@ -4,6 +4,19 @@
 
 ## [Unreleased]
 
+### Phase 3-E (2026-09-04)
+
+- Added TensorRT EngineInspector attribution for the frozen FP16 and Mixed
+  decoder engines and joined it with Phase 3-C NSYS kernel totals.
+- Selected three unique GEMM kernels for targeted NCU with narrow kernel
+  filters and `--clock-control none`; raw `.ncu-rep` files remain Jetson-local.
+- Rank-1 h16816 was L2/memory-limited at 97.06% with 39.673148% HMMA pipe
+  active and near-ceiling achieved occupancy. Rank-2/3 small decode GEMMs had
+  17.167166-17.697509% HMMA active, but compact FP16 metadata left operator
+  attribution UNKNOWN.
+- Final gate is `PASS / BOUNDED / NO_PROVEN_CUDA_OPTIMIZATION_TARGET`; Phase 4
+  implementation was not started.
+
 ### Phase 3-D0 (2026-09-04)
 
 - Added a CUDA Graph compatibility audit, full-window capture and a per-engine

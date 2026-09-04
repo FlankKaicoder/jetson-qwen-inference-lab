@@ -1,0 +1,23 @@
+==WARNING== Note: Running with unmodified GPU clocks. If not controlled otherwise, profiling results may be inconsistent.
+==PROF== Connected to process 711948 (/usr/bin/python3.10)
+[09/04/2026-20:35:33] [TRT] [W] Using default stream in enqueueV3() may lead to performance issues due to additional calls to cudaStreamSynchronize() by TensorRT to ensure correct synchronization. Please use non-default stream instead.
+[09/04/2026-20:35:33] [TRT] [W] Using default stream in enqueueV3() may lead to performance issues due to additional calls to cudaStreamSynchronize() by TensorRT to ensure correct synchronization. Please use non-default stream instead.
+[09/04/2026-20:35:33] [TRT] [W] Using default stream in enqueueV3() may lead to performance issues due to additional calls to cudaStreamSynchronize() by TensorRT to ensure correct synchronization. Please use non-default stream instead.
+[09/04/2026-20:35:33] [TRT] [W] Using default stream in enqueueV3() may lead to performance issues due to additional calls to cudaStreamSynchronize() by TensorRT to ensure correct synchronization. Please use non-default stream instead.
+[09/04/2026-20:35:34] [TRT] [W] Using default stream in enqueueV3() may lead to performance issues due to additional calls to cudaStreamSynchronize() by TensorRT to ensure correct synchronization. Please use non-default stream instead.
+==PROF== Profiling "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused": 0%....50%....100% - 16 passes
+{
+  "profiled": true,
+  "label": "fp16_persistent_context_lifetime",
+  "runtime": "fp16",
+  "lifetime": "persistent_context_lifetime",
+  "mixed": false,
+  "persistent": true,
+  "engine_dir": "/tmp/phase2_2b4_2_20260902T082326Z",
+  "seq_len": 8,
+  "decode_steps": 1,
+  "context_creations": 5,
+  "initialization_s": 7.038387376000173
+}
+==PROF== Disconnected from process 711948
+==PROF== Report: /tmp/phase3e_kernel_attribution_20260904T121007Z/ncu/rank3_f16f16_decode1.ncu-rep

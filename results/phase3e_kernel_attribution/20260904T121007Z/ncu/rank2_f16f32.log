@@ -1,0 +1,40 @@
+==WARNING== Note: Running with unmodified GPU clocks. If not controlled otherwise, profiling results may be inconsistent.
+==PROF== Connected to process 711029 (/usr/bin/python3.10)
+[09/04/2026-20:32:24] [TRT] [W] Using default stream in enqueueV3() may lead to performance issues due to additional calls to cudaStreamSynchronize() by TensorRT to ensure correct synchronization. Please use non-default stream instead.
+[09/04/2026-20:32:24] [TRT] [W] Using default stream in enqueueV3() may lead to performance issues due to additional calls to cudaStreamSynchronize() by TensorRT to ensure correct synchronization. Please use non-default stream instead.
+[09/04/2026-20:32:24] [TRT] [W] Using default stream in enqueueV3() may lead to performance issues due to additional calls to cudaStreamSynchronize() by TensorRT to ensure correct synchronization. Please use non-default stream instead.
+[09/04/2026-20:32:24] [TRT] [W] Using default stream in enqueueV3() may lead to performance issues due to additional calls to cudaStreamSynchronize() by TensorRT to ensure correct synchronization. Please use non-default stream instead.
+{
+  "profiled": true,
+  "label": "fp16_persistent_context_lifetime",
+  "runtime": "fp16",
+  "lifetime": "persistent_context_lifetime",
+  "mixed": false,
+  "persistent": true,
+  "engine_dir": "/tmp/phase2_2b4_2_20260902T082326Z",
+  "seq_len": 8,
+  "decode_steps": 0,
+  "context_creations": 5,
+  "initialization_s": 7.535160002997145
+}
+==PROF== Disconnected from process 711029
+==WARNING== No kernels were profiled.
+Available Kernels:
+1. __myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x4ad536b524b3f7a2415d97f02da12733_com
+2. __myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+3. __myl_CasGat_0xdee2c73dd5d0e0fe099a0774cba2143f_com
+4. __myl_CasResMulConSinResCosResAddSqrAddSqrDivMulDivMulMulTraSliSliNegConMulMulAddResSliRepResTraEtc_0xeeda8c3ad0b01a41e68bda37288b89cd_com
+5. __myl_MovMulMeaAddSqrDivMulMulCas_0x62665ed68e2d72f01be2ec50e848f2e2_vec
+6. __myl_MovMulMeaAddSqrDivMulMul_0x8c7c765d132892c540be4329124deccc_com_vec
+7. __myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec
+8. __myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+9. __myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+10. __myl_RepIotIotRepCasAddCasEqlLtOrSel_0xeed00a2999d9a920ce4be4d44852c879_com
+11. __myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+12. __myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+13. __myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+14. _gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+15. elementwise_kernel_with_index
+16. sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+17. trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+18. trt_ampere_h16816gemm_256x64_ldg8_tn_v1

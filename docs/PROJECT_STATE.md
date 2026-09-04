@@ -13,14 +13,14 @@
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
 | Current phase | Phase 3 — Transformer / Runtime Operator Optimization |
-| Current experiment | Phase 3-D0 — CUDA Graph Feasibility |
-| Current branch | `phase/03d0-cuda-graph-feasibility` |
+| Current experiment | Phase 3-E — TensorRT Kernel Attribution & Compute Efficiency Audit |
+| Current branch | `phase/03e-tensorrt-kernel-attribution` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 3-D0 — CUDA Graph Feasibility |
-| Experiment status | Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8/2.1.9 `PASS / BOUNDED`; Phase 2.2-A `PARTIAL / BOUNDED PASS`; Phase 2.2-B1/B2/B3 `PASS / BOUNDED`; Phase 2.2-B4.1 `PASS / CLOSED`; Phase 2.2-B4.2 `PASS / BOUNDED`; Phase 2.2-C0 `PASS / DESIGN ONLY`; Phase 2.2-C1 `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`; Phase 2.2 `CLOSED / PASS / BOUNDED`; Phase 2.3-A/B `PASS`; Phase 2.3-C/D/E/F `PASS / BOUNDED`; Phase 2.3 aggregate `CLOSED / PASS / BOUNDED`; Phase 3-A `PASS / BOUNDED`; Phase 3-B `PASS / CLOSED / PROVEN`; Phase 3-C `PASS / BOUNDED`; Phase 3-D0 `BLOCKED / BOUNDED` |
-| Current Gate | Phase 3-D0 `BLOCKED / BOUNDED`. Full-window and per-engine PyTorch CUDA Graph capture completed with fixed addresses, but failed functional validation: hidden/logits/KV differed from persistent stream. The formal benchmark is `BLOCKED_NO_VALID_GRAPH_PATH`. In the 8-step NSYS window, persistent stream had 3,376 kernels and 217.708 ms kernel time, while graph replay had 64 kernels totaling 0.298 ms, all `FillFunctor<long>`, with no TensorRT kernels. |
-| Readiness | Phase 2.2/2.3, Phase 3-A, Phase 3-B and Phase 3-C remain frozen. Phase 3-D0 is closed as a bounded negative result for the current PyTorch/TensorRT interop path. It does not prove or disprove every CUDA Graph design. Do not use the invalid graph wall time as an optimization claim. |
+| Last completed experiment | Phase 3-E — TensorRT Kernel Attribution & Compute Efficiency Audit |
+| Experiment status | Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8/2.1.9 `PASS / BOUNDED`; Phase 2.2-A `PARTIAL / BOUNDED PASS`; Phase 2.2-B1/B2/B3 `PASS / BOUNDED`; Phase 2.2-B4.1 `PASS / CLOSED`; Phase 2.2-B4.2 `PASS / BOUNDED`; Phase 2.2-C0 `PASS / DESIGN ONLY`; Phase 2.2-C1 `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`; Phase 2.2 `CLOSED / PASS / BOUNDED`; Phase 2.3-A/B `PASS`; Phase 2.3-C/D/E/F `PASS / BOUNDED`; Phase 2.3 aggregate `CLOSED / PASS / BOUNDED`; Phase 3-A `PASS / BOUNDED`; Phase 3-B `PASS / CLOSED / PROVEN`; Phase 3-C `PASS / BOUNDED`; Phase 3-D0 `BLOCKED / BOUNDED`; Phase 3-E `PASS / BOUNDED / NO_PROVEN_CUDA_OPTIMIZATION_TARGET` |
+| Current Gate | Phase 3-E `PASS / BOUNDED / NO_PROVEN_CUDA_OPTIMIZATION_TARGET`. EngineInspector + Phase 3-C NSYS selected three unique GEMM kernels. Rank 1 h16816 is L2/memory-limited at 97.06% with 39.673148% HMMA pipe active and 24.78% achieved occupancy. Ranks 2/3 are small decode GEMMs with 17.167166-17.697509% HMMA active and 71.92-76.88% memory/L2, but compact FP16 inspector leaves operator/tactic attribution UNKNOWN. This is potential optimization space, not a proven Phase 4 target. |
+| Readiness | Phase 2.2/2.3, Phase 3-A, Phase 3-B, Phase 3-C and Phase 3-D0 remain frozen. Phase 3-E is closed as a bounded attribution/audit result. Do not start CUDA kernels, plugins, attention work, runtime redesign, or quantization redesign without explicit owner direction. A future Phase 4-A would need to be a narrow rank-2/rank-3 attribution/feasibility study, not an implementation phase. |
 
 ## Confirmed Findings
 
@@ -125,7 +125,7 @@ No repository evidence records a formally `REJECT`-status experiment.
 
 ## Required Next Action
 
-Owner/ChatGPT review of Phase 3-D0. The authorized boundary is complete. Do not start Phase 3-D1 CUDA Graph runtime work, native TensorRT graph redesign, CUDA kernels, TensorRT plugins, attention optimization, or new quantization work until the owner and ChatGPT explicitly approve the next boundary.
+Owner/ChatGPT review of Phase 3-E. The authorized boundary is complete. Do not start Phase 4 CUDA operator implementation, TensorRT plugin work, attention optimization, native TensorRT graph redesign, or new quantization work until the owner and ChatGPT explicitly approve the next boundary. If authorized, the narrow Phase 4-A candidate is operator/shape attribution and feasibility for the two small decode GEMMs only.
 
 ## Do-not-repeat Work
 
@@ -541,3 +541,29 @@ Before Phase 3-A execution, the canonical Phase 2 checkpoint was `b2083895b1199e
 - Report: `docs/phase3d0_cuda_graph_feasibility.md`; primary evidence:
   `results/phase3d0_cuda_graph/20260904T094952Z/`. Raw NSYS remains Jetson-local
   and hashed in `results/phase3d0_cuda_graph/20260904T094952Z/nsys/`.
+
+## Phase 3-E TensorRT Kernel Attribution (2026-09-04)
+
+- Starting checkpoint was `8b8a3530d9eed1e221419e41d24c9a4d8071cb02`; the
+  branch is `phase/03e-tensorrt-kernel-attribution`. Code commits are `8e34c85`,
+  `7b20282`, `b6ce658`, `b39bfec` and `ab65133`; the closeout commit must be
+  verified with Git.
+- EngineInspector audited four decoder engines without rebuilding them. FP16
+  engines expose compact layers: 84 GEMM layers plus 336/529 UNKNOWN layers.
+  Detailed Mixed metadata maps q/k/v/o/gate/up/down projections; 28 prefill
+  attention-GEMM layers and 194 prefill / 250 decode GEMM layers are recorded.
+- Joining Inspector tactics with Phase 3-C NSYS triggered NCU: FP16 rank-2
+  kernel 35.31%, rank-1 h16816 20.28% FP16 and 26.78% Mixed.
+- NCU used narrow kernel filters, one launch per target and
+  `--clock-control none`. A prefill-only rank-2 attempt found no matching
+  kernel and is retained; rank-2b used one decode step. Raw `.ncu-rep` files
+  remain Jetson-local.
+- Results: rank-1 h16816 97.06% memory/L2, 39.57% SM, 39.673148% HMMA active,
+  24.78% achieved occupancy. Rank-2/3 decode GEMMs: 71.92-76.88% memory/L2,
+  25.62-29.60% SM, 17.167166-17.697509% HMMA active, and achieved occupancy
+  24.25-24.68%. Direct DRAM remains `N/A`.
+- Final Gate is `PASS / BOUNDED / NO_PROVEN_CUDA_OPTIMIZATION_TARGET`. The
+  low HMMA signal on ranks 2/3 is potential, not proof; compact FP16 metadata
+  leaves operator/tactic attribution UNKNOWN. Phase 4 was not started.
+- Report: `docs/phase3e_kernel_attribution.md`; primary evidence:
+  `results/phase3e_kernel_attribution/20260904T121007Z/`.
