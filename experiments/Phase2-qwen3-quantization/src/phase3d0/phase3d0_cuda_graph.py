@@ -495,8 +495,8 @@ def main() -> None:
     args.bench_ids = evaluation[0]["token_ids"]
     args.force_cont = json.loads(args.force_cont.read_text())
     args.out.mkdir(parents=True, exist_ok=True)
-    F.dump(args.out / "environment.json", F.environment_snapshot())
-    F.dump(args.out / "run_config.json", {
+    F.F.dump(args.out / "environment.json", F.environment_snapshot())
+    F.F.dump(args.out / "run_config.json", {
         "mode": args.mode, "runtime": args.runtime, "graph": args.graph,
         "decode_steps": args.decode_steps, "warmup": args.warmup,
         "repeats": args.repeats, "batch": 1, "prefill_length": 8,
@@ -510,7 +510,7 @@ def main() -> None:
         result = bench_mode(args)
     else:
         result = profile_mode(args)
-    F.dump(args.out / f"{args.mode}_result.json", result)
+    F.F.dump(args.out / f"{args.mode}_result.json", result)
     print(json.dumps(result, indent=2, default=str))
 
 
