@@ -462,7 +462,7 @@ def bench_mode(args) -> dict:
     capture_start = time.perf_counter()
     graph_topology = graph.capture()
     capture_s = time.perf_counter() - capture_start
-    validation = validate(args, objects, stream_result, graph, graph_topology)
+    validation = validate(args, stream_result, graph, graph_topology)
     benchmark_result = benchmark(
         args, graph_objects, stream_result, graph, ks, vs, capture_s)
     audit = audit_from_objects(
