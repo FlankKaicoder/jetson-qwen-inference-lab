@@ -1,3 +1,33 @@
+## Phase 3-B Runtime Object Lifetime Optimization (2026-09-04)
+
+- Branch is `phase/03b-runtime-object-lifetime`. The Phase 3-A starting
+  checkpoint was `87ad72f1d87150a720c6e5316620ed9fd8767001`. Phase 3-B commits
+  include `40eb2ee` (B0 audit), `9b61f4e` (persistent context path), harness
+  fixes through `1e4d888`; the final closeout commit must be verified with Git.
+- B0 proved the original `TRT.run` created a function-local TensorRT
+  ExecutionContext on every call; Runtime, engines and stream were already
+  persistent. Persistent mode creates one context per engine wrapper, reuses it,
+  and still sets every shape/address per call.
+- B2 Mixed legacy-vs-persistent hidden, logits and all K/V tensors were exactly
+  equal and finite at S=8 plus 8 decode steps and S=16 prefill. All KV
+  prefixes, lengths and 28-layer pointer invariants passed. No OOM/exit137.
+- B3 same-session benchmark: Mixed prefill 2259.919/2255.619 ms legacy ->
+  47.627/42.406 ms persistent at S=8/S=16; Mixed TPOT 2662.990/2662.266 ms ->
+  43.362/43.580 ms. Mixed is now roughly equal to FP16. GapRecovery is prefill
+  100.348%/99.721% and decode 100.009%/99.780%; values above 100% are
+  noise-bounded.
+- B4 steady-state NSYS collapsed Mixed module load/unload from 832 prefill and
+  566 decode-step-0 calls to zero. Mixed wall fell from 2310.857 to 33.217 ms
+  and 2881.660 to 65.848 ms; CUDA API time fell to 18.957/22.452 ms.
+- B5 initialization increased from 3.349467 to 6.779457 s (FP16) and
+  2.636420 to 6.655416 s (Mixed). Exact retained-context-only memory cost is
+  `INCONCLUSIVE`; no deployment memory blocker or OOM was observed.
+- Gate: `PASS / CLOSED / PROVEN`. H3B-1 is `PROVEN` for the current
+  single-request runtime. Report: `docs/phase3b_runtime_object_lifetime.md`;
+  evidence under `results/phase3b_runtime_lifetime/`. Raw NSYS remains
+  Jetson-local under `/tmp/phase3b_nsys_20260904T082912Z/`. Phase 3-C was not
+  started.
+
 ## Phase 3-A Runtime Bottleneck Attribution (2026-09-04)
 
 - Branch is `phase/03-runtime-bottleneck-attribution`. The Phase 2 canonical
@@ -110,11 +140,11 @@
 
 ## 当前 branch
 
-`phase/02-qwen3-quantization`
+`phase/03b-runtime-object-lifetime`
 
 ## 当前 commit
 
-本轮 starting HEAD 为 `e9fa64fba35b570f67b91e9a686fd91f6190308a`；Phase 2.2-A closeout commit 以 `git rev-parse HEAD` 为准。
+Phase 3-A starting HEAD 为 `87ad72f1d87150a720c6e5316620ed9fd8767001`；Phase 3-B final closeout commit 以 `git rev-parse HEAD` 为准。
 
 ## 本轮完成
 

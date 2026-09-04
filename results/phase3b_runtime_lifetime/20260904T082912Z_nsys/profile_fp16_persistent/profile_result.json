@@ -1,0 +1,13 @@
+{
+  "context_creations": 5,
+  "decode_steps": 4,
+  "engine_dir": "/tmp/phase2_2b4_2_20260902T082326Z",
+  "initialization_s": 6.8631042200140655,
+  "label": "fp16_persistent_context_lifetime",
+  "lifetime": "persistent_context_lifetime",
+  "mixed": false,
+  "persistent": true,
+  "profiled": true,
+  "runtime": "fp16",
+  "seq_len": 8
+}

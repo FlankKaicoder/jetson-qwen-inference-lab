@@ -1,0 +1,16 @@
+{
+  "decode_steps": 8,
+  "functional_decode_steps": 8,
+  "lifetime": "legacy_context_lifetime",
+  "mode": "profile",
+  "prefill_lengths": [
+    8,
+    16
+  ],
+  "repeats": 10,
+  "sampling": "forced deterministic continuation tokens",
+  "timing": "time.perf_counter with torch.cuda.synchronize before/after",
+  "warmup": 5,
+  "window_repeats": 3,
+  "workload": "deterministic first evaluation prompt ids, batch 1"
+}

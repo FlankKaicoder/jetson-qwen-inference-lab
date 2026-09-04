@@ -4,6 +4,26 @@
 
 ## [Unreleased]
 
+### Phase 3-B (2026-09-04)
+
+- Added an explicit `legacy_context_lifetime` /
+  `persistent_context_lifetime` A/B. The audit proved the original hot path
+  created a TensorRT execution context per `TRT.run`, while persistent mode
+  creates one context per engine wrapper and continues setting shapes and
+  tensor addresses on every call.
+- Mixed legacy-vs-persistent hidden, logits and K/V outputs were exactly equal
+  and finite at S=8 plus 8 decode steps and S=16 prefill; KV prefix, length and
+  28-layer pointer invariants passed with no OOM/exit137.
+- The same-session four-way benchmark reduced Mixed prefill from
+  2259.919/2255.619 ms to 47.627/42.406 ms at S=8/S=16 and Mixed TPOT from
+  2662.990/2662.266 ms to 43.362/43.580 ms. Gap recovery was 99.7-100.3%.
+- Steady-state NSYS collapsed `cuModuleLoadData`/`cuModuleUnload` counts and
+  time to zero; Mixed wall fell from 2310.857 to 33.217 ms at prefill and
+  2881.660 to 65.848 ms at decode step 0. H3B-1 is `PROVEN`.
+- Initialization increased by 3.430/4.019 s for FP16/Mixed. Observational
+  loaded memory decreased, but exact retained-context cost remains
+  `INCONCLUSIVE`. Gate: `PASS / CLOSED / PROVEN`; Phase 3-C remains not started.
+
 ### Phase 3-A (2026-09-04)
 
 - Added controlled Phase 3-A benchmark and NSYS attribution. Mixed remained

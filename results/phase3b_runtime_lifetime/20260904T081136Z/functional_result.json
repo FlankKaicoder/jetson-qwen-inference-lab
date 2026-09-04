@@ -1,0 +1,408 @@
+{
+  "comparison": "Mixed legacy_context_lifetime vs Mixed persistent_context_lifetime",
+  "gate": "BLOCKED",
+  "memory": [
+    {
+      "cuda_free_bytes": 4811649024,
+      "cuda_total_bytes": 7989940224,
+      "current_rss_kb": 449988,
+      "maxrss_kb": 428772,
+      "mem_available_bytes": 4823658496,
+      "stage": "functional_start",
+      "swap_free_bytes": 2239115264,
+      "swap_total_bytes": 3994951680,
+      "torch_allocated_bytes": 0,
+      "torch_reserved_bytes": 0
+    },
+    {
+      "cuda_free_bytes": 4119490560,
+      "cuda_total_bytes": 7989940224,
+      "current_rss_kb": 1078864,
+      "maxrss_kb": 1510104,
+      "mem_available_bytes": 4119490560,
+      "stage": "functional_complete_S8",
+      "swap_free_bytes": 2239115264,
+      "swap_total_bytes": 3994951680,
+      "torch_allocated_bytes": 304128,
+      "torch_reserved_bytes": 2097152
+    },
+    {
+      "cuda_free_bytes": 4094074880,
+      "cuda_total_bytes": 7989940224,
+      "current_rss_kb": 1092592,
+      "maxrss_kb": 1716712,
+      "mem_available_bytes": 4094074880,
+      "stage": "functional_complete_S16",
+      "swap_free_bytes": 2239377408,
+      "swap_total_bytes": 3994951680,
+      "torch_allocated_bytes": 304128,
+      "torch_reserved_bytes": 2097152
+    }
+  ],
+  "pass": false,
+  "phase": "Phase 3-B2",
+  "rows": [
+    {
+      "all_exact": true,
+      "all_finite": true,
+      "comparisons": [
+        {
+          "hidden_exact": true,
+          "hidden_metric": {
+            "cosine": 0.9999997615814209,
+            "finite": true,
+            "max_abs": 0.0,
+            "mean_abs": 0.0,
+            "relative_l2": 0.0,
+            "rmse": 0.0
+          },
+          "kv_exact": true,
+          "logits_exact": true,
+          "logits_metric": {
+            "cosine": 0.0,
+            "finite": true,
+            "max_abs": 0.0,
+            "mean_abs": 0.0,
+            "relative_l2": 0.0,
+            "rmse": 0.0
+          },
+          "step": 0
+        },
+        {
+          "hidden_exact": true,
+          "hidden_metric": {
+            "cosine": 1.0000001192092896,
+            "finite": true,
+            "max_abs": 0.0,
+            "mean_abs": 0.0,
+            "relative_l2": 0.0,
+            "rmse": 0.0
+          },
+          "kv_exact": true,
+          "logits_exact": true,
+          "logits_metric": {
+            "cosine": 0.9999963045120239,
+            "finite": true,
+            "max_abs": 0.0,
+            "mean_abs": 0.0,
+            "relative_l2": 0.0,
+            "rmse": 0.0
+          },
+          "step": 1
+        },
+        {
+          "hidden_exact": true,
+          "hidden_metric": {
+            "cosine": 1.0,
+            "finite": true,
+            "max_abs": 0.0,
+            "mean_abs": 0.0,
+            "relative_l2": 0.0,
+            "rmse": 0.0
+          },
+          "kv_exact": true,
+          "logits_exact": true,
+          "logits_metric": {
+            "cosine": 0.0,
+            "finite": true,
+            "max_abs": 0.0,
+            "mean_abs": 0.0,
+            "relative_l2": 0.0,
+            "rmse": 0.0
+          },
+          "step": 2
+        },
+        {
+          "hidden_exact": true,
+          "hidden_metric": {
+            "cosine": 1.0,
+            "finite": true,
+            "max_abs": 0.0,
+            "mean_abs": 0.0,
+            "relative_l2": 0.0,
+            "rmse": 0.0
+          },
+          "kv_exact": true,
+          "logits_exact": true,
+          "logits_metric": {
+            "cosine": 0.9999954104423523,
+            "finite": true,
+            "max_abs": 0.0,
+            "mean_abs": 0.0,
+            "relative_l2": 0.0,
+            "rmse": 0.0
+          },
+          "step": 3
+        },
+        {
+          "hidden_exact": true,
+          "hidden_metric": {
+            "cosine": 1.0000001192092896,
+            "finite": true,
+            "max_abs": 0.0,
+            "mean_abs": 0.0,
+            "relative_l2": 0.0,
+            "rmse": 0.0
+          },
+          "kv_exact": true,
+          "logits_exact": true,
+          "logits_metric": {
+            "cosine": 0.9999951720237732,
+            "finite": true,
+            "max_abs": 0.0,
+            "mean_abs": 0.0,
+            "relative_l2": 0.0,
+            "rmse": 0.0
+          },
+          "step": 4
+        },
+        {
+          "hidden_exact": true,
+          "hidden_metric": {
+            "cosine": 1.0,
+            "finite": true,
+            "max_abs": 0.0,
+            "mean_abs": 0.0,
+            "relative_l2": 0.0,
+            "rmse": 0.0
+          },
+          "kv_exact": true,
+          "logits_exact": true,
+          "logits_metric": {
+            "cosine": 1.0000008344650269,
+            "finite": true,
+            "max_abs": 0.0,
+            "mean_abs": 0.0,
+            "relative_l2": 0.0,
+            "rmse": 0.0
+          },
+          "step": 5
+        },
+        {
+          "hidden_exact": true,
+          "hidden_metric": {
+            "cosine": 1.0000001192092896,
+            "finite": true,
+            "max_abs": 0.0,
+            "mean_abs": 0.0,
+            "relative_l2": 0.0,
+            "rmse": 0.0
+          },
+          "kv_exact": true,
+          "logits_exact": true,
+          "logits_metric": {
+            "cosine": 1.0000033378601074,
+            "finite": true,
+            "max_abs": 0.0,
+            "mean_abs": 0.0,
+            "relative_l2": 0.0,
+            "rmse": 0.0
+          },
+          "step": 6
+        },
+        {
+          "hidden_exact": true,
+          "hidden_metric": {
+            "cosine": 0.9999998807907104,
+            "finite": true,
+            "max_abs": 0.0,
+            "mean_abs": 0.0,
+            "relative_l2": 0.0,
+            "rmse": 0.0
+          },
+          "kv_exact": true,
+          "logits_exact": true,
+          "logits_metric": {
+            "cosine": 1.000000238418579,
+            "finite": true,
+            "max_abs": 0.0,
+            "mean_abs": 0.0,
+            "relative_l2": 0.0,
+            "rmse": 0.0
+          },
+          "step": 7
+        },
+        {
+          "hidden_exact": true,
+          "hidden_metric": {
+            "cosine": 1.000000238418579,
+            "finite": true,
+            "max_abs": 0.0,
+            "mean_abs": 0.0,
+            "relative_l2": 0.0,
+            "rmse": 0.0
+          },
+          "kv_exact": true,
+          "logits_exact": true,
+          "logits_metric": {
+            "cosine": 0.0,
+            "finite": true,
+            "max_abs": 0.0,
+            "mean_abs": 0.0,
+            "relative_l2": 0.0,
+            "rmse": 0.0
+          },
+          "step": 8
+        }
+      ],
+      "decode_steps": 8,
+      "invariants_pass": false,
+      "kv_gate_pass": false,
+      "legacy_info": {
+        "engine_context_creations": 0,
+        "engine_paths": [
+          "/tmp/phase2_2c1_20260902T090000Z/embedding_fp16.engine",
+          "/tmp/phase2_2c2_20260903T/final_rmsnorm_fp32_reduce.engine",
+          "/tmp/phase2_2c3_20260903T024500Z/lm_head_fp16.engine",
+          "/tmp/phase2_3e_20260904T020000Z/work/mixed_prefill_28layer.engine",
+          "/tmp/phase2_3e_20260904T020000Z/work/mixed_decode_28layer.engine"
+        ],
+        "initialization_s": 1.6968587589799426,
+        "label": "mixed_legacy_S8",
+        "lifetime": "legacy_context_lifetime",
+        "mixed": true,
+        "post_workload_context_counters": {
+          "context_creations": 36,
+          "context_reuses": 0
+        }
+      },
+      "legacy_memory": {
+        "cuda_free_bytes": 3755081728,
+        "cuda_total_bytes": 7989940224,
+        "current_rss_kb": 520056,
+        "maxrss_kb": 1154880,
+        "mem_available_bytes": 3756298240,
+        "stage": "mixed_legacy_loaded_S8",
+        "swap_free_bytes": 2239115264,
+        "swap_total_bytes": 3994951680,
+        "torch_allocated_bytes": 0,
+        "torch_reserved_bytes": 0
+      },
+      "persistent_info": {
+        "engine_context_creations": 5,
+        "engine_paths": [
+          "/tmp/phase2_2c1_20260902T090000Z/embedding_fp16.engine",
+          "/tmp/phase2_2c2_20260903T/final_rmsnorm_fp32_reduce.engine",
+          "/tmp/phase2_2c3_20260903T024500Z/lm_head_fp16.engine",
+          "/tmp/phase2_3e_20260904T020000Z/work/mixed_prefill_28layer.engine",
+          "/tmp/phase2_3e_20260904T020000Z/work/mixed_decode_28layer.engine"
+        ],
+        "initialization_s": 5.83561033802107,
+        "label": "mixed_persistent_S8",
+        "lifetime": "persistent_context_lifetime",
+        "mixed": true,
+        "post_workload_context_counters": {
+          "context_creations": 5,
+          "context_reuses": 36
+        }
+      },
+      "persistent_memory": {
+        "cuda_free_bytes": 3156021248,
+        "cuda_total_bytes": 7989940224,
+        "current_rss_kb": 1057608,
+        "maxrss_kb": 1510104,
+        "mem_available_bytes": 3156021248,
+        "stage": "mixed_persistent_loaded_S8",
+        "swap_free_bytes": 2239115264,
+        "swap_total_bytes": 3994951680,
+        "torch_allocated_bytes": 304128,
+        "torch_reserved_bytes": 2097152
+      },
+      "seq_len": 8,
+      "shape_pass": false
+    },
+    {
+      "all_exact": true,
+      "all_finite": true,
+      "comparisons": [
+        {
+          "hidden_exact": true,
+          "hidden_metric": {
+            "cosine": 0.999999463558197,
+            "finite": true,
+            "max_abs": 0.0,
+            "mean_abs": 0.0,
+            "relative_l2": 0.0,
+            "rmse": 0.0
+          },
+          "kv_exact": true,
+          "logits_exact": true,
+          "logits_metric": {
+            "cosine": 0.0,
+            "finite": true,
+            "max_abs": 0.0,
+            "mean_abs": 0.0,
+            "relative_l2": 0.0,
+            "rmse": 0.0
+          },
+          "step": 0
+        }
+      ],
+      "decode_steps": 0,
+      "invariants_pass": true,
+      "kv_gate_pass": true,
+      "legacy_info": {
+        "engine_context_creations": 0,
+        "engine_paths": [
+          "/tmp/phase2_2c1_20260902T090000Z/embedding_fp16.engine",
+          "/tmp/phase2_2c2_20260903T/final_rmsnorm_fp32_reduce.engine",
+          "/tmp/phase2_2c3_20260903T024500Z/lm_head_fp16.engine",
+          "/tmp/phase2_3e_20260904T020000Z/work/mixed_prefill_28layer.engine",
+          "/tmp/phase2_3e_20260904T020000Z/work/mixed_decode_28layer.engine"
+        ],
+        "initialization_s": 1.8094376220251434,
+        "label": "mixed_legacy_S16",
+        "lifetime": "legacy_context_lifetime",
+        "mixed": true,
+        "post_workload_context_counters": {
+          "context_creations": 4,
+          "context_reuses": 0
+        }
+      },
+      "legacy_memory": {
+        "cuda_free_bytes": 3161948160,
+        "cuda_total_bytes": 7989940224,
+        "current_rss_kb": 1078932,
+        "maxrss_kb": 1715316,
+        "mem_available_bytes": 3161948160,
+        "stage": "mixed_legacy_loaded_S16",
+        "swap_free_bytes": 2239115264,
+        "swap_total_bytes": 3994951680,
+        "torch_allocated_bytes": 304128,
+        "torch_reserved_bytes": 2097152
+      },
+      "persistent_info": {
+        "engine_context_creations": 5,
+        "engine_paths": [
+          "/tmp/phase2_2c1_20260902T090000Z/embedding_fp16.engine",
+          "/tmp/phase2_2c2_20260903T/final_rmsnorm_fp32_reduce.engine",
+          "/tmp/phase2_2c3_20260903T024500Z/lm_head_fp16.engine",
+          "/tmp/phase2_3e_20260904T020000Z/work/mixed_prefill_28layer.engine",
+          "/tmp/phase2_3e_20260904T020000Z/work/mixed_decode_28layer.engine"
+        ],
+        "initialization_s": 6.033394024998415,
+        "label": "mixed_persistent_S16",
+        "lifetime": "persistent_context_lifetime",
+        "mixed": true,
+        "post_workload_context_counters": {
+          "context_creations": 5,
+          "context_reuses": 4
+        }
+      },
+      "persistent_memory": {
+        "cuda_free_bytes": 3095949312,
+        "cuda_total_bytes": 7989940224,
+        "current_rss_kb": 1097240,
+        "maxrss_kb": 1716712,
+        "mem_available_bytes": 3095949312,
+        "stage": "mixed_persistent_loaded_S16",
+        "swap_free_bytes": 2239377408,
+        "swap_total_bytes": 3994951680,
+        "torch_allocated_bytes": 304128,
+        "torch_reserved_bytes": 2097152
+      },
+      "seq_len": 16,
+      "shape_pass": true
+    }
+  ]
+}

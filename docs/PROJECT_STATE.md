@@ -13,14 +13,14 @@
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
 | Current phase | Phase 3 — Transformer / Runtime Operator Optimization |
-| Current experiment | Phase 3-A — Runtime Bottleneck Attribution |
-| Current branch | `phase/03-runtime-bottleneck-attribution` |
+| Current experiment | Phase 3-B — TensorRT Runtime Object Lifetime Optimization |
+| Current branch | `phase/03b-runtime-object-lifetime` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 3-A — Runtime Bottleneck Attribution |
-| Experiment status | Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8/2.1.9 `PASS / BOUNDED`; Phase 2.2-A `PARTIAL / BOUNDED PASS`; Phase 2.2-B1/B2/B3 `PASS / BOUNDED`; Phase 2.2-B4.1 `PASS / CLOSED`; Phase 2.2-B4.2 `PASS / BOUNDED`; Phase 2.2-C0 `PASS / DESIGN ONLY`; Phase 2.2-C1 `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`; Phase 2.2 `CLOSED / PASS / BOUNDED`; Phase 2.3-A/B `PASS`; Phase 2.3-C/D/E/F `PASS / BOUNDED`; Phase 2.3 aggregate `CLOSED / PASS / BOUNDED`; Phase 3-A `PASS / BOUNDED` |
-| Current Gate | Phase 3-A `PASS / BOUNDED`; Mixed remains 49.0-49.1% slower at prefill and 35.7-36.0% slower at decode; GPU busy is only 1.46-3.00% of measured wall, and Mixed's measured slowdown delta is dominated by host CUDA API/module load/unload time rather than GPU kernel time |
-| Readiness | Phase 2.2/2.3 and Phase 3-A remain frozen as completed evidence; C1 remains `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`; Phase 3-B is not started and requires ChatGPT review plus explicit owner/ChatGPT authorization. |
+| Last completed experiment | Phase 3-B — TensorRT Runtime Object Lifetime Optimization |
+| Experiment status | Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8/2.1.9 `PASS / BOUNDED`; Phase 2.2-A `PARTIAL / BOUNDED PASS`; Phase 2.2-B1/B2/B3 `PASS / BOUNDED`; Phase 2.2-B4.1 `PASS / CLOSED`; Phase 2.2-B4.2 `PASS / BOUNDED`; Phase 2.2-C0 `PASS / DESIGN ONLY`; Phase 2.2-C1 `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`; Phase 2.2 `CLOSED / PASS / BOUNDED`; Phase 2.3-A/B `PASS`; Phase 2.3-C/D/E/F `PASS / BOUNDED`; Phase 2.3 aggregate `CLOSED / PASS / BOUNDED`; Phase 3-A `PASS / BOUNDED`; Phase 3-B `PASS / CLOSED / PROVEN` |
+| Current Gate | Phase 3-B `PASS / CLOSED / PROVEN`. Persistent execution contexts collapsed steady-state module load/unload to zero, Mixed legacy-vs-persistent outputs were exactly equal, Mixed prefill median fell from 2259.919/2255.619 ms to 47.627/42.406 ms at S=8/S=16, and Mixed TPOT fell from 2662.990/2662.266 ms to 43.362/43.580 ms. Gap recovery is 99.7-100.3%; values above 100% are noise-bounded, not extra theoretical gain. |
+| Readiness | Phase 2.2/2.3, Phase 3-A and Phase 3-B remain frozen as completed evidence. C1 remains `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`. The persistent-context result is validated only for the current single-request runtime. Phase 3-C is not started and requires owner/ChatGPT review plus explicit authorization. |
 
 ## Confirmed Findings
 
@@ -125,7 +125,7 @@ No repository evidence records a formally `REJECT`-status experiment.
 
 ## Required Next Action
 
-Owner/ChatGPT review of Phase 3-A. The evidence-backed Phase 3-B candidate is persistent TensorRT execution contexts to eliminate the per-call module-load storm, but no Phase 3-B design, context caching, CUDA kernel, plugin, runtime scheduling or optimization work may begin until the owner and ChatGPT explicitly approve the next boundary.
+Owner/ChatGPT review of Phase 3-B. The authorized Phase 3-B boundary is complete. Do not start Phase 3-C, CUDA kernels, TensorRT plugins, attention optimization, new quantization work or a new profiling campaign until the owner and ChatGPT explicitly approve the next boundary.
 
 ## Do-not-repeat Work
 
@@ -451,3 +451,46 @@ Before Phase 3-A execution, the canonical Phase 2 checkpoint was `b2083895b1199e
   `results/phase3a_runtime_attribution/20260904T062712Z/` and
   `results/phase3a_runtime_attribution/20260904T063649Z_nsys/`. Raw NSYS
   reports remain Jetson-local under `/tmp/phase3a_nsys_20260904T063649Z/`.
+
+## Phase 3-B Runtime Object Lifetime Optimization (2026-09-04)
+
+- Starting canonical checkpoint was `87ad72f1d87150a720c6e5316620ed9fd8767001`;
+  the new branch is `phase/03b-runtime-object-lifetime`. B0 was committed at
+  `40eb2ee`, the persistent-context implementation at `9b61f4e`, and B2/B3/B4
+  evidence records HEAD `1e4d8888b651b550f2359f6e8530553ee126e008`.
+- B0 proved that Runtime, engines and stream were already persistent, while
+  `TRT.run` created a function-local ExecutionContext on every call. Legacy
+  mode made 2 contexts for a decoder-only call and 4 for a decoder+norm+LM
+  Head call; the Phase 3-A profile sequence made 28 contexts.
+- B1 added the `legacy_context_lifetime` / `persistent_context_lifetime`
+  feature flag. Persistent mode creates one context per engine wrapper, then
+  continues to set every input shape/address and output address per call. No
+  temporary tensor pointer is cached and no scheduler/pool was added.
+- B2 Mixed legacy-vs-persistent was exactly equal and finite for S=8 plus 8
+  decode steps and S=16 prefill. All KV prefixes, lengths and 28-layer K/V
+  pointer isolation passed. Legacy S=8 made 36 contexts; persistent made 5 and
+  reused 36. No OOM/exit137 occurred.
+- B3 same-session benchmark (warmup 5, repeats 10, 8-step windows): Mixed
+  prefill improved from 2259.919/2255.619 ms to 47.627/42.406 ms at S=8/S=16;
+  Mixed TPOT improved from 2662.990/2662.266 ms to 43.362/43.580 ms. Mixed is
+  now roughly equal to FP16. Gap recovery was prefill 100.348%/99.721% and
+  decode 100.009%/99.780%; values above 100% reflect small negative gaps and
+  are noise-bounded.
+- B4 steady-state NSYS showed Mixed module load/unload collapse from 832 calls
+  at prefill and 566 calls at decode step 0 to zero; wall fell from 2310.857 to
+  33.217 ms and 2881.660 to 65.848 ms. CUDA API time fell from 896.733 to
+  18.957 ms and 926.188 to 22.452 ms. B2 exact equality prevents interpreting
+  differing kernel totals as a semantic change.
+- B5 initialization increased from 3.349467 to 6.779457 s for FP16 and
+  2.636420 to 6.655416 s for Mixed. Persistent mode created 5 contexts, one
+  per engine wrapper. Observational loaded `MemAvailable` decreased by
+  388,288,512 B for FP16 and 245,555,200 B for Mixed; exact retained-context
+  cost is `INCONCLUSIVE`. No deployment memory blocker was observed.
+- Gate: `PASS / CLOSED / PROVEN`. H3B-1 is `PROVEN` for this single-request
+  runtime and bounded workload. Phase 3-C was not started.
+- Report: `docs/phase3b_runtime_object_lifetime.md`; primary evidence:
+  `results/phase3b_runtime_lifetime/b0_lifecycle_audit.json`,
+  `results/phase3b_runtime_lifetime/20260904T081621Z/`,
+  `results/phase3b_runtime_lifetime/20260904T081727Z/`, and
+  `results/phase3b_runtime_lifetime/20260904T082912Z_nsys/`. Raw NSYS remains
+  Jetson-local under `/tmp/phase3b_nsys_20260904T082912Z/`.
