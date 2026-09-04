@@ -1,0 +1,3 @@
+OUT=results/phase3c_residual_runtime/20260904T093500Z_nsys
+RAW=/tmp/phase3c_nsys_20260904T093500Z
+HEAD=51f41c221478aae2678d593c8b8fc0e7553e4a44

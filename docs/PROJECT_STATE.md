@@ -13,14 +13,14 @@
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
 | Current phase | Phase 3 — Transformer / Runtime Operator Optimization |
-| Current experiment | Phase 3-B — TensorRT Runtime Object Lifetime Optimization |
-| Current branch | `phase/03b-runtime-object-lifetime` |
+| Current experiment | Phase 3-C — Persistent Runtime Residual Profiling |
+| Current branch | `phase/03c-residual-runtime-profiling` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 3-B — TensorRT Runtime Object Lifetime Optimization |
-| Experiment status | Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8/2.1.9 `PASS / BOUNDED`; Phase 2.2-A `PARTIAL / BOUNDED PASS`; Phase 2.2-B1/B2/B3 `PASS / BOUNDED`; Phase 2.2-B4.1 `PASS / CLOSED`; Phase 2.2-B4.2 `PASS / BOUNDED`; Phase 2.2-C0 `PASS / DESIGN ONLY`; Phase 2.2-C1 `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`; Phase 2.2 `CLOSED / PASS / BOUNDED`; Phase 2.3-A/B `PASS`; Phase 2.3-C/D/E/F `PASS / BOUNDED`; Phase 2.3 aggregate `CLOSED / PASS / BOUNDED`; Phase 3-A `PASS / BOUNDED`; Phase 3-B `PASS / CLOSED / PROVEN` |
-| Current Gate | Phase 3-B `PASS / CLOSED / PROVEN`. Persistent execution contexts collapsed steady-state module load/unload to zero, Mixed legacy-vs-persistent outputs were exactly equal, Mixed prefill median fell from 2259.919/2255.619 ms to 47.627/42.406 ms at S=8/S=16, and Mixed TPOT fell from 2662.990/2662.266 ms to 43.362/43.580 ms. Gap recovery is 99.7-100.3%; values above 100% are noise-bounded, not extra theoretical gain. |
-| Readiness | Phase 2.2/2.3, Phase 3-A and Phase 3-B remain frozen as completed evidence. C1 remains `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`. The persistent-context result is validated only for the current single-request runtime. Phase 3-C is not started and requires owner/ChatGPT review plus explicit authorization. |
+| Last completed experiment | Phase 3-C — Persistent Runtime Residual Profiling |
+| Experiment status | Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8/2.1.9 `PASS / BOUNDED`; Phase 2.2-A `PARTIAL / BOUNDED PASS`; Phase 2.2-B1/B2/B3 `PASS / BOUNDED`; Phase 2.2-B4.1 `PASS / CLOSED`; Phase 2.2-B4.2 `PASS / BOUNDED`; Phase 2.2-C0 `PASS / DESIGN ONLY`; Phase 2.2-C1 `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`; Phase 2.2 `CLOSED / PASS / BOUNDED`; Phase 2.3-A/B `PASS`; Phase 2.3-C/D/E/F `PASS / BOUNDED`; Phase 2.3 aggregate `CLOSED / PASS / BOUNDED`; Phase 3-A `PASS / BOUNDED`; Phase 3-B `PASS / CLOSED / PROVEN`; Phase 3-C `PASS / BOUNDED` |
+| Current Gate | Phase 3-C `PASS / BOUNDED`. Persistent FP16/Mixed benchmark completed and steady-state module load/unload remained zero. In the representative prefill + four decode-step window, kernel time was 219.710 ms FP16 and 147.831 ms Mixed; CUDA API time was 186.374 ms FP16 and 116.749 ms Mixed. GEMM is the dominant named kernel category, but the largest single kernel was only 35.31% (FP16) / 26.78% (Mixed) of kernel time, so NCU was not required. No justified Phase 3-D CUDA operator target was identified. |
+| Readiness | Phase 2.2/2.3, Phase 3-A, Phase 3-B and Phase 3-C remain frozen as completed evidence. Phase 3-C profiling is bounded to single-request batch-1 S=8/S=16 and the documented short profile window. Phase 3-D CUDA operator optimization is not justified by the current evidence and was not started. |
 
 ## Confirmed Findings
 
@@ -125,7 +125,7 @@ No repository evidence records a formally `REJECT`-status experiment.
 
 ## Required Next Action
 
-Owner/ChatGPT review of Phase 3-B. The authorized Phase 3-B boundary is complete. Do not start Phase 3-C, CUDA kernels, TensorRT plugins, attention optimization, new quantization work or a new profiling campaign until the owner and ChatGPT explicitly approve the next boundary.
+Owner/ChatGPT review of Phase 3-C. The authorized Phase 3-C boundary is complete. Do not start Phase 3-D, CUDA kernels, TensorRT plugins, attention optimization, new quantization work or another profiling campaign until the owner and ChatGPT explicitly approve the next boundary.
 
 ## Do-not-repeat Work
 
@@ -494,3 +494,29 @@ Before Phase 3-A execution, the canonical Phase 2 checkpoint was `b2083895b1199e
   `results/phase3b_runtime_lifetime/20260904T081727Z/`, and
   `results/phase3b_runtime_lifetime/20260904T082912Z_nsys/`. Raw NSYS remains
   Jetson-local under `/tmp/phase3b_nsys_20260904T082912Z/`.
+
+## Phase 3-C Persistent Runtime Residual Profiling (2026-09-04)
+
+- Starting checkpoint was `aa2545edf6670ef3e0e711735da24393f3aa5b13`; the new
+  branch is `phase/03c-residual-runtime-profiling`. The C0/C1 preparation
+  commit is `51f41c2`. C1 and C2/C3 evidence used Jetson HEAD `51f41c2`.
+- C1 tested only persistent FP16 versus persistent Mixed. Both runtimes used
+  5 context creations and 448 reuses; minimum `MemAvailable` was
+  `3,191,648,256` bytes with no OOM or exit 137. The two runtimes were near
+  parity; the S=8 FP16 prefill ordering is noise, not a semantic result.
+- C2 collected separate FP16 and Mixed NSYS traces for one representative
+  prefill and four decode steps. Steady-state module load/unload was `0/0` in
+  both runtimes. Aggregate kernel time was 219.710 ms FP16 and 147.831 ms
+  Mixed; aggregate CUDA API time was 186.374 ms FP16 and 116.749 ms Mixed.
+- C3 name-based attribution found GEMM dominant (202.919 ms FP16 and
+  133.532 ms Mixed), but the largest single kernel was only 35.31% (FP16) and
+  26.78% (Mixed) of kernel time. No single kernel exceeded 50%.
+- Decision gate is `Case C`: Mixed/FP16 are already near parity and no
+  justified CUDA operator target was found. `NSIGHT COMPUTE NOT REQUIRED`.
+  Myelin/internal kernels remain `UNKNOWN / TRT INTERNAL`; no operator identity
+  was inferred from names.
+- Gate: `PASS / BOUNDED`. Phase 3-D was not started.
+- Report: `docs/phase3c_residual_runtime_profiling.md`; primary evidence:
+  `results/phase3c_residual_runtime/20260904T090803Z_bench/` and
+  `results/phase3c_residual_runtime/20260904T093500Z_nsys/`. Raw NSYS remains
+  Jetson-local under `/tmp/phase3c_nsys_20260904T093500Z/`.

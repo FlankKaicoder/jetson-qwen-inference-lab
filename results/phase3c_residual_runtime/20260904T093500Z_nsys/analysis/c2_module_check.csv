@@ -1,0 +1,5 @@
+label,range,wall_ms,gpu_kernel_count,gpu_kernel_time_ms,gpu_busy_pct,gpu_idle_ms,cuda_api_calls,cuda_api_time_ms,cuda_api_pct,host_gap_proxy_ms,sync_calls,sync_time_ms,memcpy_api_calls,memcpy_api_time_ms,gpu_memop_calls,gpu_memop_time_ms,cuModuleLoadData_calls,cuModuleLoadData_ms,cuModuleUnload_calls,cuModuleUnload_ms
+fp16_persistent,PHASE3B_INIT,7041.904704,0,0.0,0.0,7041.904704,3270,1659.592896,23.567386,5382.311808,50,562.77968,122,567.297056,129,559.898528,430,414.825504,0,0.0
+fp16_persistent,PHASE3B_WARMUP,199.0928,792,90.805984,45.609878,108.286816,1255,89.91088,45.160287,108.286816,13,69.24224,2,0.105984,2,0.005824,0,0.0,0,0.0
+mixed_persistent,PHASE3B_INIT,7215.997664,0,0.0,0.0,7215.997664,4454,2242.896576,31.08228,4973.101088,50,450.035808,339,466.263552,348,447.94016,695,1283.804768,0,0.0
+mixed_persistent,PHASE3B_WARMUP,172.736576,896,83.119488,48.119217,89.617088,1327,114.507744,66.290387,58.228832,13,43.069888,2,0.108704,2,0.005824,0,0.0,0,0.0

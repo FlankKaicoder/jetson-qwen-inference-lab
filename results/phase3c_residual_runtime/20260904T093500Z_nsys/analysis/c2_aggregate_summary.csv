@@ -1,0 +1,3 @@
+label,workload,wall_ms,gpu_kernel_count,gpu_kernel_time_ms,gpu_idle_ms,cuda_api_calls,cuda_api_time_ms,sync_calls,sync_time_ms,memcpy_api_calls,memcpy_api_time_ms,gpu_memop_calls,gpu_memop_time_ms,cuModuleLoadData_calls,cuModuleLoadData_ms,cuModuleUnload_calls,cuModuleUnload_ms,gpu_busy_pct,cuda_api_pct,host_gap_proxy_ms
+fp16_persistent,representative_steady_prefill_plus_4_decode,319.333024,2084,219.709696,99.623328,2364,186.3744,38,143.809952,9,0.517216,9,0.013376,0,0.0,0,0.0,68.802685,58.363647,99.623328
+mixed_persistent,representative_steady_prefill_plus_4_decode,237.800576,2452,147.83056,89.970016,3516,116.749376,38,71.544608,9,0.42944,9,0.010144,0,0.0,0,0.0,62.16577,49.095498,89.970016

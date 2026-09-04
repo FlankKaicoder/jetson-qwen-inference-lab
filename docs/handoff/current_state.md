@@ -1,3 +1,27 @@
+## Phase 3-C Persistent Runtime Residual Profiling (2026-09-04)
+
+- Branch is `phase/03c-residual-runtime-profiling`; starting checkpoint was
+  `aa2545edf6670ef3e0e711735da24393f3aa5b13` and the C0/C1 preparation commit
+  is `51f41c2`. C1 and C2/C3 evidence were produced on Jetson HEAD `51f41c2`.
+  The final closeout commit must be verified with `git rev-parse HEAD`.
+- C1 tested persistent FP16 versus persistent Mixed only. Both used 5 context
+  creations and 448 reuses. Minimum `MemAvailable` was `3,191,648,256` bytes;
+  no OOM or exit 137 occurred. The runtimes were near parity; the S=8 FP16
+  prefill ordering is noise, not a semantic result.
+- C2 used separate FP16 and Mixed NSYS traces with one representative prefill
+  plus four decode steps. Steady-state module load/unload remained `0/0` for
+  both runtimes. Aggregate kernel time was 219.710 ms FP16 and 147.831 ms
+  Mixed; CUDA API time was 186.374 ms FP16 and 116.749 ms Mixed.
+- C3 name-based attribution found GEMM dominant (202.919 ms FP16 and
+  133.532 ms Mixed), but no single kernel exceeded 50%: the largest was
+  35.31% (FP16) / 26.78% (Mixed) of kernel time. TensorRT internal kernels
+  remain `UNKNOWN / TRT INTERNAL`; NCU was not required.
+- Decision gate is `Case C`: Mixed/FP16 are already near parity and no
+  justified Phase 3-D CUDA operator target was found. Phase 3-D was not
+  started. Report: `docs/phase3c_residual_runtime_profiling.md`; evidence
+  under `results/phase3c_residual_runtime/`. Raw NSYS remains Jetson-local
+  under `/tmp/phase3c_nsys_20260904T093500Z/`.
+
 ## Phase 3-B Runtime Object Lifetime Optimization (2026-09-04)
 
 - Branch is `phase/03b-runtime-object-lifetime`. The Phase 3-A starting

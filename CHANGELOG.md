@@ -4,6 +4,22 @@
 
 ## [Unreleased]
 
+### Phase 3-C (2026-09-04)
+
+- Added persistent FP16/Mixed residual profiling and a Phase 3-C-only NSYS
+  analyzer. Legacy runtime, CUDA kernels, plugins and quantization redesign
+  were not revisited.
+- C1 persistent benchmark showed FP16 and Mixed near parity at S=8/S=16, with
+  5 context creations and 448 reuses for each runtime and no OOM/exit137.
+- C2 steady-state NSYS showed module load/unload remained `0/0` for both
+  persistent runtimes. Aggregate kernel time was 219.710 ms FP16 and
+  147.831 ms Mixed; CUDA API time was 186.374 ms FP16 and 116.749 ms Mixed.
+- C3 name-based attribution found GEMM dominant, but the largest single kernel
+  was only 35.31% (FP16) / 26.78% (Mixed) of kernel time. TensorRT internal
+  operator identity remained `UNKNOWN`. NCU was not required.
+- Final decision gate is `Case C`: no justified Phase 3-D CUDA operator target
+  was identified. Gate: `PASS / BOUNDED`; Phase 3-D was not started.
+
 ### Phase 3-B (2026-09-04)
 
 - Added an explicit `legacy_context_lifetime` /
