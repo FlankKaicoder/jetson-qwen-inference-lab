@@ -242,7 +242,7 @@ def load_objects(args, mixed: bool) -> tuple[dict, list, object]:
              args.norm_engine, args.lm_engine]
     t0 = time.perf_counter()
     objects = [F.make_trt(path, True) for path in paths]
-    embed_fn, _logits_fn = F.make_pipeline(objects[0], objects[2], objects[3])
+    embed_fn, _logits_fn = F.F.make_pipeline(objects[0], objects[2], objects[3])
     return {
         "engine_paths": [str(path) for path in paths],
         "initialization_s": time.perf_counter() - t0,
@@ -421,7 +421,7 @@ def profile_mode(args) -> dict:
     token_ids = args.force_cont[:args.decode_steps]
     with F.nvtx_range("PHASE3D0_INIT", True):
         pass
-    hidden, ks, vs = F.run_prefill(objects[0], embed_fn, args.bench_ids[:8])
+    hidden, ks, vs = F.F.run_prefill(objects[0], embed_fn, args.bench_ids[:8])
     graph = GraphDecodeWindow(objects, ks, vs, token_ids, args.decode_steps)
     with F.nvtx_range("PHASE3D0_WARMUP", True):
         for _ in range(args.warmup):
@@ -444,7 +444,7 @@ def profile_mode(args) -> dict:
 def bench_mode(args) -> dict:
     token_ids = args.force_cont[:args.decode_steps]
     info, objects, embed_fn = load_objects(args, args.runtime == "mixed")
-    hidden, ks, vs = F.run_prefill(objects[0], embed_fn, args.bench_ids[:8])
+    hidden, ks, vs = F.F.run_prefill(objects[0], embed_fn, args.bench_ids[:8])
     stream_result = run_stream_window(args, objects, token_ids, ks, vs)
     graph = GraphDecodeWindow(objects, ks, vs, token_ids, args.decode_steps)
     capture_start = time.perf_counter()
