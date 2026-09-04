@@ -250,9 +250,10 @@ Primary A2/A3 artifacts:
 `analysis/a2_a3_detail.json`, exported `stats/`, `stats2/` and `stats3/`
 CSVs, environment snapshots and profile manifests.
 
-Failed/diagnostic runs were retained Jetson-side and were not overwritten:
-`/tmp/phase3a_bench_20260904T062257Z` and
-`/tmp/phase3a_nsys_20260904T063612Z_nsys`. The completed Mixed NSYS report is
+Failed/diagnostic runs were retained Jetson-side under the untracked result
+paths `results/phase3a_runtime_attribution/20260904T062257Z/` and
+`results/phase3a_runtime_attribution/20260904T063612Z_nsys/`. The completed
+Mixed NSYS report is
 `/tmp/phase3a_nsys_20260904T063649Z/mixed_full.nsys-rep`; the small stale
 `mixed.nsys-rep` from an output-path collision remains as a diagnostic.
 
