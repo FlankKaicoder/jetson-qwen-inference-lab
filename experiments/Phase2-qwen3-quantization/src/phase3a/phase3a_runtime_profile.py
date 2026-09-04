@@ -114,15 +114,18 @@ def bench_runtime(label: str, pre_path: Path, dec_path: Path, embed, logits,
             decode_raw.append(time.perf_counter() - t0)
 
         window_raw = []
+        # Decode windows are anchored at an 8-token cache so eight decode
+        # steps stay within the engine's 16-token optimization profile.
+        window_ids = args.bench_ids[:8]
         for _ in range(args.window_repeats):
-            running_hidden, running_k, running_v = F.run_prefill(pre, embed, ids)
+            running_hidden, running_k, running_v = F.run_prefill(pre, embed, window_ids)
             torch.cuda.synchronize()
             t0 = time.perf_counter()
             with nvtx_range(f"decode_window_S{seq_len}", args.nvtx):
                 for step in range(args.decode_steps):
                     token = int(args.force_cont[step % len(args.force_cont)])
                     running_hidden, running_k, running_v = F.run_decode(
-                        dec, embed, token, seq_len + step, running_k, running_v)
+                        dec, embed, token, 8 + step, running_k, running_v)
                     _ = logits(running_hidden)
             torch.cuda.synchronize()
             window_raw.append(time.perf_counter() - t0)
@@ -136,6 +139,7 @@ def bench_runtime(label: str, pre_path: Path, dec_path: Path, embed, logits,
             "decode_window_ms": F.timing_summary(window_raw),
             "decode_window_raw_s": window_raw,
             "decode_window_steps": args.decode_steps,
+            "decode_window_cache_len": 8,
         }
     del pre, dec
     return rows
