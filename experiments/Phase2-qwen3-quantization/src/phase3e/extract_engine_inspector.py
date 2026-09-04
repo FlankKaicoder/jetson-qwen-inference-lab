@@ -37,12 +37,12 @@ def operator_for(onnx_names: list[str]) -> tuple[str, str]:
     for name in onnx_names:
         match = LINEAR_RE.search(name)
         if match:
-            layer = match.group(3) or match.group(1)
+            layer = match.group(3) or match.group(1) or 0
             return f"L{int(layer)}:{match.group(2)}", "LINEAR"
     for name in onnx_names:
         match = ATTENTION_RE.search(name)
         if match:
-            layer = match.group(2) or match.group(1)
+            layer = match.group(2) or match.group(1) or 0
             if name == "/MatMul" or name.endswith("/MatMul"):
                 return f"L{int(layer)}:ATTENTION_SCORE", "ATTENTION_GEMM"
             return f"L{int(layer)}:ATTENTION_VALUE", "ATTENTION_GEMM"
