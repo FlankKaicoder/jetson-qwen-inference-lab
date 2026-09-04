@@ -106,6 +106,7 @@ class GraphDecodeWindow:
         self.step_inputs = []
         self.step_outputs = []
         self.embedding_outputs = []
+        self.embedding_hidden = []
         self.norm_outputs = []
         self.logits_outputs = []
         self.hidden_outputs = []
@@ -114,11 +115,10 @@ class GraphDecodeWindow:
     def _prepare_step(self, step: int) -> None:
         length = 8 + step
         out_length = length + 1
-        embedding_out = self.embedding_outputs[step]
         hidden_out = self.hidden_outputs[step]
         norm_out = self.norm_outputs[step]
         logits_out = self.logits_outputs[step]
-        inputs = {"hidden_states": embedding_out,
+        inputs = {"hidden_states": self.embedding_hidden[step],
                   "position_ids": self.positions[step]}
         outputs = {"hidden_l27": hidden_out}
         for i in range(28):
@@ -137,7 +137,9 @@ class GraphDecodeWindow:
         for step in range(self.decode_steps):
             self.embedding_outputs.append(execute_no_sync(self.embed, {
                 "input_ids": self.tokens[step]}))
-            shape = tuple(self.embedding_outputs[step]["hidden_states"].shape)
+            self.embedding_hidden.append(
+                self.embedding_outputs[step]["hidden_states"])
+            shape = tuple(self.embedding_hidden[step].shape)
             self.hidden_outputs.append(torch.empty(
                 shape, device="cuda", dtype=torch.float16))
             self.norm_outputs.append(torch.empty(
