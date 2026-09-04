@@ -1,0 +1,71 @@
+{
+  "phase": "Phase 3-B0",
+  "starting_head": "87ad72f1d87150a720c6e5316620ed9fd8767001",
+  "starting_branch": "phase/03-runtime-bottleneck-attribution",
+  "phase_3b_branch": "phase/03b-runtime-object-lifetime",
+  "code_path": "experiments/Phase2-qwen3-quantization/src/phase2_3f/phase2_3f_compare.py",
+  "lifecycle": {
+    "runtime": {
+      "creation_site": "TRT.__init__ line 74: trt.Runtime(trt.Logger(trt.Logger.WARNING))",
+      "lifetime": "persistent for the Python TRT object lifetime",
+      "recreated_per_inference": false
+    },
+    "engine": {
+      "creation_site": "TRT.__init__ line 74: deserialize_cuda_engine(path.read_bytes())",
+      "lifetime": "persistent while the engine wrapper is retained",
+      "recreated_per_inference": false,
+      "actual_engine_layout": {
+        "prefill": 1,
+        "decode": 1,
+        "embedding": 1,
+        "final_rmsnorm": 1,
+        "lm_head": 1
+      }
+    },
+    "execution_context": {
+      "creation_site": "TRT.run line 80: self.engine.create_execution_context()",
+      "lifetime": "one function-call-local Python reference; released on run return",
+      "recreated_per_inference": true
+    },
+    "stream": {
+      "creation_site": "TRT.__init__ line 77: torch.cuda.current_stream()",
+      "lifetime": "persistent for the Python TRT object lifetime",
+      "recreated_per_inference": false
+    },
+    "bindings_and_addresses": {
+      "input_shape": "set in every TRT.run call",
+      "input_addresses": "set in every TRT.run call from the caller's tensors",
+      "output_tensors": "allocated in every TRT.run call and returned to caller",
+      "output_addresses": "set in every TRT.run call",
+      "kv_cache": "passed as caller-owned tensors on each decode call; prefix/isolation semantics handled by Phase 2 runtime"
+    }
+  },
+  "legacy_context_creation_counts": {
+    "per_prefill_only": 2,
+    "per_prefill_with_last_logits": 4,
+    "per_decode_only": 2,
+    "per_decode_with_logits": 4,
+    "phase3a_profile_sequence": {
+      "warmup_prefills": 2,
+      "warmup_prefill_contexts": 8,
+      "measured_prefill_contexts": 4,
+      "measured_decode_steps": 4,
+      "measured_decode_contexts": 16,
+      "total_profile_contexts": 28
+    }
+  },
+  "persistence_strategy": {
+    "object": "ExecutionContext only",
+    "mapping": "one persistent context per persistent engine wrapper",
+    "reason_engine_not_changed": "engines are already persistent",
+    "concurrency": "single request / single-threaded runtime only",
+    "address_policy": "continue setting every input/output address on every run"
+  },
+  "gate": "PASS",
+  "evidence_level": "PROVEN_FROM_CODE_PATH",
+  "notes": [
+    "No repeated Runtime or Engine deserialization was found in the hot path.",
+    "The short-lived object is ExecutionContext.",
+    "Persistent mode must preserve legacy mode behind an explicit flag and still update shapes/addresses every call."
+  ]
+}
