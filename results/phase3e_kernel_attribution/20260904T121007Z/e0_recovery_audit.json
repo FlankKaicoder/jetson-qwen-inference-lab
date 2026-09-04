@@ -1,0 +1,63 @@
+{
+  "phase": "Phase 3-E0",
+  "timestamp_utc": "20260904T121007Z",
+  "status": "PASS",
+  "starting_checkpoint": {
+    "branch": "phase/03d0-cuda-graph-feasibility",
+    "head": "8b8a3530d9eed1e221419e41d24c9a4d8071cb02",
+    "origin_sync": "IN_SYNC"
+  },
+  "phase_3e_branch": {
+    "name": "phase/03e-tensorrt-kernel-attribution",
+    "created_from_head": "8b8a3530d9eed1e221419e41d24c9a4d8071cb02"
+  },
+  "windows": {
+    "path": "E:/nvidia-qwen",
+    "branch_before_creation": "phase/03d0-cuda-graph-feasibility",
+    "tracked_modifications": [],
+    "untracked_directories": [
+      "experiments/Phase2-qwen3-quantization/artifacts/phase2_3b_20260903T203103Z/"
+    ],
+    "treatment": "PRESERVED_UNTOUCHED"
+  },
+  "jetson": {
+    "path": "/home/nvidia/projects/jetson-qwen-inference-lab",
+    "branch_before_creation": "phase/03d0-cuda-graph-feasibility",
+    "head": "8b8a3530d9eed1e221419e41d24c9a4d8071cb02",
+    "tracked_modifications": [],
+    "untracked_files": [
+      "docs/current_state.md",
+      "docs/experiment_registry.csv",
+      "experiments/Phase2-qwen3-quantization/phase2_2_runtime_prototype/artifacts/c1i_20260902T220000Z/c1i_qk_rope_numerics_20260902T220000Z.json",
+      "experiments/Phase2-qwen3-quantization/phase2_2_runtime_prototype/artifacts/c1i_20260902T221500Z/c1i_qk_rope_numerics_20260902T221500Z.json",
+      "experiments/Phase2-qwen3-quantization/phase2_2_runtime_prototype/artifacts/c1i_20260902T223000Z/c1i_qk_rope_numerics_20260902T223000Z.json",
+      "results/phase3a_runtime_attribution/20260904T062257Z/environment.json",
+      "results/phase3b_runtime_lifetime/20260904T082850Z_nsys/profile_paths.txt"
+    ],
+    "treatment": "PRESERVED_UNTOUCHED"
+  },
+  "engine_files": [
+    {"path": "/tmp/phase2_2b4_2_20260902T082326Z/prefill_28layer.engine", "bytes": 892483860, "exists": true},
+    {"path": "/tmp/phase2_2b4_2_20260902T082326Z/decode_28layer.engine", "bytes": 890363012, "exists": true},
+    {"path": "/tmp/phase2_3e_20260904T020000Z/work/mixed_prefill_28layer.engine", "bytes": 651671676, "exists": true},
+    {"path": "/tmp/phase2_3e_20260904T020000Z/work/mixed_decode_28layer.engine", "bytes": 650285868, "exists": true},
+    {"path": "/tmp/phase2_2c1_20260902T090000Z/embedding_fp16.engine", "bytes": 311199084, "exists": true},
+    {"path": "/tmp/phase2_2c2_20260903T/final_rmsnorm_fp32_reduce.engine", "bytes": 50020, "exists": true},
+    {"path": "/tmp/phase2_2c3_20260903T024500Z/lm_head_fp16.engine", "bytes": 311179748, "exists": true}
+  ],
+  "prior_evidence": {
+    "phase_3c_report": "docs/phase3c_residual_runtime_profiling.md",
+    "phase_3c_report_sha256": "27321F96069C0C05A965A23428CAACF757645C3FC17FFBD931C553D209BA514C",
+    "phase_3c_top_kernels": "results/phase3c_residual_runtime/20260904T093500Z_nsys/analysis/c3_top_kernels_by_name.csv",
+    "phase_3c_top_kernels_sha256": "7D68D3CEFA749853217AE995C1DDEA474548415299AB01D59AF834458E3C64FA",
+    "phase_3d0_report": "docs/phase3d0_cuda_graph_feasibility.md",
+    "phase_3d0_report_sha256": "2CD8BD0CB60C56E2082546CEE7ACCA9DD4914C2379CE2B2DD415BA24B43CBAD8",
+    "phase_3d0_evidence": "results/phase3d0_cuda_graph/20260904T094952Z/"
+  },
+  "nsight_compute": {
+    "path": "/usr/local/cuda-12.6/bin/ncu",
+    "version": "2024.3.1.0",
+    "default_path": "NOT_IN_NONLOGIN_SHELL_PATH"
+  },
+  "rebuild_or_delete_actions": "NONE"
+}
