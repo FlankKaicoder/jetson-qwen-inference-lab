@@ -123,6 +123,9 @@ class GraphDecodeWindow:
         inputs = {"hidden_states": self.embedding_hidden[step],
                   "position_ids": self.positions[step]}
         outputs = {"hidden_l27": hidden_out}
+        for layer in range(27):
+            outputs[f"hidden_l{layer}"] = torch.empty(
+                (1, 1, 1024), device="cuda", dtype=torch.float16)
         for i in range(28):
             inputs[f"past_k{i}"] = (self.initial_ks[i] if step == 0
                                     else self.step_outputs[step - 1][f"present_k{i}"])
