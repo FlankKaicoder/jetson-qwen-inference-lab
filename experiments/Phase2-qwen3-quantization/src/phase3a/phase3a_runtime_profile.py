@@ -177,8 +177,9 @@ def compare(fp16_rows: dict, mixed_rows: dict, lengths: list[int]) -> dict:
 
 def profile_workload(args) -> dict:
     engine_dir = args.profile_engine_dir
-    pre = F.TRT(engine_dir / "prefill_28layer.engine")
-    dec = F.TRT(engine_dir / "decode_28layer.engine")
+    prefix = "" if args.profile_runtime == "fp16" else "mixed_"
+    pre = F.TRT(engine_dir / f"{prefix}prefill_28layer.engine")
+    dec = F.TRT(engine_dir / f"{prefix}decode_28layer.engine")
     embedding = F.TRT(args.embedding_engine)
     norm = F.TRT(args.norm_engine)
     lm = F.TRT(args.lm_engine)
