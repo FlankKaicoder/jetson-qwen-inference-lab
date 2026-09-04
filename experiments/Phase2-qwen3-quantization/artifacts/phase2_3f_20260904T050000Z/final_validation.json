@@ -1,0 +1,442 @@
+{
+  "benchmark_comparison": {
+    "16": {
+      "decode_speedup": 0.7391849141577936,
+      "prefill_latency_reduction_pct": -48.53602097220884,
+      "prefill_speedup": 0.6732373692621674,
+      "throughput_ratio": 0.7391849141577936
+    },
+    "8": {
+      "decode_speedup": 0.7394512767219306,
+      "prefill_latency_reduction_pct": -48.658906793329315,
+      "prefill_speedup": 0.6726808514677389,
+      "throughput_ratio": 0.7394512767219306
+    }
+  },
+  "exit137": false,
+  "forced_decode": {
+    "cosine": {
+      "max": 0.9733183979988098,
+      "mean": 0.526365622257193,
+      "median": 0.8879002034664154,
+      "p95": 0.9703445583581924
+    },
+    "relative_l2": {
+      "max": Infinity,
+      "mean": Infinity,
+      "median": 0.3513568639755249,
+      "p95": NaN
+    },
+    "top1_agreement_rate": 0.4791666666666667,
+    "top5_overlap_mean": 2.2604166666666665
+  },
+  "free_run": [
+    {
+      "agreement_count": 9,
+      "agreement_rate": 1.0,
+      "first_divergence_step": null,
+      "fp16": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mixed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "sample_id": "eva_025"
+    },
+    {
+      "agreement_count": 3,
+      "agreement_rate": 0.3333333333333333,
+      "first_divergence_step": 1,
+      "fp16": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mixed": [
+        0,
+        4894,
+        624,
+        624,
+        624,
+        0,
+        0,
+        4894,
+        4894
+      ],
+      "sample_id": "eva_026"
+    },
+    {
+      "agreement_count": 9,
+      "agreement_rate": 1.0,
+      "first_divergence_step": null,
+      "fp16": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mixed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "sample_id": "eva_027"
+    },
+    {
+      "agreement_count": 0,
+      "agreement_rate": 0.0,
+      "first_divergence_step": 0,
+      "fp16": [
+        81,
+        80,
+        16948,
+        18,
+        11,
+        23004,
+        86,
+        18,
+        11
+      ],
+      "mixed": [
+        80,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "sample_id": "eva_028"
+    },
+    {
+      "agreement_count": 0,
+      "agreement_rate": 0.0,
+      "first_divergence_step": 0,
+      "fp16": [
+        504,
+        504,
+        504,
+        504,
+        504,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mixed": [
+        7561,
+        7561,
+        7561,
+        7561,
+        7561,
+        7561,
+        7561,
+        7561,
+        7561
+      ],
+      "sample_id": "eva_029"
+    },
+    {
+      "agreement_count": 0,
+      "agreement_rate": 0.0,
+      "first_divergence_step": 0,
+      "fp16": [
+        5664,
+        6197,
+        6197,
+        6197,
+        6197,
+        5664,
+        6197,
+        6197,
+        5664
+      ],
+      "mixed": [
+        2448,
+        2448,
+        2448,
+        2448,
+        2448,
+        2448,
+        2448,
+        2448,
+        2448
+      ],
+      "sample_id": "eva_030"
+    },
+    {
+      "agreement_count": 0,
+      "agreement_rate": 0.0,
+      "first_divergence_step": 0,
+      "fp16": [
+        5779,
+        5779,
+        5779,
+        5779,
+        5779,
+        5779,
+        5779,
+        5779,
+        5779
+      ],
+      "mixed": [
+        0,
+        358,
+        358,
+        358,
+        358,
+        358,
+        358,
+        358,
+        358
+      ],
+      "sample_id": "eva_031"
+    },
+    {
+      "agreement_count": 6,
+      "agreement_rate": 0.6666666666666666,
+      "first_divergence_step": 1,
+      "fp16": [
+        12,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mixed": [
+        12,
+        17,
+        13,
+        0,
+        0,
+        0,
+        0,
+        1112,
+        0
+      ],
+      "sample_id": "eva_032"
+    },
+    {
+      "agreement_count": 0,
+      "agreement_rate": 0.0,
+      "first_divergence_step": 0,
+      "fp16": [
+        8976,
+        8976,
+        8976,
+        8976,
+        8976,
+        8976,
+        8976,
+        8976,
+        8976
+      ],
+      "mixed": [
+        28343,
+        28343,
+        28343,
+        64308,
+        64308,
+        64308,
+        64308,
+        64308,
+        64308
+      ],
+      "sample_id": "eva_033"
+    },
+    {
+      "agreement_count": 5,
+      "agreement_rate": 0.5555555555555556,
+      "first_divergence_step": 0,
+      "fp16": [
+        16,
+        12,
+        0,
+        12,
+        0,
+        12,
+        0,
+        12,
+        0
+      ],
+      "mixed": [
+        18,
+        12,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "sample_id": "eva_034"
+    },
+    {
+      "agreement_count": 0,
+      "agreement_rate": 0.0,
+      "first_divergence_step": 0,
+      "fp16": [
+        20243,
+        12900,
+        20243,
+        3925,
+        20243,
+        3925,
+        20243,
+        3925,
+        20243
+      ],
+      "mixed": [
+        504,
+        504,
+        504,
+        504,
+        504,
+        3409,
+        3409,
+        0,
+        282
+      ],
+      "sample_id": "eva_035"
+    },
+    {
+      "agreement_count": 0,
+      "agreement_rate": 0.0,
+      "first_divergence_step": 0,
+      "fp16": [
+        32854,
+        32854,
+        32854,
+        32854,
+        32854,
+        32854,
+        32854,
+        32854,
+        32854
+      ],
+      "mixed": [
+        19382,
+        11374,
+        11374,
+        11374,
+        11374,
+        11374,
+        11374,
+        11374,
+        11374
+      ],
+      "sample_id": "eva_036"
+    }
+  ],
+  "gate": "PASS / BOUNDED",
+  "memory": [
+    {
+      "cuda_free_bytes": 4990754816,
+      "cuda_total_bytes": 7989940224,
+      "maxrss_kb": 369088,
+      "mem_available_bytes": 5030453248,
+      "stage": "start",
+      "swap_free_bytes": 2165452800,
+      "swap_total_bytes": 3994951680,
+      "torch_allocated_bytes": 0,
+      "torch_reserved_bytes": 0
+    },
+    {
+      "cuda_free_bytes": 4936802304,
+      "cuda_total_bytes": 7989940224,
+      "maxrss_kb": 794492,
+      "mem_available_bytes": 4961845248,
+      "stage": "base_engines_loaded",
+      "swap_free_bytes": 2165452800,
+      "swap_total_bytes": 3994951680,
+      "torch_allocated_bytes": 0,
+      "torch_reserved_bytes": 0
+    },
+    {
+      "cuda_free_bytes": 3864858624,
+      "cuda_total_bytes": 7989940224,
+      "maxrss_kb": 1412500,
+      "mem_available_bytes": 3869376512,
+      "stage": "accuracy_complete",
+      "swap_free_bytes": 2144481280,
+      "swap_total_bytes": 3994951680,
+      "torch_allocated_bytes": 0,
+      "torch_reserved_bytes": 6291456
+    },
+    {
+      "cuda_free_bytes": 3867742208,
+      "cuda_total_bytes": 7989940224,
+      "maxrss_kb": 1741312,
+      "mem_available_bytes": 3889135616,
+      "stage": "bench_complete",
+      "swap_free_bytes": 2014982144,
+      "swap_total_bytes": 3994951680,
+      "torch_allocated_bytes": 0,
+      "torch_reserved_bytes": 6291456
+    }
+  ],
+  "oom": false,
+  "phase": "Phase 2.3-F",
+  "prefill": {
+    "cosine": {
+      "max": 0.9679054021835327,
+      "mean": 0.6202795505523682,
+      "median": 0.908647894859314,
+      "p95": 0.9663362324237823
+    },
+    "relative_l2": {
+      "max": 1.0,
+      "mean": 0.3455807492136955,
+      "median": 0.3310723453760147,
+      "p95": 0.731280809640884
+    },
+    "rmse": {
+      "max": 4.589411735534668,
+      "mean": 1.5560331443945568,
+      "median": 1.5743091702461243,
+      "p95": 3.4076142787933335
+    },
+    "top1_agreement_rate": 0.3333333333333333,
+    "top5_overlap_mean": 2.9166666666666665
+  }
+}

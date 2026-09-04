@@ -1,5 +1,23 @@
 # Current State
 
+## Phase 2.3-F Accuracy / Memory / Performance Comparison (2026-09-04)
+
+- Compared the frozen Phase 2.3-E mixed runtime against TRT FP16 on the 12
+  disjoint Phase 2.3-B evaluation prompts (truncated to 8 tokens to stay
+  within the 16-token engine context limit).
+- Prefill last-token logits mixed-vs-FP16 relative-L2 median `0.3311`, cosine
+  median `0.9086`, top-1 agreement `4/12`. Same-prefix forced decode (96 steps)
+  logits cosine median `0.8879`. Free-run trajectories diverge at step 0 for
+  7/12 prompts.
+- Same-session benchmark (warmup 5, repeats 10): mixed is ~48% slower prefill
+  and ~35% slower decode (`MIXED_RUNTIME_SLOWER`); tokens/s `0.51 -> 0.38`.
+  Engine storage 27% smaller. No OOM/exit137.
+- Gate `PASS / BOUNDED`; Phase 2.3 aggregate `CLOSED / PASS / BOUNDED`. C1
+  remains `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`; Phase 3 / INT4 / Nsight
+  not started.
+- Evidence: `experiments/Phase2-qwen3-quantization/artifacts/phase2_3f_20260904T050000Z/`;
+  report: `experiments/Phase2-qwen3-quantization/docs/phase2_3f_accuracy_memory_performance_comparison.md`.
+
 ## Phase 2.3-E 28-Layer Mixed-Precision Quantized Runtime (2026-09-04)
 
 - Starting Windows HEAD was `77ca1d004abdc3d8a50ab8ecc0232d9ce82e4ed7` on

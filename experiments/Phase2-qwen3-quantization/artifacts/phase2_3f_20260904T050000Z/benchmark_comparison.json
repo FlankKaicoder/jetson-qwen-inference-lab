@@ -1,0 +1,14 @@
+{
+  "16": {
+    "decode_speedup": 0.7391849141577936,
+    "prefill_latency_reduction_pct": -48.53602097220884,
+    "prefill_speedup": 0.6732373692621674,
+    "throughput_ratio": 0.7391849141577936
+  },
+  "8": {
+    "decode_speedup": 0.7394512767219306,
+    "prefill_latency_reduction_pct": -48.658906793329315,
+    "prefill_speedup": 0.6726808514677389,
+    "throughput_ratio": 0.7394512767219306
+  }
+}

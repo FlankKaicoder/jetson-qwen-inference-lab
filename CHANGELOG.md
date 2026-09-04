@@ -4,6 +4,20 @@
 
 ## [Unreleased]
 
+### Phase 2.3-F (2026-09-04)
+
+- Compared the Phase 2.3-E mixed runtime against the current TRT FP16 runtime
+  on the 12 disjoint Phase 2.3-B evaluation prompts plus a same-session
+  benchmark (warmup 5, repeats 10, batch 1, S=8/16).
+- Mixed-vs-FP16 prefill last-token logits have relative-L2 median `0.3311` and
+  top-1 agreement `4/12`; forced-decode cosine median is `0.8879`. Free-run
+  trajectories diverge at step 0 for a majority of prompts.
+- The mixed runtime is ~48% slower at prefill and ~35% slower at decode
+  (`MIXED_RUNTIME_SLOWER`), while engine storage is 27% smaller. No OOM/exit137.
+- Phase 2.3 closeout: `CLOSED / PASS / BOUNDED`. C1 remains
+  `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`; Phase 3 / INT4 / Nsight remain
+  not started.
+
 ### Phase 2.3-E (2026-09-04)
 
 - Applied the frozen Phase 2.3-D `P2_FAMILY_GUARD_REFINED` policy to the

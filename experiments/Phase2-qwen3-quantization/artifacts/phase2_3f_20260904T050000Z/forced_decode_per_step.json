@@ -1,0 +1,2018 @@
+[
+  {
+    "logits": {
+      "cosine": 0.9710525274276733,
+      "finite": true,
+      "max_abs": 6.669921875,
+      "mean_abs": 0.9739730954170227,
+      "relative_l2": 0.24742841720581055,
+      "rmse": 1.227323055267334
+    },
+    "sample_id": "eva_025",
+    "step": 1,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 3.2578125,
+      "top1_top2_margin_b": 4.09375,
+      "top5_overlap": [
+        3
+      ],
+      "top5_overlap_mean": 3.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 18.328125,
+      "mean_abs": 3.696146011352539,
+      "relative_l2": 1.0,
+      "rmse": 4.487216472625732
+    },
+    "sample_id": "eva_025",
+    "step": 2,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 0.015625,
+      "top1_top2_margin_b": 0.0,
+      "top5_overlap": [
+        1
+      ],
+      "top5_overlap_mean": 1.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.964973509311676,
+      "finite": true,
+      "max_abs": 7.2939453125,
+      "mean_abs": 1.300491213798523,
+      "relative_l2": 0.2717357873916626,
+      "rmse": 1.6531448364257812
+    },
+    "sample_id": "eva_025",
+    "step": 3,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 3.0546875,
+      "top1_top2_margin_b": 4.40625,
+      "top5_overlap": [
+        3
+      ],
+      "top5_overlap_mean": 3.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.957243025302887,
+      "finite": true,
+      "max_abs": 8.3828125,
+      "mean_abs": 1.6130017042160034,
+      "relative_l2": 0.31713294982910156,
+      "rmse": 2.00313663482666
+    },
+    "sample_id": "eva_025",
+    "step": 4,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 3.296875,
+      "top1_top2_margin_b": 4.625,
+      "top5_overlap": [
+        2
+      ],
+      "top5_overlap_mean": 2.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9490218162536621,
+      "finite": true,
+      "max_abs": 8.60546875,
+      "mean_abs": 1.4090057611465454,
+      "relative_l2": 0.31937363743782043,
+      "rmse": 1.7816232442855835
+    },
+    "sample_id": "eva_025",
+    "step": 5,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 1.9453125,
+      "top1_top2_margin_b": 1.6484375,
+      "top5_overlap": [
+        2
+      ],
+      "top5_overlap_mean": 2.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9411361217498779,
+      "finite": true,
+      "max_abs": 8.125,
+      "mean_abs": 1.4165124893188477,
+      "relative_l2": 0.3452877700328827,
+      "rmse": 1.7926779985427856
+    },
+    "sample_id": "eva_025",
+    "step": 6,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.3046875,
+      "top1_top2_margin_b": 2.65625,
+      "top5_overlap": [
+        1
+      ],
+      "top5_overlap_mean": 1.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9602164030075073,
+      "finite": true,
+      "max_abs": 7.93157958984375,
+      "mean_abs": 1.3053394556045532,
+      "relative_l2": 0.2869724929332733,
+      "rmse": 1.6627328395843506
+    },
+    "sample_id": "eva_025",
+    "step": 7,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.4375,
+      "top1_top2_margin_b": 1.0390625,
+      "top5_overlap": [
+        1
+      ],
+      "top5_overlap_mean": 1.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 0.0,
+      "mean_abs": 0.0,
+      "relative_l2": 0.0,
+      "rmse": 0.0
+    },
+    "sample_id": "eva_025",
+    "step": 8,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 0.0,
+      "top1_top2_margin_b": 0.0,
+      "top5_overlap": [
+        5
+      ],
+      "top5_overlap_mean": 5.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 17.1875,
+      "mean_abs": 3.6192779541015625,
+      "relative_l2": 1.0,
+      "rmse": 4.397783279418945
+    },
+    "sample_id": "eva_026",
+    "step": 1,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.1640625,
+      "top1_top2_margin_b": 0.0,
+      "top5_overlap": [
+        0
+      ],
+      "top5_overlap_mean": 0.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 16.703125,
+      "mean_abs": 3.149597406387329,
+      "relative_l2": 1.0,
+      "rmse": 3.872152805328369
+    },
+    "sample_id": "eva_026",
+    "step": 2,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.90625,
+      "top1_top2_margin_b": 0.0,
+      "top5_overlap": [
+        0
+      ],
+      "top5_overlap_mean": 0.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 0.0,
+      "mean_abs": 0.0,
+      "relative_l2": 0.0,
+      "rmse": 0.0
+    },
+    "sample_id": "eva_026",
+    "step": 3,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 0.0,
+      "top1_top2_margin_b": 0.0,
+      "top5_overlap": [
+        5
+      ],
+      "top5_overlap_mean": 5.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 21.21875,
+      "mean_abs": 3.9717957973480225,
+      "relative_l2": Infinity,
+      "rmse": 4.805293083190918
+    },
+    "sample_id": "eva_026",
+    "step": 4,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.0,
+      "top1_top2_margin_b": 0.15625,
+      "top5_overlap": [
+        0
+      ],
+      "top5_overlap_mean": 0.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 0.0,
+      "mean_abs": 0.0,
+      "relative_l2": 0.0,
+      "rmse": 0.0
+    },
+    "sample_id": "eva_026",
+    "step": 5,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 0.0,
+      "top1_top2_margin_b": 0.0,
+      "top5_overlap": [
+        5
+      ],
+      "top5_overlap_mean": 5.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 18.84375,
+      "mean_abs": 3.744058847427368,
+      "relative_l2": Infinity,
+      "rmse": 4.5571064949035645
+    },
+    "sample_id": "eva_026",
+    "step": 6,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.0,
+      "top1_top2_margin_b": 2.75,
+      "top5_overlap": [
+        0
+      ],
+      "top5_overlap_mean": 0.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 19.1875,
+      "mean_abs": 4.78659725189209,
+      "relative_l2": Infinity,
+      "rmse": 5.635693550109863
+    },
+    "sample_id": "eva_026",
+    "step": 7,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.0,
+      "top1_top2_margin_b": 2.1796875,
+      "top5_overlap": [
+        0
+      ],
+      "top5_overlap_mean": 0.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 0.0,
+      "mean_abs": 0.0,
+      "relative_l2": 0.0,
+      "rmse": 0.0
+    },
+    "sample_id": "eva_026",
+    "step": 8,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 0.0,
+      "top1_top2_margin_b": 0.0,
+      "top5_overlap": [
+        5
+      ],
+      "top5_overlap_mean": 5.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 0.0,
+      "mean_abs": 0.0,
+      "relative_l2": 0.0,
+      "rmse": 0.0
+    },
+    "sample_id": "eva_027",
+    "step": 1,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 0.0,
+      "top1_top2_margin_b": 0.0,
+      "top5_overlap": [
+        5
+      ],
+      "top5_overlap_mean": 5.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 0.0,
+      "mean_abs": 0.0,
+      "relative_l2": 0.0,
+      "rmse": 0.0
+    },
+    "sample_id": "eva_027",
+    "step": 2,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 0.0,
+      "top1_top2_margin_b": 0.0,
+      "top5_overlap": [
+        5
+      ],
+      "top5_overlap_mean": 5.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 0.0,
+      "mean_abs": 0.0,
+      "relative_l2": 0.0,
+      "rmse": 0.0
+    },
+    "sample_id": "eva_027",
+    "step": 3,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 0.0,
+      "top1_top2_margin_b": 0.0,
+      "top5_overlap": [
+        5
+      ],
+      "top5_overlap_mean": 5.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 0.0,
+      "mean_abs": 0.0,
+      "relative_l2": 0.0,
+      "rmse": 0.0
+    },
+    "sample_id": "eva_027",
+    "step": 4,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 0.0,
+      "top1_top2_margin_b": 0.0,
+      "top5_overlap": [
+        5
+      ],
+      "top5_overlap_mean": 5.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 0.0,
+      "mean_abs": 0.0,
+      "relative_l2": 0.0,
+      "rmse": 0.0
+    },
+    "sample_id": "eva_027",
+    "step": 5,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 0.0,
+      "top1_top2_margin_b": 0.0,
+      "top5_overlap": [
+        5
+      ],
+      "top5_overlap_mean": 5.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 0.0,
+      "mean_abs": 0.0,
+      "relative_l2": 0.0,
+      "rmse": 0.0
+    },
+    "sample_id": "eva_027",
+    "step": 6,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 0.0,
+      "top1_top2_margin_b": 0.0,
+      "top5_overlap": [
+        5
+      ],
+      "top5_overlap_mean": 5.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 0.0,
+      "mean_abs": 0.0,
+      "relative_l2": 0.0,
+      "rmse": 0.0
+    },
+    "sample_id": "eva_027",
+    "step": 7,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 0.0,
+      "top1_top2_margin_b": 0.0,
+      "top5_overlap": [
+        5
+      ],
+      "top5_overlap_mean": 5.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 0.0,
+      "mean_abs": 0.0,
+      "relative_l2": 0.0,
+      "rmse": 0.0
+    },
+    "sample_id": "eva_027",
+    "step": 8,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 0.0,
+      "top1_top2_margin_b": 0.0,
+      "top5_overlap": [
+        5
+      ],
+      "top5_overlap_mean": 5.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 19.5,
+      "mean_abs": 4.852586269378662,
+      "relative_l2": Infinity,
+      "rmse": 5.7014241218566895
+    },
+    "sample_id": "eva_028",
+    "step": 1,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.0,
+      "top1_top2_margin_b": 0.28125,
+      "top5_overlap": [
+        0
+      ],
+      "top5_overlap_mean": 0.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.8882107138633728,
+      "finite": true,
+      "max_abs": 15.23828125,
+      "mean_abs": 2.064161777496338,
+      "relative_l2": 0.4597631096839905,
+      "rmse": 2.575754165649414
+    },
+    "sample_id": "eva_028",
+    "step": 2,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.078125,
+      "top1_top2_margin_b": 1.3515625,
+      "top5_overlap": [
+        2
+      ],
+      "top5_overlap_mean": 2.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9196816682815552,
+      "finite": true,
+      "max_abs": 11.5625,
+      "mean_abs": 1.7353646755218506,
+      "relative_l2": 0.399588018655777,
+      "rmse": 2.21258544921875
+    },
+    "sample_id": "eva_028",
+    "step": 3,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 0.578125,
+      "top1_top2_margin_b": 1.0625,
+      "top5_overlap": [
+        2
+      ],
+      "top5_overlap_mean": 2.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 22.5625,
+      "mean_abs": 4.604416370391846,
+      "relative_l2": Infinity,
+      "rmse": 5.430195331573486
+    },
+    "sample_id": "eva_028",
+    "step": 4,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.0,
+      "top1_top2_margin_b": 3.7265625,
+      "top5_overlap": [
+        0
+      ],
+      "top5_overlap_mean": 0.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 20.75,
+      "mean_abs": 4.214372158050537,
+      "relative_l2": 1.0,
+      "rmse": 5.012538909912109
+    },
+    "sample_id": "eva_028",
+    "step": 5,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 4.1640625,
+      "top1_top2_margin_b": 0.0,
+      "top5_overlap": [
+        0
+      ],
+      "top5_overlap_mean": 0.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 0.0,
+      "mean_abs": 0.0,
+      "relative_l2": 0.0,
+      "rmse": 0.0
+    },
+    "sample_id": "eva_028",
+    "step": 6,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 0.0,
+      "top1_top2_margin_b": 0.0,
+      "top5_overlap": [
+        5
+      ],
+      "top5_overlap_mean": 5.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 20.25,
+      "mean_abs": 5.126655101776123,
+      "relative_l2": Infinity,
+      "rmse": 5.99985933303833
+    },
+    "sample_id": "eva_028",
+    "step": 7,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.0,
+      "top1_top2_margin_b": 4.296875,
+      "top5_overlap": [
+        0
+      ],
+      "top5_overlap_mean": 0.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 19.765625,
+      "mean_abs": 4.963136672973633,
+      "relative_l2": Infinity,
+      "rmse": 5.794369220733643
+    },
+    "sample_id": "eva_028",
+    "step": 8,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.0,
+      "top1_top2_margin_b": 0.0625,
+      "top5_overlap": [
+        0
+      ],
+      "top5_overlap_mean": 0.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9297292828559875,
+      "finite": true,
+      "max_abs": 12.80859375,
+      "mean_abs": 2.0382394790649414,
+      "relative_l2": 0.5065475106239319,
+      "rmse": 2.542196035385132
+    },
+    "sample_id": "eva_029",
+    "step": 1,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.765625,
+      "top1_top2_margin_b": 0.4765625,
+      "top5_overlap": [
+        1
+      ],
+      "top5_overlap_mean": 1.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9373485445976257,
+      "finite": true,
+      "max_abs": 9.03125,
+      "mean_abs": 1.8288341760635376,
+      "relative_l2": 0.4756678640842438,
+      "rmse": 2.2548413276672363
+    },
+    "sample_id": "eva_029",
+    "step": 2,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.25,
+      "top1_top2_margin_b": 0.0078125,
+      "top5_overlap": [
+        2
+      ],
+      "top5_overlap_mean": 2.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9641996622085571,
+      "finite": true,
+      "max_abs": 7.61328125,
+      "mean_abs": 1.4723674058914185,
+      "relative_l2": 0.3381124436855316,
+      "rmse": 1.822425127029419
+    },
+    "sample_id": "eva_029",
+    "step": 3,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 0.3359375,
+      "top1_top2_margin_b": 1.0859375,
+      "top5_overlap": [
+        4
+      ],
+      "top5_overlap_mean": 4.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9611475467681885,
+      "finite": true,
+      "max_abs": 7.98974609375,
+      "mean_abs": 1.659922480583191,
+      "relative_l2": 0.407454252243042,
+      "rmse": 2.012617588043213
+    },
+    "sample_id": "eva_029",
+    "step": 4,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.8125,
+      "top1_top2_margin_b": 1.5859375,
+      "top5_overlap": [
+        3
+      ],
+      "top5_overlap_mean": 3.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 21.796875,
+      "mean_abs": 5.174868583679199,
+      "relative_l2": Infinity,
+      "rmse": 6.03448486328125
+    },
+    "sample_id": "eva_029",
+    "step": 5,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.0,
+      "top1_top2_margin_b": 1.7890625,
+      "top5_overlap": [
+        0
+      ],
+      "top5_overlap_mean": 0.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 19.4375,
+      "mean_abs": 3.9863977432250977,
+      "relative_l2": Infinity,
+      "rmse": 4.800228595733643
+    },
+    "sample_id": "eva_029",
+    "step": 6,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.0,
+      "top1_top2_margin_b": 2.859375,
+      "top5_overlap": [
+        0
+      ],
+      "top5_overlap_mean": 0.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 19.59375,
+      "mean_abs": 4.7332563400268555,
+      "relative_l2": Infinity,
+      "rmse": 5.561961650848389
+    },
+    "sample_id": "eva_029",
+    "step": 7,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.0,
+      "top1_top2_margin_b": 0.3046875,
+      "top5_overlap": [
+        0
+      ],
+      "top5_overlap_mean": 0.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 22.484375,
+      "mean_abs": 4.670871734619141,
+      "relative_l2": Infinity,
+      "rmse": 5.546121597290039
+    },
+    "sample_id": "eva_029",
+    "step": 8,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.0,
+      "top1_top2_margin_b": 0.0859375,
+      "top5_overlap": [
+        0
+      ],
+      "top5_overlap_mean": 0.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.887589693069458,
+      "finite": true,
+      "max_abs": 12.3125,
+      "mean_abs": 2.063554048538208,
+      "relative_l2": 0.5107636451721191,
+      "rmse": 2.616856098175049
+    },
+    "sample_id": "eva_030",
+    "step": 1,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.0625,
+      "top1_top2_margin_b": 0.4375,
+      "top5_overlap": [
+        4
+      ],
+      "top5_overlap_mean": 4.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.8843240141868591,
+      "finite": true,
+      "max_abs": 12.078857421875,
+      "mean_abs": 1.9835118055343628,
+      "relative_l2": 0.48239612579345703,
+      "rmse": 2.5250403881073
+    },
+    "sample_id": "eva_030",
+    "step": 2,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 1.359375,
+      "top1_top2_margin_b": 0.03125,
+      "top5_overlap": [
+        2
+      ],
+      "top5_overlap_mean": 2.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9288159012794495,
+      "finite": true,
+      "max_abs": 10.19140625,
+      "mean_abs": 1.736953854560852,
+      "relative_l2": 0.37112513184547424,
+      "rmse": 2.2029857635498047
+    },
+    "sample_id": "eva_030",
+    "step": 3,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 3.3125,
+      "top1_top2_margin_b": 0.625,
+      "top5_overlap": [
+        3
+      ],
+      "top5_overlap_mean": 3.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9086406826972961,
+      "finite": true,
+      "max_abs": 11.73193359375,
+      "mean_abs": 1.9829753637313843,
+      "relative_l2": 0.42433640360832214,
+      "rmse": 2.510723114013672
+    },
+    "sample_id": "eva_030",
+    "step": 4,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.9453125,
+      "top1_top2_margin_b": 2.140625,
+      "top5_overlap": [
+        2
+      ],
+      "top5_overlap_mean": 2.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9054904580116272,
+      "finite": true,
+      "max_abs": 13.6640625,
+      "mean_abs": 2.169119358062744,
+      "relative_l2": 0.4451332092285156,
+      "rmse": 2.7433924674987793
+    },
+    "sample_id": "eva_030",
+    "step": 5,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 2.1015625,
+      "top1_top2_margin_b": 0.65625,
+      "top5_overlap": [
+        1
+      ],
+      "top5_overlap_mean": 1.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9043722152709961,
+      "finite": true,
+      "max_abs": 10.6201171875,
+      "mean_abs": 1.7848323583602905,
+      "relative_l2": 0.43450620770454407,
+      "rmse": 2.270671844482422
+    },
+    "sample_id": "eva_030",
+    "step": 6,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.5625,
+      "top1_top2_margin_b": 1.515625,
+      "top5_overlap": [
+        0
+      ],
+      "top5_overlap_mean": 0.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9278433322906494,
+      "finite": true,
+      "max_abs": 11.02734375,
+      "mean_abs": 1.877916932106018,
+      "relative_l2": 0.3912769854068756,
+      "rmse": 2.365705966949463
+    },
+    "sample_id": "eva_030",
+    "step": 7,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.875,
+      "top1_top2_margin_b": 1.5234375,
+      "top5_overlap": [
+        4
+      ],
+      "top5_overlap_mean": 4.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.8959276676177979,
+      "finite": true,
+      "max_abs": 12.53125,
+      "mean_abs": 1.9055910110473633,
+      "relative_l2": 0.45726943016052246,
+      "rmse": 2.407684087753296
+    },
+    "sample_id": "eva_030",
+    "step": 8,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.1015625,
+      "top1_top2_margin_b": 1.0234375,
+      "top5_overlap": [
+        0
+      ],
+      "top5_overlap_mean": 0.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9427605271339417,
+      "finite": true,
+      "max_abs": 7.86328125,
+      "mean_abs": 1.3510700464248657,
+      "relative_l2": 0.33787184953689575,
+      "rmse": 1.702171802520752
+    },
+    "sample_id": "eva_031",
+    "step": 1,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.0546875,
+      "top1_top2_margin_b": 0.34375,
+      "top5_overlap": [
+        2
+      ],
+      "top5_overlap_mean": 2.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9552410840988159,
+      "finite": true,
+      "max_abs": 6.8642578125,
+      "mean_abs": 1.1862543821334839,
+      "relative_l2": 0.29658716917037964,
+      "rmse": 1.495984435081482
+    },
+    "sample_id": "eva_031",
+    "step": 2,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 1.671875,
+      "top1_top2_margin_b": 0.7578125,
+      "top5_overlap": [
+        3
+      ],
+      "top5_overlap_mean": 3.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9647834300994873,
+      "finite": true,
+      "max_abs": 7.21875,
+      "mean_abs": 1.2084654569625854,
+      "relative_l2": 0.2642044723033905,
+      "rmse": 1.5207661390304565
+    },
+    "sample_id": "eva_031",
+    "step": 3,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 1.28125,
+      "top1_top2_margin_b": 2.234375,
+      "top5_overlap": [
+        3
+      ],
+      "top5_overlap_mean": 3.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9569292664527893,
+      "finite": true,
+      "max_abs": 9.65625,
+      "mean_abs": 1.4813274145126343,
+      "relative_l2": 0.3007337749004364,
+      "rmse": 1.852747917175293
+    },
+    "sample_id": "eva_031",
+    "step": 4,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.265625,
+      "top1_top2_margin_b": 0.578125,
+      "top5_overlap": [
+        1
+      ],
+      "top5_overlap_mean": 1.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9623042941093445,
+      "finite": true,
+      "max_abs": 9.015625,
+      "mean_abs": 1.7024481296539307,
+      "relative_l2": 0.3028984069824219,
+      "rmse": 2.0913925170898438
+    },
+    "sample_id": "eva_031",
+    "step": 5,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 1.0546875,
+      "top1_top2_margin_b": 2.359375,
+      "top5_overlap": [
+        4
+      ],
+      "top5_overlap_mean": 4.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.959492564201355,
+      "finite": true,
+      "max_abs": 7.57421875,
+      "mean_abs": 1.3075711727142334,
+      "relative_l2": 0.2874540686607361,
+      "rmse": 1.6357605457305908
+    },
+    "sample_id": "eva_031",
+    "step": 6,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 1.4453125,
+      "top1_top2_margin_b": 0.046875,
+      "top5_overlap": [
+        3
+      ],
+      "top5_overlap_mean": 3.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9713996648788452,
+      "finite": true,
+      "max_abs": 7.6494140625,
+      "mean_abs": 1.5233319997787476,
+      "relative_l2": 0.26012498140335083,
+      "rmse": 1.880897879600525
+    },
+    "sample_id": "eva_031",
+    "step": 7,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 2.1015625,
+      "top1_top2_margin_b": 0.4453125,
+      "top5_overlap": [
+        2
+      ],
+      "top5_overlap_mean": 2.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9692258834838867,
+      "finite": true,
+      "max_abs": 7.0732421875,
+      "mean_abs": 1.2508565187454224,
+      "relative_l2": 0.24983718991279602,
+      "rmse": 1.5642598867416382
+    },
+    "sample_id": "eva_031",
+    "step": 8,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 2.0703125,
+      "top1_top2_margin_b": 0.53125,
+      "top5_overlap": [
+        2
+      ],
+      "top5_overlap_mean": 2.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 0.0,
+      "mean_abs": 0.0,
+      "relative_l2": 0.0,
+      "rmse": 0.0
+    },
+    "sample_id": "eva_032",
+    "step": 1,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 0.0,
+      "top1_top2_margin_b": 0.0,
+      "top5_overlap": [
+        5
+      ],
+      "top5_overlap_mean": 5.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 18.328125,
+      "mean_abs": 4.8252363204956055,
+      "relative_l2": Infinity,
+      "rmse": 5.630876064300537
+    },
+    "sample_id": "eva_032",
+    "step": 2,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.0,
+      "top1_top2_margin_b": 0.9453125,
+      "top5_overlap": [
+        1
+      ],
+      "top5_overlap_mean": 1.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 19.609375,
+      "mean_abs": 4.832576751708984,
+      "relative_l2": Infinity,
+      "rmse": 5.655087947845459
+    },
+    "sample_id": "eva_032",
+    "step": 3,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.0,
+      "top1_top2_margin_b": 0.734375,
+      "top5_overlap": [
+        0
+      ],
+      "top5_overlap_mean": 0.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 20.953125,
+      "mean_abs": 5.620837211608887,
+      "relative_l2": Infinity,
+      "rmse": 6.461383819580078
+    },
+    "sample_id": "eva_032",
+    "step": 4,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.0,
+      "top1_top2_margin_b": 0.09375,
+      "top5_overlap": [
+        0
+      ],
+      "top5_overlap_mean": 0.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9733183979988098,
+      "finite": true,
+      "max_abs": 6.421875,
+      "mean_abs": 1.519111156463623,
+      "relative_l2": 0.36500415205955505,
+      "rmse": 1.7861920595169067
+    },
+    "sample_id": "eva_032",
+    "step": 5,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 0.9609375,
+      "top1_top2_margin_b": 2.625,
+      "top5_overlap": [
+        3
+      ],
+      "top5_overlap_mean": 3.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 0.0,
+      "mean_abs": 0.0,
+      "relative_l2": 0.0,
+      "rmse": 0.0
+    },
+    "sample_id": "eva_032",
+    "step": 6,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 0.0,
+      "top1_top2_margin_b": 0.0,
+      "top5_overlap": [
+        5
+      ],
+      "top5_overlap_mean": 5.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9732707738876343,
+      "finite": true,
+      "max_abs": 5.8671875,
+      "mean_abs": 1.0839967727661133,
+      "relative_l2": 0.26114946603775024,
+      "rmse": 1.342368721961975
+    },
+    "sample_id": "eva_032",
+    "step": 7,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 2.28125,
+      "top1_top2_margin_b": 2.7890625,
+      "top5_overlap": [
+        4
+      ],
+      "top5_overlap_mean": 4.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 18.453125,
+      "mean_abs": 3.6592578887939453,
+      "relative_l2": 1.0,
+      "rmse": 4.428298473358154
+    },
+    "sample_id": "eva_032",
+    "step": 8,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 2.6171875,
+      "top1_top2_margin_b": 0.0,
+      "top5_overlap": [
+        1
+      ],
+      "top5_overlap_mean": 1.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9714570045471191,
+      "finite": true,
+      "max_abs": 5.7890625,
+      "mean_abs": 0.9357050657272339,
+      "relative_l2": 0.23898251354694366,
+      "rmse": 1.1876171827316284
+    },
+    "sample_id": "eva_033",
+    "step": 1,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 2.03125,
+      "top1_top2_margin_b": 1.46875,
+      "top5_overlap": [
+        2
+      ],
+      "top5_overlap_mean": 2.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9623408317565918,
+      "finite": true,
+      "max_abs": 5.82666015625,
+      "mean_abs": 0.9625566005706787,
+      "relative_l2": 0.2720381021499634,
+      "rmse": 1.2138105630874634
+    },
+    "sample_id": "eva_033",
+    "step": 2,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.890625,
+      "top1_top2_margin_b": 0.9765625,
+      "top5_overlap": [
+        2
+      ],
+      "top5_overlap_mean": 2.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9678948521614075,
+      "finite": true,
+      "max_abs": 5.806640625,
+      "mean_abs": 1.0146877765655518,
+      "relative_l2": 0.25385141372680664,
+      "rmse": 1.2869125604629517
+    },
+    "sample_id": "eva_033",
+    "step": 3,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.390625,
+      "top1_top2_margin_b": 2.015625,
+      "top5_overlap": [
+        4
+      ],
+      "top5_overlap_mean": 4.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9600975513458252,
+      "finite": true,
+      "max_abs": 7.66845703125,
+      "mean_abs": 1.1487774848937988,
+      "relative_l2": 0.29636383056640625,
+      "rmse": 1.4528794288635254
+    },
+    "sample_id": "eva_033",
+    "step": 4,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 0.7734375,
+      "top1_top2_margin_b": 1.015625,
+      "top5_overlap": [
+        3
+      ],
+      "top5_overlap_mean": 3.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 20.953125,
+      "mean_abs": 3.8284120559692383,
+      "relative_l2": 1.0,
+      "rmse": 4.615017414093018
+    },
+    "sample_id": "eva_033",
+    "step": 5,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 2.0,
+      "top1_top2_margin_b": 0.0,
+      "top5_overlap": [
+        0
+      ],
+      "top5_overlap_mean": 0.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 0.0,
+      "mean_abs": 0.0,
+      "relative_l2": 0.0,
+      "rmse": 0.0
+    },
+    "sample_id": "eva_033",
+    "step": 6,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 0.0,
+      "top1_top2_margin_b": 0.0,
+      "top5_overlap": [
+        5
+      ],
+      "top5_overlap_mean": 5.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 0.0,
+      "mean_abs": 0.0,
+      "relative_l2": 0.0,
+      "rmse": 0.0
+    },
+    "sample_id": "eva_033",
+    "step": 7,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 0.0,
+      "top1_top2_margin_b": 0.0,
+      "top5_overlap": [
+        5
+      ],
+      "top5_overlap_mean": 5.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 0.0,
+      "mean_abs": 0.0,
+      "relative_l2": 0.0,
+      "rmse": 0.0
+    },
+    "sample_id": "eva_033",
+    "step": 8,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 0.0,
+      "top1_top2_margin_b": 0.0,
+      "top5_overlap": [
+        5
+      ],
+      "top5_overlap_mean": 5.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 0.0,
+      "mean_abs": 0.0,
+      "relative_l2": 0.0,
+      "rmse": 0.0
+    },
+    "sample_id": "eva_034",
+    "step": 1,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 0.0,
+      "top1_top2_margin_b": 0.0,
+      "top5_overlap": [
+        5
+      ],
+      "top5_overlap_mean": 5.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 18.65625,
+      "mean_abs": 3.5619828701019287,
+      "relative_l2": Infinity,
+      "rmse": 4.310157775878906
+    },
+    "sample_id": "eva_034",
+    "step": 2,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.0,
+      "top1_top2_margin_b": 0.0234375,
+      "top5_overlap": [
+        0
+      ],
+      "top5_overlap_mean": 0.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9605175852775574,
+      "finite": true,
+      "max_abs": 6.33984375,
+      "mean_abs": 1.1177575588226318,
+      "relative_l2": 0.29317396879196167,
+      "rmse": 1.4164814949035645
+    },
+    "sample_id": "eva_034",
+    "step": 3,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.9140625,
+      "top1_top2_margin_b": 0.3671875,
+      "top5_overlap": [
+        2
+      ],
+      "top5_overlap_mean": 2.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9701085686683655,
+      "finite": true,
+      "max_abs": 8.4228515625,
+      "mean_abs": 1.2421700954437256,
+      "relative_l2": 0.2624976933002472,
+      "rmse": 1.5748167037963867
+    },
+    "sample_id": "eva_034",
+    "step": 4,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 2.65625,
+      "top1_top2_margin_b": 3.3203125,
+      "top5_overlap": [
+        3
+      ],
+      "top5_overlap_mean": 3.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9686152338981628,
+      "finite": true,
+      "max_abs": 8.34375,
+      "mean_abs": 1.2809252738952637,
+      "relative_l2": 0.2748142182826996,
+      "rmse": 1.6110621690750122
+    },
+    "sample_id": "eva_034",
+    "step": 5,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.2734375,
+      "top1_top2_margin_b": 0.953125,
+      "top5_overlap": [
+        2
+      ],
+      "top5_overlap_mean": 2.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.966166615486145,
+      "finite": true,
+      "max_abs": 7.15234375,
+      "mean_abs": 1.1462661027908325,
+      "relative_l2": 0.25791269540786743,
+      "rmse": 1.4537124633789062
+    },
+    "sample_id": "eva_034",
+    "step": 6,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 1.9765625,
+      "top1_top2_margin_b": 2.5,
+      "top5_overlap": [
+        4
+      ],
+      "top5_overlap_mean": 4.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9567116498947144,
+      "finite": true,
+      "max_abs": 8.5869140625,
+      "mean_abs": 1.406643271446228,
+      "relative_l2": 0.30447396636009216,
+      "rmse": 1.7856389284133911
+    },
+    "sample_id": "eva_034",
+    "step": 7,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 3.4296875,
+      "top1_top2_margin_b": 0.09375,
+      "top5_overlap": [
+        1
+      ],
+      "top5_overlap_mean": 1.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9649055004119873,
+      "finite": true,
+      "max_abs": 7.4921875,
+      "mean_abs": 1.3720287084579468,
+      "relative_l2": 0.322284072637558,
+      "rmse": 1.7070517539978027
+    },
+    "sample_id": "eva_034",
+    "step": 8,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 0.0234375,
+      "top1_top2_margin_b": 0.984375,
+      "top5_overlap": [
+        2
+      ],
+      "top5_overlap_mean": 2.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9028018116950989,
+      "finite": true,
+      "max_abs": 11.6748046875,
+      "mean_abs": 1.7587093114852905,
+      "relative_l2": 0.4312919080257416,
+      "rmse": 2.2116458415985107
+    },
+    "sample_id": "eva_035",
+    "step": 1,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.6015625,
+      "top1_top2_margin_b": 2.0625,
+      "top5_overlap": [
+        1
+      ],
+      "top5_overlap_mean": 1.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.8502871990203857,
+      "finite": true,
+      "max_abs": 10.7578125,
+      "mean_abs": 1.7137954235076904,
+      "relative_l2": 0.541364312171936,
+      "rmse": 2.1762614250183105
+    },
+    "sample_id": "eva_035",
+    "step": 2,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 1.203125,
+      "top1_top2_margin_b": 0.1796875,
+      "top5_overlap": [
+        1
+      ],
+      "top5_overlap_mean": 1.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.8836858868598938,
+      "finite": true,
+      "max_abs": 11.587890625,
+      "mean_abs": 1.872658610343933,
+      "relative_l2": 0.4942031502723694,
+      "rmse": 2.381807327270508
+    },
+    "sample_id": "eva_035",
+    "step": 3,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 1.4296875,
+      "top1_top2_margin_b": 1.6171875,
+      "top5_overlap": [
+        0
+      ],
+      "top5_overlap_mean": 0.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.790225088596344,
+      "finite": true,
+      "max_abs": 12.125,
+      "mean_abs": 2.185746908187866,
+      "relative_l2": 0.6245331764221191,
+      "rmse": 2.7811784744262695
+    },
+    "sample_id": "eva_035",
+    "step": 4,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.4375,
+      "top1_top2_margin_b": 0.828125,
+      "top5_overlap": [
+        0
+      ],
+      "top5_overlap_mean": 0.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.8379849195480347,
+      "finite": true,
+      "max_abs": 11.640625,
+      "mean_abs": 1.9888291358947754,
+      "relative_l2": 0.5490933060646057,
+      "rmse": 2.5275309085845947
+    },
+    "sample_id": "eva_035",
+    "step": 5,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 3.8671875,
+      "top1_top2_margin_b": 0.7578125,
+      "top5_overlap": [
+        2
+      ],
+      "top5_overlap_mean": 2.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 17.46875,
+      "mean_abs": 3.375321388244629,
+      "relative_l2": 1.0,
+      "rmse": 4.1279144287109375
+    },
+    "sample_id": "eva_035",
+    "step": 6,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 2.734375,
+      "top1_top2_margin_b": 0.0,
+      "top5_overlap": [
+        0
+      ],
+      "top5_overlap_mean": 0.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9358217716217041,
+      "finite": true,
+      "max_abs": 12.130859375,
+      "mean_abs": 1.717841386795044,
+      "relative_l2": 0.36755526065826416,
+      "rmse": 2.1814451217651367
+    },
+    "sample_id": "eva_035",
+    "step": 7,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 1.15625,
+      "top1_top2_margin_b": 1.453125,
+      "top5_overlap": [
+        2
+      ],
+      "top5_overlap_mean": 2.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9351091384887695,
+      "finite": true,
+      "max_abs": 8.962890625,
+      "mean_abs": 1.4939337968826294,
+      "relative_l2": 0.3574259579181671,
+      "rmse": 1.895395040512085
+    },
+    "sample_id": "eva_035",
+    "step": 8,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 1.8828125,
+      "top1_top2_margin_b": 0.6015625,
+      "top5_overlap": [
+        2
+      ],
+      "top5_overlap_mean": 2.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.945332944393158,
+      "finite": true,
+      "max_abs": 8.60595703125,
+      "mean_abs": 1.5889556407928467,
+      "relative_l2": 0.33583366870880127,
+      "rmse": 1.9758273363113403
+    },
+    "sample_id": "eva_036",
+    "step": 1,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 1.8984375,
+      "top1_top2_margin_b": 0.265625,
+      "top5_overlap": [
+        3
+      ],
+      "top5_overlap_mean": 3.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9266682863235474,
+      "finite": true,
+      "max_abs": 8.982421875,
+      "mean_abs": 1.4595956802368164,
+      "relative_l2": 0.379461407661438,
+      "rmse": 1.8561536073684692
+    },
+    "sample_id": "eva_036",
+    "step": 2,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 0.171875,
+      "top1_top2_margin_b": 0.0234375,
+      "top5_overlap": [
+        2
+      ],
+      "top5_overlap_mean": 2.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9165982604026794,
+      "finite": true,
+      "max_abs": 12.25390625,
+      "mean_abs": 1.839769959449768,
+      "relative_l2": 0.4007384777069092,
+      "rmse": 2.309359312057495
+    },
+    "sample_id": "eva_036",
+    "step": 3,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 6.0390625,
+      "top1_top2_margin_b": 0.4765625,
+      "top5_overlap": [
+        2
+      ],
+      "top5_overlap_mean": 2.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9401662349700928,
+      "finite": true,
+      "max_abs": 8.73681640625,
+      "mean_abs": 1.557364583015442,
+      "relative_l2": 0.3451260030269623,
+      "rmse": 1.955827236175537
+    },
+    "sample_id": "eva_036",
+    "step": 4,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 0.8671875,
+      "top1_top2_margin_b": 1.4921875,
+      "top5_overlap": [
+        2
+      ],
+      "top5_overlap_mean": 2.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9421804547309875,
+      "finite": true,
+      "max_abs": 9.16796875,
+      "mean_abs": 1.6430178880691528,
+      "relative_l2": 0.33570486307144165,
+      "rmse": 2.0709362030029297
+    },
+    "sample_id": "eva_036",
+    "step": 5,
+    "topk": {
+      "top1_agreement": false,
+      "top1_top2_margin_a": 3.0546875,
+      "top1_top2_margin_b": 0.40625,
+      "top5_overlap": [
+        4
+      ],
+      "top5_overlap_mean": 4.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.9232703447341919,
+      "finite": true,
+      "max_abs": 9.9462890625,
+      "mean_abs": 1.6806753873825073,
+      "relative_l2": 0.3888201117515564,
+      "rmse": 2.0898923873901367
+    },
+    "sample_id": "eva_036",
+    "step": 6,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 2.5703125,
+      "top1_top2_margin_b": 3.265625,
+      "top5_overlap": [
+        2
+      ],
+      "top5_overlap_mean": 2.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.0,
+      "finite": true,
+      "max_abs": 20.78125,
+      "mean_abs": 4.870726108551025,
+      "relative_l2": Infinity,
+      "rmse": 5.747837543487549
+    },
+    "sample_id": "eva_036",
+    "step": 7,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 0.0,
+      "top1_top2_margin_b": 2.90625,
+      "top5_overlap": [
+        1
+      ],
+      "top5_overlap_mean": 1.0
+    }
+  },
+  {
+    "logits": {
+      "cosine": 0.936461329460144,
+      "finite": true,
+      "max_abs": 10.08984375,
+      "mean_abs": 1.5640153884887695,
+      "relative_l2": 0.37610936164855957,
+      "rmse": 1.9789373874664307
+    },
+    "sample_id": "eva_036",
+    "step": 8,
+    "topk": {
+      "top1_agreement": true,
+      "top1_top2_margin_a": 2.078125,
+      "top1_top2_margin_b": 4.1640625,
+      "top5_overlap": [
+        1
+      ],
+      "top5_overlap_mean": 1.0
+    }
+  }
+]

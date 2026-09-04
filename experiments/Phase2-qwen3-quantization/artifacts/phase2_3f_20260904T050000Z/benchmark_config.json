@@ -1,0 +1,11 @@
+{
+  "batch": 1,
+  "blocked_lengths": "S=32 and S=128 exceed the B4.2-derived engine optimization-profile max sequence length 16 and are recorded as a bounded engine-profile limitation",
+  "lengths": [
+    8,
+    16
+  ],
+  "methodology": "same-session, same harness, proper cuda synchronize",
+  "repeats": 10,
+  "warmup": 5
+}

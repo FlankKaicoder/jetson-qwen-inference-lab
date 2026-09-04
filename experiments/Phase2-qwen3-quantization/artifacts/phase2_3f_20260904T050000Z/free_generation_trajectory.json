@@ -1,0 +1,338 @@
+[
+  {
+    "agreement_count": 9,
+    "agreement_rate": 1.0,
+    "first_divergence_step": null,
+    "fp16": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "mixed": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "sample_id": "eva_025"
+  },
+  {
+    "agreement_count": 3,
+    "agreement_rate": 0.3333333333333333,
+    "first_divergence_step": 1,
+    "fp16": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "mixed": [
+      0,
+      4894,
+      624,
+      624,
+      624,
+      0,
+      0,
+      4894,
+      4894
+    ],
+    "sample_id": "eva_026"
+  },
+  {
+    "agreement_count": 9,
+    "agreement_rate": 1.0,
+    "first_divergence_step": null,
+    "fp16": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "mixed": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "sample_id": "eva_027"
+  },
+  {
+    "agreement_count": 0,
+    "agreement_rate": 0.0,
+    "first_divergence_step": 0,
+    "fp16": [
+      81,
+      80,
+      16948,
+      18,
+      11,
+      23004,
+      86,
+      18,
+      11
+    ],
+    "mixed": [
+      80,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "sample_id": "eva_028"
+  },
+  {
+    "agreement_count": 0,
+    "agreement_rate": 0.0,
+    "first_divergence_step": 0,
+    "fp16": [
+      504,
+      504,
+      504,
+      504,
+      504,
+      0,
+      0,
+      0,
+      0
+    ],
+    "mixed": [
+      7561,
+      7561,
+      7561,
+      7561,
+      7561,
+      7561,
+      7561,
+      7561,
+      7561
+    ],
+    "sample_id": "eva_029"
+  },
+  {
+    "agreement_count": 0,
+    "agreement_rate": 0.0,
+    "first_divergence_step": 0,
+    "fp16": [
+      5664,
+      6197,
+      6197,
+      6197,
+      6197,
+      5664,
+      6197,
+      6197,
+      5664
+    ],
+    "mixed": [
+      2448,
+      2448,
+      2448,
+      2448,
+      2448,
+      2448,
+      2448,
+      2448,
+      2448
+    ],
+    "sample_id": "eva_030"
+  },
+  {
+    "agreement_count": 0,
+    "agreement_rate": 0.0,
+    "first_divergence_step": 0,
+    "fp16": [
+      5779,
+      5779,
+      5779,
+      5779,
+      5779,
+      5779,
+      5779,
+      5779,
+      5779
+    ],
+    "mixed": [
+      0,
+      358,
+      358,
+      358,
+      358,
+      358,
+      358,
+      358,
+      358
+    ],
+    "sample_id": "eva_031"
+  },
+  {
+    "agreement_count": 6,
+    "agreement_rate": 0.6666666666666666,
+    "first_divergence_step": 1,
+    "fp16": [
+      12,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "mixed": [
+      12,
+      17,
+      13,
+      0,
+      0,
+      0,
+      0,
+      1112,
+      0
+    ],
+    "sample_id": "eva_032"
+  },
+  {
+    "agreement_count": 0,
+    "agreement_rate": 0.0,
+    "first_divergence_step": 0,
+    "fp16": [
+      8976,
+      8976,
+      8976,
+      8976,
+      8976,
+      8976,
+      8976,
+      8976,
+      8976
+    ],
+    "mixed": [
+      28343,
+      28343,
+      28343,
+      64308,
+      64308,
+      64308,
+      64308,
+      64308,
+      64308
+    ],
+    "sample_id": "eva_033"
+  },
+  {
+    "agreement_count": 5,
+    "agreement_rate": 0.5555555555555556,
+    "first_divergence_step": 0,
+    "fp16": [
+      16,
+      12,
+      0,
+      12,
+      0,
+      12,
+      0,
+      12,
+      0
+    ],
+    "mixed": [
+      18,
+      12,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "sample_id": "eva_034"
+  },
+  {
+    "agreement_count": 0,
+    "agreement_rate": 0.0,
+    "first_divergence_step": 0,
+    "fp16": [
+      20243,
+      12900,
+      20243,
+      3925,
+      20243,
+      3925,
+      20243,
+      3925,
+      20243
+    ],
+    "mixed": [
+      504,
+      504,
+      504,
+      504,
+      504,
+      3409,
+      3409,
+      0,
+      282
+    ],
+    "sample_id": "eva_035"
+  },
+  {
+    "agreement_count": 0,
+    "agreement_rate": 0.0,
+    "first_divergence_step": 0,
+    "fp16": [
+      32854,
+      32854,
+      32854,
+      32854,
+      32854,
+      32854,
+      32854,
+      32854,
+      32854
+    ],
+    "mixed": [
+      19382,
+      11374,
+      11374,
+      11374,
+      11374,
+      11374,
+      11374,
+      11374,
+      11374
+    ],
+    "sample_id": "eva_036"
+  }
+]

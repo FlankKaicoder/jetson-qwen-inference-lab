@@ -13,14 +13,14 @@
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
 | Current phase | Phase 2 — LLM Quantization |
-| Current experiment | Phase 2.3-E — 28-Layer Mixed-Precision Quantized Runtime |
+| Current experiment | Phase 2.3-F — Accuracy / Memory / Performance Comparison |
 | Current branch | `phase/02-qwen3-quantization` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Exp04 — CUDA GEMM tiling and WMMA |
-| Experiment status | Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8/2.1.9 `PASS / BOUNDED`; Phase 2.2-A `PARTIAL / BOUNDED PASS`; Phase 2.2-B1/B2/B3 `PASS / BOUNDED`; Phase 2.2-B4.1 `PASS / CLOSED`; Phase 2.2-B4.2 `PASS / BOUNDED`; Phase 2.2-C0 `PASS / DESIGN ONLY`; Phase 2.2-C1 `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`; Phase 2.2 `CLOSED / PASS / BOUNDED`; Phase 2.3-A/B `PASS`; Phase 2.3-C/D/E `PASS / BOUNDED` |
-| Current Gate | Phase 2.3-E `PASS / BOUNDED`; 196/196 policy applied (63 FP16 + 133 PT-W8A8), 28/28 mixed engines built with 133 INT8 GEMM tactics, full runtime functional PASS; substantial mixed-vs-FP16 numerical/token divergence is bounded |
-| Readiness | Phase 2.2 remains frozen as `CLOSED / PASS / BOUNDED`; C1 remains `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`; Phase 2.3 overall is `IN PROGRESS`; Phase 2.3-E `PASS / BOUNDED`; Phase 2.3-F is authorized only if E is PASS / PASS-BOUNDED. |
+| Experiment status | Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8/2.1.9 `PASS / BOUNDED`; Phase 2.2-A `PARTIAL / BOUNDED PASS`; Phase 2.2-B1/B2/B3 `PASS / BOUNDED`; Phase 2.2-B4.1 `PASS / CLOSED`; Phase 2.2-B4.2 `PASS / BOUNDED`; Phase 2.2-C0 `PASS / DESIGN ONLY`; Phase 2.2-C1 `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`; Phase 2.2 `CLOSED / PASS / BOUNDED`; Phase 2.3-A/B `PASS`; Phase 2.3-C/D/E/F `PASS / BOUNDED`; Phase 2.3 aggregate `CLOSED / PASS / BOUNDED` |
+| Current Gate | Phase 2.3-F `PASS / BOUNDED`; mixed runtime is 27% smaller in engine storage but 26-49% slower end-to-end (`MIXED_RUNTIME_SLOWER`) with substantial mixed-vs-FP16 numerical/token divergence; no OOM/exit137 |
+| Readiness | Phase 2.2 remains frozen as `CLOSED / PASS / BOUNDED`; C1 remains `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`; Phase 2.3 is `CLOSED / PASS / BOUNDED`; Phase 3 / INT4 / Nsight remain not started and require explicit authorization. |
 
 ## Confirmed Findings
 
@@ -397,3 +397,25 @@ Before Exp01.2 profiling on `2026-08-30`, Windows, GitHub and Jetson were clean 
 - Report: `experiments/Phase2-qwen3-quantization/docs/phase2_3e_28layer_mixed_precision_runtime.md`;
   evidence: `experiments/Phase2-qwen3-quantization/artifacts/phase2_3e_20260904T034300Z/`;
   mixed ONNX/engines remain Jetson-local under `/tmp/phase2_3e_20260904T020000Z/`.
+
+## Phase 2.3-F Accuracy / Memory / Performance Comparison (2026-09-04)
+
+- Reused the 12 disjoint Phase 2.3-B evaluation prompts (truncated to the
+  first 8 tokens to stay within the B4.2-derived engine 16-token context
+  limit). Comparison is `TRT MIXED vs TRT FP16`; HF is semantic context only.
+- Prefill last-token logits mixed-vs-FP16: relative-L2 median `0.3311`, cosine
+  median `0.9086`, top-1 agreement `4/12`, top-5 overlap `2.92/5`.
+- Same-prefix forced decode (96 steps): logits cosine median `0.8879`, top-1
+  agreement `47.9%`, top-5 overlap `2.26/5`; some reference logits degenerate
+  to zero from the documented C1 drift.
+- Free-run greedy trajectories diverge at step 0 for 7/12 prompts; token
+  mismatch is treated as a behavioral result, not a runtime failure.
+- Same-session benchmark (warmup 5, repeats 10): mixed is ~48% slower prefill
+  and ~35% slower decode than FP16 (tokens/s `0.51 -> 0.38`). S=32/128 are
+  blocked by the 16-token engine profile, not memory.
+- Engine storage is 27% smaller (892.5/890.4 MB FP16 -> 651.7/650.3 MB mixed).
+  No OOM/exit137; peak RSS ~1.74 GB. Conclusion: `MIXED_RUNTIME_SLOWER`.
+- Gate: `Phase 2.3-F = PASS / BOUNDED`; Phase 2.3 aggregate is
+  `CLOSED / PASS / BOUNDED`. C1 remains `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`.
+- Report: `experiments/Phase2-qwen3-quantization/docs/phase2_3f_accuracy_memory_performance_comparison.md`;
+  evidence: `experiments/Phase2-qwen3-quantization/artifacts/phase2_3f_20260904T050000Z/`.
