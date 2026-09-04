@@ -92,7 +92,7 @@ def run_stream_window(args, objects, token_ids: list[int],
 
 class GraphDecodeWindow:
     def __init__(self, objects, initial_ks: list, initial_vs: list,
-                 token_ids: list[int], decode_steps: int):
+                 token_ids: list[int], decode_steps: int, graph_mode: str):
         self.embed, self.dec, self.norm, self.lm = objects
         self.decode_steps = decode_steps
         self.token_ids = token_ids
@@ -111,6 +111,8 @@ class GraphDecodeWindow:
         self.logits_outputs = []
         self.hidden_outputs = []
         self.graph = None
+        self.step_graphs = []
+        self.graph_mode = graph_mode
 
     def _prepare_step(self, step: int) -> None:
         length = 8 + step
@@ -165,28 +167,51 @@ class GraphDecodeWindow:
                             {"logits": self.logits_outputs[step]})
         torch.cuda.synchronize()
 
-        graph = torch.cuda.CUDAGraph()
-        with torch.cuda.graph(graph):
+        if self.graph_mode == "full_window":
+            graph = torch.cuda.CUDAGraph()
+            with torch.cuda.graph(graph):
+                for step in range(self.decode_steps):
+                    execute_no_sync(self.embed,
+                                    {"input_ids": self.tokens[step]},
+                                    self.embedding_outputs[step])
+                    execute_no_sync(self.dec, self.step_inputs[step],
+                                    self.step_outputs[step])
+                    execute_no_sync(self.norm,
+                                    {"hidden_states": self.hidden_outputs[step]},
+                                    {"normalized_hidden_states": self.norm_outputs[step]})
+                    execute_no_sync(self.lm,
+                                    {"hidden_states": self.norm_outputs[step]},
+                                    {"logits": self.logits_outputs[step]})
+            self.graph = graph
+        else:
+            self.graph = None
+            self.step_graphs = []
             for step in range(self.decode_steps):
-                execute_no_sync(self.embed,
-                                {"input_ids": self.tokens[step]},
-                                self.embedding_outputs[step])
-                execute_no_sync(self.dec, self.step_inputs[step],
-                                self.step_outputs[step])
-                execute_no_sync(self.norm,
-                                {"hidden_states": self.hidden_outputs[step]},
-                                {"normalized_hidden_states": self.norm_outputs[step]})
-                execute_no_sync(self.lm,
-                                {"hidden_states": self.norm_outputs[step]},
-                                {"logits": self.logits_outputs[step]})
+                calls = [
+                    (self.embed, {"input_ids": self.tokens[step]},
+                     self.embedding_outputs[step]),
+                    (self.dec, self.step_inputs[step], self.step_outputs[step]),
+                    (self.norm, {"hidden_states": self.hidden_outputs[step]},
+                     {"normalized_hidden_states": self.norm_outputs[step]}),
+                    (self.lm, {"hidden_states": self.norm_outputs[step]},
+                     {"logits": self.logits_outputs[step]}),
+                ]
+                for engine, inputs, outputs in calls:
+                    graph = torch.cuda.CUDAGraph()
+                    with torch.cuda.graph(graph):
+                        execute_no_sync(engine, inputs, outputs)
+                    self.step_graphs.append(graph)
         torch.cuda.synchronize()
-        self.graph = graph
         return self.topology_report()
 
     def replay(self) -> None:
-        if self.graph is None:
+        if self.graph is None and not getattr(self, "step_graphs", None):
             raise RuntimeError("GRAPH_NOT_CAPTURED")
-        self.graph.replay()
+        if self.graph is not None:
+            self.graph.replay()
+        else:
+            for graph in self.step_graphs:
+                graph.replay()
 
     def outputs(self) -> dict:
         return {"hidden": list(self.hidden_outputs),
@@ -216,7 +241,9 @@ class GraphDecodeWindow:
                     {t.data_ptr() for t in inputs + outputs}) == 56,
             })
         return {
-            "graph_api": "torch.cuda.CUDAGraph",
+            "graph_api": ("torch.cuda.CUDAGraph full_window" if self.graph_mode == "full_window"
+                          else "torch.cuda.CUDAGraph per_engine_enqueue"),
+            "graph_mode": self.graph_mode,
             "captured_engines": ["embedding", "decode_28layer",
                                  "final_rmsnorm", "lm_head"],
             "captured_steps": self.decode_steps,
@@ -233,6 +260,7 @@ class GraphDecodeWindow:
             "cpu_sampling_inside_graph": False,
             "dynamic_allocation_inside_graph": False,
             "synchronization_inside_graph": False,
+            "captured_graph_count": 1 if self.graph is not None else len(self.step_graphs),
             "cache_chain": cache_chain,
         }
 
@@ -429,7 +457,7 @@ def profile_mode(args) -> dict:
     hidden, ks, vs = F.F.run_prefill(objects[1], embed_fn, args.bench_ids[:8])
     graph = GraphDecodeWindow(
         [objects[0], objects[2], objects[3], objects[4]], ks, vs,
-        token_ids, args.decode_steps)
+        token_ids, args.decode_steps, args.graph_mode)
     with F.nvtx_range("PHASE3D0_WARMUP", True):
         for _ in range(args.warmup):
             run_stream_window(
@@ -458,7 +486,8 @@ def bench_mode(args) -> dict:
     hidden, ks, vs = F.F.run_prefill(objects[1], embed_fn, args.bench_ids[:8])
     graph_objects = [objects[0], objects[2], objects[3], objects[4]]
     stream_result = run_stream_window(args, graph_objects, token_ids, ks, vs)
-    graph = GraphDecodeWindow(graph_objects, ks, vs, token_ids, args.decode_steps)
+    graph = GraphDecodeWindow(
+        graph_objects, ks, vs, token_ids, args.decode_steps, args.graph_mode)
     capture_start = time.perf_counter()
     graph_topology = graph.capture()
     capture_s = time.perf_counter() - capture_start
@@ -482,6 +511,8 @@ def main() -> None:
                         default="audit")
     parser.add_argument("--runtime", choices=["fp16", "mixed"], default="fp16")
     parser.add_argument("--graph", action="store_true")
+    parser.add_argument("--graph-mode", choices=["full_window", "per_engine"],
+                        default="full_window")
     parser.add_argument("--fp16-dir", type=Path,
                         default=Path("/tmp/phase2_2b4_2_20260902T082326Z"))
     parser.add_argument("--mixed-dir", type=Path,
@@ -511,6 +542,7 @@ def main() -> None:
     F.F.dump(args.out / "environment.json", F.environment_snapshot())
     F.F.dump(args.out / "run_config.json", {
         "mode": args.mode, "runtime": args.runtime, "graph": args.graph,
+        "graph_mode": args.graph_mode,
         "decode_steps": args.decode_steps, "warmup": args.warmup,
         "repeats": args.repeats, "batch": 1, "prefill_length": 8,
         "sampling": "forced deterministic continuation tokens outside graph",
