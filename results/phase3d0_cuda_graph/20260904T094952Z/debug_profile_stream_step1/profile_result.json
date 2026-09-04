@@ -1,0 +1,7 @@
+{
+  "decode_steps": 1,
+  "initialization_s": 36.65878545795567,
+  "path": "persistent_stream",
+  "phase": "Phase 3-D0-D",
+  "runtime": "fp16"
+}

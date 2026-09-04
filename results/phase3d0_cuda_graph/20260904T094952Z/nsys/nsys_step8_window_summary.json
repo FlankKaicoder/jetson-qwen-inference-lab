@@ -1,0 +1,81 @@
+{
+  "stream": {
+    "steady_window": {
+      "name": ":PHASE3D0_STEADY_STREAM_WINDOW",
+      "start_ns": 12267663872,
+      "end_ns": 12617027104,
+      "duration_ns": 349363232,
+      "projected_gpu_ops": 3392,
+      "children": 32
+    },
+    "window_events": 3392,
+    "window_kernel_instances": 3376,
+    "window_kernel_time_ns": 217708032,
+    "window_memcpy_instances": 16,
+    "window_memcpy_time_ns": 19776,
+    "top_window_kernels": [
+      {
+        "name": "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+        "instances": 656,
+        "duration_ns": 83836640
+      },
+      {
+        "name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+        "instances": 8,
+        "duration_ns": 44987456
+      },
+      {
+        "name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused",
+        "instances": 224,
+        "duration_ns": 31190592
+      },
+      {
+        "name": "sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x64x64_stage4_warpsize2x2x1_tensor16x8x16_fused",
+        "instances": 224,
+        "duration_ns": 27750304
+      },
+      {
+        "name": "sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt",
+        "instances": 224,
+        "duration_ns": 6332128
+      },
+      {
+        "name": "__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f",
+        "instances": 189,
+        "duration_ns": 3823520
+      },
+      {
+        "name": "sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt",
+        "instances": 224,
+        "duration_ns": 3812896
+      },
+      {
+        "name": "__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a",
+        "instances": 196,
+        "duration_ns": 3420864
+      }
+    ]
+  },
+  "per_engine": {
+    "steady_window": {
+      "name": ":PHASE3D0_STEADY_CUDA_GRAPH_WINDOW",
+      "start_ns": 15057253856,
+      "end_ns": 15251188736,
+      "duration_ns": 193934880,
+      "projected_gpu_ops": 64,
+      "children": 0
+    },
+    "window_events": 64,
+    "window_kernel_instances": 64,
+    "window_kernel_time_ns": 298048,
+    "window_memcpy_instances": 0,
+    "window_memcpy_time_ns": 0,
+    "top_window_kernels": [
+      {
+        "name": "void at::native::vectorized_elementwise_kernel<(int)4, at::native::FillFunctor<long>, at::detail::Array<char *, (int)1>>(int, T2, T3)",
+        "instances": 64,
+        "duration_ns": 298048
+      }
+    ]
+  }
+}

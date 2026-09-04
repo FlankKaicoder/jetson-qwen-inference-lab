@@ -1,0 +1,5 @@
+Name,Calls,Total Time (ns)
+cudaGraphLaunch_v10000,30,152393376
+cudaDeviceSynchronize,1,42217056
+cudaLaunchKernel,60,1355904
+cudaStreamIsCapturing_v10000,60,133920

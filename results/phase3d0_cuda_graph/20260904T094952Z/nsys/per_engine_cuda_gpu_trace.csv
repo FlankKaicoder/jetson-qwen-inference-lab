@@ -1,0 +1,1022 @@
+Start (ns),Duration (ns),CorrId,GrdX,GrdY,GrdZ,BlkX,BlkY,BlkZ,Reg/Trd,StcSMem (MB),DymSMem (MB),Bytes (MB),Throughput (MB/s),SrcMemKd,DstMemKd,Device,Ctx,GreenCtx,Strm,Name
+3700364480,10729632,683,,,,,,,,,,311.165,28938.338,Device,,Orin (0),1,,13,[CUDA memset]
+3711097856,10655584,684,,,,,,,,,,311.165,28938.338,Device,,Orin (0),1,,13,[CUDA memset]
+3721762912,52564320,685,,,,,,,,,,311.165,5912.134,Pageable,Device,Orin (0),1,,13,[CUDA memcpy Host-to-Device]
+4552337632,30088896,751,,,,,,,,,,880.933,29070.797,Device,,Orin (0),1,,17,[CUDA memset]
+4582430496,30060544,752,,,,,,,,,,880.933,29070.797,Device,,Orin (0),1,,17,[CUDA memset]
+4612502656,149041952,753,,,,,,,,,,880.933,5285.599,Pageable,Device,Orin (0),1,,17,[CUDA memcpy Host-to-Device]
+4784544064,161376,2017,,,,,,,,,,4.793,29699.559,Device,,Orin (0),1,,19,[CUDA memset]
+6004173984,8736,2868,,,,,,,,,,0.000,7.326,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6008320320,5280,2875,,,,,,,,,,0.000,12.121,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6012061728,5952,2882,,,,,,,,,,0.000,10.753,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6015863616,5792,2889,,,,,,,,,,0.000,11.050,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6019587968,5184,2896,,,,,,,,,,0.000,12.346,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6023230368,5216,2903,,,,,,,,,,0.000,12.270,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6026968224,5248,2910,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6030636224,5248,2917,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6034472864,5312,2924,,,,,,,,,,0.000,12.048,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6038138464,5280,2931,,,,,,,,,,0.000,12.121,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6041866464,5280,2938,,,,,,,,,,0.000,12.121,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6045517568,5312,2945,,,,,,,,,,0.000,12.048,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6049190464,5312,2952,,,,,,,,,,0.000,12.048,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6052875712,5440,2959,,,,,,,,,,0.000,11.765,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6056567328,5280,2966,,,,,,,,,,0.000,12.121,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6060184832,5248,2973,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6063854976,5280,2980,,,,,,,,,,0.000,12.121,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6067592256,5248,2987,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6071278848,5248,2994,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6074924000,5440,3001,,,,,,,,,,0.000,11.765,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6078644384,5248,3008,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6082265856,5312,3015,,,,,,,,,,0.000,12.048,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6086018080,5216,3022,,,,,,,,,,0.000,12.270,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6089668704,5344,3029,,,,,,,,,,0.000,11.976,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6093482848,5248,3036,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6097508608,5344,3043,,,,,,,,,,0.000,11.976,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6101277216,5248,3050,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6104981408,5280,3057,,,,,,,,,,0.000,12.121,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6108726432,5216,3064,,,,,,,,,,0.000,12.270,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6112469952,5696,3071,,,,,,,,,,0.000,11.236,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6116211200,5280,3078,,,,,,,,,,0.000,12.121,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6120011296,5248,3085,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6123763360,5312,3092,,,,,,,,,,0.000,12.048,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6127642240,5216,3099,,,,,,,,,,0.000,12.270,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6131410880,5312,3106,,,,,,,,,,0.000,12.048,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6135177792,5344,3113,,,,,,,,,,0.000,11.976,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6138953120,5216,3120,,,,,,,,,,0.000,12.270,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6142693856,5280,3127,,,,,,,,,,0.000,12.121,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6146557920,5280,3134,,,,,,,,,,0.000,12.121,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6150301088,5216,3141,,,,,,,,,,0.000,12.270,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6154108512,5216,3148,,,,,,,,,,0.000,12.270,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6157903520,5216,3155,,,,,,,,,,0.000,12.270,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6161737120,5216,3162,,,,,,,,,,0.000,12.270,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6165529856,5280,3169,,,,,,,,,,0.000,12.121,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6169467552,5248,3176,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6173274816,5312,3183,,,,,,,,,,0.000,12.048,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6177135520,5280,3190,,,,,,,,,,0.000,12.121,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6180897312,5312,3197,,,,,,,,,,0.000,12.048,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6184671456,5248,3204,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6188419584,5440,3211,,,,,,,,,,0.000,11.765,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6192249280,5248,3218,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6196131968,5248,3225,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6199954400,5280,3232,,,,,,,,,,0.000,12.121,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6203731712,5248,3239,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6207562496,5216,3246,,,,,,,,,,0.000,12.270,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+6211338272,5280,3253,,,,,,,,,,0.000,12.121,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+7216472736,30071456,3264,,,,,,,,,,880.937,29070.932,Device,,Orin (0),1,,23,[CUDA memset]
+7246548256,20670880,3265,,,,,,,,,,880.937,42284.993,Device,,Orin (0),1,,23,[CUDA memset]
+7267228736,148182016,3266,,,,,,,,,,880.937,5285.624,Pageable,Device,Orin (0),1,,23,[CUDA memcpy Host-to-Device]
+7444887712,17312,4143,,,,,,,,,,0.156,8990.695,Device,,Orin (0),1,,25,[CUDA memset]
+9173917248,5600,4526,,,,,,,,,,0.000,11.429,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9177715136,5280,4533,,,,,,,,,,0.000,12.121,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9191631776,5216,4552,,,,,,,,,,0.000,12.270,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9195369760,5280,4559,,,,,,,,,,0.000,12.121,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9199156832,5376,4566,,,,,,,,,,0.000,11.905,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9202693120,5280,4573,,,,,,,,,,0.000,12.121,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9206486176,5248,4580,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9210042656,5216,4587,,,,,,,,,,0.000,12.270,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9213752480,5280,4594,,,,,,,,,,0.000,12.121,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9217281536,5408,4601,,,,,,,,,,0.000,11.834,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9221050208,5280,4608,,,,,,,,,,0.000,12.121,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9224601824,5280,4615,,,,,,,,,,0.000,12.121,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9228331328,5152,4622,,,,,,,,,,0.000,12.422,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9231829248,5248,4629,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9235580352,5248,4636,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9239143904,5216,4643,,,,,,,,,,0.000,12.270,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9242896864,5216,4650,,,,,,,,,,0.000,12.270,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9246389824,5280,4657,,,,,,,,,,0.000,12.121,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9250199040,5248,4664,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9253759904,5248,4671,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9257542304,5248,4678,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9261051232,5280,4685,,,,,,,,,,0.000,12.121,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9264933888,5248,4692,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9268421120,5216,4699,,,,,,,,,,0.000,12.270,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9272152256,5248,4706,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9275833056,5248,4713,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9279619360,5280,4720,,,,,,,,,,0.000,12.121,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9283137984,5248,4727,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9286891168,5312,4734,,,,,,,,,,0.000,12.048,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9290428160,5248,4741,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9294169952,5344,4748,,,,,,,,,,0.000,11.976,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9297679136,5216,4755,,,,,,,,,,0.000,12.270,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9302543008,5248,4762,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9306113920,5248,4769,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9309970304,5280,4776,,,,,,,,,,0.000,12.121,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9313557056,5280,4783,,,,,,,,,,0.000,12.121,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9317368352,5216,4790,,,,,,,,,,0.000,12.270,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9320872864,5248,4797,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9324630336,5280,4804,,,,,,,,,,0.000,12.121,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9328225792,5248,4811,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9332022656,5216,4818,,,,,,,,,,0.000,12.270,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9335618752,5280,4825,,,,,,,,,,0.000,12.121,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9339542816,5344,4832,,,,,,,,,,0.000,11.976,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9343143296,5248,4839,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9346961664,5248,4846,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9350537824,5248,4853,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9354320576,5216,4860,,,,,,,,,,0.000,12.270,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9357831552,5248,4867,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9361575104,5248,4874,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9365112000,5280,4881,,,,,,,,,,0.000,12.121,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9368896960,5248,4888,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9372449696,5248,4895,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9376183904,5376,4902,,,,,,,,,,0.000,11.905,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9379837888,5344,4909,,,,,,,,,,0.000,11.976,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9383584416,5216,4916,,,,,,,,,,0.000,12.270,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9387120320,5248,4923,,,,,,,,,,0.000,12.195,Device,Pageable,Orin (0),1,,7,[CUDA memcpy Device-to-Host]
+9389586848,3968,4938,,,,,,,,,,0.002,516.129,Device,,Orin (0),1,,27,[CUDA memset]
+9389596768,2016,4939,,,,,,,,,,0.002,1015.871,Device,,Orin (0),1,,27,[CUDA memset]
+9389618528,1984,4940,,,,,,,,,,0.002,1032.258,Pageable,Device,Orin (0),1,,27,[CUDA memcpy Host-to-Device]
+9687099392,10731232,4999,,,,,,,,,,311.165,28938.362,Device,,Orin (0),1,,31,[CUDA memset]
+9697834400,10658144,5000,,,,,,,,,,311.165,28938.362,Device,,Orin (0),1,,31,[CUDA memset]
+9708495968,52746080,5001,,,,,,,,,,311.165,5600.973,Pageable,Device,Orin (0),1,,31,[CUDA memcpy Host-to-Device]
+9779398464,4256,5065,,,,,,,,,,0.000,15.038,Pageable,Device,Orin (0),1,,7,[CUDA memcpy Host-to-Device]
+9783893152,9184,5082,1,1,1,64,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,"void <unnamed>::elementwise_kernel_with_index<int, at::native::arange_cuda_out(const c10::Scalar &, const c10::Scalar &, const c10::Scalar &, at::Tensor &)::[lambda() (instance 1)]::operator ()() const::[lambda() (instance 4)]::operator ()() const::[lambda(long) (instance 1)]>(T1, T2, function_traits<T2>::result_type *)"
+9785052160,15392,5094,8,1,1,256,1,1,20,0.000,0.000,,,,,Orin (0),1,,7,__myl_CasGat_0xdee2c73dd5d0e0fe099a0774cba2143f_com
+9796060032,8384,5689,1,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_RepIotIotRepCasAddCasEqlLtOrSel_0xeed00a2999d9a920ce4be4d44852c879_com
+9796072256,11200,5690,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovMulMeaAddSqrDivMulMul_0x8c7c765d132892c540be4329124deccc_com_vec
+9845982688,301312,5699,16,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9846287712,15584,5700,64,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+9846307040,11392,5701,8,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+9846321952,9920,5702,16,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+9846335616,28544,5703,64,1,1,256,1,1,40,0.000,0.000,,,,,Orin (0),1,,7,__myl_CasResMulConSinResCosResAddSqrAddSqrDivMulDivMulMulTraSliSliNegConMulMulAddResSliRepResTraEtc_0xeeda8c3ad0b01a41e68bda37288b89cd_com
+9846367840,22848,5704,1,16,1,128,1,1,254,0.000,0.049,,,,,Orin (0),1,,7,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+9846394496,163840,5717,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9846563936,13824,5718,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+9846581728,236736,5721,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9846827456,239392,5724,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,20,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9847073600,15264,5727,48,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+9847092864,233184,5733,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9847334272,14944,5734,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec
+9847357376,299296,5736,16,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9847660832,14976,5738,64,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+9847683680,11264,5740,8,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,20,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+9847701728,18560,5741,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,20,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x4ad536b524b3f7a2415d97f02da12733_com
+9847727040,12256,5743,16,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+9847744800,14048,5744,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+9847764192,21600,5746,1,16,1,128,1,1,254,0.000,0.049,,,,,Orin (0),1,,7,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+9847792608,163168,5752,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9847959808,14016,5753,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+9847979392,235360,5756,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9848225920,237056,5759,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,20,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9848467840,15264,5762,48,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+9848487456,231904,5768,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9848723360,13824,5769,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec
+9848741152,301440,5771,16,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9849050816,14912,5773,64,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+9849073856,11264,5775,8,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,20,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+9849091840,18688,5776,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,20,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x4ad536b524b3f7a2415d97f02da12733_com
+9849117248,12192,5778,16,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+9849135264,15072,5779,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+9849155520,22464,5781,1,16,1,128,1,1,254,0.000,0.049,,,,,Orin (0),1,,7,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+9849183680,162496,5787,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9849353152,14816,5788,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+9849376128,235072,5791,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9849621632,237376,5794,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,20,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9849863168,15200,5797,48,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+9849882368,230944,5803,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9850117632,14624,5804,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec
+9850136256,301632,5806,16,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9850442144,14976,5808,64,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+9850465184,11232,5810,8,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,20,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+9850483488,18048,5811,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,20,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x4ad536b524b3f7a2415d97f02da12733_com
+9850509280,12288,5813,16,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+9850527360,13888,5814,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+9850546592,22272,5816,1,16,1,128,1,1,254,0.000,0.049,,,,,Orin (0),1,,7,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+9850576032,163264,5822,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9850744928,14496,5823,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+9850763584,236800,5826,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9851010816,239328,5829,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,20,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9851258272,15200,5832,48,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+9851277504,234912,5838,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9851519808,13920,5839,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec
+9851537760,301824,5841,16,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9851843584,15264,5843,64,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+9851867040,11168,5845,8,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,20,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+9851884928,18720,5846,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,20,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x4ad536b524b3f7a2415d97f02da12733_com
+9851910496,12320,5848,16,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+9851928576,15008,5849,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+9851948704,21920,5851,1,16,1,128,1,1,254,0.000,0.049,,,,,Orin (0),1,,7,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+9851977376,163968,5857,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9852149504,13920,5858,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+9852167456,237184,5861,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9852416384,236512,5864,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,20,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9852658592,15104,5867,48,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+9852677856,231424,5873,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9852917504,14816,5874,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec
+9852936256,301216,5876,16,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9853245600,15872,5878,64,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+9853269376,11232,5880,8,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,20,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+9853287456,17696,5881,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,20,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x4ad536b524b3f7a2415d97f02da12733_com
+9853313056,11328,5883,16,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+9853331360,14944,5884,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+9853355936,22848,5886,1,16,1,128,1,1,254,0.000,0.049,,,,,Orin (0),1,,7,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+9853385824,162272,5892,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9853553728,14080,5893,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+9853571936,236160,5896,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9853815936,237344,5899,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,20,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9854057376,15072,5902,48,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+9854076512,231456,5908,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9854316032,14304,5909,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec
+9854334592,302080,5911,16,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9854644928,15456,5913,64,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+9854668704,11360,5915,8,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,20,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+9854687264,18816,5916,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,20,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x4ad536b524b3f7a2415d97f02da12733_com
+9854712736,12512,5918,16,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+9854730816,13984,5919,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+9854750016,21440,5921,1,16,1,128,1,1,254,0.000,0.049,,,,,Orin (0),1,,7,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+9854778272,162176,5927,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9854948576,15456,5928,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+9854972352,236224,5931,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9855217056,236864,5934,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,20,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9855458048,15680,5937,48,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+9855477952,258976,5943,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9855745184,13824,5944,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec
+9855762944,302368,5946,16,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9856069376,14944,5948,64,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+9856094592,11232,5950,8,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,20,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+9856111488,18752,5951,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,20,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x4ad536b524b3f7a2415d97f02da12733_com
+9856136928,11264,5953,16,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+9856155008,14144,5954,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+9856174592,22176,5956,1,16,1,128,1,1,254,0.000,0.049,,,,,Orin (0),1,,7,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+9856203680,177440,5962,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9856387840,13920,5963,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+9856405824,237952,5966,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9856653984,237184,5969,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,20,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9856895616,15520,5972,48,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+9856915264,257696,5978,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9857178592,14080,5979,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec
+9857196736,301312,5981,16,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9857506240,15648,5983,64,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+9857529696,11232,5985,8,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,20,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+9857547584,17952,5986,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,20,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x4ad536b524b3f7a2415d97f02da12733_com
+9857573728,12800,5988,16,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+9857592256,14048,5989,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+9857611488,21920,5991,1,16,1,128,1,1,254,0.000,0.049,,,,,Orin (0),1,,7,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+9857640288,175168,5997,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9857819584,13760,5998,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+9857839040,236288,6001,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9858085408,236544,6004,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,20,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9858326144,15232,6007,48,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+9858345408,256672,6013,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9858608576,14208,6014,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec
+9858626720,301088,6016,16,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9858933472,14912,6018,64,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+9858956384,11296,6020,8,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,20,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+9858974400,17760,6021,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,20,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x4ad536b524b3f7a2415d97f02da12733_com
+9859000608,11392,6023,16,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+9859018784,14784,6024,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+9859043072,21536,6026,1,16,1,128,1,1,254,0.000,0.049,,,,,Orin (0),1,,7,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+9859071232,173120,6032,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9859248576,14560,6033,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+9859267136,237760,6036,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9859511360,236896,6039,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,20,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9859753728,15936,6042,48,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+9859778272,250752,6048,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9860033056,14272,6049,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec
+9860051360,302816,6051,16,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9860362240,15456,6053,64,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+9860386240,11456,6055,8,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,20,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+9860404800,18816,6056,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,20,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x4ad536b524b3f7a2415d97f02da12733_com
+9860430816,12000,6058,16,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+9860449376,13920,6059,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+9860468480,21504,6061,1,16,1,128,1,1,254,0.000,0.049,,,,,Orin (0),1,,7,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+9860496640,173216,6067,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9860674080,14560,6068,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+9860692864,235776,6071,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9860936736,237344,6074,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,20,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9861182240,15104,6077,48,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+9861201408,245504,6083,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9861453600,14240,6084,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec
+9861471936,302688,6086,16,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9861781408,15232,6088,64,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+9861806848,11744,6090,8,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,20,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+9861824288,17664,6091,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,20,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x4ad536b524b3f7a2415d97f02da12733_com
+9861850016,11232,6093,16,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+9861867968,13984,6094,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+9861887040,21472,6096,1,16,1,128,1,1,254,0.000,0.049,,,,,Orin (0),1,,7,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+9861915264,170464,6102,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9862089792,14304,6103,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+9862108704,236992,6106,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9862353472,236992,6109,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,20,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9862596032,15136,6112,48,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+9862615264,244064,6118,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9862867584,14784,6119,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec
+9862886464,302528,6121,16,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9863195712,15232,6123,64,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+9863219168,11200,6125,8,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,20,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+9863237056,18048,6126,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,20,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x4ad536b524b3f7a2415d97f02da12733_com
+9863262560,12384,6128,16,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+9863280512,13760,6129,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+9863299488,21952,6131,1,16,1,128,1,1,254,0.000,0.049,,,,,Orin (0),1,,7,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+9863328256,171008,6137,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9863503360,13792,6138,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+9863521152,235584,6141,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9863767584,236384,6144,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,20,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9864009600,15200,6147,48,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+9864029088,240960,6153,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9864275712,13824,6154,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec
+9864293600,301408,6156,16,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9864601824,14848,6158,64,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+9864624704,11424,6160,8,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,20,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+9864642816,18848,6161,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,20,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x4ad536b524b3f7a2415d97f02da12733_com
+9864668384,11616,6163,16,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+9864686720,14272,6164,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+9864706240,21664,6166,1,16,1,128,1,1,254,0.000,0.049,,,,,Orin (0),1,,7,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+9864734816,167360,6172,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9864907712,14656,6173,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+9864930624,237632,6176,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9865174688,236416,6179,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,20,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9865418176,15296,6182,48,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+9865437856,238080,6188,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9865680288,14816,6189,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec
+9865699488,301184,6191,16,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9866009184,15424,6193,64,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+9866032960,11456,6195,8,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,20,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+9866051136,18752,6196,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,20,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x4ad536b524b3f7a2415d97f02da12733_com
+9866076640,12352,6198,16,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+9866094592,13824,6199,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+9866113600,21536,6201,1,16,1,128,1,1,254,0.000,0.049,,,,,Orin (0),1,,7,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+9866141952,166912,6207,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9866317152,13984,6208,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+9866335008,235200,6211,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9866580608,235328,6214,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,20,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9866821536,15104,6217,48,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+9866840608,235296,6223,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9867084192,13888,6224,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec
+9867102144,300704,6226,16,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9867409696,14784,6228,64,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+9867432480,11456,6230,8,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,20,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+9867451040,18528,6231,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,20,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x4ad536b524b3f7a2415d97f02da12733_com
+9867476256,11488,6233,16,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+9867494592,13856,6234,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+9867513472,21696,6236,1,16,1,128,1,1,254,0.000,0.049,,,,,Orin (0),1,,7,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+9867541824,164448,6242,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9867710240,13952,6243,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+9867728256,236640,6246,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9867972864,236224,6249,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,20,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9868213280,15104,6252,48,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+9868232352,235072,6258,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9868471744,13856,6259,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec
+9868489696,301408,6261,16,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9868797856,14848,6263,64,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+9868820704,11168,6265,8,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,20,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+9868838592,18880,6266,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,20,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x4ad536b524b3f7a2415d97f02da12733_com
+9868864192,12416,6268,16,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+9868882144,15008,6269,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+9868906464,21536,6271,1,16,1,128,1,1,254,0.000,0.049,,,,,Orin (0),1,,7,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+9868934912,164928,6277,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9869106592,13856,6278,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+9869124384,237568,6281,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9869368384,238400,6284,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,20,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9869615008,15200,6287,48,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+9869634272,231840,6293,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9869874400,13792,6294,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec
+9869892032,300128,6296,16,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9870200512,14848,6298,64,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+9870223264,11360,6300,8,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,20,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+9870241408,18880,6301,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,20,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x4ad536b524b3f7a2415d97f02da12733_com
+9870267040,11296,6303,16,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+9870284928,13984,6304,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+9870304064,22784,6306,1,16,1,128,1,1,254,0.000,0.049,,,,,Orin (0),1,,7,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+9870332480,164288,6312,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9870503488,13760,6313,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+9870521408,236992,6316,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9870764704,237024,6319,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,20,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9871005824,15072,6322,48,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+9871024800,231680,6328,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9871264704,14912,6329,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec
+9871287840,301248,6331,16,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9871595808,14816,6333,64,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+9871618688,11168,6335,8,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,20,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+9871636512,18080,6336,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,20,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x4ad536b524b3f7a2415d97f02da12733_com
+9871662240,12256,6338,16,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+9871680032,14400,6339,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+9871700032,22624,6341,1,16,1,128,1,1,254,0.000,0.049,,,,,Orin (0),1,,7,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+9871728256,163488,6347,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9871898592,13888,6348,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+9871916512,236480,6351,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9872161152,236224,6354,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,20,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9872403168,15104,6357,48,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+9872422144,232512,6363,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9872661408,13824,6364,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec
+9872679168,301056,6366,16,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9872986944,15008,6368,64,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+9873010016,11232,6370,8,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,20,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+9873028064,18656,6371,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,20,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x4ad536b524b3f7a2415d97f02da12733_com
+9873053376,11296,6373,16,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+9873071360,14912,6374,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+9873095520,21568,6376,1,16,1,128,1,1,254,0.000,0.049,,,,,Orin (0),1,,7,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+9873123808,163712,6382,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9873291488,13824,6383,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+9873309376,235360,6386,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9873555008,236480,6389,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,20,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9873797056,15072,6392,48,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+9873816128,232224,6398,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9874055008,13920,6399,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec
+9874072960,300640,6401,16,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9874381024,15200,6403,64,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+9874404384,11104,6405,8,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,20,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+9874422368,17984,6406,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,20,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x4ad536b524b3f7a2415d97f02da12733_com
+9874447968,12288,6408,16,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+9874465824,14144,6409,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+9874485184,22656,6411,1,16,1,128,1,1,254,0.000,0.049,,,,,Orin (0),1,,7,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+9874513472,163360,6417,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9874682464,14976,6418,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+9874705600,237152,6421,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9874949280,235552,6424,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,20,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9875189088,15136,6427,48,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+9875208384,261024,6433,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9875476256,13760,6434,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec
+9875493856,300544,6436,16,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9875801280,14816,6438,64,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+9875824480,11680,6440,8,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,20,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+9875843072,18208,6441,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,20,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x4ad536b524b3f7a2415d97f02da12733_com
+9875868704,11328,6443,16,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+9875886720,14944,6444,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+9875910912,21600,6446,1,16,1,128,1,1,254,0.000,0.049,,,,,Orin (0),1,,7,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+9875939392,178304,6452,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9876124288,14944,6453,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+9876143264,237408,6456,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9876387040,235744,6459,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,20,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9876628384,14912,6462,48,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+9876647456,257408,6468,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9876908832,13952,6469,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec
+9876926848,301536,6471,16,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9877236640,15360,6473,64,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+9877260288,11200,6475,8,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,20,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+9877278272,18080,6476,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,20,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x4ad536b524b3f7a2415d97f02da12733_com
+9877303808,12288,6478,16,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+9877321728,13920,6479,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+9877340608,22400,6481,1,16,1,128,1,1,254,0.000,0.049,,,,,Orin (0),1,,7,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+9877369920,177088,6487,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9877555264,13728,6488,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+9877572960,236512,6491,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9877815936,235776,6494,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,20,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9878057504,16032,6497,48,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+9878081728,255200,6503,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9878341024,13856,6504,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec
+9878358912,300768,6506,16,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9878667360,14752,6508,64,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+9878690112,11328,6510,8,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,20,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+9878708256,17472,6511,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,20,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x4ad536b524b3f7a2415d97f02da12733_com
+9878733856,11328,6513,16,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+9878752032,14848,6514,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+9878776032,21568,6516,1,16,1,128,1,1,254,0.000,0.049,,,,,Orin (0),1,,7,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+9878804384,174624,6522,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9878987136,13888,6523,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+9879005056,236128,6526,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9879249184,236672,6529,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,20,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9879489792,15328,6532,48,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+9879509184,252192,6538,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9879768256,14752,6539,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec
+9879791232,301120,6541,16,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9880099040,15104,6543,64,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+9880122464,11104,6545,8,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,20,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+9880140288,17472,6546,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,20,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x4ad536b524b3f7a2415d97f02da12733_com
+9880165728,12576,6548,16,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+9880183936,13920,6549,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+9880203072,21504,6551,1,16,1,128,1,1,254,0.000,0.049,,,,,Orin (0),1,,7,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+9880231360,172832,6557,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9880409920,13984,6558,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+9880427968,236352,6561,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9880674496,236224,6564,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,20,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9880914912,15968,6567,48,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+9880939168,252288,6573,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9881198368,13728,6574,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec
+9881216128,300928,6576,16,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9881523808,14912,6578,64,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+9881546592,11232,6580,8,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,20,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+9881564800,18272,6581,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,20,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x4ad536b524b3f7a2415d97f02da12733_com
+9881590912,11456,6583,16,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+9881609920,14976,6584,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+9881634496,22144,6586,1,16,1,128,1,1,254,0.000,0.049,,,,,Orin (0),1,,7,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+9881663584,170720,6592,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9881839904,14432,6593,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+9881858368,235712,6596,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9882104480,235744,6599,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,20,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9882344288,16000,6602,48,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+9882368576,245088,6608,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9882620512,14144,6609,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec
+9882638784,302208,6611,16,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9882946592,15072,6613,64,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+9882969792,11200,6615,8,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,20,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+9882987712,18624,6616,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,20,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x4ad536b524b3f7a2415d97f02da12733_com
+9883013152,12256,6618,16,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+9883030912,13952,6619,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+9883050016,21984,6621,1,16,1,128,1,1,254,0.000,0.049,,,,,Orin (0),1,,7,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+9883079808,169408,6627,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9883253280,13824,6628,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+9883271232,236096,6631,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9883515264,236096,6634,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,20,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9883757248,15072,6637,48,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+9883776256,241952,6643,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9884025408,14720,6644,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec
+9884048256,302560,6646,16,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9884357632,15232,6648,64,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+9884380704,11328,6650,8,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,20,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+9884398784,18688,6651,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,20,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x4ad536b524b3f7a2415d97f02da12733_com
+9884424384,11328,6653,16,1,1,16,8,1,17,0.000,0.000,,,,,Orin (0),1,,7,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+9884442368,14816,6654,64,1,1,256,1,1,26,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+9884466336,22592,6656,1,16,1,128,1,1,254,0.000,0.049,,,,,Orin (0),1,,7,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+9884494592,167424,6662,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9884670112,13920,6663,8,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+9884688064,235072,6666,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9884933056,237184,6669,12,1,1,128,1,1,151,0.049,0.033,,,,,Orin (0),1,,20,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+9885173984,15552,6672,48,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+9885193376,233984,6678,1,16,1,128,1,1,124,0.000,0.074,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+9886137120,1472,6694,,,,,,,,,,0.000,5.435,Pageable,Device,Orin (0),1,,7,[CUDA memcpy Host-to-Device]
+9886330208,1504,6708,,,,,,,,,,0.000,5.319,Pageable,Device,Orin (0),1,,7,[CUDA memcpy Host-to-Device]
+9887023680,11712,6720,,,,,,,,,,0.016,1398.899,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9887125504,10720,6732,,,,,,,,,,0.016,1528.349,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9887227584,8992,6744,,,,,,,,,,0.016,1822.048,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9887318368,10144,6756,,,,,,,,,,0.016,1615.135,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9887403584,9280,6768,,,,,,,,,,0.016,1765.507,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9887486592,8992,6780,,,,,,,,,,0.016,1822.048,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9887575936,8960,6792,,,,,,,,,,0.016,1828.569,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9887670720,10176,6804,,,,,,,,,,0.016,1610.056,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9887748576,9312,6816,,,,,,,,,,0.016,1759.445,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9887833376,9152,6828,,,,,,,,,,0.016,1790.198,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9887917248,9024,6840,,,,,,,,,,0.016,1815.593,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9888002464,10048,6852,,,,,,,,,,0.016,1630.568,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9888116256,9280,6864,,,,,,,,,,0.016,1765.507,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9888211840,8896,6876,,,,,,,,,,0.016,1841.725,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9888292480,9024,6888,,,,,,,,,,0.016,1815.593,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9888376736,10112,6900,,,,,,,,,,0.016,1620.247,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9888473280,9216,6912,,,,,,,,,,0.016,1777.762,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9888558464,8960,6924,,,,,,,,,,0.016,1828.569,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9888641536,9024,6936,,,,,,,,,,0.016,1815.593,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9888718784,10208,6948,,,,,,,,,,0.016,1605.009,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9888804608,8928,6960,,,,,,,,,,0.016,1835.123,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9888893184,6624,6972,,,,,,,,,,0.016,2473.427,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9888977792,6592,6984,,,,,,,,,,0.016,2485.436,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9889059680,6592,6996,,,,,,,,,,0.016,2485.436,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9889139360,6560,7008,,,,,,,,,,0.016,2497.561,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9889226272,6528,7020,,,,,,,,,,0.016,2509.799,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9889310560,6528,7032,,,,,,,,,,0.016,2509.799,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9889381888,6560,7044,,,,,,,,,,0.016,2497.561,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9889473184,6528,7056,,,,,,,,,,0.016,2509.799,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9889562688,6560,7068,,,,,,,,,,0.016,2497.561,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9889635264,6592,7080,,,,,,,,,,0.016,2485.436,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9889726752,7648,7092,,,,,,,,,,0.016,2142.257,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9889818240,6496,7104,,,,,,,,,,0.016,2522.153,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9889909120,4288,7116,,,,,,,,,,0.016,3820.880,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9890003360,4288,7128,,,,,,,,,,0.016,3820.880,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9890084544,5504,7140,,,,,,,,,,0.016,2976.743,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9890174752,4352,7152,,,,,,,,,,0.016,3764.699,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9890259744,4288,7164,,,,,,,,,,0.016,3820.880,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9890357152,4224,7176,,,,,,,,,,0.016,3878.781,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9890439936,5632,7188,,,,,,,,,,0.016,2909.078,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9890518688,4320,7200,,,,,,,,,,0.016,3792.585,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9890610432,4672,7212,,,,,,,,,,0.016,3506.848,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9890696864,4256,7224,,,,,,,,,,0.016,3849.617,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9890792256,5568,7236,,,,,,,,,,0.016,2942.517,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9890877152,4672,7248,,,,,,,,,,0.016,3506.848,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9890959744,4736,7260,,,,,,,,,,0.016,3459.449,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9891068192,4384,7272,,,,,,,,,,0.016,3737.223,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9891167648,5664,7284,,,,,,,,,,0.016,2892.644,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9891243808,4640,7296,,,,,,,,,,0.016,3531.031,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9891314272,4608,7308,,,,,,,,,,0.016,3555.541,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9891393664,4544,7320,,,,,,,,,,0.016,3605.627,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9891489728,4736,7332,,,,,,,,,,0.016,3459.449,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9891602176,4896,7344,,,,,,,,,,0.016,3346.399,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9891691616,4704,7356,,,,,,,,,,0.016,3482.993,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9891770560,4672,7368,,,,,,,,,,0.016,3506.848,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9891867200,4768,7380,,,,,,,,,,0.016,3436.233,Device,Device,Orin (0),1,,7,[CUDA memcpy Device-to-Device]
+9892872480,10304,7398,1,1,1,256,1,1,32,0.000,0.000,,,,,Orin (0),1,,7,__myl_CasGat_0xdee2c73dd5d0e0fe099a0774cba2143f
+9897165952,9568,8013,1,1,1,256,1,1,32,0.000,0.000,,,,,Orin (0),1,,7,__myl_CasGat_0xdee2c73dd5d0e0fe099a0774cba2143f
+9901103232,8608,8018,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovMulMeaAddSqrDivMulMul_0x2a5532526e8c57d9427ed6b89bda5183
+9902423360,157696,8019,1,128,1,128,1,1,50,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9902583296,10112,8020,72,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a_com
+9902595680,6912,8021,8,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+9902604896,5504,8022,16,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+9902612672,12992,8023,72,1,1,256,1,1,29,0.000,0.000,,,,,Orin (0),1,,7,__myl_CasResMulConSinResCosResAddSqrAddSqrDivMulDivMulMulResSliSliNegConMulMulAddConResRepResTraEtc_0x3beb58e4cd3dae3f69eebdbcbcc43980_com
+9902628000,14752,8024,1,1,16,128,1,1,92,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9902644992,6752,8025,16,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f_com
+9902692896,25216,8028,1,1,16,128,1,1,242,0.000,0.061,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9902894080,75168,8030,16,1,1,128,1,1,82,0.049,0.033,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_64x64_ldg8_relu_stages_64x5_nn_v1
+9902971552,5856,8031,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+9903002240,112640,8032,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9903231424,119520,8036,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+9903400928,105952,8042,1,16,1,128,1,1,94,0.000,0.066,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x64x64_stage4_warpsize2x2x1_tensor16x8x16_fused
+9903509120,7648,8043,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+9903519104,144512,8044,1,128,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9903665952,9728,8045,72,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a_com
+9903677568,6432,8046,8,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+9903686240,10368,8047,72,1,1,256,1,1,20,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f_com
+9903698880,5504,8048,16,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+9903706720,5216,8049,8,1,1,256,1,1,22,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+9903714208,14592,8050,1,1,16,128,1,1,92,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9903731136,5568,8051,16,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f_com
+9903743072,24896,8054,1,1,16,128,1,1,242,0.000,0.061,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9903804480,78944,8055,1,32,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9903885664,6784,8056,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddMulMeaAddSqrDivMulMul_0x37f7a26fc5e98dd1cffe0df41b34ef4f
+9903898400,113056,8057,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9904114624,117824,8061,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+9904288480,106176,8067,1,16,1,128,1,1,94,0.000,0.066,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x64x64_stage4_warpsize2x2x1_tensor16x8x16_fused
+9904396864,6720,8068,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+9904405888,142624,8069,1,128,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9904550784,9504,8070,72,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a_com
+9904562656,6272,8071,8,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+9904571200,9664,8072,72,1,1,256,1,1,20,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f_com
+9904583168,5536,8073,16,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+9904590976,4736,8074,8,1,1,256,1,1,22,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+9904597984,14016,8075,1,1,16,128,1,1,92,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9904614272,5984,8076,16,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f_com
+9904622528,25088,8079,1,1,16,128,1,1,242,0.000,0.061,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9904677152,78976,8080,1,32,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9904758336,7104,8081,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddMulMeaAddSqrDivMulMul_0x37f7a26fc5e98dd1cffe0df41b34ef4f
+9904769184,111936,8082,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9904946880,120096,8086,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+9905109376,105312,8092,1,16,1,128,1,1,94,0.000,0.066,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x64x64_stage4_warpsize2x2x1_tensor16x8x16_fused
+9905216928,6976,8093,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+9905226176,143744,8094,1,128,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9905372256,9408,8095,72,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a_com
+9905384064,6720,8096,8,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+9905393088,10400,8097,72,1,1,256,1,1,20,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f_com
+9905405824,4800,8098,16,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+9905412896,4448,8099,8,1,1,256,1,1,22,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+9905419648,14368,8100,1,1,16,128,1,1,92,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9905436320,5952,8101,16,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f_com
+9905444544,25312,8104,1,1,16,128,1,1,242,0.000,0.061,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9905472096,79424,8105,1,32,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9905553728,6848,8106,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddMulMeaAddSqrDivMulMul_0x37f7a26fc5e98dd1cffe0df41b34ef4f
+9905562752,113056,8107,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9905724192,116416,8111,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+9905895104,106208,8117,1,16,1,128,1,1,94,0.000,0.066,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x64x64_stage4_warpsize2x2x1_tensor16x8x16_fused
+9906003520,6688,8118,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+9906012544,142176,8119,1,128,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9906156992,10272,8120,72,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a_com
+9906169536,6400,8121,8,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+9906178208,10400,8122,72,1,1,256,1,1,20,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f_com
+9906190848,4832,8123,16,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+9906198112,5216,8124,8,1,1,256,1,1,22,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+9906205664,14336,8125,1,1,16,128,1,1,92,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9906222304,5856,8126,16,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f_com
+9906230432,24992,8129,1,1,16,128,1,1,242,0.000,0.061,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9906268480,80576,8130,1,32,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9906351136,5568,8131,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddMulMeaAddSqrDivMulMul_0x37f7a26fc5e98dd1cffe0df41b34ef4f
+9906358912,112672,8132,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9906529120,118272,8136,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+9906694016,106816,8142,1,16,1,128,1,1,94,0.000,0.066,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x64x64_stage4_warpsize2x2x1_tensor16x8x16_fused
+9906803104,6656,8143,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+9906811968,145280,8144,1,128,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9906959584,9568,8145,72,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a_com
+9906971424,7360,8146,8,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+9906980992,9504,8147,72,1,1,256,1,1,20,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f_com
+9906992864,4800,8148,16,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+9907000000,5280,8149,8,1,1,256,1,1,22,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+9907007584,14272,8150,1,1,16,128,1,1,92,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9907024224,6400,8151,16,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f_com
+9907032896,25952,8154,1,1,16,128,1,1,242,0.000,0.061,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9907060992,80352,8155,1,32,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9907143648,7520,8156,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddMulMeaAddSqrDivMulMul_0x37f7a26fc5e98dd1cffe0df41b34ef4f
+9907153312,114080,8157,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9907302176,116704,8161,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+9907463424,106208,8167,1,16,1,128,1,1,94,0.000,0.066,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x64x64_stage4_warpsize2x2x1_tensor16x8x16_fused
+9907571840,6752,8168,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+9907580864,142496,8169,1,128,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9907725760,9408,8170,72,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a_com
+9907737440,6336,8171,8,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+9907746080,10336,8172,72,1,1,256,1,1,20,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f_com
+9907758912,4928,8173,16,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+9907766176,4608,8174,8,1,1,256,1,1,22,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+9907773280,14304,8175,1,1,16,128,1,1,92,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9907789920,5888,8176,16,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f_com
+9907798112,23904,8179,1,1,16,128,1,1,242,0.000,0.061,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9907837920,78944,8180,1,32,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9907919104,7328,8181,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddMulMeaAddSqrDivMulMul_0x37f7a26fc5e98dd1cffe0df41b34ef4f
+9907928608,112384,8182,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9908163488,117632,8186,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+9908333376,105760,8192,1,16,1,128,1,1,94,0.000,0.066,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x64x64_stage4_warpsize2x2x1_tensor16x8x16_fused
+9908441408,6688,8193,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+9908450016,142432,8194,1,128,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9908594848,10208,8195,72,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a_com
+9908607360,6336,8196,8,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+9908615968,10112,8197,72,1,1,256,1,1,20,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f_com
+9908628320,4800,8198,16,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+9908635392,5216,8199,8,1,1,256,1,1,22,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+9908642880,14400,8200,1,1,16,128,1,1,92,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9908659520,5920,8201,16,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f_com
+9908667712,25376,8204,1,1,16,128,1,1,242,0.000,0.061,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9908695744,78880,8205,1,32,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9908776800,8128,8206,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddMulMeaAddSqrDivMulMul_0x37f7a26fc5e98dd1cffe0df41b34ef4f
+9908787200,110656,8207,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9908941056,117600,8211,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+9909104416,105504,8217,1,16,1,128,1,1,94,0.000,0.066,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x64x64_stage4_warpsize2x2x1_tensor16x8x16_fused
+9909212192,6688,8218,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+9909221216,144448,8219,1,128,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9909367968,9408,8220,72,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a_com
+9909379808,6368,8221,8,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+9909388480,10432,8222,72,1,1,256,1,1,20,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f_com
+9909401216,4928,8223,16,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+9909408416,4960,8224,8,1,1,256,1,1,22,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+9909415616,14400,8225,1,1,16,128,1,1,92,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9909432256,5952,8226,16,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f_com
+9909440512,23872,8229,1,1,16,128,1,1,242,0.000,0.061,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9909480096,82144,8230,1,32,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9909564480,7584,8231,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddMulMeaAddSqrDivMulMul_0x37f7a26fc5e98dd1cffe0df41b34ef4f
+9909574688,109664,8232,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9909751840,115840,8236,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+9909922528,106400,8242,1,16,1,128,1,1,94,0.000,0.066,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x64x64_stage4_warpsize2x2x1_tensor16x8x16_fused
+9910031200,8000,8243,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+9910041536,142944,8244,1,128,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9910186848,9408,8245,72,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a_com
+9910198528,6432,8246,8,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+9910207264,10080,8247,72,1,1,256,1,1,20,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f_com
+9910219584,5568,8248,16,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+9910227424,5184,8249,8,1,1,256,1,1,22,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+9910234912,14304,8250,1,1,16,128,1,1,92,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9910251488,5920,8251,16,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f_com
+9910259712,26016,8254,1,1,16,128,1,1,242,0.000,0.061,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9910287968,79968,8255,1,32,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9910370304,7584,8256,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddMulMeaAddSqrDivMulMul_0x37f7a26fc5e98dd1cffe0df41b34ef4f
+9910380032,111008,8257,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9910556384,117088,8261,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+9910724992,106336,8267,1,16,1,128,1,1,94,0.000,0.066,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x64x64_stage4_warpsize2x2x1_tensor16x8x16_fused
+9910834208,6752,8268,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+9910843296,141376,8269,1,128,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9910986944,9408,8270,72,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a_com
+9910998624,6400,8271,8,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+9911007296,10304,8272,72,1,1,256,1,1,20,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f_com
+9911019936,4960,8273,16,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+9911027264,5152,8274,8,1,1,256,1,1,22,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+9911034816,13920,8275,1,1,16,128,1,1,92,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9911051040,5856,8276,16,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f_com
+9911059232,24704,8279,1,1,16,128,1,1,242,0.000,0.061,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9911110976,78784,8280,1,32,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9911192032,7680,8281,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddMulMeaAddSqrDivMulMul_0x37f7a26fc5e98dd1cffe0df41b34ef4f
+9911201952,112288,8282,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9911378400,118368,8286,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+9911542240,105824,8292,1,16,1,128,1,1,94,0.000,0.066,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x64x64_stage4_warpsize2x2x1_tensor16x8x16_fused
+9911650496,6784,8293,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+9911659520,141376,8294,1,128,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9911803168,9696,8295,72,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a_com
+9911815136,6368,8296,8,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+9911823776,9504,8297,72,1,1,256,1,1,20,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f_com
+9911835616,5504,8298,16,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+9911843776,5120,8299,8,1,1,256,1,1,22,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+9911851200,14400,8300,1,1,16,128,1,1,92,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9911867904,5888,8301,16,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f_com
+9911876032,24608,8304,1,1,16,128,1,1,242,0.000,0.061,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9911909536,79680,8305,1,32,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9911991424,7552,8306,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddMulMeaAddSqrDivMulMul_0x37f7a26fc5e98dd1cffe0df41b34ef4f
+9912001056,111104,8307,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9912201120,118208,8311,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+9912374976,105664,8317,1,16,1,128,1,1,94,0.000,0.066,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x64x64_stage4_warpsize2x2x1_tensor16x8x16_fused
+9912482816,7296,8318,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+9912492096,140480,8319,1,128,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9912634912,9408,8320,72,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a_com
+9912646656,6432,8321,8,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+9912655328,10304,8322,72,1,1,256,1,1,20,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f_com
+9912667968,4800,8323,16,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+9912675040,5152,8324,8,1,1,256,1,1,22,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+9912682592,13888,8325,1,1,16,128,1,1,92,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9912698816,5888,8326,16,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f_com
+9912706944,24768,8329,1,1,16,128,1,1,242,0.000,0.061,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9912756032,79648,8330,1,32,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9912837984,7776,8331,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddMulMeaAddSqrDivMulMul_0x37f7a26fc5e98dd1cffe0df41b34ef4f
+9912847968,111584,8332,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9913025664,118080,8336,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+9913191744,106560,8342,1,16,1,128,1,1,94,0.000,0.066,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x64x64_stage4_warpsize2x2x1_tensor16x8x16_fused
+9913300832,6816,8343,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+9913309952,144128,8344,1,128,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9913456384,9344,8345,72,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a_com
+9913468000,6400,8346,8,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+9913476736,10656,8347,72,1,1,256,1,1,20,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f_com
+9913489664,4992,8348,16,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+9913496992,5120,8349,8,1,1,256,1,1,22,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+9913504416,14336,8350,1,1,16,128,1,1,92,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9913521056,7424,8351,16,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f_com
+9913530720,24384,8354,1,1,16,128,1,1,242,0.000,0.061,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9913562688,79520,8355,1,32,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9913644416,7520,8356,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddMulMeaAddSqrDivMulMul_0x37f7a26fc5e98dd1cffe0df41b34ef4f
+9913654080,112864,8357,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9913824704,117952,8361,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+9913991552,105792,8367,1,16,1,128,1,1,94,0.000,0.066,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x64x64_stage4_warpsize2x2x1_tensor16x8x16_fused
+9914099520,6752,8368,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+9914108768,142400,8369,1,128,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9914253440,9376,8370,72,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a_com
+9914265120,6336,8371,8,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+9914273728,10272,8372,72,1,1,256,1,1,20,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f_com
+9914286304,4992,8373,16,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+9914293504,4672,8374,8,1,1,256,1,1,22,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+9914300512,14176,8375,1,1,16,128,1,1,92,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9914316992,5952,8376,16,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f_com
+9914325248,24480,8379,1,1,16,128,1,1,242,0.000,0.061,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9914372544,79872,8380,1,32,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9914454624,7104,8381,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddMulMeaAddSqrDivMulMul_0x37f7a26fc5e98dd1cffe0df41b34ef4f
+9914463936,114112,8382,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9914647968,117056,8386,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+9914815552,107520,8392,1,16,1,128,1,1,94,0.000,0.066,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x64x64_stage4_warpsize2x2x1_tensor16x8x16_fused
+9914925248,6688,8393,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+9914978976,143360,8394,1,128,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9915124544,9440,8395,72,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a_com
+9915136224,6880,8396,8,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+9915145408,10432,8397,72,1,1,256,1,1,20,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f_com
+9915158112,5600,8398,16,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+9915166016,5344,8399,8,1,1,256,1,1,22,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+9915173664,14272,8400,1,1,16,128,1,1,92,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9915190240,5632,8401,16,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f_com
+9915223008,24096,8404,1,1,16,128,1,1,242,0.000,0.061,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9915278752,79680,8405,1,32,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9915360928,7968,8406,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddMulMeaAddSqrDivMulMul_0x37f7a26fc5e98dd1cffe0df41b34ef4f
+9915371136,109760,8407,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9915549600,118016,8411,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+9915714208,105632,8417,1,16,1,128,1,1,94,0.000,0.066,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x64x64_stage4_warpsize2x2x1_tensor16x8x16_fused
+9915822048,6880,8418,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+9915831136,144352,8419,1,128,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9915977760,9408,8420,72,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a_com
+9915989504,6336,8421,8,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+9915998208,10368,8422,72,1,1,256,1,1,20,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f_com
+9916010848,4928,8423,16,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+9916018048,5280,8424,8,1,1,256,1,1,22,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+9916025664,14592,8425,1,1,16,128,1,1,92,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9916042528,5856,8426,16,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f_com
+9916050656,24576,8429,1,1,16,128,1,1,242,0.000,0.061,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9916102176,78976,8430,1,32,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9916183360,7520,8431,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddMulMeaAddSqrDivMulMul_0x37f7a26fc5e98dd1cffe0df41b34ef4f
+9916193088,112288,8432,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9916365824,118784,8436,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+9916540000,106432,8442,1,16,1,128,1,1,94,0.000,0.066,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x64x64_stage4_warpsize2x2x1_tensor16x8x16_fused
+9916648672,6752,8443,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+9916657760,142176,8444,1,128,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9916802240,9536,8445,72,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a_com
+9916814080,6432,8446,8,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+9916822752,10464,8447,72,1,1,256,1,1,20,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f_com
+9916835552,5568,8448,16,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+9916843360,5248,8449,8,1,1,256,1,1,22,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+9916850848,14432,8450,1,1,16,128,1,1,92,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9916867584,5984,8451,16,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f_com
+9916875872,25248,8454,1,1,16,128,1,1,242,0.000,0.061,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9916903296,78720,8455,1,32,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9916984192,7776,8456,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddMulMeaAddSqrDivMulMul_0x37f7a26fc5e98dd1cffe0df41b34ef4f
+9916994272,112736,8457,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9917161568,118272,8461,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+9917329440,104672,8467,1,16,1,128,1,1,94,0.000,0.066,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x64x64_stage4_warpsize2x2x1_tensor16x8x16_fused
+9917436320,6720,8468,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+9917445536,141248,8469,1,128,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9917589088,9440,8470,72,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a_com
+9917600832,6272,8471,8,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+9917609440,9696,8472,72,1,1,256,1,1,20,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f_com
+9917621408,4928,8473,16,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+9917628608,5056,8474,8,1,1,256,1,1,22,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+9917635968,14368,8475,1,1,16,128,1,1,92,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9917652608,5888,8476,16,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f_com
+9917660768,24736,8479,1,1,16,128,1,1,242,0.000,0.061,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9917699584,79392,8480,1,32,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9917781280,7488,8481,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddMulMeaAddSqrDivMulMul_0x37f7a26fc5e98dd1cffe0df41b34ef4f
+9917791040,113728,8482,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9917964128,116992,8486,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+9918127552,105376,8492,1,16,1,128,1,1,94,0.000,0.066,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x64x64_stage4_warpsize2x2x1_tensor16x8x16_fused
+9918235200,6720,8493,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+9918244128,141184,8494,1,128,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9918387584,9536,8495,72,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a_com
+9918399392,7200,8496,8,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+9918408896,10400,8497,72,1,1,256,1,1,20,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f_com
+9918421568,5536,8498,16,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+9918429376,5184,8499,8,1,1,256,1,1,22,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+9918436864,14304,8500,1,1,16,128,1,1,92,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9918453504,5984,8501,16,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f_com
+9918461760,25376,8504,1,1,16,128,1,1,242,0.000,0.061,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9918490432,79040,8505,1,32,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9918571680,7520,8506,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddMulMeaAddSqrDivMulMul_0x37f7a26fc5e98dd1cffe0df41b34ef4f
+9918581408,112544,8507,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9918722752,116896,8511,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+9918883104,106368,8517,1,16,1,128,1,1,94,0.000,0.066,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x64x64_stage4_warpsize2x2x1_tensor16x8x16_fused
+9918992672,6752,8518,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+9919001632,141024,8519,1,128,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9919144928,9408,8520,72,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a_com
+9919156640,6400,8521,8,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+9919165312,10496,8522,72,1,1,256,1,1,20,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f_com
+9919178176,5600,8523,16,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+9919186784,5088,8524,8,1,1,256,1,1,22,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+9919194208,14240,8525,1,1,16,128,1,1,92,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9919210720,5920,8526,16,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f_com
+9919218912,25120,8529,1,1,16,128,1,1,242,0.000,0.061,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9919246368,78752,8530,1,32,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9919327296,7584,8531,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddMulMeaAddSqrDivMulMul_0x37f7a26fc5e98dd1cffe0df41b34ef4f
+9919337056,112096,8532,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9919494016,115712,8536,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+9919654496,106080,8542,1,16,1,128,1,1,94,0.000,0.066,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x64x64_stage4_warpsize2x2x1_tensor16x8x16_fused
+9919762816,6688,8543,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+9919771744,141824,8544,1,128,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9919915872,9440,8545,72,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a_com
+9919927584,6240,8546,8,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+9919936096,10400,8547,72,1,1,256,1,1,20,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f_com
+9919948704,4832,8548,16,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+9919955808,5120,8549,8,1,1,256,1,1,22,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+9919963232,14368,8550,1,1,16,128,1,1,92,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9919980000,6144,8551,16,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f_com
+9919988608,25568,8554,1,1,16,128,1,1,242,0.000,0.061,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9920016320,78240,8555,1,32,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9920096800,7584,8556,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddMulMeaAddSqrDivMulMul_0x37f7a26fc5e98dd1cffe0df41b34ef4f
+9920106528,111168,8557,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9920266432,116032,8561,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+9920424416,106368,8567,1,16,1,128,1,1,94,0.000,0.066,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x64x64_stage4_warpsize2x2x1_tensor16x8x16_fused
+9920533088,6656,8568,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+9920542048,140320,8569,1,128,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9920684704,9376,8570,72,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a_com
+9920696320,6400,8571,8,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+9920704992,10784,8572,72,1,1,256,1,1,20,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f_com
+9920718048,4864,8573,16,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+9920725120,4480,8574,8,1,1,256,1,1,22,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+9920731904,14240,8575,1,1,16,128,1,1,92,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9920748480,5984,8576,16,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f_com
+9920756736,24960,8579,1,1,16,128,1,1,242,0.000,0.061,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9920794144,78496,8580,1,32,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9920874848,7520,8581,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddMulMeaAddSqrDivMulMul_0x37f7a26fc5e98dd1cffe0df41b34ef4f
+9920884480,108864,8582,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9921049920,116864,8586,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+9921211200,105632,8592,1,16,1,128,1,1,94,0.000,0.066,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x64x64_stage4_warpsize2x2x1_tensor16x8x16_fused
+9921319040,7232,8593,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+9921328544,147040,8594,1,128,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9921477856,9472,8595,72,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a_com
+9921489600,6624,8596,8,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+9921498464,9728,8597,72,1,1,256,1,1,20,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f_com
+9921510432,4928,8598,16,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+9921517856,5344,8599,8,1,1,256,1,1,22,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+9921525536,14304,8600,1,1,16,128,1,1,92,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9921542368,5856,8601,16,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f_com
+9921550496,25152,8604,1,1,16,128,1,1,242,0.000,0.061,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9921577920,78304,8605,1,32,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9921658528,8448,8606,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddMulMeaAddSqrDivMulMul_0x37f7a26fc5e98dd1cffe0df41b34ef4f
+9921669120,113376,8607,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9921784704,119488,8611,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+9921906944,105760,8617,1,16,1,128,1,1,94,0.000,0.066,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x64x64_stage4_warpsize2x2x1_tensor16x8x16_fused
+9922014688,6976,8618,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+9922024000,143296,8619,1,128,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9922169600,9408,8620,72,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a_com
+9922181280,6336,8621,8,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+9922189920,10304,8622,72,1,1,256,1,1,20,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f_com
+9922202464,5632,8623,16,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+9922210432,4800,8624,8,1,1,256,1,1,22,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+9922217440,14592,8625,1,1,16,128,1,1,92,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9922234336,5856,8626,16,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f_com
+9922242464,24480,8629,1,1,16,128,1,1,242,0.000,0.061,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9922269248,78112,8630,1,32,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9922349600,7520,8631,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddMulMeaAddSqrDivMulMul_0x37f7a26fc5e98dd1cffe0df41b34ef4f
+9922359328,111968,8632,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9922473504,116448,8636,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+9922626592,107776,8642,1,16,1,128,1,1,94,0.000,0.066,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x64x64_stage4_warpsize2x2x1_tensor16x8x16_fused
+9922736512,6656,8643,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+9922745600,141088,8644,1,128,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9922888960,9376,8645,72,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a_com
+9922900640,6400,8646,8,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+9922909312,10272,8647,72,1,1,256,1,1,20,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f_com
+9922921888,4992,8648,16,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+9922929536,4960,8649,8,1,1,256,1,1,22,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+9922936448,14272,8650,1,1,16,128,1,1,92,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9922953088,6208,8651,16,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f_com
+9922961216,25472,8654,1,1,16,128,1,1,242,0.000,0.061,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9922988896,78784,8655,1,32,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9923070016,7584,8656,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddMulMeaAddSqrDivMulMul_0x37f7a26fc5e98dd1cffe0df41b34ef4f
+9923079872,112576,8657,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9923194624,115584,8661,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+9923337856,105216,8667,1,16,1,128,1,1,94,0.000,0.066,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x64x64_stage4_warpsize2x2x1_tensor16x8x16_fused
+9923445472,6752,8668,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+9923454496,142048,8669,1,128,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9923598880,9344,8670,72,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a_com
+9923610496,6688,8671,8,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+9923619456,10304,8672,72,1,1,256,1,1,20,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f_com
+9923632032,5568,8673,16,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+9923639872,5248,8674,8,1,1,256,1,1,22,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+9923647360,14304,8675,1,1,16,128,1,1,92,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9923664000,6336,8676,16,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f_com
+9923672544,24672,8679,1,1,16,128,1,1,242,0.000,0.061,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9923699392,78240,8680,1,32,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9923779872,7456,8681,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddMulMeaAddSqrDivMulMul_0x37f7a26fc5e98dd1cffe0df41b34ef4f
+9923789504,112736,8682,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9923925408,119584,8686,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+9924107712,105184,8692,1,16,1,128,1,1,94,0.000,0.066,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x64x64_stage4_warpsize2x2x1_tensor16x8x16_fused
+9924215104,6816,8693,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+9924224480,142624,8694,1,128,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9924369376,9376,8695,72,1,1,256,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a_com
+9924381056,6368,8696,8,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+9924389728,10368,8697,72,1,1,256,1,1,20,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f_com
+9924402400,5152,8698,16,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+9924409792,5184,8699,8,1,1,256,1,1,22,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+9924417280,14656,8700,1,1,16,128,1,1,92,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9924434208,5824,8701,16,1,1,128,1,1,18,0.000,0.000,,,,,Orin (0),1,,7,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f_com
+9924442304,25504,8704,1,1,16,128,1,1,242,0.000,0.061,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+9924470080,80000,8705,1,32,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9924552384,7520,8706,1,1,1,128,1,1,21,0.000,0.000,,,,,Orin (0),1,,7,__myl_AddMulMeaAddSqrDivMulMul_0x37f7a26fc5e98dd1cffe0df41b34ef4f
+9924562048,111104,8707,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+9924675328,118720,8711,1,96,1,128,1,1,54,0.000,0.049,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+9924810240,105408,8717,1,16,1,128,1,1,94,0.000,0.066,,,,,Orin (0),1,,7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x64x64_stage4_warpsize2x2x1_tensor16x8x16_fused
+9925695136,7648,8722,1,1,1,128,1,1,29,0.000,0.000,,,,,Orin (0),1,,7,__myl_MovMulMeaAddSqrDivMulMulCas_0x62665ed68e2d72f01be2ec50e848f2e2_vec
+9926301152,4725120,8727,1187,1,1,64,1,1,149,0.025,0.000,,,,,Orin (0),1,,7,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+10071898272,11392,8900,1,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,35,"void at::native::vectorized_elementwise_kernel<(int)4, at::native::FillFunctor<long>, at::detail::Array<char *, (int)1>>(int, T2, T3)"
+10072099904,8256,8906,1,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,35,"void at::native::vectorized_elementwise_kernel<(int)4, at::native::FillFunctor<long>, at::detail::Array<char *, (int)1>>(int, T2, T3)"
+10179676128,7648,8943,1,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,35,"void at::native::vectorized_elementwise_kernel<(int)4, at::native::FillFunctor<long>, at::detail::Array<char *, (int)1>>(int, T2, T3)"
+10179687456,6112,8949,1,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,35,"void at::native::vectorized_elementwise_kernel<(int)4, at::native::FillFunctor<long>, at::detail::Array<char *, (int)1>>(int, T2, T3)"
+10287462816,9760,9517,1,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,35,"void at::native::vectorized_elementwise_kernel<(int)4, at::native::FillFunctor<long>, at::detail::Array<char *, (int)1>>(int, T2, T3)"
+10287476256,6400,9523,1,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,35,"void at::native::vectorized_elementwise_kernel<(int)4, at::native::FillFunctor<long>, at::detail::Array<char *, (int)1>>(int, T2, T3)"
+10380765728,7424,9560,1,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,35,"void at::native::vectorized_elementwise_kernel<(int)4, at::native::FillFunctor<long>, at::detail::Array<char *, (int)1>>(int, T2, T3)"
+10380776928,6048,9566,1,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,35,"void at::native::vectorized_elementwise_kernel<(int)4, at::native::FillFunctor<long>, at::detail::Array<char *, (int)1>>(int, T2, T3)"
+10381662048,8192,9598,1,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,"void at::native::vectorized_elementwise_kernel<(int)4, at::native::FillFunctor<long>, at::detail::Array<char *, (int)1>>(int, T2, T3)"
+10381708256,8096,9604,1,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,"void at::native::vectorized_elementwise_kernel<(int)4, at::native::FillFunctor<long>, at::detail::Array<char *, (int)1>>(int, T2, T3)"
+10381864288,6048,9624,1,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,"void at::native::vectorized_elementwise_kernel<(int)4, at::native::FillFunctor<long>, at::detail::Array<char *, (int)1>>(int, T2, T3)"
+10381900032,6048,9630,1,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,"void at::native::vectorized_elementwise_kernel<(int)4, at::native::FillFunctor<long>, at::detail::Array<char *, (int)1>>(int, T2, T3)"
+10418690816,12096,9650,1,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,"void at::native::vectorized_elementwise_kernel<(int)4, at::native::FillFunctor<long>, at::detail::Array<char *, (int)1>>(int, T2, T3)"
+10418710816,9632,9656,1,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,"void at::native::vectorized_elementwise_kernel<(int)4, at::native::FillFunctor<long>, at::detail::Array<char *, (int)1>>(int, T2, T3)"
+10418754592,6464,9676,1,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,"void at::native::vectorized_elementwise_kernel<(int)4, at::native::FillFunctor<long>, at::detail::Array<char *, (int)1>>(int, T2, T3)"
+10418766592,6048,9682,1,1,1,128,1,1,16,0.000,0.000,,,,,Orin (0),1,,7,"void at::native::vectorized_elementwise_kernel<(int)4, at::native::FillFunctor<long>, at::detail::Array<char *, (int)1>>(int, T2, T3)"

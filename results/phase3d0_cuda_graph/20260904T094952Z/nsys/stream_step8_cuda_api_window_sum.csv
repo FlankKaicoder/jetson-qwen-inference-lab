@@ -1,0 +1,8 @@
+Name,Calls,Total Time (ns)
+cudaStreamSynchronize,47,144971968
+cuLaunchKernelEx,1560,22781888
+cuLaunchKernel,1800,21671168
+cudaMalloc,7,6467232
+cudaMemcpyAsync,15,593952
+cudaLaunchKernel,16,520352
+cudaStreamIsCapturing_v10000,39,218848

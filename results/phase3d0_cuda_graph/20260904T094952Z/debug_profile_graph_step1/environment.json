@@ -1,0 +1,19 @@
+{
+  "capability": [
+    8,
+    7
+  ],
+  "cuda": "12.6",
+  "cudnn": 90300,
+  "git_branch": "phase/03d0-cuda-graph-feasibility",
+  "git_head": "b267616274de7cf8cf34ba097bec3f16efdb10fd",
+  "gpu": "Orin",
+  "hostname": "nvidia-desktop",
+  "jetson_clocks_show": "SOC family:tegra234  Machine:NVIDIA Jetson Orin Nano Engineering Reference Developer Kit Super\nError: Run this script(/usr/bin/jetson_clocks) as a root user",
+  "nsys": "NVIDIA Nsight Systems version 2024.5.4.34-245434855735v0",
+  "nvpmodel": "NV Power Mode: 25W\n1",
+  "platform": "Linux-5.15.148-tegra-aarch64-with-glibc2.35",
+  "tegra_release": "# R36 (release), REVISION: 4.3, GCID: 38968081, BOARD: generic, EABI: aarch64, DATE: Wed Jan  8 01:49:37 UTC 2025\n# KERNEL_VARIANT: oot\nTARGET_USERSPACE_LIB_DIR=nvidia\nTARGET_USERSPACE_LIB_DIR_PATH=usr/lib/aarch64-linux-gnu/nvidia",
+  "tensorrt": "10.3.0",
+  "torch": "2.5.0a0+872d972e41.nv24.08"
+}

@@ -13,14 +13,14 @@
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
 | Current phase | Phase 3 — Transformer / Runtime Operator Optimization |
-| Current experiment | Phase 3-C — Persistent Runtime Residual Profiling |
-| Current branch | `phase/03c-residual-runtime-profiling` |
+| Current experiment | Phase 3-D0 — CUDA Graph Feasibility |
+| Current branch | `phase/03d0-cuda-graph-feasibility` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 3-C — Persistent Runtime Residual Profiling |
-| Experiment status | Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8/2.1.9 `PASS / BOUNDED`; Phase 2.2-A `PARTIAL / BOUNDED PASS`; Phase 2.2-B1/B2/B3 `PASS / BOUNDED`; Phase 2.2-B4.1 `PASS / CLOSED`; Phase 2.2-B4.2 `PASS / BOUNDED`; Phase 2.2-C0 `PASS / DESIGN ONLY`; Phase 2.2-C1 `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`; Phase 2.2 `CLOSED / PASS / BOUNDED`; Phase 2.3-A/B `PASS`; Phase 2.3-C/D/E/F `PASS / BOUNDED`; Phase 2.3 aggregate `CLOSED / PASS / BOUNDED`; Phase 3-A `PASS / BOUNDED`; Phase 3-B `PASS / CLOSED / PROVEN`; Phase 3-C `PASS / BOUNDED` |
-| Current Gate | Phase 3-C `PASS / BOUNDED`. Persistent FP16/Mixed benchmark completed and steady-state module load/unload remained zero. In the representative prefill + four decode-step window, kernel time was 219.710 ms FP16 and 147.831 ms Mixed; CUDA API time was 186.374 ms FP16 and 116.749 ms Mixed. GEMM is the dominant named kernel category, but the largest single kernel was only 35.31% (FP16) / 26.78% (Mixed) of kernel time, so NCU was not required. No justified Phase 3-D CUDA operator target was identified. |
-| Readiness | Phase 2.2/2.3, Phase 3-A, Phase 3-B and Phase 3-C remain frozen as completed evidence. Phase 3-C profiling is bounded to single-request batch-1 S=8/S=16 and the documented short profile window. Phase 3-D CUDA operator optimization is not justified by the current evidence and was not started. |
+| Last completed experiment | Phase 3-D0 — CUDA Graph Feasibility |
+| Experiment status | Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8/2.1.9 `PASS / BOUNDED`; Phase 2.2-A `PARTIAL / BOUNDED PASS`; Phase 2.2-B1/B2/B3 `PASS / BOUNDED`; Phase 2.2-B4.1 `PASS / CLOSED`; Phase 2.2-B4.2 `PASS / BOUNDED`; Phase 2.2-C0 `PASS / DESIGN ONLY`; Phase 2.2-C1 `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`; Phase 2.2 `CLOSED / PASS / BOUNDED`; Phase 2.3-A/B `PASS`; Phase 2.3-C/D/E/F `PASS / BOUNDED`; Phase 2.3 aggregate `CLOSED / PASS / BOUNDED`; Phase 3-A `PASS / BOUNDED`; Phase 3-B `PASS / CLOSED / PROVEN`; Phase 3-C `PASS / BOUNDED`; Phase 3-D0 `BLOCKED / BOUNDED` |
+| Current Gate | Phase 3-D0 `BLOCKED / BOUNDED`. Full-window and per-engine PyTorch CUDA Graph capture completed with fixed addresses, but failed functional validation: hidden/logits/KV differed from persistent stream. The formal benchmark is `BLOCKED_NO_VALID_GRAPH_PATH`. In the 8-step NSYS window, persistent stream had 3,376 kernels and 217.708 ms kernel time, while graph replay had 64 kernels totaling 0.298 ms, all `FillFunctor<long>`, with no TensorRT kernels. |
+| Readiness | Phase 2.2/2.3, Phase 3-A, Phase 3-B and Phase 3-C remain frozen. Phase 3-D0 is closed as a bounded negative result for the current PyTorch/TensorRT interop path. It does not prove or disprove every CUDA Graph design. Do not use the invalid graph wall time as an optimization claim. |
 
 ## Confirmed Findings
 
@@ -125,7 +125,7 @@ No repository evidence records a formally `REJECT`-status experiment.
 
 ## Required Next Action
 
-Owner/ChatGPT review of Phase 3-C. The authorized Phase 3-C boundary is complete. Do not start Phase 3-D, CUDA kernels, TensorRT plugins, attention optimization, new quantization work or another profiling campaign until the owner and ChatGPT explicitly approve the next boundary.
+Owner/ChatGPT review of Phase 3-D0. The authorized boundary is complete. Do not start Phase 3-D1 CUDA Graph runtime work, native TensorRT graph redesign, CUDA kernels, TensorRT plugins, attention optimization, or new quantization work until the owner and ChatGPT explicitly approve the next boundary.
 
 ## Do-not-repeat Work
 
@@ -520,3 +520,24 @@ Before Phase 3-A execution, the canonical Phase 2 checkpoint was `b2083895b1199e
   `results/phase3c_residual_runtime/20260904T090803Z_bench/` and
   `results/phase3c_residual_runtime/20260904T093500Z_nsys/`. Raw NSYS remains
   Jetson-local under `/tmp/phase3c_nsys_20260904T093500Z/`.
+
+## Phase 3-D0 CUDA Graph Feasibility (2026-09-04)
+
+- Starting checkpoint was `93e799fb2002f7b9884a9e3867ce93faf23cc173`; the
+  branch is `phase/03d0-cuda-graph-feasibility`. D0-A passed the compatibility
+  audit, identifying fixed decode-window addresses and excluding CPU sampling.
+- Full-window PyTorch CUDA Graph capture completed for 1-step and 2-step
+  smoke runs, but validation was `BLOCKED`: hidden/logits and KV differed from
+  persistent stream despite fixed-address topology passing.
+- A per-engine graph mode captured 4 graphs for 1 step, but validation also
+  remained `BLOCKED` with the same failed outputs. Formal benchmark status is
+  `BLOCKED_NO_VALID_GRAPH_PATH`; the faster graph wall time is invalid.
+- Separate 8-step NSYS traces showed persistent stream with 3,376 kernels and
+  217.708 ms kernel time, while per-engine graph replay had 64 kernels totaling
+  0.298 ms, all `FillFunctor<long>`, and no TensorRT kernels.
+- Final Gate is `BLOCKED / BOUNDED`. The current PyTorch capture path is
+  `DISPROVEN`; a redesigned runtime or native TensorRT graph path remains
+  `UNKNOWN`. Phase 3-D1 was not started.
+- Report: `docs/phase3d0_cuda_graph_feasibility.md`; primary evidence:
+  `results/phase3d0_cuda_graph/20260904T094952Z/`. Raw NSYS remains Jetson-local
+  and hashed in `results/phase3d0_cuda_graph/20260904T094952Z/nsys/`.

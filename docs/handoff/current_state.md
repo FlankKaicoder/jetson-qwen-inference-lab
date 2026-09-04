@@ -1,3 +1,23 @@
+## Phase 3-D0 CUDA Graph Feasibility (2026-09-04)
+
+- Branch is `phase/03d0-cuda-graph-feasibility`; starting checkpoint was
+  `93e799fb2002f7b9884a9e3867ce93faf23cc173`. Code commits are `2eadfd4`,
+  `4bf561c` and `6ba4e1e`; the closeout commit must be verified with Git.
+- D0-A passed. The decode window has fixed addresses and CPU sampling is
+  outside graph, but both graph capture modes failed semantic validation.
+- Full-window 1-step and 2-step smoke runs were `BLOCKED`. Per-engine capture
+  produced 4 graphs for 1 step and also remained `BLOCKED`.
+- Formal benchmark is `BLOCKED_NO_VALID_GRAPH_PATH`; faster graph wall time is
+  not valid because TensorRT work is absent from replay.
+- 8-step NSYS evidence: persistent stream had 3,376 kernels and 217.708 ms
+  kernel time; graph replay had 64 `FillFunctor<long>` kernels and 0.298 ms
+  kernel time, with no TensorRT kernels.
+- Final Gate is `BLOCKED / BOUNDED`; current PyTorch/TensorRT path is
+  `DISPROVEN`, while a redesigned or native TensorRT graph path is `UNKNOWN`.
+- Report: `docs/phase3d0_cuda_graph_feasibility.md`; evidence:
+  `results/phase3d0_cuda_graph/20260904T094952Z/`. Raw NSYS remains
+  Jetson-local and is hashed under the committed `nsys/` directory.
+
 ## Phase 3-C Persistent Runtime Residual Profiling (2026-09-04)
 
 - Branch is `phase/03c-residual-runtime-profiling`; starting checkpoint was
@@ -164,11 +184,11 @@
 
 ## 当前 branch
 
-`phase/03b-runtime-object-lifetime`
+`phase/03d0-cuda-graph-feasibility`
 
 ## 当前 commit
 
-Phase 3-A starting HEAD 为 `87ad72f1d87150a720c6e5316620ed9fd8767001`；Phase 3-B final closeout commit 以 `git rev-parse HEAD` 为准。
+Phase 3-D0 starting checkpoint 为 `93e799fb2002f7b9884a9e3867ce93faf23cc173`；final closeout commit 以 `git rev-parse HEAD` 为准。
 
 ## 本轮完成
 

@@ -1,0 +1,212 @@
+{
+  "formal_benchmark_gate": "BLOCKED_NO_VALID_GRAPH_PATH",
+  "full_window_step1": {
+    "run_config": {
+      "batch": 1,
+      "capture_policy": "capture once after stream warmup; no per-step capture",
+      "decode_steps": 1,
+      "graph": false,
+      "mode": "bench",
+      "prefill_length": 8,
+      "repeats": 1,
+      "runtime": "fp16",
+      "sampling": "forced deterministic continuation tokens outside graph",
+      "timing": "time.perf_counter with torch.cuda.synchronize before/after",
+      "warmup": 0
+    },
+    "validation_gate": "BLOCKED",
+    "validation_pass": false,
+    "graph_api": "torch.cuda.CUDAGraph",
+    "graph_mode": null,
+    "captured_graph_count": null,
+    "capture_s": 0.16515853302553296,
+    "stream_window_ms": {
+      "cv": 0.0,
+      "max_ms": 58.37467196397483,
+      "mean_ms": 58.37467196397483,
+      "median_ms": 58.37467196397483,
+      "min_ms": 58.37467196397483,
+      "repeats": 1,
+      "std_ms": 0.0
+    },
+    "graph_window_ms": {
+      "cv": 0.0,
+      "max_ms": 22.29964704019949,
+      "mean_ms": 22.29964704019949,
+      "median_ms": 22.29964704019949,
+      "min_ms": 22.29964704019949,
+      "repeats": 1,
+      "std_ms": 0.0
+    },
+    "stream_tokens_per_sec": 17.130717250405056,
+    "graph_tokens_per_sec": 44.84375910512412,
+    "minimum_memory": 3055460352,
+    "steps": [
+      {
+        "hidden": {
+          "cosine": 0.28430330753326416,
+          "finite": true,
+          "max_abs": 2314.875,
+          "mean_abs": 18.528953552246094,
+          "relative_l2": 2.9488513469696045
+        },
+        "kv_exact": false,
+        "kv_shapes_pass": true,
+        "logits": {
+          "cosine": 0.0,
+          "finite": true,
+          "max_abs": 20.5,
+          "mean_abs": 4.087798595428467,
+          "relative_l2": 1.0
+        },
+        "step": 0
+      }
+    ]
+  },
+  "full_window_step2": {
+    "run_config": {
+      "batch": 1,
+      "capture_policy": "capture once after stream warmup; no per-step capture",
+      "decode_steps": 2,
+      "graph": false,
+      "mode": "bench",
+      "prefill_length": 8,
+      "repeats": 1,
+      "runtime": "fp16",
+      "sampling": "forced deterministic continuation tokens outside graph",
+      "timing": "time.perf_counter with torch.cuda.synchronize before/after",
+      "warmup": 0
+    },
+    "validation_gate": "BLOCKED",
+    "validation_pass": false,
+    "graph_api": "torch.cuda.CUDAGraph",
+    "graph_mode": null,
+    "captured_graph_count": null,
+    "capture_s": 0.23412868002196774,
+    "stream_window_ms": {
+      "cv": 0.0,
+      "max_ms": 95.67920304834843,
+      "mean_ms": 95.67920304834843,
+      "median_ms": 95.67920304834843,
+      "min_ms": 95.67920304834843,
+      "repeats": 1,
+      "std_ms": 0.0
+    },
+    "graph_window_ms": {
+      "cv": 0.0,
+      "max_ms": 59.81632199836895,
+      "mean_ms": 59.81632199836895,
+      "median_ms": 59.81632199836895,
+      "min_ms": 59.81632199836895,
+      "repeats": 1,
+      "std_ms": 0.0
+    },
+    "stream_tokens_per_sec": 20.9031841432601,
+    "graph_tokens_per_sec": 33.43569001207622,
+    "minimum_memory": 3045466112,
+    "steps": [
+      {
+        "hidden": {
+          "cosine": 0.7947142124176025,
+          "finite": true,
+          "max_abs": 110.875,
+          "mean_abs": 13.071599006652832,
+          "relative_l2": 0.6761153340339661
+        },
+        "kv_exact": false,
+        "kv_shapes_pass": true,
+        "logits": {
+          "cosine": 0.0,
+          "finite": true,
+          "max_abs": 20.5,
+          "mean_abs": 4.087798595428467,
+          "relative_l2": 1.0
+        },
+        "step": 0
+      },
+      {
+        "hidden": {
+          "cosine": 0.7955101728439331,
+          "finite": true,
+          "max_abs": 60.15625,
+          "mean_abs": 13.507119178771973,
+          "relative_l2": 0.6562575697898865
+        },
+        "kv_exact": false,
+        "kv_shapes_pass": true,
+        "logits": {
+          "cosine": 0.0,
+          "finite": true,
+          "max_abs": 18.328125,
+          "mean_abs": 3.696146011352539,
+          "relative_l2": 1.0
+        },
+        "step": 1
+      }
+    ]
+  },
+  "per_engine_step1": {
+    "run_config": {
+      "batch": 1,
+      "capture_policy": "capture once after stream warmup; no per-step capture",
+      "decode_steps": 1,
+      "graph": false,
+      "graph_mode": "per_engine",
+      "mode": "bench",
+      "prefill_length": 8,
+      "repeats": 1,
+      "runtime": "fp16",
+      "sampling": "forced deterministic continuation tokens outside graph",
+      "timing": "time.perf_counter with torch.cuda.synchronize before/after",
+      "warmup": 0
+    },
+    "validation_gate": "BLOCKED",
+    "validation_pass": false,
+    "graph_api": "torch.cuda.CUDAGraph per_engine_enqueue",
+    "graph_mode": "per_engine",
+    "captured_graph_count": 4,
+    "capture_s": 0.4568611230351962,
+    "stream_window_ms": {
+      "cv": 0.0,
+      "max_ms": 61.59569404553622,
+      "mean_ms": 61.59569404553622,
+      "median_ms": 61.59569404553622,
+      "min_ms": 61.59569404553622,
+      "repeats": 1,
+      "std_ms": 0.0
+    },
+    "graph_window_ms": {
+      "cv": 0.0,
+      "max_ms": 43.655577988829464,
+      "mean_ms": 43.655577988829464,
+      "median_ms": 43.655577988829464,
+      "min_ms": 43.655577988829464,
+      "repeats": 1,
+      "std_ms": 0.0
+    },
+    "stream_tokens_per_sec": 16.23490108351931,
+    "graph_tokens_per_sec": 22.90658023714355,
+    "minimum_memory": 3017658368,
+    "steps": [
+      {
+        "hidden": {
+          "cosine": 0.28430330753326416,
+          "finite": true,
+          "max_abs": 2314.875,
+          "mean_abs": 18.528953552246094,
+          "relative_l2": 2.9488513469696045
+        },
+        "kv_exact": false,
+        "kv_shapes_pass": true,
+        "logits": {
+          "cosine": 0.0,
+          "finite": true,
+          "max_abs": 20.5,
+          "mean_abs": 4.087798595428467,
+          "relative_l2": 1.0
+        },
+        "step": 0
+      }
+    ]
+  }
+}

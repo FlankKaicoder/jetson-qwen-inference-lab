@@ -1,0 +1,1955 @@
+{
+  "compatibility_matrix": [
+    {
+      "capture_possible": "PARTIAL",
+      "component": "Execution context",
+      "evidence": "One persistent context per engine is compatible, but current PersistentContext.run sets shapes/addresses and synchronizes per call."
+    },
+    {
+      "capture_possible": "NO_IN_CURRENT_RUN",
+      "component": "Tensor addresses",
+      "evidence": "Fresh output tensors are allocated for every run; graph replay requires fixed output addresses."
+    },
+    {
+      "capture_possible": "NO_PER_STEP_GRAPH",
+      "component": "Dynamic decode shape",
+      "evidence": "KV cache length advances each step; a bounded multi-step graph can encode fixed lengths 8..15."
+    },
+    {
+      "capture_possible": "BOUNDED",
+      "component": "KV cache update",
+      "evidence": "Fixed-address step outputs can become next-step inputs inside one captured window; arbitrary continuation requires recapture or memory redesign."
+    },
+    {
+      "capture_possible": "BOUNDED",
+      "component": "Embedding",
+      "evidence": "Static token-id and output addresses support capture for forced tokens."
+    },
+    {
+      "capture_possible": "BOUNDED",
+      "component": "Decoder layer",
+      "evidence": "TensorRT execute_async_v3 on the capture stream can be captured after warmup."
+    },
+    {
+      "capture_possible": "BOUNDED",
+      "component": "RMSNorm",
+      "evidence": "Static hidden/normed addresses support capture."
+    },
+    {
+      "capture_possible": "BOUNDED",
+      "component": "LM Head",
+      "evidence": "Static normed/logits addresses support capture."
+    },
+    {
+      "capture_possible": "NO",
+      "component": "CPU sampling",
+      "evidence": "CPU NumPy argmax is outside CUDA Graph; benchmark uses forced tokens."
+    }
+  ],
+  "engine_tensor_contract": {
+    "decode_28layer": [
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "hidden_states",
+        "shape": [
+          1,
+          1,
+          1024
+        ]
+      },
+      {
+        "dtype": "DataType.INT64",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "position_ids",
+        "shape": [
+          1,
+          1
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_k0",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_k1",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_k2",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_k3",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_k4",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_k5",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_k6",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_k7",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_k8",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_k9",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_k10",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_k11",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_k12",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_k13",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_k14",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_k15",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_k16",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_k17",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_k18",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_k19",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_k20",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_k21",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_k22",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_k23",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_k24",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_k25",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_k26",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_k27",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_v0",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_v1",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_v2",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_v3",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_v4",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_v5",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_v6",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_v7",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_v8",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_v9",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_v10",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_v11",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_v12",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_v13",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_v14",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_v15",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_v16",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_v17",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_v18",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_v19",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_v20",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_v21",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_v22",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_v23",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_v24",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_v25",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_v26",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "past_v27",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "hidden_l0",
+        "shape": [
+          1,
+          1,
+          1024
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "hidden_l1",
+        "shape": [
+          1,
+          1,
+          1024
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "hidden_l2",
+        "shape": [
+          1,
+          1,
+          1024
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "hidden_l3",
+        "shape": [
+          1,
+          1,
+          1024
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "hidden_l4",
+        "shape": [
+          1,
+          1,
+          1024
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "hidden_l5",
+        "shape": [
+          1,
+          1,
+          1024
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "hidden_l6",
+        "shape": [
+          1,
+          1,
+          1024
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "hidden_l7",
+        "shape": [
+          1,
+          1,
+          1024
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "hidden_l8",
+        "shape": [
+          1,
+          1,
+          1024
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "hidden_l9",
+        "shape": [
+          1,
+          1,
+          1024
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "hidden_l10",
+        "shape": [
+          1,
+          1,
+          1024
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "hidden_l11",
+        "shape": [
+          1,
+          1,
+          1024
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "hidden_l12",
+        "shape": [
+          1,
+          1,
+          1024
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "hidden_l13",
+        "shape": [
+          1,
+          1,
+          1024
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "hidden_l14",
+        "shape": [
+          1,
+          1,
+          1024
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "hidden_l15",
+        "shape": [
+          1,
+          1,
+          1024
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "hidden_l16",
+        "shape": [
+          1,
+          1,
+          1024
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "hidden_l17",
+        "shape": [
+          1,
+          1,
+          1024
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "hidden_l18",
+        "shape": [
+          1,
+          1,
+          1024
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "hidden_l19",
+        "shape": [
+          1,
+          1,
+          1024
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "hidden_l20",
+        "shape": [
+          1,
+          1,
+          1024
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "hidden_l21",
+        "shape": [
+          1,
+          1,
+          1024
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "hidden_l22",
+        "shape": [
+          1,
+          1,
+          1024
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "hidden_l23",
+        "shape": [
+          1,
+          1,
+          1024
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "hidden_l24",
+        "shape": [
+          1,
+          1,
+          1024
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "hidden_l25",
+        "shape": [
+          1,
+          1,
+          1024
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "hidden_l26",
+        "shape": [
+          1,
+          1,
+          1024
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "hidden_l27",
+        "shape": [
+          1,
+          1,
+          1024
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_k0",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_k1",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_k2",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_k3",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_k4",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_k5",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_k6",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_k7",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_k8",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_k9",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_k10",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_k11",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_k12",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_k13",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_k14",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_k15",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_k16",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_k17",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_k18",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_k19",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_k20",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_k21",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_k22",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_k23",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_k24",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_k25",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_k26",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_k27",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_v0",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_v1",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_v2",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_v3",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_v4",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_v5",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_v6",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_v7",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_v8",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_v9",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_v10",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_v11",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_v12",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_v13",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_v14",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_v15",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_v16",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_v17",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_v18",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_v19",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_v20",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_v21",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_v22",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_v23",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_v24",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_v25",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_v26",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "present_v27",
+        "shape": [
+          1,
+          8,
+          -1,
+          128
+        ]
+      }
+    ],
+    "embedding": [
+      {
+        "dtype": "DataType.INT64",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "input_ids",
+        "shape": [
+          -1,
+          -1
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "hidden_states",
+        "shape": [
+          -1,
+          -1,
+          1024
+        ]
+      }
+    ],
+    "final_rmsnorm": [
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "hidden_states",
+        "shape": [
+          -1,
+          -1,
+          1024
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "normalized_hidden_states",
+        "shape": [
+          -1,
+          -1,
+          1024
+        ]
+      }
+    ],
+    "lm_head": [
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.INPUT",
+        "name": "hidden_states",
+        "shape": [
+          -1,
+          -1,
+          1024
+        ]
+      },
+      {
+        "dtype": "DataType.HALF",
+        "format": "TensorFormat.LINEAR",
+        "location": "TensorLocation.DEVICE",
+        "mode": "TensorIOMode.OUTPUT",
+        "name": "logits",
+        "shape": [
+          -1,
+          -1,
+          151936
+        ]
+      }
+    ]
+  },
+  "graph_requirements": [
+    "fixed topology",
+    "fixed shapes",
+    "fixed tensor addresses",
+    "capture stream",
+    "no per-step allocation or synchronize"
+  ],
+  "phase": "Phase 3-D0-A",
+  "prototype_boundary": "ONE_FIXED_S8_PREFILL_TO_8_STEP_DECODE_WINDOW",
+  "runtime": "fp16"
+}

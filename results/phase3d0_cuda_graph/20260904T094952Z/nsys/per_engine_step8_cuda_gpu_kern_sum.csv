@@ -1,0 +1,42 @@
+Time (%),Total Time (ns),Instances,Avg (ns),Med (ns),Min (ns),Max (ns),StdDev (ns),Name
+38.0,533015328,3936,135420.6,124944.0,56960,309984,52613.9,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+19.1,267390400,48,5570633.3,5970416.0,3426464,10117664,1486976.4,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+14.1,198340096,1344,147574.5,153056.0,87808,262720,43879.9,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+12.6,177003456,1344,131699.0,137504.0,79424,231552,39072.9,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x64x64_stage4_warpsize2x2x1_tensor16x8x16_fused
+2.9,40055520,1344,29803.2,30336.0,18656,50976,8303.3,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+1.8,24696448,1134,21778.2,21344.0,11200,45952,7446.5,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f
+1.7,24029536,1344,17879.1,18816.0,10656,32192,5468.4,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+1.6,22186560,1176,18866.1,18272.0,10176,39424,5996.7,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a
+1.5,21682176,84,258121.1,237136.0,233632,303328,30788.6,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+0.8,11497408,56,205310.9,206208.0,162240,260832,37986.2,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+0.8,11296736,1296,8716.6,8704.0,5568,15040,2169.5,__myl_AddMulMeaAddSqrDivMulMul_0x37f7a26fc5e98dd1cffe0df41b34ef4f
+0.8,10626528,1176,9036.2,9472.0,5376,17728,2680.5,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f
+0.7,10480608,1344,7798.1,7808.0,4928,13760,1990.7,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+0.7,9917728,1344,7379.3,7552.0,4608,12480,1867.4,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+0.6,8236224,1344,6128.1,6176.0,3584,10752,1753.2,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+0.6,8136736,48,169515.3,170272.0,104384,309568,48899.5,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+0.5,7460160,1296,5756.3,5952.0,3456,10464,1540.9,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+0.3,4262048,48,88792.7,88672.0,54304,159840,24898.4,trt_ampere_h16816gemm_64x64_ldg8_relu_stages_64x5_nn_v1
+0.2,2179648,162,13454.6,12720.0,9664,21920,3584.1,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f_com
+0.1,2007968,168,11952.2,11168.0,9120,19328,2945.7,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a_com
+0.1,1358528,168,8086.5,7376.0,5696,13728,2146.6,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f_com
+0.1,1046272,42,24911.2,24048.0,14176,53344,8250.3,__myl_CasResMulConSinResCosResAddSqrAddSqrDivMulDivMulMulResSliSliNegConMulMulAddConResRepResTraEtc_0x3beb58e4cd3dae3f69eebdbcbcc43980
+0.1,735264,128,5744.3,6048.0,2048,13216,2316.4,"void at::native::vectorized_elementwise_kernel<(int)4, at::native::FillFunctor<long>, at::detail::Array<char *, (int)1>>(int, T2, T3)"
+0.0,693312,56,12380.6,11904.0,7680,20480,2829.3,__myl_CasGat_0xdee2c73dd5d0e0fe099a0774cba2143f
+0.0,612896,28,21889.1,21760.0,21280,22656,464.0,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+0.0,526464,48,10968.0,10896.0,6944,19328,2714.9,__myl_MovMulMeaAddSqrDivMulMul_0x2a5532526e8c57d9427ed6b89bda5183
+0.0,494464,27,18313.5,18560.0,17376,18848,443.6,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x4ad536b524b3f7a2415d97f02da12733_com
+0.0,451488,48,9406.0,9456.0,6080,16064,2638.4,__myl_MovMulMeaAddSqrDivMulMulCas_0x62665ed68e2d72f01be2ec50e848f2e2_vec
+0.0,429376,28,15334.9,15136.0,14912,16288,403.0,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+0.0,419360,28,14977.1,14928.0,14720,15872,267.8,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+0.0,396704,28,14168.0,13968.0,13696,15424,465.7,__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+0.0,387456,27,14350.2,14368.0,13760,15072,446.8,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+0.0,380864,27,14106.1,13888.0,13696,14944,421.1,__myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec
+0.0,334784,28,11956.6,12176.0,9920,12544,539.4,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+0.0,317344,28,11333.7,11296.0,10976,11872,156.5,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+0.0,109152,6,18192.0,17424.0,13568,28768,5474.9,__myl_CasResMulConSinResCosResAddSqrAddSqrDivMulDivMulMulResSliSliNegConMulMulAddConResRepResTraEtc_0x3beb58e4cd3dae3f69eebdbcbcc43980_com
+0.0,29248,1,29248.0,29248.0,29248,29248,0.0,__myl_CasResMulConSinResCosResAddSqrAddSqrDivMulDivMulMulTraSliSliNegConMulMulAddResSliRepResTraEtc_0xeeda8c3ad0b01a41e68bda37288b89cd_com
+0.0,16320,1,16320.0,16320.0,16320,16320,0.0,__myl_CasGat_0xdee2c73dd5d0e0fe099a0774cba2143f_com
+0.0,11136,1,11136.0,11136.0,11136,11136,0.0,__myl_MovMulMeaAddSqrDivMulMul_0x8c7c765d132892c540be4329124deccc_com_vec
+0.0,9152,1,9152.0,9152.0,9152,9152,0.0,__myl_RepIotIotRepCasAddCasEqlLtOrSel_0xeed00a2999d9a920ce4be4d44852c879_com
+0.0,9152,1,9152.0,9152.0,9152,9152,0.0,"void <unnamed>::elementwise_kernel_with_index<int, at::native::arange_cuda_out(const c10::Scalar &, const c10::Scalar &, const c10::Scalar &, at::Tensor &)::[lambda() (instance 1)]::operator ()() const::[lambda() (instance 4)]::operator ()() const::[lambda(long) (instance 1)]>(T1, T2, function_traits<T2>::result_type *)"

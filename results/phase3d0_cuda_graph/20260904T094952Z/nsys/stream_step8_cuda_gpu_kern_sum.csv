@@ -1,0 +1,42 @@
+Time (%),Total Time (ns),Instances,Avg (ns),Med (ns),Min (ns),Max (ns),StdDev (ns),Name
+37.9,608853280,4592,132590.0,123968.0,56992,311872,49709.7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+19.5,314020320,56,5607505.7,5431392.0,3430240,10123424,1499628.9,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+14.1,226655232,1568,144550.5,134256.0,87040,263520,40722.1,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+12.6,202337888,1568,129042.0,119760.0,79552,231200,36125.2,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x64x64_stage4_warpsize2x2x1_tensor16x8x16_fused
+2.9,46125408,1568,29416.7,28352.0,18816,51200,7787.7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+1.7,27922080,1323,21105.1,20736.0,11776,40352,6009.9,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f
+1.7,27392128,1568,17469.5,16448.0,10624,31936,5012.4,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+1.6,25266336,1372,18415.7,18176.0,10624,35104,4937.2,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a
+1.4,21697664,84,258305.5,237440.0,232864,304480,30684.2,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+0.8,13030016,1512,8617.7,8512.0,5568,15072,2073.3,__myl_AddMulMeaAddSqrDivMulMul_0x37f7a26fc5e98dd1cffe0df41b34ef4f
+0.8,12172224,1372,8871.9,8544.0,5248,17696,2496.5,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f
+0.8,12070688,1568,7698.1,7680.0,4928,13792,1884.7,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+0.7,11513696,56,205601.7,204944.0,161888,260928,38226.7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+0.7,11447456,1568,7300.7,7200.0,4576,12640,1787.2,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+0.6,9434272,1568,6016.8,5840.0,3584,10816,1613.0,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+0.6,9395808,56,167782.3,157920.0,105024,304544,45590.8,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+0.5,8574400,1512,5670.9,5440.0,3456,9984,1467.0,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+0.3,4955968,56,88499.4,81904.0,55104,160160,23795.1,trt_ampere_h16816gemm_64x64_ldg8_relu_stages_64x5_nn_v1
+0.2,2480096,189,13122.2,12992.0,8480,21952,3575.6,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f_com
+0.1,2304352,196,11756.9,11680.0,8256,20128,2895.6,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a_com
+0.1,1571904,196,8019.9,8160.0,5376,13696,2116.1,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f_com
+0.1,1186560,49,24215.5,23680.0,15168,46624,6673.5,__myl_CasResMulConSinResCosResAddSqrAddSqrDivMulDivMulMulResSliSliNegConMulMulAddConResRepResTraEtc_0x3beb58e4cd3dae3f69eebdbcbcc43980
+0.1,808256,64,12629.0,12320.0,7712,20864,2914.4,__myl_CasGat_0xdee2c73dd5d0e0fe099a0774cba2143f
+0.0,624288,56,11148.0,10816.0,7008,19552,2726.7,__myl_MovMulMeaAddSqrDivMulMul_0x2a5532526e8c57d9427ed6b89bda5183
+0.0,612544,28,21876.6,21744.0,21280,23200,519.2,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+0.0,525056,56,9376.0,9184.0,6016,15936,2444.8,__myl_MovMulMeaAddSqrDivMulMulCas_0x62665ed68e2d72f01be2ec50e848f2e2_vec
+0.0,495392,27,18347.9,18592.0,17504,18976,442.4,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x4ad536b524b3f7a2415d97f02da12733_com
+0.0,431840,28,15422.9,15248.0,15008,16544,414.4,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+0.0,424064,28,15145.1,14944.0,14720,16288,426.0,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+0.0,395808,28,14136.0,13920.0,13632,16128,565.3,__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+0.0,388896,27,14403.6,14272.0,13696,15232,472.8,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+0.0,384608,27,14244.7,14048.0,13792,15104,408.3,__myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec
+0.0,335936,28,11997.7,12224.0,10080,12608,548.6,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+0.0,317856,28,11352.0,11296.0,10880,12320,263.1,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+0.0,120384,7,17197.7,16896.0,11200,27936,5265.6,__myl_CasResMulConSinResCosResAddSqrAddSqrDivMulDivMulMulResSliSliNegConMulMulAddConResRepResTraEtc_0x3beb58e4cd3dae3f69eebdbcbcc43980_com
+0.0,29600,1,29600.0,29600.0,29600,29600,0.0,__myl_CasResMulConSinResCosResAddSqrAddSqrDivMulDivMulMulTraSliSliNegConMulMulAddResSliRepResTraEtc_0xeeda8c3ad0b01a41e68bda37288b89cd_com
+0.0,15360,1,15360.0,15360.0,15360,15360,0.0,__myl_CasGat_0xdee2c73dd5d0e0fe099a0774cba2143f_com
+0.0,11136,1,11136.0,11136.0,11136,11136,0.0,__myl_MovMulMeaAddSqrDivMulMul_0x8c7c765d132892c540be4329124deccc_com_vec
+0.0,9472,2,4736.0,4736.0,3840,5632,1267.1,"void at::native::vectorized_elementwise_kernel<(int)4, at::native::FillFunctor<long>, at::detail::Array<char *, (int)1>>(int, T2, T3)"
+0.0,9216,1,9216.0,9216.0,9216,9216,0.0,"void <unnamed>::elementwise_kernel_with_index<int, at::native::arange_cuda_out(const c10::Scalar &, const c10::Scalar &, const c10::Scalar &, at::Tensor &)::[lambda() (instance 1)]::operator ()() const::[lambda() (instance 4)]::operator ()() const::[lambda(long) (instance 1)]>(T1, T2, function_traits<T2>::result_type *)"
+0.0,8352,1,8352.0,8352.0,8352,8352,0.0,__myl_RepIotIotRepCasAddCasEqlLtOrSel_0xeed00a2999d9a920ce4be4d44852c879_com

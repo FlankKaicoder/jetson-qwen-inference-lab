@@ -1,0 +1,13 @@
+{
+  "batch": 1,
+  "capture_policy": "capture once after stream warmup; no per-step capture",
+  "decode_steps": 8,
+  "graph": false,
+  "mode": "audit",
+  "prefill_length": 8,
+  "repeats": 10,
+  "runtime": "fp16",
+  "sampling": "forced deterministic continuation tokens outside graph",
+  "timing": "time.perf_counter with torch.cuda.synchronize before/after",
+  "warmup": 5
+}

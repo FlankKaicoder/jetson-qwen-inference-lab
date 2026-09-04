@@ -1,0 +1,74 @@
+{
+  "stream": {
+    "window_name": ":PHASE3D0_STEADY_STREAM_WINDOW",
+    "window_duration_ns": 349363232,
+    "api_calls": 3484,
+    "api_time_ns": 197225408,
+    "launch_calls": 3376,
+    "launch_time_ns": 44973408,
+    "sync_calls": 47,
+    "sync_time_ns": 144971968,
+    "memcpy_calls": 15,
+    "memcpy_time_ns": 593952,
+    "by_name": {
+      "cudaStreamSynchronize": {
+        "calls": 47,
+        "duration_ns": 144971968
+      },
+      "cuLaunchKernelEx": {
+        "calls": 1560,
+        "duration_ns": 22781888
+      },
+      "cuLaunchKernel": {
+        "calls": 1800,
+        "duration_ns": 21671168
+      },
+      "cudaMalloc": {
+        "calls": 7,
+        "duration_ns": 6467232
+      },
+      "cudaMemcpyAsync": {
+        "calls": 15,
+        "duration_ns": 593952
+      },
+      "cudaLaunchKernel": {
+        "calls": 16,
+        "duration_ns": 520352
+      },
+      "cudaStreamIsCapturing_v10000": {
+        "calls": 39,
+        "duration_ns": 218848
+      }
+    }
+  },
+  "per_engine": {
+    "window_name": ":PHASE3D0_STEADY_CUDA_GRAPH_WINDOW",
+    "window_duration_ns": 193934880,
+    "api_calls": 151,
+    "api_time_ns": 196100256,
+    "launch_calls": 60,
+    "launch_time_ns": 1355904,
+    "sync_calls": 1,
+    "sync_time_ns": 42217056,
+    "memcpy_calls": 0,
+    "memcpy_time_ns": 0,
+    "by_name": {
+      "cudaGraphLaunch_v10000": {
+        "calls": 30,
+        "duration_ns": 152393376
+      },
+      "cudaDeviceSynchronize": {
+        "calls": 1,
+        "duration_ns": 42217056
+      },
+      "cudaLaunchKernel": {
+        "calls": 60,
+        "duration_ns": 1355904
+      },
+      "cudaStreamIsCapturing_v10000": {
+        "calls": 60,
+        "duration_ns": 133920
+      }
+    }
+  }
+}

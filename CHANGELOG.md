@@ -4,6 +4,19 @@
 
 ## [Unreleased]
 
+### Phase 3-D0 (2026-09-04)
+
+- Added a CUDA Graph compatibility audit, full-window capture and a per-engine
+  graph mode while preserving the persistent stream reference unchanged.
+- Both capture modes completed topology/address checks but failed hidden, logits
+  and KV validation, so the formal benchmark gate is
+  `BLOCKED_NO_VALID_GRAPH_PATH`.
+- Separate 8-step NSYS traces showed persistent stream with 3,376 kernels and
+  217.708 ms kernel time versus graph replay with 64 `FillFunctor<long>` kernels
+  and 0.298 ms kernel time and no TensorRT kernels.
+- Final gate is `BLOCKED / BOUNDED`. The current PyTorch/TensorRT interop path is
+  `DISPROVEN`; Phase 3-D1 was not started.
+
 ### Phase 3-C (2026-09-04)
 
 - Added persistent FP16/Mixed residual profiling and a Phase 3-C-only NSYS

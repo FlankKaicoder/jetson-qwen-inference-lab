@@ -1,0 +1,7 @@
+{
+  "decode_steps": 1,
+  "initialization_s": 6.478454742056783,
+  "path": "cuda_graph",
+  "phase": "Phase 3-D0-D",
+  "runtime": "fp16"
+}
