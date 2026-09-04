@@ -176,6 +176,7 @@ def load_pipeline(engine_dir: Path, persistent: bool, mixed: bool,
         "engine_context_creations": sum(obj.context_creations for obj in objects),
     }
     return {"embed": pipeline, "embed_fn": pipeline[0], "logits_fn": pipeline[1],
+            "objects": objects,
             "embedding": embed, "norm": norm, "lm": lm, "pre": pre, "dec": dec}, info
 
 
