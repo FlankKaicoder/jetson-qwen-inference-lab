@@ -130,13 +130,28 @@ def main() -> None:
 
         counts = defaultdict(int)
         engine_gemm_rows: list[dict[str, object]] = []
-        for index, layer in enumerate(payload["Layers"]):
+        for index, original_layer in enumerate(payload["Layers"]):
+            if isinstance(original_layer, str):
+                layer = {"Name": original_layer}
+                names = [original_layer] if not MYL_RE.match(original_layer) else []
+                compact = True
+            else:
+                layer = original_layer
+                names = onnx_layers(layer.get("Metadata", ""))
+                compact = False
             tactic = layer.get("TacticName", "")
-            category = classify(tactic)
+            operator, operator_kind = operator_for(names)
+            if compact:
+                if operator != "UNKNOWN":
+                    tactic = "UNKNOWN_NO_DETAILED_INSPECTOR"
+                    category = "GEMM"
+                else:
+                    tactic = "UNKNOWN_NO_DETAILED_INSPECTOR"
+                    category = "UNKNOWN"
+            else:
+                category = classify(tactic)
             inputs, input_precisions = tensor_strings(layer.get("Inputs", []))
             outputs, output_precisions = tensor_strings(layer.get("Outputs", []))
-            names = onnx_layers(layer.get("Metadata", ""))
-            operator, operator_kind = operator_for(names)
             row = {
                 "engine": label,
                 "layer_index": index,
@@ -155,9 +170,12 @@ def main() -> None:
             layer_rows.append(row)
             counts[category] += 1
             if category in ("GEMM", "ATTENTION_GEMM"):
-                precision = "INT8" if "i8" in tactic.lower() else (
-                    "FP16" if "f16" in tactic.lower() or "h16816" in tactic.lower() else "UNKNOWN"
-                )
+                if compact:
+                    precision = "FP16_ENGINE_NO_LAYER_TACTIC_DATA"
+                else:
+                    precision = "INT8" if "i8" in tactic.lower() else (
+                        "FP16" if "f16" in tactic.lower() or "h16816" in tactic.lower() else "UNKNOWN"
+                    )
                 m, n, k = linear_mnk(operator, inputs, outputs, assumed.get(label))
                 gemm_row = {
                     "engine": label,
