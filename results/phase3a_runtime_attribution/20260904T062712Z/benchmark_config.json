@@ -1,0 +1,21 @@
+{
+  "decode_steps": 8,
+  "engines": {
+    "embedding": "/tmp/phase2_2c1_20260902T090000Z/embedding_fp16.engine",
+    "fp16_dir": "/tmp/phase2_2b4_2_20260902T082326Z",
+    "lm_head": "/tmp/phase2_2c3_20260903T024500Z/lm_head_fp16.engine",
+    "mixed_dir": "/tmp/phase2_3e_20260904T020000Z/work",
+    "norm": "/tmp/phase2_2c2_20260903T/final_rmsnorm_fp32_reduce.engine"
+  },
+  "mode": "bench",
+  "prefill_lengths": [
+    8,
+    16
+  ],
+  "repeats": 10,
+  "sampling": "forced deterministic continuation tokens",
+  "timing": "time.perf_counter with torch.cuda.synchronize before/after",
+  "warmup": 5,
+  "window_repeats": 3,
+  "workload": "deterministic first evaluation prompt ids, batch 1"
+}

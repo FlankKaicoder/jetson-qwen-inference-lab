@@ -1,0 +1,40 @@
+{
+  "comparison": {
+    "16": {
+      "decode_median_ms": {
+        "fp16": 1963.507454522187,
+        "mixed": 2664.29943498224,
+        "mixed_slower_pct": 35.6908235232847
+      },
+      "decode_tokens_per_sec": {
+        "fp16": 0.5095970084616687,
+        "mixed": 0.3750652468889198
+      },
+      "prefill_median_ms": {
+        "fp16": 1521.2466734810732,
+        "mixed": 2265.980196010787,
+        "mixed_slower_pct": 48.95547418523112
+      },
+      "reproduced_mixed_slower": true
+    },
+    "8": {
+      "decode_median_ms": {
+        "fp16": 1959.9022705224343,
+        "mixed": 2665.612246026285,
+        "mixed_slower_pct": 36.00740639561255
+      },
+      "decode_tokens_per_sec": {
+        "fp16": 0.507734719575603,
+        "mixed": 0.374170488381324
+      },
+      "prefill_median_ms": {
+        "fp16": 1517.6059010263998,
+        "mixed": 2263.352276524529,
+        "mixed_slower_pct": 49.13965970966241
+      },
+      "reproduced_mixed_slower": true
+    }
+  },
+  "phase": "Phase 3-A1",
+  "reproduced_mixed_slower": true
+}

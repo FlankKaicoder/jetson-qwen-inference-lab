@@ -1,0 +1,6 @@
+{
+  "decode_steps": 4,
+  "engine_dir": "/tmp/phase2_3e_20260904T020000Z/work",
+  "profiled": true,
+  "seq_len": 8
+}

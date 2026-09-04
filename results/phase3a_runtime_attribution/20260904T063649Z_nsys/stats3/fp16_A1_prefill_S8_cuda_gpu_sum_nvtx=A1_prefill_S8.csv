@@ -1,0 +1,22 @@
+Time (%),Total Time (ns),Instances,Avg (ns),Med (ns),Min (ns),Max (ns),StdDev (ns),Category,Operation
+45.5,21672736,84,258008.8,236976.0,234688,303872,30788.6,CUDA_KERNEL,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+24.1,11495808,56,205282.3,204624.0,162336,259072,37633.4,CUDA_KERNEL,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+21.2,10111584,1,10111584.0,10111584.0,10111584,10111584,0.0,CUDA_KERNEL,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+1.3,618848,28,22101.7,22192.0,21376,22976,558.2,CUDA_KERNEL,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+1.0,494688,27,18321.8,18624.0,17472,19008,481.7,CUDA_KERNEL,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x4ad536b524b3f7a2415d97f02da12733_com
+0.9,428576,28,15306.3,15136.0,14816,16256,436.3,CUDA_KERNEL,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+0.9,421344,28,15048.0,15040.0,14720,15744,210.8,CUDA_KERNEL,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+0.8,399456,28,14266.3,14144.0,13664,15360,508.9,CUDA_KERNEL,__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+0.8,394400,27,14607.4,14784.0,13888,15296,365.1,CUDA_KERNEL,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+0.8,383008,27,14185.5,14016.0,13728,14912,429.8,CUDA_KERNEL,__myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec
+0.7,332128,28,11861.7,12208.0,10112,12416,544.0,CUDA_KERNEL,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+0.7,315328,28,11261.7,11232.0,11072,11648,139.3,CUDA_KERNEL,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+0.6,297728,56,5316.6,5280.0,5184,6048,165.1,MEMORY_OPER,[CUDA memcpy Device-to-Host]
+0.3,157024,1,157024.0,157024.0,157024,157024,0.0,MEMORY_OPER,[CUDA memset]
+0.1,30272,1,30272.0,30272.0,30272,30272,0.0,CUDA_KERNEL,__myl_CasResMulConSinResCosResAddSqrAddSqrDivMulDivMulMulTraSliSliNegConMulMulAddResSliRepResTraEtc_0xeeda8c3ad0b01a41e68bda37288b89cd_com
+0.0,20672,1,20672.0,20672.0,20672,20672,0.0,CUDA_KERNEL,__myl_MovMulMeaAddSqrDivMulMulCas_0x62665ed68e2d72f01be2ec50e848f2e2_vec
+0.0,19168,1,19168.0,19168.0,19168,19168,0.0,CUDA_KERNEL,__myl_MovMulMeaAddSqrDivMulMul_0x8c7c765d132892c540be4329124deccc_com_vec
+0.0,16672,1,16672.0,16672.0,16672,16672,0.0,CUDA_KERNEL,__myl_CasGat_0xdee2c73dd5d0e0fe099a0774cba2143f_com
+0.0,11744,1,11744.0,11744.0,11744,11744,0.0,CUDA_KERNEL,__myl_RepIotIotRepCasAddCasEqlLtOrSel_0xeed00a2999d9a920ce4be4d44852c879_com
+0.0,10112,1,10112.0,10112.0,10112,10112,0.0,CUDA_KERNEL,"void <unnamed>::elementwise_kernel_with_index<int, at::native::arange_cuda_out(const c10::Scalar &, const c10::Scalar &, const c10::Scalar &, at::Tensor &)::[lambda() (instance 1)]::operator ()() const::[lambda() (instance 4)]::operator ()() const::[lambda(long) (instance 1)]>(T1, T2, function_traits<T2>::result_type *)"
+0.0,2592,1,2592.0,2592.0,2592,2592,0.0,MEMORY_OPER,[CUDA memcpy Host-to-Device]

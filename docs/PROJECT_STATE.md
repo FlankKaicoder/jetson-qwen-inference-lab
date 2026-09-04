@@ -12,15 +12,15 @@
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 2 — LLM Quantization |
-| Current experiment | Phase 2.3-F — Accuracy / Memory / Performance Comparison |
-| Current branch | `phase/02-qwen3-quantization` |
+| Current phase | Phase 3 — Transformer / Runtime Operator Optimization |
+| Current experiment | Phase 3-A — Runtime Bottleneck Attribution |
+| Current branch | `phase/03-runtime-bottleneck-attribution` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Exp04 — CUDA GEMM tiling and WMMA |
-| Experiment status | Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8/2.1.9 `PASS / BOUNDED`; Phase 2.2-A `PARTIAL / BOUNDED PASS`; Phase 2.2-B1/B2/B3 `PASS / BOUNDED`; Phase 2.2-B4.1 `PASS / CLOSED`; Phase 2.2-B4.2 `PASS / BOUNDED`; Phase 2.2-C0 `PASS / DESIGN ONLY`; Phase 2.2-C1 `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`; Phase 2.2 `CLOSED / PASS / BOUNDED`; Phase 2.3-A/B `PASS`; Phase 2.3-C/D/E/F `PASS / BOUNDED`; Phase 2.3 aggregate `CLOSED / PASS / BOUNDED` |
-| Current Gate | Phase 2.3-F `PASS / BOUNDED`; mixed runtime is 27% smaller in engine storage but 26-49% slower end-to-end (`MIXED_RUNTIME_SLOWER`) with substantial mixed-vs-FP16 numerical/token divergence; no OOM/exit137 |
-| Readiness | Phase 2.2 remains frozen as `CLOSED / PASS / BOUNDED`; C1 remains `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`; Phase 2.3 is `CLOSED / PASS / BOUNDED`; Phase 3 / INT4 / Nsight remain not started and require explicit authorization. |
+| Last completed experiment | Phase 3-A — Runtime Bottleneck Attribution |
+| Experiment status | Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8/2.1.9 `PASS / BOUNDED`; Phase 2.2-A `PARTIAL / BOUNDED PASS`; Phase 2.2-B1/B2/B3 `PASS / BOUNDED`; Phase 2.2-B4.1 `PASS / CLOSED`; Phase 2.2-B4.2 `PASS / BOUNDED`; Phase 2.2-C0 `PASS / DESIGN ONLY`; Phase 2.2-C1 `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`; Phase 2.2 `CLOSED / PASS / BOUNDED`; Phase 2.3-A/B `PASS`; Phase 2.3-C/D/E/F `PASS / BOUNDED`; Phase 2.3 aggregate `CLOSED / PASS / BOUNDED`; Phase 3-A `PASS / BOUNDED` |
+| Current Gate | Phase 3-A `PASS / BOUNDED`; Mixed remains 49.0-49.1% slower at prefill and 35.7-36.0% slower at decode; GPU busy is only 1.46-3.00% of measured wall, and Mixed's measured slowdown delta is dominated by host CUDA API/module load/unload time rather than GPU kernel time |
+| Readiness | Phase 2.2/2.3 and Phase 3-A remain frozen as completed evidence; C1 remains `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`; Phase 3-B is not started and requires ChatGPT review plus explicit owner/ChatGPT authorization. |
 
 ## Confirmed Findings
 
@@ -125,7 +125,7 @@ No repository evidence records a formally `REJECT`-status experiment.
 
 ## Required Next Action
 
-Owner review of Phase 2.2-B4.2 evidence. Do not begin embedding/final-norm/LM-head integration, full token generation, benchmarking, profiling, INT8/INT4, TensorRT-LLM, Phase 2.2-C/D, Phase 2.3 or Phase 3 without explicit authorization.
+Owner/ChatGPT review of Phase 3-A. The evidence-backed Phase 3-B candidate is persistent TensorRT execution contexts to eliminate the per-call module-load storm, but no Phase 3-B design, context caching, CUDA kernel, plugin, runtime scheduling or optimization work may begin until the owner and ChatGPT explicitly approve the next boundary.
 
 ## Do-not-repeat Work
 
@@ -137,7 +137,7 @@ Owner review of Phase 2.2-B4.2 evidence. Do not begin embedding/final-norm/LM-he
 
 ## Last Verified Git State
 
-Before Exp01.2 profiling on `2026-08-30`, Windows, GitHub and Jetson were clean at `exp/01-vector-add@e10f2c06c7d90844cbf425e5ef6c32a413e314ec`; local and remote `main` were `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01`. The final closure commit and push/pull state must be verified from Git at session end.
+Before Phase 3-A execution, the canonical Phase 2 checkpoint was `b2083895b1199edf8a3245013912f82aec1b942b`. Phase 3-A execution started on `phase/03-runtime-bottleneck-attribution`; A1 ran at `7067d7c8d6f42c24a54c8f774c9d530a105cd309` and A2/A3 analysis was committed through `903f7c1ee86a77d9a1dccb9b52f4839fba32e034`. The final closeout commit and push/pull state must be verified from Git at session end.
 
 ## Exp02.0/Exp02.1 Update (2026-08-31)
 
@@ -419,3 +419,35 @@ Before Exp01.2 profiling on `2026-08-30`, Windows, GitHub and Jetson were clean 
   `CLOSED / PASS / BOUNDED`. C1 remains `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`.
 - Report: `experiments/Phase2-qwen3-quantization/docs/phase2_3f_accuracy_memory_performance_comparison.md`;
   evidence: `experiments/Phase2-qwen3-quantization/artifacts/phase2_3f_20260904T050000Z/`.
+
+## Phase 3-A Runtime Bottleneck Attribution (2026-09-04)
+
+- Starting canonical checkpoint was `b2083895b1199edf8a3245013912f82aec1b942b`;
+  the new branch is `phase/03-runtime-bottleneck-attribution`. A1 evidence was
+  produced at `7067d7c`, the Mixed profile-name fix at `2451800`, and A2/A3
+  analysis at `903f7c1`. No Phase 3-B optimization was implemented.
+- Controlled A1 benchmark (warmup 5, repeats 10, window repeats 3, 8-step
+  window, batch 1, deterministic first evaluation prompt): FP16 prefill
+  1517.606/1521.247 ms versus Mixed 2263.352/2265.980 ms at S=8/S=16 (+49.14%/
+  +48.96%); FP16 TPOT 1959.902/1963.507 ms versus Mixed 2665.612/2664.299 ms
+  (+36.01%/+35.69%). `MIXED_RUNTIME_SLOWER` reproduced.
+- NSYS S=8 prefill and decode-step ranges showed GPU kernel time of 47.2/48.9
+  ms FP16 versus 42.7/43.0 ms Mixed, only 3.00/2.29% and 1.85/1.46% of wall.
+  Mixed CUDA API time was 907.2/975.4 ms versus FP16 357.1/295.3 ms.
+- Mixed wall increases were +740.4 ms prefill and +813.4 ms decode. CUDA API
+  increases were +550.1/+680.1 ms; `cuModuleLoadData+cuModuleUnload` accounted
+  for +565.3/+693.8 ms. Sync and DtoH copy time were minor.
+- The reused Phase 2.3-F runtime creates a TensorRT execution context per
+  `TRT.run`; this mechanism is `SUPPORTED` as the module-load storm source, but
+  not proven by a cached-context A/B. High-level mapping of `__myl_*` kernels
+  remains `UNKNOWN`.
+- Root cause ranking: P1 runtime scheduling/per-call execution-context
+  creation and module load/unload; P2 mixed-engine structural/host complexity;
+  P3 minor DtoH and extra kernel effects. `Q/DQ as the direct dominant GPU
+  cost` is `DISPROVEN` and INT8 GEMM was not slower in this shape.
+- Gate: `PASS / BOUNDED`. Recommended Phase 3-B target is persistent TensorRT
+  execution contexts, followed by a post-fix runtime scheduling profile.
+- Report: `docs/phase3a_runtime_bottleneck_attribution.md`; evidence:
+  `results/phase3a_runtime_attribution/20260904T062712Z/` and
+  `results/phase3a_runtime_attribution/20260904T063649Z_nsys/`. Raw NSYS
+  reports remain Jetson-local under `/tmp/phase3a_nsys_20260904T063649Z/`.

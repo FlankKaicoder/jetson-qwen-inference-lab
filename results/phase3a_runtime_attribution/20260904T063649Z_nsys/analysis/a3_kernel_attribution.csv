@@ -1,0 +1,13 @@
+workload,category,fp16_count,mixed_count,count_delta,fp16_total_time_ms,mixed_total_time_ms,time_delta_ms,evidence,confidence
+A1_prefill_S8,GEMM_FP16_ATTENTION,28,28,0,0.62,0.73,0.11,nsys nvtx_kern_sum kernel-name aggregation,NAME_BASED
+A1_prefill_S8,GEMM_FP16_TRT,141,62,-79,43.28,25.4,-17.88,nsys nvtx_kern_sum kernel-name aggregation,NAME_BASED
+A1_prefill_S8,GEMM_INT8_TRT,0,133,133,0.0,13.22,13.22,nsys nvtx_kern_sum kernel-name aggregation,NAME_BASED
+A1_prefill_S8,TORCH_ELEMENTWISE,1,1,0,0.01,0.01,0.0,nsys nvtx_kern_sum kernel-name aggregation,NAME_BASED
+A1_prefill_S8,TRT_MYELIN_FUSED_UNKNOWN,226,224,-2,3.27,3.31,0.04,nsys nvtx_kern_sum kernel-name aggregation,MAPPING_UNKNOWN
+A1_prefill_S8,CUDA_API_ALL,4068,4528,460,357.1,907.2,550.1,nsys cuda_api_sum filtered by NVTX range,NAME_BASED
+A1_prefill_S8,cuModuleLoadData+Unload,620,832,212,307.5,872.8,565.3,nsys cuda_api_sum filtered by NVTX range,NAME_BASED
+A1_decode_step_0,GEMM_FP16_TRT,197,118,-79,45.79,26.72,-19.07,nsys nvtx_kern_sum kernel-name aggregation,NAME_BASED
+A1_decode_step_0,GEMM_INT8_TRT,0,133,133,0.0,12.62,12.62,nsys nvtx_kern_sum kernel-name aggregation,NAME_BASED
+A1_decode_step_0,TRT_MYELIN_FUSED_UNKNOWN,225,250,25,3.12,3.63,0.51,nsys nvtx_kern_sum kernel-name aggregation,MAPPING_UNKNOWN
+A1_decode_step_0,CUDA_API_ALL,2514,4516,2002,295.3,975.4,680.1,nsys cuda_api_sum filtered by NVTX range,NAME_BASED
+A1_decode_step_0,cuModuleLoadData+Unload,248,566,318,246.4,940.2,693.8,nsys cuda_api_sum filtered by NVTX range,NAME_BASED

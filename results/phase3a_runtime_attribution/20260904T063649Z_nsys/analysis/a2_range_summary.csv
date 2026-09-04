@@ -1,0 +1,5 @@
+runtime,range,wall_ms,gpu_kernel_time_ms,gpu_kernel_count,gpu_busy_pct_of_wall,cuda_api_time_ms,cuda_api_calls,cuda_api_pct_of_wall,host_nonsystem_time_ms,host_nonsystem_pct_of_wall,cuModuleLoadData_calls,cuModuleLoadData_ms,cuModuleUnload_calls,cuModuleUnload_ms,cudaStreamSynchronize_calls,cudaStreamSynchronize_ms,cuMemcpyDtoH_calls,cuMemcpyDtoH_ms
+fp16,A1_prefill_S8,1571.1,47.2,396,3.0,357.1,4068,22.73,1166.8,74.27,310,194.3,310,113.2,13,34.6,56,3.0
+fp16,A1_decode_step_0,2131.4,48.9,422,2.29,295.3,2514,13.85,1787.3,83.85,122,154.9,126,91.5,14,33.3,56,2.9
+mixed,A1_prefill_S8,2311.5,42.7,448,1.85,907.2,4528,39.25,1361.6,58.91,416,551.5,416,321.3,13,14.5,164,8.3
+mixed,A1_decode_step_0,2944.8,43.0,501,1.46,975.4,4516,33.12,1926.5,65.42,281,615.4,285,324.8,14,12.3,165,8.3

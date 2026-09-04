@@ -1,3 +1,24 @@
+## Phase 3-A Runtime Bottleneck Attribution (2026-09-04)
+
+- Branch is `phase/03-runtime-bottleneck-attribution`. The Phase 2 canonical
+  starting checkpoint was `b2083895`; Phase 3-A execution/analysis commits are
+  `70a8a27`, `7067d7c`, `2451800` and `903f7c1`; the final closeout commit must
+  be verified with `git rev-parse HEAD`.
+- A1 reproduced Mixed slower: prefill +49.14%/+48.96% at S=8/S=16 and decode
+  +36.01%/+35.69%. NSYS showed GPU busy only 1.46-3.00%; Mixed's measured wall
+  delta was dominated by host CUDA API time. Module load/unload accounted for
+  +565.3 ms prefill and +693.8 ms decode of the API delta.
+- Classification: per-call execution-context creation/module-load storm is
+  `SUPPORTED`; Q/DQ as the direct dominant GPU cost is `DISPROVEN`; Myelin
+  kernel-to-operator mapping is `UNKNOWN`; NCU was `NOT REQUIRED`.
+- Gate is `PASS / BOUNDED`. Recommended, but not authorized, Phase 3-B target
+  is persistent TensorRT execution contexts followed by a post-fix runtime
+  scheduling profile.
+- Report: `docs/phase3a_runtime_bottleneck_attribution.md`; evidence:
+  `results/phase3a_runtime_attribution/20260904T062712Z/` and
+  `results/phase3a_runtime_attribution/20260904T063649Z_nsys/`. Raw NSYS
+  reports remain Jetson-local under `/tmp/phase3a_nsys_20260904T063649Z/`.
+
 # Current State
 
 ## Phase 2.3-F Accuracy / Memory / Performance Comparison (2026-09-04)

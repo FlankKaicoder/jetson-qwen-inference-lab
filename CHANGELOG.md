@@ -4,6 +4,20 @@
 
 ## [Unreleased]
 
+### Phase 3-A (2026-09-04)
+
+- Added controlled Phase 3-A benchmark and NSYS attribution. Mixed remained
+  49.0-49.1% slower at prefill and 35.7-36.0% slower at decode than FP16.
+- Measured GPU busy at 1.46-3.00% of profiled wall; Mixed GPU kernel time was
+  lower than FP16, while its wall delta was dominated by host CUDA API time.
+  `cuModuleLoadData`/`cuModuleUnload` accounted for +565.3/+693.8 ms of the
+  prefill/decode API delta.
+- Classified per-call execution-context creation/module-load storm as
+  `SUPPORTED` and direct Q/DQ GPU overhead as `DISPROVEN`; Myelin operator
+  mapping remains `UNKNOWN`. NCU was `NOT REQUIRED`.
+- Gate: `PASS / BOUNDED`. Recommended Phase 3-B target is persistent TensorRT
+  execution contexts; Phase 3-B remains unstarted.
+
 ### Phase 2.3-F (2026-09-04)
 
 - Compared the Phase 2.3-E mixed runtime against the current TRT FP16 runtime

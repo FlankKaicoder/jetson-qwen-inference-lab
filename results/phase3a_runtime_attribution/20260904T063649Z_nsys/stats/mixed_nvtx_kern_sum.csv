@@ -1,0 +1,1045 @@
+NVTX Range,Style,PID,TID,NVTX Inst,Kern Inst,Total Time (ns),Avg (ns),Med (ns),Min (ns),Max (ns),StdDev (ns),Kernel Name
+,,649196,649196,0,2,19840,9920.0,9920.0,9408,10432,724.1,"void <unnamed>::elementwise_kernel_with_index<int, at::native::arange_cuda_out(const c10::Scalar &, const c10::Scalar &, const c10::Scalar &, at::Tensor &)::[lambda() (instance 1)]::operator ()() const::[lambda() (instance 4)]::operator ()() const::[lambda(long) (instance 1)]>(T1, T2, function_traits<T2>::result_type *)"
+:A1_decode_step_0,PushPop,649196,649196,1,1,10118432,10118432.0,10118432.0,10118432,10118432,0.0,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+:A1_decode_step_0,PushPop,649196,649196,1,106,8834752,83346.7,84624.0,52832,94464,9787.0,sm80_xmma_gemm_i8f32_i8i32_f32_tn_n_tilesize32x64x64_stage6_warpsize2x2x1_tensor16x8x32_fused
+:A1_decode_step_0,PushPop,649196,649196,1,28,6444096,230146.3,230176.0,223648,235232,2448.8,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_fused
+:A1_decode_step_0,PushPop,649196,649196,1,26,6329504,243442.5,241456.0,234432,305088,13034.6,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+:A1_decode_step_0,PushPop,649196,649196,1,27,3782144,140079.4,140512.0,134752,144032,2281.6,sm80_xmma_gemm_i8i8_i8i32_f32_tn_n_tilesize32x64x64_stage6_warpsize2x2x1_tensor16x8x32_fused
+:A1_decode_step_0,PushPop,649196,649196,1,28,1412512,50446.9,50512.0,49856,50976,296.9,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+:A1_decode_step_0,PushPop,649196,649196,1,28,910560,32520.0,32768.0,30528,33632,774.6,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+:A1_decode_step_0,PushPop,649196,649196,1,4,779488,194872.0,172592.0,172192,262112,44827.1,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+:A1_decode_step_0,PushPop,649196,649196,1,3,730400,243466.7,242080.0,240768,247552,3598.3,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+:A1_decode_step_0,PushPop,649196,649196,1,27,583264,21602.4,21248.0,20384,23296,790.8,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f_com
+:A1_decode_step_0,PushPop,649196,649196,1,27,577472,21387.9,18112.0,16768,47520,8668.2,__myl_ResConResRep_0x9d40828c020eb6bb972be950c35191c1_com
+:A1_decode_step_0,PushPop,649196,649196,1,26,468160,18006.2,17968.0,17760,18496,204.2,__myl_MulMeaAddSqrDivMulDivMinMaxRouCasDivMinMaxRouCasDivMinMaxRouCas_0x9f2c300bb597625319cadec4728f9bc5
+:A1_decode_step_0,PushPop,649196,649196,1,28,350976,12534.9,12512.0,12064,13664,331.5,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f_com
+:A1_decode_step_0,PushPop,649196,649196,1,27,328736,12175.4,12576.0,10816,13472,806.6,__myl_ResMulMea_0x3c91498c3beee36a5653966af1581a8a
+:A1_decode_step_0,PushPop,649196,649196,1,27,318816,11808.0,11968.0,10752,12992,601.1,__myl_ResMulMea_0xf2413012cd9ac6341b95d78f3432c656
+:A1_decode_step_0,PushPop,649196,649196,1,27,298240,11045.9,11424.0,9248,12064,846.1,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+:A1_decode_step_0,PushPop,649196,649196,1,1,28640,28640.0,28640.0,28640,28640,0.0,__myl_CasResMulConSinResCosResAddSqrAddSqrDivMulDivMulMulResSliSliNegConMulMulAddConResRepResTraEtc_0x3beb58e4cd3dae3f69eebdbcbcc43980_com
+:A1_decode_step_0,PushPop,649196,649196,1,2,26336,13168.0,13168.0,12768,13568,565.7,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xc17a9e1c8880e75049e64b4f3bf21f16
+:A1_decode_step_0,PushPop,649196,649196,1,2,24928,12464.0,12464.0,12416,12512,67.9,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+:A1_decode_step_0,PushPop,649196,649196,1,1,24288,24288.0,24288.0,24288,24288,0.0,__myl_MovMulMeaAddSqrDivMulDivMinMaxRouCasDivMinMaxRouCasDivMinMaxRouCas_0xda00efdea1fdf9ffc7ce7052979834ac
+:A1_decode_step_0,PushPop,649196,649196,1,2,23456,11728.0,11728.0,10400,13056,1878.1,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xcf81b38212e8f296e353aae060904a23
+:A1_decode_step_0,PushPop,649196,649196,1,1,23328,23328.0,23328.0,23328,23328,0.0,__myl_CasGat_0xdee2c73dd5d0e0fe099a0774cba2143f
+:A1_decode_step_0,PushPop,649196,649196,1,2,22112,11056.0,11056.0,10464,11648,837.2,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xd756cf8085615be8f2df33c74bb9ac74
+:A1_decode_step_0,PushPop,649196,649196,1,2,20544,10272.0,10272.0,10240,10304,45.3,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x6cfe86dd6e4d3c2d552f909cb133c113
+:A1_decode_step_0,PushPop,649196,649196,1,1,17984,17984.0,17984.0,17984,17984,0.0,__myl_MovMulMeaAddSqrDivMulMulCas_0x62665ed68e2d72f01be2ec50e848f2e2_vec
+:A1_decode_step_0,PushPop,649196,649196,1,2,16864,8432.0,8432.0,8320,8544,158.4,__myl_MulMinMaxRouCas_0x774908550917e749f75db6185bcae83f
+:A1_decode_step_0,PushPop,649196,649196,1,1,16800,16800.0,16800.0,16800,16800,0.0,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a_com
+:A1_decode_step_0,PushPop,649196,649196,1,1,14688,14688.0,14688.0,14688,14688,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x8b0f22c4a2121702a93d8623b5a12ae4
+:A1_decode_step_0,PushPop,649196,649196,1,1,13920,13920.0,13920.0,13920,13920,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x9b99130746ee47ec2d15b111319f425e
+:A1_decode_step_0,PushPop,649196,649196,1,1,13760,13760.0,13760.0,13760,13760,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xa03da8bd0547b3997e4af5d64a9f7047
+:A1_decode_step_0,PushPop,649196,649196,1,1,13760,13760.0,13760.0,13760,13760,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xf2d64d0cef819045fc9d252a6b31181b
+:A1_decode_step_0,PushPop,649196,649196,1,1,13600,13600.0,13600.0,13600,13600,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xe944abd3db8709490013ec56e805a4c9
+:A1_decode_step_0,PushPop,649196,649196,1,1,13568,13568.0,13568.0,13568,13568,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xb2a73dcdcb246645ed7bcf4e6ce7b3cc
+:A1_decode_step_0,PushPop,649196,649196,1,1,13408,13408.0,13408.0,13408,13408,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xeadba79c8105dff3fdb08ce085e7b12c
+:A1_decode_step_0,PushPop,649196,649196,1,1,13280,13280.0,13280.0,13280,13280,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x2b4860727aa16b8274c6a9e412ad0345
+:A1_decode_step_0,PushPop,649196,649196,1,1,13216,13216.0,13216.0,13216,13216,0.0,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+:A1_decode_step_0,PushPop,649196,649196,1,1,13120,13120.0,13120.0,13120,13120,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xbc9bffbf2b5683589f7ee804485f8f6c
+:A1_decode_step_0,PushPop,649196,649196,1,1,12448,12448.0,12448.0,12448,12448,0.0,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+:A1_decode_step_0,PushPop,649196,649196,1,1,12416,12416.0,12416.0,12416,12416,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x4119fc4c6529add99aa14081dbc16ecb
+:A1_decode_step_0,PushPop,649196,649196,1,1,12416,12416.0,12416.0,12416,12416,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xb633f57e2e22833f593c4f215c79f20a
+:A1_decode_step_0,PushPop,649196,649196,1,1,11264,11264.0,11264.0,11264,11264,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x84ef5602e3183b8229f8022d6e6eb74f
+:A1_decode_step_0,PushPop,649196,649196,1,1,11200,11200.0,11200.0,11200,11200,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x77624facc1459ff2bf110c24ed8021c9
+:A1_decode_step_0,PushPop,649196,649196,1,1,10432,10432.0,10432.0,10432,10432,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x028e232ad04f9dc415033ab5492ba131
+:A1_decode_step_0,PushPop,649196,649196,1,1,10400,10400.0,10400.0,10400,10400,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x2d193f06c4770a0b130c316a9152d3bb
+:A1_decode_step_0,PushPop,649196,649196,1,1,10368,10368.0,10368.0,10368,10368,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x5bd2afd5a5411fb85888be6c8200be17
+:A1_decode_step_0,PushPop,649196,649196,1,1,10336,10336.0,10336.0,10336,10336,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xa203a21bb9a2ead322f314c5ed6c45fd
+:A1_decode_step_0,PushPop,649196,649196,1,1,10336,10336.0,10336.0,10336,10336,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xd65f433ff7b34abefa6995ce894b46a3
+:A1_decode_step_0,PushPop,649196,649196,1,1,10304,10304.0,10304.0,10304,10304,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xdba6260d6d388ff570fe95b3f4430bd0
+:A1_decode_step_0,PushPop,649196,649196,1,1,9504,9504.0,9504.0,9504,9504,0.0,__myl_MulMinMaxRouCas_0x7c03f425cd0cc19febc97cb69c1f2cdb
+:A1_decode_step_0,PushPop,649196,649196,1,1,9440,9440.0,9440.0,9440,9440,0.0,__myl_MulMinMaxRouCas_0x5d22e06f0128b92bf02f50e9b05f0125
+:A1_decode_step_0,PushPop,649196,649196,1,1,9376,9376.0,9376.0,9376,9376,0.0,__myl_MulMinMaxRouCas_0xa01c797cf706031bf4679ec54cf7b88d
+:A1_decode_step_0,PushPop,649196,649196,1,1,9344,9344.0,9344.0,9344,9344,0.0,__myl_MulMinMaxRouCas_0x472744a06bd7fd057961674c77025970
+:A1_decode_step_0,PushPop,649196,649196,1,1,9344,9344.0,9344.0,9344,9344,0.0,__myl_MulMinMaxRouCas_0xca1e8a983af10962a50c67e0fecf3bd1
+:A1_decode_step_0,PushPop,649196,649196,1,1,8576,8576.0,8576.0,8576,8576,0.0,__myl_MulMinMaxRouCas_0x907030f04aaedcd668915c250cbde546
+:A1_decode_step_0,PushPop,649196,649196,1,1,8576,8576.0,8576.0,8576,8576,0.0,__myl_MulMinMaxRouCas_0x998f9d85786c1705f75b803510b59e30
+:A1_decode_step_0,PushPop,649196,649196,1,1,8544,8544.0,8544.0,8544,8544,0.0,__myl_MulMinMaxRouCas_0x0b3337a1cc9120f6d73fd89c494a9e53
+:A1_decode_step_0,PushPop,649196,649196,1,1,8544,8544.0,8544.0,8544,8544,0.0,__myl_MulMinMaxRouCas_0x806abff2303c4adb22dac0953af546a1
+:A1_decode_step_0,PushPop,649196,649196,1,1,8512,8512.0,8512.0,8512,8512,0.0,__myl_MulMinMaxRouCas_0x36a6981344c30226a5bbeed5f55c92f7
+:A1_decode_step_0,PushPop,649196,649196,1,1,8512,8512.0,8512.0,8512,8512,0.0,__myl_MulMinMaxRouCas_0x6a10bd9f6c374e5ad061c0d2824b0a25
+:A1_decode_step_0,PushPop,649196,649196,1,1,8512,8512.0,8512.0,8512,8512,0.0,__myl_MulMinMaxRouCas_0x77ca5ed9b2797810688767dcda08897e
+:A1_decode_step_0,PushPop,649196,649196,1,1,8384,8384.0,8384.0,8384,8384,0.0,__myl_MulMinMaxRouCas_0x2bde768f3e1a80e37132bb2f4be64789
+:A1_decode_step_0,PushPop,649196,649196,1,1,8352,8352.0,8352.0,8352,8352,0.0,__myl_MulMinMaxRouCas_0x46757e257e41ef1fb92716579e35a0d1
+:A1_decode_step_0,PushPop,649196,649196,1,1,8288,8288.0,8288.0,8288,8288,0.0,__myl_MulMinMaxRouCas_0x1fb837ee240f07d62ca7b72c8a105b6f
+:A1_decode_step_0,PushPop,649196,649196,1,1,8288,8288.0,8288.0,8288,8288,0.0,__myl_MulMinMaxRouCas_0xfffd234660cce4d6758da70fc32eeb17
+:A1_decode_step_0,PushPop,649196,649196,1,1,8224,8224.0,8224.0,8224,8224,0.0,__myl_MulMinMaxRouCas_0x8dd8f4f93c6a1e7d8a5025e20f21222e
+:A1_decode_step_0,PushPop,649196,649196,1,1,7968,7968.0,7968.0,7968,7968,0.0,__myl_MulMinMaxRouCas_0x9ee6ac5b9454da6749214d07f11973df
+:A1_decode_step_0,PushPop,649196,649196,1,1,7968,7968.0,7968.0,7968,7968,0.0,__myl_MulMinMaxRouCas_0xa64eacd40f6a244c6f97851e4148bfa0
+:A1_decode_step_0,PushPop,649196,649196,1,1,7936,7936.0,7936.0,7936,7936,0.0,__myl_MulMinMaxRouCas_0x56e74360c3e8a36d72970af72bdd3e2b
+:A1_decode_step_0,PushPop,649196,649196,1,1,7936,7936.0,7936.0,7936,7936,0.0,__myl_MulMinMaxRouCas_0x59f8206e6baa651ad7dab50737cc8951
+:A1_decode_step_0,PushPop,649196,649196,1,1,7936,7936.0,7936.0,7936,7936,0.0,__myl_MulMinMaxRouCas_0xa49a3c4e66279a6886312b656336d70d
+:A1_decode_step_0,PushPop,649196,649196,1,1,7936,7936.0,7936.0,7936,7936,0.0,__myl_MulMinMaxRouCas_0xf131f88ee6d7693232e76c9290134799
+:A1_decode_step_1,PushPop,649196,649196,1,1,10114400,10114400.0,10114400.0,10114400,10114400,0.0,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+:A1_decode_step_1,PushPop,649196,649196,1,106,9064832,85517.3,85536.0,52928,95904,6770.9,sm80_xmma_gemm_i8f32_i8i32_f32_tn_n_tilesize32x64x64_stage6_warpsize2x2x1_tensor16x8x32_fused
+:A1_decode_step_1,PushPop,649196,649196,1,28,6478112,231361.1,230864.0,229024,235072,1570.3,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_fused
+:A1_decode_step_1,PushPop,649196,649196,1,26,6358048,244540.3,242464.0,236064,304416,12444.9,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+:A1_decode_step_1,PushPop,649196,649196,1,27,3811072,141150.8,141056.0,139200,144000,1075.6,sm80_xmma_gemm_i8i8_i8i32_f32_tn_n_tilesize32x64x64_stage6_warpsize2x2x1_tensor16x8x32_fused
+:A1_decode_step_1,PushPop,649196,649196,1,28,1413472,50481.1,50464.0,49952,51072,262.4,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+:A1_decode_step_1,PushPop,649196,649196,1,28,921280,32902.9,33216.0,30848,33728,859.6,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+:A1_decode_step_1,PushPop,649196,649196,1,27,864448,32016.6,31872.0,31136,34016,567.1,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f
+:A1_decode_step_1,PushPop,649196,649196,1,4,821216,205304.0,194720.0,172576,259200,37416.3,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+:A1_decode_step_1,PushPop,649196,649196,1,27,796032,29482.7,29376.0,27680,31776,1048.8,__myl_ResConResRep_0x9d40828c020eb6bb972be950c35191c1
+:A1_decode_step_1,PushPop,649196,649196,1,3,726624,242208.0,240960.0,238720,246944,4251.7,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+:A1_decode_step_1,PushPop,649196,649196,1,26,467744,17990.2,17888.0,17792,18432,211.1,__myl_MulMeaAddSqrDivMulDivMinMaxRouCasDivMinMaxRouCasDivMinMaxRouCas_0x9f2c300bb597625319cadec4728f9bc5
+:A1_decode_step_1,PushPop,649196,649196,1,28,458464,16373.7,16336.0,15872,17248,272.9,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f
+:A1_decode_step_1,PushPop,649196,649196,1,27,338688,12544.0,12640.0,11168,14272,623.1,__myl_ResMulMea_0x3c91498c3beee36a5653966af1581a8a
+:A1_decode_step_1,PushPop,649196,649196,1,27,321568,11909.9,12192.0,10144,12672,617.9,__myl_ResMulMea_0xf2413012cd9ac6341b95d78f3432c656
+:A1_decode_step_1,PushPop,649196,649196,1,27,302272,11195.3,11392.0,9760,12256,748.2,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+:A1_decode_step_1,PushPop,649196,649196,1,1,39552,39552.0,39552.0,39552,39552,0.0,__myl_CasResMulConSinResCosResAddSqrAddSqrDivMulDivMulMulResSliSliNegConMulMulAddConResRepResTraEtc_0x3beb58e4cd3dae3f69eebdbcbcc43980
+:A1_decode_step_1,PushPop,649196,649196,1,1,27008,27008.0,27008.0,27008,27008,0.0,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a
+:A1_decode_step_1,PushPop,649196,649196,1,2,25568,12784.0,12784.0,10432,15136,3326.2,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xd756cf8085615be8f2df33c74bb9ac74
+:A1_decode_step_1,PushPop,649196,649196,1,2,25376,12688.0,12688.0,12256,13120,610.9,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xc17a9e1c8880e75049e64b4f3bf21f16
+:A1_decode_step_1,PushPop,649196,649196,1,2,24896,12448.0,12448.0,12416,12480,45.3,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+:A1_decode_step_1,PushPop,649196,649196,1,1,24800,24800.0,24800.0,24800,24800,0.0,__myl_MovMulMeaAddSqrDivMulDivMinMaxRouCasDivMinMaxRouCasDivMinMaxRouCas_0xda00efdea1fdf9ffc7ce7052979834ac
+:A1_decode_step_1,PushPop,649196,649196,1,2,23488,11744.0,11744.0,10400,13088,1900.7,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x6cfe86dd6e4d3c2d552f909cb133c113
+:A1_decode_step_1,PushPop,649196,649196,1,2,23456,11728.0,11728.0,10400,13056,1878.1,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xcf81b38212e8f296e353aae060904a23
+:A1_decode_step_1,PushPop,649196,649196,1,1,23104,23104.0,23104.0,23104,23104,0.0,__myl_CasGat_0xdee2c73dd5d0e0fe099a0774cba2143f
+:A1_decode_step_1,PushPop,649196,649196,1,1,19136,19136.0,19136.0,19136,19136,0.0,__myl_MovMulMeaAddSqrDivMulMulCas_0x62665ed68e2d72f01be2ec50e848f2e2_vec
+:A1_decode_step_1,PushPop,649196,649196,1,2,17376,8688.0,8688.0,8608,8768,113.1,__myl_MulMinMaxRouCas_0x774908550917e749f75db6185bcae83f
+:A1_decode_step_1,PushPop,649196,649196,1,1,15136,15136.0,15136.0,15136,15136,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x8b0f22c4a2121702a93d8623b5a12ae4
+:A1_decode_step_1,PushPop,649196,649196,1,1,14016,14016.0,14016.0,14016,14016,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xf2d64d0cef819045fc9d252a6b31181b
+:A1_decode_step_1,PushPop,649196,649196,1,1,13824,13824.0,13824.0,13824,13824,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xe944abd3db8709490013ec56e805a4c9
+:A1_decode_step_1,PushPop,649196,649196,1,1,13792,13792.0,13792.0,13792,13792,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x9b99130746ee47ec2d15b111319f425e
+:A1_decode_step_1,PushPop,649196,649196,1,1,13792,13792.0,13792.0,13792,13792,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xb2a73dcdcb246645ed7bcf4e6ce7b3cc
+:A1_decode_step_1,PushPop,649196,649196,1,1,13760,13760.0,13760.0,13760,13760,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x2b4860727aa16b8274c6a9e412ad0345
+:A1_decode_step_1,PushPop,649196,649196,1,1,13408,13408.0,13408.0,13408,13408,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xeadba79c8105dff3fdb08ce085e7b12c
+:A1_decode_step_1,PushPop,649196,649196,1,1,13376,13376.0,13376.0,13376,13376,0.0,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+:A1_decode_step_1,PushPop,649196,649196,1,1,13248,13248.0,13248.0,13248,13248,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xa03da8bd0547b3997e4af5d64a9f7047
+:A1_decode_step_1,PushPop,649196,649196,1,1,13088,13088.0,13088.0,13088,13088,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xdba6260d6d388ff570fe95b3f4430bd0
+:A1_decode_step_1,PushPop,649196,649196,1,1,13056,13056.0,13056.0,13056,13056,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xbc9bffbf2b5683589f7ee804485f8f6c
+:A1_decode_step_1,PushPop,649196,649196,1,1,13024,13024.0,13024.0,13024,13024,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xd65f433ff7b34abefa6995ce894b46a3
+:A1_decode_step_1,PushPop,649196,649196,1,1,12992,12992.0,12992.0,12992,12992,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xb633f57e2e22833f593c4f215c79f20a
+:A1_decode_step_1,PushPop,649196,649196,1,1,12704,12704.0,12704.0,12704,12704,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x77624facc1459ff2bf110c24ed8021c9
+:A1_decode_step_1,PushPop,649196,649196,1,1,12544,12544.0,12544.0,12544,12544,0.0,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+:A1_decode_step_1,PushPop,649196,649196,1,1,11296,11296.0,11296.0,11296,11296,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x84ef5602e3183b8229f8022d6e6eb74f
+:A1_decode_step_1,PushPop,649196,649196,1,1,11072,11072.0,11072.0,11072,11072,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xa203a21bb9a2ead322f314c5ed6c45fd
+:A1_decode_step_1,PushPop,649196,649196,1,1,10400,10400.0,10400.0,10400,10400,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x028e232ad04f9dc415033ab5492ba131
+:A1_decode_step_1,PushPop,649196,649196,1,1,10368,10368.0,10368.0,10368,10368,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x5bd2afd5a5411fb85888be6c8200be17
+:A1_decode_step_1,PushPop,649196,649196,1,1,10336,10336.0,10336.0,10336,10336,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x2d193f06c4770a0b130c316a9152d3bb
+:A1_decode_step_1,PushPop,649196,649196,1,1,10304,10304.0,10304.0,10304,10304,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x4119fc4c6529add99aa14081dbc16ecb
+:A1_decode_step_1,PushPop,649196,649196,1,1,9184,9184.0,9184.0,9184,9184,0.0,__myl_MulMinMaxRouCas_0x7c03f425cd0cc19febc97cb69c1f2cdb
+:A1_decode_step_1,PushPop,649196,649196,1,1,9184,9184.0,9184.0,9184,9184,0.0,__myl_MulMinMaxRouCas_0x806abff2303c4adb22dac0953af546a1
+:A1_decode_step_1,PushPop,649196,649196,1,1,9152,9152.0,9152.0,9152,9152,0.0,__myl_MulMinMaxRouCas_0x36a6981344c30226a5bbeed5f55c92f7
+:A1_decode_step_1,PushPop,649196,649196,1,1,9024,9024.0,9024.0,9024,9024,0.0,__myl_MulMinMaxRouCas_0x2bde768f3e1a80e37132bb2f4be64789
+:A1_decode_step_1,PushPop,649196,649196,1,1,8896,8896.0,8896.0,8896,8896,0.0,__myl_MulMinMaxRouCas_0x59f8206e6baa651ad7dab50737cc8951
+:A1_decode_step_1,PushPop,649196,649196,1,1,8896,8896.0,8896.0,8896,8896,0.0,__myl_MulMinMaxRouCas_0x5d22e06f0128b92bf02f50e9b05f0125
+:A1_decode_step_1,PushPop,649196,649196,1,1,8896,8896.0,8896.0,8896,8896,0.0,__myl_MulMinMaxRouCas_0x8dd8f4f93c6a1e7d8a5025e20f21222e
+:A1_decode_step_1,PushPop,649196,649196,1,1,8896,8896.0,8896.0,8896,8896,0.0,__myl_MulMinMaxRouCas_0xa01c797cf706031bf4679ec54cf7b88d
+:A1_decode_step_1,PushPop,649196,649196,1,1,8832,8832.0,8832.0,8832,8832,0.0,__myl_MulMinMaxRouCas_0x46757e257e41ef1fb92716579e35a0d1
+:A1_decode_step_1,PushPop,649196,649196,1,1,8800,8800.0,8800.0,8800,8800,0.0,__myl_MulMinMaxRouCas_0x0b3337a1cc9120f6d73fd89c494a9e53
+:A1_decode_step_1,PushPop,649196,649196,1,1,8800,8800.0,8800.0,8800,8800,0.0,__myl_MulMinMaxRouCas_0x56e74360c3e8a36d72970af72bdd3e2b
+:A1_decode_step_1,PushPop,649196,649196,1,1,8800,8800.0,8800.0,8800,8800,0.0,__myl_MulMinMaxRouCas_0x6a10bd9f6c374e5ad061c0d2824b0a25
+:A1_decode_step_1,PushPop,649196,649196,1,1,8800,8800.0,8800.0,8800,8800,0.0,__myl_MulMinMaxRouCas_0x9ee6ac5b9454da6749214d07f11973df
+:A1_decode_step_1,PushPop,649196,649196,1,1,8800,8800.0,8800.0,8800,8800,0.0,__myl_MulMinMaxRouCas_0xca1e8a983af10962a50c67e0fecf3bd1
+:A1_decode_step_1,PushPop,649196,649196,1,1,8768,8768.0,8768.0,8768,8768,0.0,__myl_MulMinMaxRouCas_0x998f9d85786c1705f75b803510b59e30
+:A1_decode_step_1,PushPop,649196,649196,1,1,8768,8768.0,8768.0,8768,8768,0.0,__myl_MulMinMaxRouCas_0xfffd234660cce4d6758da70fc32eeb17
+:A1_decode_step_1,PushPop,649196,649196,1,1,8704,8704.0,8704.0,8704,8704,0.0,__myl_MulMinMaxRouCas_0x77ca5ed9b2797810688767dcda08897e
+:A1_decode_step_1,PushPop,649196,649196,1,1,8640,8640.0,8640.0,8640,8640,0.0,__myl_MulMinMaxRouCas_0x472744a06bd7fd057961674c77025970
+:A1_decode_step_1,PushPop,649196,649196,1,1,8640,8640.0,8640.0,8640,8640,0.0,__myl_MulMinMaxRouCas_0x907030f04aaedcd668915c250cbde546
+:A1_decode_step_1,PushPop,649196,649196,1,1,8640,8640.0,8640.0,8640,8640,0.0,__myl_MulMinMaxRouCas_0xa64eacd40f6a244c6f97851e4148bfa0
+:A1_decode_step_1,PushPop,649196,649196,1,1,8512,8512.0,8512.0,8512,8512,0.0,__myl_MulMinMaxRouCas_0x1fb837ee240f07d62ca7b72c8a105b6f
+:A1_decode_step_1,PushPop,649196,649196,1,1,7968,7968.0,7968.0,7968,7968,0.0,__myl_MulMinMaxRouCas_0xf131f88ee6d7693232e76c9290134799
+:A1_decode_step_1,PushPop,649196,649196,1,1,7904,7904.0,7904.0,7904,7904,0.0,__myl_MulMinMaxRouCas_0xa49a3c4e66279a6886312b656336d70d
+:A1_decode_step_2,PushPop,649196,649196,1,1,10117664,10117664.0,10117664.0,10117664,10117664,0.0,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+:A1_decode_step_2,PushPop,649196,649196,1,106,9070016,85566.2,84736.0,53376,94784,6640.8,sm80_xmma_gemm_i8f32_i8i32_f32_tn_n_tilesize32x64x64_stage6_warpsize2x2x1_tensor16x8x32_fused
+:A1_decode_step_2,PushPop,649196,649196,1,28,6482272,231509.7,231456.0,227424,235264,1801.3,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_fused
+:A1_decode_step_2,PushPop,649196,649196,1,26,6361600,244676.9,242256.0,237952,304320,12401.7,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+:A1_decode_step_2,PushPop,649196,649196,1,27,3807520,141019.3,140736.0,138848,145024,1362.3,sm80_xmma_gemm_i8i8_i8i32_f32_tn_n_tilesize32x64x64_stage6_warpsize2x2x1_tensor16x8x32_fused
+:A1_decode_step_2,PushPop,649196,649196,1,28,1420352,50726.9,50656.0,50176,51872,451.6,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+:A1_decode_step_2,PushPop,649196,649196,1,27,945088,35003.3,34912.0,33152,36544,926.2,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f
+:A1_decode_step_2,PushPop,649196,649196,1,28,922880,32960.0,33344.0,30880,33792,866.4,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+:A1_decode_step_2,PushPop,649196,649196,1,27,902080,33410.4,33664.0,29472,34528,1011.6,__myl_ResConResRep_0x9d40828c020eb6bb972be950c35191c1
+:A1_decode_step_2,PushPop,649196,649196,1,4,776928,194232.0,173024.0,172288,258592,42909.2,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+:A1_decode_step_2,PushPop,649196,649196,1,3,734560,244853.3,245120.0,244000,245440,756.1,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+:A1_decode_step_2,PushPop,649196,649196,1,26,468640,18024.6,17936.0,17792,18432,214.5,__myl_MulMeaAddSqrDivMulDivMinMaxRouCasDivMinMaxRouCasDivMinMaxRouCas_0x9f2c300bb597625319cadec4728f9bc5
+:A1_decode_step_2,PushPop,649196,649196,1,28,459904,16425.1,16400.0,15712,17024,315.7,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f
+:A1_decode_step_2,PushPop,649196,649196,1,27,328960,12183.7,12128.0,11104,13728,600.3,__myl_ResMulMea_0x3c91498c3beee36a5653966af1581a8a
+:A1_decode_step_2,PushPop,649196,649196,1,27,324256,12009.5,12192.0,10080,13120,694.0,__myl_ResMulMea_0xf2413012cd9ac6341b95d78f3432c656
+:A1_decode_step_2,PushPop,649196,649196,1,27,302080,11188.1,11424.0,9696,12544,687.9,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+:A1_decode_step_2,PushPop,649196,649196,1,1,41120,41120.0,41120.0,41120,41120,0.0,__myl_CasResMulConSinResCosResAddSqrAddSqrDivMulDivMulMulResSliSliNegConMulMulAddConResRepResTraEtc_0x3beb58e4cd3dae3f69eebdbcbcc43980
+:A1_decode_step_2,PushPop,649196,649196,1,1,28768,28768.0,28768.0,28768,28768,0.0,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a
+:A1_decode_step_2,PushPop,649196,649196,1,2,25568,12784.0,12784.0,12512,13056,384.7,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xc17a9e1c8880e75049e64b4f3bf21f16
+:A1_decode_step_2,PushPop,649196,649196,1,2,25472,12736.0,12736.0,10432,15040,3258.3,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xd756cf8085615be8f2df33c74bb9ac74
+:A1_decode_step_2,PushPop,649196,649196,1,2,24992,12496.0,12496.0,12448,12544,67.9,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+:A1_decode_step_2,PushPop,649196,649196,1,1,24256,24256.0,24256.0,24256,24256,0.0,__myl_CasGat_0xdee2c73dd5d0e0fe099a0774cba2143f
+:A1_decode_step_2,PushPop,649196,649196,1,2,24032,12016.0,12016.0,10432,13600,2240.1,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x6cfe86dd6e4d3c2d552f909cb133c113
+:A1_decode_step_2,PushPop,649196,649196,1,1,23968,23968.0,23968.0,23968,23968,0.0,__myl_MovMulMeaAddSqrDivMulDivMinMaxRouCasDivMinMaxRouCasDivMinMaxRouCas_0xda00efdea1fdf9ffc7ce7052979834ac
+:A1_decode_step_2,PushPop,649196,649196,1,2,22624,11312.0,11312.0,10432,12192,1244.5,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xcf81b38212e8f296e353aae060904a23
+:A1_decode_step_2,PushPop,649196,649196,1,1,20160,20160.0,20160.0,20160,20160,0.0,__myl_MovMulMeaAddSqrDivMulMulCas_0x62665ed68e2d72f01be2ec50e848f2e2_vec
+:A1_decode_step_2,PushPop,649196,649196,1,2,17728,8864.0,8864.0,8800,8928,90.5,__myl_MulMinMaxRouCas_0x774908550917e749f75db6185bcae83f
+:A1_decode_step_2,PushPop,649196,649196,1,1,15200,15200.0,15200.0,15200,15200,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x8b0f22c4a2121702a93d8623b5a12ae4
+:A1_decode_step_2,PushPop,649196,649196,1,1,13952,13952.0,13952.0,13952,13952,0.0,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+:A1_decode_step_2,PushPop,649196,649196,1,1,13920,13920.0,13920.0,13920,13920,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xf2d64d0cef819045fc9d252a6b31181b
+:A1_decode_step_2,PushPop,649196,649196,1,1,13856,13856.0,13856.0,13856,13856,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x2b4860727aa16b8274c6a9e412ad0345
+:A1_decode_step_2,PushPop,649196,649196,1,1,13664,13664.0,13664.0,13664,13664,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x028e232ad04f9dc415033ab5492ba131
+:A1_decode_step_2,PushPop,649196,649196,1,1,13504,13504.0,13504.0,13504,13504,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x5bd2afd5a5411fb85888be6c8200be17
+:A1_decode_step_2,PushPop,649196,649196,1,1,13344,13344.0,13344.0,13344,13344,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xeadba79c8105dff3fdb08ce085e7b12c
+:A1_decode_step_2,PushPop,649196,649196,1,1,13280,13280.0,13280.0,13280,13280,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xb633f57e2e22833f593c4f215c79f20a
+:A1_decode_step_2,PushPop,649196,649196,1,1,13216,13216.0,13216.0,13216,13216,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xa03da8bd0547b3997e4af5d64a9f7047
+:A1_decode_step_2,PushPop,649196,649196,1,1,13216,13216.0,13216.0,13216,13216,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xb2a73dcdcb246645ed7bcf4e6ce7b3cc
+:A1_decode_step_2,PushPop,649196,649196,1,1,13184,13184.0,13184.0,13184,13184,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x9b99130746ee47ec2d15b111319f425e
+:A1_decode_step_2,PushPop,649196,649196,1,1,13120,13120.0,13120.0,13120,13120,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xbc9bffbf2b5683589f7ee804485f8f6c
+:A1_decode_step_2,PushPop,649196,649196,1,1,13120,13120.0,13120.0,13120,13120,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xe944abd3db8709490013ec56e805a4c9
+:A1_decode_step_2,PushPop,649196,649196,1,1,13024,13024.0,13024.0,13024,13024,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xd65f433ff7b34abefa6995ce894b46a3
+:A1_decode_step_2,PushPop,649196,649196,1,1,12960,12960.0,12960.0,12960,12960,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xdba6260d6d388ff570fe95b3f4430bd0
+:A1_decode_step_2,PushPop,649196,649196,1,1,12736,12736.0,12736.0,12736,12736,0.0,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+:A1_decode_step_2,PushPop,649196,649196,1,1,12640,12640.0,12640.0,12640,12640,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x77624facc1459ff2bf110c24ed8021c9
+:A1_decode_step_2,PushPop,649196,649196,1,1,12384,12384.0,12384.0,12384,12384,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x84ef5602e3183b8229f8022d6e6eb74f
+:A1_decode_step_2,PushPop,649196,649196,1,1,11360,11360.0,11360.0,11360,11360,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x2d193f06c4770a0b130c316a9152d3bb
+:A1_decode_step_2,PushPop,649196,649196,1,1,10432,10432.0,10432.0,10432,10432,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xa203a21bb9a2ead322f314c5ed6c45fd
+:A1_decode_step_2,PushPop,649196,649196,1,1,10336,10336.0,10336.0,10336,10336,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x4119fc4c6529add99aa14081dbc16ecb
+:A1_decode_step_2,PushPop,649196,649196,1,1,9216,9216.0,9216.0,9216,9216,0.0,__myl_MulMinMaxRouCas_0x907030f04aaedcd668915c250cbde546
+:A1_decode_step_2,PushPop,649196,649196,1,1,9152,9152.0,9152.0,9152,9152,0.0,__myl_MulMinMaxRouCas_0x46757e257e41ef1fb92716579e35a0d1
+:A1_decode_step_2,PushPop,649196,649196,1,1,9120,9120.0,9120.0,9120,9120,0.0,__myl_MulMinMaxRouCas_0x0b3337a1cc9120f6d73fd89c494a9e53
+:A1_decode_step_2,PushPop,649196,649196,1,1,9024,9024.0,9024.0,9024,9024,0.0,__myl_MulMinMaxRouCas_0xfffd234660cce4d6758da70fc32eeb17
+:A1_decode_step_2,PushPop,649196,649196,1,1,8896,8896.0,8896.0,8896,8896,0.0,__myl_MulMinMaxRouCas_0x59f8206e6baa651ad7dab50737cc8951
+:A1_decode_step_2,PushPop,649196,649196,1,1,8896,8896.0,8896.0,8896,8896,0.0,__myl_MulMinMaxRouCas_0x5d22e06f0128b92bf02f50e9b05f0125
+:A1_decode_step_2,PushPop,649196,649196,1,1,8864,8864.0,8864.0,8864,8864,0.0,__myl_MulMinMaxRouCas_0xa64eacd40f6a244c6f97851e4148bfa0
+:A1_decode_step_2,PushPop,649196,649196,1,1,8832,8832.0,8832.0,8832,8832,0.0,__myl_MulMinMaxRouCas_0x6a10bd9f6c374e5ad061c0d2824b0a25
+:A1_decode_step_2,PushPop,649196,649196,1,1,8832,8832.0,8832.0,8832,8832,0.0,__myl_MulMinMaxRouCas_0xa01c797cf706031bf4679ec54cf7b88d
+:A1_decode_step_2,PushPop,649196,649196,1,1,8800,8800.0,8800.0,8800,8800,0.0,__myl_MulMinMaxRouCas_0x1fb837ee240f07d62ca7b72c8a105b6f
+:A1_decode_step_2,PushPop,649196,649196,1,1,8800,8800.0,8800.0,8800,8800,0.0,__myl_MulMinMaxRouCas_0x8dd8f4f93c6a1e7d8a5025e20f21222e
+:A1_decode_step_2,PushPop,649196,649196,1,1,8768,8768.0,8768.0,8768,8768,0.0,__myl_MulMinMaxRouCas_0x2bde768f3e1a80e37132bb2f4be64789
+:A1_decode_step_2,PushPop,649196,649196,1,1,8768,8768.0,8768.0,8768,8768,0.0,__myl_MulMinMaxRouCas_0x77ca5ed9b2797810688767dcda08897e
+:A1_decode_step_2,PushPop,649196,649196,1,1,8768,8768.0,8768.0,8768,8768,0.0,__myl_MulMinMaxRouCas_0x998f9d85786c1705f75b803510b59e30
+:A1_decode_step_2,PushPop,649196,649196,1,1,8736,8736.0,8736.0,8736,8736,0.0,__myl_MulMinMaxRouCas_0x36a6981344c30226a5bbeed5f55c92f7
+:A1_decode_step_2,PushPop,649196,649196,1,1,8704,8704.0,8704.0,8704,8704,0.0,__myl_MulMinMaxRouCas_0x472744a06bd7fd057961674c77025970
+:A1_decode_step_2,PushPop,649196,649196,1,1,8704,8704.0,8704.0,8704,8704,0.0,__myl_MulMinMaxRouCas_0x806abff2303c4adb22dac0953af546a1
+:A1_decode_step_2,PushPop,649196,649196,1,1,8704,8704.0,8704.0,8704,8704,0.0,__myl_MulMinMaxRouCas_0x9ee6ac5b9454da6749214d07f11973df
+:A1_decode_step_2,PushPop,649196,649196,1,1,8704,8704.0,8704.0,8704,8704,0.0,__myl_MulMinMaxRouCas_0xca1e8a983af10962a50c67e0fecf3bd1
+:A1_decode_step_2,PushPop,649196,649196,1,1,8672,8672.0,8672.0,8672,8672,0.0,__myl_MulMinMaxRouCas_0x7c03f425cd0cc19febc97cb69c1f2cdb
+:A1_decode_step_2,PushPop,649196,649196,1,1,8384,8384.0,8384.0,8384,8384,0.0,__myl_MulMinMaxRouCas_0xf131f88ee6d7693232e76c9290134799
+:A1_decode_step_2,PushPop,649196,649196,1,1,8320,8320.0,8320.0,8320,8320,0.0,__myl_MulMinMaxRouCas_0xa49a3c4e66279a6886312b656336d70d
+:A1_decode_step_2,PushPop,649196,649196,1,1,8096,8096.0,8096.0,8096,8096,0.0,__myl_MulMinMaxRouCas_0x56e74360c3e8a36d72970af72bdd3e2b
+:A1_decode_step_3,PushPop,649196,649196,1,1,10121376,10121376.0,10121376.0,10121376,10121376,0.0,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+:A1_decode_step_3,PushPop,649196,649196,1,106,9059936,85471.1,84560.0,53024,94752,6677.4,sm80_xmma_gemm_i8f32_i8i32_f32_tn_n_tilesize32x64x64_stage6_warpsize2x2x1_tensor16x8x32_fused
+:A1_decode_step_3,PushPop,649196,649196,1,28,6484096,231574.9,231088.0,228512,236352,1865.0,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_fused
+:A1_decode_step_3,PushPop,649196,649196,1,26,6360000,244615.4,242656.0,235104,306816,12999.8,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+:A1_decode_step_3,PushPop,649196,649196,1,27,3803808,140881.8,140736.0,139168,143392,1148.9,sm80_xmma_gemm_i8i8_i8i32_f32_tn_n_tilesize32x64x64_stage6_warpsize2x2x1_tensor16x8x32_fused
+:A1_decode_step_3,PushPop,649196,649196,1,28,1422528,50804.6,50800.0,50048,51456,459.1,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+:A1_decode_step_3,PushPop,649196,649196,1,27,967968,35850.7,36032.0,34112,37472,854.3,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f
+:A1_decode_step_3,PushPop,649196,649196,1,28,924256,33009.1,33440.0,30784,33760,788.0,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+:A1_decode_step_3,PushPop,649196,649196,1,27,915232,33897.5,34112.0,30368,35648,1313.2,__myl_ResConResRep_0x9d40828c020eb6bb972be950c35191c1
+:A1_decode_step_3,PushPop,649196,649196,1,4,819712,204928.0,194080.0,173792,257760,36498.3,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+:A1_decode_step_3,PushPop,649196,649196,1,3,735616,245205.3,244416.0,244224,246976,1536.4,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+:A1_decode_step_3,PushPop,649196,649196,1,26,469536,18059.1,17984.0,17824,18496,214.9,__myl_MulMeaAddSqrDivMulDivMinMaxRouCasDivMinMaxRouCasDivMinMaxRouCas_0x9f2c300bb597625319cadec4728f9bc5
+:A1_decode_step_3,PushPop,649196,649196,1,28,461536,16483.4,16448.0,15936,17792,375.8,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f
+:A1_decode_step_3,PushPop,649196,649196,1,27,325216,12045.0,12160.0,11104,13568,623.8,__myl_ResMulMea_0x3c91498c3beee36a5653966af1581a8a
+:A1_decode_step_3,PushPop,649196,649196,1,27,320160,11857.8,12160.0,9984,12672,665.6,__myl_ResMulMea_0xf2413012cd9ac6341b95d78f3432c656
+:A1_decode_step_3,PushPop,649196,649196,1,27,299520,11093.3,11360.0,9696,11744,675.9,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+:A1_decode_step_3,PushPop,649196,649196,1,1,44480,44480.0,44480.0,44480,44480,0.0,__myl_CasResMulConSinResCosResAddSqrAddSqrDivMulDivMulMulResSliSliNegConMulMulAddConResRepResTraEtc_0x3beb58e4cd3dae3f69eebdbcbcc43980
+:A1_decode_step_3,PushPop,649196,649196,1,1,29952,29952.0,29952.0,29952,29952,0.0,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a
+:A1_decode_step_3,PushPop,649196,649196,1,2,25792,12896.0,12896.0,12672,13120,316.8,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xc17a9e1c8880e75049e64b4f3bf21f16
+:A1_decode_step_3,PushPop,649196,649196,1,2,25472,12736.0,12736.0,10400,15072,3303.6,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xd756cf8085615be8f2df33c74bb9ac74
+:A1_decode_step_3,PushPop,649196,649196,1,2,24928,12464.0,12464.0,12416,12512,67.9,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+:A1_decode_step_3,PushPop,649196,649196,1,2,24896,12448.0,12448.0,11648,13248,1131.4,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xcf81b38212e8f296e353aae060904a23
+:A1_decode_step_3,PushPop,649196,649196,1,2,24224,12112.0,12112.0,11136,13088,1380.3,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x6cfe86dd6e4d3c2d552f909cb133c113
+:A1_decode_step_3,PushPop,649196,649196,1,1,23936,23936.0,23936.0,23936,23936,0.0,__myl_MovMulMeaAddSqrDivMulDivMinMaxRouCasDivMinMaxRouCasDivMinMaxRouCas_0xda00efdea1fdf9ffc7ce7052979834ac
+:A1_decode_step_3,PushPop,649196,649196,1,1,22176,22176.0,22176.0,22176,22176,0.0,__myl_CasGat_0xdee2c73dd5d0e0fe099a0774cba2143f
+:A1_decode_step_3,PushPop,649196,649196,1,1,19136,19136.0,19136.0,19136,19136,0.0,__myl_MovMulMeaAddSqrDivMulMulCas_0x62665ed68e2d72f01be2ec50e848f2e2_vec
+:A1_decode_step_3,PushPop,649196,649196,1,2,17472,8736.0,8736.0,8704,8768,45.3,__myl_MulMinMaxRouCas_0x774908550917e749f75db6185bcae83f
+:A1_decode_step_3,PushPop,649196,649196,1,1,15264,15264.0,15264.0,15264,15264,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x8b0f22c4a2121702a93d8623b5a12ae4
+:A1_decode_step_3,PushPop,649196,649196,1,1,14176,14176.0,14176.0,14176,14176,0.0,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+:A1_decode_step_3,PushPop,649196,649196,1,1,13856,13856.0,13856.0,13856,13856,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xeadba79c8105dff3fdb08ce085e7b12c
+:A1_decode_step_3,PushPop,649196,649196,1,1,13856,13856.0,13856.0,13856,13856,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xf2d64d0cef819045fc9d252a6b31181b
+:A1_decode_step_3,PushPop,649196,649196,1,1,13792,13792.0,13792.0,13792,13792,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xb633f57e2e22833f593c4f215c79f20a
+:A1_decode_step_3,PushPop,649196,649196,1,1,13536,13536.0,13536.0,13536,13536,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x5bd2afd5a5411fb85888be6c8200be17
+:A1_decode_step_3,PushPop,649196,649196,1,1,13216,13216.0,13216.0,13216,13216,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xa03da8bd0547b3997e4af5d64a9f7047
+:A1_decode_step_3,PushPop,649196,649196,1,1,13184,13184.0,13184.0,13184,13184,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xe944abd3db8709490013ec56e805a4c9
+:A1_decode_step_3,PushPop,649196,649196,1,1,13152,13152.0,13152.0,13152,13152,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x2b4860727aa16b8274c6a9e412ad0345
+:A1_decode_step_3,PushPop,649196,649196,1,1,13120,13120.0,13120.0,13120,13120,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xb2a73dcdcb246645ed7bcf4e6ce7b3cc
+:A1_decode_step_3,PushPop,649196,649196,1,1,13088,13088.0,13088.0,13088,13088,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xbc9bffbf2b5683589f7ee804485f8f6c
+:A1_decode_step_3,PushPop,649196,649196,1,1,13088,13088.0,13088.0,13088,13088,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xd65f433ff7b34abefa6995ce894b46a3
+:A1_decode_step_3,PushPop,649196,649196,1,1,13056,13056.0,13056.0,13056,13056,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x9b99130746ee47ec2d15b111319f425e
+:A1_decode_step_3,PushPop,649196,649196,1,1,13056,13056.0,13056.0,13056,13056,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xdba6260d6d388ff570fe95b3f4430bd0
+:A1_decode_step_3,PushPop,649196,649196,1,1,12608,12608.0,12608.0,12608,12608,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x77624facc1459ff2bf110c24ed8021c9
+:A1_decode_step_3,PushPop,649196,649196,1,1,12544,12544.0,12544.0,12544,12544,0.0,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+:A1_decode_step_3,PushPop,649196,649196,1,1,11392,11392.0,11392.0,11392,11392,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x84ef5602e3183b8229f8022d6e6eb74f
+:A1_decode_step_3,PushPop,649196,649196,1,1,11072,11072.0,11072.0,11072,11072,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x2d193f06c4770a0b130c316a9152d3bb
+:A1_decode_step_3,PushPop,649196,649196,1,1,10432,10432.0,10432.0,10432,10432,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x028e232ad04f9dc415033ab5492ba131
+:A1_decode_step_3,PushPop,649196,649196,1,1,10368,10368.0,10368.0,10368,10368,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xa203a21bb9a2ead322f314c5ed6c45fd
+:A1_decode_step_3,PushPop,649196,649196,1,1,10336,10336.0,10336.0,10336,10336,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x4119fc4c6529add99aa14081dbc16ecb
+:A1_decode_step_3,PushPop,649196,649196,1,1,10080,10080.0,10080.0,10080,10080,0.0,__myl_MulMinMaxRouCas_0x806abff2303c4adb22dac0953af546a1
+:A1_decode_step_3,PushPop,649196,649196,1,1,9152,9152.0,9152.0,9152,9152,0.0,__myl_MulMinMaxRouCas_0x907030f04aaedcd668915c250cbde546
+:A1_decode_step_3,PushPop,649196,649196,1,1,9024,9024.0,9024.0,9024,9024,0.0,__myl_MulMinMaxRouCas_0x59f8206e6baa651ad7dab50737cc8951
+:A1_decode_step_3,PushPop,649196,649196,1,1,8928,8928.0,8928.0,8928,8928,0.0,__myl_MulMinMaxRouCas_0x2bde768f3e1a80e37132bb2f4be64789
+:A1_decode_step_3,PushPop,649196,649196,1,1,8928,8928.0,8928.0,8928,8928,0.0,__myl_MulMinMaxRouCas_0x46757e257e41ef1fb92716579e35a0d1
+:A1_decode_step_3,PushPop,649196,649196,1,1,8896,8896.0,8896.0,8896,8896,0.0,__myl_MulMinMaxRouCas_0x8dd8f4f93c6a1e7d8a5025e20f21222e
+:A1_decode_step_3,PushPop,649196,649196,1,1,8864,8864.0,8864.0,8864,8864,0.0,__myl_MulMinMaxRouCas_0x36a6981344c30226a5bbeed5f55c92f7
+:A1_decode_step_3,PushPop,649196,649196,1,1,8864,8864.0,8864.0,8864,8864,0.0,__myl_MulMinMaxRouCas_0x472744a06bd7fd057961674c77025970
+:A1_decode_step_3,PushPop,649196,649196,1,1,8864,8864.0,8864.0,8864,8864,0.0,__myl_MulMinMaxRouCas_0x6a10bd9f6c374e5ad061c0d2824b0a25
+:A1_decode_step_3,PushPop,649196,649196,1,1,8832,8832.0,8832.0,8832,8832,0.0,__myl_MulMinMaxRouCas_0x7c03f425cd0cc19febc97cb69c1f2cdb
+:A1_decode_step_3,PushPop,649196,649196,1,1,8800,8800.0,8800.0,8800,8800,0.0,__myl_MulMinMaxRouCas_0x0b3337a1cc9120f6d73fd89c494a9e53
+:A1_decode_step_3,PushPop,649196,649196,1,1,8768,8768.0,8768.0,8768,8768,0.0,__myl_MulMinMaxRouCas_0x998f9d85786c1705f75b803510b59e30
+:A1_decode_step_3,PushPop,649196,649196,1,1,8768,8768.0,8768.0,8768,8768,0.0,__myl_MulMinMaxRouCas_0xa01c797cf706031bf4679ec54cf7b88d
+:A1_decode_step_3,PushPop,649196,649196,1,1,8768,8768.0,8768.0,8768,8768,0.0,__myl_MulMinMaxRouCas_0xca1e8a983af10962a50c67e0fecf3bd1
+:A1_decode_step_3,PushPop,649196,649196,1,1,8704,8704.0,8704.0,8704,8704,0.0,__myl_MulMinMaxRouCas_0x1fb837ee240f07d62ca7b72c8a105b6f
+:A1_decode_step_3,PushPop,649196,649196,1,1,8704,8704.0,8704.0,8704,8704,0.0,__myl_MulMinMaxRouCas_0x9ee6ac5b9454da6749214d07f11973df
+:A1_decode_step_3,PushPop,649196,649196,1,1,8672,8672.0,8672.0,8672,8672,0.0,__myl_MulMinMaxRouCas_0x56e74360c3e8a36d72970af72bdd3e2b
+:A1_decode_step_3,PushPop,649196,649196,1,1,8672,8672.0,8672.0,8672,8672,0.0,__myl_MulMinMaxRouCas_0x5d22e06f0128b92bf02f50e9b05f0125
+:A1_decode_step_3,PushPop,649196,649196,1,1,8672,8672.0,8672.0,8672,8672,0.0,__myl_MulMinMaxRouCas_0x77ca5ed9b2797810688767dcda08897e
+:A1_decode_step_3,PushPop,649196,649196,1,1,8640,8640.0,8640.0,8640,8640,0.0,__myl_MulMinMaxRouCas_0xa64eacd40f6a244c6f97851e4148bfa0
+:A1_decode_step_3,PushPop,649196,649196,1,1,8640,8640.0,8640.0,8640,8640,0.0,__myl_MulMinMaxRouCas_0xfffd234660cce4d6758da70fc32eeb17
+:A1_decode_step_3,PushPop,649196,649196,1,1,8256,8256.0,8256.0,8256,8256,0.0,__myl_MulMinMaxRouCas_0xf131f88ee6d7693232e76c9290134799
+:A1_decode_step_3,PushPop,649196,649196,1,1,7968,7968.0,7968.0,7968,7968,0.0,__myl_MulMinMaxRouCas_0xa49a3c4e66279a6886312b656336d70d
+:A1_prefill_S8,PushPop,649196,649196,1,28,17188448,613873.1,265568.0,244512,10116352,1862327.1,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+:A1_prefill_S8,PushPop,649196,649196,1,106,10667712,100638.8,86960.0,54752,146912,25588.8,sm80_xmma_gemm_i8i8_i8i32_f32_tn_n_tilesize32x64x64_stage6_warpsize2x2x1_tensor16x8x32_fused
+:A1_prefill_S8,PushPop,649196,649196,1,31,7439200,239974.2,241024.0,164768,264736,25369.7,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+:A1_prefill_S8,PushPop,649196,649196,1,27,2551744,94509.0,94944.0,89952,96704,1996.2,sm80_xmma_gemm_i8f32_i8i32_f32_tn_n_tilesize32x64x64_stage6_warpsize2x2x1_tensor16x8x32_fused
+:A1_prefill_S8,PushPop,649196,649196,1,3,772448,257482.7,236032.0,235456,300960,37653.6,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+:A1_prefill_S8,PushPop,649196,649196,1,27,474208,17563.3,17600.0,15872,19264,880.3,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x4ad536b524b3f7a2415d97f02da12733_com
+:A1_prefill_S8,PushPop,649196,649196,1,27,452128,16745.5,16672.0,14944,17760,776.6,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+:A1_prefill_S8,PushPop,649196,649196,1,26,438720,16873.8,16672.0,16480,17632,383.3,__myl_MulMeaAddSqrDivMulMulMinMaxRouCasMulMinMaxRouCasMulMinMaxRouCas_0x14bacf080290e339db28d1223365390a_com_vec
+:A1_prefill_S8,PushPop,649196,649196,1,27,415072,15373.0,15264.0,13824,16672,725.1,__myl_ResTraResSliRepRes_0xb5ca1ead775f2215fdc6b72339368a3f_com
+:A1_prefill_S8,PushPop,649196,649196,1,27,340352,12605.6,12512.0,11040,14240,787.7,__myl_ResMulMea_0x356824d54c2e1ab1f7825eefa1e6b632_com_vec
+:A1_prefill_S8,PushPop,649196,649196,1,27,330624,12245.3,12288.0,9920,13216,621.3,__myl_ResMulMea_0x9a67bce87aa70b5a86539a0972d2e0f6_com_vec
+:A1_prefill_S8,PushPop,649196,649196,1,25,282272,11290.9,11392.0,10528,11808,372.8,__myl_ResTra_0xc03916d7cfa55338996dbe92c4283d8c_com
+:A1_prefill_S8,PushPop,649196,649196,1,3,75616,25205.3,24928.0,24832,25856,565.5,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+:A1_prefill_S8,PushPop,649196,649196,1,2,51520,25760.0,25760.0,25056,26464,995.6,_gemm_mha_v2_0x122877a3036390a4bf8dcfb1427b867b
+:A1_prefill_S8,PushPop,649196,649196,1,1,30848,30848.0,30848.0,30848,30848,0.0,__myl_CasResMulConSinResCosResAddSqrAddSqrDivMulDivMulMulTraSliSliNegConMulMulAddResSliRepResTraEtc_0xeeda8c3ad0b01a41e68bda37288b89cd_com
+:A1_prefill_S8,PushPop,649196,649196,1,2,30560,15280.0,15280.0,15232,15328,67.9,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x06bdba4595fd33adf3c728cf049f0b03_com_vec
+:A1_prefill_S8,PushPop,649196,649196,1,1,27520,27520.0,27520.0,27520,27520,0.0,_gemm_mha_v2_0xc7841b14f7d92c2016746a6691400a52
+:A1_prefill_S8,PushPop,649196,649196,1,2,27232,13616.0,13616.0,12352,14880,1787.6,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x631eac58eb6694e001a0929b8bf99c28_com_vec
+:A1_prefill_S8,PushPop,649196,649196,1,1,27136,27136.0,27136.0,27136,27136,0.0,_gemm_mha_v2_0x122d493ce64aa00c197ae40baf03a637
+:A1_prefill_S8,PushPop,649196,649196,1,1,26880,26880.0,26880.0,26880,26880,0.0,_gemm_mha_v2_0x868207ee750ff7049028a80d32d17323
+:A1_prefill_S8,PushPop,649196,649196,1,1,26848,26848.0,26848.0,26848,26848,0.0,_gemm_mha_v2_0xccf3a8474acc5fc16b0ad4e1c69800bb
+:A1_prefill_S8,PushPop,649196,649196,1,1,26784,26784.0,26784.0,26784,26784,0.0,_gemm_mha_v2_0x1c8140cface6b993997d7cd4b7477616
+:A1_prefill_S8,PushPop,649196,649196,1,1,26720,26720.0,26720.0,26720,26720,0.0,_gemm_mha_v2_0x2f61b06ce635a250b28ae8ee2ab3b5cb
+:A1_prefill_S8,PushPop,649196,649196,1,1,26624,26624.0,26624.0,26624,26624,0.0,_gemm_mha_v2_0xa7ca53b515adf180e9a745693ffd0464
+:A1_prefill_S8,PushPop,649196,649196,1,1,26624,26624.0,26624.0,26624,26624,0.0,_gemm_mha_v2_0xab4761469dea155adca77ef52bd80a61
+:A1_prefill_S8,PushPop,649196,649196,1,1,26528,26528.0,26528.0,26528,26528,0.0,_gemm_mha_v2_0xf65d6b1571997bdfc737df09a44d72ad
+:A1_prefill_S8,PushPop,649196,649196,1,1,26464,26464.0,26464.0,26464,26464,0.0,_gemm_mha_v2_0xf4c36af1b3c39fab3312671f178aa157
+:A1_prefill_S8,PushPop,649196,649196,1,1,26368,26368.0,26368.0,26368,26368,0.0,_gemm_mha_v2_0x5365bc7530dd58ba06615d617f2617f3
+:A1_prefill_S8,PushPop,649196,649196,1,1,26304,26304.0,26304.0,26304,26304,0.0,_gemm_mha_v2_0xc2d92b3cbb126a251b76d78c57684e17
+:A1_prefill_S8,PushPop,649196,649196,1,2,26272,13136.0,13136.0,12384,13888,1063.5,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x2cc3c24a31f9b93e7da9ce04660164df_com_vec
+:A1_prefill_S8,PushPop,649196,649196,1,1,26272,26272.0,26272.0,26272,26272,0.0,_gemm_mha_v2_0x582f9c30de38a93e722c6de99876bc60
+:A1_prefill_S8,PushPop,649196,649196,1,1,26272,26272.0,26272.0,26272,26272,0.0,_gemm_mha_v2_0xeb55f16e4b7e71fdcdb973b60cd3db5e
+:A1_prefill_S8,PushPop,649196,649196,1,1,26272,26272.0,26272.0,26272,26272,0.0,_gemm_mha_v2_0xee0414de60764f75e46b3b8d1e16fc19
+:A1_prefill_S8,PushPop,649196,649196,1,1,26208,26208.0,26208.0,26208,26208,0.0,_gemm_mha_v2_0x69db25f8b455550858c08191df7c4023
+:A1_prefill_S8,PushPop,649196,649196,1,1,26144,26144.0,26144.0,26144,26144,0.0,_gemm_mha_v2_0xb386849c29e984208fe41d8ff07d34fc
+:A1_prefill_S8,PushPop,649196,649196,1,1,26016,26016.0,26016.0,26016,26016,0.0,_gemm_mha_v2_0xe6bc19e69c82f8044e9874292acae825
+:A1_prefill_S8,PushPop,649196,649196,1,2,25952,12976.0,12976.0,12256,13696,1018.2,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xc1e4e1e5e4fa4b9df1194c070c461029_com_vec
+:A1_prefill_S8,PushPop,649196,649196,1,1,25824,25824.0,25824.0,25824,25824,0.0,_gemm_mha_v2_0xf766752c8950edccd27d326ac8c5c5d0
+:A1_prefill_S8,PushPop,649196,649196,1,1,25696,25696.0,25696.0,25696,25696,0.0,_gemm_mha_v2_0xbbc42f75034653fb101166ea3f96b8ac
+:A1_prefill_S8,PushPop,649196,649196,1,1,25664,25664.0,25664.0,25664,25664,0.0,_gemm_mha_v2_0xe051501b8c48027b8c2c96139ee1b93f
+:A1_prefill_S8,PushPop,649196,649196,1,1,24416,24416.0,24416.0,24416,24416,0.0,_gemm_mha_v2_0x1f788b071d831d329684abd45c8719fb
+:A1_prefill_S8,PushPop,649196,649196,1,1,24032,24032.0,24032.0,24032,24032,0.0,_gemm_mha_v2_0x60fab5add8bb246f4c8714685e81d651
+:A1_prefill_S8,PushPop,649196,649196,1,1,22176,22176.0,22176.0,22176,22176,0.0,__myl_MovMulMeaAddSqrDivMulMulMinMaxRouCasMulMinMaxRouCasMulMinMaxRouCas_0xc7a30bf0a7462c13e72d54b03c27c3b2_com_vec
+:A1_prefill_S8,PushPop,649196,649196,1,1,19040,19040.0,19040.0,19040,19040,0.0,__myl_MovMulMeaAddSqrDivMulMulCas_0x62665ed68e2d72f01be2ec50e848f2e2_vec
+:A1_prefill_S8,PushPop,649196,649196,1,1,16800,16800.0,16800.0,16800,16800,0.0,__myl_CasGat_0xdee2c73dd5d0e0fe099a0774cba2143f_com
+:A1_prefill_S8,PushPop,649196,649196,1,1,16640,16640.0,16640.0,16640,16640,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xa7a56a9ae5b9c92481e0f5772d53a4c2_com_vec
+:A1_prefill_S8,PushPop,649196,649196,1,1,15904,15904.0,15904.0,15904,15904,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xb8020f747bc473120c074e71691b4a60_com_vec
+:A1_prefill_S8,PushPop,649196,649196,1,1,15264,15264.0,15264.0,15264,15264,0.0,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+:A1_prefill_S8,PushPop,649196,649196,1,1,15232,15232.0,15232.0,15232,15232,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x0ded10591a9065a1ce867a2c40e34ad5_com_vec
+:A1_prefill_S8,PushPop,649196,649196,1,1,15136,15136.0,15136.0,15136,15136,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x55aaf8a4cec60956953a80afc5c7b2a6_com_vec
+:A1_prefill_S8,PushPop,649196,649196,1,1,15104,15104.0,15104.0,15104,15104,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xdb3307c818c43e652e527c56f123786c_com_vec
+:A1_prefill_S8,PushPop,649196,649196,1,1,15072,15072.0,15072.0,15072,15072,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x8a866b4697691e17e265b1490eb77602_com_vec
+:A1_prefill_S8,PushPop,649196,649196,1,1,14976,14976.0,14976.0,14976,14976,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x24a69f107a63616e3e844d5227fd6f6c_com_vec
+:A1_prefill_S8,PushPop,649196,649196,1,1,14976,14976.0,14976.0,14976,14976,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xe663a90863e1c63edebb2571b115f54d_com_vec
+:A1_prefill_S8,PushPop,649196,649196,1,1,14944,14944.0,14944.0,14944,14944,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x0f05f340665da317c2be64fa415c473a_com_vec
+:A1_prefill_S8,PushPop,649196,649196,1,1,14912,14912.0,14912.0,14912,14912,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x2354092d3df3900c1fd6815a7ba9dac1_com_vec
+:A1_prefill_S8,PushPop,649196,649196,1,1,14912,14912.0,14912.0,14912,14912,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x7b2198561702574d86c9afed3e2e35ba_com_vec
+:A1_prefill_S8,PushPop,649196,649196,1,1,14912,14912.0,14912.0,14912,14912,0.0,__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+:A1_prefill_S8,PushPop,649196,649196,1,1,14880,14880.0,14880.0,14880,14880,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x0f631e6ab9f0eda3ff940fe21a35a79e_com_vec
+:A1_prefill_S8,PushPop,649196,649196,1,1,14848,14848.0,14848.0,14848,14848,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x39930415a2956c4b8d18ef510c0d5c8a_com_vec
+:A1_prefill_S8,PushPop,649196,649196,1,1,14848,14848.0,14848.0,14848,14848,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xf1def207df08f4e6d789049433c3866b_com_vec
+:A1_prefill_S8,PushPop,649196,649196,1,1,14752,14752.0,14752.0,14752,14752,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x9c020f3e6c1f94e17da10163a8e4f733_com_vec
+:A1_prefill_S8,PushPop,649196,649196,1,1,14720,14720.0,14720.0,14720,14720,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x69b2836c7bea850742d274e0c94ca89a_com_vec
+:A1_prefill_S8,PushPop,649196,649196,1,1,14528,14528.0,14528.0,14528,14528,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x6db55c2885f6b73e7dbf474aec093db8_com_vec
+:A1_prefill_S8,PushPop,649196,649196,1,1,14272,14272.0,14272.0,14272,14272,0.0,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+:A1_prefill_S8,PushPop,649196,649196,1,1,14208,14208.0,14208.0,14208,14208,0.0,__myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec
+:A1_prefill_S8,PushPop,649196,649196,1,1,12992,12992.0,12992.0,12992,12992,0.0,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+:A1_prefill_S8,PushPop,649196,649196,1,1,12256,12256.0,12256.0,12256,12256,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xaa5ba99515f1ab5b5fe1bff8e1cdf965_com_vec
+:A1_prefill_S8,PushPop,649196,649196,1,1,12192,12192.0,12192.0,12192,12192,0.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xe71ebe1a59b22d4bca83cb15f0059a7c_com_vec
+:A1_prefill_S8,PushPop,649196,649196,1,1,11648,11648.0,11648.0,11648,11648,0.0,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+:A1_prefill_S8,PushPop,649196,649196,1,1,9856,9856.0,9856.0,9856,9856,0.0,__myl_RepIotIotRepCasAddCasEqlLtOrSel_0xeed00a2999d9a920ce4be4d44852c879_com
+:A1_prefill_S8,PushPop,649196,649196,1,1,9440,9440.0,9440.0,9440,9440,0.0,"void <unnamed>::elementwise_kernel_with_index<int, at::native::arange_cuda_out(const c10::Scalar &, const c10::Scalar &, const c10::Scalar &, at::Tensor &)::[lambda() (instance 1)]::operator ()() const::[lambda() (instance 4)]::operator ()() const::[lambda(long) (instance 1)]>(T1, T2, function_traits<T2>::result_type *)"
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,10,88,91853312,1043787.6,261600.0,241568,10121376,2682612.9,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,7,426,47168704,110724.7,91440.0,53952,147648,28288.5,sm80_xmma_gemm_i8i8_i8i32_f32_tn_n_tilesize32x64x64_stage6_warpsize2x2x1_tensor16x8x32_fused
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,7,505,43549216,86236.1,88160.0,52832,98496,7622.0,sm80_xmma_gemm_i8f32_i8i32_f32_tn_n_tilesize32x64x64_stage6_warpsize2x2x1_tensor16x8x32_fused
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,112,25888576,231148.0,230656.0,223648,236352,2009.3,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_fused
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,104,25409152,244318.8,242272.0,234432,306816,12547.4,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,93,22238592,239124.6,240928.0,162464,265728,25173.1,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,112,5668864,50614.9,50528.0,49856,51872,403.6,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,112,3678976,32848.0,33024.0,30528,33792,834.8,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,16,3197344,199834.0,183728.0,172192,262112,36693.2,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,12,2927200,243933.3,244320.0,238720,247552,2778.0,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,81,2777504,34290.2,34656.0,31136,37472,1832.6,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,81,2613344,32263.5,33184.0,27680,35648,2281.5,__myl_ResConResRep_0x9d40828c020eb6bb972be950c35191c1
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,9,2317376,257486.2,236192.0,235456,300960,32351.3,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,104,1874080,18020.0,17920.0,17760,18496,209.7,__myl_MulMeaAddSqrDivMulDivMinMaxRouCasDivMinMaxRouCasDivMinMaxRouCas_0x9f2c300bb597625319cadec4728f9bc5
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,81,1387904,17134.6,17216.0,15264,19264,965.5,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x4ad536b524b3f7a2415d97f02da12733_com
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,84,1379904,16427.4,16384.0,15712,17792,323.5,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,81,1332864,16455.1,16544.0,14944,17760,727.6,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,78,1322976,16961.2,16864.0,16480,17984,386.7,__myl_MulMeaAddSqrDivMulMulMinMaxRouCasMulMinMaxRouCasMulMinMaxRouCas_0x14bacf080290e339db28d1223365390a_com_vec
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,108,1321600,12237.0,12160.0,10816,14272,685.1,__myl_ResMulMea_0x3c91498c3beee36a5653966af1581a8a
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,108,1284800,11896.3,12112.0,9984,13120,641.0,__myl_ResMulMea_0xf2413012cd9ac6341b95d78f3432c656
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,81,1249120,15421.2,15040.0,13280,36352,2497.5,__myl_ResTraResSliRepRes_0xb5ca1ead775f2215fdc6b72339368a3f_com
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,108,1202112,11130.7,11408.0,9248,12544,734.9,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,81,1001504,12364.2,12416.0,10944,14240,799.6,__myl_ResMulMea_0x356824d54c2e1ab1f7825eefa1e6b632_com_vec
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,81,982592,12130.8,12192.0,9728,13216,616.6,__myl_ResMulMea_0x9a67bce87aa70b5a86539a0972d2e0f6_com_vec
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,75,815776,10877.0,10624.0,10368,11808,445.0,__myl_ResTra_0xc03916d7cfa55338996dbe92c4283d8c_com
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,1,27,583264,21602.4,21248.0,20384,23296,790.8,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f_com
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,1,27,577472,21387.9,18112.0,16768,47520,8668.2,__myl_ResConResRep_0x9d40828c020eb6bb972be950c35191c1_com
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,1,28,350976,12534.9,12512.0,12064,13664,331.5,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f_com
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,9,224128,24903.1,24928.0,23968,25856,494.9,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,6,155552,25925.3,25968.0,25056,26688,757.6,_gemm_mha_v2_0x122877a3036390a4bf8dcfb1427b867b
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,7,7,133568,19081.1,19104.0,17984,20160,630.0,__myl_MovMulMeaAddSqrDivMulMulCas_0x62665ed68e2d72f01be2ec50e848f2e2_vec
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,125152,41717.3,41120.0,39552,44480,2517.7,__myl_CasResMulConSinResCosResAddSqrAddSqrDivMulDivMulMulResSliSliNegConMulMulAddConResRepResTraEtc_0x3beb58e4cd3dae3f69eebdbcbcc43980
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,8,103072,12884.0,12912.0,12256,13568,414.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xc17a9e1c8880e75049e64b4f3bf21f16
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,8,99744,12468.0,12464.0,12416,12544,51.1,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,8,98624,12328.0,11056.0,10400,15136,2318.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xd756cf8085615be8f2df33c74bb9ac74
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,96992,24248.0,24128.0,23936,24800,400.9,__myl_MovMulMeaAddSqrDivMulDivMinMaxRouCasDivMinMaxRouCasDivMinMaxRouCas_0xda00efdea1fdf9ffc7ce7052979834ac
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,8,94432,11804.0,11920.0,10400,13248,1266.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xcf81b38212e8f296e353aae060904a23
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,92864,23216.0,23216.0,22176,24256,854.1,__myl_CasGat_0xdee2c73dd5d0e0fe099a0774cba2143f
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,8,92288,11536.0,10784.0,10240,13600,1461.1,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x6cfe86dd6e4d3c2d552f909cb133c113
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,90528,30176.0,29856.0,29824,30848,582.2,__myl_CasResMulConSinResCosResAddSqrAddSqrDivMulDivMulMulTraSliSliNegConMulMulAddResSliRepResTraEtc_0xeeda8c3ad0b01a41e68bda37288b89cd_com
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,85728,28576.0,28768.0,27008,29952,1481.4,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,80352,26784.0,26848.0,25984,27520,770.0,_gemm_mha_v2_0xc7841b14f7d92c2016746a6691400a52
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,79968,26656.0,26880.0,26080,27008,502.9,_gemm_mha_v2_0x868207ee750ff7049028a80d32d17323
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,79776,26592.0,26432.0,26208,27136,484.2,_gemm_mha_v2_0x122d493ce64aa00c197ae40baf03a637
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,79680,26560.0,26464.0,25984,27232,629.5,_gemm_mha_v2_0xf4c36af1b3c39fab3312671f178aa157
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,79392,26464.0,26400.0,26368,26624,139.5,_gemm_mha_v2_0xab4761469dea155adca77ef52bd80a61
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,79232,26410.7,26272.0,26112,26848,387.1,_gemm_mha_v2_0xccf3a8474acc5fc16b0ad4e1c69800bb
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,6,79200,13200.0,13120.0,11872,14816,1070.7,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x2cc3c24a31f9b93e7da9ce04660164df_com_vec
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,79072,26357.3,26528.0,25888,26656,411.5,_gemm_mha_v2_0xf65d6b1571997bdfc737df09a44d72ad
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,79040,26346.7,26304.0,26016,26720,353.9,_gemm_mha_v2_0x2f61b06ce635a250b28ae8ee2ab3b5cb
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,78912,26304.0,26368.0,25920,26624,356.3,_gemm_mha_v2_0xa7ca53b515adf180e9a745693ffd0464
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,78752,26250.7,26208.0,26208,26336,73.9,_gemm_mha_v2_0x69db25f8b455550858c08191df7c4023
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,78624,26208.0,26240.0,26112,26272,84.7,_gemm_mha_v2_0x582f9c30de38a93e722c6de99876bc60
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,78592,26197.3,26048.0,25824,26720,466.3,_gemm_mha_v2_0xf766752c8950edccd27d326ac8c5c5d0
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,78528,26176.0,25952.0,25792,26784,532.6,_gemm_mha_v2_0x1c8140cface6b993997d7cd4b7477616
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,78528,26176.0,26272.0,25952,26304,194.6,_gemm_mha_v2_0xeb55f16e4b7e71fdcdb973b60cd3db5e
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,78432,26144.0,26208.0,25856,26368,261.9,_gemm_mha_v2_0x5365bc7530dd58ba06615d617f2617f3
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,78272,26090.7,26048.0,25920,26304,195.5,_gemm_mha_v2_0xc2d92b3cbb126a251b76d78c57684e17
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,78208,26069.3,26016.0,25920,26272,182.0,_gemm_mha_v2_0xee0414de60764f75e46b3b8d1e16fc19
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,78144,26048.0,26144.0,25728,26272,284.4,_gemm_mha_v2_0xb386849c29e984208fe41d8ff07d34fc
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,6,77952,12992.0,11920.0,11776,15328,1773.7,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x06bdba4595fd33adf3c728cf049f0b03_com_vec
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,77888,25962.7,25984.0,25888,26016,66.6,_gemm_mha_v2_0xe6bc19e69c82f8044e9874292acae825
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,6,76736,12789.3,12624.0,11776,14880,1143.9,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x631eac58eb6694e001a0929b8bf99c28_com_vec
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,76576,25525.3,25664.0,24896,26016,572.7,_gemm_mha_v2_0xe051501b8c48027b8c2c96139ee1b93f
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,76288,25429.3,25376.0,25216,25696,244.4,_gemm_mha_v2_0xbbc42f75034653fb101166ea3f96b8ac
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,6,75744,12624.0,12288.0,11840,13760,877.2,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xc1e4e1e5e4fa4b9df1194c070c461029_com_vec
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,73824,24608.0,24416.0,24288,25120,448.0,_gemm_mha_v2_0x1f788b071d831d329684abd45c8719fb
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,72128,24042.7,24032.0,24000,24096,48.9,_gemm_mha_v2_0x60fab5add8bb246f4c8714685e81d651
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,8,69440,8680.0,8736.0,8320,8928,187.2,__myl_MulMinMaxRouCas_0x774908550917e749f75db6185bcae83f
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,66304,22101.3,22112.0,22016,22176,80.5,__myl_MovMulMeaAddSqrDivMulMulMinMaxRouCasMulMinMaxRouCasMulMinMaxRouCas_0xc7a30bf0a7462c13e72d54b03c27c3b2_com_vec
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,60288,15072.0,15168.0,14688,15264,261.3,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x8b0f22c4a2121702a93d8623b5a12ae4
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,55552,13888.0,13888.0,13760,14016,107.7,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xf2d64d0cef819045fc9d252a6b31181b
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,54720,13680.0,13664.0,13216,14176,457.4,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,54048,13512.0,13520.0,13152,13856,348.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x2b4860727aa16b8274c6a9e412ad0345
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,54016,13504.0,13408.0,13344,13856,236.6,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xeadba79c8105dff3fdb08ce085e7b12c
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,53952,13488.0,13488.0,13056,13920,431.3,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x9b99130746ee47ec2d15b111319f425e
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,53728,13432.0,13392.0,13120,13824,337.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xe944abd3db8709490013ec56e805a4c9
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,53696,13424.0,13392.0,13120,13792,311.9,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xb2a73dcdcb246645ed7bcf4e6ce7b3cc
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,53440,13360.0,13232.0,13216,13760,267.1,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xa03da8bd0547b3997e4af5d64a9f7047
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,52480,13120.0,13136.0,12416,13792,574.2,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xb633f57e2e22833f593c4f215c79f20a
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,52384,13096.0,13104.0,13056,13120,30.6,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xbc9bffbf2b5683589f7ee804485f8f6c
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,50272,12568.0,12544.0,12448,12736,120.8,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,49472,12368.0,13024.0,10336,13088,1355.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xd65f433ff7b34abefa6995ce894b46a3
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,49440,16480.0,16800.0,15840,16800,554.3,__myl_CasGat_0xdee2c73dd5d0e0fe099a0774cba2143f_com
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,49408,12352.0,13008.0,10304,13088,1366.4,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xdba6260d6d388ff570fe95b3f4430bd0
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,49152,12288.0,12624.0,11200,12704,726.4,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x77624facc1459ff2bf110c24ed8021c9
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,47776,11944.0,11936.0,10368,13536,1819.9,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x5bd2afd5a5411fb85888be6c8200be17
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,46944,15648.0,16224.0,14080,16640,1373.8,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xa7a56a9ae5b9c92481e0f5772d53a4c2_com_vec
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,46336,11584.0,11344.0,11264,12384,536.1,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x84ef5602e3183b8229f8022d6e6eb74f
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,45728,15242.7,15264.0,15136,15328,97.8,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,45472,15157.3,15072.0,14976,15424,235.9,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xe663a90863e1c63edebb2571b115f54d_com_vec
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,45152,15050.7,14944.0,14848,15360,272.2,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x0f05f340665da317c2be64fa415c473a_com_vec
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,45024,15008.0,15040.0,14752,15232,241.6,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x0ded10591a9065a1ce867a2c40e34ad5_com_vec
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,44928,11232.0,10432.0,10400,13664,1621.4,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x028e232ad04f9dc415033ab5492ba131
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,44576,14858.7,14720.0,14560,15296,387.1,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x69b2836c7bea850742d274e0c94ca89a_com_vec
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,44544,14848.0,14912.0,14560,15072,261.9,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x7b2198561702574d86c9afed3e2e35ba_com_vec
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,44416,14805.3,14784.0,14528,15104,288.6,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x6db55c2885f6b73e7dbf474aec093db8_com_vec
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,44096,14698.7,14912.0,14272,14912,369.5,__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,43392,10848.0,10336.0,10304,12416,1045.4,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x4119fc4c6529add99aa14081dbc16ecb
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,43168,10792.0,10736.0,10336,11360,504.2,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x2d193f06c4770a0b130c316a9152d3bb
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,42976,14325.3,14336.0,14272,14368,48.9,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,42720,14240.0,14848.0,12832,15040,1223.1,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x39930415a2956c4b8d18ef510c0d5c8a_com_vec
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,42688,14229.3,14208.0,13824,14656,416.4,__myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,42368,14122.7,15104.0,12160,15104,1699.7,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xdb3307c818c43e652e527c56f123786c_com_vec
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,42208,10552.0,10400.0,10336,11072,349.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xa203a21bb9a2ead322f314c5ed6c45fd
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,42080,14026.7,14240.0,12928,14912,1009.1,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x2354092d3df3900c1fd6815a7ba9dac1_com_vec
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,41856,13952.0,15104.0,11616,15136,2023.1,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x55aaf8a4cec60956953a80afc5c7b2a6_com_vec
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,41760,13920.0,12960.0,12896,15904,1718.5,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xb8020f747bc473120c074e71691b4a60_com_vec
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,41120,13706.7,14464.0,11584,15072,1863.3,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x8a866b4697691e17e265b1490eb77602_com_vec
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,40384,13461.3,13120.0,12416,14848,1251.4,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xf1def207df08f4e6d789049433c3866b_com_vec
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,39488,13162.7,13024.0,11712,14752,1524.7,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x9c020f3e6c1f94e17da10163a8e4f733_com_vec
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,38720,12906.7,11968.0,11872,14880,1709.6,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x0f631e6ab9f0eda3ff940fe21a35a79e_com_vec
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,38528,12842.7,11808.0,11744,14976,1847.8,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x24a69f107a63616e3e844d5227fd6f6c_com_vec
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,38112,12704.0,12896.0,12224,12992,418.5,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,36768,12256.0,12256.0,12160,12352,96.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xaa5ba99515f1ab5b5fe1bff8e1cdf965_com_vec
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,36736,12245.3,12192.0,11648,12896,625.7,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xe71ebe1a59b22d4bca83cb15f0059a7c_com_vec
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,36512,9128.0,8944.0,8544,10080,690.5,__myl_MulMinMaxRouCas_0x806abff2303c4adb22dac0953af546a1
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,36192,9048.0,9008.0,8672,9504,371.7,__myl_MulMinMaxRouCas_0x7c03f425cd0cc19febc97cb69c1f2cdb
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,35968,11989.3,12128.0,11648,12192,297.3,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,35904,8976.0,8896.0,8672,9440,326.9,__myl_MulMinMaxRouCas_0x5d22e06f0128b92bf02f50e9b05f0125
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,35872,8968.0,8864.0,8768,9376,277.0,__myl_MulMinMaxRouCas_0xa01c797cf706031bf4679ec54cf7b88d
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,35616,8904.0,8784.0,8704,9344,296.0,__myl_MulMinMaxRouCas_0xca1e8a983af10962a50c67e0fecf3bd1
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,35584,8896.0,8896.0,8576,9216,334.6,__myl_MulMinMaxRouCas_0x907030f04aaedcd668915c250cbde546
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,35552,8888.0,8784.0,8640,9344,318.3,__myl_MulMinMaxRouCas_0x472744a06bd7fd057961674c77025970
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,35264,8816.0,8800.0,8544,9120,235.9,__myl_MulMinMaxRouCas_0x0b3337a1cc9120f6d73fd89c494a9e53
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,35264,8816.0,8800.0,8512,9152,267.1,__myl_MulMinMaxRouCas_0x36a6981344c30226a5bbeed5f55c92f7
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,35264,8816.0,8880.0,8352,9152,337.1,__myl_MulMinMaxRouCas_0x46757e257e41ef1fb92716579e35a0d1
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,35104,8776.0,8848.0,8384,9024,281.9,__myl_MulMinMaxRouCas_0x2bde768f3e1a80e37132bb2f4be64789
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,35008,8752.0,8816.0,8512,8864,162.1,__myl_MulMinMaxRouCas_0x6a10bd9f6c374e5ad061c0d2824b0a25
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,34880,8720.0,8768.0,8576,8768,96.0,__myl_MulMinMaxRouCas_0x998f9d85786c1705f75b803510b59e30
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,34816,8704.0,8848.0,8224,8896,323.2,__myl_MulMinMaxRouCas_0x8dd8f4f93c6a1e7d8a5025e20f21222e
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,34752,8688.0,8896.0,7936,9024,505.0,__myl_MulMinMaxRouCas_0x59f8206e6baa651ad7dab50737cc8951
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,34720,8680.0,8704.0,8288,9024,306.2,__myl_MulMinMaxRouCas_0xfffd234660cce4d6758da70fc32eeb17
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,34656,8664.0,8688.0,8512,8768,108.9,__myl_MulMinMaxRouCas_0x77ca5ed9b2797810688767dcda08897e
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,34304,8576.0,8608.0,8288,8800,226.3,__myl_MulMinMaxRouCas_0x1fb837ee240f07d62ca7b72c8a105b6f
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,34176,8544.0,8704.0,7968,8800,386.7,__myl_MulMinMaxRouCas_0x9ee6ac5b9454da6749214d07f11973df
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,34112,8528.0,8640.0,7968,8864,388.0,__myl_MulMinMaxRouCas_0xa64eacd40f6a244c6f97851e4148bfa0
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,33504,8376.0,8384.0,7936,8800,424.0,__myl_MulMinMaxRouCas_0x56e74360c3e8a36d72970af72bdd3e2b
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,32544,8136.0,8112.0,7936,8384,219.2,__myl_MulMinMaxRouCas_0xf131f88ee6d7693232e76c9290134799
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,4,4,32128,8032.0,7952.0,7904,8320,193.8,__myl_MulMinMaxRouCas_0xa49a3c4e66279a6886312b656336d70d
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,3,3,29152,9717.3,9856.0,9376,9920,297.3,__myl_RepIotIotRepCasAddCasEqlLtOrSel_0xeed00a2999d9a920ce4be4d44852c879_com
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,1,1,28640,28640.0,28640.0,28640,28640,0.0,__myl_CasResMulConSinResCosResAddSqrAddSqrDivMulDivMulMulResSliSliNegConMulMulAddConResRepResTraEtc_0x3beb58e4cd3dae3f69eebdbcbcc43980_com
+TensorRT:ExecutionContext::enqueue,PushPop,649196,649196,1,1,16800,16800.0,16800.0,16800,16800,0.0,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a_com
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,7,426,47168704,110724.7,91440.0,53952,147648,28288.5,sm80_xmma_gemm_i8i8_i8i32_f32_tn_n_tilesize32x64x64_stage6_warpsize2x2x1_tensor16x8x32_fused
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,7,505,43549216,86236.1,88160.0,52832,98496,7622.0,sm80_xmma_gemm_i8f32_i8i32_f32_tn_n_tilesize32x64x64_stage6_warpsize2x2x1_tensor16x8x32_fused
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,112,25888576,231148.0,230656.0,223648,236352,2009.3,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_fused
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,104,25409152,244318.8,242272.0,234432,306816,12547.4,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,93,22238592,239124.6,240928.0,162464,265728,25173.1,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,81,21033280,259670.1,259968.0,241568,274368,7684.5,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,112,5668864,50614.9,50528.0,49856,51872,403.6,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,112,3678976,32848.0,33024.0,30528,33792,834.8,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,16,3197344,199834.0,183728.0,172192,262112,36693.2,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,12,2927200,243933.3,244320.0,238720,247552,2778.0,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,81,2777504,34290.2,34656.0,31136,37472,1832.6,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,81,2613344,32263.5,33184.0,27680,35648,2281.5,__myl_ResConResRep_0x9d40828c020eb6bb972be950c35191c1
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,9,2317376,257486.2,236192.0,235456,300960,32351.3,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,104,1874080,18020.0,17920.0,17760,18496,209.7,__myl_MulMeaAddSqrDivMulDivMinMaxRouCasDivMinMaxRouCasDivMinMaxRouCas_0x9f2c300bb597625319cadec4728f9bc5
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,81,1387904,17134.6,17216.0,15264,19264,965.5,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x4ad536b524b3f7a2415d97f02da12733_com
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,84,1379904,16427.4,16384.0,15712,17792,323.5,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,81,1332864,16455.1,16544.0,14944,17760,727.6,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,78,1322976,16961.2,16864.0,16480,17984,386.7,__myl_MulMeaAddSqrDivMulMulMinMaxRouCasMulMinMaxRouCasMulMinMaxRouCas_0x14bacf080290e339db28d1223365390a_com_vec
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,108,1321600,12237.0,12160.0,10816,14272,685.1,__myl_ResMulMea_0x3c91498c3beee36a5653966af1581a8a
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,108,1284800,11896.3,12112.0,9984,13120,641.0,__myl_ResMulMea_0xf2413012cd9ac6341b95d78f3432c656
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,81,1249120,15421.2,15040.0,13280,36352,2497.5,__myl_ResTraResSliRepRes_0xb5ca1ead775f2215fdc6b72339368a3f_com
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,108,1202112,11130.7,11408.0,9248,12544,734.9,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,81,1001504,12364.2,12416.0,10944,14240,799.6,__myl_ResMulMea_0x356824d54c2e1ab1f7825eefa1e6b632_com_vec
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,81,982592,12130.8,12192.0,9728,13216,616.6,__myl_ResMulMea_0x9a67bce87aa70b5a86539a0972d2e0f6_com_vec
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,75,815776,10877.0,10624.0,10368,11808,445.0,__myl_ResTra_0xc03916d7cfa55338996dbe92c4283d8c_com
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,1,27,583264,21602.4,21248.0,20384,23296,790.8,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f_com
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,1,27,577472,21387.9,18112.0,16768,47520,8668.2,__myl_ResConResRep_0x9d40828c020eb6bb972be950c35191c1_com
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,1,28,350976,12534.9,12512.0,12064,13664,331.5,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f_com
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,9,224128,24903.1,24928.0,23968,25856,494.9,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,6,155552,25925.3,25968.0,25056,26688,757.6,_gemm_mha_v2_0x122877a3036390a4bf8dcfb1427b867b
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,125152,41717.3,41120.0,39552,44480,2517.7,__myl_CasResMulConSinResCosResAddSqrAddSqrDivMulDivMulMulResSliSliNegConMulMulAddConResRepResTraEtc_0x3beb58e4cd3dae3f69eebdbcbcc43980
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,8,103072,12884.0,12912.0,12256,13568,414.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xc17a9e1c8880e75049e64b4f3bf21f16
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,8,99744,12468.0,12464.0,12416,12544,51.1,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,8,98624,12328.0,11056.0,10400,15136,2318.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xd756cf8085615be8f2df33c74bb9ac74
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,96992,24248.0,24128.0,23936,24800,400.9,__myl_MovMulMeaAddSqrDivMulDivMinMaxRouCasDivMinMaxRouCasDivMinMaxRouCas_0xda00efdea1fdf9ffc7ce7052979834ac
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,8,94432,11804.0,11920.0,10400,13248,1266.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xcf81b38212e8f296e353aae060904a23
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,8,92288,11536.0,10784.0,10240,13600,1461.1,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x6cfe86dd6e4d3c2d552f909cb133c113
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,90528,30176.0,29856.0,29824,30848,582.2,__myl_CasResMulConSinResCosResAddSqrAddSqrDivMulDivMulMulTraSliSliNegConMulMulAddResSliRepResTraEtc_0xeeda8c3ad0b01a41e68bda37288b89cd_com
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,85728,28576.0,28768.0,27008,29952,1481.4,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,80352,26784.0,26848.0,25984,27520,770.0,_gemm_mha_v2_0xc7841b14f7d92c2016746a6691400a52
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,79968,26656.0,26880.0,26080,27008,502.9,_gemm_mha_v2_0x868207ee750ff7049028a80d32d17323
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,79776,26592.0,26432.0,26208,27136,484.2,_gemm_mha_v2_0x122d493ce64aa00c197ae40baf03a637
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,79680,26560.0,26464.0,25984,27232,629.5,_gemm_mha_v2_0xf4c36af1b3c39fab3312671f178aa157
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,79392,26464.0,26400.0,26368,26624,139.5,_gemm_mha_v2_0xab4761469dea155adca77ef52bd80a61
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,79232,26410.7,26272.0,26112,26848,387.1,_gemm_mha_v2_0xccf3a8474acc5fc16b0ad4e1c69800bb
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,6,79200,13200.0,13120.0,11872,14816,1070.7,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x2cc3c24a31f9b93e7da9ce04660164df_com_vec
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,79072,26357.3,26528.0,25888,26656,411.5,_gemm_mha_v2_0xf65d6b1571997bdfc737df09a44d72ad
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,79040,26346.7,26304.0,26016,26720,353.9,_gemm_mha_v2_0x2f61b06ce635a250b28ae8ee2ab3b5cb
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,78912,26304.0,26368.0,25920,26624,356.3,_gemm_mha_v2_0xa7ca53b515adf180e9a745693ffd0464
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,78752,26250.7,26208.0,26208,26336,73.9,_gemm_mha_v2_0x69db25f8b455550858c08191df7c4023
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,78624,26208.0,26240.0,26112,26272,84.7,_gemm_mha_v2_0x582f9c30de38a93e722c6de99876bc60
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,78592,26197.3,26048.0,25824,26720,466.3,_gemm_mha_v2_0xf766752c8950edccd27d326ac8c5c5d0
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,78528,26176.0,25952.0,25792,26784,532.6,_gemm_mha_v2_0x1c8140cface6b993997d7cd4b7477616
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,78528,26176.0,26272.0,25952,26304,194.6,_gemm_mha_v2_0xeb55f16e4b7e71fdcdb973b60cd3db5e
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,78432,26144.0,26208.0,25856,26368,261.9,_gemm_mha_v2_0x5365bc7530dd58ba06615d617f2617f3
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,78272,26090.7,26048.0,25920,26304,195.5,_gemm_mha_v2_0xc2d92b3cbb126a251b76d78c57684e17
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,78208,26069.3,26016.0,25920,26272,182.0,_gemm_mha_v2_0xee0414de60764f75e46b3b8d1e16fc19
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,78144,26048.0,26144.0,25728,26272,284.4,_gemm_mha_v2_0xb386849c29e984208fe41d8ff07d34fc
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,6,77952,12992.0,11920.0,11776,15328,1773.7,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x06bdba4595fd33adf3c728cf049f0b03_com_vec
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,77888,25962.7,25984.0,25888,26016,66.6,_gemm_mha_v2_0xe6bc19e69c82f8044e9874292acae825
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,6,76736,12789.3,12624.0,11776,14880,1143.9,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x631eac58eb6694e001a0929b8bf99c28_com_vec
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,76576,25525.3,25664.0,24896,26016,572.7,_gemm_mha_v2_0xe051501b8c48027b8c2c96139ee1b93f
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,76288,25429.3,25376.0,25216,25696,244.4,_gemm_mha_v2_0xbbc42f75034653fb101166ea3f96b8ac
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,6,75744,12624.0,12288.0,11840,13760,877.2,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xc1e4e1e5e4fa4b9df1194c070c461029_com_vec
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,73824,24608.0,24416.0,24288,25120,448.0,_gemm_mha_v2_0x1f788b071d831d329684abd45c8719fb
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,72128,24042.7,24032.0,24000,24096,48.9,_gemm_mha_v2_0x60fab5add8bb246f4c8714685e81d651
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,8,69440,8680.0,8736.0,8320,8928,187.2,__myl_MulMinMaxRouCas_0x774908550917e749f75db6185bcae83f
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,66304,22101.3,22112.0,22016,22176,80.5,__myl_MovMulMeaAddSqrDivMulMulMinMaxRouCasMulMinMaxRouCasMulMinMaxRouCas_0xc7a30bf0a7462c13e72d54b03c27c3b2_com_vec
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,60288,15072.0,15168.0,14688,15264,261.3,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x8b0f22c4a2121702a93d8623b5a12ae4
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,55552,13888.0,13888.0,13760,14016,107.7,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xf2d64d0cef819045fc9d252a6b31181b
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,54720,13680.0,13664.0,13216,14176,457.4,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,54048,13512.0,13520.0,13152,13856,348.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x2b4860727aa16b8274c6a9e412ad0345
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,54016,13504.0,13408.0,13344,13856,236.6,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xeadba79c8105dff3fdb08ce085e7b12c
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,53952,13488.0,13488.0,13056,13920,431.3,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x9b99130746ee47ec2d15b111319f425e
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,53728,13432.0,13392.0,13120,13824,337.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xe944abd3db8709490013ec56e805a4c9
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,53696,13424.0,13392.0,13120,13792,311.9,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xb2a73dcdcb246645ed7bcf4e6ce7b3cc
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,53440,13360.0,13232.0,13216,13760,267.1,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xa03da8bd0547b3997e4af5d64a9f7047
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,52480,13120.0,13136.0,12416,13792,574.2,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xb633f57e2e22833f593c4f215c79f20a
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,52384,13096.0,13104.0,13056,13120,30.6,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xbc9bffbf2b5683589f7ee804485f8f6c
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,50272,12568.0,12544.0,12448,12736,120.8,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,49472,12368.0,13024.0,10336,13088,1355.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xd65f433ff7b34abefa6995ce894b46a3
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,49408,12352.0,13008.0,10304,13088,1366.4,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xdba6260d6d388ff570fe95b3f4430bd0
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,49152,12288.0,12624.0,11200,12704,726.4,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x77624facc1459ff2bf110c24ed8021c9
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,47776,11944.0,11936.0,10368,13536,1819.9,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x5bd2afd5a5411fb85888be6c8200be17
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,46944,15648.0,16224.0,14080,16640,1373.8,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xa7a56a9ae5b9c92481e0f5772d53a4c2_com_vec
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,46336,11584.0,11344.0,11264,12384,536.1,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x84ef5602e3183b8229f8022d6e6eb74f
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,45728,15242.7,15264.0,15136,15328,97.8,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,45472,15157.3,15072.0,14976,15424,235.9,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xe663a90863e1c63edebb2571b115f54d_com_vec
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,45152,15050.7,14944.0,14848,15360,272.2,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x0f05f340665da317c2be64fa415c473a_com_vec
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,45024,15008.0,15040.0,14752,15232,241.6,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x0ded10591a9065a1ce867a2c40e34ad5_com_vec
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,44928,11232.0,10432.0,10400,13664,1621.4,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x028e232ad04f9dc415033ab5492ba131
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,44576,14858.7,14720.0,14560,15296,387.1,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x69b2836c7bea850742d274e0c94ca89a_com_vec
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,44544,14848.0,14912.0,14560,15072,261.9,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x7b2198561702574d86c9afed3e2e35ba_com_vec
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,44416,14805.3,14784.0,14528,15104,288.6,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x6db55c2885f6b73e7dbf474aec093db8_com_vec
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,44096,14698.7,14912.0,14272,14912,369.5,__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,43392,10848.0,10336.0,10304,12416,1045.4,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x4119fc4c6529add99aa14081dbc16ecb
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,43168,10792.0,10736.0,10336,11360,504.2,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x2d193f06c4770a0b130c316a9152d3bb
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,42976,14325.3,14336.0,14272,14368,48.9,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,42720,14240.0,14848.0,12832,15040,1223.1,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x39930415a2956c4b8d18ef510c0d5c8a_com_vec
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,42688,14229.3,14208.0,13824,14656,416.4,__myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,42368,14122.7,15104.0,12160,15104,1699.7,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xdb3307c818c43e652e527c56f123786c_com_vec
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,42208,10552.0,10400.0,10336,11072,349.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xa203a21bb9a2ead322f314c5ed6c45fd
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,42080,14026.7,14240.0,12928,14912,1009.1,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x2354092d3df3900c1fd6815a7ba9dac1_com_vec
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,41856,13952.0,15104.0,11616,15136,2023.1,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x55aaf8a4cec60956953a80afc5c7b2a6_com_vec
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,41760,13920.0,12960.0,12896,15904,1718.5,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xb8020f747bc473120c074e71691b4a60_com_vec
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,41120,13706.7,14464.0,11584,15072,1863.3,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x8a866b4697691e17e265b1490eb77602_com_vec
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,40384,13461.3,13120.0,12416,14848,1251.4,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xf1def207df08f4e6d789049433c3866b_com_vec
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,39488,13162.7,13024.0,11712,14752,1524.7,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x9c020f3e6c1f94e17da10163a8e4f733_com_vec
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,38720,12906.7,11968.0,11872,14880,1709.6,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x0f631e6ab9f0eda3ff940fe21a35a79e_com_vec
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,38528,12842.7,11808.0,11744,14976,1847.8,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x24a69f107a63616e3e844d5227fd6f6c_com_vec
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,38112,12704.0,12896.0,12224,12992,418.5,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,36768,12256.0,12256.0,12160,12352,96.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xaa5ba99515f1ab5b5fe1bff8e1cdf965_com_vec
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,36736,12245.3,12192.0,11648,12896,625.7,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xe71ebe1a59b22d4bca83cb15f0059a7c_com_vec
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,36512,9128.0,8944.0,8544,10080,690.5,__myl_MulMinMaxRouCas_0x806abff2303c4adb22dac0953af546a1
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,36192,9048.0,9008.0,8672,9504,371.7,__myl_MulMinMaxRouCas_0x7c03f425cd0cc19febc97cb69c1f2cdb
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,35968,11989.3,12128.0,11648,12192,297.3,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,35904,8976.0,8896.0,8672,9440,326.9,__myl_MulMinMaxRouCas_0x5d22e06f0128b92bf02f50e9b05f0125
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,35872,8968.0,8864.0,8768,9376,277.0,__myl_MulMinMaxRouCas_0xa01c797cf706031bf4679ec54cf7b88d
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,35616,8904.0,8784.0,8704,9344,296.0,__myl_MulMinMaxRouCas_0xca1e8a983af10962a50c67e0fecf3bd1
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,35584,8896.0,8896.0,8576,9216,334.6,__myl_MulMinMaxRouCas_0x907030f04aaedcd668915c250cbde546
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,35552,8888.0,8784.0,8640,9344,318.3,__myl_MulMinMaxRouCas_0x472744a06bd7fd057961674c77025970
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,35264,8816.0,8800.0,8544,9120,235.9,__myl_MulMinMaxRouCas_0x0b3337a1cc9120f6d73fd89c494a9e53
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,35264,8816.0,8800.0,8512,9152,267.1,__myl_MulMinMaxRouCas_0x36a6981344c30226a5bbeed5f55c92f7
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,35264,8816.0,8880.0,8352,9152,337.1,__myl_MulMinMaxRouCas_0x46757e257e41ef1fb92716579e35a0d1
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,35104,8776.0,8848.0,8384,9024,281.9,__myl_MulMinMaxRouCas_0x2bde768f3e1a80e37132bb2f4be64789
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,35008,8752.0,8816.0,8512,8864,162.1,__myl_MulMinMaxRouCas_0x6a10bd9f6c374e5ad061c0d2824b0a25
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,34880,8720.0,8768.0,8576,8768,96.0,__myl_MulMinMaxRouCas_0x998f9d85786c1705f75b803510b59e30
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,34816,8704.0,8848.0,8224,8896,323.2,__myl_MulMinMaxRouCas_0x8dd8f4f93c6a1e7d8a5025e20f21222e
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,34752,8688.0,8896.0,7936,9024,505.0,__myl_MulMinMaxRouCas_0x59f8206e6baa651ad7dab50737cc8951
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,34720,8680.0,8704.0,8288,9024,306.2,__myl_MulMinMaxRouCas_0xfffd234660cce4d6758da70fc32eeb17
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,34656,8664.0,8688.0,8512,8768,108.9,__myl_MulMinMaxRouCas_0x77ca5ed9b2797810688767dcda08897e
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,34304,8576.0,8608.0,8288,8800,226.3,__myl_MulMinMaxRouCas_0x1fb837ee240f07d62ca7b72c8a105b6f
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,34176,8544.0,8704.0,7968,8800,386.7,__myl_MulMinMaxRouCas_0x9ee6ac5b9454da6749214d07f11973df
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,34112,8528.0,8640.0,7968,8864,388.0,__myl_MulMinMaxRouCas_0xa64eacd40f6a244c6f97851e4148bfa0
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,33504,8376.0,8384.0,7936,8800,424.0,__myl_MulMinMaxRouCas_0x56e74360c3e8a36d72970af72bdd3e2b
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,32544,8136.0,8112.0,7936,8384,219.2,__myl_MulMinMaxRouCas_0xf131f88ee6d7693232e76c9290134799
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,4,4,32128,8032.0,7952.0,7904,8320,193.8,__myl_MulMinMaxRouCas_0xa49a3c4e66279a6886312b656336d70d
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,3,3,29152,9717.3,9856.0,9376,9920,297.3,__myl_RepIotIotRepCasAddCasEqlLtOrSel_0xeed00a2999d9a920ce4be4d44852c879_com
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,1,1,28640,28640.0,28640.0,28640,28640,0.0,__myl_CasResMulConSinResCosResAddSqrAddSqrDivMulDivMulMulResSliSliNegConMulMulAddConResRepResTraEtc_0x3beb58e4cd3dae3f69eebdbcbcc43980_com
+TensorRT:{ForeignNode[/Cast.../Add_111]},PushPop,649196,649196,1,1,16800,16800.0,16800.0,16800,16800,0.0,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a_com
+TensorRT:{ForeignNode[/Cast.../Cast_1]},PushPop,649196,649196,7,7,133568,19081.1,19104.0,17984,20160,630.0,__myl_MovMulMeaAddSqrDivMulMulCas_0x62665ed68e2d72f01be2ec50e848f2e2_vec
+TensorRT:{ForeignNode[ONNXTRT_castHelper.../Gather]},PushPop,649196,649196,4,4,92864,23216.0,23216.0,22176,24256,854.1,__myl_CasGat_0xdee2c73dd5d0e0fe099a0774cba2143f
+TensorRT:{ForeignNode[ONNXTRT_castHelper.../Gather]},PushPop,649196,649196,3,3,49440,16480.0,16800.0,15840,16800,554.3,__myl_CasGat_0xdee2c73dd5d0e0fe099a0774cba2143f_com
+TensorRT:{ForeignNode[onnx::MatMul_4 + ONNXTRT_Broadcast.../MatMul]},PushPop,649196,649196,7,7,70820032,10117147.4,10117664.0,10111456,10121376,3431.2,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+myelin-exec:/MatMul,PushPop,649196,649196,7,7,70820032,10117147.4,10117664.0,10111456,10121376,3431.2,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+myelin-exec:/MatMul,PushPop,649196,649196,4,4,124288,31072.0,31024.0,30528,31712,500.5,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_1,PushPop,649196,649196,4,4,202976,50744.0,50736.0,50656,50848,102.4,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_10,PushPop,649196,649196,4,4,133024,33256.0,33312.0,32800,33600,393.1,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_11,PushPop,649196,649196,4,4,204064,51016.0,51056.0,50496,51456,394.8,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_12,PushPop,649196,649196,4,4,132960,33240.0,33376.0,32448,33760,573.3,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_13,PushPop,649196,649196,4,4,201600,50400.0,50448.0,50240,50464,107.7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_14,PushPop,649196,649196,4,4,133408,33352.0,33440.0,33024,33504,222.3,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_15,PushPop,649196,649196,4,4,203552,50888.0,50912.0,50560,51168,270.7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_16,PushPop,649196,649196,4,4,132256,33064.0,32912.0,32672,33760,506.9,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_17,PushPop,649196,649196,4,4,203968,50992.0,51008.0,50528,51424,388.9,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_18,PushPop,649196,649196,4,4,132864,33216.0,33200.0,32672,33792,611.1,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_19,PushPop,649196,649196,4,4,202272,50568.0,50448.0,50208,51168,420.8,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_2,PushPop,649196,649196,4,4,126880,31720.0,31760.0,31424,31936,257.8,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_20,PushPop,649196,649196,4,4,133056,33264.0,33424.0,32704,33504,375.5,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_21,PushPop,649196,649196,4,4,202240,50560.0,50624.0,49856,51136,538.0,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_22,PushPop,649196,649196,4,4,131392,32848.0,32752.0,32544,33344,356.8,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_23,PushPop,649196,649196,4,4,202080,50520.0,50496.0,50304,50784,199.6,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_24,PushPop,649196,649196,4,4,133216,33304.0,33440.0,32640,33696,470.6,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_25,PushPop,649196,649196,4,4,201952,50488.0,50432.0,50272,50816,244.2,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_26,PushPop,649196,649196,4,4,132192,33048.0,33152.0,32288,33600,632.2,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_27,PushPop,649196,649196,4,4,201984,50496.0,50512.0,50176,50784,265.2,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_28,PushPop,649196,649196,4,4,133632,33408.0,33568.0,32704,33792,483.9,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_29,PushPop,649196,649196,4,4,203232,50808.0,50864.0,50208,51296,489.8,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_3,PushPop,649196,649196,4,4,202912,50728.0,50672.0,50528,51040,222.3,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_30,PushPop,649196,649196,4,4,132960,33240.0,33216.0,32768,33760,546.4,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_31,PushPop,649196,649196,4,4,201344,50336.0,50336.0,49984,50688,292.1,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_32,PushPop,649196,649196,4,4,132704,33176.0,33200.0,32768,33536,346.0,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_33,PushPop,649196,649196,4,4,202496,50624.0,50432.0,50272,51360,507.3,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_34,PushPop,649196,649196,4,4,127008,31752.0,31936.0,31040,32096,483.5,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_35,PushPop,649196,649196,4,4,204096,51024.0,51088.0,50400,51520,552.1,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_36,PushPop,649196,649196,4,4,132000,33000.0,33120.0,32480,33280,363.3,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_37,PushPop,649196,649196,4,4,202752,50688.0,50704.0,50464,50880,207.4,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_38,PushPop,649196,649196,4,4,132288,33072.0,33120.0,32480,33568,531.9,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_39,PushPop,649196,649196,4,4,202368,50592.0,50512.0,50112,51232,488.1,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_4,PushPop,649196,649196,4,4,123328,30832.0,30816.0,30752,30944,84.7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_40,PushPop,649196,649196,4,4,133696,33424.0,33520.0,32992,33664,318.4,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_41,PushPop,649196,649196,4,4,202272,50568.0,50544.0,50304,50880,253.8,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_42,PushPop,649196,649196,4,4,132800,33200.0,33200.0,32736,33664,396.7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_43,PushPop,649196,649196,4,4,204128,51032.0,51152.0,50176,51648,633.2,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_44,PushPop,649196,649196,4,4,124960,31240.0,31040.0,30912,31968,489.8,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_45,PushPop,649196,649196,4,4,200800,50200.0,50240.0,50048,50272,105.7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_46,PushPop,649196,649196,4,4,133920,33480.0,33664.0,32832,33760,437.5,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_47,PushPop,649196,649196,4,4,202720,50680.0,50320.0,50208,51872,799.1,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_48,PushPop,649196,649196,4,4,131968,32992.0,33072.0,32416,33408,497.8,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_49,PushPop,649196,649196,4,4,200864,50216.0,50128.0,49952,50656,337.0,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_5,PushPop,649196,649196,4,4,201472,50368.0,50368.0,50080,50656,247.9,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_50,PushPop,649196,649196,4,4,132960,33240.0,33328.0,32608,33696,464.7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_51,PushPop,649196,649196,4,4,202720,50680.0,50752.0,50240,50976,328.8,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_52,PushPop,649196,649196,4,4,132672,33168.0,33152.0,32736,33632,449.9,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_53,PushPop,649196,649196,4,4,201664,50416.0,50432.0,50304,50496,84.7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_54,PushPop,649196,649196,4,4,131392,32848.0,32800.0,32640,33152,216.2,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_55,PushPop,649196,649196,4,4,202304,50576.0,50704.0,50048,50848,358.7,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_6,PushPop,649196,649196,4,4,132544,33136.0,33072.0,32800,33600,335.1,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_7,PushPop,649196,649196,4,4,202848,50712.0,50528.0,50400,51392,460.3,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_8,PushPop,649196,649196,4,4,132608,33152.0,33056.0,33024,33472,215.5,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/MatMul_9,PushPop,649196,649196,4,4,201184,50296.0,50304.0,50208,50368,71.0,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:/gate_proj_27/MatMul,PushPop,649196,649196,3,3,769056,256352.0,256608.0,254944,257504,1299.1,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+myelin-exec:/up_proj/MatMul,PushPop,649196,649196,4,4,966208,241552.0,241584.0,239200,243840,1932.1,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+myelin-exec:/up_proj/MatMul,PushPop,649196,649196,3,3,766240,255413.3,253536.0,252096,260608,4556.0,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+myelin-exec:/up_proj_1/MatMul,PushPop,649196,649196,4,4,964672,241168.0,241728.0,237728,243488,2470.1,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+myelin-exec:/up_proj_1/MatMul,PushPop,649196,649196,3,3,707616,235872.0,235616.0,235456,236544,587.4,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+myelin-exec:/up_proj_10/MatMul,PushPop,649196,649196,4,4,959200,239800.0,239872.0,237952,241504,1650.5,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+myelin-exec:/up_proj_10/MatMul,PushPop,649196,649196,3,3,792896,264298.7,264896.0,262272,265728,1803.8,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+myelin-exec:/up_proj_11/MatMul,PushPop,649196,649196,4,4,961952,240488.0,240720.0,237984,242528,1876.6,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+myelin-exec:/up_proj_11/MatMul,PushPop,649196,649196,3,3,795584,265194.7,265664.0,264000,265920,1042.5,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+myelin-exec:/up_proj_12/MatMul,PushPop,649196,649196,4,4,963648,240912.0,241792.0,237984,242080,1965.2,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+myelin-exec:/up_proj_12/MatMul,PushPop,649196,649196,3,3,768672,256224.0,255680.0,254592,258400,1961.4,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+myelin-exec:/up_proj_13/MatMul,PushPop,649196,649196,4,4,964160,241040.0,240912.0,235104,247232,4956.4,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+myelin-exec:/up_proj_13/MatMul,PushPop,649196,649196,3,3,765216,255072.0,254944.0,253472,256800,1667.7,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+myelin-exec:/up_proj_14/MatMul,PushPop,649196,649196,4,4,972576,243144.0,243248.0,240960,245120,1951.5,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+myelin-exec:/up_proj_14/MatMul,PushPop,649196,649196,3,3,761504,253834.7,252640.0,251712,257152,2910.1,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+myelin-exec:/up_proj_15/MatMul,PushPop,649196,649196,4,4,982368,245592.0,245232.0,244160,247744,1574.1,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+myelin-exec:/up_proj_15/MatMul,PushPop,649196,649196,3,3,753472,251157.3,249728.0,249472,254272,2700.4,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+myelin-exec:/up_proj_16/MatMul,PushPop,649196,649196,4,4,964608,241152.0,241184.0,239072,243168,1674.4,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+myelin-exec:/up_proj_16/MatMul,PushPop,649196,649196,3,3,779616,259872.0,257856.0,256288,265472,4912.7,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+myelin-exec:/up_proj_17/MatMul,PushPop,649196,649196,4,4,955840,238960.0,239136.0,235296,242272,3014.4,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+myelin-exec:/up_proj_17/MatMul,PushPop,649196,649196,3,3,756128,252042.7,252000.0,248064,256064,4000.2,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+myelin-exec:/up_proj_18/MatMul,PushPop,649196,649196,4,4,963264,240816.0,240272.0,239008,243712,2035.7,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+myelin-exec:/up_proj_18/MatMul,PushPop,649196,649196,3,3,750112,250037.3,249664.0,243520,256928,6711.8,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+myelin-exec:/up_proj_19/MatMul,PushPop,649196,649196,4,4,957568,239392.0,239264.0,238208,240832,1101.4,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+myelin-exec:/up_proj_19/MatMul,PushPop,649196,649196,3,3,766432,255477.3,255360.0,253664,257408,1874.8,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+myelin-exec:/up_proj_2/MatMul,PushPop,649196,649196,4,4,974560,243640.0,244192.0,241216,244960,1661.2,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+myelin-exec:/up_proj_2/MatMul,PushPop,649196,649196,3,3,707904,235968.0,236032.0,235680,236192,261.9,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+myelin-exec:/up_proj_20/MatMul,PushPop,649196,649196,4,4,964704,241176.0,241664.0,236064,245312,3852.9,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+myelin-exec:/up_proj_20/MatMul,PushPop,649196,649196,3,3,814432,271477.3,270208.0,270144,274080,2254.2,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+myelin-exec:/up_proj_21/MatMul,PushPop,649196,649196,4,4,964160,241040.0,241760.0,237504,243136,2494.8,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+myelin-exec:/up_proj_21/MatMul,PushPop,649196,649196,3,3,801280,267093.3,266560.0,265536,269184,1881.6,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+myelin-exec:/up_proj_22/MatMul,PushPop,649196,649196,4,4,969408,242352.0,243280.0,237888,244960,3135.2,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+myelin-exec:/up_proj_22/MatMul,PushPop,649196,649196,3,3,797472,265824.0,264608.0,264544,268320,2161.8,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+myelin-exec:/up_proj_23/MatMul,PushPop,649196,649196,4,4,977216,244304.0,243536.0,243008,247136,1908.0,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+myelin-exec:/up_proj_23/MatMul,PushPop,649196,649196,3,3,796800,265600.0,264576.0,264288,267936,2028.2,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+myelin-exec:/up_proj_24/MatMul,PushPop,649196,649196,4,4,976128,244032.0,244592.0,241408,245536,1808.9,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+myelin-exec:/up_proj_24/MatMul,PushPop,649196,649196,3,3,793280,264426.7,263168.0,262496,267616,2782.4,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+myelin-exec:/up_proj_25/MatMul,PushPop,649196,649196,4,4,961888,240472.0,242400.0,234432,242656,4030.6,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+myelin-exec:/up_proj_25/MatMul,PushPop,649196,649196,3,3,789344,263114.7,262240.0,260832,266272,2823.5,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+myelin-exec:/up_proj_26/MatMul,PushPop,649196,649196,4,4,980256,245064.0,245536.0,243488,245696,1054.7,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+myelin-exec:/up_proj_26/MatMul,PushPop,649196,649196,3,3,779360,259786.7,259488.0,258912,260960,1056.2,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+myelin-exec:/up_proj_27/MatMul,PushPop,649196,649196,4,4,969152,242288.0,242496.0,238720,245440,3094.3,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+myelin-exec:/up_proj_27/MatMul,PushPop,649196,649196,3,3,762112,254037.3,254368.0,252960,254784,955.9,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+myelin-exec:/up_proj_3/MatMul,PushPop,649196,649196,4,4,977536,244384.0,244560.0,242592,245824,1640.7,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+myelin-exec:/up_proj_3/MatMul,PushPop,649196,649196,3,3,786912,262304.0,259968.0,252576,274368,11082.2,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+myelin-exec:/up_proj_4/MatMul,PushPop,649196,649196,4,4,967360,241840.0,243728.0,234656,245248,4857.4,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+myelin-exec:/up_proj_4/MatMul,PushPop,649196,649196,3,3,748416,249472.0,248800.0,247584,252032,2298.9,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+myelin-exec:/up_proj_5/MatMul,PushPop,649196,649196,4,4,968832,242208.0,241616.0,240352,245248,2179.3,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+myelin-exec:/up_proj_5/MatMul,PushPop,649196,649196,3,3,729152,243050.7,243072.0,241568,244512,1472.1,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+myelin-exec:/up_proj_6/MatMul,PushPop,649196,649196,4,4,973440,243360.0,244208.0,239040,245984,3216.7,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+myelin-exec:/up_proj_6/MatMul,PushPop,649196,649196,3,3,807616,269205.3,270144.0,266976,270496,1938.7,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+myelin-exec:/up_proj_7/MatMul,PushPop,649196,649196,4,4,964928,241232.0,241968.0,238336,242656,1994.0,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+myelin-exec:/up_proj_7/MatMul,PushPop,649196,649196,3,3,805088,268362.7,268800.0,266688,269600,1504.5,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+myelin-exec:/up_proj_8/MatMul,PushPop,649196,649196,4,4,985472,246368.0,246960.0,244000,247552,1603.2,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+myelin-exec:/up_proj_8/MatMul,PushPop,649196,649196,3,3,802080,267360.0,268384.0,265184,268512,1885.6,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+myelin-exec:/up_proj_9/MatMul,PushPop,649196,649196,4,4,964608,241152.0,241568.0,238720,242752,1758.9,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+myelin-exec:/up_proj_9/MatMul,PushPop,649196,649196,3,3,795008,265002.7,265728.0,263040,266240,1718.9,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+myelin-exec:/v_proj_2/MatMul+/k_proj_2/MatMul+/q_proj_2/MatMul,PushPop,649196,649196,4,4,1220640,305160.0,304752.0,304320,306816,1155.7,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+myelin-exec:/v_proj_2/MatMul+/k_proj_2/MatMul+/q_proj_2/MatMul,PushPop,649196,649196,3,3,901856,300618.7,300512.0,300384,300960,302.5,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+myelin-exec:__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd,PushPop,649196,649196,108,108,1202112,11130.7,11408.0,9248,12544,734.9,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+myelin-exec:__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra,PushPop,649196,649196,81,81,2777504,34290.2,34656.0,31136,37472,1832.6,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f
+myelin-exec:__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra,PushPop,649196,649196,27,27,583264,21602.4,21248.0,20384,23296,790.8,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f_com
+myelin-exec:__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes,PushPop,649196,649196,81,81,1332864,16455.1,16544.0,14944,17760,727.6,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+myelin-exec:__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes,PushPop,649196,649196,81,81,1387904,17134.6,17216.0,15264,19264,965.5,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x4ad536b524b3f7a2415d97f02da12733_com
+myelin-exec:__myl_CasGat,PushPop,649196,649196,4,4,92864,23216.0,23216.0,22176,24256,854.1,__myl_CasGat_0xdee2c73dd5d0e0fe099a0774cba2143f
+myelin-exec:__myl_CasGat,PushPop,649196,649196,3,3,49440,16480.0,16800.0,15840,16800,554.3,__myl_CasGat_0xdee2c73dd5d0e0fe099a0774cba2143f_com
+myelin-exec:__myl_CasResMulConSinResCosResAddSqrAddSqrDivMulDivMulMulResSliSliNegConMulMulAddConResRepResTraEtc,PushPop,649196,649196,3,3,125152,41717.3,41120.0,39552,44480,2517.7,__myl_CasResMulConSinResCosResAddSqrAddSqrDivMulDivMulMulResSliSliNegConMulMulAddConResRepResTraEtc_0x3beb58e4cd3dae3f69eebdbcbcc43980
+myelin-exec:__myl_CasResMulConSinResCosResAddSqrAddSqrDivMulDivMulMulResSliSliNegConMulMulAddConResRepResTraEtc,PushPop,649196,649196,1,1,28640,28640.0,28640.0,28640,28640,0.0,__myl_CasResMulConSinResCosResAddSqrAddSqrDivMulDivMulMulResSliSliNegConMulMulAddConResRepResTraEtc_0x3beb58e4cd3dae3f69eebdbcbcc43980_com
+myelin-exec:__myl_CasResMulConSinResCosResAddSqrAddSqrDivMulDivMulMulTraSliSliNegConMulMulAddResSliRepResTraEtc,PushPop,649196,649196,3,3,90528,30176.0,29856.0,29824,30848,582.2,__myl_CasResMulConSinResCosResAddSqrAddSqrDivMulDivMulMulTraSliSliNegConMulMulAddResSliRepResTraEtc_0xeeda8c3ad0b01a41e68bda37288b89cd_com
+myelin-exec:__myl_FcAdd,PushPop,649196,649196,112,112,25888576,231148.0,230656.0,223648,236352,2009.3,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_fused
+myelin-exec:__myl_FcAdd,PushPop,649196,649196,93,93,22238592,239124.6,240928.0,162464,265728,25173.1,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+myelin-exec:__myl_FcAdd,PushPop,649196,649196,12,12,2159680,179973.3,173024.0,172192,194752,10667.1,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+myelin-exec:__myl_FcCas,PushPop,649196,649196,405,405,34699424,85677.6,83584.0,52832,98496,8415.0,sm80_xmma_gemm_i8f32_i8i32_f32_tn_n_tilesize32x64x64_stage6_warpsize2x2x1_tensor16x8x32_fused
+myelin-exec:__myl_FcCas,PushPop,649196,649196,162,162,13531168,83525.7,85200.0,53952,91328,7020.6,sm80_xmma_gemm_i8i8_i8i32_f32_tn_n_tilesize32x64x64_stage6_warpsize2x2x1_tensor16x8x32_fused
+myelin-exec:__myl_FcCasAdd,PushPop,649196,649196,100,100,8849792,88497.9,88480.0,87424,90112,583.9,sm80_xmma_gemm_i8f32_i8i32_f32_tn_n_tilesize32x64x64_stage6_warpsize2x2x1_tensor16x8x32_fused
+myelin-exec:__myl_FcCasAdd,PushPop,649196,649196,75,75,6834272,91123.6,91040.0,90240,92672,554.5,sm80_xmma_gemm_i8i8_i8i32_f32_tn_n_tilesize32x64x64_stage6_warpsize2x2x1_tensor16x8x32_fused
+myelin-exec:__myl_FcCasNegExpAddDivMulMul,PushPop,649196,649196,189,189,26803264,141816.2,141632.0,134752,147648,2037.1,sm80_xmma_gemm_i8i8_i8i32_f32_tn_n_tilesize32x64x64_stage6_warpsize2x2x1_tensor16x8x32_fused
+myelin-exec:__myl_FcNegExpAddDivMulMul,PushPop,649196,649196,4,4,1037664,259416.0,258896.0,257760,262112,1891.8,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+myelin-exec:__myl_MovMulMeaAddSqrDivMulDivMinMaxRouCasDivMinMaxRouCasDivMinMaxRouCas,PushPop,649196,649196,4,4,96992,24248.0,24128.0,23936,24800,400.9,__myl_MovMulMeaAddSqrDivMulDivMinMaxRouCasDivMinMaxRouCasDivMinMaxRouCas_0xda00efdea1fdf9ffc7ce7052979834ac
+myelin-exec:__myl_MovMulMeaAddSqrDivMulMulCas,PushPop,649196,649196,7,7,133568,19081.1,19104.0,17984,20160,630.0,__myl_MovMulMeaAddSqrDivMulMulCas_0x62665ed68e2d72f01be2ec50e848f2e2_vec
+myelin-exec:__myl_MovMulMeaAddSqrDivMulMulMinMaxRouCasMulMinMaxRouCasMulMinMaxRouCas,PushPop,649196,649196,3,3,66304,22101.3,22112.0,22016,22176,80.5,__myl_MovMulMeaAddSqrDivMulMulMinMaxRouCasMulMinMaxRouCasMulMinMaxRouCas_0xc7a30bf0a7462c13e72d54b03c27c3b2_com_vec
+myelin-exec:__myl_MovResConResRep,PushPop,649196,649196,3,3,85728,28576.0,28768.0,27008,29952,1481.4,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a
+myelin-exec:__myl_MovResConResRep,PushPop,649196,649196,1,1,16800,16800.0,16800.0,16800,16800,0.0,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a_com
+myelin-exec:__myl_MovResMulMea,PushPop,649196,649196,4,4,54720,13680.0,13664.0,13216,14176,457.4,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+myelin-exec:__myl_MovResMulMea,PushPop,649196,649196,4,4,50272,12568.0,12544.0,12448,12736,120.8,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+myelin-exec:__myl_MulMaxSubExpSumDivMul,PushPop,649196,649196,84,84,1379904,16427.4,16384.0,15712,17792,323.5,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f
+myelin-exec:__myl_MulMaxSubExpSumDivMul,PushPop,649196,649196,28,28,350976,12534.9,12512.0,12064,13664,331.5,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f_com
+myelin-exec:__myl_MulMeaAddSqrDivMulDivMinMaxRouCasDivMinMaxRouCasDivMinMaxRouCas,PushPop,649196,649196,104,104,1874080,18020.0,17920.0,17760,18496,209.7,__myl_MulMeaAddSqrDivMulDivMinMaxRouCasDivMinMaxRouCasDivMinMaxRouCas_0x9f2c300bb597625319cadec4728f9bc5
+myelin-exec:__myl_MulMeaAddSqrDivMulMul,PushPop,649196,649196,8,8,99744,12468.0,12464.0,12416,12544,51.1,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+myelin-exec:__myl_MulMeaAddSqrDivMulMul,PushPop,649196,649196,3,3,44096,14698.7,14912.0,14272,14912,369.5,__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+myelin-exec:__myl_MulMeaAddSqrDivMulMul,PushPop,649196,649196,3,3,42688,14229.3,14208.0,13824,14656,416.4,__myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMinMaxRouCasMulMinMaxRouCasMulMinMaxRouCas,PushPop,649196,649196,78,78,1322976,16961.2,16864.0,16480,17984,386.7,__myl_MulMeaAddSqrDivMulMulMinMaxRouCasMulMinMaxRouCasMulMinMaxRouCas_0x14bacf080290e339db28d1223365390a_com_vec
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,8,8,103072,12884.0,12912.0,12256,13568,414.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xc17a9e1c8880e75049e64b4f3bf21f16
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,8,8,98624,12328.0,11056.0,10400,15136,2318.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xd756cf8085615be8f2df33c74bb9ac74
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,8,8,94432,11804.0,11920.0,10400,13248,1266.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xcf81b38212e8f296e353aae060904a23
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,8,8,92288,11536.0,10784.0,10240,13600,1461.1,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x6cfe86dd6e4d3c2d552f909cb133c113
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,6,6,79200,13200.0,13120.0,11872,14816,1070.7,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x2cc3c24a31f9b93e7da9ce04660164df_com_vec
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,6,6,77952,12992.0,11920.0,11776,15328,1773.7,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x06bdba4595fd33adf3c728cf049f0b03_com_vec
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,6,6,76736,12789.3,12624.0,11776,14880,1143.9,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x631eac58eb6694e001a0929b8bf99c28_com_vec
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,6,6,75744,12624.0,12288.0,11840,13760,877.2,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xc1e4e1e5e4fa4b9df1194c070c461029_com_vec
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,4,4,60288,15072.0,15168.0,14688,15264,261.3,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x8b0f22c4a2121702a93d8623b5a12ae4
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,4,4,55552,13888.0,13888.0,13760,14016,107.7,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xf2d64d0cef819045fc9d252a6b31181b
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,4,4,54048,13512.0,13520.0,13152,13856,348.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x2b4860727aa16b8274c6a9e412ad0345
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,4,4,54016,13504.0,13408.0,13344,13856,236.6,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xeadba79c8105dff3fdb08ce085e7b12c
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,4,4,53952,13488.0,13488.0,13056,13920,431.3,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x9b99130746ee47ec2d15b111319f425e
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,4,4,53728,13432.0,13392.0,13120,13824,337.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xe944abd3db8709490013ec56e805a4c9
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,4,4,53696,13424.0,13392.0,13120,13792,311.9,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xb2a73dcdcb246645ed7bcf4e6ce7b3cc
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,4,4,53440,13360.0,13232.0,13216,13760,267.1,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xa03da8bd0547b3997e4af5d64a9f7047
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,4,4,52480,13120.0,13136.0,12416,13792,574.2,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xb633f57e2e22833f593c4f215c79f20a
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,4,4,52384,13096.0,13104.0,13056,13120,30.6,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xbc9bffbf2b5683589f7ee804485f8f6c
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,4,4,49472,12368.0,13024.0,10336,13088,1355.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xd65f433ff7b34abefa6995ce894b46a3
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,4,4,49408,12352.0,13008.0,10304,13088,1366.4,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xdba6260d6d388ff570fe95b3f4430bd0
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,4,4,49152,12288.0,12624.0,11200,12704,726.4,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x77624facc1459ff2bf110c24ed8021c9
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,4,4,47776,11944.0,11936.0,10368,13536,1819.9,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x5bd2afd5a5411fb85888be6c8200be17
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,3,3,46944,15648.0,16224.0,14080,16640,1373.8,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xa7a56a9ae5b9c92481e0f5772d53a4c2_com_vec
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,4,4,46336,11584.0,11344.0,11264,12384,536.1,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x84ef5602e3183b8229f8022d6e6eb74f
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,3,3,45472,15157.3,15072.0,14976,15424,235.9,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xe663a90863e1c63edebb2571b115f54d_com_vec
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,3,3,45152,15050.7,14944.0,14848,15360,272.2,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x0f05f340665da317c2be64fa415c473a_com_vec
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,3,3,45024,15008.0,15040.0,14752,15232,241.6,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x0ded10591a9065a1ce867a2c40e34ad5_com_vec
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,4,4,44928,11232.0,10432.0,10400,13664,1621.4,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x028e232ad04f9dc415033ab5492ba131
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,3,3,44576,14858.7,14720.0,14560,15296,387.1,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x69b2836c7bea850742d274e0c94ca89a_com_vec
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,3,3,44544,14848.0,14912.0,14560,15072,261.9,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x7b2198561702574d86c9afed3e2e35ba_com_vec
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,3,3,44416,14805.3,14784.0,14528,15104,288.6,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x6db55c2885f6b73e7dbf474aec093db8_com_vec
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,4,4,43392,10848.0,10336.0,10304,12416,1045.4,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x4119fc4c6529add99aa14081dbc16ecb
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,4,4,43168,10792.0,10736.0,10336,11360,504.2,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x2d193f06c4770a0b130c316a9152d3bb
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,3,3,42720,14240.0,14848.0,12832,15040,1223.1,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x39930415a2956c4b8d18ef510c0d5c8a_com_vec
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,3,3,42368,14122.7,15104.0,12160,15104,1699.7,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xdb3307c818c43e652e527c56f123786c_com_vec
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,4,4,42208,10552.0,10400.0,10336,11072,349.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xa203a21bb9a2ead322f314c5ed6c45fd
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,3,3,42080,14026.7,14240.0,12928,14912,1009.1,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x2354092d3df3900c1fd6815a7ba9dac1_com_vec
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,3,3,41856,13952.0,15104.0,11616,15136,2023.1,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x55aaf8a4cec60956953a80afc5c7b2a6_com_vec
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,3,3,41760,13920.0,12960.0,12896,15904,1718.5,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xb8020f747bc473120c074e71691b4a60_com_vec
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,3,3,41120,13706.7,14464.0,11584,15072,1863.3,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x8a866b4697691e17e265b1490eb77602_com_vec
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,3,3,40384,13461.3,13120.0,12416,14848,1251.4,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xf1def207df08f4e6d789049433c3866b_com_vec
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,3,3,39488,13162.7,13024.0,11712,14752,1524.7,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x9c020f3e6c1f94e17da10163a8e4f733_com_vec
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,3,3,38720,12906.7,11968.0,11872,14880,1709.6,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x0f631e6ab9f0eda3ff940fe21a35a79e_com_vec
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,3,3,38528,12842.7,11808.0,11744,14976,1847.8,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x24a69f107a63616e3e844d5227fd6f6c_com_vec
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,3,3,36768,12256.0,12256.0,12160,12352,96.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xaa5ba99515f1ab5b5fe1bff8e1cdf965_com_vec
+myelin-exec:__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas,PushPop,649196,649196,3,3,36736,12245.3,12192.0,11648,12896,625.7,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xe71ebe1a59b22d4bca83cb15f0059a7c_com_vec
+myelin-exec:__myl_MulMinMaxRouCas,PushPop,649196,649196,8,8,69440,8680.0,8736.0,8320,8928,187.2,__myl_MulMinMaxRouCas_0x774908550917e749f75db6185bcae83f
+myelin-exec:__myl_MulMinMaxRouCas,PushPop,649196,649196,4,4,36512,9128.0,8944.0,8544,10080,690.5,__myl_MulMinMaxRouCas_0x806abff2303c4adb22dac0953af546a1
+myelin-exec:__myl_MulMinMaxRouCas,PushPop,649196,649196,4,4,36192,9048.0,9008.0,8672,9504,371.7,__myl_MulMinMaxRouCas_0x7c03f425cd0cc19febc97cb69c1f2cdb
+myelin-exec:__myl_MulMinMaxRouCas,PushPop,649196,649196,4,4,35904,8976.0,8896.0,8672,9440,326.9,__myl_MulMinMaxRouCas_0x5d22e06f0128b92bf02f50e9b05f0125
+myelin-exec:__myl_MulMinMaxRouCas,PushPop,649196,649196,4,4,35872,8968.0,8864.0,8768,9376,277.0,__myl_MulMinMaxRouCas_0xa01c797cf706031bf4679ec54cf7b88d
+myelin-exec:__myl_MulMinMaxRouCas,PushPop,649196,649196,4,4,35616,8904.0,8784.0,8704,9344,296.0,__myl_MulMinMaxRouCas_0xca1e8a983af10962a50c67e0fecf3bd1
+myelin-exec:__myl_MulMinMaxRouCas,PushPop,649196,649196,4,4,35584,8896.0,8896.0,8576,9216,334.6,__myl_MulMinMaxRouCas_0x907030f04aaedcd668915c250cbde546
+myelin-exec:__myl_MulMinMaxRouCas,PushPop,649196,649196,4,4,35552,8888.0,8784.0,8640,9344,318.3,__myl_MulMinMaxRouCas_0x472744a06bd7fd057961674c77025970
+myelin-exec:__myl_MulMinMaxRouCas,PushPop,649196,649196,4,4,35264,8816.0,8800.0,8544,9120,235.9,__myl_MulMinMaxRouCas_0x0b3337a1cc9120f6d73fd89c494a9e53
+myelin-exec:__myl_MulMinMaxRouCas,PushPop,649196,649196,4,4,35264,8816.0,8800.0,8512,9152,267.1,__myl_MulMinMaxRouCas_0x36a6981344c30226a5bbeed5f55c92f7
+myelin-exec:__myl_MulMinMaxRouCas,PushPop,649196,649196,4,4,35264,8816.0,8880.0,8352,9152,337.1,__myl_MulMinMaxRouCas_0x46757e257e41ef1fb92716579e35a0d1
+myelin-exec:__myl_MulMinMaxRouCas,PushPop,649196,649196,4,4,35104,8776.0,8848.0,8384,9024,281.9,__myl_MulMinMaxRouCas_0x2bde768f3e1a80e37132bb2f4be64789
+myelin-exec:__myl_MulMinMaxRouCas,PushPop,649196,649196,4,4,35008,8752.0,8816.0,8512,8864,162.1,__myl_MulMinMaxRouCas_0x6a10bd9f6c374e5ad061c0d2824b0a25
+myelin-exec:__myl_MulMinMaxRouCas,PushPop,649196,649196,4,4,34880,8720.0,8768.0,8576,8768,96.0,__myl_MulMinMaxRouCas_0x998f9d85786c1705f75b803510b59e30
+myelin-exec:__myl_MulMinMaxRouCas,PushPop,649196,649196,4,4,34816,8704.0,8848.0,8224,8896,323.2,__myl_MulMinMaxRouCas_0x8dd8f4f93c6a1e7d8a5025e20f21222e
+myelin-exec:__myl_MulMinMaxRouCas,PushPop,649196,649196,4,4,34752,8688.0,8896.0,7936,9024,505.0,__myl_MulMinMaxRouCas_0x59f8206e6baa651ad7dab50737cc8951
+myelin-exec:__myl_MulMinMaxRouCas,PushPop,649196,649196,4,4,34720,8680.0,8704.0,8288,9024,306.2,__myl_MulMinMaxRouCas_0xfffd234660cce4d6758da70fc32eeb17
+myelin-exec:__myl_MulMinMaxRouCas,PushPop,649196,649196,4,4,34656,8664.0,8688.0,8512,8768,108.9,__myl_MulMinMaxRouCas_0x77ca5ed9b2797810688767dcda08897e
+myelin-exec:__myl_MulMinMaxRouCas,PushPop,649196,649196,4,4,34304,8576.0,8608.0,8288,8800,226.3,__myl_MulMinMaxRouCas_0x1fb837ee240f07d62ca7b72c8a105b6f
+myelin-exec:__myl_MulMinMaxRouCas,PushPop,649196,649196,4,4,34176,8544.0,8704.0,7968,8800,386.7,__myl_MulMinMaxRouCas_0x9ee6ac5b9454da6749214d07f11973df
+myelin-exec:__myl_MulMinMaxRouCas,PushPop,649196,649196,4,4,34112,8528.0,8640.0,7968,8864,388.0,__myl_MulMinMaxRouCas_0xa64eacd40f6a244c6f97851e4148bfa0
+myelin-exec:__myl_MulMinMaxRouCas,PushPop,649196,649196,4,4,33504,8376.0,8384.0,7936,8800,424.0,__myl_MulMinMaxRouCas_0x56e74360c3e8a36d72970af72bdd3e2b
+myelin-exec:__myl_MulMinMaxRouCas,PushPop,649196,649196,4,4,32544,8136.0,8112.0,7936,8384,219.2,__myl_MulMinMaxRouCas_0xf131f88ee6d7693232e76c9290134799
+myelin-exec:__myl_MulMinMaxRouCas,PushPop,649196,649196,4,4,32128,8032.0,7952.0,7904,8320,193.8,__myl_MulMinMaxRouCas_0xa49a3c4e66279a6886312b656336d70d
+myelin-exec:__myl_NegExpAddDivMulMul,PushPop,649196,649196,3,3,45728,15242.7,15264.0,15136,15328,97.8,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+myelin-exec:__myl_RepIotIotRepCasAddCasEqlLtOrSel,PushPop,649196,649196,3,3,29152,9717.3,9856.0,9376,9920,297.3,__myl_RepIotIotRepCasAddCasEqlLtOrSel_0xeed00a2999d9a920ce4be4d44852c879_com
+myelin-exec:__myl_ResConResRep,PushPop,649196,649196,81,81,2613344,32263.5,33184.0,27680,35648,2281.5,__myl_ResConResRep_0x9d40828c020eb6bb972be950c35191c1
+myelin-exec:__myl_ResConResRep,PushPop,649196,649196,27,27,577472,21387.9,18112.0,16768,47520,8668.2,__myl_ResConResRep_0x9d40828c020eb6bb972be950c35191c1_com
+myelin-exec:__myl_ResMulMea,PushPop,649196,649196,108,108,1321600,12237.0,12160.0,10816,14272,685.1,__myl_ResMulMea_0x3c91498c3beee36a5653966af1581a8a
+myelin-exec:__myl_ResMulMea,PushPop,649196,649196,108,108,1284800,11896.3,12112.0,9984,13120,641.0,__myl_ResMulMea_0xf2413012cd9ac6341b95d78f3432c656
+myelin-exec:__myl_ResMulMea,PushPop,649196,649196,81,81,1001504,12364.2,12416.0,10944,14240,799.6,__myl_ResMulMea_0x356824d54c2e1ab1f7825eefa1e6b632_com_vec
+myelin-exec:__myl_ResMulMea,PushPop,649196,649196,81,81,982592,12130.8,12192.0,9728,13216,616.6,__myl_ResMulMea_0x9a67bce87aa70b5a86539a0972d2e0f6_com_vec
+myelin-exec:__myl_ResMulMea,PushPop,649196,649196,3,3,38112,12704.0,12896.0,12224,12992,418.5,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+myelin-exec:__myl_ResMulMea,PushPop,649196,649196,3,3,35968,11989.3,12128.0,11648,12192,297.3,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+myelin-exec:__myl_ResTra,PushPop,649196,649196,75,75,815776,10877.0,10624.0,10368,11808,445.0,__myl_ResTra_0xc03916d7cfa55338996dbe92c4283d8c_com
+myelin-exec:__myl_ResTraResSliRepRes,PushPop,649196,649196,81,81,1249120,15421.2,15040.0,13280,36352,2497.5,__myl_ResTraResSliRepRes_0xb5ca1ead775f2215fdc6b72339368a3f_com
+myelin-exec:__myl_ResTraResSliRepRes,PushPop,649196,649196,3,3,42976,14325.3,14336.0,14272,14368,48.9,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+myelin-exec:_gemm_mha_v2,PushPop,649196,649196,9,9,224128,24903.1,24928.0,23968,25856,494.9,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+myelin-exec:_gemm_mha_v2,PushPop,649196,649196,6,6,155552,25925.3,25968.0,25056,26688,757.6,_gemm_mha_v2_0x122877a3036390a4bf8dcfb1427b867b
+myelin-exec:_gemm_mha_v2,PushPop,649196,649196,3,3,80352,26784.0,26848.0,25984,27520,770.0,_gemm_mha_v2_0xc7841b14f7d92c2016746a6691400a52
+myelin-exec:_gemm_mha_v2,PushPop,649196,649196,3,3,79968,26656.0,26880.0,26080,27008,502.9,_gemm_mha_v2_0x868207ee750ff7049028a80d32d17323
+myelin-exec:_gemm_mha_v2,PushPop,649196,649196,3,3,79776,26592.0,26432.0,26208,27136,484.2,_gemm_mha_v2_0x122d493ce64aa00c197ae40baf03a637
+myelin-exec:_gemm_mha_v2,PushPop,649196,649196,3,3,79680,26560.0,26464.0,25984,27232,629.5,_gemm_mha_v2_0xf4c36af1b3c39fab3312671f178aa157
+myelin-exec:_gemm_mha_v2,PushPop,649196,649196,3,3,79392,26464.0,26400.0,26368,26624,139.5,_gemm_mha_v2_0xab4761469dea155adca77ef52bd80a61
+myelin-exec:_gemm_mha_v2,PushPop,649196,649196,3,3,79232,26410.7,26272.0,26112,26848,387.1,_gemm_mha_v2_0xccf3a8474acc5fc16b0ad4e1c69800bb
+myelin-exec:_gemm_mha_v2,PushPop,649196,649196,3,3,79072,26357.3,26528.0,25888,26656,411.5,_gemm_mha_v2_0xf65d6b1571997bdfc737df09a44d72ad
+myelin-exec:_gemm_mha_v2,PushPop,649196,649196,3,3,79040,26346.7,26304.0,26016,26720,353.9,_gemm_mha_v2_0x2f61b06ce635a250b28ae8ee2ab3b5cb
+myelin-exec:_gemm_mha_v2,PushPop,649196,649196,3,3,78912,26304.0,26368.0,25920,26624,356.3,_gemm_mha_v2_0xa7ca53b515adf180e9a745693ffd0464
+myelin-exec:_gemm_mha_v2,PushPop,649196,649196,3,3,78752,26250.7,26208.0,26208,26336,73.9,_gemm_mha_v2_0x69db25f8b455550858c08191df7c4023
+myelin-exec:_gemm_mha_v2,PushPop,649196,649196,3,3,78624,26208.0,26240.0,26112,26272,84.7,_gemm_mha_v2_0x582f9c30de38a93e722c6de99876bc60
+myelin-exec:_gemm_mha_v2,PushPop,649196,649196,3,3,78592,26197.3,26048.0,25824,26720,466.3,_gemm_mha_v2_0xf766752c8950edccd27d326ac8c5c5d0
+myelin-exec:_gemm_mha_v2,PushPop,649196,649196,3,3,78528,26176.0,25952.0,25792,26784,532.6,_gemm_mha_v2_0x1c8140cface6b993997d7cd4b7477616
+myelin-exec:_gemm_mha_v2,PushPop,649196,649196,3,3,78528,26176.0,26272.0,25952,26304,194.6,_gemm_mha_v2_0xeb55f16e4b7e71fdcdb973b60cd3db5e
+myelin-exec:_gemm_mha_v2,PushPop,649196,649196,3,3,78432,26144.0,26208.0,25856,26368,261.9,_gemm_mha_v2_0x5365bc7530dd58ba06615d617f2617f3
+myelin-exec:_gemm_mha_v2,PushPop,649196,649196,3,3,78272,26090.7,26048.0,25920,26304,195.5,_gemm_mha_v2_0xc2d92b3cbb126a251b76d78c57684e17
+myelin-exec:_gemm_mha_v2,PushPop,649196,649196,3,3,78208,26069.3,26016.0,25920,26272,182.0,_gemm_mha_v2_0xee0414de60764f75e46b3b8d1e16fc19
+myelin-exec:_gemm_mha_v2,PushPop,649196,649196,3,3,78144,26048.0,26144.0,25728,26272,284.4,_gemm_mha_v2_0xb386849c29e984208fe41d8ff07d34fc
+myelin-exec:_gemm_mha_v2,PushPop,649196,649196,3,3,77888,25962.7,25984.0,25888,26016,66.6,_gemm_mha_v2_0xe6bc19e69c82f8044e9874292acae825
+myelin-exec:_gemm_mha_v2,PushPop,649196,649196,3,3,76576,25525.3,25664.0,24896,26016,572.7,_gemm_mha_v2_0xe051501b8c48027b8c2c96139ee1b93f
+myelin-exec:_gemm_mha_v2,PushPop,649196,649196,3,3,76288,25429.3,25376.0,25216,25696,244.4,_gemm_mha_v2_0xbbc42f75034653fb101166ea3f96b8ac
+myelin-exec:_gemm_mha_v2,PushPop,649196,649196,3,3,73824,24608.0,24416.0,24288,25120,448.0,_gemm_mha_v2_0x1f788b071d831d329684abd45c8719fb
+myelin-exec:_gemm_mha_v2,PushPop,649196,649196,3,3,72128,24042.7,24032.0,24000,24096,48.9,_gemm_mha_v2_0x60fab5add8bb246f4c8714685e81d651
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,10,88,91853312,1043787.6,261600.0,241568,10121376,2682612.9,trt_ampere_h16816gemm_128x64_ldg8_nn_v1
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,7,426,47168704,110724.7,91440.0,53952,147648,28288.5,sm80_xmma_gemm_i8i8_i8i32_f32_tn_n_tilesize32x64x64_stage6_warpsize2x2x1_tensor16x8x32_fused
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,7,505,43549216,86236.1,88160.0,52832,98496,7622.0,sm80_xmma_gemm_i8f32_i8i32_f32_tn_n_tilesize32x64x64_stage6_warpsize2x2x1_tensor16x8x32_fused
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,112,25888576,231148.0,230656.0,223648,236352,2009.3,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_fused
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,104,25409152,244318.8,242272.0,234432,306816,12547.4,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,93,22238592,239124.6,240928.0,162464,265728,25173.1,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,112,5668864,50614.9,50528.0,49856,51872,403.6,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,112,3678976,32848.0,33024.0,30528,33792,834.8,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,16,3197344,199834.0,183728.0,172192,262112,36693.2,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,12,2927200,243933.3,244320.0,238720,247552,2778.0,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,81,2777504,34290.2,34656.0,31136,37472,1832.6,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,81,2613344,32263.5,33184.0,27680,35648,2281.5,__myl_ResConResRep_0x9d40828c020eb6bb972be950c35191c1
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,9,2317376,257486.2,236192.0,235456,300960,32351.3,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,104,1874080,18020.0,17920.0,17760,18496,209.7,__myl_MulMeaAddSqrDivMulDivMinMaxRouCasDivMinMaxRouCasDivMinMaxRouCas_0x9f2c300bb597625319cadec4728f9bc5
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,81,1387904,17134.6,17216.0,15264,19264,965.5,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x4ad536b524b3f7a2415d97f02da12733_com
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,84,1379904,16427.4,16384.0,15712,17792,323.5,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,81,1332864,16455.1,16544.0,14944,17760,727.6,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,78,1322976,16961.2,16864.0,16480,17984,386.7,__myl_MulMeaAddSqrDivMulMulMinMaxRouCasMulMinMaxRouCasMulMinMaxRouCas_0x14bacf080290e339db28d1223365390a_com_vec
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,108,1321600,12237.0,12160.0,10816,14272,685.1,__myl_ResMulMea_0x3c91498c3beee36a5653966af1581a8a
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,108,1284800,11896.3,12112.0,9984,13120,641.0,__myl_ResMulMea_0xf2413012cd9ac6341b95d78f3432c656
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,81,1249120,15421.2,15040.0,13280,36352,2497.5,__myl_ResTraResSliRepRes_0xb5ca1ead775f2215fdc6b72339368a3f_com
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,108,1202112,11130.7,11408.0,9248,12544,734.9,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,81,1001504,12364.2,12416.0,10944,14240,799.6,__myl_ResMulMea_0x356824d54c2e1ab1f7825eefa1e6b632_com_vec
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,81,982592,12130.8,12192.0,9728,13216,616.6,__myl_ResMulMea_0x9a67bce87aa70b5a86539a0972d2e0f6_com_vec
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,75,815776,10877.0,10624.0,10368,11808,445.0,__myl_ResTra_0xc03916d7cfa55338996dbe92c4283d8c_com
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,1,27,583264,21602.4,21248.0,20384,23296,790.8,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f_com
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,1,27,577472,21387.9,18112.0,16768,47520,8668.2,__myl_ResConResRep_0x9d40828c020eb6bb972be950c35191c1_com
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,1,28,350976,12534.9,12512.0,12064,13664,331.5,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f_com
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,9,224128,24903.1,24928.0,23968,25856,494.9,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,6,155552,25925.3,25968.0,25056,26688,757.6,_gemm_mha_v2_0x122877a3036390a4bf8dcfb1427b867b
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,7,7,133568,19081.1,19104.0,17984,20160,630.0,__myl_MovMulMeaAddSqrDivMulMulCas_0x62665ed68e2d72f01be2ec50e848f2e2_vec
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,125152,41717.3,41120.0,39552,44480,2517.7,__myl_CasResMulConSinResCosResAddSqrAddSqrDivMulDivMulMulResSliSliNegConMulMulAddConResRepResTraEtc_0x3beb58e4cd3dae3f69eebdbcbcc43980
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,8,103072,12884.0,12912.0,12256,13568,414.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xc17a9e1c8880e75049e64b4f3bf21f16
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,8,99744,12468.0,12464.0,12416,12544,51.1,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,8,98624,12328.0,11056.0,10400,15136,2318.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xd756cf8085615be8f2df33c74bb9ac74
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,96992,24248.0,24128.0,23936,24800,400.9,__myl_MovMulMeaAddSqrDivMulDivMinMaxRouCasDivMinMaxRouCasDivMinMaxRouCas_0xda00efdea1fdf9ffc7ce7052979834ac
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,8,94432,11804.0,11920.0,10400,13248,1266.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xcf81b38212e8f296e353aae060904a23
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,92864,23216.0,23216.0,22176,24256,854.1,__myl_CasGat_0xdee2c73dd5d0e0fe099a0774cba2143f
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,8,92288,11536.0,10784.0,10240,13600,1461.1,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x6cfe86dd6e4d3c2d552f909cb133c113
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,90528,30176.0,29856.0,29824,30848,582.2,__myl_CasResMulConSinResCosResAddSqrAddSqrDivMulDivMulMulTraSliSliNegConMulMulAddResSliRepResTraEtc_0xeeda8c3ad0b01a41e68bda37288b89cd_com
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,85728,28576.0,28768.0,27008,29952,1481.4,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,80352,26784.0,26848.0,25984,27520,770.0,_gemm_mha_v2_0xc7841b14f7d92c2016746a6691400a52
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,79968,26656.0,26880.0,26080,27008,502.9,_gemm_mha_v2_0x868207ee750ff7049028a80d32d17323
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,79776,26592.0,26432.0,26208,27136,484.2,_gemm_mha_v2_0x122d493ce64aa00c197ae40baf03a637
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,79680,26560.0,26464.0,25984,27232,629.5,_gemm_mha_v2_0xf4c36af1b3c39fab3312671f178aa157
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,79392,26464.0,26400.0,26368,26624,139.5,_gemm_mha_v2_0xab4761469dea155adca77ef52bd80a61
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,79232,26410.7,26272.0,26112,26848,387.1,_gemm_mha_v2_0xccf3a8474acc5fc16b0ad4e1c69800bb
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,6,79200,13200.0,13120.0,11872,14816,1070.7,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x2cc3c24a31f9b93e7da9ce04660164df_com_vec
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,79072,26357.3,26528.0,25888,26656,411.5,_gemm_mha_v2_0xf65d6b1571997bdfc737df09a44d72ad
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,79040,26346.7,26304.0,26016,26720,353.9,_gemm_mha_v2_0x2f61b06ce635a250b28ae8ee2ab3b5cb
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,78912,26304.0,26368.0,25920,26624,356.3,_gemm_mha_v2_0xa7ca53b515adf180e9a745693ffd0464
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,78752,26250.7,26208.0,26208,26336,73.9,_gemm_mha_v2_0x69db25f8b455550858c08191df7c4023
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,78624,26208.0,26240.0,26112,26272,84.7,_gemm_mha_v2_0x582f9c30de38a93e722c6de99876bc60
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,78592,26197.3,26048.0,25824,26720,466.3,_gemm_mha_v2_0xf766752c8950edccd27d326ac8c5c5d0
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,78528,26176.0,25952.0,25792,26784,532.6,_gemm_mha_v2_0x1c8140cface6b993997d7cd4b7477616
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,78528,26176.0,26272.0,25952,26304,194.6,_gemm_mha_v2_0xeb55f16e4b7e71fdcdb973b60cd3db5e
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,78432,26144.0,26208.0,25856,26368,261.9,_gemm_mha_v2_0x5365bc7530dd58ba06615d617f2617f3
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,78272,26090.7,26048.0,25920,26304,195.5,_gemm_mha_v2_0xc2d92b3cbb126a251b76d78c57684e17
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,78208,26069.3,26016.0,25920,26272,182.0,_gemm_mha_v2_0xee0414de60764f75e46b3b8d1e16fc19
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,78144,26048.0,26144.0,25728,26272,284.4,_gemm_mha_v2_0xb386849c29e984208fe41d8ff07d34fc
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,6,77952,12992.0,11920.0,11776,15328,1773.7,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x06bdba4595fd33adf3c728cf049f0b03_com_vec
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,77888,25962.7,25984.0,25888,26016,66.6,_gemm_mha_v2_0xe6bc19e69c82f8044e9874292acae825
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,6,76736,12789.3,12624.0,11776,14880,1143.9,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x631eac58eb6694e001a0929b8bf99c28_com_vec
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,76576,25525.3,25664.0,24896,26016,572.7,_gemm_mha_v2_0xe051501b8c48027b8c2c96139ee1b93f
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,76288,25429.3,25376.0,25216,25696,244.4,_gemm_mha_v2_0xbbc42f75034653fb101166ea3f96b8ac
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,6,75744,12624.0,12288.0,11840,13760,877.2,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xc1e4e1e5e4fa4b9df1194c070c461029_com_vec
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,73824,24608.0,24416.0,24288,25120,448.0,_gemm_mha_v2_0x1f788b071d831d329684abd45c8719fb
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,72128,24042.7,24032.0,24000,24096,48.9,_gemm_mha_v2_0x60fab5add8bb246f4c8714685e81d651
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,8,69440,8680.0,8736.0,8320,8928,187.2,__myl_MulMinMaxRouCas_0x774908550917e749f75db6185bcae83f
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,66304,22101.3,22112.0,22016,22176,80.5,__myl_MovMulMeaAddSqrDivMulMulMinMaxRouCasMulMinMaxRouCasMulMinMaxRouCas_0xc7a30bf0a7462c13e72d54b03c27c3b2_com_vec
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,60288,15072.0,15168.0,14688,15264,261.3,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x8b0f22c4a2121702a93d8623b5a12ae4
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,55552,13888.0,13888.0,13760,14016,107.7,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xf2d64d0cef819045fc9d252a6b31181b
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,54720,13680.0,13664.0,13216,14176,457.4,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,54048,13512.0,13520.0,13152,13856,348.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x2b4860727aa16b8274c6a9e412ad0345
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,54016,13504.0,13408.0,13344,13856,236.6,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xeadba79c8105dff3fdb08ce085e7b12c
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,53952,13488.0,13488.0,13056,13920,431.3,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x9b99130746ee47ec2d15b111319f425e
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,53728,13432.0,13392.0,13120,13824,337.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xe944abd3db8709490013ec56e805a4c9
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,53696,13424.0,13392.0,13120,13792,311.9,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xb2a73dcdcb246645ed7bcf4e6ce7b3cc
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,53440,13360.0,13232.0,13216,13760,267.1,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xa03da8bd0547b3997e4af5d64a9f7047
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,52480,13120.0,13136.0,12416,13792,574.2,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xb633f57e2e22833f593c4f215c79f20a
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,52384,13096.0,13104.0,13056,13120,30.6,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xbc9bffbf2b5683589f7ee804485f8f6c
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,50272,12568.0,12544.0,12448,12736,120.8,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,49472,12368.0,13024.0,10336,13088,1355.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xd65f433ff7b34abefa6995ce894b46a3
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,49440,16480.0,16800.0,15840,16800,554.3,__myl_CasGat_0xdee2c73dd5d0e0fe099a0774cba2143f_com
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,49408,12352.0,13008.0,10304,13088,1366.4,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xdba6260d6d388ff570fe95b3f4430bd0
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,49152,12288.0,12624.0,11200,12704,726.4,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x77624facc1459ff2bf110c24ed8021c9
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,47776,11944.0,11936.0,10368,13536,1819.9,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x5bd2afd5a5411fb85888be6c8200be17
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,46944,15648.0,16224.0,14080,16640,1373.8,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xa7a56a9ae5b9c92481e0f5772d53a4c2_com_vec
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,46336,11584.0,11344.0,11264,12384,536.1,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x84ef5602e3183b8229f8022d6e6eb74f
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,45728,15242.7,15264.0,15136,15328,97.8,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,45472,15157.3,15072.0,14976,15424,235.9,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xe663a90863e1c63edebb2571b115f54d_com_vec
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,45152,15050.7,14944.0,14848,15360,272.2,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x0f05f340665da317c2be64fa415c473a_com_vec
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,45024,15008.0,15040.0,14752,15232,241.6,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x0ded10591a9065a1ce867a2c40e34ad5_com_vec
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,44928,11232.0,10432.0,10400,13664,1621.4,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x028e232ad04f9dc415033ab5492ba131
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,44576,14858.7,14720.0,14560,15296,387.1,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x69b2836c7bea850742d274e0c94ca89a_com_vec
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,44544,14848.0,14912.0,14560,15072,261.9,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x7b2198561702574d86c9afed3e2e35ba_com_vec
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,44416,14805.3,14784.0,14528,15104,288.6,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x6db55c2885f6b73e7dbf474aec093db8_com_vec
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,44096,14698.7,14912.0,14272,14912,369.5,__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,43392,10848.0,10336.0,10304,12416,1045.4,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x4119fc4c6529add99aa14081dbc16ecb
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,43168,10792.0,10736.0,10336,11360,504.2,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x2d193f06c4770a0b130c316a9152d3bb
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,42976,14325.3,14336.0,14272,14368,48.9,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,42720,14240.0,14848.0,12832,15040,1223.1,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x39930415a2956c4b8d18ef510c0d5c8a_com_vec
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,42688,14229.3,14208.0,13824,14656,416.4,__myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,42368,14122.7,15104.0,12160,15104,1699.7,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xdb3307c818c43e652e527c56f123786c_com_vec
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,42208,10552.0,10400.0,10336,11072,349.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xa203a21bb9a2ead322f314c5ed6c45fd
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,42080,14026.7,14240.0,12928,14912,1009.1,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x2354092d3df3900c1fd6815a7ba9dac1_com_vec
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,41856,13952.0,15104.0,11616,15136,2023.1,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x55aaf8a4cec60956953a80afc5c7b2a6_com_vec
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,41760,13920.0,12960.0,12896,15904,1718.5,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xb8020f747bc473120c074e71691b4a60_com_vec
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,41120,13706.7,14464.0,11584,15072,1863.3,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x8a866b4697691e17e265b1490eb77602_com_vec
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,40384,13461.3,13120.0,12416,14848,1251.4,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xf1def207df08f4e6d789049433c3866b_com_vec
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,39488,13162.7,13024.0,11712,14752,1524.7,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x9c020f3e6c1f94e17da10163a8e4f733_com_vec
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,38720,12906.7,11968.0,11872,14880,1709.6,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x0f631e6ab9f0eda3ff940fe21a35a79e_com_vec
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,38528,12842.7,11808.0,11744,14976,1847.8,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x24a69f107a63616e3e844d5227fd6f6c_com_vec
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,38112,12704.0,12896.0,12224,12992,418.5,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,36768,12256.0,12256.0,12160,12352,96.0,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xaa5ba99515f1ab5b5fe1bff8e1cdf965_com_vec
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,36736,12245.3,12192.0,11648,12896,625.7,__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xe71ebe1a59b22d4bca83cb15f0059a7c_com_vec
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,36512,9128.0,8944.0,8544,10080,690.5,__myl_MulMinMaxRouCas_0x806abff2303c4adb22dac0953af546a1
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,36192,9048.0,9008.0,8672,9504,371.7,__myl_MulMinMaxRouCas_0x7c03f425cd0cc19febc97cb69c1f2cdb
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,35968,11989.3,12128.0,11648,12192,297.3,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,35904,8976.0,8896.0,8672,9440,326.9,__myl_MulMinMaxRouCas_0x5d22e06f0128b92bf02f50e9b05f0125
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,35872,8968.0,8864.0,8768,9376,277.0,__myl_MulMinMaxRouCas_0xa01c797cf706031bf4679ec54cf7b88d
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,35616,8904.0,8784.0,8704,9344,296.0,__myl_MulMinMaxRouCas_0xca1e8a983af10962a50c67e0fecf3bd1
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,35584,8896.0,8896.0,8576,9216,334.6,__myl_MulMinMaxRouCas_0x907030f04aaedcd668915c250cbde546
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,35552,8888.0,8784.0,8640,9344,318.3,__myl_MulMinMaxRouCas_0x472744a06bd7fd057961674c77025970
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,35264,8816.0,8800.0,8544,9120,235.9,__myl_MulMinMaxRouCas_0x0b3337a1cc9120f6d73fd89c494a9e53
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,35264,8816.0,8800.0,8512,9152,267.1,__myl_MulMinMaxRouCas_0x36a6981344c30226a5bbeed5f55c92f7
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,35264,8816.0,8880.0,8352,9152,337.1,__myl_MulMinMaxRouCas_0x46757e257e41ef1fb92716579e35a0d1
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,35104,8776.0,8848.0,8384,9024,281.9,__myl_MulMinMaxRouCas_0x2bde768f3e1a80e37132bb2f4be64789
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,35008,8752.0,8816.0,8512,8864,162.1,__myl_MulMinMaxRouCas_0x6a10bd9f6c374e5ad061c0d2824b0a25
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,34880,8720.0,8768.0,8576,8768,96.0,__myl_MulMinMaxRouCas_0x998f9d85786c1705f75b803510b59e30
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,34816,8704.0,8848.0,8224,8896,323.2,__myl_MulMinMaxRouCas_0x8dd8f4f93c6a1e7d8a5025e20f21222e
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,34752,8688.0,8896.0,7936,9024,505.0,__myl_MulMinMaxRouCas_0x59f8206e6baa651ad7dab50737cc8951
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,34720,8680.0,8704.0,8288,9024,306.2,__myl_MulMinMaxRouCas_0xfffd234660cce4d6758da70fc32eeb17
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,34656,8664.0,8688.0,8512,8768,108.9,__myl_MulMinMaxRouCas_0x77ca5ed9b2797810688767dcda08897e
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,34304,8576.0,8608.0,8288,8800,226.3,__myl_MulMinMaxRouCas_0x1fb837ee240f07d62ca7b72c8a105b6f
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,34176,8544.0,8704.0,7968,8800,386.7,__myl_MulMinMaxRouCas_0x9ee6ac5b9454da6749214d07f11973df
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,34112,8528.0,8640.0,7968,8864,388.0,__myl_MulMinMaxRouCas_0xa64eacd40f6a244c6f97851e4148bfa0
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,33504,8376.0,8384.0,7936,8800,424.0,__myl_MulMinMaxRouCas_0x56e74360c3e8a36d72970af72bdd3e2b
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,32544,8136.0,8112.0,7936,8384,219.2,__myl_MulMinMaxRouCas_0xf131f88ee6d7693232e76c9290134799
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,4,4,32128,8032.0,7952.0,7904,8320,193.8,__myl_MulMinMaxRouCas_0xa49a3c4e66279a6886312b656336d70d
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,3,3,29152,9717.3,9856.0,9376,9920,297.3,__myl_RepIotIotRepCasAddCasEqlLtOrSel_0xeed00a2999d9a920ce4be4d44852c879_com
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,1,1,28640,28640.0,28640.0,28640,28640,0.0,__myl_CasResMulConSinResCosResAddSqrAddSqrDivMulDivMulMulResSliSliNegConMulMulAddConResRepResTraEtc_0x3beb58e4cd3dae3f69eebdbcbcc43980_com
+myelin-exec:myelinGraphExecute ,StartEnd,649196,649196,1,1,16800,16800.0,16800.0,16800,16800,0.0,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a_com
