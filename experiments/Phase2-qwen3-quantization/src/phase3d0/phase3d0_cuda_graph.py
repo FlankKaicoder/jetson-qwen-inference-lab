@@ -341,7 +341,7 @@ def benchmark(args, objects, stream_result: dict, graph: GraphDecodeWindow,
     memory.append(F.memory_snapshot("graph_benchmark_complete"))
 
     def summary(raw: list[float]) -> dict:
-        return F.timing_summary(raw)
+        return F.F.timing_summary(raw)
 
     stream_summary = summary(stream_raw)
     graph_summary = summary(graph_raw)
