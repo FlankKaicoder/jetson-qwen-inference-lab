@@ -146,6 +146,8 @@ class GraphDecodeWindow:
                 shape, device="cuda", dtype=torch.float16))
             self.norm_outputs.append(torch.empty(
                 shape, device="cuda", dtype=torch.float16))
+            if not self.lm.context.set_input_shape("hidden_states", shape):
+                raise RuntimeError(f"LM_HEAD_SHAPE_REJECTED:{shape}")
             logits_shape = self.lm.engine.get_tensor_shape("logits")
             self.logits_outputs.append(torch.empty(
                 tuple(self.lm.context.get_tensor_shape("logits")),
