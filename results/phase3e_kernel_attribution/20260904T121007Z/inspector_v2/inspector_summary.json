@@ -1,0 +1,60 @@
+{
+  "engines": {
+    "fp16_decode": {
+      "category_counts": {
+        "GEMM": 84,
+        "UNKNOWN": 336
+      },
+      "engine_bytes": 890363012,
+      "engine_path": "/tmp/phase2_2b4_2_20260902T082326Z/decode_28layer.engine",
+      "engine_sha256": "16377216614750dfb126e384f9cc26613c558a528e6dd83ee112c25e1f91e60b",
+      "inspector_layer_count": 420,
+      "tensorrt": "10.3.0"
+    },
+    "fp16_prefill": {
+      "category_counts": {
+        "GEMM": 84,
+        "UNKNOWN": 529
+      },
+      "engine_bytes": 892483860,
+      "engine_path": "/tmp/phase2_2b4_2_20260902T082326Z/prefill_28layer.engine",
+      "engine_sha256": "c31f161396c2dc211c418640bce241d3b612e88be0c2da285ec088639ffe960b",
+      "inspector_layer_count": 613,
+      "tensorrt": "10.3.0"
+    },
+    "mixed_decode": {
+      "category_counts": {
+        "GEMM": 250,
+        "NO_KERNEL": 201,
+        "TENSORRT_INTERNAL": 248
+      },
+      "engine_bytes": 650285868,
+      "engine_path": "/tmp/phase2_3e_20260904T020000Z/work/mixed_decode_28layer.engine",
+      "engine_sha256": "445fc7d295c5bbb91e5392182347aa0e59612a031b5556a3461e09f30a59005c",
+      "inspector_layer_count": 699,
+      "tensorrt": "10.3.0"
+    },
+    "mixed_prefill": {
+      "category_counts": {
+        "ATTENTION_GEMM": 28,
+        "GEMM": 194,
+        "NO_KERNEL": 205,
+        "TENSORRT_INTERNAL": 222
+      },
+      "engine_bytes": 651671676,
+      "engine_path": "/tmp/phase2_3e_20260904T020000Z/work/mixed_prefill_28layer.engine",
+      "engine_sha256": "3258b0a82fd4884a291e2bf0e3dded179434a9d1a5d034c4fc4e9f772c8964ec",
+      "inspector_layer_count": 649,
+      "tensorrt": "10.3.0"
+    }
+  },
+  "host": "nvidia-desktop",
+  "limitations": [
+    "Runtime kernel time is not attributable to individual inspector layers from this artifact alone.",
+    "Operator identity uses Inspector ONNX metadata; absent metadata remains UNKNOWN.",
+    "Dynamic dimensions are labeled UNKNOWN unless a benchmark M is explicitly supplied."
+  ],
+  "method": "TensorRT EngineInspector, DETAILED engine data, no build or execution",
+  "phase": "Phase 3-E1/E2",
+  "tensorrt": "10.3.0"
+}

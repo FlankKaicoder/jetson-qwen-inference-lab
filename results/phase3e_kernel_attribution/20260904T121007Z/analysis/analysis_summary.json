@@ -1,0 +1,40 @@
+{
+  "interpretation_limit": "Tactic-level runtime time is aggregate across executions and cannot be split into individual operators.",
+  "method": "Join EngineInspector tactic inventory with Phase 3-C aggregate NSYS kernel totals",
+  "phase": "Phase 3-E2/E3 selection",
+  "phase3c_total_kernel_ms": {
+    "fp16_persistent": 219.709696,
+    "mixed_persistent": 147.83056
+  },
+  "selected_unique_kernel_count": 3,
+  "trigger": "Any top single GEMM kernel >20% of that runtime's total kernel time",
+  "trigger_evidence": [
+    {
+      "kernel_name": "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+      "mapping_evidence": "TACTIC_NOT_IN_DETAILED_INSPECTOR",
+      "operator_match": "UNKNOWN",
+      "phase3c_pct": 35.311745185792795,
+      "phase3c_total_kernel_ms": 219.709696,
+      "runtime": "fp16_persistent",
+      "time_ms": 77.583328
+    },
+    {
+      "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+      "mapping_evidence": "INSPECTOR_TACTIC_MATCH",
+      "operator_match": "gate_proj;up_proj",
+      "phase3c_pct": 20.28438107711004,
+      "phase3c_total_kernel_ms": 219.709696,
+      "runtime": "fp16_persistent",
+      "time_ms": 44.566752
+    },
+    {
+      "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+      "mapping_evidence": "INSPECTOR_TACTIC_MATCH",
+      "operator_match": "gate_proj;up_proj",
+      "phase3c_pct": 26.78132045227996,
+      "phase3c_total_kernel_ms": 147.83056,
+      "runtime": "mixed_persistent",
+      "time_ms": 39.590976
+    }
+  ]
+}
