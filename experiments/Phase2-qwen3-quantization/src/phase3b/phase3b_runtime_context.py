@@ -184,11 +184,13 @@ def cache_invariant_step(prev_ks: list, prev_vs: list, new_ks: list,
                          new_vs: list, old_len: int) -> dict:
     prefix_ok = True
     shape_ok = True
+    expected_length = old_len + 1
+    expected_shape = (1, 8, expected_length, 128)
     # Phase 2.2-B4.2 evidence records present_k/present_v as [B, 8, L, 128].
     for new_k in new_ks:
-        shape_ok &= bool(tuple(new_k.shape) == (1, 8, old_len, 128))
+        shape_ok &= bool(tuple(new_k.shape) == expected_shape)
     for new_v in new_vs:
-        shape_ok &= bool(tuple(new_v.shape) == (1, 8, old_len, 128))
+        shape_ok &= bool(tuple(new_v.shape) == expected_shape)
     for prev_k, new_k in zip(prev_ks, new_ks):
         prefix_ok &= bool(torch.equal(prev_k, new_k[:, :, :old_len, :]))
     for prev_v, new_v in zip(prev_vs, new_vs):
@@ -200,7 +202,8 @@ def cache_invariant_step(prev_ks: list, prev_vs: list, new_ks: list,
         "prefix_preserved": bool(prefix_ok),
         "shape_pass": bool(shape_ok),
         "cache_lengths": lengths,
-        "expected_length": old_len,
+        "expected_length": expected_length,
+        "prefix_length": old_len,
         "all_lengths_equal_expected": all(length == old_len for length in lengths),
         "k_pointer_isolation": len(set(k_ptrs)) == 28,
         "v_pointer_isolation": len(set(v_ptrs)) == 28,
