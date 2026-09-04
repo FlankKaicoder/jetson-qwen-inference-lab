@@ -1,0 +1,156 @@
+{
+  "layers": [
+    {
+      "FP16": 2,
+      "PT_W8A8": 5,
+      "layer": 0
+    },
+    {
+      "FP16": 2,
+      "PT_W8A8": 5,
+      "layer": 1
+    },
+    {
+      "FP16": 5,
+      "PT_W8A8": 2,
+      "layer": 2
+    },
+    {
+      "FP16": 2,
+      "PT_W8A8": 5,
+      "layer": 3
+    },
+    {
+      "FP16": 2,
+      "PT_W8A8": 5,
+      "layer": 4
+    },
+    {
+      "FP16": 2,
+      "PT_W8A8": 5,
+      "layer": 5
+    },
+    {
+      "FP16": 2,
+      "PT_W8A8": 5,
+      "layer": 6
+    },
+    {
+      "FP16": 2,
+      "PT_W8A8": 5,
+      "layer": 7
+    },
+    {
+      "FP16": 3,
+      "PT_W8A8": 4,
+      "layer": 8
+    },
+    {
+      "FP16": 2,
+      "PT_W8A8": 5,
+      "layer": 9
+    },
+    {
+      "FP16": 2,
+      "PT_W8A8": 5,
+      "layer": 10
+    },
+    {
+      "FP16": 2,
+      "PT_W8A8": 5,
+      "layer": 11
+    },
+    {
+      "FP16": 2,
+      "PT_W8A8": 5,
+      "layer": 12
+    },
+    {
+      "FP16": 2,
+      "PT_W8A8": 5,
+      "layer": 13
+    },
+    {
+      "FP16": 3,
+      "PT_W8A8": 4,
+      "layer": 14
+    },
+    {
+      "FP16": 2,
+      "PT_W8A8": 5,
+      "layer": 15
+    },
+    {
+      "FP16": 2,
+      "PT_W8A8": 5,
+      "layer": 16
+    },
+    {
+      "FP16": 2,
+      "PT_W8A8": 5,
+      "layer": 17
+    },
+    {
+      "FP16": 2,
+      "PT_W8A8": 5,
+      "layer": 18
+    },
+    {
+      "FP16": 2,
+      "PT_W8A8": 5,
+      "layer": 19
+    },
+    {
+      "FP16": 2,
+      "PT_W8A8": 5,
+      "layer": 20
+    },
+    {
+      "FP16": 2,
+      "PT_W8A8": 5,
+      "layer": 21
+    },
+    {
+      "FP16": 2,
+      "PT_W8A8": 5,
+      "layer": 22
+    },
+    {
+      "FP16": 2,
+      "PT_W8A8": 5,
+      "layer": 23
+    },
+    {
+      "FP16": 2,
+      "PT_W8A8": 5,
+      "layer": 24
+    },
+    {
+      "FP16": 2,
+      "PT_W8A8": 5,
+      "layer": 25
+    },
+    {
+      "FP16": 2,
+      "PT_W8A8": 5,
+      "layer": 26
+    },
+    {
+      "FP16": 4,
+      "PT_W8A8": 3,
+      "layer": 27
+    }
+  ],
+  "status": "PASS",
+  "total_linear_assignments": 196,
+  "transform": {
+    "decode": {
+      "initializer_count": 840,
+      "node_count": 6545
+    },
+    "prefill": {
+      "initializer_count": 840,
+      "node_count": 6770
+    }
+  }
+}

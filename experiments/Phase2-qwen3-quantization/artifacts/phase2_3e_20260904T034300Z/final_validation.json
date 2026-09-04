@@ -1,0 +1,71 @@
+{
+  "artifacts": "/tmp/phase2_3e_20260904T020000Z/out",
+  "build_28_layers": "PASS",
+  "exit137": false,
+  "fallback_runtime": false,
+  "functional_runtime": "PASS",
+  "gate": "PASS",
+  "generation": "PASS",
+  "memory": [
+    {
+      "cuda_free_bytes": 4850655232,
+      "cuda_total_bytes": 7989940224,
+      "maxrss_kb": 373104,
+      "mem_available_bytes": 5012836352,
+      "stage": "runtime_start",
+      "swap_free_bytes": 2163879936,
+      "swap_total_bytes": 3994951680,
+      "torch_allocated_bytes": 0,
+      "torch_reserved_bytes": 0
+    },
+    {
+      "cuda_free_bytes": 3544313856,
+      "cuda_total_bytes": 7989940224,
+      "maxrss_kb": 1203552,
+      "mem_available_bytes": 3544662016,
+      "stage": "mixed_decoder_loaded",
+      "swap_free_bytes": 2163879936,
+      "swap_total_bytes": 3994951680,
+      "torch_allocated_bytes": 0,
+      "torch_reserved_bytes": 0
+    },
+    {
+      "cuda_free_bytes": 3762827264,
+      "cuda_total_bytes": 7989940224,
+      "maxrss_kb": 1203552,
+      "mem_available_bytes": 3763175424,
+      "stage": "mixed_done",
+      "swap_free_bytes": 2163879936,
+      "swap_total_bytes": 3994951680,
+      "torch_allocated_bytes": 0,
+      "torch_reserved_bytes": 0
+    },
+    {
+      "cuda_free_bytes": 3073118208,
+      "cuda_total_bytes": 7989940224,
+      "maxrss_kb": 1757692,
+      "mem_available_bytes": 3104387072,
+      "stage": "fp16_decoder_loaded",
+      "swap_free_bytes": 2163879936,
+      "swap_total_bytes": 3994951680,
+      "torch_allocated_bytes": 0,
+      "torch_reserved_bytes": 0
+    },
+    {
+      "cuda_free_bytes": 3831783424,
+      "cuda_total_bytes": 7989940224,
+      "maxrss_kb": 1757692,
+      "mem_available_bytes": 3863216128,
+      "stage": "fp16_done",
+      "swap_free_bytes": 2164142080,
+      "swap_total_bytes": 3994951680,
+      "torch_allocated_bytes": 0,
+      "torch_reserved_bytes": 0
+    }
+  ],
+  "oom": false,
+  "phase": "Phase 2.3-E",
+  "policy": "mixed_precision_policy_primary_final.json",
+  "prefill": "PASS",
+  "primary_runtime": true
+}

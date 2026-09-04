@@ -1,5 +1,25 @@
 # Current State
 
+## Phase 2.3-E 28-Layer Mixed-Precision Quantized Runtime (2026-09-04)
+
+- Starting Windows HEAD was `77ca1d004abdc3d8a50ab8ecc0232d9ce82e4ed7` on
+  `phase/02-qwen3-quantization`; Jetson execution used checkout
+  `a1317a06f83634406bfb732a61f57a698e6aee2d` and preserved its pre-existing
+  untracked diagnostics.
+- The frozen `P2_FAMILY_GUARD_REFINED` policy was applied to the B4.2 FP16
+  prefill/decode ONNX by injecting explicit Q/DQ for the 133 PT-W8A8 MatMuls
+  and preserving 63 FP16 targets. All 133 required activation scales were
+  present in the 139-entry D scale manifest.
+- 28/28 mixed engines built; EngineInspector shows 133 `sm80_xmma_gemm_i8...`
+  INT8 tensor-core GEMM tactics per engine. Full runtime passed S=10 prefill,
+  4-step decode, KV cache invariants, Final RMSNorm/LM Head and `Hello`
+  generation. No OOM/exit137.
+- Gate `PASS / BOUNDED` (`PRIMARY_POLICY_RUNTIME`); mixed engines ~27% smaller
+  than FP16. C1 remains `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`.
+- Evidence: `experiments/Phase2-qwen3-quantization/artifacts/phase2_3e_20260904T034300Z/`;
+  report: `experiments/Phase2-qwen3-quantization/docs/phase2_3e_28layer_mixed_precision_runtime.md`;
+  mixed ONNX/engines remain Jetson-local under `/tmp/phase2_3e_20260904T020000Z/`.
+
 ## Phase 2.3-D Mixed Precision Policy (2026-09-04)
 
 - Starting Windows HEAD was `6fe35b42f4fd06477e406e68d079366ec56f6870` on `phase/02-qwen3-quantization`. Jetson execution deliberately used the historical `a1317a06f83634406bfb732a61f57a698e6aee2d` checkout; its existing untracked diagnostics were not changed.

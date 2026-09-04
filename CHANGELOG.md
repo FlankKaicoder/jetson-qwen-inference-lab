@@ -4,6 +4,19 @@
 
 ## [Unreleased]
 
+### Phase 2.3-E (2026-09-04)
+
+- Applied the frozen Phase 2.3-D `P2_FAMILY_GUARD_REFINED` policy to the
+  existing B4.2 28-layer FP16 ONNX by injecting explicit weight/activation
+  Q/DQ for 133 PT-W8A8 Linear MatMuls and preserving 63 FP16 targets.
+- Built mixed prefill/decode engines; EngineInspector confirms 133 INT8
+  tensor-core GEMM tactics per engine (`INT8_COMPUTE_PROVEN` for the
+  deployable PT-W8A8 path). Full runtime passed prefill, decode, KV cache,
+  Final RMSNorm, LM Head and `Hello` generation with no OOM/exit137.
+- Gate `PASS / BOUNDED` (`PRIMARY_POLICY_RUNTIME`); mixed-vs-FP16 forced-decode
+  hidden/logits relative-L2 are bounded and mixed engines are ~27% smaller.
+  No fallback policy, benchmark, Nsight, INT4, or C1 re-opening occurred.
+
 ### Phase 2.3-D (2026-09-04)
 
 - Derived P0/P1/P2 mixed-precision policies from the Phase 2.3-C 196-Linear evidence set. The selected P2 family guard preserved all `up_proj`/`down_proj` layers and the C gate outlier as FP16.

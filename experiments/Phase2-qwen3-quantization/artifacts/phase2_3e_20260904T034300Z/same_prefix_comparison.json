@@ -1,0 +1,187 @@
+{
+  "definition": "QUANTIZED_RUNTIME_VS_TRT_FP16 (mixed vs FP16 same input; not HF drift)",
+  "forced_decode": [
+    {
+      "forced_token": 21806,
+      "hidden": {
+        "cosine": 0.8549686670303345,
+        "finite": true,
+        "max_abs": 43.3046875,
+        "mean_abs": 10.446720123291016,
+        "relative_l2": 0.5422090888023376,
+        "rmse": 13.078450202941895,
+        "shape_equal": true
+      },
+      "logits": {
+        "cosine": 0.9465828537940979,
+        "finite": true,
+        "max_abs": 8.23046875,
+        "mean_abs": 1.4304614067077637,
+        "relative_l2": 0.3243970274925232,
+        "rmse": 1.8207087516784668,
+        "shape_equal": true
+      },
+      "step": 1,
+      "topk": {
+        "top1_a": [
+          21806
+        ],
+        "top1_agreement": false,
+        "top1_b": [
+          2009
+        ],
+        "top1_top2_margin_a": 2.296875,
+        "top1_top2_margin_b": 0.1015625,
+        "top5_overlap": [
+          2
+        ],
+        "top5_overlap_mean": 2.0
+      }
+    },
+    {
+      "forced_token": 0,
+      "hidden": {
+        "cosine": 0.8188202381134033,
+        "finite": true,
+        "max_abs": 47.03125,
+        "mean_abs": 11.211339950561523,
+        "relative_l2": 0.6029029488563538,
+        "rmse": 14.094125747680664,
+        "shape_equal": true
+      },
+      "logits": {
+        "cosine": 0.9340618848800659,
+        "finite": true,
+        "max_abs": 10.10546875,
+        "mean_abs": 1.590288758277893,
+        "relative_l2": 0.3711030185222626,
+        "rmse": 2.0243148803710938,
+        "shape_equal": true
+      },
+      "step": 2,
+      "topk": {
+        "top1_a": [
+          21806
+        ],
+        "top1_agreement": false,
+        "top1_b": [
+          2009
+        ],
+        "top1_top2_margin_a": 0.578125,
+        "top1_top2_margin_b": 0.203125,
+        "top5_overlap": [
+          1
+        ],
+        "top5_overlap_mean": 1.0
+      }
+    },
+    {
+      "forced_token": 358,
+      "hidden": {
+        "cosine": 0.8270863890647888,
+        "finite": true,
+        "max_abs": 45.578125,
+        "mean_abs": 11.047106742858887,
+        "relative_l2": 0.5909374356269836,
+        "rmse": 13.815205574035645,
+        "shape_equal": true
+      },
+      "logits": {
+        "cosine": 0.9349111914634705,
+        "finite": true,
+        "max_abs": 9.65625,
+        "mean_abs": 1.5672249794006348,
+        "relative_l2": 0.367904394865036,
+        "rmse": 1.9963091611862183,
+        "shape_equal": true
+      },
+      "step": 3,
+      "topk": {
+        "top1_a": [
+          23240
+        ],
+        "top1_agreement": false,
+        "top1_b": [
+          110
+        ],
+        "top1_top2_margin_a": 0.109375,
+        "top1_top2_margin_b": 1.2578125,
+        "top5_overlap": [
+          2
+        ],
+        "top5_overlap_mean": 2.0
+      }
+    },
+    {
+      "forced_token": 2776,
+      "hidden": {
+        "cosine": 0.8312277793884277,
+        "finite": true,
+        "max_abs": 45.8515625,
+        "mean_abs": 10.979469299316406,
+        "relative_l2": 0.5810964107513428,
+        "rmse": 13.765722274780273,
+        "shape_equal": true
+      },
+      "logits": {
+        "cosine": 0.9436703324317932,
+        "finite": true,
+        "max_abs": 9.859375,
+        "mean_abs": 1.5397659540176392,
+        "relative_l2": 0.33796805143356323,
+        "rmse": 1.9669303894042969,
+        "shape_equal": true
+      },
+      "step": 4,
+      "topk": {
+        "top1_a": [
+          8491
+        ],
+        "top1_agreement": false,
+        "top1_b": [
+          110
+        ],
+        "top1_top2_margin_a": 0.0078125,
+        "top1_top2_margin_b": 0.796875,
+        "top5_overlap": [
+          1
+        ],
+        "top5_overlap_mean": 1.0
+      }
+    }
+  ],
+  "prefill_last_hidden": {
+    "cosine": 0.9999999403953552,
+    "finite": true,
+    "max_abs": 60.0,
+    "mean_abs": 0.14082467555999756,
+    "relative_l2": 0.008568037301301956,
+    "rmse": 1.8894610404968262,
+    "shape_equal": true
+  },
+  "prefill_logits": {
+    "cosine": 0.0,
+    "finite": true,
+    "max_abs": 0.0,
+    "mean_abs": 0.0,
+    "relative_l2": 0.0,
+    "rmse": 0.0,
+    "shape_equal": true
+  },
+  "prefill_topk": {
+    "top1_a": [
+      0
+    ],
+    "top1_agreement": true,
+    "top1_b": [
+      0
+    ],
+    "top1_top2_margin_a": 0.0,
+    "top1_top2_margin_b": 0.0,
+    "top5_overlap": [
+      5
+    ],
+    "top5_overlap_mean": 5.0
+  },
+  "status": "PASS"
+}

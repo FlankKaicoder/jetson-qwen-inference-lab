@@ -1,0 +1,37 @@
+{
+  "rows": [
+    {
+      "cache_length": 2,
+      "finite": true,
+      "forced_token": 21806,
+      "prefix_k_exact": true,
+      "prefix_v_exact": true,
+      "step": 1
+    },
+    {
+      "cache_length": 3,
+      "finite": true,
+      "forced_token": 0,
+      "prefix_k_exact": true,
+      "prefix_v_exact": true,
+      "step": 2
+    },
+    {
+      "cache_length": 4,
+      "finite": true,
+      "forced_token": 358,
+      "prefix_k_exact": true,
+      "prefix_v_exact": true,
+      "step": 3
+    },
+    {
+      "cache_length": 5,
+      "finite": true,
+      "forced_token": 2776,
+      "prefix_k_exact": true,
+      "prefix_v_exact": true,
+      "step": 4
+    }
+  ],
+  "status": "PASS"
+}

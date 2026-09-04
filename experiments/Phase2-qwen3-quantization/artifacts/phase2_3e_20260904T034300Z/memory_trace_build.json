@@ -1,0 +1,57 @@
+[
+  {
+    "cuda_free_bytes": 5670625280,
+    "cuda_total_bytes": 7989940224,
+    "maxrss_kb": 444572,
+    "mem_available_bytes": 5753233408,
+    "stage": "build_start",
+    "swap_free_bytes": 2432790528,
+    "swap_total_bytes": 3994951680,
+    "torch_allocated_bytes": 0,
+    "torch_reserved_bytes": 0
+  },
+  {
+    "cuda_free_bytes": 5435502592,
+    "cuda_total_bytes": 7989940224,
+    "maxrss_kb": 2875896,
+    "mem_available_bytes": 5469577216,
+    "stage": "prefill_transformed",
+    "swap_free_bytes": 2430955520,
+    "swap_total_bytes": 3994951680,
+    "torch_allocated_bytes": 0,
+    "torch_reserved_bytes": 0
+  },
+  {
+    "cuda_free_bytes": 1527967744,
+    "cuda_total_bytes": 7989940224,
+    "maxrss_kb": 5019504,
+    "mem_available_bytes": 1548750848,
+    "stage": "prefill_built",
+    "swap_free_bytes": 1978736640,
+    "swap_total_bytes": 3994951680,
+    "torch_allocated_bytes": 0,
+    "torch_reserved_bytes": 0
+  },
+  {
+    "cuda_free_bytes": 3575914496,
+    "cuda_total_bytes": 7989940224,
+    "maxrss_kb": 5019504,
+    "mem_available_bytes": 3577147392,
+    "stage": "decode_transformed",
+    "swap_free_bytes": 2057641984,
+    "swap_total_bytes": 3994951680,
+    "torch_allocated_bytes": 0,
+    "torch_reserved_bytes": 0
+  },
+  {
+    "cuda_free_bytes": 1512333312,
+    "cuda_total_bytes": 7989940224,
+    "maxrss_kb": 5239568,
+    "mem_available_bytes": 1535819776,
+    "stage": "decode_built",
+    "swap_free_bytes": 1886793728,
+    "swap_total_bytes": 3994951680,
+    "torch_allocated_bytes": 0,
+    "torch_reserved_bytes": 0
+  }
+]

@@ -1,0 +1,69 @@
+{
+  "finite": true,
+  "input_ids": [
+    9707
+  ],
+  "kv": [
+    {
+      "all_finite": true,
+      "cache_length": 1,
+      "phase": "prefill",
+      "pointer_isolation_k": true,
+      "pointer_isolation_v": true,
+      "prefix_k_exact": true,
+      "prefix_v_exact": true,
+      "step": 0
+    },
+    {
+      "all_finite": true,
+      "cache_length": 2,
+      "phase": "decode",
+      "pointer_isolation_k": true,
+      "pointer_isolation_v": true,
+      "prefix_k_exact": true,
+      "prefix_v_exact": true,
+      "step": 1
+    },
+    {
+      "all_finite": true,
+      "cache_length": 3,
+      "phase": "decode",
+      "pointer_isolation_k": true,
+      "pointer_isolation_v": true,
+      "prefix_k_exact": true,
+      "prefix_v_exact": true,
+      "step": 2
+    },
+    {
+      "all_finite": true,
+      "cache_length": 4,
+      "phase": "decode",
+      "pointer_isolation_k": true,
+      "pointer_isolation_v": true,
+      "prefix_k_exact": true,
+      "prefix_v_exact": true,
+      "step": 3
+    },
+    {
+      "all_finite": true,
+      "cache_length": 5,
+      "phase": "decode",
+      "pointer_isolation_k": true,
+      "pointer_isolation_v": true,
+      "prefix_k_exact": true,
+      "prefix_v_exact": true,
+      "step": 4
+    }
+  ],
+  "pointer_isolation": true,
+  "prefix_invariant": true,
+  "prompt": "Hello",
+  "status": "PASS",
+  "tokens": [
+    0,
+    46309,
+    46309,
+    46309,
+    46309
+  ]
+}

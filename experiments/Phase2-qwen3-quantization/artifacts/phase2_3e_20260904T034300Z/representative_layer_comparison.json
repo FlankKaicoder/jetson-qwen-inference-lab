@@ -1,0 +1,42 @@
+{
+  "comparison": {
+    "L0": {
+      "cosine": 0.998332679271698,
+      "finite": true,
+      "max_abs": 0.125,
+      "mean_abs": 0.012578275986015797,
+      "relative_l2": 0.057728540152311325,
+      "rmse": 0.016007617115974426,
+      "shape_equal": true
+    },
+    "L18": {
+      "cosine": 0.9998299479484558,
+      "finite": true,
+      "max_abs": 48.0,
+      "mean_abs": 0.8803266286849976,
+      "relative_l2": 0.01996380276978016,
+      "rmse": 1.2991915941238403,
+      "shape_equal": true
+    },
+    "L27": {
+      "cosine": 0.9900909662246704,
+      "finite": true,
+      "max_abs": 59.75,
+      "mean_abs": 7.19726037979126,
+      "relative_l2": 0.14132484793663025,
+      "rmse": 9.694517135620117,
+      "shape_equal": true
+    },
+    "L9": {
+      "cosine": 0.9999972581863403,
+      "finite": true,
+      "max_abs": 48.0,
+      "mean_abs": 0.19200533628463745,
+      "relative_l2": 0.008286365307867527,
+      "rmse": 0.5383496880531311,
+      "shape_equal": true
+    }
+  },
+  "note": "mixed vs TRT FP16 same-input hidden outputs (integration diagnostic only)",
+  "status": "PASS"
+}

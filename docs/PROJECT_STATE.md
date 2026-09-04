@@ -13,14 +13,14 @@
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
 | Current phase | Phase 2 — LLM Quantization |
-| Current experiment | Phase 2.3-D — Mixed Precision Policy |
+| Current experiment | Phase 2.3-E — 28-Layer Mixed-Precision Quantized Runtime |
 | Current branch | `phase/02-qwen3-quantization` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Exp04 — CUDA GEMM tiling and WMMA |
-| Experiment status | Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8/2.1.9 `PASS / BOUNDED`; Phase 2.2-A `PARTIAL / BOUNDED PASS`; Phase 2.2-B1/B2/B3 `PASS / BOUNDED`; Phase 2.2-B4.1 `PASS / CLOSED`; Phase 2.2-B4.2 `PASS / BOUNDED`; Phase 2.2-C0 `PASS / DESIGN ONLY`; Phase 2.2-C1 `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`; Phase 2.2 `CLOSED / PASS / BOUNDED`; Phase 2.3-A/B `PASS`; Phase 2.3-C/D `PASS / BOUNDED` |
-| Current Gate | Phase 2.3-D `PASS / BOUNDED`; final mixed policy preserves 63/196 Linear layers FP16 and assigns 133 PT-W8A8; no quantized TensorRT runtime was built |
-| Readiness | Phase 2.2 remains frozen as `CLOSED / PASS / BOUNDED`; C1 remains `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`; Phase 2.3 overall is `IN PROGRESS`; Phase 2.3-E is policy-ready but awaits explicit authorization. |
+| Experiment status | Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8/2.1.9 `PASS / BOUNDED`; Phase 2.2-A `PARTIAL / BOUNDED PASS`; Phase 2.2-B1/B2/B3 `PASS / BOUNDED`; Phase 2.2-B4.1 `PASS / CLOSED`; Phase 2.2-B4.2 `PASS / BOUNDED`; Phase 2.2-C0 `PASS / DESIGN ONLY`; Phase 2.2-C1 `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`; Phase 2.2 `CLOSED / PASS / BOUNDED`; Phase 2.3-A/B `PASS`; Phase 2.3-C/D/E `PASS / BOUNDED` |
+| Current Gate | Phase 2.3-E `PASS / BOUNDED`; 196/196 policy applied (63 FP16 + 133 PT-W8A8), 28/28 mixed engines built with 133 INT8 GEMM tactics, full runtime functional PASS; substantial mixed-vs-FP16 numerical/token divergence is bounded |
+| Readiness | Phase 2.2 remains frozen as `CLOSED / PASS / BOUNDED`; C1 remains `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`; Phase 2.3 overall is `IN PROGRESS`; Phase 2.3-E `PASS / BOUNDED`; Phase 2.3-F is authorized only if E is PASS / PASS-BOUNDED. |
 
 ## Confirmed Findings
 
@@ -366,3 +366,34 @@ Before Exp01.2 profiling on `2026-08-30`, Windows, GitHub and Jetson were clean 
 - Calibration candidates were GLOBAL_ABSMAX, P99.9, P99.99 and a bounded MSE clip grid. Held-out primary `W8A8 vs W8` activation-only relative-L2 median/P95/max were `0.019526/0.020111/0.020117` for selected `BOUNDED_MSE_CLIP`; total `W8A8 vs FP16` median/P95/max were `0.033015/0.033980/0.034272`.
 - Selected-policy detailed EngineInspector showed Int8 activation, Int8 weight and an `sm80_xmma_gemm_i8i8...` tactic; `INT8_COMPUTE_PROVEN` is limited to this graph/profile. Frozen W8-vs-FP16 median/P95 relative-L2 `0.026780/0.027547` exceeded selected A8-only median/P95 `0.019526/0.020111`, supporting weight-quantization dominance for this target/corpus.
 - Gate: `Phase 2.3-B = PASS`. Phase 2.3 remains `IN PROGRESS`; Phase 2.3-C was not started. No full-model calibration, 28-layer INT8, benchmark, Nsight, INT4, mixed precision or C1 reopening occurred.
+
+## Phase 2.3-E 28-Layer Mixed-Precision Quantized Runtime (2026-09-04)
+
+- Starting Windows HEAD was `77ca1d004abdc3d8a50ab8ecc0232d9ce82e4ed7` on
+  `phase/02-qwen3-quantization`; Jetson execution used the historical
+  `a1317a06f83634406bfb732a61f57a698e6aee2d` checkout and preserved its
+  pre-existing untracked diagnostics.
+- The frozen Phase 2.3-D `P2_FAMILY_GUARD_REFINED` policy (63 FP16 + 133
+  PT-W8A8) was applied to the existing B4.2 FP16 prefill/decode ONNX graphs by
+  injecting explicit weight/activation Q/DQ for every PT-W8A8 MatMul and
+  preserving FP16 targets verbatim. All 133 required activation scales were
+  present (139 scale entries, 6 refined-to-FP16 entries unused).
+- 28/28 mixed prefill and decode engines built. EngineInspector shows 133
+  `sm80_xmma_gemm_i8...` INT8 tensor-core GEMM tactics per engine, matching
+  the 133 PT-W8A8 targets (`INT8_COMPUTE_PROVEN` for this deployable path).
+- Full runtime (embedding -> 28-layer mixed decoder -> Final RMSNorm -> LM
+  Head -> greedy) passed B=1,S=10 prefill, 4-step decode, KV cache invariants
+  (length 1->5, exact prefixes, 28-way pointer isolation), Final RMSNorm/LM
+  Head, and a 4-step `Hello` generation. No OOM/exit 137.
+- Same-prefix mixed-vs-FP16: prefill last hidden relative-L2 `0.008568` and
+  cosine `0.9999999`; forced-decode hidden relative-L2 `0.542..0.603` and
+  logits relative-L2 `0.324..0.371`; top-1 agreement `0/4`, top-5 overlap
+  `1..2/5`. Mixed and FP16 `Hello` tokens diverge after the shared degenerate
+  first token.
+- Gate: `Phase 2.3-E = PASS / BOUNDED`; runtime classification
+  `PRIMARY_POLICY_RUNTIME` (no fallback). Mixed engines are ~27% smaller than
+  FP16 (storage context only). C1 remains `CLOSED /
+  NUMERICAL_LIMITATION_UNRESOLVED` and was not re-opened.
+- Report: `experiments/Phase2-qwen3-quantization/docs/phase2_3e_28layer_mixed_precision_runtime.md`;
+  evidence: `experiments/Phase2-qwen3-quantization/artifacts/phase2_3e_20260904T034300Z/`;
+  mixed ONNX/engines remain Jetson-local under `/tmp/phase2_3e_20260904T020000Z/`.
