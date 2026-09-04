@@ -255,3 +255,10 @@ Failed/diagnostic runs were retained Jetson-side and were not overwritten:
 `/tmp/phase3a_nsys_20260904T063612Z_nsys`. The completed Mixed NSYS report is
 `/tmp/phase3a_nsys_20260904T063649Z/mixed_full.nsys-rep`; the small stale
 `mixed.nsys-rep` from an output-path collision remains as a diagnostic.
+
+During Jetson synchronization, Git protected two same-name CRLF working-tree
+CSVs. Their numeric content was identical to the committed LF versions. The
+original CRLF bytes were copied to
+`/tmp/phase3a_e3db_pre_sync_20260904T070449Z/`, then only line endings of the
+two working-tree CSVs were normalized to complete the fast-forward. No
+measured value was changed.
