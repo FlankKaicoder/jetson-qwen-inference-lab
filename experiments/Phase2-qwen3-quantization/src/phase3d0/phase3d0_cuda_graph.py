@@ -238,11 +238,13 @@ class GraphDecodeWindow:
 def load_objects(args, mixed: bool) -> tuple[dict, list, object]:
     prefix = "mixed_" if mixed else ""
     engine_dir = args.mixed_dir if mixed else args.fp16_dir
-    paths = [args.embedding_engine, engine_dir / f"{prefix}decode_28layer.engine",
+    paths = [args.embedding_engine,
+             engine_dir / f"{prefix}prefill_28layer.engine",
+             engine_dir / f"{prefix}decode_28layer.engine",
              args.norm_engine, args.lm_engine]
     t0 = time.perf_counter()
     objects = [F.make_trt(path, True) for path in paths]
-    embed_fn, _logits_fn = F.F.make_pipeline(objects[0], objects[2], objects[3])
+    embed_fn, _logits_fn = F.F.make_pipeline(objects[0], objects[3], objects[4])
     return {
         "engine_paths": [str(path) for path in paths],
         "initialization_s": time.perf_counter() - t0,
@@ -364,8 +366,9 @@ def benchmark(args, objects, stream_result: dict, graph: GraphDecodeWindow,
 
 def audit_from_objects(objects: list, runtime: str, boundary: str = "UNKNOWN") -> dict:
     engines = {
-        "embedding": objects[0], "decode_28layer": objects[1],
-        "final_rmsnorm": objects[2], "lm_head": objects[3],
+        "embedding": objects[0], "prefill_28layer": objects[1],
+        "decode_28layer": objects[2], "final_rmsnorm": objects[3],
+        "lm_head": objects[4],
     }
     tensors = {}
     for name, obj in engines.items():
@@ -421,11 +424,15 @@ def profile_mode(args) -> dict:
     token_ids = args.force_cont[:args.decode_steps]
     with F.nvtx_range("PHASE3D0_INIT", True):
         pass
-    hidden, ks, vs = F.F.run_prefill(objects[0], embed_fn, args.bench_ids[:8])
-    graph = GraphDecodeWindow(objects, ks, vs, token_ids, args.decode_steps)
+    hidden, ks, vs = F.F.run_prefill(objects[1], embed_fn, args.bench_ids[:8])
+    graph = GraphDecodeWindow(
+        [objects[0], objects[2], objects[3], objects[4]], ks, vs,
+        token_ids, args.decode_steps)
     with F.nvtx_range("PHASE3D0_WARMUP", True):
         for _ in range(args.warmup):
-            run_stream_window(args, objects, token_ids, ks, vs)
+            run_stream_window(
+                args, [objects[0], objects[2], objects[3], objects[4]],
+                token_ids, ks, vs)
         torch.cuda.synchronize()
     graph.capture()
     if args.graph:
@@ -434,7 +441,9 @@ def profile_mode(args) -> dict:
         torch.cuda.synchronize()
     else:
         with F.nvtx_range("PHASE3D0_STEADY_STREAM_WINDOW", True):
-            run_stream_window(args, objects, token_ids)
+            run_stream_window(
+                args, [objects[0], objects[2], objects[3], objects[4]],
+                token_ids, ks, vs)
         torch.cuda.synchronize()
     return {"phase": "Phase 3-D0-D", "path": "cuda_graph" if args.graph
             else "persistent_stream", "runtime": args.runtime,
@@ -444,14 +453,16 @@ def profile_mode(args) -> dict:
 def bench_mode(args) -> dict:
     token_ids = args.force_cont[:args.decode_steps]
     info, objects, embed_fn = load_objects(args, args.runtime == "mixed")
-    hidden, ks, vs = F.F.run_prefill(objects[0], embed_fn, args.bench_ids[:8])
-    stream_result = run_stream_window(args, objects, token_ids, ks, vs)
-    graph = GraphDecodeWindow(objects, ks, vs, token_ids, args.decode_steps)
+    hidden, ks, vs = F.F.run_prefill(objects[1], embed_fn, args.bench_ids[:8])
+    graph_objects = [objects[0], objects[2], objects[3], objects[4]]
+    stream_result = run_stream_window(args, graph_objects, token_ids, ks, vs)
+    graph = GraphDecodeWindow(graph_objects, ks, vs, token_ids, args.decode_steps)
     capture_start = time.perf_counter()
     graph_topology = graph.capture()
     capture_s = time.perf_counter() - capture_start
     validation = validate(args, objects, stream_result, graph, graph_topology)
-    benchmark_result = benchmark(args, objects, stream_result, graph, ks, vs, capture_s)
+    benchmark_result = benchmark(
+        args, graph_objects, stream_result, graph, ks, vs, capture_s)
     audit = audit_from_objects(
         objects, args.runtime,
         "ONE_FIXED_S8_PREFILL_TO_8_STEP_DECODE_WINDOW")
