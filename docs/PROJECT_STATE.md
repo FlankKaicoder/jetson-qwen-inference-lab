@@ -13,14 +13,14 @@
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
 | Current phase | Phase 5 — TensorRT GEMM Path Investigation |
-| Current experiment | Phase 5-B Step 1 — Engine Inspector / Tactic Attribution Recovery |
+| Current experiment | Phase 5-B Step 2 — TensorRT xmma GEMM vs cuBLASLt Microarchitectural Comparison |
 | Current branch | `phase/05a-cuda-feasibility-baseline-study` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 5-B Step 1 — TensorRT GEMM path investigation |
-| Experiment status | Prior Phase 1-4 and Phase 5-A statuses are unchanged. Phase 5-B Step 1 recovered bounded Inspector tactic attribution from frozen artifacts without engine rebuild, execution, profiling, or benchmark. |
-| Current Gate | Phase 5-B Step 1 is `CASE_B_SUPPORTED_BOUNDED`. Tactic strings and runtime kernel families are recovered; numeric tactic ID, workspace, backend identity, and one-to-one tactic/kernel mapping are not proven. `NO_IMPLEMENTATION_AUTHORIZED`. |
-| Readiness | Phase 5-B Step 2 is not defined or authorized. The evidence supports bounded path attribution only. No CUDA kernel, TensorRT Plugin, engine change, tactic forcing, or runtime redesign is authorized. |
+| Last completed experiment | Phase 5-B Step 2 — TensorRT vs cuBLASLt NCU comparison |
+| Experiment status | Prior Phase 1-4 and Phase 5-A statuses are unchanged. Phase 5-B Step 2 profiled one cuBLASLt algorithm-21 post-warmup launch and one Mixed Decode TensorRT `f16f16_execute_kernel_trt` launch with NCU, using `--clock-control none`. |
+| Current Gate | Phase 5-B Step 2 is `CASE_A_SUPPORTED_BOUNDED` / `NO_PROVEN_OPTIMIZATION_TARGET`. The NCU durations are nearly equal, but the earlier event-time gap remains `INCONCLUSIVE`. TensorRT backend identity remains `UNKNOWN`. |
+| Readiness | Stop after Phase 5-B Step 2. No CUDA kernel, TensorRT Plugin, engine rebuild, tactic forcing, or runtime redesign is authorized. |
 
 ## Confirmed Findings
 
@@ -701,3 +701,27 @@ Before Phase 3-A execution, the canonical Phase 2 checkpoint was `b2083895b1199e
   context only, not evidence of a TensorRT cuBLASLt backend.
 - Evidence: `results/phase5b_tensorrt_gemm_path_investigation/20260905T103352Z/`;
   analysis script is `experiments/Phase5-cuda-feasibility/scripts/phase5b_tactic_attribution.py`.
+
+## Phase 5-B Step 2 TensorRT vs cuBLASLt NCU Comparison (2026-09-05)
+
+- Starting HEAD was `47ee7cd9ccd7ad551b5b5e2b44e3063f85ef4d45` on
+  `phase/05a-cuda-feasibility-baseline-study`. The Jetson checkout remained
+  read-only on `phase/03e-tensorrt-kernel-attribution` at `bf7abc6`.
+- Profiled one post-warmup cuBLASLt algorithm-21 launch after `100` warmups and
+  one Mixed Decode TensorRT
+  `sm80_xmma_gemm_f16f16_f16f16_f16..._execute_kernel_trt` launch. NCU used
+  `--clock-control none` and one launch per target.
+- NCU duration was `242.912 us` for cuBLASLt and `244.160 us` for TensorRT;
+  memory/L2 throughput was `76.06%` versus `76.92%`. The kernels had different
+  resource shapes: cuBLASLt used more registers/shared memory and higher
+  tensor-cycle activity, while TensorRT used higher occupancy and lower
+  register/shared-memory pressure.
+- The frozen CUDA-event cuBLASLt median remains `80.077961 us`; the historical
+  TensorRT steady-state correlated kernel median remains `147.424 us`. NCU did
+  not reproduce that event-time environment and the event-time gap remains
+  `INCONCLUSIVE`.
+- Gate is `CASE_A_SUPPORTED_BOUNDED` / `NO_PROVEN_OPTIMIZATION_TARGET`. No CUDA
+  implementation is authorized.
+- Evidence: `results/phase5b_tensorrt_gemm_path_investigation/20260905T112513Z/`;
+  temporary cuBLASLt harness is
+  `experiments/Phase5-cuda-feasibility/src/phase5b_step2_cublaslt_algo21_profile.cu`.

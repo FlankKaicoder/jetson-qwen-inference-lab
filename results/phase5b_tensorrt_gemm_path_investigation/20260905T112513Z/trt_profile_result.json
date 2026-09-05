@@ -1,0 +1,13 @@
+{
+  "context_creations": 5,
+  "decode_steps": 1,
+  "engine_dir": "/tmp/phase2_3e_20260904T020000Z/work",
+  "initialization_s": 8.293960224022157,
+  "label": "mixed_persistent_context_lifetime",
+  "lifetime": "persistent_context_lifetime",
+  "mixed": true,
+  "persistent": true,
+  "profiled": true,
+  "runtime": "mixed",
+  "seq_len": 8
+}

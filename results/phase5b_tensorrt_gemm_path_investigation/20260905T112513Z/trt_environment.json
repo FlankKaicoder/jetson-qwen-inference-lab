@@ -1,0 +1,19 @@
+{
+  "capability": [
+    8,
+    7
+  ],
+  "cuda": "12.6",
+  "cudnn": 90300,
+  "git_branch": "phase/03e-tensorrt-kernel-attribution",
+  "git_head": "bf7abc67eb58662a68316045e166aa9f611330d7",
+  "gpu": "Orin",
+  "hostname": "nvidia-desktop",
+  "jetson_clocks_show": "SOC family:tegra234  Machine:NVIDIA Jetson Orin Nano Engineering Reference Developer Kit Super\nOnline CPUs: 0-5\ncpu0:  Online=1 Governor=schedutil MinFreq=729600 MaxFreq=1344000 CurrentFreq=1267200 IdleStates: WFI=1 c7=1 \ncpu1:  Online=1 Governor=schedutil MinFreq=729600 MaxFreq=1344000 CurrentFreq=1267200 IdleStates: WFI=1 c7=1 \ncpu2:  Online=1 Governor=schedutil MinFreq=729600 MaxFreq=1344000 CurrentFreq=1267200 IdleStates: WFI=1 c7=1 \ncpu3:  Online=1 Governor=schedutil MinFreq=729600 MaxFreq=1344000 CurrentFreq=1267200 IdleStates: WFI=1 c7=1 \ncpu4:  Online=1 Governor=schedutil MinFreq=729600 MaxFreq=1344000 CurrentFreq=729600 IdleStates: WFI=1 c7=1 \ncpu5:  Online=1 Governor=schedutil MinFreq=729600 MaxFreq=1344000 CurrentFreq=729600 IdleStates: WFI=1 c7=1 \nGPU MinFreq=306000000 MaxFreq=918000000 CurrentFreq=306000000\nActive GPU TPCs: 4\nEMC MinFreq=204000000 MaxFreq=3199000000 CurrentFreq=2133000000 FreqOverride=0\nFAN Dynamic Speed Control=nvfancontrol hwmon0_pwm1=70\nNV Power Mode: 25W",
+  "nsys": "NVIDIA Nsight Systems version 2024.5.4.34-245434855735v0",
+  "nvpmodel": "NV Power Mode: 25W\n1",
+  "platform": "Linux-5.15.148-tegra-aarch64-with-glibc2.35",
+  "tegra_release": "# R36 (release), REVISION: 4.3, GCID: 38968081, BOARD: generic, EABI: aarch64, DATE: Wed Jan  8 01:49:37 UTC 2025\n# KERNEL_VARIANT: oot\nTARGET_USERSPACE_LIB_DIR=nvidia\nTARGET_USERSPACE_LIB_DIR_PATH=usr/lib/aarch64-linux-gnu/nvidia",
+  "tensorrt": "10.3.0",
+  "torch": "2.5.0a0+872d972e41.nv24.08"
+}

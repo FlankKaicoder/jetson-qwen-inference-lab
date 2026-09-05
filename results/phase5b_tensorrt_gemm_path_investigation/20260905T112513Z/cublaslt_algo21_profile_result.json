@@ -1,0 +1,30 @@
+{
+  "backend": "cuBLASLt",
+  "api": "cublasLtMatmul",
+  "device_name": "Orin",
+  "compute_capability": 87,
+  "cuda_driver_version": 12060,
+  "cuda_runtime_version": 12060,
+  "cublaslt_version": 120601,
+  "shape": {
+    "M": 1,
+    "K": 1024,
+    "N": 3072
+  },
+  "layout": "row-major",
+  "compute": "FP32_ACCUMULATE",
+  "scale_type": "FP32",
+  "input_dtype": "FP16",
+  "output_dtype": "FP16",
+  "heuristic_index": 4,
+  "algorithm_id": 21,
+  "workspace_size": 0,
+  "waves_count": 0.75,
+  "warmup_calls": 100,
+  "profiled_launches": 1,
+  "max_abs_error": 0.000218480,
+  "max_rel_error": 0.000651256,
+  "max_abs_reference": 0.663905241,
+  "gate_limit": 0.001066391,
+  "correctness": "PASS"
+}

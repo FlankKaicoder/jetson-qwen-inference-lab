@@ -4,6 +4,19 @@
 
 ## [Unreleased]
 
+### Phase 5-B Step 2 TensorRT vs cuBLASLt NCU Comparison (2026-09-05)
+
+- Added a temporary cuBLASLt algorithm-21 profiling harness and targeted NCU
+  profiles for one cuBLASLt post-warmup launch and one Mixed Decode TensorRT
+  `f16f16_execute_kernel_trt` launch. NCU used `--clock-control none`.
+- Recorded nearly equal NCU durations (`242.912 us` versus `244.160 us`) and
+  close memory/L2 throughput (`76.06%` versus `76.92%`), while documenting the
+  different register, shared-memory, occupancy, and tensor-activity profiles.
+- Kept the event-time gap (`80.077961 us` versus historical `147.424 us`)
+  `INCONCLUSIVE`; NCU did not reproduce the event-time environment.
+- Phase 5-B Step 2 gate is `CASE_A_SUPPORTED_BOUNDED` /
+  `NO_PROVEN_OPTIMIZATION_TARGET`. No CUDA implementation is authorized.
+
 ### Phase 5-B Step 1 TensorRT GEMM Path Investigation (2026-09-05)
 
 - Recovered bounded tactic attribution for all 28 `up_proj` GEMM layers from

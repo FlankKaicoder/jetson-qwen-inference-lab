@@ -1,3 +1,23 @@
+## Phase 5-B Step 2 TensorRT vs cuBLASLt NCU Comparison (2026-09-05)
+
+- Active branch is `phase/05a-cuda-feasibility-baseline-study`. Step 2 started
+  at `47ee7cd9ccd7ad551b5b5e2b44e3063f85ef4d45`; verify the closeout commit
+  with Git.
+- NCU `2024.3.1.0` used `--clock-control none`, one cuBLASLt algorithm-21
+  post-warmup launch, and one Mixed Decode TensorRT
+  `f16f16_execute_kernel_trt` launch. No kernel, engine, plugin, tactic, or
+  runtime implementation was modified.
+- NCU durations were `242.912 us` cuBLASLt versus `244.160 us` TensorRT; memory/L2
+  throughput was `76.06%` versus `76.92%`. Resource shapes differ: cuBLASLt used
+  more registers/shared memory and higher tensor-cycle activity; TensorRT used
+  higher occupancy and lower resource pressure.
+- The frozen event-time cuBLASLt median is `80.077961 us` and the historical
+  TensorRT steady-state kernel median is `147.424 us`; NCU does not reproduce
+  that boundary, so the event-time gap remains `INCONCLUSIVE`.
+- Gate is `CASE_A_SUPPORTED_BOUNDED` / `NO_PROVEN_OPTIMIZATION_TARGET`.
+- Evidence:
+  `results/phase5b_tensorrt_gemm_path_investigation/20260905T112513Z/phase5b_step2_ncu_comparison.md`.
+
 ## Phase 5-B Step 1 TensorRT GEMM Path Investigation (2026-09-05)
 
 - Active branch is `phase/05a-cuda-feasibility-baseline-study`. Step 1 started
