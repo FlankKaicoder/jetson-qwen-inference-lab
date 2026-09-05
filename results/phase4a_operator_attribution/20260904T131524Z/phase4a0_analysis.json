@@ -1,0 +1,166 @@
+{
+  "cuda_nvcc_version_output": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2024 NVIDIA Corporation\nBuilt on Wed_Aug_14_10:14:07_PDT_2024\nCuda compilation tools, release 12.6, V12.6.68\nBuild cuda_12.6.r12.6/compiler.34714021_0\n",
+  "distributions": {
+    "input_precision_counts": {
+      "Float": 170,
+      "Half": 1065,
+      "Int64": 953,
+      "Int8": 266
+    },
+    "layer_type_counts": {
+      "fusion": 165,
+      "gemm": 85,
+      "kgen": 248,
+      "shape_call": 1,
+      "signal": 86,
+      "wait": 114
+    },
+    "output_precision_counts": {
+      "Half": 561,
+      "Int8": 133
+    },
+    "tactic_value_counts": {
+      "__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f": 27,
+      "__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4": 27,
+      "__myl_CasResMulConSinResCosResAddSqrAddSqrDivMulDivMulMulResSliSliNegConMulMulAddConResRepResTraEtc_0x3beb58e4cd3dae3f69eebdbcbcc43980": 1,
+      "__myl_MovMulMeaAddSqrDivMulDivMinMaxRouCasDivMinMaxRouCasDivMinMaxRouCas_0xda00efdea1fdf9ffc7ce7052979834ac": 1,
+      "__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a": 1,
+      "__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459": 1,
+      "__myl_MovResMulMea_0x8729692710be644f17c7f997918851be": 1,
+      "__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f": 28,
+      "__myl_MulMeaAddSqrDivMulDivMinMaxRouCasDivMinMaxRouCasDivMinMaxRouCas_0x9f2c300bb597625319cadec4728f9bc5": 26,
+      "__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x028e232ad04f9dc415033ab5492ba131": 1,
+      "__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x2b4860727aa16b8274c6a9e412ad0345": 1,
+      "__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x2d193f06c4770a0b130c316a9152d3bb": 1,
+      "__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x4119fc4c6529add99aa14081dbc16ecb": 1,
+      "__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x5bd2afd5a5411fb85888be6c8200be17": 1,
+      "__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x6cfe86dd6e4d3c2d552f909cb133c113": 2,
+      "__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x77624facc1459ff2bf110c24ed8021c9": 1,
+      "__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x84ef5602e3183b8229f8022d6e6eb74f": 1,
+      "__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x8b0f22c4a2121702a93d8623b5a12ae4": 1,
+      "__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0x9b99130746ee47ec2d15b111319f425e": 1,
+      "__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xa03da8bd0547b3997e4af5d64a9f7047": 1,
+      "__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xa203a21bb9a2ead322f314c5ed6c45fd": 1,
+      "__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xb2a73dcdcb246645ed7bcf4e6ce7b3cc": 1,
+      "__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xb633f57e2e22833f593c4f215c79f20a": 1,
+      "__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xbc9bffbf2b5683589f7ee804485f8f6c": 1,
+      "__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xc17a9e1c8880e75049e64b4f3bf21f16": 2,
+      "__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xcf81b38212e8f296e353aae060904a23": 2,
+      "__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xd65f433ff7b34abefa6995ce894b46a3": 1,
+      "__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xd756cf8085615be8f2df33c74bb9ac74": 2,
+      "__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xdba6260d6d388ff570fe95b3f4430bd0": 1,
+      "__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xe944abd3db8709490013ec56e805a4c9": 1,
+      "__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xeadba79c8105dff3fdb08ce085e7b12c": 1,
+      "__myl_MulMeaAddSqrDivMulMulMulMinMaxRouCas_0xf2d64d0cef819045fc9d252a6b31181b": 1,
+      "__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99": 2,
+      "__myl_MulMinMaxRouCas_0x0b3337a1cc9120f6d73fd89c494a9e53": 1,
+      "__myl_MulMinMaxRouCas_0x1fb837ee240f07d62ca7b72c8a105b6f": 1,
+      "__myl_MulMinMaxRouCas_0x2bde768f3e1a80e37132bb2f4be64789": 1,
+      "__myl_MulMinMaxRouCas_0x36a6981344c30226a5bbeed5f55c92f7": 1,
+      "__myl_MulMinMaxRouCas_0x46757e257e41ef1fb92716579e35a0d1": 1,
+      "__myl_MulMinMaxRouCas_0x472744a06bd7fd057961674c77025970": 1,
+      "__myl_MulMinMaxRouCas_0x56e74360c3e8a36d72970af72bdd3e2b": 1,
+      "__myl_MulMinMaxRouCas_0x59f8206e6baa651ad7dab50737cc8951": 1,
+      "__myl_MulMinMaxRouCas_0x5d22e06f0128b92bf02f50e9b05f0125": 1,
+      "__myl_MulMinMaxRouCas_0x6a10bd9f6c374e5ad061c0d2824b0a25": 1,
+      "__myl_MulMinMaxRouCas_0x774908550917e749f75db6185bcae83f": 2,
+      "__myl_MulMinMaxRouCas_0x77ca5ed9b2797810688767dcda08897e": 1,
+      "__myl_MulMinMaxRouCas_0x7c03f425cd0cc19febc97cb69c1f2cdb": 1,
+      "__myl_MulMinMaxRouCas_0x806abff2303c4adb22dac0953af546a1": 1,
+      "__myl_MulMinMaxRouCas_0x8dd8f4f93c6a1e7d8a5025e20f21222e": 1,
+      "__myl_MulMinMaxRouCas_0x907030f04aaedcd668915c250cbde546": 1,
+      "__myl_MulMinMaxRouCas_0x998f9d85786c1705f75b803510b59e30": 1,
+      "__myl_MulMinMaxRouCas_0x9ee6ac5b9454da6749214d07f11973df": 1,
+      "__myl_MulMinMaxRouCas_0xa01c797cf706031bf4679ec54cf7b88d": 1,
+      "__myl_MulMinMaxRouCas_0xa49a3c4e66279a6886312b656336d70d": 1,
+      "__myl_MulMinMaxRouCas_0xa64eacd40f6a244c6f97851e4148bfa0": 1,
+      "__myl_MulMinMaxRouCas_0xca1e8a983af10962a50c67e0fecf3bd1": 1,
+      "__myl_MulMinMaxRouCas_0xf131f88ee6d7693232e76c9290134799": 1,
+      "__myl_MulMinMaxRouCas_0xfffd234660cce4d6758da70fc32eeb17": 1,
+      "__myl_ResConResRep_0x9d40828c020eb6bb972be950c35191c1": 27,
+      "__myl_ResMulMea_0x3c91498c3beee36a5653966af1581a8a": 27,
+      "__myl_ResMulMea_0xf2413012cd9ac6341b95d78f3432c656": 27,
+      "sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_by_fusion_tactic": 28,
+      "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16": 26,
+      "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_by_fusion_tactic": 4,
+      "sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2": 28,
+      "sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2": 28,
+      "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16": 3,
+      "sm80_xmma_gemm_i8f32_i8i32_f32_tn_n_tilesize32x64x64_stage6_warpsize2x2x1_tensor16x8x32_by_fusion_tactic": 106,
+      "sm80_xmma_gemm_i8i8_i8i32_f32_tn_n_tilesize32x64x64_stage6_warpsize2x2x1_tensor16x8x32_by_fusion_tactic": 27
+    }
+  },
+  "engine": {
+    "bytes": 650285868,
+    "path": "/tmp/phase2_3e_20260904T020000Z/work/mixed_decode_28layer.engine",
+    "rebuild_performed": false,
+    "sha256": "445fc7d295c5bbb91e5392182347aa0e59612a031b5556a3461e09f30a59005c"
+  },
+  "git": {
+    "branch": "phase/03e-tensorrt-kernel-attribution",
+    "head": "bf7abc67eb58662a68316045e166aa9f611330d7",
+    "porcelain_status": "?? docs/current_state.md\n?? docs/experiment_registry.csv\n?? experiments/Phase2-qwen3-quantization/phase2_2_runtime_prototype/artifacts/c1i_20260902T220000Z/\n?? experiments/Phase2-qwen3-quantization/phase2_2_runtime_prototype/artifacts/c1i_20260902T221500Z/\n?? experiments/Phase2-qwen3-quantization/phase2_2_runtime_prototype/artifacts/c1i_20260902T223000Z/\n?? results/phase3a_runtime_attribution/20260904T062257Z/\n?? results/phase3b_runtime_lifetime/20260904T082850Z_nsys/\n"
+  },
+  "host": "nvidia-desktop",
+  "inspector": {
+    "field_presence_counts": {
+      "Inputs": 699,
+      "LayerType": 699,
+      "Metadata": 699,
+      "Name": 699,
+      "Outputs": 699,
+      "StreamId": 699,
+      "TacticName": 699
+    },
+    "format": "LayerInformationFormat.JSON",
+    "json_bytes": 577689,
+    "layer_count": 699,
+    "observed_json_keys": [
+      "Inputs",
+      "LayerType",
+      "Metadata",
+      "Name",
+      "Outputs",
+      "StreamId",
+      "TacticName"
+    ]
+  },
+  "jetson_model": "NVIDIA Jetson Orin Nano Engineering Reference Developer Kit Super",
+  "kernel_metadata": {
+    "explicit_kernel_name_field_present": false,
+    "explicit_kernel_name_field_value": "UNKNOWN",
+    "interpretation": "TacticName strings are available; no dedicated kernel-name field is observed, so direct kernel mapping is UNKNOWN.",
+    "tactic_names_present": true
+  },
+  "limitations": [
+    "This probe does not map tactics to Transformer operators.",
+    "Absent or empty Inspector fields are recorded as UNKNOWN, not inferred.",
+    "Dynamic dimensions remain represented as -1.",
+    "No Phase 3-E artifact was modified or regenerated."
+  ],
+  "metadata_recovery": {
+    "metadata_value_absent_layer_count": 201,
+    "metadata_value_available_layer_count": 498
+  },
+  "method": "TensorRT 10.3 Python EngineInspector; existing engine deserialized only; no build, inference, benchmark, or profiling",
+  "phase": "Phase 4-A.0 Existing Engine Inspector Attribution Probe",
+  "precision_recovery": {
+    "input_precision_layers_with_data": 498,
+    "output_precision_layers_with_data": 498,
+    "precision_tensor_count": 3148
+  },
+  "shape_recovery": {
+    "dynamic_dimension_tensor_count": 336,
+    "shape_fields_present_layer_count": 699,
+    "nonempty_shape_layer_count": 498,
+    "shape_tensor_count": 3148
+  },
+  "status": "PASS",
+  "tactic_recovery": {
+    "tactic_value_available_layer_count": 498,
+    "tactic_value_missing_layer_count": 201,
+    "unique_tactic_values": 68
+  },
+  "tensorrt_version": "10.3.0",
+  "timestamp_utc": "2026-09-04T13:15:24Z"
+}

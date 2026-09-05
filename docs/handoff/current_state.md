@@ -1,3 +1,26 @@
+## Phase 4 Evidence Checkpoint (2026-09-05)
+
+- Canonical branch is `phase/04a-tensorrt-operator-attribution-recovery`,
+  based on Phase 3-E HEAD `bf7abc67eb58662a68316045e166aa9f611330d7`. Verify
+  the checkpoint commit with Git.
+- Phase 4-A through 4-G are now checkpointed as compact raw artifacts and
+  reports under `results/phase4a_operator_attribution/` through
+  `results/phase4g_optimization_hypothesis/`. No historical artifact was
+  modified or deleted.
+- The selected research target is decode-only `up_proj` FP16 GEMM with shape
+  `C[1,3072] = A[1,1024] * B[1024,3072]` across 28 decoder layers.
+- Existing baselines are not directly comparable: `torch.matmul` standalone
+  median is `0.086364701 ms` with exact backend `UNKNOWN`, while TensorRT
+  `IProfiler` reports `153.28-159.76 us` per layer and a 28-layer aggregate
+  mean of `4682.253873 us` under a different measurement boundary.
+- Phase 4-G closes with `NO_PROVEN_OPTIMIZATION_HYPOTHESIS` and CUDA readiness
+  `NOT READY`. The h16816 memory/L2 signal is shared with `gate_proj` and does
+  not authorize a CUDA kernel.
+- Next authorized boundary is Phase 5-A environment freeze and benchmark
+  harness design only. No CUDA kernel, CUTLASS optimization kernel, TensorRT
+  Plugin, engine rebuild, ONNX modification, tactic forcing, or runtime
+  redesign may start. Benchmark execution requires protocol review.
+
 ## Phase 3-E TensorRT Kernel Attribution (2026-09-04)
 
 - Branch is `phase/03e-tensorrt-kernel-attribution`; starting checkpoint was

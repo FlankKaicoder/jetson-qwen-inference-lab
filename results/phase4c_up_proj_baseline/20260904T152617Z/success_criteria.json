@@ -1,0 +1,36 @@
+{
+  "phase": "Phase 4-C future success criteria",
+  "status": "FROZEN_PROTOCOL_NOT_IMPLEMENTATION_RESULT",
+  "target_validity": {
+    "pass": "The implementation targets M=1, K=1024, N=3072 decode-only up_proj with Half activation, Half weight, and Half output, matching the 28-layer shape audit.",
+    "fail": "Any change to operator, shape family, decode scope, operand dtype, output dtype, or target path without a new authorized artifact."
+  },
+  "correctness": {
+    "pass": "All required finite, shape, guard, CUDA, and max_abs_error checks satisfy the inherited Exp04 gate atol=1e-3 and rtol=1e-4.",
+    "fail": "Any non-finite output, shape mismatch, guard failure, CUDA failure, or tolerance violation."
+  },
+  "microbenchmark_performance": {
+    "pass": "The custom path median latency is lower than the measured existing-path baseline median, with a 95% confidence interval for the paired or suitably controlled latency difference excluding zero.",
+    "fail": "The confidence interval includes zero or favors the existing path.",
+    "note": "No percentage threshold is invented in Phase 4-C because a pure per-call baseline has not yet been measured."
+  },
+  "measurement_stability": {
+    "pass": "At least seven independent trials per path, stable CUDA Event windows, and reported CV; transient DVFS or outlier trials are investigated rather than silently discarded.",
+    "fail": "Fewer than seven trials, missing statistics, or unexplained instability that prevents a repeatable comparison."
+  },
+  "runtime_integration": {
+    "pass": "After explicit integration authorization, same-session persistent-runtime decode comparison shows no end-to-end decode regression with confidence bounds excluding a regression.",
+    "fail": "Microbenchmark improvement only, or end-to-end decode latency regression.",
+    "note": "The persistent Mixed baseline is S=8 TPOT median 43.411762 ms with CV 9.1713% and S=16 TPOT median 43.173353 ms with CV 0.7028% under the Phase 3-C protocol."
+  },
+  "overall_optimization_claim": {
+    "proven_requires": [
+      "target_validity PASS",
+      "correctness PASS",
+      "microbenchmark_performance PASS",
+      "measurement_stability PASS",
+      "runtime_integration PASS"
+    ],
+    "not_proven_when": "Only correctness passes, only the microbenchmark passes, or runtime integration is untested."
+  }
+}

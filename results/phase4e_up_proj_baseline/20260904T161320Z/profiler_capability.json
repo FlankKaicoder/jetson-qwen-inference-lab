@@ -1,0 +1,61 @@
+{
+  "phase": "Phase 4-E TensorRT IProfiler capability validation",
+  "host": "nvidia-desktop",
+  "tensorrt": "10.3.0",
+  "cuda": "12.6",
+  "torch": "2.5.0a0+872d972e41.nv24.08",
+  "engine": {
+    "path": "/tmp/phase2_3e_20260904T020000Z/work/mixed_decode_28layer.engine",
+    "bytes": 650285868,
+    "sha256": "445fc7d295c5bbb91e5392182347aa0e59612a031b5556a3461e09f30a59005c",
+    "num_io_tensors": 142,
+    "optimization_profiles": 1,
+    "modified_or_rebuilt": false
+  },
+  "api_surface": {
+    "IProfiler_present": true,
+    "IProfiler_override_used": "report_layer_time(layer_name, ms)",
+    "IExecutionContext_profiler_property": "PASS",
+    "IExecutionContext_report_to_profiler": "PASS",
+    "IExecutionContext_enqueue_emits_profile": "PASS",
+    "ProfilingVerbosity_present": true,
+    "execute_async_v3": "PASS"
+  },
+  "probe_configuration": {
+    "batch": 1,
+    "cache_length": 8,
+    "position_id": 8,
+    "activation_input": {
+      "name": "hidden_states",
+      "shape": [1, 1, 1024],
+      "dtype": "Half",
+      "fill_value": 0.125,
+      "real_model_activation": false
+    },
+    "past_cache_fill_value": 0.125,
+    "past_cache_shape": [1, 8, 8, 128],
+    "stream": "torch.cuda.Stream",
+    "warmup_iterations": 5,
+    "measured_iterations": 30,
+    "enqueue_emits_profile": false,
+    "report_to_profiler_after_each_execute": true
+  },
+  "observed_capability": {
+    "reported_layers_per_measured_iteration": 699,
+    "engine_inspector_layer_count": 699,
+    "target_up_proj_layers_reported": 28,
+    "expected_target_up_proj_layers": 28,
+    "target_coverage": "28/28",
+    "layer_name_recovery": "PASS",
+    "layer_id_recovery_from_name": "PASS",
+    "layer_timing_recovery": "PASS",
+    "cuda_kernel_name_recovery": "NOT_PROVIDED",
+    "kernel_to_layer_mapping_recovery": "NOT_PROVIDED",
+    "tactic_name_recovery": "NOT_PROVIDED_BY_IPROFILER"
+  },
+  "interpretation": {
+    "IProfiler_can_provide": "Per-TensorRT-layer timing using exact layer names, without engine modification.",
+    "IProfiler_cannot_provide": "CUDA kernel name, kernel-to-layer mapping, tactic name, or direct h16816 identity.",
+    "timing_context": "Synthetic decode execution context, not a real-token workload and not a controlled power/clock benchmark."
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "phase": "Phase 4-C baseline evidence recovery",
+  "method": "Read-only aggregation of existing repository artifacts. No engine, model, graph, runtime, quantization policy, benchmark, or profiler was modified or rerun.",
+  "tensorrt_microkernel_baseline": {
+    "definition_status": "BOUNDED",
+    "primary_phase3e_kernel": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+    "phase3c_mixed_steady_state_total_kernel_ms": 147.830560,
+    "h16816_mixed_steady_state_time_ms": 39.590976,
+    "h16816_mixed_steady_state_share_pct": 26.781320,
+    "operator_match": ["gate_proj", "up_proj"],
+    "time_splittable_by_operator": false,
+    "pure_up_proj_per_call_latency": "UNKNOWN",
+    "h16816_ncu": {
+      "duration_us_mean_of_3_launches": 7601.557,
+      "duration_us_range": [7600.128, 7603.488],
+      "memory_or_l2_throughput_pct": 97.06,
+      "sm_throughput_pct": 39.57,
+      "hmma_pipe_active_pct": 39.673148,
+      "achieved_occupancy_pct": 24.78,
+      "theoretical_occupancy_pct": 25.0,
+      "direct_dram_throughput": "N/A"
+    },
+    "ncu_interpretation_limit": "NCU duration is shared-kernel/profiler-context evidence and must not be reported as a proven pure up_proj microbenchmark baseline."
+  },
+  "phase4a2_runtime_mapping_evidence": {
+    "up_proj_mapping_rows": 56,
+    "up_proj_execution_layers": 28,
+    "confidence": "HIGH",
+    "all_trace_mapped_time_ms": 37.554112,
+    "time_meaning": "All-trace NVTX-to-kernel summary time, not steady-state pure up_proj latency.",
+    "kernel_paths_include_multiple_families": true,
+    "all_up_proj_invocations_use_h16816": "UNKNOWN"
+  },
+  "persistent_runtime_baseline": {
+    "source": "results/phase3c_residual_runtime/20260904T090803Z_bench/benchmark_result.json",
+    "runtime": "mixed_persistent",
+    "engines": [
+      "/tmp/phase2_2c1_20260902T090000Z/embedding_fp16.engine",
+      "/tmp/phase2_2c2_20260903T/final_rmsnorm_fp32_reduce.engine",
+      "/tmp/phase2_2c3_20260903T024500Z/lm_head_fp16.engine",
+      "/tmp/phase2_3e_20260904T020000Z/work/mixed_prefill_28layer.engine",
+      "/tmp/phase2_3e_20260904T020000Z/work/mixed_decode_28layer.engine"
+    ],
+    "batch": 1,
+    "decode_steps": 8,
+    "warmup": 5,
+    "measured_repeats": 10,
+    "timing": "time.perf_counter with CUDA synchronization",
+    "s8": {
+      "decode_tpot_median_ms": 43.41176201705821,
+      "decode_tpot_mean_ms": 42.91530889458954,
+      "decode_tpot_cv": 0.09171283903814344,
+      "decode_window_median_ms": 365.0598060339689,
+      "decode_window_cv": 0.0036117256656215675
+    },
+    "s16": {
+      "decode_tpot_median_ms": 43.173352984013036,
+      "decode_tpot_cv": 0.0070279390054766395
+    },
+    "persistent_context_counters": {
+      "context_creations": 5,
+      "context_reuses": 448
+    },
+    "integration_baseline_limitation": "End-to-end runtime is not a pure up_proj baseline and includes all model stages."
+  },
+  "phase4c_probe_performed": false,
+  "reason_no_new_probe": "Existing evidence is sufficient to freeze the target, audit all 28 shapes, and define protocols; a pure per-call baseline remains a required future probe."
+}

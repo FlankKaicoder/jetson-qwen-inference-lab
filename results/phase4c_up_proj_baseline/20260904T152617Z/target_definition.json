@@ -1,0 +1,59 @@
+{
+  "phase": "Phase 4-C",
+  "target": {
+    "name": "decode-only up_proj FP16 GEMM path",
+    "engine": "existing Mixed Decode TensorRT engine",
+    "engine_path": "/tmp/phase2_3e_20260904T020000Z/work/mixed_decode_28layer.engine",
+    "engine_bytes": 650285868,
+    "engine_sha256": "445fc7d295c5bbb91e5392182347aa0e59612a031b5556a3461e09f30a59005c",
+    "onnx_path": "/tmp/phase2_3e_20260904T020000Z/work/mixed_decode_28layer.onnx",
+    "onnx_sha256": "8dccf65451c548762896280b498358069eaba100824b0acb92b7cdc9e4c51d9a",
+    "decoder_layer_count": 28,
+    "trt_layer_ids": [22, 51, 74, 99, 124, 149, 174, 199, 223, 248, 273, 298, 323, 348, 372, 397, 422, 447, 472, 497, 522, 547, 572, 597, 622, 647, 672, 696],
+    "target_scope": "DECODE_ONLY",
+    "scope_justification": "Phase 4-B selected this target from Mixed Decode evidence; no evidence supports expanding to prefill in this phase."
+  },
+  "exact_gemm_problem": {
+    "logical_formula": "C[M,N] = A[M,K] * B[K,N]",
+    "M": 1,
+    "K": 1024,
+    "N": 3072,
+    "activation_logical_shape": [1, 1, 1024],
+    "weight_logical_shape": [1024, 3072],
+    "inspector_expanded_constant_shape": [1, 1024, 3072],
+    "output_logical_shape": [1, 1, 3072],
+    "activation_dtype": "Half",
+    "weight_dtype": "Half",
+    "output_dtype": "Half",
+    "accumulator_dtype": "UNKNOWN",
+    "onnx_transpose": "NONE",
+    "logical_weight_layout": "B[K,N]",
+    "inspector_alpha_beta_input_dtype": "Float",
+    "inspector_alpha_beta_shape": [1],
+    "alpha_beta_values_and_semantics": "UNKNOWN",
+    "tactic_layout_label": "tn_n",
+    "tactic_layout_semantics": "UNKNOWN",
+    "physical_memory_layout": "UNKNOWN",
+    "batch_or_decode_context": "batch=1 decode token",
+    "dynamic_dimensions": "NONE_FOR_DECODE_INPUT"
+  },
+  "attribution_evidence": {
+    "layer_to_operator": "Phase 4-A.1 HIGH for 28/28 layers",
+    "runtime_to_operator": "Phase 4-A.2 HIGH for 28 up_proj execution ranges and 56 mapping rows",
+    "phase4a1_source": "results/phase4a_operator_attribution/20260904T132820Z/mapping.csv",
+    "phase4a2_source": "results/phase4a_operator_attribution/20260904T134556Z/runtime_nvtx_kernel_mapping.csv",
+    "phase4b_source": "results/phase4b_target_selection/20260904T140726Z/phase4b_target_selection_report.md"
+  },
+  "baseline_definition": {
+    "microkernel_baseline": "EXISTING_TENSORRT_GEMM_PATH_WITH_FUTURE_EXACT_BASELINE_PROBE",
+    "observed_microkernel_family": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1 plus Phase 4-A.2 up_proj mappings to other recorded kernels",
+    "pure_up_proj_per_call_latency": "UNKNOWN",
+    "pure_microbenchmark_measurement": "NOT_PERFORMED_IN_PHASE_4C",
+    "runtime_baseline": "Phase 3-C persistent Mixed Decode runtime"
+  },
+  "interpretation_limits": [
+    "The tactic string does not prove accumulator dtype or NN/NT/TN/TT semantics beyond its recorded label.",
+    "The Phase 3-E h16816 time is shared with gate_proj and cannot be split.",
+    "Phase 4-A.2 mapped time is all-trace evidence, not steady-state pure up_proj latency."
+  ]
+}

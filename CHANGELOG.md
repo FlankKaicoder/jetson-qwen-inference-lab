@@ -4,6 +4,20 @@
 
 ## [Unreleased]
 
+### Phase 4 Evidence Checkpoint (2026-09-05)
+
+- Added compact Phase 4-A through 4-G raw reports and artifacts under
+  `results/phase4a_operator_attribution/` through
+  `results/phase4g_optimization_hypothesis/`.
+- Recorded recovery of 250 GEMM candidates and selection of decode-only
+  `up_proj` FP16 GEMM as the first optimization-research target.
+- Preserved existing standalone, TensorRT `IProfiler`, and NSYS kernel
+  attribution baselines without changing their measurement boundaries or
+  conclusions.
+- Phase 4-G remains `PASS / BOUNDED / NO_PROVEN_OPTIMIZATION_HYPOTHESIS` with
+  CUDA readiness `NOT READY`; Phase 5-A is limited to environment freeze and
+  benchmark harness design until its protocol is reviewed.
+
 ### Phase 3-E (2026-09-04)
 
 - Added TensorRT EngineInspector attribution for the frozen FP16 and Mixed

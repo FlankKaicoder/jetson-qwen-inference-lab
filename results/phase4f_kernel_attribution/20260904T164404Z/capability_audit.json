@@ -1,0 +1,79 @@
+{
+  "phase": "Phase 4-F Runtime Evidence Capability Audit",
+  "artifact_timestamp_utc": "20260904T164404Z",
+  "host": "nvidia-desktop",
+  "toolchain": {
+    "tensorrt": "10.3.0",
+    "cuda": "12.6",
+    "nsys": "NVIDIA Nsight Systems version 2024.5.4.34-245434855735v0",
+    "sqlite": "3.37.2"
+  },
+  "tensorrt_api_presence": {
+    "ProfilingVerbosity": true,
+    "IProfiler": true,
+    "IExecutionContext.execute_async_v3": true,
+    "IExecutionContext.enqueue_emits_profile": true,
+    "IExecutionContext.nvtx_verbosity": true,
+    "IExecutionContext.profiler": true,
+    "IExecutionContext.report_to_profiler": true,
+    "IExecutionContext.set_debug_listener": true,
+    "IExecutionContext.get_debug_listener": true,
+    "IExecutionContext.get_debug_state": true,
+    "IExecutionContext.set_all_tensors_debug_state": true,
+    "IExecutionContext.set_tensor_debug_state": true,
+    "ICudaEngine.create_engine_inspector": true
+  },
+  "capability_assessment": {
+    "profiling_verbosity": {
+      "api_presence": "PASS",
+      "kernel_to_layer_mapping_capability": "UNKNOWN",
+      "note": "No new runtime test was run in Phase 4-F."
+    },
+    "IProfiler_layer_timing": {
+      "api_presence": "PASS",
+      "layer_timing_capability": "PASS",
+      "cuda_kernel_identity_capability": "FAIL",
+      "evidence": "results/phase4e_up_proj_baseline/20260904T161320Z/profiler_capability.json"
+    },
+    "NVTX_annotation_timeline": {
+      "api_presence": "PASS",
+      "raw_timeline_capability": "PASS",
+      "nvtx_range_to_kernel_correlation_capability": "PASS",
+      "evidence": "Existing mixed_persistent.sqlite contains NVTX_EVENTS, CUDA runtime events and CUPTI_ACTIVITY_KIND_KERNEL with correlationId."
+    },
+    "debug_tensor_apis": {
+      "api_presence": "PASS",
+      "kernel_to_layer_mapping_capability": "UNKNOWN",
+      "note": "Methods are present but were not exercised in Phase 4-F."
+    },
+    "debug_listener_or_execution_callback": {
+      "api_presence": "PASS",
+      "kernel_to_layer_mapping_capability": "UNKNOWN",
+      "note": "Methods are present but were not exercised in Phase 4-F."
+    },
+    "engine_inspector": {
+      "api_presence": "PASS",
+      "layer_metadata_capability": "PASS",
+      "runtime_kernel_capability": "FAIL",
+      "evidence": "results/phase4a_operator_attribution/20260904T131524Z/phase4a0_engine_inspector_probe_report.md"
+    }
+  },
+  "raw_trace_schema_capability": {
+    "NVTX_EVENTS": "PASS",
+    "CUPTI_ACTIVITY_KIND_RUNTIME": "PASS",
+    "CUPTI_ACTIVITY_KIND_KERNEL": "PASS",
+    "correlationId_join": "PASS",
+    "direct_tensorrt_layer_id_field_in_kernel_event": "FAIL",
+    "direct_operator_field_in_kernel_event": "FAIL",
+    "correlation_method": [
+      "NVTX_EVENTS.textId -> StringIds.value",
+      "NVTX_EVENTS.globalTid + time containment -> CUPTI_ACTIVITY_KIND_RUNTIME",
+      "CUPTI_ACTIVITY_KIND_RUNTIME.correlationId -> CUPTI_ACTIVITY_KIND_KERNEL.correlationId"
+    ]
+  },
+  "interpretation_limits": [
+    "API presence alone is not proof that an untested interface can provide kernel-to-layer mapping.",
+    "The existing trace is one bounded Phase 3-C Mixed persistent-runtime run, not a new Phase 4-F profiling run.",
+    "The raw SQLite evidence supports observed-launch correlation only; it does not prove that every future invocation uses the same kernel distribution."
+  ]
+}

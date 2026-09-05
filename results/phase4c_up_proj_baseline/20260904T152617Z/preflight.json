@@ -1,0 +1,31 @@
+{
+  "phase": "Phase 4-C up_proj Optimization Baseline & Target Refinement",
+  "artifact_timestamp_utc": "20260904T152617Z",
+  "analysis_host": "Windows repository checkout E:\\nvidia-qwen",
+  "repository_state": {
+    "branch": "phase/04a-tensorrt-operator-attribution-recovery",
+    "head": "bf7abc67eb58662a68316045e166aa9f611330d7",
+    "last_commit_subject": "phase3e: close compute efficiency audit",
+    "tracked_diff": "NONE",
+    "deleted_files": "NONE",
+    "preexisting_untracked_directories": [
+      "experiments/Phase2-qwen3-quantization/artifacts/phase2_3b_20260903T203103Z/",
+      "results/phase4a_operator_attribution/",
+      "results/phase4b_target_selection/"
+    ]
+  },
+  "scope": "Read-only evidence recovery and protocol definition. No CUDA implementation, plugin, engine rebuild, ONNX export, runtime modification, benchmark, or profiling was performed.",
+  "forbidden_actions_observed": [],
+  "new_artifacts_created": [
+    "preflight.json",
+    "target_definition.json",
+    "shape_audit.csv",
+    "baseline_evidence.json",
+    "correctness_protocol.md",
+    "benchmark_protocol.md",
+    "success_criteria.json",
+    "command_log.md",
+    "phase4c_up_proj_baseline_report.md"
+  ],
+  "commit_or_push": "NONE"
+}

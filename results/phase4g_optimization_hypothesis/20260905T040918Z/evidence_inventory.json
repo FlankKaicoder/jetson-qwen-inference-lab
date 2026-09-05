@@ -1,0 +1,77 @@
+{
+  "phase": "Phase 4-G up_proj Optimization Hypothesis Validation",
+  "artifact_timestamp_utc": "20260905T040918Z",
+  "inventory": [
+    {
+      "evidence": "NCU rank-1 h16816 profile",
+      "source": "results/phase3e_kernel_attribution/20260904T121007Z/analysis/e3_ncu_summary.json",
+      "supports": [
+        "The profiled h16816 kernel is memory/L2 heavy at 97.06%.",
+        "HMMA pipe activity is 39.673148% and SM throughput is 39.57%.",
+        "Achieved occupancy 24.78% is close to the 25% theoretical limit.",
+        "A memory-traffic reduction or reshape direction is a candidate bottleneck signal."
+      ],
+      "does_not_support": [
+        "A pure up_proj bottleneck conclusion, because operator_match is gate_proj;up_proj.",
+        "A claim that a custom CUDA kernel will win.",
+        "A direct DRAM bottleneck claim, because direct DRAM throughput is N/A.",
+        "A full optimization hypothesis without baseline comparison."
+      ]
+    },
+    {
+      "evidence": "Phase 4-E IProfiler layer timing",
+      "source": "results/phase4e_up_proj_baseline/20260904T161320Z/",
+      "supports": [
+        "All 28 up_proj TensorRT layers were timed.",
+        "Per-layer median latency was about 153.28-159.76 us.",
+        "The 28-layer aggregate was mean 4682.253873 us and median 4339.215986 us per measured execution."
+      ],
+      "does_not_support": [
+        "Kernel identity, because IProfiler does not expose CUDA kernel names.",
+        "A production benchmark conclusion, because inputs were synthetic and clocks/power were uncontrolled.",
+        "A direct comparison with Phase 3-E NCU, because measurement boundaries differ."
+      ]
+    },
+    {
+      "evidence": "Phase 4-F raw NSYS SQLite runtime correlation",
+      "source": "results/phase4f_kernel_attribution/20260904T164404Z/correlation_analysis.json",
+      "supports": [
+        "28/28 up_proj NVTX ranges and 28/28 TensorRT layers are linked to observed CUDA kernel launches.",
+        "There are 196 up_proj-linked kernel launch rows, 7 per range.",
+        "h16816 family accounts for 84/196 observed launches and sm80_xmma_gemm_* accounts for 112/196.",
+        "Observed h16816 launch durations are 172.294-219.030 us per launch on average."
+      ],
+      "does_not_support": [
+        "Proof that every future invocation uses the same kernel distribution.",
+        "Proof that one NVTX range is exactly one logical invocation.",
+        "Proof that each up_proj invocation uses both h16816 and sm80_xmma kernels.",
+        "A direct performance optimization claim."
+      ]
+    },
+    {
+      "evidence": "EngineInspector plus ONNX mapping",
+      "source": "results/phase4a_operator_attribution/20260904T131524Z/ and results/phase4a_operator_attribution/20260904T132820Z/",
+      "supports": [
+        "Mixed decode up_proj has representative shape C[1,3072] = A[1,1024] * B[1024,3072].",
+        "28 up_proj TensorRT layers are mapped at HIGH confidence.",
+        "Tactic families are f16f16_f16 for 25 layers and f16f32_f32 for 3 layers."
+      ],
+      "does_not_support": [
+        "Runtime kernel identity by itself.",
+        "Accumulator dtype, physical layout semantics, alpha/beta semantics or exact GEMM split semantics."
+      ]
+    },
+    {
+      "evidence": "Phase 3-E aggregate NSYS selection",
+      "source": "results/phase3e_kernel_attribution/20260904T121007Z/analysis/e3_selected_nsys_candidates.csv",
+      "supports": [
+        "The h16816 kernel was 39.590976 ms in Mixed persistent runtime and mapped to gate_proj;up_proj.",
+        "GEMM was the dominant named kernel category in Phase 3-C."
+      ],
+      "does_not_support": [
+        "Splitting the h16816 aggregate time into pure gate_proj versus pure up_proj cost.",
+        "A per-invocation performance conclusion."
+      ]
+    }
+  ]
+}

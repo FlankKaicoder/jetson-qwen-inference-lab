@@ -1,0 +1,169 @@
+[
+  {
+    "operator": "down_proj",
+    "row_count": 28,
+    "layer_count": 28,
+    "confidence_counts": {
+      "HIGH": 28
+    },
+    "dominant_precision": "inputs=Half;Half;Half|outputs=Half",
+    "dominant_tactic_family": "sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16",
+    "tactic_family_count": 1,
+    "shape_counts": {
+      "K3072->N1024": 28
+    },
+    "dynamic_shape_rows": 0,
+    "mapped_runtime_rows": 0,
+    "allocated_mapped_time_ms": 0.0,
+    "mapped_kernels": []
+  },
+  {
+    "operator": "gate_proj",
+    "row_count": 28,
+    "layer_count": 28,
+    "confidence_counts": {
+      "HIGH": 28
+    },
+    "dominant_precision": "inputs=Half;Int8;Int8|outputs=Half",
+    "dominant_tactic_family": "sm80_xmma_gemm_i8i8_i8i32_f32_tn_n_tilesize32x64x64_stage6_warpsize2x2x1_tensor16x8x32",
+    "tactic_family_count": 2,
+    "shape_counts": {
+      "K1024->N3072": 28
+    },
+    "dynamic_shape_rows": 0,
+    "mapped_runtime_rows": 1,
+    "allocated_mapped_time_ms": 0.648512,
+    "mapped_kernels": [
+      "trt_ampere_h16816gemm_128x64_ldg8_nn_v1"
+    ]
+  },
+  {
+    "operator": "k_proj",
+    "row_count": 28,
+    "layer_count": 28,
+    "confidence_counts": {
+      "HIGH": 28
+    },
+    "dominant_precision": "inputs=Int8;Int8|outputs=Half",
+    "dominant_tactic_family": "sm80_xmma_gemm_i8f32_i8i32_f32_tn_n_tilesize32x64x64_stage6_warpsize2x2x1_tensor16x8x32",
+    "tactic_family_count": 2,
+    "shape_counts": {
+      "K1024->N1024": 27,
+      "K1024->N4096": 1
+    },
+    "dynamic_shape_rows": 0,
+    "mapped_runtime_rows": 2,
+    "allocated_mapped_time_ms": 0.493653,
+    "mapped_kernels": [
+      "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+      "trt_ampere_h16816gemm_256x64_ldg8_tn_v1"
+    ]
+  },
+  {
+    "operator": "o_proj",
+    "row_count": 28,
+    "layer_count": 28,
+    "confidence_counts": {
+      "HIGH": 28
+    },
+    "dominant_precision": "inputs=Half;Int8;Int8|outputs=Half",
+    "dominant_tactic_family": "sm80_xmma_gemm_i8f32_i8i32_f32_tn_n_tilesize32x64x64_stage6_warpsize2x2x1_tensor16x8x32",
+    "tactic_family_count": 2,
+    "shape_counts": {
+      "K2048->N1024": 28
+    },
+    "dynamic_shape_rows": 0,
+    "mapped_runtime_rows": 0,
+    "allocated_mapped_time_ms": 0.0,
+    "mapped_kernels": []
+  },
+  {
+    "operator": "q_proj",
+    "row_count": 28,
+    "layer_count": 28,
+    "confidence_counts": {
+      "HIGH": 28
+    },
+    "dominant_precision": "inputs=Int8;Int8|outputs=Half",
+    "dominant_tactic_family": "sm80_xmma_gemm_i8f32_i8i32_f32_tn_n_tilesize32x64x64_stage6_warpsize2x2x1_tensor16x8x32",
+    "tactic_family_count": 2,
+    "shape_counts": {
+      "K1024->N2048": 27,
+      "K1024->N4096": 1
+    },
+    "dynamic_shape_rows": 0,
+    "mapped_runtime_rows": 2,
+    "allocated_mapped_time_ms": 0.493653,
+    "mapped_kernels": [
+      "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+      "trt_ampere_h16816gemm_256x64_ldg8_tn_v1"
+    ]
+  },
+  {
+    "operator": "unknown_attention_matmul",
+    "row_count": 56,
+    "layer_count": 56,
+    "confidence_counts": {
+      "MEDIUM": 56
+    },
+    "dominant_precision": "inputs=Half;Half;Float;Float|outputs=Half",
+    "dominant_tactic_family": "sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2",
+    "tactic_family_count": 2,
+    "shape_counts": {
+      "DYNAMIC": 56
+    },
+    "dynamic_shape_rows": 56,
+    "mapped_runtime_rows": 57,
+    "allocated_mapped_time_ms": 61.815776,
+    "mapped_kernels": [
+      "sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt",
+      "sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt",
+      "trt_ampere_h16816gemm_128x64_ldg8_nn_v1"
+    ]
+  },
+  {
+    "operator": "up_proj",
+    "row_count": 28,
+    "layer_count": 28,
+    "confidence_counts": {
+      "HIGH": 28
+    },
+    "dominant_precision": "inputs=Half;Half;Float;Float|outputs=Half",
+    "dominant_tactic_family": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+    "tactic_family_count": 2,
+    "shape_counts": {
+      "K1024->N3072": 28
+    },
+    "dynamic_shape_rows": 0,
+    "mapped_runtime_rows": 56,
+    "allocated_mapped_time_ms": 37.554112,
+    "mapped_kernels": [
+      "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+      "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+      "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+      "trt_ampere_h16816gemm_256x64_ldg8_tn_v1"
+    ]
+  },
+  {
+    "operator": "v_proj",
+    "row_count": 28,
+    "layer_count": 28,
+    "confidence_counts": {
+      "HIGH": 28
+    },
+    "dominant_precision": "inputs=Int8;Int8|outputs=Half",
+    "dominant_tactic_family": "sm80_xmma_gemm_i8f32_i8i32_f32_tn_n_tilesize32x64x64_stage6_warpsize2x2x1_tensor16x8x32",
+    "tactic_family_count": 2,
+    "shape_counts": {
+      "K1024->N1024": 27,
+      "K1024->N4096": 1
+    },
+    "dynamic_shape_rows": 0,
+    "mapped_runtime_rows": 2,
+    "allocated_mapped_time_ms": 0.493653,
+    "mapped_kernels": [
+      "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+      "trt_ampere_h16816gemm_256x64_ldg8_tn_v1"
+    ]
+  }
+]

@@ -1,0 +1,5 @@
+kernel_name,count,range_count,operator,confidence,evidence,candidate_class
+trt_ampere_h16816gemm_128x64_ldg8_nn_v1,78,28,up_proj,HIGH,Phase 4-F raw SQLite correlation through NVTX range -> exact ONNX node -> EngineInspector layer -> up_proj,GEMM candidate
+trt_ampere_h16816gemm_256x64_ldg8_tn_v1,6,28,up_proj,HIGH,Phase 4-F raw SQLite correlation through NVTX range -> exact ONNX node -> EngineInspector layer -> up_proj,GEMM candidate
+sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt,100,28,up_proj,HIGH,Phase 4-F raw SQLite correlation through NVTX range -> exact ONNX node -> EngineInspector layer -> up_proj,GEMM candidate
+sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt,12,28,up_proj,HIGH,Phase 4-F raw SQLite correlation through NVTX range -> exact ONNX node -> EngineInspector layer -> up_proj,GEMM candidate

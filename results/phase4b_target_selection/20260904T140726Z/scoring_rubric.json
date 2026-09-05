@@ -1,0 +1,57 @@
+{
+  "phase": "4-B",
+  "artifact": "candidate ranking rubric",
+  "timestamp_utc": "20260904T140726Z",
+  "scope": "Evidence-driven target selection only. No CUDA implementation, plugin, runtime change, engine rebuild, ONNX export, benchmark, or profiling was performed.",
+  "input_evidence": {
+    "phase3e_analysis_summary": "results/phase3e_kernel_attribution/20260904T121007Z/analysis/analysis_summary.json",
+    "phase3e_ncu_summary": "results/phase3e_kernel_attribution/20260904T121007Z/analysis/e3_ncu_summary.json",
+    "phase4a1_mapping_report": "results/phase4a_operator_attribution/20260904T132820Z/phase4a1_layer_operator_mapping_report.md",
+    "phase4a1_gemm_candidates": "results/phase4a_operator_attribution/20260904T132820Z/gemm_candidates.csv",
+    "phase4a2_runtime_mapping": "results/phase4a_operator_attribution/20260904T134556Z/runtime_nvtx_kernel_mapping.csv",
+    "phase4a2_runtime_report": "results/phase4a_operator_attribution/20260904T134556Z/phase4a2_runtime_evidence_correlation_report.md",
+    "candidate_operator_summary": "results/phase4b_target_selection/20260904T140726Z/candidate_operator_summary.json"
+  },
+  "score_definitions": {
+    "evidence_strength_score": {
+      "range": [0, 2],
+      "rules": {
+        "2": "At least one Phase 4-A.2 mapping row forms the HIGH chain kernel -> NVTX execution range -> ONNX node -> EngineInspector metadata -> TensorRT layer -> recognized Transformer operator.",
+        "1": "Phase 4-A.1 gives a HIGH TensorRT layer -> ONNX node -> operator chain, but no Phase 4-A.2 HIGH runtime row exists for that operator.",
+        "0.5": "Only MEDIUM evidence exists: the runtime chain reaches an existing ONNX node but the node does not identify a recognized Transformer operator.",
+        "0": "No recognized-operator attribution evidence exists."
+      }
+    },
+    "runtime_importance_score": {
+      "range": [0, 3],
+      "rules": {
+        "3": "The candidate has at least one Phase 4-A.2 HIGH mapped runtime row and is explicitly named in the Phase 3-E mixed top-kernel operator_match set.",
+        "2": "Either the candidate has at least one Phase 4-A.2 mapped runtime row or it is explicitly named in the Phase 3-E mixed top-kernel operator_match set, but not both.",
+        "0": "Neither condition is supported by the committed evidence."
+      }
+    },
+    "optimization_feasibility_score": {
+      "range": [0, 4],
+      "rules": {
+        "gemm_layer_type": 1,
+        "static_decode_shape": 1,
+        "tensor_core_tactic_family": 1,
+        "direct_ncu_metrics_for_mapped_or_shared_kernel": 1
+      },
+      "notes": [
+        "GEMM layer type comes from Phase 4-A.1 and is not inferred from tactic name alone.",
+        "Tensor Core tactic evidence is the recorded tactic-family string; it is not used to infer operator identity.",
+        "Direct NCU evidence is credited only when Phase 3-E maps the same kernel to the candidate or its explicitly recorded operator_match set.",
+        "Dynamic shape receives no static-decode-shape point."
+      ]
+    },
+    "total_score": "Sum of the three ordinal scores. Ties are not subdivided unless report text explicitly names a tie-breaking evidence field."
+  },
+  "interpretation_limits": [
+    "Phase 4-A.2 total_time_ns is all-trace NVTX-to-kernel summary time, not the Phase 3-C/3-E steady-state aggregate and must not be used as a steady-state performance share.",
+    "The Phase 3-E h16816 top-kernel time is shared by gate_proj and up_proj in the recorded operator_match set and cannot be split between them.",
+    "The single fused q/k/v runtime range contributes 1.480960 ms of all-trace time to each of q_proj, k_proj, and v_proj in candidate views; the same wall-clock time must not be triple-counted as workload time.",
+    "Tactic or kernel names were not used to infer an operator identity.",
+    "Ranking identifies a research target, not a proven optimization or predicted speedup."
+  ]
+}

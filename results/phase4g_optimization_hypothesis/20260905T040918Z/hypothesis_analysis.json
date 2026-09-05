@@ -1,0 +1,86 @@
+{
+  "phase": "Phase 4-G up_proj Optimization Hypothesis Validation",
+  "artifact_timestamp_utc": "20260905T040918Z",
+  "questions": {
+    "Q1_up_proj_current_bottleneck": {
+      "decision": "EVIDENCE_INSUFFICIENT",
+      "best_supported_signal": "memory/L2 pressure in the shared h16816 GEMM path",
+      "reason": "NCU shows 97.06% memory/L2, 39.673148% HMMA active and 24.78% achieved occupancy, but the profile is shared between gate_proj and up_proj and does not provide a pure up_proj bottleneck conclusion."
+    },
+    "Q2_cuda_optimization_direction": {
+      "decision": "NO_PROVEN_DIRECTION",
+      "candidate_direction": "Reduce or reshape memory/L2 traffic in the shared h16816 path.",
+      "reason": "This is the only direction with direct hardware-counter support, but the exact traffic source, pure up_proj share, layout/semantics and baseline alternative are unknown."
+    },
+    "Q3_cuda_feasibility_authorization": {
+      "decision": "NOT_READY"
+    }
+  },
+  "observed_kernel_launch_summary": {
+    "unique_up_proj_ranges": 28,
+    "unique_up_proj_layers": 28,
+    "total_launch_rows": 196,
+    "launches_per_range": 7,
+    "h16816_family_launch_rows": 84,
+    "sm80_xmma_family_launch_rows": 112,
+    "h16816_fraction": "84/196",
+    "all_ranges_contain_multiple_kernel_names": true,
+    "per_invocation_kernel_distribution": "UNKNOWN"
+  },
+  "hypotheses": [
+    {
+      "id": "H1",
+      "hypothesis": "Reduce or reshape memory/L2 traffic in the h16816 GEMM path.",
+      "evidence": "Phase 3-E NCU reports memory/L2 97.06%, SM 39.57%, HMMA active 39.673148%, L2 hit rate 0.86%, and achieved occupancy 24.78% versus 25% theoretical.",
+      "confidence": "MEDIUM_FOR_BOTTLENECK_DIRECTION",
+      "expected_benefit": "UNKNOWN",
+      "missing_evidence": [
+        "Pure up_proj NCU profile.",
+        "Direct DRAM traffic; Phase 3-E reports N/A.",
+        "Whether traffic is activation, weight, output, workspace or spill dominated.",
+        "Exact layout, accumulator, alpha/beta and split semantics.",
+        "A same-shape alternative that preserves numerics and beats the current kernel."
+      ]
+    },
+    {
+      "id": "H2",
+      "hypothesis": "Fuse the up_proj GEMM with an adjacent operation to reduce memory movement.",
+      "evidence": "Phase 4-F shows 7 observed launches per up_proj range, but all 196 rows are GEMM candidates; no adjacent non-GEMM kernel or data-dependency evidence was analyzed.",
+      "confidence": "LOW",
+      "expected_benefit": "UNKNOWN",
+      "missing_evidence": [
+        "Adjacent operator identity and dependency graph.",
+        "Intermediate tensor size and traffic.",
+        "A measurable fusion opportunity."
+      ]
+    },
+    {
+      "id": "H3",
+      "hypothesis": "Reduce launch overhead.",
+      "evidence": "Phase 4-F shows 196 launches and 7 launches per range. Observed average kernel durations are approximately 172.294-219.030 us, which does not by itself indicate launch-bound execution.",
+      "confidence": "LOW",
+      "expected_benefit": "UNKNOWN",
+      "missing_evidence": [
+        "Per-launch CPU launch API time.",
+        "GPU idle gaps between up_proj kernels.",
+        "Per-logical-invocation launch count."
+      ]
+    },
+    {
+      "id": "H4",
+      "hypothesis": "TensorRT up_proj is already optimal.",
+      "evidence": "The shared h16816 kernel is near its theoretical occupancy limit and is memory/L2 heavy, but no same-shape alternative was measured.",
+      "confidence": "UNKNOWN",
+      "expected_benefit": "UNKNOWN",
+      "missing_evidence": [
+        "A controlled same-shape baseline comparison.",
+        "Pure up_proj workload timing.",
+        "Numerical equivalence evidence for any alternative."
+      ]
+    }
+  ],
+  "target_decision": {
+    "decision": "NOT_READY",
+    "reason": "There is a bounded memory-pressure signal, but no closed problem -> cause -> optimization-method -> expected-benefit chain."
+  }
+}

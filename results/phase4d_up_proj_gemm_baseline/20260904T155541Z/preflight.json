@@ -1,0 +1,40 @@
+{
+  "phase": "Phase 4-D up_proj GEMM Baseline Extraction Study",
+  "artifact_timestamp_utc": "20260904T155541Z",
+  "local_repository_state": {
+    "branch": "phase/04a-tensorrt-operator-attribution-recovery",
+    "head": "bf7abc67eb58662a68316045e166aa9f611330d7",
+    "last_commit_subject": "phase3e: close compute efficiency audit",
+    "tracked_diff": "NONE",
+    "deleted_files": "NONE",
+    "preexisting_untracked_directories_preserved": [
+      "experiments/Phase2-qwen3-quantization/artifacts/phase2_3b_20260903T203103Z/",
+      "results/phase4a_operator_attribution/",
+      "results/phase4b_target_selection/",
+      "results/phase4c_up_proj_baseline/"
+    ]
+  },
+  "remote_jetson_state_before_probe": {
+    "ssh_alias": "jetson",
+    "host": "nvidia-desktop",
+    "repository_path": "/home/nvidia/projects/jetson-qwen-inference-lab",
+    "branch": "phase/03e-tensorrt-kernel-attribution",
+    "head": "bf7abc67eb58662a68316045e166aa9f611330d7",
+    "tracked_diff": "NONE",
+    "deleted_files": "NONE",
+    "mixed_decode_engine_present": true,
+    "note": "Remote branch remains phase/03e and is not assumed synced with the local phase/04a branch."
+  },
+  "probe_scope": "Narrow standalone PyTorch library-path GEMM probe only. No CUDA/CUTLASS implementation, TensorRT Plugin, engine modification, ONNX modification, runtime modification, quantization change, or tactic forcing.",
+  "new_artifacts_created": [
+    "preflight.json",
+    "gemm_definition.json",
+    "tensor_mapping.json",
+    "standalone_probe_raw.json",
+    "benchmark_protocol.md",
+    "baseline_report.md",
+    "phase4d_up_proj_gemm_baseline_report.md",
+    "command_log.md"
+  ],
+  "commit_or_push": "NONE"
+}

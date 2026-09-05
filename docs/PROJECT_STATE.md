@@ -7,20 +7,20 @@
 | Field | Verified value |
 | --- | --- |
 | Project | `jetson-qwen-inference-lab` / Jetson Qwen Transformer AI Infra Optimization Lab |
-| Current date | `2026-09-04` |
+| Current date | `2026-09-05` |
 | Repository | `FlankKaicoder/jetson-qwen-inference-lab` |
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 3 — Transformer / Runtime Operator Optimization |
-| Current experiment | Phase 3-E — TensorRT Kernel Attribution & Compute Efficiency Audit |
-| Current branch | `phase/03e-tensorrt-kernel-attribution` |
+| Current phase | Phase 4 evidence checkpoint complete; Phase 5-A authorized preparation |
+| Current experiment | Phase 4-A through 4-G Operator Attribution and Optimization Hypothesis Validation |
+| Current branch | `phase/04a-tensorrt-operator-attribution-recovery` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 3-E — TensorRT Kernel Attribution & Compute Efficiency Audit |
-| Experiment status | Phase 1 `PASS / CLOSED`; Phase 2.0 `BLOCKED`; Phase 2.1 `INCONCLUSIVE`; Phase 2.1.5 `PASS / CLOSED`; Phase 2.1.8/2.1.9 `PASS / BOUNDED`; Phase 2.2-A `PARTIAL / BOUNDED PASS`; Phase 2.2-B1/B2/B3 `PASS / BOUNDED`; Phase 2.2-B4.1 `PASS / CLOSED`; Phase 2.2-B4.2 `PASS / BOUNDED`; Phase 2.2-C0 `PASS / DESIGN ONLY`; Phase 2.2-C1 `CLOSED / NUMERICAL_LIMITATION_UNRESOLVED`; Phase 2.2 `CLOSED / PASS / BOUNDED`; Phase 2.3-A/B `PASS`; Phase 2.3-C/D/E/F `PASS / BOUNDED`; Phase 2.3 aggregate `CLOSED / PASS / BOUNDED`; Phase 3-A `PASS / BOUNDED`; Phase 3-B `PASS / CLOSED / PROVEN`; Phase 3-C `PASS / BOUNDED`; Phase 3-D0 `BLOCKED / BOUNDED`; Phase 3-E `PASS / BOUNDED / NO_PROVEN_CUDA_OPTIMIZATION_TARGET` |
-| Current Gate | Phase 3-E `PASS / BOUNDED / NO_PROVEN_CUDA_OPTIMIZATION_TARGET`. EngineInspector + Phase 3-C NSYS selected three unique GEMM kernels. Rank 1 h16816 is L2/memory-limited at 97.06% with 39.673148% HMMA pipe active and 24.78% achieved occupancy. Ranks 2/3 are small decode GEMMs with 17.167166-17.697509% HMMA active and 71.92-76.88% memory/L2, but compact FP16 inspector leaves operator/tactic attribution UNKNOWN. This is potential optimization space, not a proven Phase 4 target. |
-| Readiness | Phase 2.2/2.3, Phase 3-A, Phase 3-B, Phase 3-C and Phase 3-D0 remain frozen. Phase 3-E is closed as a bounded attribution/audit result. Do not start CUDA kernels, plugins, attention work, runtime redesign, or quantization redesign without explicit owner direction. A future Phase 4-A would need to be a narrow rank-2/rank-3 attribution/feasibility study, not an implementation phase. |
+| Last completed experiment | Phase 4-G — Optimization Hypothesis Validation |
+| Experiment status | Prior Phase 1-3 statuses are unchanged. Phase 4-A `COMPLETE`; Phase 4-B/C/D/E/F/G `PASS / BOUNDED`; Phase 4 aggregate closes with CUDA readiness `NOT READY`. |
+| Current Gate | Phase 4-G `PASS / BOUNDED / NO_PROVEN_OPTIMIZATION_HYPOTHESIS`. The strongest candidate is H1, reducing or reshaping memory/L2 traffic in the shared h16816 GEMM path, with `MEDIUM_FOR_BOTTLENECK_DIRECTION` confidence. It lacks pure `up_proj` NCU, direct DRAM evidence, exact semantics, and an alternative baseline. CUDA/CUTLASS/Plugin implementation remains unauthorized. |
+| Readiness | Phase 4 is checkpointed, not superseded. Phase 5-A is authorized only as an environment freeze and benchmark-harness design step. Do not implement a CUDA kernel, TensorRT Plugin, engine rebuild, ONNX change, tactic forcing, or runtime redesign. The next boundary must freeze environment, comparison boundaries, correctness gates, benchmark methodology, and Gate thresholds before benchmark execution. |
 
 ## Confirmed Findings
 
@@ -125,7 +125,11 @@ No repository evidence records a formally `REJECT`-status experiment.
 
 ## Required Next Action
 
-Owner/ChatGPT review of Phase 3-E. The authorized boundary is complete. Do not start Phase 4 CUDA operator implementation, TensorRT plugin work, attention optimization, native TensorRT graph redesign, or new quantization work until the owner and ChatGPT explicitly approve the next boundary. If authorized, the narrow Phase 4-A candidate is operator/shape attribution and feasibility for the two small decode GEMMs only.
+Owner/ChatGPT review of the Phase 4 checkpoint. Phase 5-A is authorized for
+environment freeze and benchmark harness design only. Do not implement CUDA
+kernels, CUTLASS optimization kernels, TensorRT Plugins, engine rebuilds, ONNX
+changes, tactic forcing, or runtime redesign. Benchmark execution requires the
+frozen Phase 5-A protocol to be reviewed first.
 
 ## Do-not-repeat Work
 
@@ -133,6 +137,8 @@ Owner/ChatGPT review of Phase 3-E. The authorized boundary is complete. Do not s
 - Do not repeat the completed sudo/NCU permission setup or modify sudoers.
 - Do not claim a precise 128/256 microarchitectural cause; the final evidence-backed status is `INCONCLUSIVE`.
 - Do not estimate direct DRAM throughput where NCU reports `N/A`.
+- Do not rerun Phase 4-A through 4-G or relabel shared h16816 evidence as pure
+  `up_proj` evidence.
 - Do not start Exp02, merge `main`, change the roadmap, or modify device power/clock state without explicit direction.
 
 ## Last Verified Git State
@@ -567,3 +573,32 @@ Before Phase 3-A execution, the canonical Phase 2 checkpoint was `b2083895b1199e
   leaves operator/tactic attribution UNKNOWN. Phase 4 was not started.
 - Report: `docs/phase3e_kernel_attribution.md`; primary evidence:
   `results/phase3e_kernel_attribution/20260904T121007Z/`.
+
+## Phase 4 Evidence Checkpoint (2026-09-05)
+
+- Branch is `phase/04a-tensorrt-operator-attribution-recovery`; the checkpoint
+  is based on Phase 3-E HEAD `bf7abc67eb58662a68316045e166aa9f611330d7`.
+  Verify the checkpoint commit with Git.
+- Phase 4-A established 250 GEMM candidates and the TensorRT Layer -> ONNX
+  Node -> Transformer Operator projection mapping. Phase 4-B selected
+  decode-only `up_proj` as the first optimization-research target with score
+  `9.0`.
+- Phase 4-C froze `C[1,3072] = A[1,1024] * B[1024,3072]`, FP16 operands/output,
+  28 decoder layers, correctness oracle, benchmark protocol, and success
+  criteria. Phase 4-D added a standalone cuBLAS-backed `torch.matmul`
+  reference: median `0.086364701 ms`, CV `0.0454%`; exact backend kernel
+  remains `UNKNOWN`.
+- Phase 4-E timed `28/28` existing-engine `up_proj` layers with TensorRT
+  `IProfiler`; per-layer medians were `153.28-159.76 us` and the 28-layer
+  aggregate was mean `4682.253873 us` / median `4339.215986 us`. Phase 4-F
+  correlated `28/28` observed NVTX ranges to `28/28` layers and `196` kernel
+  launches: h16816 family `84/196`, `sm80_xmma_gemm_*` `112/196`.
+- Phase 4-G found no proven optimization hypothesis. H1, reduce or reshape
+  memory/L2 traffic in the shared h16816 path, is only
+  `MEDIUM_FOR_BOTTLENECK_DIRECTION`; CUDA readiness is `NOT READY`.
+- Reports and raw artifacts are under `results/phase4a_operator_attribution/`,
+  `results/phase4b_target_selection/`, `results/phase4c_up_proj_baseline/`,
+  `results/phase4d_up_proj_gemm_baseline/`,
+  `results/phase4e_up_proj_baseline/`, `results/phase4f_kernel_attribution/`,
+  and `results/phase4g_optimization_hypothesis/`. No historical artifact was
+  modified or deleted.

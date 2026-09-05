@@ -1,0 +1,43 @@
+{
+  "phase": "Phase 4-E up_proj Narrow Baseline Probe",
+  "artifact_timestamp_utc": "20260904T161320Z",
+  "local_repository_state": {
+    "branch": "phase/04a-tensorrt-operator-attribution-recovery",
+    "head": "bf7abc67eb58662a68316045e166aa9f611330d7",
+    "last_commit_subject": "phase3e: close compute efficiency audit",
+    "tracked_diff": "NONE",
+    "deleted_files": "NONE",
+    "preexisting_untracked_directories_preserved": [
+      "experiments/Phase2-qwen3-quantization/artifacts/phase2_3b_20260903T203103Z/",
+      "results/phase4a_operator_attribution/",
+      "results/phase4b_target_selection/",
+      "results/phase4c_up_proj_baseline/",
+      "results/phase4d_up_proj_gemm_baseline/"
+    ]
+  },
+  "remote_jetson_state_before_probe": {
+    "ssh_alias": "jetson",
+    "host": "nvidia-desktop",
+    "repository_path": "/home/nvidia/projects/jetson-qwen-inference-lab",
+    "branch": "phase/03e-tensorrt-kernel-attribution",
+    "head": "bf7abc67eb58662a68316045e166aa9f611330d7",
+    "tracked_diff": "NONE",
+    "deleted_files": "NONE",
+    "preexisting_untracked_files_and_directories": [
+      "docs/current_state.md",
+      "docs/experiment_registry.csv",
+      "experiments/Phase2-qwen3-quantization/phase2_2_runtime_prototype/artifacts/c1i_20260902T220000Z/",
+      "experiments/Phase2-qwen3-quantization/phase2_2_runtime_prototype/artifacts/c1i_20260902T221500Z/",
+      "experiments/Phase2-qwen3-quantization/phase2_2_runtime_prototype/artifacts/c1i_20260902T223000Z/",
+      "results/phase3a_runtime_attribution/20260904T062257Z/",
+      "results/phase3b_runtime_lifetime/20260904T082850Z_nsys/"
+    ],
+    "mixed_decode_engine_present": true,
+    "engine_path": "/tmp/phase2_3e_20260904T020000Z/work/mixed_decode_28layer.engine",
+    "engine_bytes": 650285868,
+    "engine_sha256": "445fc7d295c5bbb91e5392182347aa0e59612a031b5556a3461e09f30a59005c"
+  },
+  "probe_scope": "Read-only existing-engine TensorRT IProfiler timing probe. No CUDA kernel, CUTLASS, TensorRT Plugin, engine modification, engine rebuild, ONNX modification, quantization change, runtime architecture change, benchmark protocol change, or profiling rerun.",
+  "allowed_execution": "The existing Mixed Decode engine was deserialized and executed with deterministic synthetic inputs solely to obtain TensorRT layer timing metadata.",
+  "commit_or_push": "NONE"
+}

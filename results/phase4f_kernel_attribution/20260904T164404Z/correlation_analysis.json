@@ -1,0 +1,497 @@
+{
+  "phase": "Phase 4-F up_proj Runtime Correlation Analysis",
+  "artifact_timestamp_utc": "20260904T164404Z",
+  "analysis_scope": "Read-only SQLite query of the existing Phase 3-C mixed_persistent.sqlite trace. No new profiling, benchmark, engine modification or inference.",
+  "input_manifest": {
+    "local_inspector_json": {
+      "path": "results/phase4a_operator_attribution/20260904T131524Z/mixed_decode_engine_inspector.json",
+      "sha256": "b9305150544221c601861aa7b7a86232bbc62d851ac45619fe6166758cc5fe71"
+    },
+    "local_layer_operator_mapping": {
+      "path": "results/phase4a_operator_attribution/20260904T132820Z/mapping.csv",
+      "sha256": "f72801d9ff686fc446756ffd6577a59a170aa131df994de76ba260428281a296"
+    },
+    "local_phase_4a2_runtime_mapping": {
+      "path": "results/phase4a_operator_attribution/20260904T134556Z/runtime_nvtx_kernel_mapping.csv",
+      "sha256": "cb809dd64cd728d93f739866d508b8ca4a881318473871917c7f0f6c1afdb464"
+    },
+    "local_phase_4e_timing": {
+      "path": "results/phase4e_up_proj_baseline/20260904T161320Z/timing_analysis.json",
+      "sha256": "c77a2389233db1f9c76d53fc04ea4bccc0b0d8947c2584d48124454feeb32398"
+    },
+    "remote_raw_sqlite": {
+      "path": "/tmp/phase3c_nsys_20260904T093500Z/mixed_persistent.sqlite",
+      "sha256": "ea9ea0bc4a369647b837def7f98d2bfec2765f1f6f9c9619b4388ab2ab4345a8",
+      "bytes": 3477504
+    },
+    "remote_raw_nsys_report": {
+      "path": "/tmp/phase3c_nsys_20260904T093500Z/mixed_persistent.nsys-rep",
+      "sha256": "14a579d7b15f5f936879fd13964021adf58b4cff6d9dc3e727177cfb17a9cce6",
+      "bytes": 782415
+    }
+  },
+  "evidence_chain": [
+    "NSYS NVTX range",
+    "exact ONNX node path",
+    "Phase 4-A EngineInspector metadata",
+    "TensorRT layer ID/name",
+    "Qwen3 up_proj operator",
+    "CUDA runtime API correlationId",
+    "CUPTI CUDA kernel event"
+  ],
+  "coverage_summary": {
+    "unique_up_proj_nvtx_ranges": 28,
+    "unique_up_proj_tensorrt_layers": 28,
+    "total_up_proj_linked_kernel_launch_rows": 196,
+    "kernel_launches_per_range": 7,
+    "ranges_with_multiple_kernel_names": 28,
+    "ranges_with_h16816_family_launch": 28,
+    "ranges_with_sm80_xmma_family_launch": 28,
+    "h16816_family_launch_rows": 84,
+    "sm80_xmma_family_launch_rows": 112,
+    "observed_launch_level_h16816_fraction": "84/196",
+    "h16816_covers_all_observed_up_proj_launches": false,
+    "h16816_present_in_all_observed_ranges": true
+  },
+  "observed_kernel_name_counts": {
+    "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 78,
+    "trt_ampere_h16816gemm_256x64_ldg8_tn_v1": 6,
+    "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 100,
+    "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 12
+  },
+  "observed_kernel_name_total_duration_ns": {
+    "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 17084352,
+    "trt_ampere_h16816gemm_256x64_ldg8_tn_v1": 1168320,
+    "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 17229408,
+    "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 2072032
+  },
+  "per_range_mapping": [
+    {
+      "onnx_node": "/up_proj/MatMul",
+      "nvtx_range": "/up_proj/MatMul",
+      "trt_layer_id": 22,
+      "trt_layer_name": "/up_proj/MatMul_myl0_22",
+      "inspector_tactic": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "observed_kernel_counts": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 3,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 4
+      },
+      "observed_kernel_total_duration_ns": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 640352,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 591392
+      }
+    },
+    {
+      "onnx_node": "/up_proj_1/MatMul",
+      "nvtx_range": "/up_proj_1/MatMul",
+      "trt_layer_id": 51,
+      "trt_layer_name": "/up_proj_1/MatMul_myl0_51",
+      "inspector_tactic": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "observed_kernel_counts": {
+        "trt_ampere_h16816gemm_256x64_ldg8_tn_v1": 3,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 4
+      },
+      "observed_kernel_total_duration_ns": {
+        "trt_ampere_h16816gemm_256x64_ldg8_tn_v1": 581248,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 580128
+      }
+    },
+    {
+      "onnx_node": "/up_proj_2/MatMul",
+      "nvtx_range": "/up_proj_2/MatMul",
+      "trt_layer_id": 74,
+      "trt_layer_name": "/up_proj_2/MatMul_myl0_74",
+      "inspector_tactic": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "observed_kernel_counts": {
+        "trt_ampere_h16816gemm_256x64_ldg8_tn_v1": 3,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 4
+      },
+      "observed_kernel_total_duration_ns": {
+        "trt_ampere_h16816gemm_256x64_ldg8_tn_v1": 587072,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 578944
+      }
+    },
+    {
+      "onnx_node": "/up_proj_3/MatMul",
+      "nvtx_range": "/up_proj_3/MatMul",
+      "trt_layer_id": 99,
+      "trt_layer_name": "/up_proj_3/MatMul_myl0_99",
+      "inspector_tactic": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "observed_kernel_counts": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 3,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 4
+      },
+      "observed_kernel_total_duration_ns": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 659968,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 581440
+      }
+    },
+    {
+      "onnx_node": "/up_proj_4/MatMul",
+      "nvtx_range": "/up_proj_4/MatMul",
+      "trt_layer_id": 124,
+      "trt_layer_name": "/up_proj_4/MatMul_myl0_124",
+      "inspector_tactic": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "observed_kernel_counts": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 3,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 4
+      },
+      "observed_kernel_total_duration_ns": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 671072,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 577472
+      }
+    },
+    {
+      "onnx_node": "/up_proj_5/MatMul",
+      "nvtx_range": "/up_proj_5/MatMul",
+      "trt_layer_id": 149,
+      "trt_layer_name": "/up_proj_5/MatMul_myl0_149",
+      "inspector_tactic": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "observed_kernel_counts": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 3,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 4
+      },
+      "observed_kernel_total_duration_ns": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 633568,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 577440
+      }
+    },
+    {
+      "onnx_node": "/up_proj_6/MatMul",
+      "nvtx_range": "/up_proj_6/MatMul",
+      "trt_layer_id": 174,
+      "trt_layer_name": "/up_proj_6/MatMul_myl0_174",
+      "inspector_tactic": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "observed_kernel_counts": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 3,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 4
+      },
+      "observed_kernel_total_duration_ns": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 600416,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 575008
+      }
+    },
+    {
+      "onnx_node": "/up_proj_7/MatMul",
+      "nvtx_range": "/up_proj_7/MatMul",
+      "trt_layer_id": 199,
+      "trt_layer_name": "/up_proj_7/MatMul_myl0_199",
+      "inspector_tactic": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "observed_kernel_counts": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 3,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 4
+      },
+      "observed_kernel_total_duration_ns": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 670624,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 587328
+      }
+    },
+    {
+      "onnx_node": "/up_proj_8/MatMul",
+      "nvtx_range": "/up_proj_8/MatMul",
+      "trt_layer_id": 223,
+      "trt_layer_name": "/up_proj_8/MatMul_myl0_223",
+      "inspector_tactic": "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "observed_kernel_counts": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 3,
+        "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 4
+      },
+      "observed_kernel_total_duration_ns": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 672320,
+        "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 584704
+      }
+    },
+    {
+      "onnx_node": "/up_proj_9/MatMul",
+      "nvtx_range": "/up_proj_9/MatMul",
+      "trt_layer_id": 248,
+      "trt_layer_name": "/up_proj_9/MatMul_myl0_248",
+      "inspector_tactic": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "observed_kernel_counts": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 3,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 4
+      },
+      "observed_kernel_total_duration_ns": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 665504,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 691872
+      }
+    },
+    {
+      "onnx_node": "/up_proj_10/MatMul",
+      "nvtx_range": "/up_proj_10/MatMul",
+      "trt_layer_id": 273,
+      "trt_layer_name": "/up_proj_10/MatMul_myl0_273",
+      "inspector_tactic": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "observed_kernel_counts": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 3,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 4
+      },
+      "observed_kernel_total_duration_ns": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 672320,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 709248
+      }
+    },
+    {
+      "onnx_node": "/up_proj_11/MatMul",
+      "nvtx_range": "/up_proj_11/MatMul",
+      "trt_layer_id": 298,
+      "trt_layer_name": "/up_proj_11/MatMul_myl0_298",
+      "inspector_tactic": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "observed_kernel_counts": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 3,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 4
+      },
+      "observed_kernel_total_duration_ns": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 658080,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 716928
+      }
+    },
+    {
+      "onnx_node": "/up_proj_12/MatMul",
+      "nvtx_range": "/up_proj_12/MatMul",
+      "trt_layer_id": 323,
+      "trt_layer_name": "/up_proj_12/MatMul_myl0_323",
+      "inspector_tactic": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "observed_kernel_counts": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 3,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 4
+      },
+      "observed_kernel_total_duration_ns": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 662144,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 715872
+      }
+    },
+    {
+      "onnx_node": "/up_proj_13/MatMul",
+      "nvtx_range": "/up_proj_13/MatMul",
+      "trt_layer_id": 348,
+      "trt_layer_name": "/up_proj_13/MatMul_myl0_348",
+      "inspector_tactic": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "observed_kernel_counts": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 3,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 4
+      },
+      "observed_kernel_total_duration_ns": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 643008,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 715200
+      }
+    },
+    {
+      "onnx_node": "/up_proj_14/MatMul",
+      "nvtx_range": "/up_proj_14/MatMul",
+      "trt_layer_id": 372,
+      "trt_layer_name": "/up_proj_14/MatMul_myl0_372",
+      "inspector_tactic": "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "observed_kernel_counts": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 3,
+        "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 4
+      },
+      "observed_kernel_total_duration_ns": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 638080,
+        "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 715616
+      }
+    },
+    {
+      "onnx_node": "/up_proj_15/MatMul",
+      "nvtx_range": "/up_proj_15/MatMul",
+      "trt_layer_id": 397,
+      "trt_layer_name": "/up_proj_15/MatMul_myl0_397",
+      "inspector_tactic": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "observed_kernel_counts": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 3,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 4
+      },
+      "observed_kernel_total_duration_ns": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 666976,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 713952
+      }
+    },
+    {
+      "onnx_node": "/up_proj_16/MatMul",
+      "nvtx_range": "/up_proj_16/MatMul",
+      "trt_layer_id": 422,
+      "trt_layer_name": "/up_proj_16/MatMul_myl0_422",
+      "inspector_tactic": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "observed_kernel_counts": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 3,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 4
+      },
+      "observed_kernel_total_duration_ns": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 666848,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 721888
+      }
+    },
+    {
+      "onnx_node": "/up_proj_17/MatMul",
+      "nvtx_range": "/up_proj_17/MatMul",
+      "trt_layer_id": 447,
+      "trt_layer_name": "/up_proj_17/MatMul_myl0_447",
+      "inspector_tactic": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "observed_kernel_counts": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 3,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 4
+      },
+      "observed_kernel_total_duration_ns": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 679680,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 705760
+      }
+    },
+    {
+      "onnx_node": "/up_proj_18/MatMul",
+      "nvtx_range": "/up_proj_18/MatMul",
+      "trt_layer_id": 472,
+      "trt_layer_name": "/up_proj_18/MatMul_myl0_472",
+      "inspector_tactic": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "observed_kernel_counts": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 3,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 4
+      },
+      "observed_kernel_total_duration_ns": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 669760,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 721184
+      }
+    },
+    {
+      "onnx_node": "/up_proj_19/MatMul",
+      "nvtx_range": "/up_proj_19/MatMul",
+      "trt_layer_id": 497,
+      "trt_layer_name": "/up_proj_19/MatMul_myl0_497",
+      "inspector_tactic": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "observed_kernel_counts": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 3,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 4
+      },
+      "observed_kernel_total_duration_ns": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 637056,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 711520
+      }
+    },
+    {
+      "onnx_node": "/up_proj_20/MatMul",
+      "nvtx_range": "/up_proj_20/MatMul",
+      "trt_layer_id": 522,
+      "trt_layer_name": "/up_proj_20/MatMul_myl0_522",
+      "inspector_tactic": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "observed_kernel_counts": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 3,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 4
+      },
+      "observed_kernel_total_duration_ns": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 623648,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 756448
+      }
+    },
+    {
+      "onnx_node": "/up_proj_21/MatMul",
+      "nvtx_range": "/up_proj_21/MatMul",
+      "trt_layer_id": 547,
+      "trt_layer_name": "/up_proj_21/MatMul_myl0_547",
+      "inspector_tactic": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "observed_kernel_counts": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 3,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 4
+      },
+      "observed_kernel_total_duration_ns": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 673696,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 776928
+      }
+    },
+    {
+      "onnx_node": "/up_proj_22/MatMul",
+      "nvtx_range": "/up_proj_22/MatMul",
+      "trt_layer_id": 572,
+      "trt_layer_name": "/up_proj_22/MatMul_myl0_572",
+      "inspector_tactic": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "observed_kernel_counts": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 3,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 4
+      },
+      "observed_kernel_total_duration_ns": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 669568,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 793600
+      }
+    },
+    {
+      "onnx_node": "/up_proj_23/MatMul",
+      "nvtx_range": "/up_proj_23/MatMul",
+      "trt_layer_id": 597,
+      "trt_layer_name": "/up_proj_23/MatMul_myl0_597",
+      "inspector_tactic": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "observed_kernel_counts": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 3,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 4
+      },
+      "observed_kernel_total_duration_ns": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 666784,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 776032
+      }
+    },
+    {
+      "onnx_node": "/up_proj_24/MatMul",
+      "nvtx_range": "/up_proj_24/MatMul",
+      "trt_layer_id": 622,
+      "trt_layer_name": "/up_proj_24/MatMul_myl0_622",
+      "inspector_tactic": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "observed_kernel_counts": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 3,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 4
+      },
+      "observed_kernel_total_duration_ns": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 671072,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 788064
+      }
+    },
+    {
+      "onnx_node": "/up_proj_25/MatMul",
+      "nvtx_range": "/up_proj_25/MatMul",
+      "trt_layer_id": 647,
+      "trt_layer_name": "/up_proj_25/MatMul_myl0_647",
+      "inspector_tactic": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "observed_kernel_counts": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 3,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 4
+      },
+      "observed_kernel_total_duration_ns": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 664256,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 779456
+      }
+    },
+    {
+      "onnx_node": "/up_proj_26/MatMul",
+      "nvtx_range": "/up_proj_26/MatMul",
+      "trt_layer_id": 672,
+      "trt_layer_name": "/up_proj_26/MatMul_myl0_672",
+      "inspector_tactic": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "observed_kernel_counts": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 3,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 4
+      },
+      "observed_kernel_total_duration_ns": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 658784,
+        "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 786304
+      }
+    },
+    {
+      "onnx_node": "/up_proj_27/MatMul",
+      "nvtx_range": "/up_proj_27/MatMul",
+      "trt_layer_id": 696,
+      "trt_layer_name": "/up_proj_27/MatMul_myl0_696",
+      "inspector_tactic": "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "observed_kernel_counts": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 3,
+        "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 4
+      },
+      "observed_kernel_total_duration_ns": {
+        "trt_ampere_h16816gemm_128x64_ldg8_nn_v1": 648768,
+        "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt": 771712
+      }
+    }
+  ],
+  "unknown_or_bounded_items": [
+    "The trace does not contain a direct TensorRT layer ID field on CUPTI kernel events; TensorRT layer identity is recovered through the NVTX-to-ONNX-to-Inspector evidence chain.",
+    "Whether each NVTX range maps one-to-one to one logical up_proj invocation is UNKNOWN from the current evidence.",
+    "Future invocation kernel distribution is UNKNOWN from this historical trace.",
+    "FP16 persistent trace correlation and real-token production distribution were not analyzed in Phase 4-F.",
+    "Accumulator dtype, physical layout semantics, alpha/beta semantics and exact GEMM split semantics remain UNKNOWN."
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "phase": "Phase 4-D tensor source mapping",
+  "representative_layer": {
+    "decoder_layer": 0,
+    "trt_layer_id": 22,
+    "trt_layer_name": "/up_proj/MatMul_myl0_22",
+    "trt_layer_type": "gemm",
+    "onnx_node": "/up_proj/MatMul",
+    "activation_input": {
+      "tensor": "__myln_k_arg__bb1_2691",
+      "shape": [1, 1, 1024],
+      "precision": "Half",
+      "upstream_context": "post_attention_layernorm path"
+    },
+    "weight_input": {
+      "tensor": "__mye614249dconst",
+      "shape": [1, 1024, 3072],
+      "precision": "Half",
+      "storage": "TensorRT expanded constant",
+      "onnx_initializer_shape": [1024, 3072]
+    },
+    "alpha_beta_inputs": {
+      "shapes": [[1], [1]],
+      "precision": "Float",
+      "values_and_semantics": "UNKNOWN"
+    },
+    "output": {
+      "tensor": "__myln_k_arg__bb1_2693",
+      "shape": [1, 1, 3072],
+      "precision": "Half"
+    }
+  },
+  "bias": "NONE",
+  "up_proj_fusion": "NONE_AT_TRT_LAYER_22",
+  "pure_gemm_candidate": true,
+  "downstream_consumption": {
+    "trt_layer_id": 23,
+    "trt_layer_type": "fusion",
+    "consumes_up_proj_output": true,
+    "metadata_includes_gate_proj_and_sigmoid_path": true,
+    "note": "The up_proj GEMM itself is not fused with activation or residual at layer 22, but its output is consumed downstream by a gate_proj fusion layer."
+  },
+  "pattern": {
+    "decoder_layers": "28/28",
+    "shape_uniform": true,
+    "tactic_uniform": false,
+    "tactic_exception_layers": [8, 14, 27],
+    "up_proj_is_fp16_in_primary_policy": true
+  },
+  "evidence": [
+    "results/phase4a_operator_attribution/20260904T132820Z/layer_inventory.csv rows 22-24",
+    "results/phase4c_up_proj_baseline/20260904T152617Z/shape_audit.csv",
+    "experiments/Phase2-qwen3-quantization/docs/phase2_3e_28layer_mixed_precision_runtime.md"
+  ]
+}

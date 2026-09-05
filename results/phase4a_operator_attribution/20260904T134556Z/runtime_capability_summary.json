@@ -1,0 +1,100 @@
+{
+  "phase": "Phase 4-A.2 Runtime Evidence Correlation Feasibility Study",
+  "artifact_timestamp_utc": "20260904T134556Z",
+  "git_branch": "phase/04a-tensorrt-operator-attribution-recovery",
+  "git_head": "bf7abc67eb58662a68316045e166aa9f611330d7",
+  "method": "Read-only intersection of existing Phase 3-C NSYS NVTX kernel aggregate, Phase 4-A.0 EngineInspector metadata, Phase 4-A.1 ONNX inventory and mapping. No new profiling, execution, benchmark, engine rebuild, or ONNX export.",
+  "input_manifest": {
+    "results\\phase4a_operator_attribution\\20260904T131524Z\\mixed_decode_engine_inspector.json": {
+      "sha256": "b9305150544221c601861aa7b7a86232bbc62d851ac45619fe6166758cc5fe71",
+      "bytes": 577689
+    },
+    "results\\phase4a_operator_attribution\\20260904T132820Z\\mapping.csv": {
+      "sha256": "f72801d9ff686fc446756ffd6577a59a170aa131df994de76ba260428281a296",
+      "bytes": 208422
+    },
+    "results\\phase4a_operator_attribution\\20260904T132820Z\\onnx_node_inventory.csv": {
+      "sha256": "37c94f99d77e0fc84718ee54b21287bcd8870ec39b2c80616086b7e8618691b0",
+      "bytes": 700785
+    },
+    "results\\phase3c_residual_runtime\\20260904T093500Z_nsys\\stats\\mixed_persistent_nvtx_kern_sum.csv": {
+      "sha256": "8715c7b88ef7b845f474f47a20bba033c194da5ccdda72098c4120ef272f58f9",
+      "bytes": 193061
+    },
+    "results\\phase3c_residual_runtime\\20260904T093500Z_nsys\\stats\\mixed_persistent_nvtx_pushpop_sum.csv": {
+      "sha256": "28ac30d2fb99e41995cc10416d2f3d7cc4e475fbd8ebf19689acd01863414403",
+      "bytes": 37603
+    },
+    "results\\phase3c_residual_runtime\\20260904T093500Z_nsys\\stats\\mixed_persistent_cuda_gpu_kern_sum.csv": {
+      "sha256": "b85bb79c9b6bf8f77485991cad4e6fe194b50fb048409911086f4af705c5fee1",
+      "bytes": 17274
+    },
+    "results\\phase3c_residual_runtime\\20260904T093500Z_nsys\\stats\\mixed_persistent_cuda_api_sum.csv": {
+      "sha256": "2b02496299df90d2b8dbb86f934adfb21aa7de66ada625146ef127ca883a4741",
+      "bytes": 1995
+    }
+  },
+  "counts": {
+    "nvtx_kern_rows": 1115,
+    "myelin_exec_rows": 400,
+    "myelin_exec_source_path_rows": 116,
+    "mapping_output_rows": 120,
+    "projection_mapping_rows": 63,
+    "unique_ranges_mapped": 86,
+    "unique_ranges_high": 30,
+    "unique_ranges_medium": 56,
+    "unique_ranges_unknown": 0,
+    "unique_kernels_in_mapping": 6,
+    "mapping_confidence_counts": {
+      "MEDIUM": 57,
+      "HIGH": 63
+    },
+    "mapping_operator_counts": {
+      "UNKNOWN": 57,
+      "gate_proj": 1,
+      "up_proj": 56,
+      "v_proj": 2,
+      "k_proj": 2,
+      "q_proj": 2
+    }
+  },
+  "existing_trace_evidence": {
+    "mixed_persistent_cuda_gpu_kern_sum_rows": 144,
+    "mixed_persistent_cuda_gpu_kern_unique_kernel_names": 144,
+    "mixed_persistent_cuda_api_sum_rows": 28,
+    "mixed_persistent_cuda_api_unique_names": 28,
+    "mixed_persistent_nvtx_pushpop_rows": 537,
+    "fine_grained_myelin_exec_ranges": 117
+  },
+  "api_surface_check": {
+    "tensorrt_version": "10.3.0",
+    "IProfiler": "PASS",
+    "ProfilingVerbosity": "PASS",
+    "IExecutionContext_execute_async_v3": "PASS",
+    "IExecutionContext_profiler_methods": [
+      "active_optimization_profile",
+      "debug_sync",
+      "enqueue_emits_profile",
+      "get_debug_listener",
+      "get_debug_state",
+      "profiler",
+      "report_to_profiler",
+      "set_all_tensors_debug_state",
+      "set_debug_listener",
+      "set_optimization_profile_async",
+      "set_tensor_debug_state"
+    ],
+    "ICudaEngine_inspector_methods": [
+      "create_engine_inspector"
+    ],
+    "nvtx_python_symbols_in_tensorrt_module": "NONE",
+    "note": "API presence is not used as proof that an untested interface provides kernel-to-layer mapping."
+  },
+  "limitations": [
+    "The committed NSYS artifacts are derived summaries, not the raw .nsys-rep timeline.",
+    "Kernel names are correlated to exact Myelin execution-range names and exact EngineInspector/ONNX node paths; no tactic-name-only inference was used.",
+    "Generic MatMul nodes remain UNKNOWN for Transformer operator identity.",
+    "Internal __myl_* kernels without an exact ONNX node path remain UNKNOWN.",
+    "IProfiler and execution callbacks were not executed or validated in this phase."
+  ]
+}
