@@ -17,10 +17,10 @@
 | Current branch | `phase/05a-cuda-feasibility-baseline-study` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 4-G — Optimization Hypothesis Validation |
-| Experiment status | Prior Phase 1-4 statuses are unchanged. Phase 5-A is `IN_PROGRESS / DESIGN_ONLY`; environment and harness design are frozen, but benchmark execution has not started. |
-| Current Gate | Phase 5-A stage gate is `PASS / READ_ONLY_ENVIRONMENT_FREEZE`; harness design is frozen as `DESIGN_ONLY`. No CUDA kernel, CUTLASS optimization kernel, TensorRT Plugin, engine rebuild, ONNX change, tactic forcing, or runtime redesign is authorized. |
-| Readiness | Phase 5-A benchmark execution is `PENDING_OWNER_REVIEW_OF_FROZEN_DESIGN`. The frozen design separates TensorRT Phase 4-E evidence, a future direct cuBLASLt harness, and a future CUTLASS library candidate. CV above 5% or a comparison-boundary mismatch must be reported as `INCONCLUSIVE`; a clear CUTLASS win requires at least 20% median improvement and a bootstrap CI excluding the tie band. |
+| Last completed experiment | Phase 5-A — Direct cuBLASLt and CUTLASS feasibility baseline |
+| Experiment status | Prior Phase 1-4 statuses are unchanged. Phase 5-A benchmark execution is complete; the direct standalone-library comparison is internally measured, but the TensorRT comparison remains boundary-mismatched. |
+| Current Gate | Phase 5-A Step 2 is `INCONCLUSIVE / BOUNDED / NO_PROVEN_CUTLASS_OPTIMIZATION`. Direct cuBLASLt was fastest among correctness-passing standalone libraries; Case C was not satisfied. No CUDA kernel, CUTLASS optimization kernel, TensorRT Plugin, engine rebuild, ONNX change, tactic forcing, or runtime redesign is authorized. |
+| Readiness | Phase 5-B is `NOT_AUTHORIZED_BY_EVIDENCE`. Phase 4-E remains the TensorRT baseline without rerun; its `IProfiler` boundary is not directly comparable to standalone cuBLASLt/CUTLASS CUDA-event GEMM timing. No backend identity claim beyond the measured cuBLASLt/CUTLASS APIs is supported. |
 
 ## Confirmed Findings
 
@@ -125,10 +125,10 @@ No repository evidence records a formally `REJECT`-status experiment.
 
 ## Required Next Action
 
-Owner/ChatGPT review of the frozen Phase 5-A environment and harness design.
-Benchmark execution is allowed only after explicit approval of that design. Do
-not implement CUDA kernels, CUTLASS optimization kernels, TensorRT Plugins,
-engine rebuilds, ONNX changes, tactic forcing, or runtime redesign.
+Stop after the Phase 5-A direct cuBLASLt and CUTLASS benchmark. Owner/ChatGPT
+review is required before any follow-up. Do not implement CUDA kernels,
+CUTLASS optimization kernels, TensorRT Plugins, engine rebuilds, ONNX changes,
+tactic forcing, or runtime redesign.
 
 ## Do-not-repeat Work
 
@@ -624,3 +624,25 @@ Before Phase 3-A execution, the canonical Phase 2 checkpoint was `b2083895b1199e
 - Gate is `PASS / READ_ONLY_ENVIRONMENT_FREEZE` and harness design is
   `DESIGN_ONLY`; Phase 5-A benchmark execution is pending review.
 - Evidence: `results/phase5a_cuda_feasibility_baseline/20260905T060916Z/`.
+
+## Phase 5-A Direct cuBLASLt And CUTLASS Benchmark (2026-09-05)
+
+- Branch `phase/05a-cuda-feasibility-baseline-study`; starting benchmark HEAD
+  was `b300d1e9f7381d20fddec1649c7ca1a7a22309aa`. The Jetson checkout remained
+  read-only on `phase/03e-tensorrt-kernel-attribution` at `bf7abc6`.
+- Direct cuBLASLt primary result: FP16 input/output with FP32 accumulate,
+  algorithm ID 21, heuristic index 4, workspace 0 bytes, median
+  `0.080077961 ms`, mean `0.080076141 ms`, CV `0.000073666`, correctness PASS.
+- All eight FP16-accumulate cuBLASLt records failed the frozen absolute-error
+  gate and were excluded from performance ranking.
+- CUTLASS `v3.5.1` (`f7b19de32c5d1f3cedfc735c2849f12b537522ee`) best candidate
+  used `tb32x32x64/warp32x32x64/stages4/split-K1`: median `0.083619133 ms`,
+  CV `0.000104699`, correctness PASS. It was about 4.42% slower than cuBLASLt.
+- Phase 4-E TensorRT evidence was not rerun. Its per-layer `IProfiler` medians
+  remain `0.153280005-0.159759998 ms`, but the runtime/layer boundary is not
+  directly comparable to standalone CUDA-event GEMM timing.
+- Gate is `INCONCLUSIVE / BOUNDED`: Case A and B are not applicable due to the
+  boundary mismatch, and Case C is not satisfied because CUTLASS did not win.
+  No Phase 5-B CUDA kernel discussion or implementation is authorized.
+- Evidence: `results/phase5a_cuda_feasibility_baseline/20260905T063059Z/`;
+  harnesses are under `experiments/Phase5-cuda-feasibility/src/`.

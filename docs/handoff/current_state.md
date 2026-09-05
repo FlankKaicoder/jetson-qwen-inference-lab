@@ -1,3 +1,22 @@
+## Phase 5-A Benchmark Execution (2026-09-05)
+
+- Branch `phase/05a-cuda-feasibility-baseline-study`, starting benchmark HEAD
+  `b300d1e9f7381d20fddec1649c7ca1a7a22309aa`. The Jetson checkout remained on
+  `phase/03e-tensorrt-kernel-attribution` at `bf7abc6` and was not modified.
+- Direct cuBLASLt primary: FP16 input/output, FP32 accumulate, algorithm 21,
+  heuristic 4, workspace 0 bytes, median `0.080077961 ms`, CV `0.000073666`,
+  correctness PASS.
+- CUTLASS `v3.5.1` best candidate: `tb32x32x64/warp32x32x64/stages4/split-K1`,
+  median `0.083619133 ms`, CV `0.000104699`, correctness PASS. It was about
+  4.42% slower than cuBLASLt.
+- cuBLASLt FP16-accumulate variants failed the correctness gate and were
+  excluded from ranking.
+- Phase 4-E TensorRT was not rerun; `IProfiler` timing is not directly
+  comparable to standalone CUDA-event GEMM timing. Phase 5-A Gate is
+  `INCONCLUSIVE / BOUNDED / NO_PROVEN_CUTLASS_OPTIMIZATION`. No Phase 5-B CUDA
+  kernel work is authorized.
+- Evidence: `results/phase5a_cuda_feasibility_baseline/20260905T063059Z/`.
+
 ## Phase 5-A Design Checkpoint (2026-09-05)
 
 - Active branch is `phase/05a-cuda-feasibility-baseline-study`, starting from

@@ -4,6 +4,20 @@
 
 ## [Unreleased]
 
+### Phase 5-A Benchmark Execution (2026-09-05)
+
+- Completed direct cuBLASLt and CUTLASS `v3.5.1` library-generated benchmarks
+  for the frozen decode-only `up_proj` FP16 GEMM shape.
+- Primary cuBLASLt FP32 accumulate: median `0.080077961 ms`, CV `0.0073666%`,
+  correctness PASS. Best CUTLASS candidate: median `0.083619133 ms`,
+  CV `0.0104699%`, correctness PASS.
+- Excluded all failing FP16-accumulate cuBLASLt records from performance
+  ranking and preserved their raw evidence.
+- Reused Phase 4-E TensorRT evidence without rerun and kept its `IProfiler`
+  boundary caveat; TensorRT backend identity remains UNKNOWN.
+- Phase 5-A Gate: `INCONCLUSIVE / BOUNDED / NO_PROVEN_CUTLASS_OPTIMIZATION`.
+  No CUDA kernel implementation or Phase 5-B work is authorized.
+
 ### Phase 5-A Design Checkpoint (2026-09-05)
 
 - Opened `phase/05a-cuda-feasibility-baseline-study` from the Phase 4 evidence

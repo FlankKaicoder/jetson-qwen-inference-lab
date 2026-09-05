@@ -1,0 +1,32 @@
+{
+  "phase": "Phase5A",
+  "stage": "DIRECT_CUBLASLT_AND_CUTLASS_FEASIBILITY_BENCHMARK",
+  "artifact_timestamp_utc": "20260905T063059Z",
+  "local_git": {
+    "branch": "phase/05a-cuda-feasibility-baseline-study",
+    "head": "b300d1e9f7381d20fddec1649c7ca1a7a22309aa",
+    "expected_untracked_preserved": [
+      "experiments/Phase2-qwen3-quantization/artifacts/phase2_3b_20260903T203103Z/"
+    ],
+    "phase5a_source_untracked_before_run": true
+  },
+  "remote_git": {
+    "ssh_alias": "jetson",
+    "path": "/home/nvidia/projects/jetson-qwen-inference-lab",
+    "branch": "phase/03e-tensorrt-kernel-attribution",
+    "head": "bf7abc67eb58662a68316045e166aa9f611330d7",
+    "modified_by_this_run": false
+  },
+  "boundaries": {
+    "handwritten_cuda_kernel": false,
+    "tensorrt_engine_modified": false,
+    "tensorrt_plugin": false,
+    "phase4_code_modified": false,
+    "runtime_lifecycle_modified": false,
+    "phase4e_rerun": false
+  },
+  "temporary_paths": {
+    "cublaslt_and_cutlass_run": "/tmp/phase5a_bench_20260905T063059Z",
+    "cutlass_source": "/tmp/cutlass-v3.5.1"
+  }
+}

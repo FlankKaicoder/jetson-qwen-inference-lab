@@ -1,0 +1,45 @@
+{
+  "phase": "Phase5A",
+  "artifact_timestamp_utc": "20260905T063059Z",
+  "shape": [1, 1024, 3072],
+  "dtype_and_layout": "FP16 row-major, alpha=1, beta=0",
+  "primary_cublaslt": {
+    "api": "cublasLtMatmul",
+    "compute": "FP16 input/output, FP32 accumulate",
+    "algorithm_id": 21,
+    "heuristic_index": 4,
+    "workspace_size": 0,
+    "median_ms": 0.080077961,
+    "mean_ms": 0.080076141,
+    "cv": 0.000073666,
+    "tflops": 0.078568422,
+    "correctness": "PASS"
+  },
+  "primary_cutlass": {
+    "tag": "v3.5.1",
+    "commit": "f7b19de32c5d1f3cedfc735c2849f12b537522ee",
+    "candidate_id": 1,
+    "configuration": "tb32x32x64/warp32x32x64/stages4/split_k_1",
+    "median_ms": 0.083619133,
+    "mean_ms": 0.083616242,
+    "cv": 0.000104699,
+    "tflops": 0.075242033,
+    "correctness": "PASS",
+    "delta_vs_cublaslt_median": "+4.42% slower"
+  },
+  "tensorrt_baseline": {
+    "source": "results/phase4e_up_proj_baseline/20260904T161320Z/",
+    "measurement_source": "TensorRT IProfiler per-layer time",
+    "per_layer_median_ms_range": [0.153280005, 0.159759998],
+    "backend_identity": "UNKNOWN",
+    "boundary_comparable": false
+  },
+  "gate": {
+    "case_a": "NOT_APPLICABLE_BOUNDARY_MISMATCH",
+    "case_b": "NOT_APPLICABLE_BOUNDARY_MISMATCH",
+    "case_c": "NOT_SATISFIED_CUTLASS_NOT_FASTER",
+    "phase5a_status": "INCONCLUSIVE / BOUNDED",
+    "direct_library_winner": "cuBLASLt",
+    "proven_cuda_optimization_target": false
+  }
+}
