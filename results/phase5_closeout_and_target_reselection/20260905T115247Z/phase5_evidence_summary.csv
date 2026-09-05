@@ -1,0 +1,23 @@
+evidence_id,artifact,metric,value,limitation
+P4D,results/phase4d_up_proj_gemm_baseline/20260904T155541Z,torch.matmul median,0.086364701 ms,proxy only; exact backend UNKNOWN
+P4E,results/phase4e_up_proj_baseline/20260904T161320Z,TensorRT up_proj per-layer IProfiler median,153.280005-159.759998 us,different layer boundary from standalone GEMM
+P4F,results/phase4f_kernel_attribution/20260904T164404Z,up_proj correlated launches,196; h16816=84; sm80_xmma=112,historical trace; family switches by invocation
+P5A,results/phase5a_cuda_feasibility_baseline/20260905T063059Z,cuBLASLt algorithm 21 median,0.080077961 ms,standalone CUDA-event boundary
+P5A,results/phase5a_cuda_feasibility_baseline/20260905T063059Z,CUTLASS v3.5.1 best median,0.083619133 ms,4.42% slower than cuBLASLt; no replacement advantage
+P5A,results/phase5a_cuda_feasibility_baseline/20260905T072100Z,TensorRT steady-state correlated GEMM median excluding first invocation,147.424 us,historical NSYS; not a controlled paired run
+P5A,results/phase5a_cuda_feasibility_baseline/20260905T072100Z,TensorRT h16816 median,253.680 us,historical NSYS family aggregate
+P5A,results/phase5a_cuda_feasibility_baseline/20260905T072100Z,TensorRT sm80_xmma median,118.800 us,historical NSYS family aggregate
+P5B1,results/phase5b_tensorrt_gemm_path_investigation/20260905T103352Z,recovered up_proj tactic strings,28/28; 25 f16f16_f16f16_f16; 3 f16f16_f16f32_f32,numeric tactic ID NOT_AVAILABLE; backend identity UNKNOWN
+P5B2,results/phase5b_tensorrt_gemm_path_investigation/20260905T112513Z,NCU cuBLASLt algorithm 21 duration,242.912 us,NCU environment with --clock-control none
+P5B2,results/phase5b_tensorrt_gemm_path_investigation/20260905T112513Z,NCU TensorRT f16f16 xmma duration,244.160 us,NCU environment with --clock-control none
+P5B2,results/phase5b_tensorrt_gemm_path_investigation/20260905T112513Z,NCU memory/L2 throughput cuBLASLt vs TensorRT,76.06% vs 76.92%,not direct DRAM throughput
+P5B2,results/phase5b_tensorrt_gemm_path_investigation/20260905T112513Z,NCU tensor cycles active cuBLASLt vs TensorRT,35.537047% vs 17.886626%,resource-shape difference without duration difference
+P3C,results/phase3c_residual_runtime/20260904T093500Z_nsys/analysis/c2_aggregate_summary.csv,persistent representative aggregate kernel time FP16 vs Mixed,219.710 ms vs 147.831 ms,bounded representative prefill plus four decode trace
+P3C,results/phase3c_residual_runtime/20260904T093500Z_nsys/analysis/c3_top_contributors.csv,persistent Mixed GEMM category,133.532448 ms,name-based GEMM tactic category
+P3C,results/phase3c_residual_runtime/20260904T093500Z_nsys/analysis/c3_top_contributors.csv,persistent Mixed TensorRT internal category,13.927392 ms,operator attribution UNKNOWN
+P3E,results/phase3e_kernel_attribution/20260904T121007Z/analysis/e3_ncu_kernel_summary.csv,h16816 NCU memory/L2 / SM / HMMA,97.06% / 39.57% / 39.673148%,direct DRAM N/A; operator match shared gate_proj;up_proj
+P3E,results/phase3e_kernel_attribution/20260904T121007Z/analysis/e3_ncu_kernel_summary.csv,f16f32 xmma NCU memory/L2 / SM / HMMA,76.88% / 25.62% / 17.697509%,operator attribution UNKNOWN
+P4A2,results/phase4a_operator_attribution/20260904T134556Z/runtime_nvtx_range_summary.csv,unknown /MatMul mapped time,61.815776 ms all-trace,operator remains UNKNOWN; MEDIUM confidence
+P4A2,results/phase4a_operator_attribution/20260904T134556Z/runtime_nvtx_range_summary.csv,up_proj mapped time,37.554112 ms all-trace,HIGH confidence; now closed for optimization
+P4A2,results/phase4a_operator_attribution/20260904T134556Z/runtime_nvtx_range_summary.csv,fused q/k/v mapped time,4.442880 ms all-trace,one layer; shared q/k/v view and must not be triple-counted
+P4A2,results/phase4a_operator_attribution/20260904T134556Z/runtime_nvtx_range_summary.csv,gate_proj mapped time,0.648512 ms all-trace,one layer; h16816 aggregate is shared with up_proj

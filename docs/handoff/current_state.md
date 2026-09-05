@@ -645,3 +645,25 @@ tokens/outputs are finite. No OOM or exit 137 occurred.
 
 C5 and the aggregate Phase 2.2 runtime closeout are `PASS / BOUNDED`.
 Phase 2.3 was not started and requires explicit authorization.
+
+## Phase 5 closeout checkpoint (2026-09-05)
+
+Starting HEAD was `beee2ea4a3d364c0893d718285a4c60b4ad07bfa` on
+`phase/05a-cuda-feasibility-baseline-study`; Windows analysis was otherwise
+clean except for the preserved untracked Phase2 artifact. This session only
+performed repository-driven evidence freeze and candidate re-ranking. It did
+not execute or profile anything on Jetson and did not modify any engine.
+
+Phase 5 is closed as `PASS / BOUNDED / NO_PROVEN_OPTIMIZATION_TARGET`. The
+final limits include `NO_PROVEN_CUDA_GEMM_OPTIMIZATION_TARGET`,
+`NO_PROVEN_TACTIC_DEFECT`, `EVENT_TIME_GAP_INCONCLUSIVE`,
+`TENSORRT_BACKEND_IDENTITY_UNKNOWN`, and
+`NO_CUDA_IMPLEMENTATION_AUTHORIZED`. The historical `147.424 us` versus
+`80.077961 us` comparison remains boundary-bounded and was not reproduced by
+matched NCU.
+
+The next decision is `NEXT_TARGET_BOUNDED`, not an implementation target. Rank
+1 is the MEDIUM-confidence `unknown_attention_matmul` `/MatMul_*` chain with
+`61.815776 ms` all-trace mapped time; it needs operator attribution and
+feasibility recovery. `up_proj` is `CLOSED_FOR_NOW`. Evidence is under
+`results/phase5_closeout_and_target_reselection/20260905T115247Z/`.

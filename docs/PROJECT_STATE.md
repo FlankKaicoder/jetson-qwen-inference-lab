@@ -12,15 +12,15 @@
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 5 — TensorRT GEMM Path Investigation |
-| Current experiment | Phase 5-B Step 2 — TensorRT xmma GEMM vs cuBLASLt Microarchitectural Comparison |
+| Current phase | Phase 5 — GEMM Investigation Freeze + Next Target Re-selection |
+| Current experiment | Phase 5 Closeout |
 | Current branch | `phase/05a-cuda-feasibility-baseline-study` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 5-B Step 2 — TensorRT vs cuBLASLt NCU comparison |
-| Experiment status | Prior Phase 1-4 and Phase 5-A statuses are unchanged. Phase 5-B Step 2 profiled one cuBLASLt algorithm-21 post-warmup launch and one Mixed Decode TensorRT `f16f16_execute_kernel_trt` launch with NCU, using `--clock-control none`. |
-| Current Gate | Phase 5-B Step 2 is `CASE_A_SUPPORTED_BOUNDED` / `NO_PROVEN_OPTIMIZATION_TARGET`. The NCU durations are nearly equal, but the earlier event-time gap remains `INCONCLUSIVE`. TensorRT backend identity remains `UNKNOWN`. |
-| Readiness | Stop after Phase 5-B Step 2. No CUDA kernel, TensorRT Plugin, engine rebuild, tactic forcing, or runtime redesign is authorized. |
+| Last completed experiment | Phase 5 Closeout — GEMM feasibility freeze and next target re-selection |
+| Experiment status | Prior Phase 1-4, Phase 5-A and Phase 5-B Step 2 statuses are unchanged. Phase 5 was closed from committed evidence without new execution or profiling. |
+| Current Gate | Phase 5 Closeout is `PASS / BOUNDED / NO_PROVEN_OPTIMIZATION_TARGET`. The next decision is `NEXT_TARGET_BOUNDED`; `unknown_attention_matmul` is an attribution-only candidate. |
+| Readiness | Stop after Phase 5 closeout. No CUDA kernel, TensorRT Plugin, engine rebuild, tactic forcing, implementation, or new operator benchmark is authorized. |
 
 ## Confirmed Findings
 
@@ -125,10 +125,11 @@ No repository evidence records a formally `REJECT`-status experiment.
 
 ## Required Next Action
 
-Stop after Phase 5-B Step 1. Owner/ChatGPT review is required before any
-follow-up. Do not implement CUDA kernels, CUTLASS optimization kernels,
-TensorRT Plugins, engine rebuilds, ONNX changes, tactic forcing, or runtime
-redesign.
+Stop after Phase 5 closeout and next-target re-selection. Owner/ChatGPT review
+is required before any follow-up. Do not implement CUDA kernels, CUTLASS
+optimization kernels, TensorRT Plugins, engine rebuilds, ONNX changes, tactic
+forcing, runtime redesign, or the bounded `unknown_attention_matmul`
+attribution study without explicit authorization.
 
 ## Do-not-repeat Work
 
@@ -725,3 +726,24 @@ Before Phase 3-A execution, the canonical Phase 2 checkpoint was `b2083895b1199e
 - Evidence: `results/phase5b_tensorrt_gemm_path_investigation/20260905T112513Z/`;
   temporary cuBLASLt harness is
   `experiments/Phase5-cuda-feasibility/src/phase5b_step2_cublaslt_algo21_profile.cu`.
+
+## Phase 5 Closeout And Next Target Re-selection (2026-09-05)
+
+- Starting HEAD was `beee2ea4a3d364c0893d718285a4c60b4ad07bfa`. This was a
+  repository-driven closeout over committed evidence; no Jetson execution,
+  profiling, benchmark, engine rebuild, CUDA kernel, TensorRT Plugin, ONNX
+  change, tactic forcing, or runtime modification occurred.
+- Phase 5 final gate is `PASS / BOUNDED / NO_PROVEN_OPTIMIZATION_TARGET`,
+  with `NO_PROVEN_CUDA_GEMM_OPTIMIZATION_TARGET`,
+  `NO_PROVEN_TACTIC_DEFECT`, `EVENT_TIME_GAP_INCONCLUSIVE`,
+  `TENSORRT_BACKEND_IDENTITY_UNKNOWN`, and
+  `NO_CUDA_IMPLEMENTATION_AUTHORIZED`.
+- `up_proj` is `CLOSED_FOR_NOW`. The historical steady-state `147.424 us`
+  versus standalone cuBLASLt `80.077961 us` comparison retains its boundary
+  caveat and was not reproduced under matched NCU.
+- Next-target decision is `NEXT_TARGET_BOUNDED`. Rank 1 is the MEDIUM-confidence
+  `unknown_attention_matmul` `/MatMul_*` chain, with `61.815776 ms` all-trace
+  mapped time; it requires operator attribution and feasibility recovery, not
+  implementation. Rank 2 is bounded `gate_proj`; Rank 3 is the single HIGH fused
+  `q/k/v` range. No implementation is authorized.
+- Evidence: `results/phase5_closeout_and_target_reselection/20260905T115247Z/`.
