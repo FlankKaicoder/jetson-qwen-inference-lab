@@ -1,3 +1,22 @@
+## Phase 5-B Step 1 TensorRT GEMM Path Investigation (2026-09-05)
+
+- Active branch is `phase/05a-cuda-feasibility-baseline-study`. Step 1 started
+  at `480aef94c49e6e39183c4e6395d9c3a45519ea34`; verify the closeout commit
+  with Git.
+- Read-only repository analysis joined frozen Phase 4-A Inspector/ONNX
+  attribution with Phase 5-A kernel breakdown evidence. No engine
+  deserialization, execution, rebuild, benchmark, profiling, CUDA kernel,
+  plugin, or runtime change occurred.
+- Recovered Inspector tactic strings for 28/28 `up_proj` layers: 25 use
+  `sm80_xmma_gemm_f16f16_f16f16_f16...`; layers 8, 14, and 27 use
+  `sm80_xmma_gemm_f16f16_f16f32_f32...`. All contain `tensor16x8x16`.
+- Numeric tactic ID, workspace, backend identity, accumulator dtype, physical
+  layout semantics, and one-to-one tactic/kernel mapping remain
+  `NOT_AVAILABLE` or `UNKNOWN`. No tactic defect is proven.
+- Gate is `CASE_B_SUPPORTED_BOUNDED` / `NO_IMPLEMENTATION_AUTHORIZED`.
+- Evidence:
+  `results/phase5b_tensorrt_gemm_path_investigation/20260905T103352Z/phase5b_step1_engine_inspector.md`.
+
 ## Phase 5-A TensorRT GEMM Boundary Reconciliation (2026-09-05)
 
 - Active branch is `phase/05a-cuda-feasibility-baseline-study`. Step 3 started

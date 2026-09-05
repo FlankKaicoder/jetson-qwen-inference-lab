@@ -12,15 +12,15 @@
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 5 — CUDA Feasibility Baseline Study |
-| Current experiment | Phase 5-A — CUDA Feasibility Baseline Study |
+| Current phase | Phase 5 — TensorRT GEMM Path Investigation |
+| Current experiment | Phase 5-B Step 1 — Engine Inspector / Tactic Attribution Recovery |
 | Current branch | `phase/05a-cuda-feasibility-baseline-study` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 5-A — TensorRT GEMM boundary reconciliation |
-| Experiment status | Prior Phase 1-4 statuses are unchanged. Phase 5-A benchmark execution and TensorRT boundary reconciliation are complete; the reconciliation is bounded by its historical NSYS trace and uncontrolled clocks. |
-| Current Gate | Phase 5-A Step 3 is `CASE_2_SUPPORTED_BOUNDED`. The correlated TensorRT `up_proj` GEMM kernel time is materially slower than direct cuBLASLt, but no tactic defect is proven. `NO_CUDA_IMPLEMENTATION_AUTHORIZED`; TensorRT backend identity remains `UNKNOWN`. |
-| Readiness | Phase 5-B is `NOT_AUTHORIZED_BY_EVIDENCE`. The direct cuBLASLt/CUTLASS result remains internally valid, while the historical NSYS reconciliation supports a bounded GEMM-kernel-time direction. No CUDA kernel, TensorRT Plugin, engine change, tactic forcing, or runtime redesign is authorized. |
+| Last completed experiment | Phase 5-B Step 1 — TensorRT GEMM path investigation |
+| Experiment status | Prior Phase 1-4 and Phase 5-A statuses are unchanged. Phase 5-B Step 1 recovered bounded Inspector tactic attribution from frozen artifacts without engine rebuild, execution, profiling, or benchmark. |
+| Current Gate | Phase 5-B Step 1 is `CASE_B_SUPPORTED_BOUNDED`. Tactic strings and runtime kernel families are recovered; numeric tactic ID, workspace, backend identity, and one-to-one tactic/kernel mapping are not proven. `NO_IMPLEMENTATION_AUTHORIZED`. |
+| Readiness | Phase 5-B Step 2 is not defined or authorized. The evidence supports bounded path attribution only. No CUDA kernel, TensorRT Plugin, engine change, tactic forcing, or runtime redesign is authorized. |
 
 ## Confirmed Findings
 
@@ -125,10 +125,10 @@ No repository evidence records a formally `REJECT`-status experiment.
 
 ## Required Next Action
 
-Stop after the Phase 5-A TensorRT GEMM boundary reconciliation. Owner/ChatGPT
-review is required before any follow-up. Do not implement CUDA kernels,
-CUTLASS optimization kernels, TensorRT Plugins, engine rebuilds, ONNX changes,
-tactic forcing, or runtime redesign.
+Stop after Phase 5-B Step 1. Owner/ChatGPT review is required before any
+follow-up. Do not implement CUDA kernels, CUTLASS optimization kernels,
+TensorRT Plugins, engine rebuilds, ONNX changes, tactic forcing, or runtime
+redesign.
 
 ## Do-not-repeat Work
 
@@ -674,3 +674,30 @@ Before Phase 3-A execution, the canonical Phase 2 checkpoint was `b2083895b1199e
   tactic forcing, or runtime redesign is authorized.
 - Evidence: `results/phase5a_cuda_feasibility_baseline/20260905T072100Z/`;
   analysis script is `experiments/Phase5-cuda-feasibility/scripts/phase5a_boundary_reconciliation.py`.
+
+## Phase 5-B Step 1 TensorRT GEMM Path Investigation (2026-09-05)
+
+- Starting HEAD was `480aef94c49e6e39183c4e6395d9c3a45519ea34` on
+  `phase/05a-cuda-feasibility-baseline-study`. The work was repository-side
+  read-only analysis of frozen Phase 4/5-A evidence; no engine was
+  deserialized, executed, rebuilt, or modified.
+- Joined 28/28 HIGH-confidence Phase 4-A.1 `up_proj` mappings to the frozen
+  TensorRT 10.3 EngineInspector JSON and 196 Phase 5-A correlated runtime
+  kernel observations.
+- Recovered Inspector tactic strings for all 28 layers. Decoder layers 0-7 and
+  9-26 use `sm80_xmma_gemm_f16f16_f16f16_f16...`; layers 8, 14, and 27 use
+  `sm80_xmma_gemm_f16f16_f16f32_f32...`. All labels contain
+  `tensor16x8x16`.
+- Numeric tactic ID, runtime workspace, backend identity, alpha/beta values,
+  accumulator dtype, and physical layout semantics remain `NOT_AVAILABLE` or
+  `UNKNOWN`. The `f16f32_f32` label is not treated as proven FP32 accumulator
+  semantics.
+- Runtime attribution remains bounded: each logical layer has three `h16816`
+  and four `sm80_xmma_gemm` observations across seven historical invocations.
+  Family assignment changes by invocation; the mapping is not proven
+  one-to-one.
+- Gate is `CASE_B_SUPPORTED_BOUNDED`, `NO_PROVEN_TACTIC_DEFECT`, and
+  `NO_IMPLEMENTATION_AUTHORIZED`. Direct cuBLASLt algorithm 21 is comparison
+  context only, not evidence of a TensorRT cuBLASLt backend.
+- Evidence: `results/phase5b_tensorrt_gemm_path_investigation/20260905T103352Z/`;
+  analysis script is `experiments/Phase5-cuda-feasibility/scripts/phase5b_tactic_attribution.py`.

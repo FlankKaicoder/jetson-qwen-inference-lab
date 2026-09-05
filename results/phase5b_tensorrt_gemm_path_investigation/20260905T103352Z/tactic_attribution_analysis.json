@@ -1,0 +1,241 @@
+{
+  "coverage": {
+    "runtime_observations": 196,
+    "runtime_observations_per_layer": 7,
+    "up_proj_layers": 28
+  },
+  "mode": "READ_ONLY_ANALYSIS_OF_FROZEN_ARTIFACTS",
+  "not_available_fields": [
+    "numeric_tactic_id",
+    "runtime_workspace",
+    "alpha_beta_values",
+    "direct_tensor_core_measurement_for_all_28_rows"
+  ],
+  "per_layer": {
+    "0": {
+      "runtime_kernel_family_counts": "h16816=3;sm80_xmma_gemm=4",
+      "runtime_kernel_name_counts": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt=4;trt_ampere_h16816gemm_128x64_ldg8_nn_v1=3",
+      "tactic_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "trt_layer_id": 22,
+      "trt_layer_name": "/up_proj/MatMul_myl0_22"
+    },
+    "1": {
+      "runtime_kernel_family_counts": "h16816=3;sm80_xmma_gemm=4",
+      "runtime_kernel_name_counts": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt=4;trt_ampere_h16816gemm_256x64_ldg8_tn_v1=3",
+      "tactic_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "trt_layer_id": 51,
+      "trt_layer_name": "/up_proj_1/MatMul_myl0_51"
+    },
+    "2": {
+      "runtime_kernel_family_counts": "h16816=3;sm80_xmma_gemm=4",
+      "runtime_kernel_name_counts": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt=4;trt_ampere_h16816gemm_256x64_ldg8_tn_v1=3",
+      "tactic_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "trt_layer_id": 74,
+      "trt_layer_name": "/up_proj_2/MatMul_myl0_74"
+    },
+    "3": {
+      "runtime_kernel_family_counts": "h16816=3;sm80_xmma_gemm=4",
+      "runtime_kernel_name_counts": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt=4;trt_ampere_h16816gemm_128x64_ldg8_nn_v1=3",
+      "tactic_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "trt_layer_id": 99,
+      "trt_layer_name": "/up_proj_3/MatMul_myl0_99"
+    },
+    "4": {
+      "runtime_kernel_family_counts": "h16816=3;sm80_xmma_gemm=4",
+      "runtime_kernel_name_counts": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt=4;trt_ampere_h16816gemm_128x64_ldg8_nn_v1=3",
+      "tactic_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "trt_layer_id": 124,
+      "trt_layer_name": "/up_proj_4/MatMul_myl0_124"
+    },
+    "5": {
+      "runtime_kernel_family_counts": "h16816=3;sm80_xmma_gemm=4",
+      "runtime_kernel_name_counts": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt=4;trt_ampere_h16816gemm_128x64_ldg8_nn_v1=3",
+      "tactic_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "trt_layer_id": 149,
+      "trt_layer_name": "/up_proj_5/MatMul_myl0_149"
+    },
+    "6": {
+      "runtime_kernel_family_counts": "h16816=3;sm80_xmma_gemm=4",
+      "runtime_kernel_name_counts": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt=4;trt_ampere_h16816gemm_128x64_ldg8_nn_v1=3",
+      "tactic_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "trt_layer_id": 174,
+      "trt_layer_name": "/up_proj_6/MatMul_myl0_174"
+    },
+    "7": {
+      "runtime_kernel_family_counts": "h16816=3;sm80_xmma_gemm=4",
+      "runtime_kernel_name_counts": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt=4;trt_ampere_h16816gemm_128x64_ldg8_nn_v1=3",
+      "tactic_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "trt_layer_id": 199,
+      "trt_layer_name": "/up_proj_7/MatMul_myl0_199"
+    },
+    "8": {
+      "runtime_kernel_family_counts": "h16816=3;sm80_xmma_gemm=4",
+      "runtime_kernel_name_counts": "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt=4;trt_ampere_h16816gemm_128x64_ldg8_nn_v1=3",
+      "tactic_name": "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "trt_layer_id": 223,
+      "trt_layer_name": "/up_proj_8/MatMul_myl0_223"
+    },
+    "9": {
+      "runtime_kernel_family_counts": "h16816=3;sm80_xmma_gemm=4",
+      "runtime_kernel_name_counts": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt=4;trt_ampere_h16816gemm_128x64_ldg8_nn_v1=3",
+      "tactic_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "trt_layer_id": 248,
+      "trt_layer_name": "/up_proj_9/MatMul_myl0_248"
+    },
+    "10": {
+      "runtime_kernel_family_counts": "h16816=3;sm80_xmma_gemm=4",
+      "runtime_kernel_name_counts": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt=4;trt_ampere_h16816gemm_128x64_ldg8_nn_v1=3",
+      "tactic_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "trt_layer_id": 273,
+      "trt_layer_name": "/up_proj_10/MatMul_myl0_273"
+    },
+    "11": {
+      "runtime_kernel_family_counts": "h16816=3;sm80_xmma_gemm=4",
+      "runtime_kernel_name_counts": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt=4;trt_ampere_h16816gemm_128x64_ldg8_nn_v1=3",
+      "tactic_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "trt_layer_id": 298,
+      "trt_layer_name": "/up_proj_11/MatMul_myl0_298"
+    },
+    "12": {
+      "runtime_kernel_family_counts": "h16816=3;sm80_xmma_gemm=4",
+      "runtime_kernel_name_counts": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt=4;trt_ampere_h16816gemm_128x64_ldg8_nn_v1=3",
+      "tactic_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "trt_layer_id": 323,
+      "trt_layer_name": "/up_proj_12/MatMul_myl0_323"
+    },
+    "13": {
+      "runtime_kernel_family_counts": "h16816=3;sm80_xmma_gemm=4",
+      "runtime_kernel_name_counts": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt=4;trt_ampere_h16816gemm_128x64_ldg8_nn_v1=3",
+      "tactic_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "trt_layer_id": 348,
+      "trt_layer_name": "/up_proj_13/MatMul_myl0_348"
+    },
+    "14": {
+      "runtime_kernel_family_counts": "h16816=3;sm80_xmma_gemm=4",
+      "runtime_kernel_name_counts": "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt=4;trt_ampere_h16816gemm_128x64_ldg8_nn_v1=3",
+      "tactic_name": "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "trt_layer_id": 372,
+      "trt_layer_name": "/up_proj_14/MatMul_myl0_372"
+    },
+    "15": {
+      "runtime_kernel_family_counts": "h16816=3;sm80_xmma_gemm=4",
+      "runtime_kernel_name_counts": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt=4;trt_ampere_h16816gemm_128x64_ldg8_nn_v1=3",
+      "tactic_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "trt_layer_id": 397,
+      "trt_layer_name": "/up_proj_15/MatMul_myl0_397"
+    },
+    "16": {
+      "runtime_kernel_family_counts": "h16816=3;sm80_xmma_gemm=4",
+      "runtime_kernel_name_counts": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt=4;trt_ampere_h16816gemm_128x64_ldg8_nn_v1=3",
+      "tactic_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "trt_layer_id": 422,
+      "trt_layer_name": "/up_proj_16/MatMul_myl0_422"
+    },
+    "17": {
+      "runtime_kernel_family_counts": "h16816=3;sm80_xmma_gemm=4",
+      "runtime_kernel_name_counts": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt=4;trt_ampere_h16816gemm_128x64_ldg8_nn_v1=3",
+      "tactic_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "trt_layer_id": 447,
+      "trt_layer_name": "/up_proj_17/MatMul_myl0_447"
+    },
+    "18": {
+      "runtime_kernel_family_counts": "h16816=3;sm80_xmma_gemm=4",
+      "runtime_kernel_name_counts": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt=4;trt_ampere_h16816gemm_128x64_ldg8_nn_v1=3",
+      "tactic_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "trt_layer_id": 472,
+      "trt_layer_name": "/up_proj_18/MatMul_myl0_472"
+    },
+    "19": {
+      "runtime_kernel_family_counts": "h16816=3;sm80_xmma_gemm=4",
+      "runtime_kernel_name_counts": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt=4;trt_ampere_h16816gemm_128x64_ldg8_nn_v1=3",
+      "tactic_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "trt_layer_id": 497,
+      "trt_layer_name": "/up_proj_19/MatMul_myl0_497"
+    },
+    "20": {
+      "runtime_kernel_family_counts": "h16816=3;sm80_xmma_gemm=4",
+      "runtime_kernel_name_counts": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt=4;trt_ampere_h16816gemm_128x64_ldg8_nn_v1=3",
+      "tactic_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "trt_layer_id": 522,
+      "trt_layer_name": "/up_proj_20/MatMul_myl0_522"
+    },
+    "21": {
+      "runtime_kernel_family_counts": "h16816=3;sm80_xmma_gemm=4",
+      "runtime_kernel_name_counts": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt=4;trt_ampere_h16816gemm_128x64_ldg8_nn_v1=3",
+      "tactic_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "trt_layer_id": 547,
+      "trt_layer_name": "/up_proj_21/MatMul_myl0_547"
+    },
+    "22": {
+      "runtime_kernel_family_counts": "h16816=3;sm80_xmma_gemm=4",
+      "runtime_kernel_name_counts": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt=4;trt_ampere_h16816gemm_128x64_ldg8_nn_v1=3",
+      "tactic_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "trt_layer_id": 572,
+      "trt_layer_name": "/up_proj_22/MatMul_myl0_572"
+    },
+    "23": {
+      "runtime_kernel_family_counts": "h16816=3;sm80_xmma_gemm=4",
+      "runtime_kernel_name_counts": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt=4;trt_ampere_h16816gemm_128x64_ldg8_nn_v1=3",
+      "tactic_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "trt_layer_id": 597,
+      "trt_layer_name": "/up_proj_23/MatMul_myl0_597"
+    },
+    "24": {
+      "runtime_kernel_family_counts": "h16816=3;sm80_xmma_gemm=4",
+      "runtime_kernel_name_counts": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt=4;trt_ampere_h16816gemm_128x64_ldg8_nn_v1=3",
+      "tactic_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "trt_layer_id": 622,
+      "trt_layer_name": "/up_proj_24/MatMul_myl0_622"
+    },
+    "25": {
+      "runtime_kernel_family_counts": "h16816=3;sm80_xmma_gemm=4",
+      "runtime_kernel_name_counts": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt=4;trt_ampere_h16816gemm_128x64_ldg8_nn_v1=3",
+      "tactic_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "trt_layer_id": 647,
+      "trt_layer_name": "/up_proj_25/MatMul_myl0_647"
+    },
+    "26": {
+      "runtime_kernel_family_counts": "h16816=3;sm80_xmma_gemm=4",
+      "runtime_kernel_name_counts": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt=4;trt_ampere_h16816gemm_128x64_ldg8_nn_v1=3",
+      "tactic_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "trt_layer_id": 672,
+      "trt_layer_name": "/up_proj_26/MatMul_myl0_672"
+    },
+    "27": {
+      "runtime_kernel_family_counts": "h16816=3;sm80_xmma_gemm=4",
+      "runtime_kernel_name_counts": "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt=4;trt_ampere_h16816gemm_128x64_ldg8_nn_v1=3",
+      "tactic_name": "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16",
+      "trt_layer_id": 696,
+      "trt_layer_name": "/up_proj_27/MatMul_myl0_696"
+    }
+  },
+  "phase": "Phase5B Step1 TensorRT GEMM Path Investigation",
+  "runtime_kernel_family_counts": {
+    "h16816": 84,
+    "sm80_xmma_gemm": 112
+  },
+  "source_files": {
+    "inspector": {
+      "path": "results\\phase4a_operator_attribution\\20260904T131524Z\\mixed_decode_engine_inspector.json",
+      "sha256": "b9305150544221c601861aa7b7a86232bbc62d851ac45619fe6166758cc5fe71"
+    },
+    "mapping": {
+      "path": "results\\phase4a_operator_attribution\\20260904T132820Z\\mapping.csv",
+      "sha256": "f72801d9ff686fc446756ffd6577a59a170aa131df994de76ba260428281a296"
+    },
+    "runtime_kernel_csv": {
+      "path": "results\\phase5a_cuda_feasibility_baseline\\20260905T072100Z\\kernel_breakdown.csv",
+      "sha256": "2d101d5069b4240259a7599bbe7f32f3639175e176aeafd5265bc9cce68584bb"
+    }
+  },
+  "tactic_name_counts": {
+    "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16": 25,
+    "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16": 3
+  },
+  "unknown_fields": [
+    "tensorrt_backend_identity",
+    "accumulator_dtype",
+    "physical_layout_semantics",
+    "tactic_to_runtime_kernel_family_mapping"
+  ]
+}

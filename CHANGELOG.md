@@ -4,6 +4,22 @@
 
 ## [Unreleased]
 
+### Phase 5-B Step 1 TensorRT GEMM Path Investigation (2026-09-05)
+
+- Recovered bounded tactic attribution for all 28 `up_proj` GEMM layers from
+  frozen Engine Inspector, ONNX mapping, and historical NSYS kernel artifacts.
+  No engine was deserialized, executed, rebuilt, or modified.
+- Recorded that 25 layers use an `f16f16_f16` xmma tactic label while decoder
+  layers `8`, `14`, and `27` use an `f16f32_f32` label; all 28 labels contain
+  `tensor16x8x16`. Label semantics are not promoted to proven accumulator or
+  layout behavior.
+- Recorded `NOT_AVAILABLE` for numeric tactic ID, runtime workspace, and a
+  dedicated kernel-name field. Backend identity, accumulator dtype, physical
+  layout semantics, and complete tactic-to-kernel mapping remain `UNKNOWN`.
+- Kept the direct cuBLASLt algorithm 21 result as comparison context only.
+  Phase 5-B Step 1 is `CASE_B_SUPPORTED_BOUNDED`, with no proven tactic defect
+  and no implementation authorized.
+
 ### Phase 5-A TensorRT Boundary Reconciliation (2026-09-05)
 
 - Re-read the existing Phase 4-F Mixed persistent NSYS SQLite trace in read-only
