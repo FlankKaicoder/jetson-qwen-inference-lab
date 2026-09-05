@@ -1,0 +1,6 @@
+scope,kernel_family,count,total_duration_ns,median_duration_ns,min_duration_ns,max_duration_ns,p95_duration_ns,ratio_vs_cublaslt_median
+all_observed_ranges,all,196,37554112,236544,110048,278528,268096,2.9539213667
+steady_excluding_first_invocation,all,168,30362176,147424,110048,278528,268032,1.8410059167
+all_observed_ranges,h16816,84,18252672,253680,110880,278528,270976,3.1679128293
+all_observed_ranges,sm80_xmma_gemm,112,19301440,118800,110048,248416,245408,1.4835542578
+steady_excluding_first_invocation,kernel_launch_api,168,2906016,16240,UNKNOWN,UNKNOWN,UNKNOWN,0.2028023666

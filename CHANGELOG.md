@@ -4,6 +4,21 @@
 
 ## [Unreleased]
 
+### Phase 5-A TensorRT Boundary Reconciliation (2026-09-05)
+
+- Re-read the existing Phase 4-F Mixed persistent NSYS SQLite trace in read-only
+  mode and resolved 196 `up_proj` NVTX range instances, each with one correlated
+  CUDA kernel and no attributed non-GEMM kernel.
+- Recorded `h16816` at 84 launches / median `253.680 us` and `sm80_xmma_gemm`
+  at 112 launches / median `118.800 us`; the steady-state correlated kernel
+  median is `147.424 us`.
+- Explained that negative `NVTX-kernel` residuals reflect asynchronous kernels
+  extending beyond host NVTX boundaries; launch API duration alone cannot
+  explain the gap versus direct cuBLASLt.
+- Updated Phase 5-A Gate to `CASE_2_SUPPORTED_BOUNDED`. No tactic defect is
+  proven, TensorRT backend identity remains UNKNOWN, and no CUDA kernel,
+  Plugin, engine change, tactic forcing, or runtime redesign is authorized.
+
 ### Phase 5-A Benchmark Execution (2026-09-05)
 
 - Completed direct cuBLASLt and CUTLASS `v3.5.1` library-generated benchmarks

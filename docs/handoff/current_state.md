@@ -1,3 +1,26 @@
+## Phase 5-A TensorRT GEMM Boundary Reconciliation (2026-09-05)
+
+- Active branch is `phase/05a-cuda-feasibility-baseline-study`. Step 3 started
+  at `175018b312353c00ff3979c802907b828491631e`; verify the final closeout
+  commit with Git.
+- Re-read the existing Phase 4-F Mixed persistent NSYS SQLite trace in read-only
+  mode. No new profiling, TensorRT execution, engine change, CUDA kernel,
+  plugin, or runtime work was performed.
+- The trace has 196 `up_proj` NVTX instances (28 logical layers x 7 trace
+  invocations), each with one correlated CUDA kernel and no attributed non-GEMM
+  kernel. `h16816` has 84 launches with median `253.680 us`; `sm80_xmma_gemm`
+  has 112 with median `118.800 us`.
+- Excluding the first invocation, GEMM kernel median is `147.424 us`, host NVTX
+  median is `42.496 us`, and launch API median is `16.240 us`. NVTX closes
+  before all kernels finish, so `NVTX-kernel` residuals are not runtime
+  overhead.
+- Against cuBLASLt median `80.077961 us`, the steady-state kernel median is
+  `1.841x`. This is `CASE_2_SUPPORTED_BOUNDED`, not proof of a tactic defect.
+  TensorRT backend identity remains UNKNOWN and Phase 5-B/CUDA implementation
+  remains unauthorized.
+- Evidence:
+  `results/phase5a_cuda_feasibility_baseline/20260905T072100Z/phase5a_trt_boundary_reconciliation.md`.
+
 ## Phase 5-A Benchmark Execution (2026-09-05)
 
 - Branch `phase/05a-cuda-feasibility-baseline-study`, starting benchmark HEAD

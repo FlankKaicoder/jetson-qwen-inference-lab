@@ -17,10 +17,10 @@
 | Current branch | `phase/05a-cuda-feasibility-baseline-study` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 5-A — Direct cuBLASLt and CUTLASS feasibility baseline |
-| Experiment status | Prior Phase 1-4 statuses are unchanged. Phase 5-A benchmark execution is complete; the direct standalone-library comparison is internally measured, but the TensorRT comparison remains boundary-mismatched. |
-| Current Gate | Phase 5-A Step 2 is `INCONCLUSIVE / BOUNDED / NO_PROVEN_CUTLASS_OPTIMIZATION`. Direct cuBLASLt was fastest among correctness-passing standalone libraries; Case C was not satisfied. No CUDA kernel, CUTLASS optimization kernel, TensorRT Plugin, engine rebuild, ONNX change, tactic forcing, or runtime redesign is authorized. |
-| Readiness | Phase 5-B is `NOT_AUTHORIZED_BY_EVIDENCE`. Phase 4-E remains the TensorRT baseline without rerun; its `IProfiler` boundary is not directly comparable to standalone cuBLASLt/CUTLASS CUDA-event GEMM timing. No backend identity claim beyond the measured cuBLASLt/CUTLASS APIs is supported. |
+| Last completed experiment | Phase 5-A — TensorRT GEMM boundary reconciliation |
+| Experiment status | Prior Phase 1-4 statuses are unchanged. Phase 5-A benchmark execution and TensorRT boundary reconciliation are complete; the reconciliation is bounded by its historical NSYS trace and uncontrolled clocks. |
+| Current Gate | Phase 5-A Step 3 is `CASE_2_SUPPORTED_BOUNDED`. The correlated TensorRT `up_proj` GEMM kernel time is materially slower than direct cuBLASLt, but no tactic defect is proven. `NO_CUDA_IMPLEMENTATION_AUTHORIZED`; TensorRT backend identity remains `UNKNOWN`. |
+| Readiness | Phase 5-B is `NOT_AUTHORIZED_BY_EVIDENCE`. The direct cuBLASLt/CUTLASS result remains internally valid, while the historical NSYS reconciliation supports a bounded GEMM-kernel-time direction. No CUDA kernel, TensorRT Plugin, engine change, tactic forcing, or runtime redesign is authorized. |
 
 ## Confirmed Findings
 
@@ -125,7 +125,7 @@ No repository evidence records a formally `REJECT`-status experiment.
 
 ## Required Next Action
 
-Stop after the Phase 5-A direct cuBLASLt and CUTLASS benchmark. Owner/ChatGPT
+Stop after the Phase 5-A TensorRT GEMM boundary reconciliation. Owner/ChatGPT
 review is required before any follow-up. Do not implement CUDA kernels,
 CUTLASS optimization kernels, TensorRT Plugins, engine rebuilds, ONNX changes,
 tactic forcing, or runtime redesign.
@@ -140,6 +140,9 @@ tactic forcing, or runtime redesign.
   `up_proj` evidence.
 - Do not treat Phase 4-D PyTorch timing as an exact cuBLASLt algorithm identity
   or directly compare it to Phase 4-E without the boundary caveat.
+- Do not reinterpret Phase 4-F's 196 correlated launches as seven kernels per
+  NVTX instance; the Step 3 read-only requery records one correlated launch per
+  observed NVTX instance.
 - Do not start Exp02, merge `main`, change the roadmap, or modify device power/clock state without explicit direction.
 
 ## Last Verified Git State
@@ -646,3 +649,28 @@ Before Phase 3-A execution, the canonical Phase 2 checkpoint was `b2083895b1199e
   No Phase 5-B CUDA kernel discussion or implementation is authorized.
 - Evidence: `results/phase5a_cuda_feasibility_baseline/20260905T063059Z/`;
   harnesses are under `experiments/Phase5-cuda-feasibility/src/`.
+
+## Phase 5-A TensorRT GEMM Boundary Reconciliation (2026-09-05)
+
+- Starting HEAD was `175018b312353c00ff3979c802907b828491631e`. The existing
+  Phase 4-F Mixed persistent NSYS SQLite trace was re-read in read-only mode;
+  no new profiling, TensorRT execution, benchmark, or historical artifact
+  modification occurred.
+- The trace contains 196 `up_proj` NVTX range instances across 28 logical layer
+  names and 7 trace invocations. Every instance has exactly one correlated CUDA
+  kernel; there are no attributed non-GEMM kernels.
+- Observed family totals are `h16816`: 84 launches, median `253.680 us`;
+  `sm80_xmma_gemm`: 112 launches, median `118.800 us`; other: 0. Family
+  assignment changes by trace invocation and its cause remains `UNKNOWN`.
+- Excluding the first invocation, correlated kernel median is `147.424 us`,
+  host NVTX range median is `42.496 us`, and launch API duration median is
+  `16.240 us`. All 196 kernels end after their NVTX range ends, so the negative
+  NVTX-minus-kernel residual is not a disjoint runtime overhead component.
+- The direct cuBLASLt median remains `80.077961 us`. The steady-state kernel
+  median is `1.841x` that value; even the faster invocation medians are about
+  `42-43%` higher. This supports `CASE_2_SUPPORTED_BOUNDED`, but no tactic
+  defect is proven and TensorRT backend identity remains `UNKNOWN`.
+- No CUDA kernel, CUTLASS optimization kernel, TensorRT Plugin, engine change,
+  tactic forcing, or runtime redesign is authorized.
+- Evidence: `results/phase5a_cuda_feasibility_baseline/20260905T072100Z/`;
+  analysis script is `experiments/Phase5-cuda-feasibility/scripts/phase5a_boundary_reconciliation.py`.

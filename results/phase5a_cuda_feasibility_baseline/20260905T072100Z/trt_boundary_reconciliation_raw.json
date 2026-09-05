@@ -1,0 +1,5789 @@
+{
+  "aggregate_all_observed_ranges": {
+    "all_runtime_api_duration_ns": {
+      "mean_per_range": 269386.9387755102,
+      "median_per_range": 16768.0,
+      "total": 52799840
+    },
+    "kernel_count": 196,
+    "kernel_duration_ns": {
+      "max_per_range": 278528,
+      "mean_per_range": 191602.61224489796,
+      "median_per_range": 236544.0,
+      "min_per_range": 110048,
+      "p95_per_range": 268096,
+      "total": 37554112
+    },
+    "kernel_launch_api_duration_ns": {
+      "mean_per_range": 269386.9387755102,
+      "median_per_range": 16768.0,
+      "total": 52799840
+    },
+    "nvtx_duration_ns": {
+      "max": 49474816,
+      "mean": 296106.9387755102,
+      "median": 44688.0,
+      "min": 19296,
+      "p95": 71520,
+      "total": 58036960
+    },
+    "nvtx_minus_kernel_ns": {
+      "max_per_range": 49221184,
+      "mean_per_range": 104504.32653061225,
+      "median_per_range": -165552.0,
+      "min_per_range": -251712,
+      "total": 20482848
+    },
+    "range_count": 196
+  },
+  "aggregate_excluding_first_invocation": {
+    "all_runtime_api_duration_ns": {
+      "mean_per_range": 17297.714285714286,
+      "median_per_range": 16240.0,
+      "total": 2906016
+    },
+    "kernel_count": 168,
+    "kernel_duration_ns": {
+      "max_per_range": 278528,
+      "mean_per_range": 180727.2380952381,
+      "median_per_range": 147424.0,
+      "min_per_range": 110048,
+      "p95_per_range": 268032,
+      "total": 30362176
+    },
+    "kernel_launch_api_duration_ns": {
+      "mean_per_range": 17297.714285714286,
+      "median_per_range": 16240.0,
+      "total": 2906016
+    },
+    "nvtx_duration_ns": {
+      "max": 81280,
+      "mean": 42343.619047619046,
+      "median": 42496.0,
+      "min": 19296,
+      "p95": 71168,
+      "total": 7113728
+    },
+    "nvtx_minus_kernel_ns": {
+      "max_per_range": -33632,
+      "mean_per_range": -138383.61904761905,
+      "median_per_range": -121888.0,
+      "min_per_range": -251712,
+      "total": -23248448
+    },
+    "range_count": 168
+  },
+  "coverage": {
+    "invocations": 7,
+    "kernel_events": 196,
+    "layer_names_per_invocation": 28,
+    "nvtx_range_instances": 196,
+    "unique_layer_names": 28
+  },
+  "definitions": {
+    "kernel_launch_api_duration_ns": "Sum of host runtime API durations for cuLaunchKernel, cuLaunchKernelEx and cudaLaunchKernel_v7000 events contained in the NVTX range.",
+    "kernel_total_duration_ns": "Sum of CUPTI kernel event end-start durations correlated to launch APIs contained in the NVTX range.",
+    "nvtx_minus_kernel_ns": "Arithmetic residual only; CPU host API time and asynchronous GPU kernel time may overlap and must not be treated as a disjoint component."
+  },
+  "family_totals": {
+    "h16816": {
+      "count": 84,
+      "duration_ns": 18252672
+    },
+    "sm80_xmma_gemm": {
+      "count": 112,
+      "duration_ns": 19301440
+    }
+  },
+  "mode": "READ_ONLY_SQLITE_REQUERY_OF_EXISTING_PHASE4F_TRACE",
+  "per_nvtx_range": [
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 49372288,
+      "invocation_index": 1,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 49372288,
+      "kernel_total_duration_ns": 253632,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 750720,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 8021,
+          "duration_ns": 253632,
+          "end_ns": 10787054912,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10786801280,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 0,
+      "layer_name": "/up_proj/MatMul",
+      "nvtx_duration_ns": 49474816,
+      "nvtx_end_ns": 10786304192,
+      "nvtx_start_ns": 10736829376
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 20224,
+      "invocation_index": 1,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 20224,
+      "kernel_total_duration_ns": 234848,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 238560,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 8064,
+          "duration_ns": 234848,
+          "end_ns": 10788308096,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_256x64_ldg8_tn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10788073248,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 1,
+      "layer_name": "/up_proj_1/MatMul",
+      "nvtx_duration_ns": 162624,
+      "nvtx_end_ns": 10788069536,
+      "nvtx_start_ns": 10787906912
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 16448,
+      "invocation_index": 1,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 16448,
+      "kernel_total_duration_ns": 234560,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 595072,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 8096,
+          "duration_ns": 234560,
+          "end_ns": 10789499488,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_256x64_ldg8_tn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10789264928,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 2,
+      "layer_name": "/up_proj_2/MatMul",
+      "nvtx_duration_ns": 47424,
+      "nvtx_end_ns": 10788904416,
+      "nvtx_start_ns": 10788856992
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 19424,
+      "invocation_index": 1,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 19424,
+      "kernel_total_duration_ns": 253728,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 457504,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 8134,
+          "duration_ns": 253728,
+          "end_ns": 10790632768,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10790379040,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 3,
+      "layer_name": "/up_proj_3/MatMul",
+      "nvtx_duration_ns": 53952,
+      "nvtx_end_ns": 10790175264,
+      "nvtx_start_ns": 10790121312
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 17760,
+      "invocation_index": 1,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 17760,
+      "kernel_total_duration_ns": 269696,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 303520,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 8172,
+          "duration_ns": 269696,
+          "end_ns": 10791778752,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10791509056,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 4,
+      "layer_name": "/up_proj_4/MatMul",
+      "nvtx_duration_ns": 49760,
+      "nvtx_end_ns": 10791475232,
+      "nvtx_start_ns": 10791425472
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 15840,
+      "invocation_index": 1,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 15840,
+      "kernel_total_duration_ns": 244128,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 276512,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 8210,
+          "duration_ns": 244128,
+          "end_ns": 10792986400,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10792742272,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 5,
+      "layer_name": "/up_proj_5/MatMul",
+      "nvtx_duration_ns": 47392,
+      "nvtx_end_ns": 10792709888,
+      "nvtx_start_ns": 10792662496
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 17120,
+      "invocation_index": 1,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 17120,
+      "kernel_total_duration_ns": 237568,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 280704,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 8248,
+          "duration_ns": 237568,
+          "end_ns": 10794214176,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10793976608,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 6,
+      "layer_name": "/up_proj_6/MatMul",
+      "nvtx_duration_ns": 43296,
+      "nvtx_end_ns": 10793933472,
+      "nvtx_start_ns": 10793890176
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 18752,
+      "invocation_index": 1,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 18752,
+      "kernel_total_duration_ns": 266048,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 302304,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 8286,
+          "duration_ns": 266048,
+          "end_ns": 10795506016,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10795239968,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 7,
+      "layer_name": "/up_proj_7/MatMul",
+      "nvtx_duration_ns": 45792,
+      "nvtx_end_ns": 10795203712,
+      "nvtx_start_ns": 10795157920
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 16928,
+      "invocation_index": 1,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 16928,
+      "kernel_total_duration_ns": 266464,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 389728,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 8326,
+          "duration_ns": 266464,
+          "end_ns": 10796887968,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10796621504,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 8,
+      "layer_name": "/up_proj_8/MatMul",
+      "nvtx_duration_ns": 49184,
+      "nvtx_end_ns": 10796498240,
+      "nvtx_start_ns": 10796449056
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 20608,
+      "invocation_index": 1,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 20608,
+      "kernel_total_duration_ns": 262848,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 303008,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 8364,
+          "duration_ns": 262848,
+          "end_ns": 10798023872,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10797761024,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 9,
+      "layer_name": "/up_proj_9/MatMul",
+      "nvtx_duration_ns": 46592,
+      "nvtx_end_ns": 10797720864,
+      "nvtx_start_ns": 10797674272
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 15168,
+      "invocation_index": 1,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 15168,
+      "kernel_total_duration_ns": 265280,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 307008,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 8402,
+          "duration_ns": 265280,
+          "end_ns": 10799267680,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10799002400,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 10,
+      "layer_name": "/up_proj_10/MatMul",
+      "nvtx_duration_ns": 43328,
+      "nvtx_end_ns": 10798960672,
+      "nvtx_start_ns": 10798917344
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 23488,
+      "invocation_index": 1,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 23488,
+      "kernel_total_duration_ns": 260320,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 294368,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 8440,
+          "duration_ns": 260320,
+          "end_ns": 10800554464,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10800294144,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 11,
+      "layer_name": "/up_proj_11/MatMul",
+      "nvtx_duration_ns": 51424,
+      "nvtx_end_ns": 10800260096,
+      "nvtx_start_ns": 10800208672
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 19424,
+      "invocation_index": 1,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 19424,
+      "kernel_total_duration_ns": 261184,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 299904,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 8478,
+          "duration_ns": 261184,
+          "end_ns": 10801795648,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10801534464,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 12,
+      "layer_name": "/up_proj_12/MatMul",
+      "nvtx_duration_ns": 46272,
+      "nvtx_end_ns": 10801495744,
+      "nvtx_start_ns": 10801449472
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 18272,
+      "invocation_index": 1,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 18272,
+      "kernel_total_duration_ns": 256128,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 295712,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 8516,
+          "duration_ns": 256128,
+          "end_ns": 10803012832,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10802756704,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 13,
+      "layer_name": "/up_proj_13/MatMul",
+      "nvtx_duration_ns": 46400,
+      "nvtx_end_ns": 10802717120,
+      "nvtx_start_ns": 10802670720
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 16768,
+      "invocation_index": 1,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 16768,
+      "kernel_total_duration_ns": 251936,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 366240,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 8556,
+          "duration_ns": 251936,
+          "end_ns": 10804372736,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10804120800,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 14,
+      "layer_name": "/up_proj_14/MatMul",
+      "nvtx_duration_ns": 45088,
+      "nvtx_end_ns": 10804006496,
+      "nvtx_start_ns": 10803961408
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 15744,
+      "invocation_index": 1,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 15744,
+      "kernel_total_duration_ns": 259520,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 273792,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 8594,
+          "duration_ns": 259520,
+          "end_ns": 10805554688,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10805295168,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 15,
+      "layer_name": "/up_proj_15/MatMul",
+      "nvtx_duration_ns": 49952,
+      "nvtx_end_ns": 10805280896,
+      "nvtx_start_ns": 10805230944
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 16000,
+      "invocation_index": 1,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 16000,
+      "kernel_total_duration_ns": 256000,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 293920,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 8632,
+          "duration_ns": 256000,
+          "end_ns": 10806876384,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10806620384,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 16,
+      "layer_name": "/up_proj_16/MatMul",
+      "nvtx_duration_ns": 49408,
+      "nvtx_end_ns": 10806582464,
+      "nvtx_start_ns": 10806533056
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 21088,
+      "invocation_index": 1,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 21088,
+      "kernel_total_duration_ns": 268096,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 289696,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 8670,
+          "duration_ns": 268096,
+          "end_ns": 10808241568,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10807973472,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 17,
+      "layer_name": "/up_proj_17/MatMul",
+      "nvtx_duration_ns": 51904,
+      "nvtx_end_ns": 10807951872,
+      "nvtx_start_ns": 10807899968
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 18048,
+      "invocation_index": 1,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 18048,
+      "kernel_total_duration_ns": 248544,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 276160,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 8708,
+          "duration_ns": 248544,
+          "end_ns": 10809530144,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10809281600,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 18,
+      "layer_name": "/up_proj_18/MatMul",
+      "nvtx_duration_ns": 49792,
+      "nvtx_end_ns": 10809253984,
+      "nvtx_start_ns": 10809204192
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 21248,
+      "invocation_index": 1,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 21248,
+      "kernel_total_duration_ns": 245120,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 269760,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 8746,
+          "duration_ns": 245120,
+          "end_ns": 10810849280,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10810604160,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 19,
+      "layer_name": "/up_proj_19/MatMul",
+      "nvtx_duration_ns": 52640,
+      "nvtx_end_ns": 10810579520,
+      "nvtx_start_ns": 10810526880
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 26112,
+      "invocation_index": 1,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 26112,
+      "kernel_total_duration_ns": 248928,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 279968,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 8784,
+          "duration_ns": 248928,
+          "end_ns": 10812182784,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10811933856,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 20,
+      "layer_name": "/up_proj_20/MatMul",
+      "nvtx_duration_ns": 53568,
+      "nvtx_end_ns": 10811902816,
+      "nvtx_start_ns": 10811849248
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 16064,
+      "invocation_index": 1,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 16064,
+      "kernel_total_duration_ns": 267648,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 306752,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 8822,
+          "duration_ns": 267648,
+          "end_ns": 10813510272,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10813242624,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 21,
+      "layer_name": "/up_proj_21/MatMul",
+      "nvtx_duration_ns": 46240,
+      "nvtx_end_ns": 10813203520,
+      "nvtx_start_ns": 10813157280
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 20480,
+      "invocation_index": 1,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 20480,
+      "kernel_total_duration_ns": 266592,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 295008,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 8860,
+          "duration_ns": 266592,
+          "end_ns": 10814827168,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10814560576,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 22,
+      "layer_name": "/up_proj_22/MatMul",
+      "nvtx_duration_ns": 53408,
+      "nvtx_end_ns": 10814532160,
+      "nvtx_start_ns": 10814478752
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 27264,
+      "invocation_index": 1,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 27264,
+      "kernel_total_duration_ns": 265024,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 275520,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 8898,
+          "duration_ns": 265024,
+          "end_ns": 10816171616,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10815906592,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 23,
+      "layer_name": "/up_proj_23/MatMul",
+      "nvtx_duration_ns": 60480,
+      "nvtx_end_ns": 10815896096,
+      "nvtx_start_ns": 10815835616
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 25664,
+      "invocation_index": 1,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 25664,
+      "kernel_total_duration_ns": 265856,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 293408,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 8936,
+          "duration_ns": 265856,
+          "end_ns": 10817528672,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10817262816,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 24,
+      "layer_name": "/up_proj_24/MatMul",
+      "nvtx_duration_ns": 57312,
+      "nvtx_end_ns": 10817235264,
+      "nvtx_start_ns": 10817177952
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 17152,
+      "invocation_index": 1,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 17152,
+      "kernel_total_duration_ns": 262592,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 295648,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 8974,
+          "duration_ns": 262592,
+          "end_ns": 10818810432,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10818547840,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 25,
+      "layer_name": "/up_proj_25/MatMul",
+      "nvtx_duration_ns": 49824,
+      "nvtx_end_ns": 10818514784,
+      "nvtx_start_ns": 10818464960
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 15552,
+      "invocation_index": 1,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 15552,
+      "kernel_total_duration_ns": 260832,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 298144,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 9012,
+          "duration_ns": 260832,
+          "end_ns": 10820190656,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10819929824,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 26,
+      "layer_name": "/up_proj_26/MatMul",
+      "nvtx_duration_ns": 48768,
+      "nvtx_end_ns": 10819892512,
+      "nvtx_start_ns": 10819843744
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 24896,
+      "invocation_index": 1,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 24896,
+      "kernel_total_duration_ns": 258816,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 576544,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 9055,
+          "duration_ns": 258816,
+          "end_ns": 10821841536,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10821582720,
+          "stream_id": 28
+        }
+      ],
+      "layer_index": 27,
+      "layer_name": "/up_proj_27/MatMul",
+      "nvtx_duration_ns": 46592,
+      "nvtx_end_ns": 10821264992,
+      "nvtx_start_ns": 10821218400
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 20416,
+      "invocation_index": 2,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 20416,
+      "kernel_total_duration_ns": 256128,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 933248,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 9755,
+          "duration_ns": 256128,
+          "end_ns": 10846927072,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10846670944,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 0,
+      "layer_name": "/up_proj/MatMul",
+      "nvtx_duration_ns": 33504,
+      "nvtx_end_ns": 10845993824,
+      "nvtx_start_ns": 10845960320
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 21312,
+      "invocation_index": 2,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 21312,
+      "kernel_total_duration_ns": 235520,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 1666080,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 9785,
+          "duration_ns": 235520,
+          "end_ns": 10848113024,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_256x64_ldg8_tn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10847877504,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 1,
+      "layer_name": "/up_proj_1/MatMul",
+      "nvtx_duration_ns": 39584,
+      "nvtx_end_ns": 10846446944,
+      "nvtx_start_ns": 10846407360
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 14400,
+      "invocation_index": 2,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 14400,
+      "kernel_total_duration_ns": 237984,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 2529888,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 9810,
+          "duration_ns": 237984,
+          "end_ns": 10849363168,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_256x64_ldg8_tn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10849125184,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 2,
+      "layer_name": "/up_proj_2/MatMul",
+      "nvtx_duration_ns": 26144,
+      "nvtx_end_ns": 10846833280,
+      "nvtx_start_ns": 10846807136
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 14688,
+      "invocation_index": 2,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 14688,
+      "kernel_total_duration_ns": 261664,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 3300000,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 9835,
+          "duration_ns": 261664,
+          "end_ns": 10850530496,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10850268832,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 3,
+      "layer_name": "/up_proj_3/MatMul",
+      "nvtx_duration_ns": 24320,
+      "nvtx_end_ns": 10847230496,
+      "nvtx_start_ns": 10847206176
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 18240,
+      "invocation_index": 2,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 18240,
+      "kernel_total_duration_ns": 265344,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 4003840,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 9860,
+          "duration_ns": 265344,
+          "end_ns": 10851689504,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10851424160,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 4,
+      "layer_name": "/up_proj_4/MatMul",
+      "nvtx_duration_ns": 26656,
+      "nvtx_end_ns": 10847685664,
+      "nvtx_start_ns": 10847659008
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 19872,
+      "invocation_index": 2,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 19872,
+      "kernel_total_duration_ns": 246144,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 4737792,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 9885,
+          "duration_ns": 246144,
+          "end_ns": 10852840512,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10852594368,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 5,
+      "layer_name": "/up_proj_5/MatMul",
+      "nvtx_duration_ns": 28992,
+      "nvtx_end_ns": 10848102720,
+      "nvtx_start_ns": 10848073728
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 12960,
+      "invocation_index": 2,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 12960,
+      "kernel_total_duration_ns": 241760,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 5475488,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 9910,
+          "duration_ns": 241760,
+          "end_ns": 10853983776,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10853742016,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 6,
+      "layer_name": "/up_proj_6/MatMul",
+      "nvtx_duration_ns": 21280,
+      "nvtx_end_ns": 10848508288,
+      "nvtx_start_ns": 10848487008
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 12736,
+      "invocation_index": 2,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 12736,
+      "kernel_total_duration_ns": 271520,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 6247872,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 9935,
+          "duration_ns": 271520,
+          "end_ns": 10855150144,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10854878624,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 7,
+      "layer_name": "/up_proj_7/MatMul",
+      "nvtx_duration_ns": 21440,
+      "nvtx_end_ns": 10848902272,
+      "nvtx_start_ns": 10848880832
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 17984,
+      "invocation_index": 2,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 17984,
+      "kernel_total_duration_ns": 272160,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 7127040,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 9961,
+          "duration_ns": 272160,
+          "end_ns": 10856416832,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10856144672,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 8,
+      "layer_name": "/up_proj_8/MatMul",
+      "nvtx_duration_ns": 26816,
+      "nvtx_end_ns": 10849289792,
+      "nvtx_start_ns": 10849262976
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 18144,
+      "invocation_index": 2,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 18144,
+      "kernel_total_duration_ns": 268032,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 7893792,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 9986,
+          "duration_ns": 268032,
+          "end_ns": 10857610752,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10857342720,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 9,
+      "layer_name": "/up_proj_9/MatMul",
+      "nvtx_duration_ns": 27200,
+      "nvtx_end_ns": 10849716960,
+      "nvtx_start_ns": 10849689760
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 13088,
+      "invocation_index": 2,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 13088,
+      "kernel_total_duration_ns": 270976,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 8682912,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 10011,
+          "duration_ns": 270976,
+          "end_ns": 10858786976,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10858516000,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 10,
+      "layer_name": "/up_proj_10/MatMul",
+      "nvtx_duration_ns": 21152,
+      "nvtx_end_ns": 10850104064,
+      "nvtx_start_ns": 10850082912
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 13504,
+      "invocation_index": 2,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 13504,
+      "kernel_total_duration_ns": 265408,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 9456960,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 10036,
+          "duration_ns": 265408,
+          "end_ns": 10859962016,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10859696608,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 11,
+      "layer_name": "/up_proj_11/MatMul",
+      "nvtx_duration_ns": 21280,
+      "nvtx_end_ns": 10850505056,
+      "nvtx_start_ns": 10850483776
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 17120,
+      "invocation_index": 2,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 17120,
+      "kernel_total_duration_ns": 266784,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 10251168,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 10061,
+          "duration_ns": 266784,
+          "end_ns": 10861141504,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10860874720,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 12,
+      "layer_name": "/up_proj_12/MatMul",
+      "nvtx_duration_ns": 25760,
+      "nvtx_end_ns": 10850890336,
+      "nvtx_start_ns": 10850864576
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 18528,
+      "invocation_index": 2,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 18528,
+      "kernel_total_duration_ns": 257536,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 11021536,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 10086,
+          "duration_ns": 257536,
+          "end_ns": 10862307104,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10862049568,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 13,
+      "layer_name": "/up_proj_13/MatMul",
+      "nvtx_duration_ns": 25888,
+      "nvtx_end_ns": 10851285568,
+      "nvtx_start_ns": 10851259680
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 12960,
+      "invocation_index": 2,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 12960,
+      "kernel_total_duration_ns": 256832,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 11812576,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 10112,
+          "duration_ns": 256832,
+          "end_ns": 10863519648,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10863262816,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 14,
+      "layer_name": "/up_proj_14/MatMul",
+      "nvtx_duration_ns": 21184,
+      "nvtx_end_ns": 10851707072,
+      "nvtx_start_ns": 10851685888
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 13056,
+      "invocation_index": 2,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 13056,
+      "kernel_total_duration_ns": 265728,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 12575136,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 10137,
+          "duration_ns": 265728,
+          "end_ns": 10864684672,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10864418944,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 15,
+      "layer_name": "/up_proj_15/MatMul",
+      "nvtx_duration_ns": 20992,
+      "nvtx_end_ns": 10852109536,
+      "nvtx_start_ns": 10852088544
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 13184,
+      "invocation_index": 2,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 13184,
+      "kernel_total_duration_ns": 264160,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 13377920,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 10162,
+          "duration_ns": 264160,
+          "end_ns": 10865859328,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10865595168,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 16,
+      "layer_name": "/up_proj_16/MatMul",
+      "nvtx_duration_ns": 21472,
+      "nvtx_end_ns": 10852481408,
+      "nvtx_start_ns": 10852459936
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 21568,
+      "invocation_index": 2,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 21568,
+      "kernel_total_duration_ns": 263424,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 14115712,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 10187,
+          "duration_ns": 263424,
+          "end_ns": 10867016256,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10866752832,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 17,
+      "layer_name": "/up_proj_17/MatMul",
+      "nvtx_duration_ns": 30368,
+      "nvtx_end_ns": 10852900544,
+      "nvtx_start_ns": 10852870176
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 18752,
+      "invocation_index": 2,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 18752,
+      "kernel_total_duration_ns": 278528,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 14873056,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 10212,
+          "duration_ns": 278528,
+          "end_ns": 10868187488,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10867908960,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 18,
+      "layer_name": "/up_proj_18/MatMul",
+      "nvtx_duration_ns": 26816,
+      "nvtx_end_ns": 10853314432,
+      "nvtx_start_ns": 10853287616
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 13184,
+      "invocation_index": 2,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 13184,
+      "kernel_total_duration_ns": 259200,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 15631936,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 10237,
+          "duration_ns": 259200,
+          "end_ns": 10869338688,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10869079488,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 19,
+      "layer_name": "/up_proj_19/MatMul",
+      "nvtx_duration_ns": 22176,
+      "nvtx_end_ns": 10853706752,
+      "nvtx_start_ns": 10853684576
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 12864,
+      "invocation_index": 2,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 12864,
+      "kernel_total_duration_ns": 251264,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 16394240,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 10262,
+          "duration_ns": 251264,
+          "end_ns": 10870482656,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10870231392,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 20,
+      "layer_name": "/up_proj_20/MatMul",
+      "nvtx_duration_ns": 21440,
+      "nvtx_end_ns": 10854088416,
+      "nvtx_start_ns": 10854066976
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 13568,
+      "invocation_index": 2,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 13568,
+      "kernel_total_duration_ns": 272448,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 17172384,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 10287,
+          "duration_ns": 272448,
+          "end_ns": 10871667840,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10871395392,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 21,
+      "layer_name": "/up_proj_21/MatMul",
+      "nvtx_duration_ns": 22240,
+      "nvtx_end_ns": 10854495456,
+      "nvtx_start_ns": 10854473216
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 13312,
+      "invocation_index": 2,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 13312,
+      "kernel_total_duration_ns": 270752,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 17958144,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 10312,
+          "duration_ns": 270752,
+          "end_ns": 10872849920,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10872579168,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 22,
+      "layer_name": "/up_proj_22/MatMul",
+      "nvtx_duration_ns": 22272,
+      "nvtx_end_ns": 10854891776,
+      "nvtx_start_ns": 10854869504
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 18688,
+      "invocation_index": 2,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 18688,
+      "kernel_total_duration_ns": 269408,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 18762848,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 10337,
+          "duration_ns": 269408,
+          "end_ns": 10874037760,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10873768352,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 23,
+      "layer_name": "/up_proj_23/MatMul",
+      "nvtx_duration_ns": 26464,
+      "nvtx_end_ns": 10855274912,
+      "nvtx_start_ns": 10855248448
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 13024,
+      "invocation_index": 2,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 13024,
+      "kernel_total_duration_ns": 269184,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 19530848,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 10362,
+          "duration_ns": 269184,
+          "end_ns": 10875232320,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10874963136,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 24,
+      "layer_name": "/up_proj_24/MatMul",
+      "nvtx_duration_ns": 21856,
+      "nvtx_end_ns": 10855701472,
+      "nvtx_start_ns": 10855679616
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 12768,
+      "invocation_index": 2,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 12768,
+      "kernel_total_duration_ns": 266560,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 20304544,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 10387,
+          "duration_ns": 266560,
+          "end_ns": 10876423168,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10876156608,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 25,
+      "layer_name": "/up_proj_25/MatMul",
+      "nvtx_duration_ns": 21824,
+      "nvtx_end_ns": 10856118624,
+      "nvtx_start_ns": 10856096800
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 15040,
+      "invocation_index": 2,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 15040,
+      "kernel_total_duration_ns": 262752,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 21088608,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 10412,
+          "duration_ns": 262752,
+          "end_ns": 10877600896,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10877338144,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 26,
+      "layer_name": "/up_proj_26/MatMul",
+      "nvtx_duration_ns": 24192,
+      "nvtx_end_ns": 10856512288,
+      "nvtx_start_ns": 10856488096
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 14592,
+      "invocation_index": 2,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 14592,
+      "kernel_total_duration_ns": 258592,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 22155520,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 10441,
+          "duration_ns": 258592,
+          "end_ns": 10879076224,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10878817632,
+          "stream_id": 28
+        }
+      ],
+      "layer_index": 27,
+      "layer_name": "/up_proj_27/MatMul",
+      "nvtx_duration_ns": 21984,
+      "nvtx_end_ns": 10856920704,
+      "nvtx_start_ns": 10856898720
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 15136,
+      "invocation_index": 3,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 15136,
+      "kernel_total_duration_ns": 130592,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 358144,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 11142,
+          "duration_ns": 130592,
+          "end_ns": 10900810336,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10900679744,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 0,
+      "layer_name": "/up_proj/MatMul",
+      "nvtx_duration_ns": 27072,
+      "nvtx_end_ns": 10900452192,
+      "nvtx_start_ns": 10900425120
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 14496,
+      "invocation_index": 3,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 14496,
+      "kernel_total_duration_ns": 110880,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 483104,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 11172,
+          "duration_ns": 110880,
+          "end_ns": 10901412320,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_256x64_ldg8_tn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10901301440,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 1,
+      "layer_name": "/up_proj_1/MatMul",
+      "nvtx_duration_ns": 33760,
+      "nvtx_end_ns": 10900929216,
+      "nvtx_start_ns": 10900895456
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 20320,
+      "invocation_index": 3,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 20320,
+      "kernel_total_duration_ns": 114528,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 701792,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 11197,
+          "duration_ns": 114528,
+          "end_ns": 10902035520,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_256x64_ldg8_tn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10901920992,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 2,
+      "layer_name": "/up_proj_2/MatMul",
+      "nvtx_duration_ns": 33536,
+      "nvtx_end_ns": 10901333728,
+      "nvtx_start_ns": 10901300192
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 29888,
+      "invocation_index": 3,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 29888,
+      "kernel_total_duration_ns": 144576,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 875584,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 11222,
+          "duration_ns": 144576,
+          "end_ns": 10902644256,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10902499680,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 3,
+      "layer_name": "/up_proj_3/MatMul",
+      "nvtx_duration_ns": 39424,
+      "nvtx_end_ns": 10901768672,
+      "nvtx_start_ns": 10901729248
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 13344,
+      "invocation_index": 3,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 13344,
+      "kernel_total_duration_ns": 136032,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 1058848,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 11247,
+          "duration_ns": 136032,
+          "end_ns": 10903242848,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10903106816,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 4,
+      "layer_name": "/up_proj_4/MatMul",
+      "nvtx_duration_ns": 22368,
+      "nvtx_end_ns": 10902184000,
+      "nvtx_start_ns": 10902161632
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 13024,
+      "invocation_index": 3,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 13024,
+      "kernel_total_duration_ns": 143296,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 1287296,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 11272,
+          "duration_ns": 143296,
+          "end_ns": 10903845056,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10903701760,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 5,
+      "layer_name": "/up_proj_5/MatMul",
+      "nvtx_duration_ns": 21664,
+      "nvtx_end_ns": 10902557760,
+      "nvtx_start_ns": 10902536096
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 16512,
+      "invocation_index": 3,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 16512,
+      "kernel_total_duration_ns": 121088,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 1517536,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 11297,
+          "duration_ns": 121088,
+          "end_ns": 10904433856,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10904312768,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 6,
+      "layer_name": "/up_proj_6/MatMul",
+      "nvtx_duration_ns": 25344,
+      "nvtx_end_ns": 10902916320,
+      "nvtx_start_ns": 10902890976
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 27264,
+      "invocation_index": 3,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 27264,
+      "kernel_total_duration_ns": 133056,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 1540576,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 11322,
+          "duration_ns": 133056,
+          "end_ns": 10905032032,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10904898976,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 7,
+      "layer_name": "/up_proj_7/MatMul",
+      "nvtx_duration_ns": 37920,
+      "nvtx_end_ns": 10903491456,
+      "nvtx_start_ns": 10903453536
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 13184,
+      "invocation_index": 3,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 13184,
+      "kernel_total_duration_ns": 133696,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 1802912,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 11348,
+          "duration_ns": 133696,
+          "end_ns": 10905669024,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10905535328,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 8,
+      "layer_name": "/up_proj_8/MatMul",
+      "nvtx_duration_ns": 21536,
+      "nvtx_end_ns": 10903866112,
+      "nvtx_start_ns": 10903844576
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 12896,
+      "invocation_index": 3,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 12896,
+      "kernel_total_duration_ns": 134624,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 2030752,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 11373,
+          "duration_ns": 134624,
+          "end_ns": 10906278624,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10906144000,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 9,
+      "layer_name": "/up_proj_9/MatMul",
+      "nvtx_duration_ns": 20768,
+      "nvtx_end_ns": 10904247872,
+      "nvtx_start_ns": 10904227104
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 12896,
+      "invocation_index": 3,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 12896,
+      "kernel_total_duration_ns": 136064,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 2295552,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 11398,
+          "duration_ns": 136064,
+          "end_ns": 10906895936,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10906759872,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 10,
+      "layer_name": "/up_proj_10/MatMul",
+      "nvtx_duration_ns": 21696,
+      "nvtx_end_ns": 10904600384,
+      "nvtx_start_ns": 10904578688
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 12832,
+      "invocation_index": 3,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 12832,
+      "kernel_total_duration_ns": 132352,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 2536800,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 11423,
+          "duration_ns": 132352,
+          "end_ns": 10907502016,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10907369664,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 11,
+      "layer_name": "/up_proj_11/MatMul",
+      "nvtx_duration_ns": 20704,
+      "nvtx_end_ns": 10904965216,
+      "nvtx_start_ns": 10904944512
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 12576,
+      "invocation_index": 3,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 12576,
+      "kernel_total_duration_ns": 134176,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 2757280,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 11448,
+          "duration_ns": 134176,
+          "end_ns": 10908102304,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10907968128,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 12,
+      "layer_name": "/up_proj_12/MatMul",
+      "nvtx_duration_ns": 20384,
+      "nvtx_end_ns": 10905345024,
+      "nvtx_start_ns": 10905324640
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 12800,
+      "invocation_index": 3,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 12800,
+      "kernel_total_duration_ns": 129344,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 2999328,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 11473,
+          "duration_ns": 129344,
+          "end_ns": 10908693824,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10908564480,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 13,
+      "layer_name": "/up_proj_13/MatMul",
+      "nvtx_duration_ns": 19296,
+      "nvtx_end_ns": 10905694496,
+      "nvtx_start_ns": 10905675200
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 12864,
+      "invocation_index": 3,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 12864,
+      "kernel_total_duration_ns": 129312,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 3279904,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 11499,
+          "duration_ns": 129312,
+          "end_ns": 10909311872,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10909182560,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 14,
+      "layer_name": "/up_proj_14/MatMul",
+      "nvtx_duration_ns": 20352,
+      "nvtx_end_ns": 10906031968,
+      "nvtx_start_ns": 10906011616
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 15776,
+      "invocation_index": 3,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 15776,
+      "kernel_total_duration_ns": 141728,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 3518848,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 11524,
+          "duration_ns": 141728,
+          "end_ns": 10909918880,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10909777152,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 15,
+      "layer_name": "/up_proj_15/MatMul",
+      "nvtx_duration_ns": 22976,
+      "nvtx_end_ns": 10906400032,
+      "nvtx_start_ns": 10906377056
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 16864,
+      "invocation_index": 3,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 16864,
+      "kernel_total_duration_ns": 146688,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 3760352,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 11549,
+          "duration_ns": 146688,
+          "end_ns": 10910525792,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10910379104,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 16,
+      "layer_name": "/up_proj_16/MatMul",
+      "nvtx_duration_ns": 24544,
+      "nvtx_end_ns": 10906765440,
+      "nvtx_start_ns": 10906740896
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 12896,
+      "invocation_index": 3,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 12896,
+      "kernel_total_duration_ns": 148160,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 3995072,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 11574,
+          "duration_ns": 148160,
+          "end_ns": 10911127840,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10910979680,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 17,
+      "layer_name": "/up_proj_17/MatMul",
+      "nvtx_duration_ns": 20736,
+      "nvtx_end_ns": 10907132768,
+      "nvtx_start_ns": 10907112032
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 13312,
+      "invocation_index": 3,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 13312,
+      "kernel_total_duration_ns": 142688,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 4213376,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 11599,
+          "duration_ns": 142688,
+          "end_ns": 10911742496,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10911599808,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 18,
+      "layer_name": "/up_proj_18/MatMul",
+      "nvtx_duration_ns": 22240,
+      "nvtx_end_ns": 10907529120,
+      "nvtx_start_ns": 10907506880
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 13280,
+      "invocation_index": 3,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 13280,
+      "kernel_total_duration_ns": 132736,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 4367520,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 11624,
+          "duration_ns": 132736,
+          "end_ns": 10912330880,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10912198144,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 19,
+      "layer_name": "/up_proj_19/MatMul",
+      "nvtx_duration_ns": 21120,
+      "nvtx_end_ns": 10907963360,
+      "nvtx_start_ns": 10907942240
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 13408,
+      "invocation_index": 3,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 13408,
+      "kernel_total_duration_ns": 123456,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 4578496,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 11649,
+          "duration_ns": 123456,
+          "end_ns": 10912918368,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10912794912,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 20,
+      "layer_name": "/up_proj_20/MatMul",
+      "nvtx_duration_ns": 21632,
+      "nvtx_end_ns": 10908339872,
+      "nvtx_start_ns": 10908318240
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 12896,
+      "invocation_index": 3,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 12896,
+      "kernel_total_duration_ns": 133600,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 4797184,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 11674,
+          "duration_ns": 133600,
+          "end_ns": 10913515808,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10913382208,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 21,
+      "layer_name": "/up_proj_21/MatMul",
+      "nvtx_duration_ns": 20672,
+      "nvtx_end_ns": 10908718624,
+      "nvtx_start_ns": 10908697952
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 13632,
+      "invocation_index": 3,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 13632,
+      "kernel_total_duration_ns": 132224,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 5042464,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 11699,
+          "duration_ns": 132224,
+          "end_ns": 10914111424,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10913979200,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 22,
+      "layer_name": "/up_proj_22/MatMul",
+      "nvtx_duration_ns": 21504,
+      "nvtx_end_ns": 10909068960,
+      "nvtx_start_ns": 10909047456
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 12736,
+      "invocation_index": 3,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 12736,
+      "kernel_total_duration_ns": 132352,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 5253632,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 11724,
+          "duration_ns": 132352,
+          "end_ns": 10914721248,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10914588896,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 23,
+      "layer_name": "/up_proj_23/MatMul",
+      "nvtx_duration_ns": 21728,
+      "nvtx_end_ns": 10909467616,
+      "nvtx_start_ns": 10909445888
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 12768,
+      "invocation_index": 3,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 12768,
+      "kernel_total_duration_ns": 136032,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 5487328,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 11749,
+          "duration_ns": 136032,
+          "end_ns": 10915324672,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10915188640,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 24,
+      "layer_name": "/up_proj_24/MatMul",
+      "nvtx_duration_ns": 21056,
+      "nvtx_end_ns": 10909837344,
+      "nvtx_start_ns": 10909816288
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 12992,
+      "invocation_index": 3,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 12992,
+      "kernel_total_duration_ns": 135104,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 5731808,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 11774,
+          "duration_ns": 135104,
+          "end_ns": 10915940704,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10915805600,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 25,
+      "layer_name": "/up_proj_25/MatMul",
+      "nvtx_duration_ns": 20096,
+      "nvtx_end_ns": 10910208896,
+      "nvtx_start_ns": 10910188800
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 14208,
+      "invocation_index": 3,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 14208,
+      "kernel_total_duration_ns": 135200,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 5968224,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 11799,
+          "duration_ns": 135200,
+          "end_ns": 10916543840,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10916408640,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 26,
+      "layer_name": "/up_proj_26/MatMul",
+      "nvtx_duration_ns": 21760,
+      "nvtx_end_ns": 10910575616,
+      "nvtx_start_ns": 10910553856
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 21312,
+      "invocation_index": 3,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 21312,
+      "kernel_total_duration_ns": 131360,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 6297472,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 11828,
+          "duration_ns": 131360,
+          "end_ns": 10917295648,
+          "kernel_family": "h16816",
+          "kernel_name": "trt_ampere_h16816gemm_128x64_ldg8_nn_v1",
+          "launch_api": "cudaLaunchKernel_v7000",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10917164288,
+          "stream_id": 28
+        }
+      ],
+      "layer_index": 27,
+      "layer_name": "/up_proj_27/MatMul",
+      "nvtx_duration_ns": 28704,
+      "nvtx_end_ns": 10910998176,
+      "nvtx_start_ns": 10910969472
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 22336,
+      "invocation_index": 4,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 22336,
+      "kernel_total_duration_ns": 114912,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 113696,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 12541,
+          "duration_ns": 114912,
+          "end_ns": 10940571040,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 1216,
+          "start_ns": 10940456128,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 0,
+      "layer_name": "/up_proj/MatMul",
+      "nvtx_duration_ns": 63328,
+      "nvtx_end_ns": 10940457344,
+      "nvtx_start_ns": 10940394016
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 24896,
+      "invocation_index": 4,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 24896,
+      "kernel_total_duration_ns": 112160,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 110112,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 12587,
+          "duration_ns": 112160,
+          "end_ns": 10941984576,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 2048,
+          "start_ns": 10941872416,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 1,
+      "layer_name": "/up_proj_1/MatMul",
+      "nvtx_duration_ns": 69856,
+      "nvtx_end_ns": 10941874464,
+      "nvtx_start_ns": 10941804608
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 23776,
+      "invocation_index": 4,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 23776,
+      "kernel_total_duration_ns": 112448,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 110624,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 12621,
+          "duration_ns": 112448,
+          "end_ns": 10942999456,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 1824,
+          "start_ns": 10942887008,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 2,
+      "layer_name": "/up_proj_2/MatMul",
+      "nvtx_duration_ns": 73568,
+      "nvtx_end_ns": 10942888832,
+      "nvtx_start_ns": 10942815264
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 20736,
+      "invocation_index": 4,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 20736,
+      "kernel_total_duration_ns": 111584,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 110880,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 12663,
+          "duration_ns": 111584,
+          "end_ns": 10944546656,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 704,
+          "start_ns": 10944435072,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 3,
+      "layer_name": "/up_proj_3/MatMul",
+      "nvtx_duration_ns": 62912,
+      "nvtx_end_ns": 10944435776,
+      "nvtx_start_ns": 10944372864
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 20512,
+      "invocation_index": 4,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 20512,
+      "kernel_total_duration_ns": 110048,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 108896,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 12705,
+          "duration_ns": 110048,
+          "end_ns": 10945960640,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 1152,
+          "start_ns": 10945850592,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 4,
+      "layer_name": "/up_proj_4/MatMul",
+      "nvtx_duration_ns": 68896,
+      "nvtx_end_ns": 10945851744,
+      "nvtx_start_ns": 10945782848
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 22496,
+      "invocation_index": 4,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 22496,
+      "kernel_total_duration_ns": 111520,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 109632,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 12747,
+          "duration_ns": 111520,
+          "end_ns": 10947367424,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 1888,
+          "start_ns": 10947255904,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 5,
+      "layer_name": "/up_proj_5/MatMul",
+      "nvtx_duration_ns": 65312,
+      "nvtx_end_ns": 10947257792,
+      "nvtx_start_ns": 10947192480
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 23264,
+      "invocation_index": 4,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 23264,
+      "kernel_total_duration_ns": 111936,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 109856,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 12789,
+          "duration_ns": 111936,
+          "end_ns": 10948844128,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 2080,
+          "start_ns": 10948732192,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 6,
+      "layer_name": "/up_proj_6/MatMul",
+      "nvtx_duration_ns": 65920,
+      "nvtx_end_ns": 10948734272,
+      "nvtx_start_ns": 10948668352
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 21216,
+      "invocation_index": 4,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 21216,
+      "kernel_total_duration_ns": 114496,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 113984,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 12831,
+          "duration_ns": 114496,
+          "end_ns": 10950232000,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 512,
+          "start_ns": 10950117504,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 7,
+      "layer_name": "/up_proj_7/MatMul",
+      "nvtx_duration_ns": 69888,
+      "nvtx_end_ns": 10950118016,
+      "nvtx_start_ns": 10950048128
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 29024,
+      "invocation_index": 4,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 29024,
+      "kernel_total_duration_ns": 114912,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 112064,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 12873,
+          "duration_ns": 114912,
+          "end_ns": 10951683968,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 2848,
+          "start_ns": 10951569056,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 8,
+      "layer_name": "/up_proj_8/MatMul",
+      "nvtx_duration_ns": 81280,
+      "nvtx_end_ns": 10951571904,
+      "nvtx_start_ns": 10951490624
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 23552,
+      "invocation_index": 4,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 23552,
+      "kernel_total_duration_ns": 224768,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 226400,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 12915,
+          "duration_ns": 224768,
+          "end_ns": 10953244928,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10953020160,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 9,
+      "layer_name": "/up_proj_9/MatMul",
+      "nvtx_duration_ns": 70784,
+      "nvtx_end_ns": 10953018528,
+      "nvtx_start_ns": 10952947744
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 25568,
+      "invocation_index": 4,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 25568,
+      "kernel_total_duration_ns": 242080,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 256352,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 12957,
+          "duration_ns": 242080,
+          "end_ns": 10954690912,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10954448832,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 10,
+      "layer_name": "/up_proj_10/MatMul",
+      "nvtx_duration_ns": 68512,
+      "nvtx_end_ns": 10954434560,
+      "nvtx_start_ns": 10954366048
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 24896,
+      "invocation_index": 4,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 24896,
+      "kernel_total_duration_ns": 244960,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 260000,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 12999,
+          "duration_ns": 244960,
+          "end_ns": 10956158432,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10955913472,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 11,
+      "layer_name": "/up_proj_11/MatMul",
+      "nvtx_duration_ns": 69216,
+      "nvtx_end_ns": 10955898432,
+      "nvtx_start_ns": 10955829216
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 25376,
+      "invocation_index": 4,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 25376,
+      "kernel_total_duration_ns": 243520,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 261856,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 13041,
+          "duration_ns": 243520,
+          "end_ns": 10957590240,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10957346720,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 12,
+      "layer_name": "/up_proj_12/MatMul",
+      "nvtx_duration_ns": 67808,
+      "nvtx_end_ns": 10957328384,
+      "nvtx_start_ns": 10957260576
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 25024,
+      "invocation_index": 4,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 25024,
+      "kernel_total_duration_ns": 243776,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 250016,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 13083,
+          "duration_ns": 243776,
+          "end_ns": 10959010496,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10958766720,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 13,
+      "layer_name": "/up_proj_13/MatMul",
+      "nvtx_duration_ns": 74784,
+      "nvtx_end_ns": 10958760480,
+      "nvtx_start_ns": 10958685696
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 25984,
+      "invocation_index": 4,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 25984,
+      "kernel_total_duration_ns": 242592,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 357568,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 13125,
+          "duration_ns": 242592,
+          "end_ns": 10960545216,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10960302624,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 14,
+      "layer_name": "/up_proj_14/MatMul",
+      "nvtx_duration_ns": 71520,
+      "nvtx_end_ns": 10960187648,
+      "nvtx_start_ns": 10960116128
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 26048,
+      "invocation_index": 4,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 26048,
+      "kernel_total_duration_ns": 242208,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 258688,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 13167,
+          "duration_ns": 242208,
+          "end_ns": 10961816352,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10961574144,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 15,
+      "layer_name": "/up_proj_15/MatMul",
+      "nvtx_duration_ns": 69888,
+      "nvtx_end_ns": 10961557664,
+      "nvtx_start_ns": 10961487776
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 23584,
+      "invocation_index": 4,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 23584,
+      "kernel_total_duration_ns": 242912,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 261216,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 13209,
+          "duration_ns": 242912,
+          "end_ns": 10963190336,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10962947424,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 16,
+      "layer_name": "/up_proj_16/MatMul",
+      "nvtx_duration_ns": 65248,
+      "nvtx_end_ns": 10962929120,
+      "nvtx_start_ns": 10962863872
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 24352,
+      "invocation_index": 4,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 24352,
+      "kernel_total_duration_ns": 240256,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 243840,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 13251,
+          "duration_ns": 240256,
+          "end_ns": 10964678400,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10964438144,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 17,
+      "layer_name": "/up_proj_17/MatMul",
+      "nvtx_duration_ns": 77408,
+      "nvtx_end_ns": 10964434560,
+      "nvtx_start_ns": 10964357152
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 25280,
+      "invocation_index": 4,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 25280,
+      "kernel_total_duration_ns": 244192,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 254720,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 13293,
+          "duration_ns": 244192,
+          "end_ns": 10966088544,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10965844352,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 18,
+      "layer_name": "/up_proj_18/MatMul",
+      "nvtx_duration_ns": 72160,
+      "nvtx_end_ns": 10965833824,
+      "nvtx_start_ns": 10965761664
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 24064,
+      "invocation_index": 4,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 24064,
+      "kernel_total_duration_ns": 238496,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 251680,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 13335,
+          "duration_ns": 238496,
+          "end_ns": 10967478112,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10967239616,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 19,
+      "layer_name": "/up_proj_19/MatMul",
+      "nvtx_duration_ns": 65568,
+      "nvtx_end_ns": 10967226432,
+      "nvtx_start_ns": 10967160864
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 23680,
+      "invocation_index": 4,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 23680,
+      "kernel_total_duration_ns": 241376,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 255680,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 13377,
+          "duration_ns": 241376,
+          "end_ns": 10968922976,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10968681600,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 20,
+      "layer_name": "/up_proj_20/MatMul",
+      "nvtx_duration_ns": 66816,
+      "nvtx_end_ns": 10968667296,
+      "nvtx_start_ns": 10968600480
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 24384,
+      "invocation_index": 4,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 24384,
+      "kernel_total_duration_ns": 240160,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 246912,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 13419,
+          "duration_ns": 240160,
+          "end_ns": 10970352512,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10970112352,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 21,
+      "layer_name": "/up_proj_21/MatMul",
+      "nvtx_duration_ns": 75936,
+      "nvtx_end_ns": 10970105600,
+      "nvtx_start_ns": 10970029664
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 26304,
+      "invocation_index": 4,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 26304,
+      "kernel_total_duration_ns": 244032,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 255680,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 13461,
+          "duration_ns": 244032,
+          "end_ns": 10971817376,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10971573344,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 22,
+      "layer_name": "/up_proj_22/MatMul",
+      "nvtx_duration_ns": 70624,
+      "nvtx_end_ns": 10971561696,
+      "nvtx_start_ns": 10971491072
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 25024,
+      "invocation_index": 4,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 25024,
+      "kernel_total_duration_ns": 240320,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 255296,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 13503,
+          "duration_ns": 240320,
+          "end_ns": 10973201344,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10972961024,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 23,
+      "layer_name": "/up_proj_23/MatMul",
+      "nvtx_duration_ns": 67552,
+      "nvtx_end_ns": 10972946048,
+      "nvtx_start_ns": 10972878496
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 25792,
+      "invocation_index": 4,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 25792,
+      "kernel_total_duration_ns": 246880,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 257632,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 13545,
+          "duration_ns": 246880,
+          "end_ns": 10974645024,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10974398144,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 24,
+      "layer_name": "/up_proj_24/MatMul",
+      "nvtx_duration_ns": 73184,
+      "nvtx_end_ns": 10974387392,
+      "nvtx_start_ns": 10974314208
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 25632,
+      "invocation_index": 4,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 25632,
+      "kernel_total_duration_ns": 242208,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 256544,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 13587,
+          "duration_ns": 242208,
+          "end_ns": 10976070912,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10975828704,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 25,
+      "layer_name": "/up_proj_25/MatMul",
+      "nvtx_duration_ns": 69728,
+      "nvtx_end_ns": 10975814368,
+      "nvtx_start_ns": 10975744640
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 22368,
+      "invocation_index": 4,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 22368,
+      "kernel_total_duration_ns": 243680,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 251104,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 13629,
+          "duration_ns": 243680,
+          "end_ns": 10977480192,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10977236512,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 26,
+      "layer_name": "/up_proj_26/MatMul",
+      "nvtx_duration_ns": 71168,
+      "nvtx_end_ns": 10977229088,
+      "nvtx_start_ns": 10977157920
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 26016,
+      "invocation_index": 4,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 26016,
+      "kernel_total_duration_ns": 237792,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 353440,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 13671,
+          "duration_ns": 237792,
+          "end_ns": 10978976960,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 10978739168,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 27,
+      "layer_name": "/up_proj_27/MatMul",
+      "nvtx_duration_ns": 70912,
+      "nvtx_end_ns": 10978623520,
+      "nvtx_start_ns": 10978552608
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 14464,
+      "invocation_index": 5,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 14464,
+      "kernel_total_duration_ns": 246112,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 912448,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 14373,
+          "duration_ns": 246112,
+          "end_ns": 11005390592,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11005144480,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 0,
+      "layer_name": "/up_proj/MatMul",
+      "nvtx_duration_ns": 47840,
+      "nvtx_end_ns": 11004478144,
+      "nvtx_start_ns": 11004430304
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 17280,
+      "invocation_index": 5,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 17280,
+      "kernel_total_duration_ns": 239488,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 1628288,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 14406,
+          "duration_ns": 239488,
+          "end_ns": 11006667840,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11006428352,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 1,
+      "layer_name": "/up_proj_1/MatMul",
+      "nvtx_duration_ns": 47104,
+      "nvtx_end_ns": 11005039552,
+      "nvtx_start_ns": 11004992448
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 13472,
+      "invocation_index": 5,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 13472,
+      "kernel_total_duration_ns": 240352,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 2498592,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 14433,
+          "duration_ns": 240352,
+          "end_ns": 11008024704,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11007784352,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 2,
+      "layer_name": "/up_proj_2/MatMul",
+      "nvtx_duration_ns": 43520,
+      "nvtx_end_ns": 11005526112,
+      "nvtx_start_ns": 11005482592
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 13152,
+      "invocation_index": 5,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 13152,
+      "kernel_total_duration_ns": 244736,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 3219008,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 14462,
+          "duration_ns": 244736,
+          "end_ns": 11009243232,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11008998496,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 3,
+      "layer_name": "/up_proj_3/MatMul",
+      "nvtx_duration_ns": 41984,
+      "nvtx_end_ns": 11006024224,
+      "nvtx_start_ns": 11005982240
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 23360,
+      "invocation_index": 5,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 23360,
+      "kernel_total_duration_ns": 242080,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 3910976,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 14491,
+          "duration_ns": 242080,
+          "end_ns": 11010458080,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11010216000,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 4,
+      "layer_name": "/up_proj_4/MatMul",
+      "nvtx_duration_ns": 53664,
+      "nvtx_end_ns": 11006547104,
+      "nvtx_start_ns": 11006493440
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 12704,
+      "invocation_index": 5,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 12704,
+      "kernel_total_duration_ns": 238112,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 4619936,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 14520,
+          "duration_ns": 238112,
+          "end_ns": 11011666240,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11011428128,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 5,
+      "layer_name": "/up_proj_5/MatMul",
+      "nvtx_duration_ns": 41664,
+      "nvtx_end_ns": 11007046304,
+      "nvtx_start_ns": 11007004640
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 13152,
+      "invocation_index": 5,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 13152,
+      "kernel_total_duration_ns": 239136,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 5245760,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 14549,
+          "duration_ns": 239136,
+          "end_ns": 11012865184,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11012626048,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 6,
+      "layer_name": "/up_proj_6/MatMul",
+      "nvtx_duration_ns": 40640,
+      "nvtx_end_ns": 11007619424,
+      "nvtx_start_ns": 11007578784
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 13024,
+      "invocation_index": 5,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 13024,
+      "kernel_total_duration_ns": 243200,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 6007136,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 14578,
+          "duration_ns": 243200,
+          "end_ns": 11014095552,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11013852352,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 7,
+      "layer_name": "/up_proj_7/MatMul",
+      "nvtx_duration_ns": 40160,
+      "nvtx_end_ns": 11008088416,
+      "nvtx_start_ns": 11008048256
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 16512,
+      "invocation_index": 5,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 16512,
+      "kernel_total_duration_ns": 242784,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 6838592,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 14606,
+          "duration_ns": 242784,
+          "end_ns": 11015409088,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11015166304,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 8,
+      "layer_name": "/up_proj_8/MatMul",
+      "nvtx_duration_ns": 45024,
+      "nvtx_end_ns": 11008570496,
+      "nvtx_start_ns": 11008525472
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 12544,
+      "invocation_index": 5,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 12544,
+      "kernel_total_duration_ns": 239616,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 7560992,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 14635,
+          "duration_ns": 239616,
+          "end_ns": 11016620000,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11016380384,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 9,
+      "layer_name": "/up_proj_9/MatMul",
+      "nvtx_duration_ns": 39936,
+      "nvtx_end_ns": 11009059008,
+      "nvtx_start_ns": 11009019072
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 13696,
+      "invocation_index": 5,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 13696,
+      "kernel_total_duration_ns": 240576,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 8272032,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 14664,
+          "duration_ns": 240576,
+          "end_ns": 11017833824,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11017593248,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 10,
+      "layer_name": "/up_proj_10/MatMul",
+      "nvtx_duration_ns": 41152,
+      "nvtx_end_ns": 11009561792,
+      "nvtx_start_ns": 11009520640
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 23008,
+      "invocation_index": 5,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 23008,
+      "kernel_total_duration_ns": 244160,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 8971968,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 14693,
+          "duration_ns": 244160,
+          "end_ns": 11019048960,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11018804800,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 11,
+      "layer_name": "/up_proj_11/MatMul",
+      "nvtx_duration_ns": 52736,
+      "nvtx_end_ns": 11010076992,
+      "nvtx_start_ns": 11010024256
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 16576,
+      "invocation_index": 5,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 16576,
+      "kernel_total_duration_ns": 245056,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 9627968,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 14722,
+          "duration_ns": 245056,
+          "end_ns": 11020254208,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11020009152,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 12,
+      "layer_name": "/up_proj_12/MatMul",
+      "nvtx_duration_ns": 44544,
+      "nvtx_end_ns": 11010626240,
+      "nvtx_start_ns": 11010581696
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 12896,
+      "invocation_index": 5,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 12896,
+      "kernel_total_duration_ns": 241504,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 10297856,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 14751,
+          "duration_ns": 241504,
+          "end_ns": 11021464640,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11021223136,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 13,
+      "layer_name": "/up_proj_13/MatMul",
+      "nvtx_duration_ns": 41408,
+      "nvtx_end_ns": 11011166784,
+      "nvtx_start_ns": 11011125376
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 16768,
+      "invocation_index": 5,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 16768,
+      "kernel_total_duration_ns": 245408,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 11031968,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 14779,
+          "duration_ns": 245408,
+          "end_ns": 11022756096,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11022510688,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 14,
+      "layer_name": "/up_proj_14/MatMul",
+      "nvtx_duration_ns": 44672,
+      "nvtx_end_ns": 11011724128,
+      "nvtx_start_ns": 11011679456
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 16512,
+      "invocation_index": 5,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 16512,
+      "kernel_total_duration_ns": 245152,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 11730528,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 14808,
+          "duration_ns": 245152,
+          "end_ns": 11023966048,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11023720896,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 15,
+      "layer_name": "/up_proj_15/MatMul",
+      "nvtx_duration_ns": 45536,
+      "nvtx_end_ns": 11012235520,
+      "nvtx_start_ns": 11012189984
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 15840,
+      "invocation_index": 5,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 15840,
+      "kernel_total_duration_ns": 248416,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 12449696,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 14837,
+          "duration_ns": 248416,
+          "end_ns": 11025182016,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11024933600,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 16,
+      "layer_name": "/up_proj_16/MatMul",
+      "nvtx_duration_ns": 44768,
+      "nvtx_end_ns": 11012732320,
+      "nvtx_start_ns": 11012687552
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 12576,
+      "invocation_index": 5,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 12576,
+      "kernel_total_duration_ns": 239520,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 13143008,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 14866,
+          "duration_ns": 239520,
+          "end_ns": 11026382656,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11026143136,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 17,
+      "layer_name": "/up_proj_17/MatMul",
+      "nvtx_duration_ns": 41856,
+      "nvtx_end_ns": 11013239648,
+      "nvtx_start_ns": 11013197792
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 19008,
+      "invocation_index": 5,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 19008,
+      "kernel_total_duration_ns": 246720,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 13826368,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 14895,
+          "duration_ns": 246720,
+          "end_ns": 11027594240,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11027347520,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 18,
+      "layer_name": "/up_proj_18/MatMul",
+      "nvtx_duration_ns": 47072,
+      "nvtx_end_ns": 11013767872,
+      "nvtx_start_ns": 11013720800
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 12512,
+      "invocation_index": 5,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 12512,
+      "kernel_total_duration_ns": 245568,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 14547168,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 14924,
+          "duration_ns": 245568,
+          "end_ns": 11028819712,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11028574144,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 19,
+      "layer_name": "/up_proj_19/MatMul",
+      "nvtx_duration_ns": 40672,
+      "nvtx_end_ns": 11014272544,
+      "nvtx_start_ns": 11014231872
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 13568,
+      "invocation_index": 5,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 13568,
+      "kernel_total_duration_ns": 234560,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 15251456,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 14953,
+          "duration_ns": 234560,
+          "end_ns": 11030026272,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11029791712,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 20,
+      "layer_name": "/up_proj_20/MatMul",
+      "nvtx_duration_ns": 41792,
+      "nvtx_end_ns": 11014774816,
+      "nvtx_start_ns": 11014733024
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 18880,
+      "invocation_index": 5,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 18880,
+      "kernel_total_duration_ns": 241408,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 15960224,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 14982,
+          "duration_ns": 241408,
+          "end_ns": 11031234144,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11030992736,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 21,
+      "layer_name": "/up_proj_21/MatMul",
+      "nvtx_duration_ns": 46208,
+      "nvtx_end_ns": 11015273920,
+      "nvtx_start_ns": 11015227712
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 13440,
+      "invocation_index": 5,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 13440,
+      "kernel_total_duration_ns": 244064,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 16576128,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 15011,
+          "duration_ns": 244064,
+          "end_ns": 11032460320,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11032216256,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 22,
+      "layer_name": "/up_proj_22/MatMul",
+      "nvtx_duration_ns": 43008,
+      "nvtx_end_ns": 11015884192,
+      "nvtx_start_ns": 11015841184
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 16832,
+      "invocation_index": 5,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 16832,
+      "kernel_total_duration_ns": 240800,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 17271008,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 15040,
+          "duration_ns": 240800,
+          "end_ns": 11033663936,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11033423136,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 23,
+      "layer_name": "/up_proj_23/MatMul",
+      "nvtx_duration_ns": 44704,
+      "nvtx_end_ns": 11016392928,
+      "nvtx_start_ns": 11016348224
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 16320,
+      "invocation_index": 5,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 16320,
+      "kernel_total_duration_ns": 243584,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 17986304,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 15069,
+          "duration_ns": 243584,
+          "end_ns": 11034874272,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11034630688,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 24,
+      "layer_name": "/up_proj_24/MatMul",
+      "nvtx_duration_ns": 44896,
+      "nvtx_end_ns": 11016887968,
+      "nvtx_start_ns": 11016843072
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 12288,
+      "invocation_index": 5,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 12288,
+      "kernel_total_duration_ns": 242112,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 18703392,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 15098,
+          "duration_ns": 242112,
+          "end_ns": 11036088928,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11035846816,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 25,
+      "layer_name": "/up_proj_25/MatMul",
+      "nvtx_duration_ns": 37856,
+      "nvtx_end_ns": 11017385536,
+      "nvtx_start_ns": 11017347680
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 23072,
+      "invocation_index": 5,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 23072,
+      "kernel_total_duration_ns": 244032,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 19401472,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 15127,
+          "duration_ns": 244032,
+          "end_ns": 11037303648,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11037059616,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 26,
+      "layer_name": "/up_proj_26/MatMul",
+      "nvtx_duration_ns": 51040,
+      "nvtx_end_ns": 11017902176,
+      "nvtx_start_ns": 11017851136
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 23840,
+      "invocation_index": 5,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 23840,
+      "kernel_total_duration_ns": 243200,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 20158304,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 15155,
+          "duration_ns": 243200,
+          "end_ns": 11038578464,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11038335264,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 27,
+      "layer_name": "/up_proj_27/MatMul",
+      "nvtx_duration_ns": 52544,
+      "nvtx_end_ns": 11018420160,
+      "nvtx_start_ns": 11018367616
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 17088,
+      "invocation_index": 6,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 17088,
+      "kernel_total_duration_ns": 114784,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 219488,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 15851,
+          "duration_ns": 114784,
+          "end_ns": 11063289440,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11063174656,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 0,
+      "layer_name": "/up_proj/MatMul",
+      "nvtx_duration_ns": 50272,
+      "nvtx_end_ns": 11063069952,
+      "nvtx_start_ns": 11063019680
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 14752,
+      "invocation_index": 6,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 14752,
+      "kernel_total_duration_ns": 114016,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 218528,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 15884,
+          "duration_ns": 114016,
+          "end_ns": 11063910816,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11063796800,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 1,
+      "layer_name": "/up_proj_1/MatMul",
+      "nvtx_duration_ns": 45472,
+      "nvtx_end_ns": 11063692288,
+      "nvtx_start_ns": 11063646816
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 13600,
+      "invocation_index": 6,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 13600,
+      "kernel_total_duration_ns": 113312,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 390464,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 15911,
+          "duration_ns": 113312,
+          "end_ns": 11064590336,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11064477024,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 2,
+      "layer_name": "/up_proj_2/MatMul",
+      "nvtx_duration_ns": 42848,
+      "nvtx_end_ns": 11064199872,
+      "nvtx_start_ns": 11064157024
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 12736,
+      "invocation_index": 6,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 12736,
+      "kernel_total_duration_ns": 114240,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 497344,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 15940,
+          "duration_ns": 114240,
+          "end_ns": 11065209664,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11065095424,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 3,
+      "layer_name": "/up_proj_3/MatMul",
+      "nvtx_duration_ns": 42016,
+      "nvtx_end_ns": 11064712320,
+      "nvtx_start_ns": 11064670304
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 13024,
+      "invocation_index": 6,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 13024,
+      "kernel_total_duration_ns": 112896,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 626208,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 15969,
+          "duration_ns": 112896,
+          "end_ns": 11065823008,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11065710112,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 4,
+      "layer_name": "/up_proj_4/MatMul",
+      "nvtx_duration_ns": 41184,
+      "nvtx_end_ns": 11065196800,
+      "nvtx_start_ns": 11065155616
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 12992,
+      "invocation_index": 6,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 12992,
+      "kernel_total_duration_ns": 114144,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 752672,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 15998,
+          "duration_ns": 114144,
+          "end_ns": 11066452416,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11066338272,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 5,
+      "layer_name": "/up_proj_5/MatMul",
+      "nvtx_duration_ns": 42240,
+      "nvtx_end_ns": 11065699744,
+      "nvtx_start_ns": 11065657504
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 13440,
+      "invocation_index": 6,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 13440,
+      "kernel_total_duration_ns": 112288,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 876320,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 16027,
+          "duration_ns": 112288,
+          "end_ns": 11067063232,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11066950944,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 6,
+      "layer_name": "/up_proj_6/MatMul",
+      "nvtx_duration_ns": 41152,
+      "nvtx_end_ns": 11066186912,
+      "nvtx_start_ns": 11066145760
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 13088,
+      "invocation_index": 6,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 13088,
+      "kernel_total_duration_ns": 116512,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 1020960,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 16056,
+          "duration_ns": 116512,
+          "end_ns": 11067684928,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11067568416,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 7,
+      "layer_name": "/up_proj_7/MatMul",
+      "nvtx_duration_ns": 41984,
+      "nvtx_end_ns": 11066663968,
+      "nvtx_start_ns": 11066621984
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 16576,
+      "invocation_index": 6,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 16576,
+      "kernel_total_duration_ns": 114432,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 1175680,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 16084,
+          "duration_ns": 114432,
+          "end_ns": 11068338656,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11068224224,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 8,
+      "layer_name": "/up_proj_8/MatMul",
+      "nvtx_duration_ns": 45216,
+      "nvtx_end_ns": 11067162976,
+      "nvtx_start_ns": 11067117760
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 13120,
+      "invocation_index": 6,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 13120,
+      "kernel_total_duration_ns": 114752,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 1203392,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 16113,
+          "duration_ns": 114752,
+          "end_ns": 11068965056,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11068850304,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 9,
+      "layer_name": "/up_proj_9/MatMul",
+      "nvtx_duration_ns": 41248,
+      "nvtx_end_ns": 11067761664,
+      "nvtx_start_ns": 11067720416
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 14016,
+      "invocation_index": 6,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 14016,
+      "kernel_total_duration_ns": 113824,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 1289184,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 16142,
+          "duration_ns": 113824,
+          "end_ns": 11069581600,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11069467776,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 10,
+      "layer_name": "/up_proj_10/MatMul",
+      "nvtx_duration_ns": 41856,
+      "nvtx_end_ns": 11068292416,
+      "nvtx_start_ns": 11068250560
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 15904,
+      "invocation_index": 6,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 15904,
+      "kernel_total_duration_ns": 113472,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 1430784,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 16171,
+          "duration_ns": 113472,
+          "end_ns": 11070210720,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11070097248,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 11,
+      "layer_name": "/up_proj_11/MatMul",
+      "nvtx_duration_ns": 45184,
+      "nvtx_end_ns": 11068779936,
+      "nvtx_start_ns": 11068734752
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 13120,
+      "invocation_index": 6,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 13120,
+      "kernel_total_duration_ns": 111296,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 1563296,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 16200,
+          "duration_ns": 111296,
+          "end_ns": 11070829440,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11070718144,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 12,
+      "layer_name": "/up_proj_12/MatMul",
+      "nvtx_duration_ns": 39744,
+      "nvtx_end_ns": 11069266144,
+      "nvtx_start_ns": 11069226400
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 17696,
+      "invocation_index": 6,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 17696,
+      "kernel_total_duration_ns": 115744,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 1711840,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 16229,
+          "duration_ns": 115744,
+          "end_ns": 11071456672,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11071340928,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 13,
+      "layer_name": "/up_proj_13/MatMul",
+      "nvtx_duration_ns": 46240,
+      "nvtx_end_ns": 11069744832,
+      "nvtx_start_ns": 11069698592
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 18336,
+      "invocation_index": 6,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 18336,
+      "kernel_total_duration_ns": 112800,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 1909632,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 16257,
+          "duration_ns": 112800,
+          "end_ns": 11072114144,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11072001344,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 14,
+      "layer_name": "/up_proj_14/MatMul",
+      "nvtx_duration_ns": 45664,
+      "nvtx_end_ns": 11070204512,
+      "nvtx_start_ns": 11070158848
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 12768,
+      "invocation_index": 6,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 12768,
+      "kernel_total_duration_ns": 112192,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 2025024,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 16286,
+          "duration_ns": 112192,
+          "end_ns": 11072743904,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11072631712,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 15,
+      "layer_name": "/up_proj_15/MatMul",
+      "nvtx_duration_ns": 45248,
+      "nvtx_end_ns": 11070718880,
+      "nvtx_start_ns": 11070673632
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 13856,
+      "invocation_index": 6,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 13856,
+      "kernel_total_duration_ns": 116064,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 2145632,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 16315,
+          "duration_ns": 116064,
+          "end_ns": 11073372992,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11073256928,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 16,
+      "layer_name": "/up_proj_16/MatMul",
+      "nvtx_duration_ns": 45536,
+      "nvtx_end_ns": 11071227360,
+      "nvtx_start_ns": 11071181824
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 15936,
+      "invocation_index": 6,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 15936,
+      "kernel_total_duration_ns": 113664,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 2220096,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 16344,
+          "duration_ns": 113664,
+          "end_ns": 11073988256,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11073874592,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 17,
+      "layer_name": "/up_proj_17/MatMul",
+      "nvtx_duration_ns": 43680,
+      "nvtx_end_ns": 11071768160,
+      "nvtx_start_ns": 11071724480
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 19232,
+      "invocation_index": 6,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 19232,
+      "kernel_total_duration_ns": 114880,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 2357824,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 16373,
+          "duration_ns": 114880,
+          "end_ns": 11074617632,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11074502752,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 18,
+      "layer_name": "/up_proj_18/MatMul",
+      "nvtx_duration_ns": 47360,
+      "nvtx_end_ns": 11072259808,
+      "nvtx_start_ns": 11072212448
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 12640,
+      "invocation_index": 6,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 12640,
+      "kernel_total_duration_ns": 114464,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 2479712,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 16402,
+          "duration_ns": 114464,
+          "end_ns": 11075242656,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11075128192,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 19,
+      "layer_name": "/up_proj_19/MatMul",
+      "nvtx_duration_ns": 40448,
+      "nvtx_end_ns": 11072762944,
+      "nvtx_start_ns": 11072722496
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 12800,
+      "invocation_index": 6,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 12800,
+      "kernel_total_duration_ns": 112640,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 2600192,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 16431,
+          "duration_ns": 112640,
+          "end_ns": 11075869728,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11075757088,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 20,
+      "layer_name": "/up_proj_20/MatMul",
+      "nvtx_duration_ns": 40672,
+      "nvtx_end_ns": 11073269536,
+      "nvtx_start_ns": 11073228864
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 20192,
+      "invocation_index": 6,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 20192,
+      "kernel_total_duration_ns": 114560,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 2715968,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 16460,
+          "duration_ns": 114560,
+          "end_ns": 11076486752,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11076372192,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 21,
+      "layer_name": "/up_proj_21/MatMul",
+      "nvtx_duration_ns": 48672,
+      "nvtx_end_ns": 11073770784,
+      "nvtx_start_ns": 11073722112
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 12864,
+      "invocation_index": 6,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 12864,
+      "kernel_total_duration_ns": 121088,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 2838336,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 16489,
+          "duration_ns": 121088,
+          "end_ns": 11077114528,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11076993440,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 22,
+      "layer_name": "/up_proj_22/MatMul",
+      "nvtx_duration_ns": 44704,
+      "nvtx_end_ns": 11074276192,
+      "nvtx_start_ns": 11074231488
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 12992,
+      "invocation_index": 6,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 12992,
+      "kernel_total_duration_ns": 113312,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 2997856,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 16518,
+          "duration_ns": 113312,
+          "end_ns": 11077736352,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11077623040,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 23,
+      "layer_name": "/up_proj_23/MatMul",
+      "nvtx_duration_ns": 41824,
+      "nvtx_end_ns": 11074738496,
+      "nvtx_start_ns": 11074696672
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 18976,
+      "invocation_index": 6,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 18976,
+      "kernel_total_duration_ns": 113792,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 3117984,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 16547,
+          "duration_ns": 113792,
+          "end_ns": 11078360128,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11078246336,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 24,
+      "layer_name": "/up_proj_24/MatMul",
+      "nvtx_duration_ns": 47424,
+      "nvtx_end_ns": 11075242144,
+      "nvtx_start_ns": 11075194720
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 12352,
+      "invocation_index": 6,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 12352,
+      "kernel_total_duration_ns": 110912,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 3187424,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 16576,
+          "duration_ns": 110912,
+          "end_ns": 11078981856,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11078870944,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 25,
+      "layer_name": "/up_proj_25/MatMul",
+      "nvtx_duration_ns": 39808,
+      "nvtx_end_ns": 11075794432,
+      "nvtx_start_ns": 11075754624
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 12992,
+      "invocation_index": 6,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 12992,
+      "kernel_total_duration_ns": 114560,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 3278944,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 16605,
+          "duration_ns": 114560,
+          "end_ns": 11079589632,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11079475072,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 26,
+      "layer_name": "/up_proj_26/MatMul",
+      "nvtx_duration_ns": 39008,
+      "nvtx_end_ns": 11076310688,
+      "nvtx_start_ns": 11076271680
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 21440,
+      "invocation_index": 6,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 21440,
+      "kernel_total_duration_ns": 113056,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 3434208,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 16633,
+          "duration_ns": 113056,
+          "end_ns": 11080221952,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11080108896,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 27,
+      "layer_name": "/up_proj_27/MatMul",
+      "nvtx_duration_ns": 50112,
+      "nvtx_end_ns": 11076787744,
+      "nvtx_start_ns": 11076737632
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 20800,
+      "invocation_index": 7,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 20800,
+      "kernel_total_duration_ns": 115584,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 207360,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 17329,
+          "duration_ns": 115584,
+          "end_ns": 11099993440,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11099877856,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 0,
+      "layer_name": "/up_proj/MatMul",
+      "nvtx_duration_ns": 52128,
+      "nvtx_end_ns": 11099786080,
+      "nvtx_start_ns": 11099733952
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 17184,
+      "invocation_index": 7,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 17184,
+      "kernel_total_duration_ns": 114464,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 272032,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 17362,
+          "duration_ns": 114464,
+          "end_ns": 11100619456,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11100504992,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 1,
+      "layer_name": "/up_proj_1/MatMul",
+      "nvtx_duration_ns": 47808,
+      "nvtx_end_ns": 11100347424,
+      "nvtx_start_ns": 11100299616
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 15008,
+      "invocation_index": 7,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 15008,
+      "kernel_total_duration_ns": 112832,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 451232,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 17389,
+          "duration_ns": 112832,
+          "end_ns": 11101301248,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11101188416,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 2,
+      "layer_name": "/up_proj_2/MatMul",
+      "nvtx_duration_ns": 44320,
+      "nvtx_end_ns": 11100850016,
+      "nvtx_start_ns": 11100805696
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 15424,
+      "invocation_index": 7,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 15424,
+      "kernel_total_duration_ns": 110880,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 550976,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 17418,
+          "duration_ns": 110880,
+          "end_ns": 11101916704,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11101805824,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 3,
+      "layer_name": "/up_proj_3/MatMul",
+      "nvtx_duration_ns": 43584,
+      "nvtx_end_ns": 11101365728,
+      "nvtx_start_ns": 11101322144
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 20512,
+      "invocation_index": 7,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 20512,
+      "kernel_total_duration_ns": 112448,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 639712,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 17447,
+          "duration_ns": 112448,
+          "end_ns": 11102534656,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11102422208,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 4,
+      "layer_name": "/up_proj_4/MatMul",
+      "nvtx_duration_ns": 53248,
+      "nvtx_end_ns": 11101894944,
+      "nvtx_start_ns": 11101841696
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 17088,
+      "invocation_index": 7,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 17088,
+      "kernel_total_duration_ns": 113664,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 739648,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 17476,
+          "duration_ns": 113664,
+          "end_ns": 11103162208,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11103048544,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 5,
+      "layer_name": "/up_proj_5/MatMul",
+      "nvtx_duration_ns": 46144,
+      "nvtx_end_ns": 11102422560,
+      "nvtx_start_ns": 11102376416
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 16160,
+      "invocation_index": 7,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 16160,
+      "kernel_total_duration_ns": 111648,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 844608,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 17505,
+          "duration_ns": 111648,
+          "end_ns": 11103782656,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11103671008,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 6,
+      "layer_name": "/up_proj_6/MatMul",
+      "nvtx_duration_ns": 44416,
+      "nvtx_end_ns": 11102938048,
+      "nvtx_start_ns": 11102893632
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 23680,
+      "invocation_index": 7,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 23680,
+      "kernel_total_duration_ns": 113120,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 887680,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 17534,
+          "duration_ns": 113120,
+          "end_ns": 11104406080,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11104292960,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 7,
+      "layer_name": "/up_proj_7/MatMul",
+      "nvtx_duration_ns": 58112,
+      "nvtx_end_ns": 11103518400,
+      "nvtx_start_ns": 11103460288
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 14176,
+      "invocation_index": 7,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 14176,
+      "kernel_total_duration_ns": 112576,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 1035232,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 17562,
+          "duration_ns": 112576,
+          "end_ns": 11105073984,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11104961408,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 8,
+      "layer_name": "/up_proj_8/MatMul",
+      "nvtx_duration_ns": 42560,
+      "nvtx_end_ns": 11104038752,
+      "nvtx_start_ns": 11103996192
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 13024,
+      "invocation_index": 7,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 13024,
+      "kernel_total_duration_ns": 112736,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 1191232,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 17591,
+          "duration_ns": 112736,
+          "end_ns": 11105703680,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11105590944,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 9,
+      "layer_name": "/up_proj_9/MatMul",
+      "nvtx_duration_ns": 40128,
+      "nvtx_end_ns": 11104512448,
+      "nvtx_start_ns": 11104472320
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 14080,
+      "invocation_index": 7,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 14080,
+      "kernel_total_duration_ns": 112768,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 1309088,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 17620,
+          "duration_ns": 112768,
+          "end_ns": 11106321664,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11106208896,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 10,
+      "layer_name": "/up_proj_10/MatMul",
+      "nvtx_duration_ns": 42976,
+      "nvtx_end_ns": 11105012576,
+      "nvtx_start_ns": 11104969600
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 19744,
+      "invocation_index": 7,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 19744,
+      "kernel_total_duration_ns": 114336,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 1402304,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 17649,
+          "duration_ns": 114336,
+          "end_ns": 11106938336,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11106824000,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 11,
+      "layer_name": "/up_proj_11/MatMul",
+      "nvtx_duration_ns": 53312,
+      "nvtx_end_ns": 11105536032,
+      "nvtx_start_ns": 11105482720
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 20576,
+      "invocation_index": 7,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 20576,
+      "kernel_total_duration_ns": 116000,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 1506432,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 17678,
+          "duration_ns": 116000,
+          "end_ns": 11107565120,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11107449120,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 12,
+      "layer_name": "/up_proj_12/MatMul",
+      "nvtx_duration_ns": 48608,
+      "nvtx_end_ns": 11106058688,
+      "nvtx_start_ns": 11106010080
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 13408,
+      "invocation_index": 7,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 13408,
+      "kernel_total_duration_ns": 114176,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 1624960,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 17707,
+          "duration_ns": 114176,
+          "end_ns": 11108189664,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11108075488,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 13,
+      "layer_name": "/up_proj_13/MatMul",
+      "nvtx_duration_ns": 41056,
+      "nvtx_end_ns": 11106564704,
+      "nvtx_start_ns": 11106523648
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 17120,
+      "invocation_index": 7,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 17120,
+      "kernel_total_duration_ns": 114816,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 1807968,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 17735,
+          "duration_ns": 114816,
+          "end_ns": 11108850208,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11108735392,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 14,
+      "layer_name": "/up_proj_14/MatMul",
+      "nvtx_duration_ns": 43488,
+      "nvtx_end_ns": 11107042240,
+      "nvtx_start_ns": 11106998752
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 18944,
+      "invocation_index": 7,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 18944,
+      "kernel_total_duration_ns": 114400,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 1883680,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 17764,
+          "duration_ns": 114400,
+          "end_ns": 11109484000,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11109369600,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 15,
+      "layer_name": "/up_proj_15/MatMul",
+      "nvtx_duration_ns": 48576,
+      "nvtx_end_ns": 11107600320,
+      "nvtx_start_ns": 11107551744
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 13504,
+      "invocation_index": 7,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 13504,
+      "kernel_total_duration_ns": 114496,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 1997728,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 17793,
+          "duration_ns": 114496,
+          "end_ns": 11110115424,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11110000928,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 16,
+      "layer_name": "/up_proj_16/MatMul",
+      "nvtx_duration_ns": 42432,
+      "nvtx_end_ns": 11108117696,
+      "nvtx_start_ns": 11108075264
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 18176,
+      "invocation_index": 7,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 18176,
+      "kernel_total_duration_ns": 112320,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 2123904,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 17822,
+          "duration_ns": 112320,
+          "end_ns": 11110742816,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11110630496,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 17,
+      "layer_name": "/up_proj_17/MatMul",
+      "nvtx_duration_ns": 45888,
+      "nvtx_end_ns": 11108618912,
+      "nvtx_start_ns": 11108573024
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 18304,
+      "invocation_index": 7,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 18304,
+      "kernel_total_duration_ns": 115392,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 2281920,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 17851,
+          "duration_ns": 115392,
+          "end_ns": 11111381792,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11111266400,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 18,
+      "layer_name": "/up_proj_18/MatMul",
+      "nvtx_duration_ns": 46624,
+      "nvtx_end_ns": 11109099872,
+      "nvtx_start_ns": 11109053248
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 17664,
+      "invocation_index": 7,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 17664,
+      "kernel_total_duration_ns": 112992,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 2394848,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 17880,
+          "duration_ns": 112992,
+          "end_ns": 11111994912,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11111881920,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 19,
+      "layer_name": "/up_proj_19/MatMul",
+      "nvtx_duration_ns": 44960,
+      "nvtx_end_ns": 11109600064,
+      "nvtx_start_ns": 11109555104
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 18368,
+      "invocation_index": 7,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 18368,
+      "kernel_total_duration_ns": 167872,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 2572320,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 17909,
+          "duration_ns": 167872,
+          "end_ns": 11112693440,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11112525568,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 20,
+      "layer_name": "/up_proj_20/MatMul",
+      "nvtx_duration_ns": 48096,
+      "nvtx_end_ns": 11110121120,
+      "nvtx_start_ns": 11110073024
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 18016,
+      "invocation_index": 7,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 18016,
+      "kernel_total_duration_ns": 180800,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 2928064,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 17938,
+          "duration_ns": 180800,
+          "end_ns": 11113581696,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11113400896,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 21,
+      "layer_name": "/up_proj_21/MatMul",
+      "nvtx_duration_ns": 48064,
+      "nvtx_end_ns": 11110653632,
+      "nvtx_start_ns": 11110605568
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 13568,
+      "invocation_index": 7,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 13568,
+      "kernel_total_duration_ns": 184416,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 3383456,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 17967,
+          "duration_ns": 184416,
+          "end_ns": 11114540096,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11114355680,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 22,
+      "layer_name": "/up_proj_22/MatMul",
+      "nvtx_duration_ns": 40864,
+      "nvtx_end_ns": 11111156640,
+      "nvtx_start_ns": 11111115776
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 19008,
+      "invocation_index": 7,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 19008,
+      "kernel_total_duration_ns": 181600,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 3791520,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 17996,
+          "duration_ns": 181600,
+          "end_ns": 11115491872,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11115310272,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 23,
+      "layer_name": "/up_proj_23/MatMul",
+      "nvtx_duration_ns": 46240,
+      "nvtx_end_ns": 11111700352,
+      "nvtx_start_ns": 11111654112
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 15872,
+      "invocation_index": 7,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 15872,
+      "kernel_total_duration_ns": 183808,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 4240544,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 18025,
+          "duration_ns": 183808,
+          "end_ns": 11116446624,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11116262816,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 24,
+      "layer_name": "/up_proj_24/MatMul",
+      "nvtx_duration_ns": 45728,
+      "nvtx_end_ns": 11112206080,
+      "nvtx_start_ns": 11112160352
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 21056,
+      "invocation_index": 7,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 21056,
+      "kernel_total_duration_ns": 184224,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 4669376,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 18054,
+          "duration_ns": 184224,
+          "end_ns": 11117404896,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11117220672,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 25,
+      "layer_name": "/up_proj_25/MatMul",
+      "nvtx_duration_ns": 50336,
+      "nvtx_end_ns": 11112735520,
+      "nvtx_start_ns": 11112685184
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 18560,
+      "invocation_index": 7,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 18560,
+      "kernel_total_duration_ns": 184032,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 5121664,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 18083,
+          "duration_ns": 184032,
+          "end_ns": 11118354976,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11118170944,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 26,
+      "layer_name": "/up_proj_26/MatMul",
+      "nvtx_duration_ns": 46432,
+      "nvtx_end_ns": 11113233312,
+      "nvtx_start_ns": 11113186880
+    },
+    {
+      "all_runtime_api_count": 1,
+      "all_runtime_duration_ns": 24320,
+      "invocation_index": 7,
+      "kernel_count": 1,
+      "kernel_launch_api_count": 1,
+      "kernel_launch_api_duration_ns": 24320,
+      "kernel_total_duration_ns": 177664,
+      "kernels": [
+        {
+          "after_nvtx_end_ns": 5582144,
+          "before_nvtx_start_ns": 0,
+          "correlation_id": 18111,
+          "duration_ns": 177664,
+          "end_ns": 11119313024,
+          "kernel_family": "sm80_xmma_gemm",
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "launch_api": "cuLaunchKernelEx",
+          "overlap_with_nvtx_ns": 0,
+          "start_ns": 11119135360,
+          "stream_id": 7
+        }
+      ],
+      "layer_index": 27,
+      "layer_name": "/up_proj_27/MatMul",
+      "nvtx_duration_ns": 53120,
+      "nvtx_end_ns": 11113730880,
+      "nvtx_start_ns": 11113677760
+    }
+  ],
+  "phase": "Phase5A Step3 TensorRT GEMM Boundary Reconciliation",
+  "source_sqlite_path": "/tmp/phase3c_nsys_20260904T093500Z/mixed_persistent.sqlite",
+  "source_sqlite_sha256": "ea9ea0bc4a369647b837def7f98d2bfec2765f1f6f9c9619b4388ab2ab4345a8",
+  "time_unit": "ns"
+}

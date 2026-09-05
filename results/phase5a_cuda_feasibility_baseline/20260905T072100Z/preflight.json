@@ -1,0 +1,47 @@
+{
+  "phase": "Phase5A",
+  "stage": "TENSORRT_GEMM_BOUNDARY_RECONCILIATION",
+  "artifact_timestamp_utc": "20260905T072100Z",
+  "local_git": {
+    "branch": "phase/05a-cuda-feasibility-baseline-study",
+    "head": "175018b312353c00ff3979c802907b828491631e",
+    "working_tree": {
+      "tracked_diff": "NONE",
+      "deleted_files": "NONE",
+      "preexisting_untracked_paths_preserved": [
+        "experiments/Phase2-qwen3-quantization/artifacts/phase2_3b_20260903T203103Z/",
+        "experiments/Phase5-cuda-feasibility/scripts/"
+      ]
+    }
+  },
+  "remote_jetson": {
+    "ssh_alias": "jetson",
+    "repository_path": "/home/nvidia/projects/jetson-qwen-inference-lab",
+    "branch": "phase/03e-tensorrt-kernel-attribution",
+    "head": "bf7abc67eb58662a68316045e166aa9f611330d7",
+    "modified_by_this_step": false
+  },
+  "source_trace": {
+    "path": "/tmp/phase3c_nsys_20260904T093500Z/mixed_persistent.sqlite",
+    "bytes": 3477504,
+    "sha256": "ea9ea0bc4a369647b837def7f98d2bfec2765f1f6f9c9619b4388ab2ab4345a8",
+    "opened_mode": "READ_ONLY_SQLITE_URI"
+  },
+  "boundary": {
+    "new_profiling_or_benchmark": "NONE",
+    "engine_execution_or_rebuild": "NONE",
+    "engine_modification": "NONE",
+    "cuda_kernel_implementation": "NONE",
+    "custom_gemm_kernel": "NONE",
+    "tensorrt_plugin": "NONE",
+    "runtime_lifecycle_change": "NONE",
+    "tactic_forcing": "NONE",
+    "historical_artifact_modification": "NONE"
+  },
+  "artifacts": {
+    "analysis_script_sha256": "1801f699c0e697e38f416bbb1fb25573bb81133d34ad8ca887fa75c7b1f6d1fd",
+    "raw_json_sha256": "4715a583926831c8c0332dfbe7558e9c8eb24f40ef4b99bb11d5d86f4d5b24ed",
+    "raw_csv_sha256": "2d101d5069b4240259a7599bbe7f32f3639175e176aeafd5265bc9cce68584bb"
+  },
+  "tensorrt_backend_identity": "UNKNOWN"
+}
