@@ -4,6 +4,20 @@
 
 ## [Unreleased]
 
+### Phase 5-A Design Checkpoint (2026-09-05)
+
+- Opened `phase/05a-cuda-feasibility-baseline-study` from the Phase 4 evidence
+  checkpoint and completed a read-only Jetson environment freeze.
+- Recorded CUDA 12.6.68, cuBLASLt runtime 120601, PyTorch 2.5.0a0, TensorRT
+  10.3.0, NCU 2024.3.1.0, NSYS 2024.5.4.34, SM 8.7, and no standard CUTLASS
+  installation.
+- Froze the Phase 5-A benchmark design without implementing a kernel: keep
+  Phase 4-E as TensorRT Baseline 1, pre-register direct cuBLASLt Baseline 2,
+  and pre-register a CUTLASS library-generated Baseline 3.
+- Pre-registered correctness, CV, bootstrap CI, and Case A/B/C decision
+  thresholds. Phase 5-A remains `IN_PROGRESS / DESIGN_ONLY` pending review
+  before benchmark execution.
+
 ### Phase 4 Evidence Checkpoint (2026-09-05)
 
 - Added compact Phase 4-A through 4-G raw reports and artifacts under

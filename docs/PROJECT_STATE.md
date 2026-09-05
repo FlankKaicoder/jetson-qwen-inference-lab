@@ -12,15 +12,15 @@
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 4 evidence checkpoint complete; Phase 5-A authorized preparation |
-| Current experiment | Phase 4-A through 4-G Operator Attribution and Optimization Hypothesis Validation |
-| Current branch | `phase/04a-tensorrt-operator-attribution-recovery` |
+| Current phase | Phase 5 — CUDA Feasibility Baseline Study |
+| Current experiment | Phase 5-A — CUDA Feasibility Baseline Study |
+| Current branch | `phase/05a-cuda-feasibility-baseline-study` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Phase 4-G — Optimization Hypothesis Validation |
-| Experiment status | Prior Phase 1-3 statuses are unchanged. Phase 4-A `COMPLETE`; Phase 4-B/C/D/E/F/G `PASS / BOUNDED`; Phase 4 aggregate closes with CUDA readiness `NOT READY`. |
-| Current Gate | Phase 4-G `PASS / BOUNDED / NO_PROVEN_OPTIMIZATION_HYPOTHESIS`. The strongest candidate is H1, reducing or reshaping memory/L2 traffic in the shared h16816 GEMM path, with `MEDIUM_FOR_BOTTLENECK_DIRECTION` confidence. It lacks pure `up_proj` NCU, direct DRAM evidence, exact semantics, and an alternative baseline. CUDA/CUTLASS/Plugin implementation remains unauthorized. |
-| Readiness | Phase 4 is checkpointed, not superseded. Phase 5-A is authorized only as an environment freeze and benchmark-harness design step. Do not implement a CUDA kernel, TensorRT Plugin, engine rebuild, ONNX change, tactic forcing, or runtime redesign. The next boundary must freeze environment, comparison boundaries, correctness gates, benchmark methodology, and Gate thresholds before benchmark execution. |
+| Experiment status | Prior Phase 1-4 statuses are unchanged. Phase 5-A is `IN_PROGRESS / DESIGN_ONLY`; environment and harness design are frozen, but benchmark execution has not started. |
+| Current Gate | Phase 5-A stage gate is `PASS / READ_ONLY_ENVIRONMENT_FREEZE`; harness design is frozen as `DESIGN_ONLY`. No CUDA kernel, CUTLASS optimization kernel, TensorRT Plugin, engine rebuild, ONNX change, tactic forcing, or runtime redesign is authorized. |
+| Readiness | Phase 5-A benchmark execution is `PENDING_OWNER_REVIEW_OF_FROZEN_DESIGN`. The frozen design separates TensorRT Phase 4-E evidence, a future direct cuBLASLt harness, and a future CUTLASS library candidate. CV above 5% or a comparison-boundary mismatch must be reported as `INCONCLUSIVE`; a clear CUTLASS win requires at least 20% median improvement and a bootstrap CI excluding the tie band. |
 
 ## Confirmed Findings
 
@@ -125,11 +125,10 @@ No repository evidence records a formally `REJECT`-status experiment.
 
 ## Required Next Action
 
-Owner/ChatGPT review of the Phase 4 checkpoint. Phase 5-A is authorized for
-environment freeze and benchmark harness design only. Do not implement CUDA
-kernels, CUTLASS optimization kernels, TensorRT Plugins, engine rebuilds, ONNX
-changes, tactic forcing, or runtime redesign. Benchmark execution requires the
-frozen Phase 5-A protocol to be reviewed first.
+Owner/ChatGPT review of the frozen Phase 5-A environment and harness design.
+Benchmark execution is allowed only after explicit approval of that design. Do
+not implement CUDA kernels, CUTLASS optimization kernels, TensorRT Plugins,
+engine rebuilds, ONNX changes, tactic forcing, or runtime redesign.
 
 ## Do-not-repeat Work
 
@@ -139,6 +138,8 @@ frozen Phase 5-A protocol to be reviewed first.
 - Do not estimate direct DRAM throughput where NCU reports `N/A`.
 - Do not rerun Phase 4-A through 4-G or relabel shared h16816 evidence as pure
   `up_proj` evidence.
+- Do not treat Phase 4-D PyTorch timing as an exact cuBLASLt algorithm identity
+  or directly compare it to Phase 4-E without the boundary caveat.
 - Do not start Exp02, merge `main`, change the roadmap, or modify device power/clock state without explicit direction.
 
 ## Last Verified Git State
@@ -602,3 +603,24 @@ Before Phase 3-A execution, the canonical Phase 2 checkpoint was `b2083895b1199e
   `results/phase4e_up_proj_baseline/`, `results/phase4f_kernel_attribution/`,
   and `results/phase4g_optimization_hypothesis/`. No historical artifact was
   modified or deleted.
+
+## Phase 5-A Environment Freeze And Harness Design (2026-09-05)
+
+- Starting HEAD was `4979469d82e39910fe54de8275de442054e85b04`, the Phase 4
+  evidence checkpoint. The new branch is
+  `phase/05a-cuda-feasibility-baseline-study`.
+- Read-only Jetson audit froze CUDA `12.6.68`, cuBLAS/cuBLASLt `12.6.1.4-1`
+  (`cublasLtGetVersion() = 120601`), PyTorch `2.5.0a0+872d972e41.nv24.08`,
+  TensorRT `10.3.0`, NCU `2024.3.1.0`, NSYS
+  `2024.5.4.34-245434855735v0`, SM `8.7`, and no standard CUTLASS install.
+- `nvidia-smi` did not expose useful integrated-platform power, clock, memory,
+  p-state, or utilization fields; these are recorded as `N/A` or `UNKNOWN`,
+  not inferred.
+- The existing Mixed Decode engine remains read-only at 650,285,868 bytes,
+  SHA-256 `445fc7d295c5bbb91e5392182347aa0e59612a031b5556a3461e09f30a59005c`.
+- The harness design freezes Phase 4-E as TensorRT Baseline 1 without rerun,
+  defines a future direct cuBLASLt Baseline 2, and defines a future CUTLASS
+  library-generated Baseline 3. No benchmark or implementation was run.
+- Gate is `PASS / READ_ONLY_ENVIRONMENT_FREEZE` and harness design is
+  `DESIGN_ONLY`; Phase 5-A benchmark execution is pending review.
+- Evidence: `results/phase5a_cuda_feasibility_baseline/20260905T060916Z/`.

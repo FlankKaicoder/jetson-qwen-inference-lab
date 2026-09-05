@@ -1,0 +1,84 @@
+{
+  "phase": "Phase 5-A CUDA Feasibility Baseline Study",
+  "stage": "ENVIRONMENT_FREEZE",
+  "artifact_timestamp_utc": "20260905T060916Z",
+  "boundary": {
+    "cuda_kernel_implementation": "FORBIDDEN",
+    "cutlass_optimization_kernel_implementation": "FORBIDDEN",
+    "tensorrt_plugin": "FORBIDDEN",
+    "engine_rebuild_or_modification": "FORBIDDEN",
+    "onnx_modification": "FORBIDDEN",
+    "tactic_forcing": "FORBIDDEN",
+    "runtime_modification": "FORBIDDEN",
+    "package_install_or_upgrade": "FORBIDDEN",
+    "clock_or_power_change": "FORBIDDEN",
+    "benchmark_execution": "NOT_STARTED"
+  },
+  "local_repository": {
+    "branch": "phase/05a-cuda-feasibility-baseline-study",
+    "head": "4979469d82e39910fe54de8275de442054e85b04",
+    "base_checkpoint": "4979469 phase4: checkpoint operator attribution evidence",
+    "tracked_diff": "NONE_AT_FREEZE_TIME",
+    "preserved_untracked_directory": "experiments/Phase2-qwen3-quantization/artifacts/phase2_3b_20260903T203103Z/"
+  },
+  "remote_system": {
+    "ssh_alias": "jetson",
+    "hostname": "nvidia-desktop",
+    "kernel": "5.15.148-tegra",
+    "jetpack": "R36 (release), REVISION: 4.3",
+    "board": "Jetson Orin Nano Engineering Reference Developer Kit Super",
+    "gpu_name": "Orin (nvgpu)",
+    "driver_version": "540.4.0",
+    "compute_capability": [8, 7],
+    "system_memory_total": "7.4 GiB",
+    "system_memory_available": "5.7 GiB",
+    "root_filesystem_available": "157 GiB",
+    "nvidia_smi_gpu_memory": "NOT_SUPPORTED_ON_INTEGRATED_PLATFORM",
+    "nvidia_smi_power_limit": "N/A",
+    "nvidia_smi_power_draw": "N/A",
+    "nvidia_smi_power_mode": "N/A",
+    "nvidia_smi_sm_clock": "N/A",
+    "nvidia_smi_mem_clock": "N/A"
+  },
+  "remote_software": {
+    "cuda_nvcc": "12.6.68",
+    "cuda_path": "/usr/local/cuda/bin/nvcc",
+    "cxx_compiler": "g++ 11.4.0",
+    "cublas_package": "libcublas-12-6 12.6.1.4-1",
+    "cublas_dev_package": "libcublas-dev-12-6 12.6.1.4-1",
+    "cublaslt_runtime_version": 120601,
+    "cublas_runtime_version_reported": 7,
+    "pytorch": "2.5.0a0+872d972e41.nv24.08",
+    "python": "3.10.12",
+    "tensorrt": "10.3.0",
+    "nsight_compute": "2024.3.1.0",
+    "nsight_compute_path": "/usr/local/cuda/bin/ncu",
+    "nsight_systems": "2024.5.4.34-245434855735v0",
+    "cutlass_install": "NOT_FOUND_IN_STANDARD_SEARCH_PATHS"
+  },
+  "frozen_tensorrt_baseline_asset": {
+    "engine_path": "/tmp/phase2_3e_20260904T020000Z/work/mixed_decode_28layer.engine",
+    "bytes": 650285868,
+    "sha256": "445fc7d295c5bbb91e5392182347aa0e59612a031b5556a3461e09f30a59005c",
+    "modified_or_rebuilt": false
+  },
+  "remote_git_state": {
+    "branch": "phase/03e-tensorrt-kernel-attribution",
+    "head": "bf7abc67eb58662a68316045e166aa9f611330d7",
+    "untracked_paths": [
+      "docs/current_state.md",
+      "docs/experiment_registry.csv",
+      "experiments/Phase2-qwen3-quantization/phase2_2_runtime_prototype/artifacts/c1i_20260902T220000Z/",
+      "experiments/Phase2-qwen3-quantization/phase2_2_runtime_prototype/artifacts/c1i_20260902T221500Z/",
+      "experiments/Phase2-qwen3-quantization/phase2_2_runtime_prototype/artifacts/c1i_20260902T223000Z/",
+      "results/phase3a_runtime_attribution/20260904T062257Z/",
+      "results/phase3b_runtime_lifetime/20260904T082850Z_nsys/"
+    ],
+    "modified_by_phase5a_environment_freeze": false
+  },
+  "unknowns": {
+    "device_power_and_clock_state": "UNKNOWN_NO_READABLE_NVIDIA_SMI_FIELDS",
+    "cublas_backend_algorithm": "UNKNOWN_UNTIL_DIRECT_HARNESS_RUN",
+    "cutlass_candidate": "NOT_SELECTED"
+  }
+}

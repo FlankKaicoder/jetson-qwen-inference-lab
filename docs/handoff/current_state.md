@@ -1,3 +1,23 @@
+## Phase 5-A Design Checkpoint (2026-09-05)
+
+- Active branch is `phase/05a-cuda-feasibility-baseline-study`, starting from
+  Phase 4 checkpoint `4979469d82e39910fe54de8275de442054e85b04`.
+- Read-only Jetson environment freeze records CUDA `12.6.68`, cuBLASLt runtime
+  `120601`, PyTorch `2.5.0a0`, TensorRT `10.3.0`, NCU `2024.3.1.0`, NSYS
+  `2024.5.4.34`, SM `8.7`, and no standard CUTLASS installation.
+- Integrated-platform power, clock, memory, p-state, and utilization fields
+  were `N/A` or unsupported through `nvidia-smi`; do not infer them.
+- The existing Mixed Decode engine remains read-only with SHA-256
+  `445fc7d295c5bbb91e5392182347aa0e59612a031b5556a3461e09f30a59005c`.
+- The frozen design uses Phase 4-E as TensorRT Baseline 1 without rerun, a
+  future direct cuBLASLt Baseline 2, and a future CUTLASS library-generated
+  Baseline 3. Correctness, stability, bootstrap, and Gate thresholds are
+  pre-registered in
+  `results/phase5a_cuda_feasibility_baseline/20260905T060916Z/phase5a_benchmark_harness_design.md`.
+- Status is `IN_PROGRESS / DESIGN_ONLY`; no Phase 5-A benchmark, CUDA kernel,
+  CUTLASS build, TensorRT Plugin, engine rebuild, ONNX change, tactic forcing,
+  or runtime redesign has started.
+
 ## Phase 4 Evidence Checkpoint (2026-09-05)
 
 - Canonical branch is `phase/04a-tensorrt-operator-attribution-recovery`,
