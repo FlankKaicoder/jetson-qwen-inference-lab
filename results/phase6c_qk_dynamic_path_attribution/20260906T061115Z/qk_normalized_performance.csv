@@ -1,0 +1,5 @@
+comparison_id,decode_step,xmma_duration_ns,h16816_duration_ns,raw_duration_ratio,normalized_speedup,normalized_efficiency,calculation_status,reason
+D0,0,14592,10102688,NOT_CALCULATED,UNKNOWN,UNKNOWN,NOT_CALCULATED,h16816 workload shape and work quantity cannot be established from the trace
+D1,1,31008,8816768,NOT_CALCULATED,UNKNOWN,UNKNOWN,NOT_CALCULATED,h16816 workload shape and work quantity cannot be established from the trace
+D2,2,14976,4690080,NOT_CALCULATED,UNKNOWN,UNKNOWN,NOT_CALCULATED,h16816 workload shape and work quantity cannot be established from the trace
+D3,3,15264,7599008,NOT_CALCULATED,UNKNOWN,UNKNOWN,NOT_CALCULATED,h16816 workload shape and work quantity cannot be established from the trace

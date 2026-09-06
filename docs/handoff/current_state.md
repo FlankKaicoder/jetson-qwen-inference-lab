@@ -1,3 +1,28 @@
+## Phase 6-C Decode QK^T Dynamic Path Attribution (2026-09-06)
+
+- Active branch is `phase/06c-qk-dynamic-path-attribution`, starting from
+  Phase 6-B checkpoint `abb1cfd5bb8a652e042fcaf864aa8eff4da95fa5`. This was
+  offline, read-only trace attribution; no new Jetson execution, profiling,
+  benchmark, engine rebuild, ONNX change, tactic forcing, or implementation
+  occurred.
+- The frozen Mixed persistent trace contains exactly 11 exact `/MatMul`
+  launches: 7 h16816 and 4 xmma. The h16816 immediate parent is
+  `{ForeignNode[onnx::MatMul_4 + ONNXTRT_Broadcast.../MatMul]}`; the xmma
+  immediate parent is `{ForeignNode[/Cast.../Add_111]}`.
+- Per-launch runtime Q/K/output shapes are `UNKNOWN`; code-derived cache
+  lengths `8,9,10,11` are sequence hints only. Same graph region, same engine
+  invocation, same mathematical workload, and the transition trigger are
+  `NOT_PROVEN` or `UNKNOWN`.
+- Direct h16816-versus-xmma performance comparison is not allowed. Normalized
+  performance is `NOT_CALCULATED`, and no tactic defect is claimed. Static
+  decode evidence shows xmma for all 28 QK^T layers, but layers 1-27 are not
+  runtime-isolated and runtime shape equivalence remains `UNKNOWN`.
+- Gate is `PASS / BOUNDED / QK_PATH_TRANSITION_UNRESOLVED` (Gate D). Custom
+  CUDA, FlashAttention, and TensorRT Plugin are `NOT AUTHORIZED`; stop after
+  Phase 6-C.
+- Evidence:
+  `results/phase6c_qk_dynamic_path_attribution/20260906T061115Z/phase6c_attribution_report.md`.
+
 ## Phase 6-B h16816 Historical Anomaly Reconciliation (2026-09-06)
 
 - Active branch is `phase/06b-h16816-anomaly-reconciliation`, starting from

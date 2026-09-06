@@ -4,6 +4,21 @@
 
 ## [Unreleased]
 
+### Phase 6-C Decode QK^T Dynamic Path Attribution (2026-09-06)
+
+- Reconstructed exactly 11 historical `/MatMul` launches: 7 h16816 and 4
+  tactic-consistent xmma. Each has direct runtime correlation, but h16816 and
+  xmma consistently have different immediate NVTX parents.
+- Recorded runtime Q/K/output shapes as `UNKNOWN`; code-derived key lengths
+  `8,9,10,11` are workload-sequence hints, not per-launch runtime-shape proof.
+- Kept same graph region, same engine invocation, same mathematical workload,
+  and the kernel-path trigger unresolved. Raw durations are therefore not
+  directly comparable, and normalized performance is `NOT_CALCULATED`.
+- Recorded static xmma paths for all 28 decode QK^T layers, while noting that
+  layers 1-27 were not runtime-isolated and shape equivalence remains UNKNOWN.
+- Closed Phase 6-C as `PASS / BOUNDED / QK_PATH_TRANSITION_UNRESOLVED` (Gate
+  D). No implementation is authorized.
+
 ### Phase 6-B h16816 Historical Anomaly Reconciliation (2026-09-06)
 
 - Reconstructed the Phase 6-A suspicious h16816 row as exactly seven distinct

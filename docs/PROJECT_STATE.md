@@ -12,15 +12,15 @@
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 6-B — h16816 Historical Anomaly Reconciliation |
-| Current experiment | Phase 6-B h16816 Historical Anomaly Reconciliation |
-| Current branch | `phase/06b-h16816-anomaly-reconciliation` |
+| Current phase | Phase 6-C — Decode QK^T Dynamic Path Attribution |
+| Current experiment | Phase 6-C QK^T Dynamic Path Attribution |
+| Current branch | `phase/06c-qk-dynamic-path-attribution` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 6-B — h16816 historical anomaly reconciliation |
-| Experiment status | Prior Phase 1-5 and Phase 6-A statuses are unchanged. Phase 6-B completed read-only reconstruction over frozen evidence without new Jetson execution or profiling. |
-| Current Gate | Phase 6-B is `PASS / BOUNDED / H16816_REAL_BUT_OPTIMIZATION_SURFACE_UNRESOLVED`. Runtime ownership is HIGH; ONNX semantic identity QK^T is HIGH; the exact optimization surface remains unresolved. |
-| Readiness | Stop after Phase 6-B. No custom CUDA, FlashAttention, TensorRT Plugin, engine rebuild, ONNX change, precision change, tactic forcing, or implementation is authorized. |
+| Last completed experiment | Phase 6-C — QK^T dynamic path attribution |
+| Experiment status | Prior Phase 1-5 and Phase 6-A/B statuses are unchanged. Phase 6-C completed offline reconstruction of the frozen Mixed persistent trace without new Jetson execution or profiling. |
+| Current Gate | Phase 6-C is `PASS / BOUNDED / QK_PATH_TRANSITION_UNRESOLVED` (Gate D). Eleven exact `/MatMul` launches are recovered, but runtime shapes, workload identity, and transition trigger remain unresolved. |
+| Readiness | Stop after Phase 6-C. No custom CUDA, FlashAttention, TensorRT Plugin, engine rebuild, ONNX change, precision change, tactic forcing, or implementation is authorized. |
 
 ## Confirmed Findings
 
@@ -125,12 +125,11 @@ No repository evidence records a formally `REJECT`-status experiment.
 
 ## Required Next Action
 
-Stop after Phase 6-B anomaly reconciliation. Owner/ChatGPT review or an
-explicitly authorized corrected-target re-ranking is required before any
-follow-up. Do not implement custom CUDA attention, FlashAttention, TensorRT
-Plugins, engine rebuilds, ONNX changes, precision changes, tactic forcing, or
-runtime redesign. A future attention feasibility study must be separately
-authorized.
+Stop after Phase 6-C path attribution. Owner/ChatGPT review or an explicitly
+authorized corrected-target re-ranking or bounded feasibility study is required
+before any follow-up. Do not implement custom CUDA attention, FlashAttention,
+TensorRT Plugins, engine rebuilds, ONNX changes, precision changes, tactic
+forcing, or runtime redesign.
 
 ## Do-not-repeat Work
 
@@ -149,6 +148,8 @@ authorized.
   use the representative steady boundary only when that boundary is stated.
 - Do not merge Phase 6-B's grid `1187x1x1` attention-context h16816 evidence
   with Phase 4-F's grid `24x1x1` `up_proj`/`gate_proj` h16816 evidence.
+- Do not compare Phase 6-C h16816 and xmma durations as normalized performance
+  or claim a tactic defect; runtime workload identity is `UNKNOWN`.
 - Do not start Exp02, merge `main`, change the roadmap, or modify device power/clock state without explicit direction.
 
 ## Last Verified Git State
