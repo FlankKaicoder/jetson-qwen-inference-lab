@@ -12,15 +12,15 @@
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 6-A — Unknown Attention MatMul Attribution Recovery |
-| Current experiment | Phase 6-A Unknown Attention MatMul Attribution Recovery |
-| Current branch | `phase/06a-attention-matmul-attribution` |
+| Current phase | Phase 6-B — h16816 Historical Anomaly Reconciliation |
+| Current experiment | Phase 6-B h16816 Historical Anomaly Reconciliation |
+| Current branch | `phase/06b-h16816-anomaly-reconciliation` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 6-A — unknown attention MatMul attribution recovery |
-| Experiment status | Prior Phase 1-5 statuses are unchanged. Phase 6-A completed offline attribution over frozen evidence without new Jetson execution or profiling. |
-| Current Gate | Phase 6-A is `PASS / BOUNDED / NO_PROVEN_ATTENTION_OPTIMIZATION_TARGET`. Semantic identity is HIGH QK^T and Attention x V, but no clean implementation target is proven. |
-| Readiness | Stop after Phase 6-A. No CUDA kernel, FlashAttention, TensorRT Plugin, engine rebuild, ONNX change, tactic forcing, or implementation is authorized. |
+| Last completed experiment | Phase 6-B — h16816 historical anomaly reconciliation |
+| Experiment status | Prior Phase 1-5 and Phase 6-A statuses are unchanged. Phase 6-B completed read-only reconstruction over frozen evidence without new Jetson execution or profiling. |
+| Current Gate | Phase 6-B is `PASS / BOUNDED / H16816_REAL_BUT_OPTIMIZATION_SURFACE_UNRESOLVED`. Runtime ownership is HIGH; ONNX semantic identity QK^T is HIGH; the exact optimization surface remains unresolved. |
+| Readiness | Stop after Phase 6-B. No custom CUDA, FlashAttention, TensorRT Plugin, engine rebuild, ONNX change, precision change, tactic forcing, or implementation is authorized. |
 
 ## Confirmed Findings
 
@@ -125,10 +125,12 @@ No repository evidence records a formally `REJECT`-status experiment.
 
 ## Required Next Action
 
-Stop after Phase 6-A attribution recovery. Owner/ChatGPT review is required
-before any follow-up. Do not implement custom CUDA attention, FlashAttention,
-TensorRT Plugins, engine rebuilds, ONNX changes, tactic forcing, or runtime
-redesign. A future Attention feasibility study must be separately authorized.
+Stop after Phase 6-B anomaly reconciliation. Owner/ChatGPT review or an
+explicitly authorized corrected-target re-ranking is required before any
+follow-up. Do not implement custom CUDA attention, FlashAttention, TensorRT
+Plugins, engine rebuilds, ONNX changes, precision changes, tactic forcing, or
+runtime redesign. A future attention feasibility study must be separately
+authorized.
 
 ## Do-not-repeat Work
 
@@ -143,6 +145,10 @@ redesign. A future Attention feasibility study must be separately authorized.
 - Do not reinterpret Phase 4-F's 196 correlated launches as seven kernels per
   NVTX instance; the Step 3 read-only requery records one correlated launch per
   observed NVTX instance.
+- Do not cite Phase 6-B's all-trace `23.807898%` as steady-state contribution;
+  use the representative steady boundary only when that boundary is stated.
+- Do not merge Phase 6-B's grid `1187x1x1` attention-context h16816 evidence
+  with Phase 4-F's grid `24x1x1` `up_proj`/`gate_proj` h16816 evidence.
 - Do not start Exp02, merge `main`, change the roadmap, or modify device power/clock state without explicit direction.
 
 ## Last Verified Git State
@@ -777,3 +783,35 @@ Before Phase 3-A execution, the canonical Phase 2 checkpoint was `b2083895b1199e
   attention feasibility study.
 - Evidence and report:
   `results/phase6a_unknown_attention_matmul_attribution/20260906T040500Z/phase6a_attribution_report.md`.
+
+## Phase 6-B h16816 Historical Anomaly Reconciliation (2026-09-06)
+
+- Starting/final-base HEAD was the Phase 6-A closeout
+  `dfdb0de64f26198caf13433f9448f476c4fe3691`; the working branch is
+  `phase/06b-h16816-anomaly-reconciliation`. The work was offline, read-only
+  repository analysis. No Jetson execution, profiling, benchmark, engine
+  rebuild, ONNX change, tactic forcing, or implementation occurred.
+- The Phase 6-A suspicious row is exactly seven distinct
+  `trt_ampere_h16816gemm_128x64_ldg8_nn_v1` launches summing to
+  `54,984,352 ns`; durations are `4,690,080`, `4,742,752`, `7,599,008`,
+  `8,816,768`, `8,926,944`, `10,102,688`, and `10,106,112 ns`. There is no
+  single outlier.
+- All 11 exact `/MatMul` ranges have one contained CUDA launch API, one runtime
+  `correlationId`, and exactly one kernel. Seven are h16816 and four are
+  tactic-consistent xmma. Runtime attribution is HIGH; the historical generic
+  mapping remains MEDIUM; Phase 6-A supplies HIGH ONNX semantic identity QK^T.
+- The representative steady denominator is `147,830,560 ns`. Five h16816
+  launches total `35,951,296 ns`, or `24.319258%`; all nine `/MatMul` steady
+  launches total `36,027,136 ns`, or `24.370560%`. The all-trace seven-launch
+  share is `23.807898%` of `230,950,048 ns` and must not be cited as
+  steady-state contribution. Warmup h16816 time is `19,033,056 ns` and is
+  excluded.
+- Phase 3-E has the same h16816 kernel, grid `1187x1x1`, block `64x1x1`, 149
+  registers, and `24,576 B` static shared memory. Phase 4-F's `up_proj`/
+  `gate_proj` h16816 uses grid `24x1x1`; it is the same kernel family but a
+  different launch configuration and context.
+- H1 is `SUPPORTED / BOUNDED`; H2, H3, and H4 are `REJECT`. Final gate is
+  `PASS / BOUNDED / H16816_REAL_BUT_OPTIMIZATION_SURFACE_UNRESOLVED`. Custom
+  CUDA, FlashAttention, and TensorRT Plugin remain `NOT AUTHORIZED`.
+- Evidence and report:
+  `results/phase6b_h16816_anomaly_reconciliation/20260906T043528Z/phase6b_reconciliation_report.md`.

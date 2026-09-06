@@ -1,3 +1,23 @@
+## Phase 6-B h16816 Historical Anomaly Reconciliation (2026-09-06)
+
+- Active branch is `phase/06b-h16816-anomaly-reconciliation`, starting from
+  Phase 6-A checkpoint `dfdb0de64f26198caf13433f9448f476c4fe3691`. This was
+  read-only offline analysis; no new Jetson execution, profiling, benchmark,
+  engine rebuild, ONNX change, tactic forcing, or implementation occurred.
+- The historical suspicious h16816 row is exactly seven real launches summing
+  to `54,984,352 ns`. All 11 exact `/MatMul` NVTX ranges correlate through one
+  contained CUDA launch API and one `correlationId` to exactly one kernel.
+  Runtime ownership is HIGH; ONNX semantic identity from Phase 6-A is HIGH QK^T.
+- Five h16816 launches inside the representative steady boundary total
+  `35,951,296 ns`, or `24.319258%` of `147,830,560 ns`. Warmup time is excluded.
+  Do not cite the all-trace `23.807898%` as steady-state contribution.
+- H1 is `SUPPORTED / BOUNDED`; H2-H4 are `REJECT`. Gate is
+  `PASS / BOUNDED / H16816_REAL_BUT_OPTIMIZATION_SURFACE_UNRESOLVED`. Custom
+  CUDA, FlashAttention, and TensorRT Plugin are `NOT AUTHORIZED`; stop after
+  Phase 6-B.
+- Evidence:
+  `results/phase6b_h16816_anomaly_reconciliation/20260906T043528Z/phase6b_reconciliation_report.md`.
+
 ## Phase 6-A Unknown Attention MatMul Attribution Recovery (2026-09-06)
 
 - Active branch is `phase/06a-attention-matmul-attribution`, starting from

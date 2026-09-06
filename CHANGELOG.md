@@ -4,6 +4,23 @@
 
 ## [Unreleased]
 
+### Phase 6-B h16816 Historical Anomaly Reconciliation (2026-09-06)
+
+- Reconstructed the Phase 6-A suspicious h16816 row as exactly seven distinct
+  launches summing to `54,984,352 ns`, with no single outlier. All 11 exact
+  `/MatMul` NVTX ranges have direct runtime correlation to one launch API and
+  one CUDA kernel.
+- Corrected the contribution boundary: five steady-boundary h16816 launches are
+  `35,951,296 ns`, or `24.319258%` of the `147,830,560 ns` representative
+  steady GPU kernel denominator; the all-trace `23.807898%` is not a
+  steady-state share.
+- Confirmed that Phase 3-E has the exact same `1187x1x1` h16816 configuration,
+  while Phase 4-F `up_proj`/`gate_proj` uses `24x1x1` and must not be merged
+  semantically with this attention-context reconstruction.
+- Closed Phase 6-B as `PASS / BOUNDED /
+  H16816_REAL_BUT_OPTIMIZATION_SURFACE_UNRESOLVED`. H1 is
+  `SUPPORTED / BOUNDED`; H2-H4 are `REJECT`. No implementation is authorized.
+
 ### Phase 6-A Unknown Attention MatMul Attribution Recovery (2026-09-06)
 
 - Added repository-side attribution recovery for the 56 frozen decode
