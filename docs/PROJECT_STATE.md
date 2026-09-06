@@ -7,20 +7,20 @@
 | Field | Verified value |
 | --- | --- |
 | Project | `jetson-qwen-inference-lab` / Jetson Qwen Transformer AI Infra Optimization Lab |
-| Current date | `2026-09-05` |
+| Current date | `2026-09-06` |
 | Repository | `FlankKaicoder/jetson-qwen-inference-lab` |
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 5 — GEMM Investigation Freeze + Next Target Re-selection |
-| Current experiment | Phase 5 Closeout |
-| Current branch | `phase/05a-cuda-feasibility-baseline-study` |
+| Current phase | Phase 6-A — Unknown Attention MatMul Attribution Recovery |
+| Current experiment | Phase 6-A Unknown Attention MatMul Attribution Recovery |
+| Current branch | `phase/06a-attention-matmul-attribution` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 5 Closeout — GEMM feasibility freeze and next target re-selection |
-| Experiment status | Prior Phase 1-4, Phase 5-A and Phase 5-B Step 2 statuses are unchanged. Phase 5 was closed from committed evidence without new execution or profiling. |
-| Current Gate | Phase 5 Closeout is `PASS / BOUNDED / NO_PROVEN_OPTIMIZATION_TARGET`. The next decision is `NEXT_TARGET_BOUNDED`; `unknown_attention_matmul` is an attribution-only candidate. |
-| Readiness | Stop after Phase 5 closeout. No CUDA kernel, TensorRT Plugin, engine rebuild, tactic forcing, implementation, or new operator benchmark is authorized. |
+| Last completed experiment | Phase 6-A — unknown attention MatMul attribution recovery |
+| Experiment status | Prior Phase 1-5 statuses are unchanged. Phase 6-A completed offline attribution over frozen evidence without new Jetson execution or profiling. |
+| Current Gate | Phase 6-A is `PASS / BOUNDED / NO_PROVEN_ATTENTION_OPTIMIZATION_TARGET`. Semantic identity is HIGH QK^T and Attention x V, but no clean implementation target is proven. |
+| Readiness | Stop after Phase 6-A. No CUDA kernel, FlashAttention, TensorRT Plugin, engine rebuild, ONNX change, tactic forcing, or implementation is authorized. |
 
 ## Confirmed Findings
 
@@ -125,11 +125,10 @@ No repository evidence records a formally `REJECT`-status experiment.
 
 ## Required Next Action
 
-Stop after Phase 5 closeout and next-target re-selection. Owner/ChatGPT review
-is required before any follow-up. Do not implement CUDA kernels, CUTLASS
-optimization kernels, TensorRT Plugins, engine rebuilds, ONNX changes, tactic
-forcing, runtime redesign, or the bounded `unknown_attention_matmul`
-attribution study without explicit authorization.
+Stop after Phase 6-A attribution recovery. Owner/ChatGPT review is required
+before any follow-up. Do not implement custom CUDA attention, FlashAttention,
+TensorRT Plugins, engine rebuilds, ONNX changes, tactic forcing, or runtime
+redesign. A future Attention feasibility study must be separately authorized.
 
 ## Do-not-repeat Work
 
@@ -747,3 +746,34 @@ Before Phase 3-A execution, the canonical Phase 2 checkpoint was `b2083895b1199e
   implementation. Rank 2 is bounded `gate_proj`; Rank 3 is the single HIGH fused
   `q/k/v` range. No implementation is authorized.
 - Evidence: `results/phase5_closeout_and_target_reselection/20260905T115247Z/`.
+
+## Phase 6-A Unknown Attention MatMul Attribution Recovery (2026-09-06)
+
+- Starting branch was `phase/05a-cuda-feasibility-baseline-study` at
+  `271ff821c399891ac59ccdb5c18b5d6381008dcf`; the working branch is
+  `phase/06a-attention-matmul-attribution`. The work was repository-side
+  offline recovery from frozen evidence. No Jetson execution, profiling,
+  benchmark, engine rebuild, ONNX change, tactic forcing, or implementation
+  occurred.
+- Recovered exactly 56 decode EngineInspector `/MatMul_*` candidates: 28
+  HIGH-confidence QK^T MatMuls (even node numbers) and 28 HIGH-confidence
+  Attention x V MatMuls (odd node numbers), one pair per decoder layer 0-27.
+  Q operand, K branch, reshape/transpose, Softmax, Softmax output, V/GQA
+  Expand, shape compatibility, and o_proj anchors agree.
+- The ONNX semantic nodes are shared: prefill EngineInspector fuses both into
+  28 `_gemm_mha_v2_*` layers (56 semantic matches), while decode EngineInspector
+  exposes 56 standalone ONNX-named GEMM layers. Exact CUDA kernel implementation
+  semantics remain UNKNOWN.
+- Historical `61.815776 ms` is an all-trace aggregate over 57 NVTX-to-kernel
+  rows, 231 instances, 56 unique nodes, and 28 layers in the Phase 3-C Mixed
+  persistent NSYS boundary. It is not a single MatMul latency.
+- The aggregate contains a tactic-inconsistent `/MatMul` decode-layer-0 row:
+  `trt_ampere_h16816gemm_128x64_ldg8_nn_v1`, 7 instances,
+  `54,984,352 ns`, left `INCONCLUSIVE`. The tactic-consistent xmma subset is
+  `6.831424 ms`, `2.957966%` of the `230.950048 ms` GPU kernel denominator.
+- Final gate is `PASS / BOUNDED / NO_PROVEN_ATTENTION_OPTIMIZATION_TARGET`.
+  Custom CUDA Attention, FlashAttention, and TensorRT Attention Plugin are
+  `NOT AUTHORIZED`. A separate owner decision is required for any future
+  attention feasibility study.
+- Evidence and report:
+  `results/phase6a_unknown_attention_matmul_attribution/20260906T040500Z/phase6a_attribution_report.md`.

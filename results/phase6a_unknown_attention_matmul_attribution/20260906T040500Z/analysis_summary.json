@@ -1,0 +1,47 @@
+{
+  "phase": "Phase 6-A Unknown Attention MatMul Attribution Recovery",
+  "method": "Offline read-only recovery from committed Phase 2.3-E, Phase 4-A.1, Phase 4-A.2 and Phase 3-C artifacts. No engine rebuild, ONNX export, execution, benchmark, or profiling.",
+  "artifact_manifest": {
+    "prefill_and_decode_engine_inspector_summary": {
+      "path": "experiments\\Phase2-qwen3-quantization\\artifacts\\phase2_3e_20260904T034300Z\\engine_precision_summary.json",
+      "sha256": "070290ca1525b5b13d4fa40451637b9f645693f09f07178aeda08a83c267ef76",
+      "bytes": 1459424
+    },
+    "decode_engine_inspector_standalone": {
+      "path": "results\\phase4a_operator_attribution\\20260904T131524Z\\mixed_decode_engine_inspector.json",
+      "sha256": "b9305150544221c601861aa7b7a86232bbc62d851ac45619fe6166758cc5fe71",
+      "bytes": 577689
+    },
+    "onnx_node_inventory": {
+      "path": "results\\phase4a_operator_attribution\\20260904T132820Z\\onnx_node_inventory.csv",
+      "sha256": "37c94f99d77e0fc84718ee54b21287bcd8870ec39b2c80616086b7e8618691b0",
+      "bytes": 700785
+    },
+    "runtime_nvtx_kernel_mapping": {
+      "path": "results\\phase4a_operator_attribution\\20260904T134556Z\\runtime_nvtx_kernel_mapping.csv",
+      "sha256": "cb809dd64cd728d93f739866d508b8ca4a881318473871917c7f0f6c1afdb464",
+      "bytes": 51718
+    },
+    "mixed_persistent_cuda_gpu_kern_sum": {
+      "path": "results\\phase3c_residual_runtime\\20260904T093500Z_nsys\\stats\\mixed_persistent_cuda_gpu_kern_sum.csv",
+      "sha256": "b85bb79c9b6bf8f77485991cad4e6fe194b50fb048409911086f4af705c5fee1",
+      "bytes": 17274
+    }
+  },
+  "counts": {
+    "decode_matmul_candidates": 56,
+    "qk_high": 28,
+    "attention_v_high": 28,
+    "prefill_fused_matches": 56,
+    "decode_standalone_matches": 56
+  },
+  "contribution_reconciliation": {
+    "all_rows_total_time_ms": 61.815776,
+    "tactic_consistent_total_time_ms": 6.831424,
+    "gpu_total_time_ms": 230.950048,
+    "all_rows_gpu_share_percent": 26.765864,
+    "tactic_consistent_gpu_share_percent": 2.957966,
+    "measurement_boundary": "Phase 3-C Mixed persistent NSYS derived NVTX-to-kernel aggregate across representative prefill plus four decode steps"
+  },
+  "gate_interpretation": "Candidate semantics are recovered at HIGH confidence, but the historical 61.815776 ms includes a tactic-inconsistent h16816 aggregate; the tactic-consistent f16f32 xmma subset is smaller. No implementation is authorized."
+}

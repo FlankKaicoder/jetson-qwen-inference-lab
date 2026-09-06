@@ -4,6 +4,21 @@
 
 ## [Unreleased]
 
+### Phase 6-A Unknown Attention MatMul Attribution Recovery (2026-09-06)
+
+- Added repository-side attribution recovery for the 56 frozen decode
+  `/MatMul_*` candidates. Recovered 28 HIGH-confidence QK^T and 28
+  HIGH-confidence Attention x V mappings across decoder layers 0-27.
+- Recorded that prefill exposes both semantic MatMuls inside 28 fused
+  `_gemm_mha_v2_*` layers, while decode exposes 56 standalone ONNX-named TRT
+  GEMM layers. Exact CUDA kernel implementation semantics remain UNKNOWN.
+- Reconciled the historical `61.815776 ms` as a 57-row, 231-instance all-trace
+  NSYS aggregate, not a single MatMul latency. Kept the tactic-inconsistent
+  `54,984,352 ns` h16816 contribution INCONCLUSIVE; the tactic-consistent
+  subset is `6.831424 ms`, or `2.957966%` of the GPU kernel denominator.
+- Closed Phase 6-A as `PASS / BOUNDED /
+  NO_PROVEN_ATTENTION_OPTIMIZATION_TARGET`. No implementation is authorized.
+
 ### Phase 5-B Step 2 TensorRT vs cuBLASLt NCU Comparison (2026-09-05)
 
 - Added a temporary cuBLASLt algorithm-21 profiling harness and targeted NCU

@@ -1,3 +1,22 @@
+## Phase 6-A Unknown Attention MatMul Attribution Recovery (2026-09-06)
+
+- Active branch is `phase/06a-attention-matmul-attribution`, starting from
+  Phase 5 checkpoint `271ff821c399891ac59ccdb5c18b5d6381008dcf`. This was
+  offline repository analysis only; no Jetson execution, profiling, benchmark,
+  engine rebuild, ONNX change, tactic forcing, or implementation occurred.
+- Phase 6-A recovered 56 decode `/MatMul_*` candidates: 28 HIGH-confidence
+  QK^T and 28 HIGH-confidence Attention x V MatMuls across decoder layers
+  0-27. Prefill is fused into 28 `_gemm_mha_v2_*` layers; decode is standalone.
+- Historical `61.815776 ms` is an all-trace aggregate over 57 rows and 231
+  instances, not one node latency. The tactic-inconsistent h16816 contribution
+  `54,984,352 ns` remains INCONCLUSIVE; tactic-consistent xmma time is
+  `6.831424 ms`, or `2.957966%` of `230.950048 ms`.
+- Gate is `PASS / BOUNDED / NO_PROVEN_ATTENTION_OPTIMIZATION_TARGET`.
+  Custom CUDA Attention, FlashAttention, and TensorRT Attention Plugin are
+  `NOT AUTHORIZED`. Stop before any future attention feasibility study.
+- Evidence:
+  `results/phase6a_unknown_attention_matmul_attribution/20260906T040500Z/phase6a_attribution_report.md`.
+
 ## Phase 5-B Step 2 TensorRT vs cuBLASLt NCU Comparison (2026-09-05)
 
 - Active branch is `phase/05a-cuda-feasibility-baseline-study`. Step 2 started
