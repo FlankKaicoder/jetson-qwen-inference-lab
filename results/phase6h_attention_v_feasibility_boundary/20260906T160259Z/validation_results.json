@@ -1,0 +1,52 @@
+{
+  "validation": "PASS",
+  "errors": [],
+  "phase6g": {
+    "rows": 112,
+    "duration_ns_total": 4237568,
+    "unique_correlation_ids": 112,
+    "unique_trt_layers": 28
+  },
+  "new_csv_summary": {
+    "av_feasibility_evidence.csv": {
+      "data_rows": 12,
+      "columns": 6,
+      "columns_ok": true
+    },
+    "ncu_attribution_reconciliation.csv": {
+      "data_rows": 6,
+      "columns": 9,
+      "columns_ok": true
+    },
+    "evidence_manifest.csv": {
+      "data_rows": 15,
+      "columns": 4,
+      "columns_ok": true
+    }
+  },
+  "evidence_manifest_hash_check": "15_OF_15_PASS",
+  "new_artifacts_over_1_mib": 0,
+  "exact_av_kernel_name_matches_in_committed_ncu_artifacts": 0,
+  "protected_untracked_directories": [
+    {
+      "path": "experiments/Phase2-qwen3-quantization/artifacts/phase2_3b_20260903T203103Z",
+      "file_count": 19,
+      "bytes": 225511
+    },
+    {
+      "path": "results/phase6a_unknown_attention_matmul_attribution/20260906T040200Z",
+      "file_count": 7,
+      "bytes": 134347
+    },
+    {
+      "path": "results/phase6a_unknown_attention_matmul_attribution/20260906T040300Z",
+      "file_count": 7,
+      "bytes": 134319
+    },
+    {
+      "path": "results/phase6a_unknown_attention_matmul_attribution/20260906T040400Z",
+      "file_count": 12,
+      "bytes": 154888
+    }
+  ]
+}

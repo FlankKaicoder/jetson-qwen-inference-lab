@@ -1,3 +1,25 @@
+## Phase 6-H Attention x V Feasibility Boundary (2026-09-06)
+
+- Active branch is `phase/06h-attention-v-feasibility-boundary`, starting from
+  Phase 6-G closeout `7cf15effb010139b90b221e4b8d6eaa4507e0dc0`. This was
+  offline repository-only evidence synthesis; no Jetson execution, benchmark,
+  Nsys/NCU run, engine change, or implementation occurred.
+- The direct Phase 6-G AV surface remains strong: 112/112 instances,
+  28/28 layers, 112 correlation IDs, and one exact xmma kernel. The
+  representative steady contribution is `4,237,568 ns / 2.866503%`; all-trace
+  is `1.834842%`. These denominators remain separate.
+- Zero committed NCU artifacts contain the exact AV kernel name or an AV
+  correlation ID. Existing Phase 3-E/5-B metrics cover different variants,
+  `up_proj`, or `UNKNOWN` operator mappings and are not AV efficiency evidence.
+- Final gate is `PASS / BOUNDED /
+  NO_PROVEN_AV_OPTIMIZATION_OPPORTUNITY`. Inefficient-enough is `NOT PROVEN`;
+  clean-enough is only `PARTIALLY_SUPPORTED` for isolation, not replacement.
+- Next decision belongs to the owner: pause/close Attention, authorize a
+  narrowly bounded direct AV NCU ownership study, or redirect. No
+  implementation or next phase is authorized.
+- Evidence:
+  `results/phase6h_attention_v_feasibility_boundary/20260906T160259Z/phase6h_feasibility_report.md`.
+
 ## Phase 6-G Representative Boundary Attention x V Attribution (2026-09-06)
 
 - Active branch is `phase/06g-attention-v-runtime-attribution`, starting from

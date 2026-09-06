@@ -7,20 +7,20 @@
 | Field | Verified value |
 | --- | --- |
 | Project | `jetson-qwen-inference-lab` / Jetson Qwen Transformer AI Infra Optimization Lab |
-| Current date | `2026-09-06` |
+| Current date | `2026-09-06` UTC / `2026-09-07` Asia/Shanghai |
 | Repository | `FlankKaicoder/jetson-qwen-inference-lab` |
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 6-G — Representative Boundary Attention x V Runtime/Kernel Attribution |
-| Current experiment | Phase 6-G Attention x V Runtime/Kernel Attribution |
-| Current branch | `phase/06g-attention-v-runtime-attribution` |
+| Current phase | Phase 6-H — Attention x V Feasibility Boundary Study |
+| Current experiment | Phase 6-H Attention x V Feasibility Boundary |
+| Current branch | `phase/06h-attention-v-feasibility-boundary` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 6-G — read-only representative-boundary AV attribution |
-| Experiment status | Prior Phase 1-5 and Phase 6-A/B/C/D/E/F statuses are unchanged. Phase 6-G is offline read-only trace attribution. |
-| Current Gate | Phase 6-G is `PASS / BOUNDED` with `AV_RUNTIME_SURFACE_RECOVERED`. All 28 decode Attention x V layers have direct semantic, runtime, kernel, and representative-steady attribution. Optimization surface is `NOT PROVEN`. |
-| Readiness | Stop after Phase 6-G and await owner review. The owner decision is a controlled AV feasibility study, corrected target re-ranking, or closing the Attention branch. No implementation is authorized. |
+| Last completed experiment | Phase 6-H — offline AV feasibility-boundary synthesis |
+| Experiment status | Prior Phase 1-5 and Phase 6-A/B/C/D/E/F/G statuses are unchanged. Phase 6-H is offline repository-only evidence synthesis. |
+| Current Gate | Phase 6-H is `PASS / BOUNDED` with `NO_PROVEN_AV_OPTIMIZATION_OPPORTUNITY`. The 112/112 AV runtime surface is directly attributable, but no existing NCU sample is directly owned by AV and no direct efficiency/headroom evidence exists. |
+| Readiness | Stop after Phase 6-H and await owner review. The owner may pause/close Attention, authorize a narrowly bounded direct AV NCU ownership study, or redirect to another target. No implementation or next phase is authorized. |
 
 ## Confirmed Findings
 
@@ -125,13 +125,14 @@ No repository evidence records a formally `REJECT`-status experiment.
 
 ## Required Next Action
 
-Stop after Phase 6-G. Owner/ChatGPT review is required before any follow-up.
-The gate is `AV_RUNTIME_SURFACE_RECOVERED`, but the optimization surface is
-`NOT PROVEN`. Choose a controlled AV feasibility study, corrected target
-re-ranking, or Attention-branch closure. Do not implement custom CUDA
-attention, FlashAttention, TensorRT Plugins, engine rebuilds, ONNX changes,
-precision changes, tactic forcing, or runtime redesign. Do not run NCU without
-explicit authorization.
+Stop after Phase 6-H. Owner/ChatGPT review is required before any follow-up.
+The gate is `NO_PROVEN_AV_OPTIMIZATION_OPPORTUNITY`. The AV surface is
+important and directly attributable, but it is not proven inefficient enough or
+clean enough for replacement. Choose Attention-branch pause/closure, a narrowly
+bounded direct AV NCU ownership study, or another target. Do not implement
+custom CUDA attention, FlashAttention, TensorRT Plugins, CUTLASS tuning, kernel
+replacement, engine rebuilds, ONNX changes, precision changes, tactic forcing,
+or runtime redesign. Do not run NCU without explicit authorization.
 
 ## Do-not-repeat Work
 
@@ -158,6 +159,9 @@ explicit authorization.
   performance; their workload classification remains `UNKNOWN`.
 - Do not treat Phase 6-E's derived Q/K/K^T/output GEMM shapes as direct kernel
   arguments or direct engine I/O evidence.
+- Do not transfer Phase 3-E rank-2/rank-3 or Phase 5-B `up_proj` NCU metrics to
+  Attention x V by kernel-family similarity. Their kernel variants, workloads,
+  or operator mappings differ.
 - Do not start Exp02, merge `main`, change the roadmap, or modify device power/clock state without explicit direction.
 
 ## Last Verified Git State
@@ -940,3 +944,29 @@ Before Phase 3-A execution, the canonical Phase 2 checkpoint was `b2083895b1199e
   `NOT PROVEN`.
 - Evidence and report:
   `results/phase6g_attention_v_runtime_attribution/phase6g_20260906T151718Z/phase6g_attribution_report.md`.
+
+## Phase 6-H Attention x V Feasibility Boundary (2026-09-06)
+
+- Branch is `phase/06h-attention-v-feasibility-boundary`, starting at the
+  Phase 6-G closeout `7cf15effb010139b90b221e4b8d6eaa4507e0dc0`. The work was
+  offline Windows repository synthesis only. No Jetson execution, benchmark,
+  inference, Nsys/NCU run, engine build, implementation, or engine change
+  occurred.
+- The user's exact Phase 6-H gate text was truncated after `Final Gate:`, so
+  conservative gates were frozen in `phase6h_plan.md` before judgment.
+- Phase 6-H reconfirmed the Phase 6-G direct surface: 112/112 instances,
+  112 unique correlation IDs, 28/28 TensorRT layers, and one exact AV
+  `nn_n tile64x128x32` xmma kernel. Representative steady AV remains
+  `4,237,568 ns / 2.866503%` of `147,830,560 ns`; all-trace remains
+  `1.834842%` of `230,950,048 ns`.
+- The exact AV kernel name occurs in zero committed Phase 3-E or Phase 5-B NCU
+  artifacts. The nearest samples are different `tn_n` variants, the fused
+  rank-3 variant, `up_proj`, cuBLASLt, or have `UNKNOWN` operator mapping.
+  No sample has an AV correlation ID or invocation-ownership record.
+- Final gate is `PASS / BOUNDED /
+  NO_PROVEN_AV_OPTIMIZATION_OPPORTUNITY`. Inefficient-enough is `NOT PROVEN`,
+  direct NCU support is `NO`, and future optimization feasibility has
+  `NO_PROVEN_JUSTIFICATION`. Clean-enough for isolation is
+  `PARTIALLY_SUPPORTED`; replacement cleanliness is not proven.
+- Evidence and report:
+  `results/phase6h_attention_v_feasibility_boundary/20260906T160259Z/phase6h_feasibility_report.md`.

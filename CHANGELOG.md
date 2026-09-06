@@ -4,6 +4,23 @@
 
 ## [Unreleased]
 
+### Phase 6-H Attention x V Feasibility Boundary (2026-09-06)
+
+- Added an offline feasibility-boundary synthesis using only frozen
+  Phase 6-G/6-F/6-A, Phase 3-E and Phase 5-B evidence. No Jetson execution,
+  benchmark, profiling, engine change, implementation, precision change, or
+  tactic forcing occurred.
+- Reconfirmed the direct AV attribution surface: 112/112 instances, 112
+  correlation IDs, 28/28 layers, and one exact
+  `nn_n tile64x128x32` xmma kernel. Representative steady AV remains
+  `4,237,568 ns / 2.866503%`; the all-trace share remains `1.834842%`.
+- Reconciled NCU ownership and found zero committed NCU artifacts with the
+  exact AV kernel name or an AV correlation ID. Existing rank-2/rank-3 and
+  `up_proj` metrics are context only and are not transferable to AV.
+- Final gate is `PASS / BOUNDED /
+  NO_PROVEN_AV_OPTIMIZATION_OPPORTUNITY`. This is a bounded negative
+  feasibility result; no implementation or next phase is authorized.
+
 ### Phase 6-G Representative Boundary Attention x V Runtime/Kernel Attribution (2026-09-06)
 
 - Added a read-only representative-boundary attribution query over the frozen
