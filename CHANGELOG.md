@@ -4,6 +4,24 @@
 
 ## [Unreleased]
 
+### Phase 6-G Representative Boundary Attention x V Runtime/Kernel Attribution (2026-09-06)
+
+- Added a read-only representative-boundary attribution query over the frozen
+  Phase 3-C Mixed persistent Nsys SQLite. The source was verified at
+  `3477504` bytes and SHA-256
+  `ea9ea0bc4a369647b837def7f98d2bfec2765f1f6f9c9619b4388ab2ab4345a8`; it was
+  not copied into Git.
+- Recovered 112/112 Attention x V instances across 28 decoder layers: 28
+  TensorRT runtime layers, 112 unique correlation IDs, and 112 kernels mapped
+  to `sm80_xmma_gemm_f16f16_f16f32_f32`.
+- Separated warmup and representative boundaries. All AV instances occur in
+  decode steps 0-3; none occur in warmup or steady prefill. Representative
+  steady AV time is `4,237,568 ns / 2.866503%` of `147,830,560 ns`, while the
+  all-trace share remains `1.834842%` of `230,950,048 ns`.
+- Final gate is `AV_RUNTIME_SURFACE_RECOVERED`. This does not prove headroom or
+  feasibility; optimization surface remains `NOT PROVEN`, and no implementation
+  is authorized.
+
 ### Phase 6-F Post-Reproduction Evidence-Corrected Target Re-Ranking (2026-09-06)
 
 - Added an offline target re-ranking using the unchanged Phase 6-D score

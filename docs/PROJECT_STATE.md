@@ -12,15 +12,15 @@
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 6-F — Post-Reproduction Evidence-Corrected Target Re-Ranking |
-| Current experiment | Phase 6-F Post-Reproduction Target Re-Ranking |
-| Current branch | `phase/06f-post-reproduction-target-ranking` |
+| Current phase | Phase 6-G — Representative Boundary Attention x V Runtime/Kernel Attribution |
+| Current experiment | Phase 6-G Attention x V Runtime/Kernel Attribution |
+| Current branch | `phase/06g-attention-v-runtime-attribution` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 6-F — offline post-reproduction target re-ranking |
-| Experiment status | Prior Phase 1-5 and Phase 6-A/B/C/D/E statuses are unchanged. Phase 6-F is offline evidence synthesis and target selection. |
-| Current Gate | Phase 6-F is `PASS / BOUNDED` with `NEXT_ATTRIBUTION_TARGET_RECOVERED`. Attention x V across 28 layers is the highest eligible `ATTRIBUTION_ONLY` target. Layer-0 QK^T h16816 is `NO_CURRENT_ACTION` after controlled non-reproduction. |
-| Readiness | Stop after Phase 6-F and await owner review. The proposed but unauthorized next experiment is a read-only representative-boundary AV runtime/kernel attribution query from the existing Phase 3-C raw Nsys SQLite. No implementation is authorized. |
+| Last completed experiment | Phase 6-G — read-only representative-boundary AV attribution |
+| Experiment status | Prior Phase 1-5 and Phase 6-A/B/C/D/E/F statuses are unchanged. Phase 6-G is offline read-only trace attribution. |
+| Current Gate | Phase 6-G is `PASS / BOUNDED` with `AV_RUNTIME_SURFACE_RECOVERED`. All 28 decode Attention x V layers have direct semantic, runtime, kernel, and representative-steady attribution. Optimization surface is `NOT PROVEN`. |
+| Readiness | Stop after Phase 6-G and await owner review. The owner decision is a controlled AV feasibility study, corrected target re-ranking, or closing the Attention branch. No implementation is authorized. |
 
 ## Confirmed Findings
 
@@ -125,13 +125,13 @@ No repository evidence records a formally `REJECT`-status experiment.
 
 ## Required Next Action
 
-Stop after Phase 6-F. Owner/ChatGPT review is required before any follow-up.
-The recommended but unauthorized next experiment is a bounded read-only
-representative-boundary Attention x V attribution query against the existing
-Phase 3-C raw Nsys SQLite. Do not implement custom CUDA attention,
-FlashAttention, TensorRT Plugins,
-engine rebuilds, ONNX changes, precision changes, tactic forcing, or runtime
-redesign. Do not run NCU without explicit authorization.
+Stop after Phase 6-G. Owner/ChatGPT review is required before any follow-up.
+The gate is `AV_RUNTIME_SURFACE_RECOVERED`, but the optimization surface is
+`NOT PROVEN`. Choose a controlled AV feasibility study, corrected target
+re-ranking, or Attention-branch closure. Do not implement custom CUDA
+attention, FlashAttention, TensorRT Plugins, engine rebuilds, ONNX changes,
+precision changes, tactic forcing, or runtime redesign. Do not run NCU without
+explicit authorization.
 
 ## Do-not-repeat Work
 
@@ -912,3 +912,31 @@ Before Phase 3-A execution, the canonical Phase 2 checkpoint was `b2083895b1199e
   SQLite. No new profiling or implementation is recommended.
 - Evidence and report:
   `results/phase6f_post_reproduction_target_ranking/20260906T143411Z/phase6f_target_ranking_report.md`.
+
+## Phase 6-G Representative Boundary Attention x V Attribution (2026-09-06)
+
+- Branch is `phase/06g-attention-v-runtime-attribution`, starting at the Phase
+  6-F closeout `6fc220d590d9b9dfda001ea7551187ed7989720f`. The work was remote
+  read-only SQLite attribution only. No new Nsys/NCU run, inference, benchmark,
+  engine build, implementation, or precision change occurred.
+- The Phase 3-C raw SQLite was verified at `3477504` bytes and SHA-256
+  `ea9ea0bc4a369647b837def7f98d2bfec2765f1f6f9c9619b4388ab2ab4345a8`, then
+  queried with `file:<path>?mode=ro`. It was not copied into Git.
+- Phase 6-G recovered 112 AV NVTX instances: 28 candidates x four instances,
+  112 unique correlation IDs, 112 contained launch APIs, and 112 correlated
+  kernels. All 28 decode `/MatMul_*` layers are represented.
+- Every kernel is
+  `sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt`;
+  family is `sm80_xmma_gemm_f16f16_f16f32_f32`.
+- All 112 AV instances fall in `PHASE3B_STEADY_DECODE_STEP_0..3`; none fall in
+  `PHASE3B_INIT`, `PHASE3B_WARMUP`, or `PHASE3B_STEADY_PREFILL_S8`. Boundary
+  durations are `1,202,560`, `1,448,480`, `750,496`, and `836,032 ns`.
+- The representative steady AV total is `4,237,568 ns / 2.866503%` of
+  `147,830,560 ns`. The historical all-trace share is the same raw duration at
+  `1.834842%` of `230,950,048 ns`; these percentages are not interchangeable.
+- Final gate is `PASS / BOUNDED / AV_RUNTIME_SURFACE_RECOVERED`. Kernel
+  arguments, exact runtime workload shape, numeric tactic identity, backend
+  identity, headroom, and benefit remain `UNKNOWN`; optimization surface is
+  `NOT PROVEN`.
+- Evidence and report:
+  `results/phase6g_attention_v_runtime_attribution/phase6g_20260906T151718Z/phase6g_attribution_report.md`.

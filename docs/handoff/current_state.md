@@ -1,3 +1,26 @@
+## Phase 6-G Representative Boundary Attention x V Attribution (2026-09-06)
+
+- Active branch is `phase/06g-attention-v-runtime-attribution`, starting from
+  Phase 6-F closeout `6fc220d590d9b9dfda001ea7551187ed7989720f`. This was
+  remote read-only SQLite analysis only; no new profiling, execution, engine
+  change, or implementation occurred.
+- The frozen Phase 3-C raw SQLite was verified and queried with SQLite URI
+  `mode=ro`. The recovered result is 112/112 AV NVTX instances, 28/28 layers,
+  112 unique correlation IDs, 28 TensorRT runtime layers, and one xmma GEMM
+  kernel family.
+- All AV instances are in decode steps 0-3. Zero are in warmup or steady
+  prefill. Representative steady AV is `4,237,568 ns / 2.866503%` of
+  `147,830,560 ns`; all-trace is `4,237,568 ns / 1.834842%` of
+  `230,950,048 ns`.
+- Final gate is `PASS / BOUNDED / AV_RUNTIME_SURFACE_RECOVERED`. Optimization
+  surface is `NOT PROVEN`; kernel arguments, exact workload identity, numeric
+  tactic identity, backend identity, headroom, and benefit remain `UNKNOWN`.
+- Next decision belongs to the owner: controlled AV feasibility study, corrected
+  target re-ranking, or closing the Attention branch. No implementation is
+  authorized.
+- Evidence:
+  `results/phase6g_attention_v_runtime_attribution/phase6g_20260906T151718Z/phase6g_attribution_report.md`.
+
 ## Phase 6-F Post-Reproduction Target Re-Ranking (2026-09-06)
 
 - Active branch is `phase/06f-post-reproduction-target-ranking`, starting from
