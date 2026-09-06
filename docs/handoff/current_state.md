@@ -1,3 +1,28 @@
+## Phase 6-F Post-Reproduction Target Re-Ranking (2026-09-06)
+
+- Active branch is `phase/06f-post-reproduction-target-ranking`, starting from
+  Phase 6-E checkpoint `826a5ae1735e1fe2f48ee583ddb86ed3f1c199f5`. This was
+  offline evidence synthesis only; no new Jetson execution, profiling,
+  benchmark, engine rebuild, ONNX change, precision change, tactic forcing, or
+  implementation occurred.
+- Phase 6-F reuses Phase 6-D scoring exactly. Layer-0 QK^T h16816 remains
+  historically real and semantically HIGH, but Phase 6-E did not reproduce it;
+  its score is 6 and classification is now `NO_CURRENT_ACTION`.
+- Direct all-trace aggregates are Attention x V `4,237,568 ns / 1.834842%` and
+  QK^T layers 1-27 `2,518,016 ns / 1.090286%` over the Phase 3-C Mixed
+  persistent GPU kernel denominator. Neither is a steady-state share.
+- Final gate is `NEXT_ATTRIBUTION_TARGET_RECOVERED`. The corrected ranking is
+  layer-0 QK (score 6, blocked), Attention x V (score 6, selected),
+  QK layers 1-27 (5), fused q/k/v (4), gate_proj (4), down_proj/o_proj (4),
+  TensorRT `__myl_*` (1), RMSNorm/RoPE (-1), and current CUDA Graph prototype
+  (-2). `up_proj` remains `CLOSED_FOR_NOW`.
+- The one proposed but unauthorized follow-up is a read-only
+  representative-boundary Attention x V runtime/kernel attribution query from
+  the existing Phase 3-C raw Nsys SQLite. No new profiling or implementation is
+  recommended.
+- Evidence:
+  `results/phase6f_post_reproduction_target_ranking/20260906T143411Z/phase6f_target_ranking_report.md`.
+
 ## Phase 6-E Frozen-Engine QK Runtime Shape And Invocation Attribution (2026-09-06)
 
 - Active branch is `phase/06e-qk-runtime-shape-invocation-attribution`,

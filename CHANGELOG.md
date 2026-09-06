@@ -4,6 +4,25 @@
 
 ## [Unreleased]
 
+### Phase 6-F Post-Reproduction Evidence-Corrected Target Re-Ranking (2026-09-06)
+
+- Added an offline target re-ranking using the unchanged Phase 6-D score
+  `R + A + S + B + F - U`. No inference, benchmark, Nsys, NCU, engine build,
+  ONNX export, precision change, tactic forcing, or implementation occurred.
+- Incorporated the Phase 6-E negative result into existing dimensions: layer-0
+  QK^T h16816 falls from score 8 to 6 and from `ATTRIBUTION_ONLY` to
+  `NO_CURRENT_ACTION`, while its historical contribution remains real.
+- Recorded direct Phase 6-A all-trace family aggregates: Attention x V
+  `4,237,568 ns / 1.834842%` and QK^T layers 1-27
+  `2,518,016 ns / 1.090286%`, both explicitly distinct from steady-state
+  contribution.
+- Selected Attention x V across 28 layers as the highest eligible
+  `ATTRIBUTION_ONLY` target. `up_proj` remains `CLOSED_FOR_NOW`.
+- Final gate is `NEXT_ATTRIBUTION_TARGET_RECOVERED`. The proposed but
+  unauthorized next step is one read-only representative-boundary AV
+  runtime/kernel attribution query against the existing Phase 3-C raw Nsys
+  SQLite.
+
 ### Phase 6-E Frozen-Engine QK Runtime Shape And Invocation Attribution (2026-09-06)
 
 - Added a controlled Jetson attribution run using five frozen engines with

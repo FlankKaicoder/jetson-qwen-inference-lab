@@ -12,15 +12,15 @@
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 6-E — Frozen-Engine QK Runtime Shape And Invocation Attribution |
-| Current experiment | Phase 6-E QK Runtime Shape And Invocation Attribution |
-| Current branch | `phase/06e-qk-runtime-shape-invocation-attribution` |
+| Current phase | Phase 6-F — Post-Reproduction Evidence-Corrected Target Re-Ranking |
+| Current experiment | Phase 6-F Post-Reproduction Target Re-Ranking |
+| Current branch | `phase/06f-post-reproduction-target-ranking` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 6-E — controlled layer-0 QK runtime attribution |
-| Experiment status | Prior Phase 1-5 and Phase 6-A/B/C/D statuses are unchanged. Phase 6-E completed one frozen-engine controlled Jetson run and read-only Nsys analysis. |
-| Current Gate | Phase 6-E is `PASS / BOUNDED` with `QK_H16816_PATH_NOT_REPRODUCED`. All four controlled decode layer-0 `/MatMul` invocations used xmma and zero used h16816. Workload comparison and trigger remain `UNKNOWN`. |
-| Readiness | Stop after Phase 6-E and await owner review. No custom CUDA, FlashAttention, TensorRT Plugin, engine rebuild, ONNX change, precision change, tactic forcing, NCU, or implementation is authorized. |
+| Last completed experiment | Phase 6-F — offline post-reproduction target re-ranking |
+| Experiment status | Prior Phase 1-5 and Phase 6-A/B/C/D/E statuses are unchanged. Phase 6-F is offline evidence synthesis and target selection. |
+| Current Gate | Phase 6-F is `PASS / BOUNDED` with `NEXT_ATTRIBUTION_TARGET_RECOVERED`. Attention x V across 28 layers is the highest eligible `ATTRIBUTION_ONLY` target. Layer-0 QK^T h16816 is `NO_CURRENT_ACTION` after controlled non-reproduction. |
+| Readiness | Stop after Phase 6-F and await owner review. The proposed but unauthorized next experiment is a read-only representative-boundary AV runtime/kernel attribution query from the existing Phase 3-C raw Nsys SQLite. No implementation is authorized. |
 
 ## Confirmed Findings
 
@@ -125,9 +125,11 @@ No repository evidence records a formally `REJECT`-status experiment.
 
 ## Required Next Action
 
-Stop after Phase 6-E. Owner/ChatGPT review is required before any follow-up.
-The recommended but unauthorized next decision is corrected target re-ranking.
-Do not implement custom CUDA attention, FlashAttention, TensorRT Plugins,
+Stop after Phase 6-F. Owner/ChatGPT review is required before any follow-up.
+The recommended but unauthorized next experiment is a bounded read-only
+representative-boundary Attention x V attribution query against the existing
+Phase 3-C raw Nsys SQLite. Do not implement custom CUDA attention,
+FlashAttention, TensorRT Plugins,
 engine rebuilds, ONNX changes, precision changes, tactic forcing, or runtime
 redesign. Do not run NCU without explicit authorization.
 
@@ -879,3 +881,34 @@ Before Phase 3-A execution, the canonical Phase 2 checkpoint was `b2083895b1199e
   implementation is authorized.
 - Evidence and report:
   `results/phase6e_qk_runtime_shape_invocation_attribution/20260906T083753Z/phase6e_attribution_report.md`.
+
+## Phase 6-F Post-Reproduction Target Re-Ranking (2026-09-06)
+
+- Starting branch was `phase/06e-qk-runtime-shape-invocation-attribution` at
+  `826a5ae1735e1fe2f48ee583ddb86ed3f1c199f5`; the working branch is
+  `phase/06f-post-reproduction-target-ranking`. This was offline evidence
+  synthesis only. No Jetson execution, profiling, benchmark, engine rebuild,
+  ONNX change, precision change, tactic forcing, or implementation occurred.
+- Phase 6-F reuses the Phase 6-D frozen score exactly:
+  `final = R + A + S + B + F - U`, dimensions `0-3`, no new reproducibility
+  dimension, with classification overriding raw score.
+- Direct Phase 6-A all-trace row aggregates are Attention x V
+  `4,237,568 ns / 1.834842%` across 28 rows and 112 calls, and QK^T layers
+  1-27 `2,518,016 ns / 1.090286%` across 27 rows and 108 calls, both over the
+  `230,950,048 ns` Mixed persistent GPU kernel denominator. These are not
+  steady-state shares.
+- Layer-0 QK^T h16816 remains historically real and semantically HIGH, but
+  Phase 6-E did not reproduce it. Its score drops from 8 to 6 (`F` 1->0,
+  `U` 2->3) and its classification drops to `NO_CURRENT_ACTION`.
+- The corrected active ranking is: (1) layer-0 QK^T h16816, score 6, blocked;
+  (2) Attention x V, score 6, selected; (3) QK^T layers 1-27, score 5;
+  (4) fused q/k/v, score 4; (5) gate_proj, score 4; (6) down_proj/o_proj,
+  score 4; (7) TensorRT internal `__myl_*`, score 1; (8) RMSNorm/RoPE, score
+  -1; (9) current CUDA Graph prototype, score -2. `up_proj` is excluded and
+  remains `CLOSED_FOR_NOW`.
+- Final gate is `NEXT_ATTRIBUTION_TARGET_RECOVERED`. The one proposed but
+  unauthorized follow-up is a read-only representative-boundary AV
+  runtime/kernel attribution query from the existing Phase 3-C raw Nsys
+  SQLite. No new profiling or implementation is recommended.
+- Evidence and report:
+  `results/phase6f_post_reproduction_target_ranking/20260906T143411Z/phase6f_target_ranking_report.md`.
