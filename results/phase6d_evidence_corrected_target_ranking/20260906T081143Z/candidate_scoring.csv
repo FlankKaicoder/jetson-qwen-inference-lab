@@ -1,0 +1,10 @@
+candidate_id,R,A,S,B,F,U,positive,final,score_boundary,ranking_eligibility,classification,score_rationale
+P6D_001,3,3,1,2,1,2,10,8,Representative steady h16816 time is significant,ACTIVE,ATTRIBUTION_ONLY,"Direct runtime significance and HIGH QK identity are offset by unresolved shapes, workload, parent context, trigger, and replacement surface."
+P6D_002,1,2,1,1,1,2,6,4,QK-specific runtime time is UNKNOWN and the family subset is bounded,ACTIVE,ATTRIBUTION_ONLY,"Static QK identity is strong, but layers 1-27 were not runtime-isolated and no defect is proven."
+P6D_003,1,3,1,1,1,2,7,4,AV-only runtime time is UNKNOWN within a bounded family subset,ACTIVE,ATTRIBUTION_ONLY,"HIGH semantic identity is offset by fused prefill, incomplete runtime mapping, and no isolated AV baseline."
+P6D_004,1,2,1,2,1,3,7,4,One bounded direct row only,ACTIVE,ATTRIBUTION_ONLY,"The suspicious shared h16816 behavior cannot be cleanly assigned to gate_proj and does not prove a GEMM defect."
+P6D_005,1,2,1,1,1,2,6,4,One shared fused range only,ACTIVE,ATTRIBUTION_ONLY,"There is meaningful one-layer time, but it is shared, coverage is single-layer, and no headroom is proven."
+P6D_006,2,0,0,1,1,3,4,1,Meaningful name-based category time,ACTIVE,ATTRIBUTION_ONLY,"Large aggregate time has no operator identity, kernel identity, or isolation surface."
+P6D_007,0,2,2,1,1,2,6,4,No reviewed mapped runtime rows,ACTIVE,NO_CURRENT_ACTION,"Static mappings are bounded, but runtime significance and mechanism are absent."
+P6D_008,3,3,3,0,0,1,9,8,Historical time is significant but Phase 5 closes the target,EXCLUDED_CLOSED,CLOSED_FOR_NOW,"Phase 5 provides strong negative evidence: no proven GEMM target or tactic defect and a slower CUTLASS replacement. Score is not an active ranking."
+P6D_009,0,0,0,1,1,3,2,-1,Name-based category is zero,EXCLUDED_NO_EVIDENCE,NO_CURRENT_ACTION,"No positive runtime or attribution evidence exists in the reviewed category."

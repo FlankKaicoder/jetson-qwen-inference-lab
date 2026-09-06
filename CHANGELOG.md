@@ -4,6 +4,24 @@
 
 ## [Unreleased]
 
+### Phase 6-D Evidence-Corrected Optimization Target Re-Ranking (2026-09-06)
+
+- Added offline candidate re-ranking from committed Phase 5 and Phase 6
+  evidence. A frozen unweighted model `R + A + S + B + F - U` was recorded
+  before scores; all dimensions are bounded `0-3` and no weight was tuned after
+  ranking.
+- Corrected the Phase 5 target view: layer-0 decode QK^T h16816 is Rank 1 with
+  score 8, but remains `ATTRIBUTION_ONLY`. Seven h16816 launches total
+  `54,984,352 ns` all-trace and five steady launches total `35,951,296 ns`,
+  while runtime shape, workload identity, invocation identity, trigger, and
+  replacement surface remain unresolved.
+- Recorded the complete active ranking and explicit negative evidence for all
+  candidates. `up_proj` remains `CLOSED_FOR_NOW`; RMSNorm/RoPE remain
+  `NO_CURRENT_ACTION`; no implementation was authorized or performed.
+- Final gate is `NEXT_ATTRIBUTION_TARGET_RECOVERED`. The only proposed next
+  action is a Phase 6-E frozen-engine layer-0 QK runtime-shape and invocation
+  attribution study, requiring explicit owner authorization.
+
 ### Phase 6-C Decode QK^T Dynamic Path Attribution (2026-09-06)
 
 - Reconstructed exactly 11 historical `/MatMul` launches: 7 h16816 and 4

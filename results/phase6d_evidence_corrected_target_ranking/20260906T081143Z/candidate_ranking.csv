@@ -1,0 +1,10 @@
+rank,candidate_id,candidate,final_score,old_phase5_rank,classification,gate_relevance,rank_change_rationale
+1,P6D_001,layer-0 decode QK^T h16816 path,8,1 through unknown_attention_matmul family,ATTRIBUTION_ONLY,Eligible for NEXT_ATTRIBUTION_TARGET_RECOVERED,"Older unknown family is now semantically recovered and the h16816 time is real, but Phase 6-C blocks a feasibility winner because runtime shape, workload, trigger, and surface remain unresolved."
+2,P6D_003,Attention x V across 28 layers,4,1 through unknown_attention_matmul family,ATTRIBUTION_ONLY,Attribution-only,"HIGH semantic identity is separated from runtime significance because AV-only time is UNKNOWN and prefill is fused."
+3,P6D_002,QK^T layers 1-27 static xmma path,4,1 through unknown_attention_matmul family,ATTRIBUTION_ONLY,Attribution-only,"Static identity improves over Phase 5, but layer-isolated runtime contribution remains UNKNOWN."
+4,P6D_005,Fused q_proj;k_proj;v_proj,4,3,ATTRIBUTION_ONLY,Attribution-only,"Retains bounded one-layer evidence but loses rank to candidates with stronger semantic or family attribution."
+5,P6D_007,down_proj / o_proj,4,5,NO_CURRENT_ACTION,Not eligible for next target,"Static mapping is clear, but no runtime rows or mechanism evidence exists."
+6,P6D_004,gate_proj bounded shared-h16816 path,4,2,ATTRIBUTION_ONLY,Attribution-only,"Downranked because the h16816 family evidence is shared and cannot be assigned to gate_proj; Phase 5 also shows no proven GEMM defect."
+7,P6D_006,TensorRT internal non-GEMM __myl_* family,1,4,ATTRIBUTION_ONLY,Attribution-only,"Aggregate time is meaningful but operator identity and isolation remain fundamental unknowns."
+8,P6D_009,RMSNorm / RoPE,-1,not ranked,NO_CURRENT_ACTION,Not eligible,"Name-based category time is zero and no precise performance attribution exists."
+CLOSED_FOR_NOW,P6D_008,up_proj decode FP16 GEMM,8,CLOSED_FOR_NOW,CLOSED_FOR_NOW,Not eligible for next target,"Phase 5 proves no CUDA GEMM target or tactic defect; matched NCU durations are nearly equal and CUTLASS is slower than cuBLASLt."

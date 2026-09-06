@@ -1,3 +1,24 @@
+## Phase 6-D Evidence-Corrected Target Re-Ranking (2026-09-06)
+
+- Active branch is `phase/06d-evidence-corrected-target-ranking`, starting from
+  Phase 6-C checkpoint `4c43da2b5bed5f189ca67d5d64b9814e17cbdb09`. This was
+  offline evidence synthesis only; no new Jetson execution, profiling,
+  benchmark, engine rebuild, ONNX change, tactic forcing, or implementation
+  occurred.
+- The frozen score is `R + A + S + B + F - U`; all dimensions are integer
+  `0-3`. Active Rank 1 is layer-0 decode QK^T h16816 at score 8, followed by
+  Attention x V, QK layers 1-27, fused q/k/v, `down_proj`/`o_proj`,
+  `gate_proj`, TensorRT internal `__myl_*`, and RMSNorm/RoPE.
+- The final gate is `NEXT_ATTRIBUTION_TARGET_RECOVERED`; layer-0 QK^T is
+  `ATTRIBUTION_ONLY`. Runtime Q/K/output shapes, h16816-versus-xmma workload
+  identity, graph/engine invocation identity, trigger, and replacement surface
+  remain unresolved.
+- `up_proj` remains `CLOSED_FOR_NOW`. The next proposed study is a Phase 6-E
+  frozen-engine layer-0 QK runtime-shape and invocation attribution study, but
+  it must not start without explicit owner authorization.
+- Evidence:
+  `results/phase6d_evidence_corrected_target_ranking/20260906T081143Z/phase6d_target_ranking_report.md`.
+
 ## Phase 6-C Decode QK^T Dynamic Path Attribution (2026-09-06)
 
 - Active branch is `phase/06c-qk-dynamic-path-attribution`, starting from

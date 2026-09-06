@@ -12,15 +12,15 @@
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 6-C — Decode QK^T Dynamic Path Attribution |
-| Current experiment | Phase 6-C QK^T Dynamic Path Attribution |
-| Current branch | `phase/06c-qk-dynamic-path-attribution` |
+| Current phase | Phase 6-D — Evidence-Corrected Optimization Target Re-Ranking |
+| Current experiment | Phase 6-D Evidence-Corrected Target Re-Ranking |
+| Current branch | `phase/06d-evidence-corrected-target-ranking` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 6-C — QK^T dynamic path attribution |
-| Experiment status | Prior Phase 1-5 and Phase 6-A/B statuses are unchanged. Phase 6-C completed offline reconstruction of the frozen Mixed persistent trace without new Jetson execution or profiling. |
-| Current Gate | Phase 6-C is `PASS / BOUNDED / QK_PATH_TRANSITION_UNRESOLVED` (Gate D). Eleven exact `/MatMul` launches are recovered, but runtime shapes, workload identity, and transition trigger remain unresolved. |
-| Readiness | Stop after Phase 6-C. No custom CUDA, FlashAttention, TensorRT Plugin, engine rebuild, ONNX change, precision change, tactic forcing, or implementation is authorized. |
+| Last completed experiment | Phase 6-D — evidence-corrected target re-ranking |
+| Experiment status | Prior Phase 1-5 and Phase 6-A/B/C statuses are unchanged. Phase 6-D completed offline evidence synthesis without new Jetson execution or profiling. |
+| Current Gate | Phase 6-D is `PASS / BOUNDED` with `NEXT_ATTRIBUTION_TARGET_RECOVERED`. The next candidate is layer-0 QK^T h16816, attribution-only, because runtime shapes, workload identity, invocation identity, and path trigger remain unresolved. |
+| Readiness | Stop after Phase 6-D and await owner review. No custom CUDA, FlashAttention, TensorRT Plugin, engine rebuild, ONNX change, precision change, tactic forcing, or implementation is authorized. |
 
 ## Confirmed Findings
 
@@ -125,11 +125,11 @@ No repository evidence records a formally `REJECT`-status experiment.
 
 ## Required Next Action
 
-Stop after Phase 6-C path attribution. Owner/ChatGPT review or an explicitly
-authorized corrected-target re-ranking or bounded feasibility study is required
-before any follow-up. Do not implement custom CUDA attention, FlashAttention,
-TensorRT Plugins, engine rebuilds, ONNX changes, precision changes, tactic
-forcing, or runtime redesign.
+Stop after Phase 6-D corrected-target re-ranking. Owner/ChatGPT review or an
+explicitly authorized Phase 6-E frozen-engine layer-0 QK attribution study is
+required before any follow-up. Do not implement custom CUDA attention,
+FlashAttention, TensorRT Plugins, engine rebuilds, ONNX changes, precision
+changes, tactic forcing, or runtime redesign.
 
 ## Do-not-repeat Work
 
@@ -150,6 +150,8 @@ forcing, or runtime redesign.
   with Phase 4-F's grid `24x1x1` `up_proj`/`gate_proj` h16816 evidence.
 - Do not compare Phase 6-C h16816 and xmma durations as normalized performance
   or claim a tactic defect; runtime workload identity is `UNKNOWN`.
+- Do not treat Phase 6-D's layer-0 QK h16816 score as implementation readiness;
+  its final gate is attribution-only.
 - Do not start Exp02, merge `main`, change the roadmap, or modify device power/clock state without explicit direction.
 
 ## Last Verified Git State
@@ -816,3 +818,31 @@ Before Phase 3-A execution, the canonical Phase 2 checkpoint was `b2083895b1199e
   CUDA, FlashAttention, and TensorRT Plugin remain `NOT AUTHORIZED`.
 - Evidence and report:
   `results/phase6b_h16816_anomaly_reconciliation/20260906T043528Z/phase6b_reconciliation_report.md`.
+
+## Phase 6-D Evidence-Corrected Optimization Target Re-Ranking (2026-09-06)
+
+- Starting branch was `phase/06d-evidence-corrected-target-ranking` at
+  `4c43da2b5bed5f189ca67d5d64b9814e17cbdb09`; the tracked tree was clean except
+  for protected untracked artifact directories. This was offline evidence
+  synthesis only. No Jetson execution, profiling, benchmark, engine rebuild,
+  ONNX change, tactic forcing, or implementation occurred.
+- A frozen unweighted scoring model was fixed before scoring:
+  `final = R + A + S + B + F - U`, all dimensions integer `0-3`, with tie order
+  higher `R`, higher `A`, lower `U`, lower candidate ID. Scores are not predicted
+  speedups.
+- Corrected active ranking is: (1) layer-0 decode QK^T h16816 path, score 8;
+  (2) Attention x V, score 4; (3) QK^T layers 1-27 static xmma path, score 4;
+  (4) fused `q_proj;k_proj;v_proj`, score 4; (5) `down_proj`/`o_proj`, score 4;
+  (6) `gate_proj`, score 4; (7) TensorRT internal `__myl_*`, score 1;
+  (8) RMSNorm/RoPE, score -1. `up_proj` is scored but excluded and remains
+  `CLOSED_FOR_NOW`.
+- The final gate is `PASS / BOUNDED` with
+  `NEXT_ATTRIBUTION_TARGET_RECOVERED`. Layer-0 QK^T h16816 is
+  `ATTRIBUTION_ONLY`: seven launches total `54,984,352 ns` all-trace and five
+  steady launches total `35,951,296 ns`, but runtime shapes, workload identity,
+  invocation identity, trigger, and replacement surface remain unresolved.
+- The next proposed action is a Phase 6-E frozen-engine layer-0 QK runtime
+  shape and invocation attribution study. It requires explicit owner
+  authorization and remains forbidden to execute in Phase 6-D.
+- Evidence and report:
+  `results/phase6d_evidence_corrected_target_ranking/20260906T081143Z/phase6d_target_ranking_report.md`.
