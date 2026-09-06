@@ -1,3 +1,28 @@
+## Phase 6-E Frozen-Engine QK Runtime Shape And Invocation Attribution (2026-09-06)
+
+- Active branch is `phase/06e-qk-runtime-shape-invocation-attribution`,
+  starting from Phase 6-D checkpoint
+  `1fe1dfdd4998e6900b79ed46cd51f7054a482001`. The controlled Jetson raw
+  directory was `/tmp/phase6e_qk_20260906T092107Z/`; raw Nsys and SQLite files
+  remain outside Git.
+- The run used five frozen engines with verified SHA-256 hashes, persistent
+  execution contexts, sample `eva_025`, forced tokens, one warmup prefill S=8,
+  one steady prefill S=8, and decode steps 0-3. No engine rebuild, ONNX change,
+  precision change, tactic forcing, runtime redesign, clock change, or NCU run
+  occurred.
+- Direct layer-0 K0 cache progression was `8->9`, `9->10`, `10->11`, and
+  `11->12`. Q/K/K^T/output GEMM shapes are `DERIVED_FROM_PROVEN_STATE`; kernel
+  arguments are `UNKNOWN`.
+- All four controlled decode `/MatMul` ranges correlated to
+  `sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_..._execute_kernel_trt`; zero
+  `trt_ampere_h16816gemm_128x64_ldg8_nn_v1` launches were observed.
+- The final gate is `PASS / BOUNDED / QK_H16816_PATH_NOT_REPRODUCED`.
+  Workload classification and trigger remain `UNKNOWN`; raw h16816-versus-xmma
+  duration ratios are invalid. Corrected target re-ranking is recommended, but
+  no implementation or next experiment is authorized.
+- Evidence:
+  `results/phase6e_qk_runtime_shape_invocation_attribution/20260906T083753Z/phase6e_attribution_report.md`.
+
 ## Phase 6-D Evidence-Corrected Target Re-Ranking (2026-09-06)
 
 - Active branch is `phase/06d-evidence-corrected-target-ranking`, starting from

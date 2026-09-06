@@ -1,0 +1,4 @@
+comparison_id,left_path,right_path,boundary,left_runtime_shape,right_runtime_shape,left_invocation_context,right_invocation_context,workload_classification,performance_comparison,evidence_level,reason
+HISTORICAL_PAIR,h16816,xmma,Phase 3-C historical trace,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,RAW_LATENCY_RATIO_NOT_VALID,UNKNOWN,Historical Nsys does not expose kernel arguments or runtime shapes
+HISTORICAL_H16816_VS_NEW_XMMA,h16816,xmma,Phase 3-C historical versus Phase 6-E controlled,UNKNOWN,DERIVED_FROM_PROVEN_STATE,HISTORICAL_EVIDENCE,DIRECT_RUNTIME_EVIDENCE,UNKNOWN,RAW_LATENCY_RATIO_NOT_VALID,UNKNOWN,Historical h16816 runtime shape and operation identity remain unknown
+NEW_H16816_REPRODUCTION,h16816,xmma,Phase 6-E controlled decode steps 0-3,NOT_OBSERVED,DERIVED_FROM_PROVEN_STATE,NOT_OBSERVED,DIRECT_RUNTIME_EVIDENCE,UNKNOWN,NOT_CALCULATED,DIRECT_RUNTIME_EVIDENCE,Controlled decode invocations contain zero h16816 kernels

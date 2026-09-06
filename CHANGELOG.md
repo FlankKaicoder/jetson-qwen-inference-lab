@@ -4,6 +4,26 @@
 
 ## [Unreleased]
 
+### Phase 6-E Frozen-Engine QK Runtime Shape And Invocation Attribution (2026-09-06)
+
+- Added a controlled Jetson attribution run using five frozen engines with
+  verified hashes, persistent execution contexts, sample `eva_025`, one warmup
+  prefill S=8, one steady prefill S=8, and decode steps 0-3. No engine rebuild,
+  ONNX change, precision change, tactic forcing, runtime redesign, clock change,
+  or NCU run occurred.
+- Recorded direct TensorRT I/O cache progression `8->9`, `9->10`, `10->11`, and
+  `11->12` for layer-0 K0 across decode steps 0-3. Derived layer-0 QK GEMM
+  work is per-head `1 x key_length x 128`; kernel arguments remain `UNKNOWN`.
+- Correlated each decode `/MatMul` invocation through Nsys to exactly one
+  `sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_...` kernel. All four launches were
+  xmma and zero were `trt_ampere_h16816gemm_128x64_ldg8_nn_v1`.
+- Kept historical-versus-new workload classification and path trigger as
+  `UNKNOWN`, with normalized performance `NOT_CALCULATED`. The four new xmma
+  durations are observational NSYS values and are not a performance ratio.
+- Closed Phase 6-E as `PASS / BOUNDED / QK_H16816_PATH_NOT_REPRODUCED`.
+  Optimization readiness was downgraded; corrected target re-ranking is the
+  recommended owner decision, but no implementation is authorized.
+
 ### Phase 6-D Evidence-Corrected Optimization Target Re-Ranking (2026-09-06)
 
 - Added offline candidate re-ranking from committed Phase 5 and Phase 6

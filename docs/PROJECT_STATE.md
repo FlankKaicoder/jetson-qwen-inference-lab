@@ -12,15 +12,15 @@
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 6-D — Evidence-Corrected Optimization Target Re-Ranking |
-| Current experiment | Phase 6-D Evidence-Corrected Target Re-Ranking |
-| Current branch | `phase/06d-evidence-corrected-target-ranking` |
+| Current phase | Phase 6-E — Frozen-Engine QK Runtime Shape And Invocation Attribution |
+| Current experiment | Phase 6-E QK Runtime Shape And Invocation Attribution |
+| Current branch | `phase/06e-qk-runtime-shape-invocation-attribution` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 6-D — evidence-corrected target re-ranking |
-| Experiment status | Prior Phase 1-5 and Phase 6-A/B/C statuses are unchanged. Phase 6-D completed offline evidence synthesis without new Jetson execution or profiling. |
-| Current Gate | Phase 6-D is `PASS / BOUNDED` with `NEXT_ATTRIBUTION_TARGET_RECOVERED`. The next candidate is layer-0 QK^T h16816, attribution-only, because runtime shapes, workload identity, invocation identity, and path trigger remain unresolved. |
-| Readiness | Stop after Phase 6-D and await owner review. No custom CUDA, FlashAttention, TensorRT Plugin, engine rebuild, ONNX change, precision change, tactic forcing, or implementation is authorized. |
+| Last completed experiment | Phase 6-E — controlled layer-0 QK runtime attribution |
+| Experiment status | Prior Phase 1-5 and Phase 6-A/B/C/D statuses are unchanged. Phase 6-E completed one frozen-engine controlled Jetson run and read-only Nsys analysis. |
+| Current Gate | Phase 6-E is `PASS / BOUNDED` with `QK_H16816_PATH_NOT_REPRODUCED`. All four controlled decode layer-0 `/MatMul` invocations used xmma and zero used h16816. Workload comparison and trigger remain `UNKNOWN`. |
+| Readiness | Stop after Phase 6-E and await owner review. No custom CUDA, FlashAttention, TensorRT Plugin, engine rebuild, ONNX change, precision change, tactic forcing, NCU, or implementation is authorized. |
 
 ## Confirmed Findings
 
@@ -125,11 +125,11 @@ No repository evidence records a formally `REJECT`-status experiment.
 
 ## Required Next Action
 
-Stop after Phase 6-D corrected-target re-ranking. Owner/ChatGPT review or an
-explicitly authorized Phase 6-E frozen-engine layer-0 QK attribution study is
-required before any follow-up. Do not implement custom CUDA attention,
-FlashAttention, TensorRT Plugins, engine rebuilds, ONNX changes, precision
-changes, tactic forcing, or runtime redesign.
+Stop after Phase 6-E. Owner/ChatGPT review is required before any follow-up.
+The recommended but unauthorized next decision is corrected target re-ranking.
+Do not implement custom CUDA attention, FlashAttention, TensorRT Plugins,
+engine rebuilds, ONNX changes, precision changes, tactic forcing, or runtime
+redesign. Do not run NCU without explicit authorization.
 
 ## Do-not-repeat Work
 
@@ -152,6 +152,10 @@ changes, tactic forcing, or runtime redesign.
   or claim a tactic defect; runtime workload identity is `UNKNOWN`.
 - Do not treat Phase 6-D's layer-0 QK h16816 score as implementation readiness;
   its final gate is attribution-only.
+- Do not compare historical h16816 and Phase 6-E xmma durations as normalized
+  performance; their workload classification remains `UNKNOWN`.
+- Do not treat Phase 6-E's derived Q/K/K^T/output GEMM shapes as direct kernel
+  arguments or direct engine I/O evidence.
 - Do not start Exp02, merge `main`, change the roadmap, or modify device power/clock state without explicit direction.
 
 ## Last Verified Git State
@@ -846,3 +850,32 @@ Before Phase 3-A execution, the canonical Phase 2 checkpoint was `b2083895b1199e
   authorization and remains forbidden to execute in Phase 6-D.
 - Evidence and report:
   `results/phase6d_evidence_corrected_target_ranking/20260906T081143Z/phase6d_target_ranking_report.md`.
+
+## Phase 6-E Frozen-Engine QK Runtime Shape And Invocation Attribution (2026-09-06)
+
+- Branch was `phase/06e-qk-runtime-shape-invocation-attribution`, starting at
+  `1fe1dfdd4998e6900b79ed46cd51f7054a482001`. The Jetson raw directory was
+  `/tmp/phase6e_qk_20260906T092107Z/`. No engine rebuild, ONNX change,
+  precision change, tactic forcing, runtime redesign, clock change, or NCU run
+  occurred.
+- The controlled run used five frozen engines with verified SHA-256 hashes,
+  persistent execution contexts, sample `eva_025`, forced tokens, one warmup
+  prefill S=8, one steady prefill S=8, and decode steps 0-3. A no-Nsys
+  validation run preceded the Nsys run.
+- Direct runtime evidence records cache progression `8->9`, `9->10`,
+  `10->11`, and `11->12` for layer-0 K0 across decode steps 0-3. Direct
+  shapes are engine I/O only; Q/K/K^T/output GEMM shapes are
+  `DERIVED_FROM_PROVEN_STATE` and kernel arguments remain `UNKNOWN`.
+- All four controlled decode `/MatMul` NVTX ranges correlated to one
+  `sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_..._execute_kernel_trt` launch each.
+  Zero `trt_ampere_h16816gemm_128x64_ldg8_nn_v1` launches were observed.
+- Workload classification between the historical h16816 and new xmma paths is
+  `UNKNOWN`; the path trigger is `UNKNOWN`; normalized performance is
+  `NOT_CALCULATED`. The four new xmma durations are observational NSYS values
+  only.
+- Final gate is `PASS / BOUNDED` with
+  `QK_H16816_PATH_NOT_REPRODUCED`. This does not invalidate historical
+  evidence, but downgrades layer-0 QK^T h16816 optimization readiness. No
+  implementation is authorized.
+- Evidence and report:
+  `results/phase6e_qk_runtime_shape_invocation_attribution/20260906T083753Z/phase6e_attribution_report.md`.
