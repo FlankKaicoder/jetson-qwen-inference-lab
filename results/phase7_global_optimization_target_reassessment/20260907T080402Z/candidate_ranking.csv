@@ -1,0 +1,12 @@
+rank,candidate_id,candidate,final_score,phase6f_final,phase6f_rank,phase7_rank_change,classification,selected_next_target,gate_relevance,rationale
+1,P7_002,Attention x V across 28 layers,6,6,2,+1,NO_PROVEN_AV_OPTIMIZATION_OPPORTUNITY,false,ACTIVE_HIGHEST_EVIDENCED_NO_AUTHORIZED_OPTIMIZATION,Rank 1 as the strongest active evidence surface after 112/112 direct steady attribution; optimization remains unproven and unauthorized
+2,P7_001,Layer-0 decode QK h16816 path,6,6,1,-1,NO_CURRENT_ACTION,false,INELIGIBLE_NO_CURRENT_ACTION,Historical significance remains real but controlled path was not reproduced and trigger/workload remain UNKNOWN
+3,P7_003,QK layers 1-27 static xmma path,5,5,3,0,ATTRIBUTION_ONLY,false,ELIGIBLE_ATTRIBUTION_ONLY,All-trace contribution is bounded; no defect evidence
+4,P7_004,Fused q_proj k_proj v_proj,4,4,4,0,ATTRIBUTION_ONLY,false,ELIGIBLE_ATTRIBUTION_ONLY,Single-layer shared evidence is insufficient for promotion
+5,P7_005,gate_proj shared h16816 path,4,4,5,0,ATTRIBUTION_ONLY,false,ELIGIBLE_ATTRIBUTION_ONLY,Shared h16816 attribution remains limiting
+6,P7_006,down_proj / o_proj,4,4,6,0,NO_CURRENT_ACTION,false,INELIGIBLE_NO_CURRENT_ACTION,No mapped runtime rows
+7,P7_007,TensorRT internal __myl_* family,1,1,7,0,ATTRIBUTION_ONLY,false,ELIGIBLE_ATTRIBUTION_ONLY,Large name-based aggregate lacks operator identity
+8,P7_008,RMSNorm / RoPE,-1,-1,8,0,NO_CURRENT_ACTION,false,INELIGIBLE_NO_CURRENT_ACTION,No positive performance evidence
+9,P7_009,CUDA Graph current prototype path,-2,-2,9,0,NO_CURRENT_ACTION,false,INELIGIBLE_NO_CURRENT_ACTION,Current captured graph is invalid and omits TensorRT kernels
+EXCLUDED,P7_000,Persistent ExecutionContext,15,not ranked,EXCLUDED,new inventory row,PROVEN_OPTIMIZATION,false,EXCLUDED_IMPLEMENTED_PROVEN,Already implemented and proven
+EXCLUDED,P7_010,up_proj decode FP16 GEMM,8,8,EXCLUDED,unchanged,CLOSED_FOR_NOW,false,EXCLUDED_CLOSED,Phase 5 negative feasibility overrides score

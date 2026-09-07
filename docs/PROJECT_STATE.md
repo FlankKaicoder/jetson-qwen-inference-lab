@@ -7,20 +7,20 @@
 | Field | Verified value |
 | --- | --- |
 | Project | `jetson-qwen-inference-lab` / Jetson Qwen Transformer AI Infra Optimization Lab |
-| Current date | `2026-09-06` UTC / `2026-09-07` Asia/Shanghai |
+| Current date | `2026-09-07` UTC / `2026-09-07` Asia/Shanghai |
 | Repository | `FlankKaicoder/jetson-qwen-inference-lab` |
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 6-H — Attention x V Feasibility Boundary Study |
-| Current experiment | Phase 6-H Attention x V Feasibility Boundary |
+| Current phase | Phase 7 — Global Optimization Target Reassessment |
+| Current experiment | Phase 7 Global Optimization Target Reassessment |
 | Current branch | `phase/06h-attention-v-feasibility-boundary` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 6-H — offline AV feasibility-boundary synthesis |
-| Experiment status | Prior Phase 1-5 and Phase 6-A/B/C/D/E/F/G statuses are unchanged. Phase 6-H is offline repository-only evidence synthesis. |
-| Current Gate | Phase 6-H is `PASS / BOUNDED` with `NO_PROVEN_AV_OPTIMIZATION_OPPORTUNITY`. The 112/112 AV runtime surface is directly attributable, but no existing NCU sample is directly owned by AV and no direct efficiency/headroom evidence exists. |
-| Readiness | Stop after Phase 6-H and await owner review. The owner may pause/close Attention, authorize a narrowly bounded direct AV NCU ownership study, or redirect to another target. No implementation or next phase is authorized. |
+| Last completed experiment | Phase 7 — offline global optimization target reassessment |
+| Experiment status | Prior Phase 1-5 and Phase 6-A/B/C/D/E/F/G/H statuses are unchanged. Phase 7 is offline repository-only evidence synthesis. |
+| Current Gate | Phase 7 is `PASS / BOUNDED` with `NO_PROVEN_CUSTOM_KERNEL_OPTIMIZATION_TARGET`. Attention x V is the strongest active attribution surface but remains `NO_PROVEN_AV_OPTIMIZATION_OPPORTUNITY`. |
+| Readiness | Stop after Phase 7 and await owner review. No implementation or next phase is authorized. A narrowly bounded direct AV NCU ownership study remains a possible owner decision but is not authorized by Phase 7. |
 
 ## Confirmed Findings
 
@@ -125,16 +125,24 @@ No repository evidence records a formally `REJECT`-status experiment.
 
 ## Required Next Action
 
-Stop after Phase 6-H. Owner/ChatGPT review is required before any follow-up.
-The gate is `NO_PROVEN_AV_OPTIMIZATION_OPPORTUNITY`. The AV surface is
-important and directly attributable, but it is not proven inefficient enough or
-clean enough for replacement. Choose Attention-branch pause/closure, a narrowly
-bounded direct AV NCU ownership study, or another target. Do not implement
-custom CUDA attention, FlashAttention, TensorRT Plugins, CUTLASS tuning, kernel
-replacement, engine rebuilds, ONNX changes, precision changes, tactic forcing,
-or runtime redesign. Do not run NCU without explicit authorization.
+Stop after Phase 7. Owner/ChatGPT review is required before any follow-up.
+The gate is `NO_PROVEN_CUSTOM_KERNEL_OPTIMIZATION_TARGET`. The strongest active
+candidate is Attention x V, but it remains
+`NO_PROVEN_AV_OPTIMIZATION_OPPORTUNITY` because direct AV efficiency, workload
+shape, tactic identity, backend identity, and headroom are `UNKNOWN`. Do not
+implement custom CUDA attention, FlashAttention, TensorRT Plugins, CUTLASS
+tuning, kernel replacement, engine rebuilds, ONNX changes, precision changes,
+tactic forcing, or runtime redesign. Do not run NCU without explicit
+authorization.
 
 ## Do-not-repeat Work
+
+- Do not reopen `up_proj`, reinterpret Phase 5's negative feasibility result as
+  a tactic defect, or treat the historical Layer-0 QK h16816 share as a
+  reproducible current optimization target.
+- Do not transfer Phase 3-E or Phase 5-B NCU metrics to Attention x V.
+- Do not use AV contribution as proof of inefficiency; contribution is not
+  headroom evidence.
 
 - Do not rerun or overwrite Original Exp01 correctness/benchmark, Exp01.1 stability, or Exp01.2 profiler artifacts merely to reconstruct context.
 - Do not repeat the completed sudo/NCU permission setup or modify sudoers.
