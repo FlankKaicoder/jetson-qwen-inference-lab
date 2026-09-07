@@ -1,3 +1,17 @@
+## Phase 8.2-A NCU Permission Audit (2026-09-07)
+
+- Phase 8.2-A was a read-only permission audit only. The Jetson user is in
+  `video` and `render`; `/dev/nvidia0`, `/dev/nvidiactl`, and
+  `/dev/nvidia-modeset` are `crw-rw-rw-`.
+- `/dev/nvidia-caps/` and `/proc/driver/nvidia/capabilities/profiling` are
+  `NOT_AVAILABLE`. NCU `2024.3.1.0` is available, but a non-elevated smoke
+  test using the existing `rmsnorm_ncu_target` and `--clock-control none`
+  returned `Insufficient privileges to launch app for profiling. Launch app
+  with root privileges`.
+- Final gate is `BLOCKED`. No elevated command or system permission change was
+  attempted. Report:
+  `experiments/Phase8-rmsnorm-optimization/docs/phase8_2A_ncu_permission_audit_report.md`.
+
 ## Phase 8.1 CUDA RMSNorm Kernel Implementation (2026-09-07)
 
 - Owner-authorized Phase 8.1 added standalone CUDA RMSNorm V0/V1/V2 under

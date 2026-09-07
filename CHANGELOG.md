@@ -4,6 +4,15 @@
 
 ## [Unreleased]
 
+### Phase 8.2-A NCU Permission Audit (2026-09-07)
+
+- Added a read-only NCU permission audit. The Jetson user is in `video` and
+  `render`, but non-elevated NCU still requires root or equivalent system
+  profiling authorization. `/dev/nvidia-caps/` and the NVIDIA profiling
+  capability file are `NOT_AVAILABLE`.
+- Final gate is `BLOCKED`. No elevated command, device-node change, user-group
+  change, modprobe change, clock change, or bypass was attempted.
+
 ### Phase 8.1 CUDA RMSNorm Kernel Implementation (2026-09-07)
 
 - Added standalone CUDA RMSNorm V0/V1/V2 with an independent C++/CUDA

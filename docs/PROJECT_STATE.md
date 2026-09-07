@@ -98,6 +98,23 @@
   Formal evidence:
   `experiments/Phase8-rmsnorm-optimization/artifacts/phase8_1_20260907T093447Z/`.
 
+## Phase 8.2-A NCU Permission Audit Checkpoint (2026-09-07)
+
+- The owner requested a read-only NCU permission audit. It did not perform
+  NCU performance analysis or modify CUDA kernels, benchmark logic, TensorRT,
+  Qwen3, clock, power mode, device nodes, user groups, or modprobe
+  configuration.
+- The Jetson user is in `video` and `render`, and the ordinary NVIDIA device
+  nodes are `crw-rw-rw-`. `/dev/nvidia-caps/` and
+  `/proc/driver/nvidia/capabilities/profiling` are `NOT_AVAILABLE`.
+- NCU `2024.3.1.0` exists at `/usr/local/cuda-12.6/bin/ncu`. A minimal
+  non-elevated smoke test using the existing `rmsnorm_ncu_target` binary and
+  `--clock-control none` still returned `Insufficient privileges to launch
+  app for profiling. Launch app with root privileges`.
+- Final gate is `BLOCKED`. No `sudo ncu`, permission change, or bypass was
+  attempted. Report:
+  `experiments/Phase8-rmsnorm-optimization/docs/phase8_2A_ncu_permission_audit_report.md`.
+
 ## Confirmed Findings
 
 - Baseline is FP32 `C[i] = A[i] + B[i]`, one element per thread, with bounds checking.
