@@ -12,15 +12,15 @@
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 8.0 — RMSNorm Baseline Audit |
-| Current experiment | Phase 8.0 RMSNorm Baseline Audit |
+| Current phase | Phase 8.1 — CUDA RMSNorm Kernel Implementation and Benchmark |
+| Current experiment | Phase 8.1 CUDA RMSNorm Kernel Implementation and Benchmark |
 | Current branch | `phase/08-rmsnorm-optimization` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 8.0 — Jetson environment/model audit plus PyTorch RMSNorm baseline |
-| Experiment status | Prior Phase 1-7 statuses are unchanged. Phase 8.0 is a bounded audit and baseline-preparation experiment explicitly authorized after Phase 7. |
-| Current Gate | Phase 8.0 is `PASS / BOUNDED / PHASE8_1_BASELINE_PREPARED`. It does not claim RMSNorm is inefficient or that custom CUDA will improve Qwen3. |
-| Readiness | Stop after Phase 8.0 and await explicit owner authorization for Phase 8.1. No NCU profiling or TensorRT Plugin work is authorized in Phase 8.1. |
+| Last completed experiment | Phase 8.1 — standalone CUDA RMSNorm V0/V1/V2 correctness and CUDA Event benchmark |
+| Experiment status | Prior Phase 1-7 and Phase 8.0 statuses are unchanged. Phase 8.1 is a bounded synthetic CUDA kernel benchmark explicitly authorized by the owner. |
+| Current Gate | Phase 8.1 is `PASS / BOUNDED`. It does not claim full-model Qwen3 improvement or a proven microarchitectural cause. |
+| Readiness | Stop after Phase 8.1 and await explicit owner authorization for Phase 8.2. No NCU, TensorRT Plugin, ONNX change, engine rebuild, or real-runtime replacement is authorized by this result. |
 
 ## Phase 8.0 RMSNorm Baseline Audit Checkpoint (2026-09-07)
 
@@ -63,6 +63,40 @@
   `experiments/Phase8-rmsnorm-optimization/artifacts/phase8_0_20260907T091524Z/`.
   Pilot evidence is preserved at
   `experiments/Phase8-rmsnorm-optimization/artifacts/phase8_0_20260907T091305Z/`.
+
+## Phase 8.1 CUDA RMSNorm Kernel Checkpoint (2026-09-07)
+
+- The owner explicitly authorized Phase 8.1 only: CUDA RMSNorm V0/V1/V2
+  implementation, correctness, and kernel-only benchmark. No NCU, TensorRT
+  Plugin, ONNX change, engine rebuild, or real Qwen3 runtime replacement was
+  performed.
+- The Jetson checkout remained unchanged at
+  `phase/03e-tensorrt-kernel-attribution@bf7abc67eb58662a68316045e166aa9f611330d7`.
+  Phase 8.1 source was copied to
+  `/tmp/phase8_1_rmsnorm_20260907T093447Z/`, built with CUDA `12.6.68` for
+  SM87, and compact evidence was copied back to Windows.
+- The implementation is in
+  `experiments/Phase8-rmsnorm-optimization/cuda-kernel/rmsnorm/`. V0 uses
+  shared-memory tree reduction. V1 uses warp-shuffle reduction. V2 uses
+  `half2` / `bfloat162` vectorized loads and stores. The synthetic benchmark
+  is independent C++/CUDA and does not use the Qwen3 checkpoint.
+- Formal correctness used an explicit FP32 host reduction and a preset gate of
+  finite output plus relative-L2 `<= 0.005`. All 12 cases passed. Relative-L2
+  was `0.000208692` for both FP16 shapes and `0.0016336` / `0.00165305` for
+  BF16 prefill / decode.
+- Formal benchmark used warmup 50, 200 repetitions per trial, 5 trials, and
+  CUDA Events. On FP16 prefill, per-call event means were `0.02369286405`,
+  `0.02021680002`, and `0.01891695993 ms` for V0/V1/V2. On FP16 decode they
+  were `0.02214268798`, `0.01916262398`, and `0.01759222411 ms`. BF16 had the
+  same ordering.
+- V1-versus-V0 improvement is consistent with reduced reduction barriers and
+  shared-memory use. V2 is consistent with vectorized memory access, but its
+  block-shape change is coupled, so exact microarchitectural attribution
+  remains `INCONCLUSIVE` without NCU.
+- Report:
+  `experiments/Phase8-rmsnorm-optimization/docs/phase8_1_cuda_rmsnorm_kernel_report.md`.
+  Formal evidence:
+  `experiments/Phase8-rmsnorm-optimization/artifacts/phase8_1_20260907T093447Z/`.
 
 ## Confirmed Findings
 
@@ -167,13 +201,12 @@ No repository evidence records a formally `REJECT`-status experiment.
 
 ## Required Next Action
 
-Stop after Phase 8.0. The owner must explicitly authorize Phase 8.1.
-Phase 8.0 is `PASS / BOUNDED / PHASE8_1_BASELINE_PREPARED`, but it does not
-prove an RMSNorm optimization opportunity. When Phase 8.1 is authorized, the
-first step is CUDA RMSNorm V0/V1/V2 implementation and correctness/benchmark
-with the same per-call and amortized timing boundaries. Do not run NCU in
-Phase 8.1; do not modify TensorRT engines, ONNX, precision, tactics, or the
-real Qwen3 runtime before the Phase 8.3/8.4 authorization boundaries.
+Stop after Phase 8.1. Phase 8.1 is `PASS / BOUNDED`; it proves only that the
+standalone CUDA kernels passed the preset correctness gate and records their
+CUDA Event latency. It does not prove a full-model RMSNorm optimization
+opportunity or a precise microarchitectural cause. Phase 8.2 requires explicit
+owner authorization. Do not run NCU, modify TensorRT engines, ONNX, precision,
+tactics, or the real Qwen3 runtime without that boundary.
 
 ## Do-not-repeat Work
 

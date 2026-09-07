@@ -1,0 +1,82 @@
+
+Fatbin ptx code:
+================
+arch = sm_87
+code version = [8,5]
+host = linux
+compile_size = 64bit
+compressed
+ptxasOptions = 
+
+Fatbin elf code:
+================
+arch = sm_87
+code version = [1,7]
+host = linux
+compile_size = 64bit
+
+symbols:
+STT_FUNC         STB_LOCAL  STO_ENTRY      _ZN54_GLOBAL__N__a8f2fe95_13_rmsnorm_v0_cu_60813d60_132957517rmsnorm_v0_kernelI13__nv_bfloat16EEvPKT_PS2_S4_if
+STT_FUNC         STB_WEAK   STV_DEFAULT    $__internal_0_$__cuda_sm20_rcp_rn_f32_slowpath
+STT_FUNC         STB_WEAK   STV_DEFAULT    $__internal_1_$__cuda_sm20_sqrt_rn_f32_slowpath
+STT_FUNC         STB_WEAK   STV_DEFAULT    $__internal_2_$__cuda_sm3x_div_rn_noftz_f32_slowpath
+STT_FUNC         STB_LOCAL  STO_ENTRY      _ZN54_GLOBAL__N__a8f2fe95_13_rmsnorm_v0_cu_60813d60_132957517rmsnorm_v0_kernelI6__halfEEvPKT_PS2_S4_if
+STT_FUNC         STB_WEAK   STV_DEFAULT    $__internal_3_$__cuda_sm20_rcp_rn_f32_slowpath
+STT_FUNC         STB_WEAK   STV_DEFAULT    $__internal_4_$__cuda_sm20_sqrt_rn_f32_slowpath
+STT_FUNC         STB_WEAK   STV_DEFAULT    $__internal_5_$__cuda_sm3x_div_rn_noftz_f32_slowpath
+
+Fatbin ptx code:
+================
+arch = sm_87
+code version = [8,5]
+host = linux
+compile_size = 64bit
+compressed
+ptxasOptions = 
+
+Fatbin elf code:
+================
+arch = sm_87
+code version = [1,7]
+host = linux
+compile_size = 64bit
+
+symbols:
+STT_FUNC         STB_LOCAL  STO_ENTRY      _ZN54_GLOBAL__N__104e99f0_13_rmsnorm_v1_cu_60813d60_132957217rmsnorm_v1_kernelI13__nv_bfloat16EEvPKT_PS2_S4_if
+STT_FUNC         STB_WEAK   STV_DEFAULT    $__internal_0_$__cuda_sm20_rcp_rn_f32_slowpath
+STT_FUNC         STB_WEAK   STV_DEFAULT    $__internal_1_$__cuda_sm20_sqrt_rn_f32_slowpath
+STT_FUNC         STB_WEAK   STV_DEFAULT    $__internal_2_$__cuda_sm3x_div_rn_noftz_f32_slowpath
+STT_FUNC         STB_WEAK   STV_DEFAULT    $__internal_3_$__cuda_sm70_shflsync_down_p
+STT_FUNC         STB_LOCAL  STO_ENTRY      _ZN54_GLOBAL__N__104e99f0_13_rmsnorm_v1_cu_60813d60_132957217rmsnorm_v1_kernelI6__halfEEvPKT_PS2_S4_if
+STT_FUNC         STB_WEAK   STV_DEFAULT    $__internal_4_$__cuda_sm20_rcp_rn_f32_slowpath
+STT_FUNC         STB_WEAK   STV_DEFAULT    $__internal_5_$__cuda_sm20_sqrt_rn_f32_slowpath
+STT_FUNC         STB_WEAK   STV_DEFAULT    $__internal_6_$__cuda_sm3x_div_rn_noftz_f32_slowpath
+STT_FUNC         STB_WEAK   STV_DEFAULT    $__internal_7_$__cuda_sm70_shflsync_down_p
+
+Fatbin ptx code:
+================
+arch = sm_87
+code version = [8,5]
+host = linux
+compile_size = 64bit
+compressed
+ptxasOptions = 
+
+Fatbin elf code:
+================
+arch = sm_87
+code version = [1,7]
+host = linux
+compile_size = 64bit
+
+symbols:
+STT_FUNC         STB_LOCAL  STO_ENTRY      _ZN54_GLOBAL__N__02fb361e_13_rmsnorm_v2_cu_60813d60_132957317rmsnorm_v2_kernelI13__nv_bfloat16EEvPKT_PS2_S4_if
+STT_FUNC         STB_WEAK   STV_DEFAULT    $__internal_0_$__cuda_sm20_rcp_rn_f32_slowpath
+STT_FUNC         STB_WEAK   STV_DEFAULT    $__internal_1_$__cuda_sm20_sqrt_rn_f32_slowpath
+STT_FUNC         STB_WEAK   STV_DEFAULT    $__internal_2_$__cuda_sm3x_div_rn_noftz_f32_slowpath
+STT_FUNC         STB_WEAK   STV_DEFAULT    $__internal_3_$__cuda_sm70_shflsync_down_p
+STT_FUNC         STB_LOCAL  STO_ENTRY      _ZN54_GLOBAL__N__02fb361e_13_rmsnorm_v2_cu_60813d60_132957317rmsnorm_v2_kernelI6__halfEEvPKT_PS2_S4_if
+STT_FUNC         STB_WEAK   STV_DEFAULT    $__internal_4_$__cuda_sm20_rcp_rn_f32_slowpath
+STT_FUNC         STB_WEAK   STV_DEFAULT    $__internal_5_$__cuda_sm20_sqrt_rn_f32_slowpath
+STT_FUNC         STB_WEAK   STV_DEFAULT    $__internal_6_$__cuda_sm3x_div_rn_noftz_f32_slowpath
+STT_FUNC         STB_WEAK   STV_DEFAULT    $__internal_7_$__cuda_sm70_shflsync_down_p

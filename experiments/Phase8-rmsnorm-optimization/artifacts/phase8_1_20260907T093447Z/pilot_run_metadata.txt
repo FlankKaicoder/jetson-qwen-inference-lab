@@ -1,0 +1,15 @@
+device=Orin
+compute_capability=8.7
+multiprocessors=8
+cuda_driver_version=12060
+cuda_runtime_version=12060
+hidden=1024
+epsilon=1e-06
+seed=20260907
+weight_source=deterministic_normal
+warmup=1
+repetitions=2
+trials=1
+timing_method=cuda_event
+percall_timing=event pair around each kernel
+amortized_timing=one event pair around 2 kernels

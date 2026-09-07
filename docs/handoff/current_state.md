@@ -1,3 +1,27 @@
+## Phase 8.1 CUDA RMSNorm Kernel Implementation (2026-09-07)
+
+- Owner-authorized Phase 8.1 added standalone CUDA RMSNorm V0/V1/V2 under
+  `experiments/Phase8-rmsnorm-optimization/cuda-kernel/rmsnorm/`. The Jetson
+  repository checkout was not changed; source ran from
+  `/tmp/phase8_1_rmsnorm_20260907T093447Z/`.
+- Formal FP16/BF16 prefill and decode correctness used an explicit FP32 host
+  reference and the preset finite/relative-L2 <= 0.005 gate. All 12 cases
+  passed. A pilot BF16 dispatch error was fixed before the formal run.
+- Formal benchmark used CUDA Events, warmup 50, 200 reps, and 5 trials. V0/V1/V2
+  FP16 prefill per-call means were `0.02369286405`, `0.02021680002`, and
+  `0.01891695993 ms`; decode means were `0.02214268798`, `0.01916262398`, and
+  `0.01759222411 ms`. BF16 had the same ordering.
+- V1 improves over V0 with the same scalar memory pattern, so its gain is
+  consistent with fewer reduction barriers and shared-memory operations. V2 is
+  consistent with vectorized access, but thread-count/per-thread work also
+  changes; exact attribution is `INCONCLUSIVE` without NCU.
+- Final gate is `PASS / BOUNDED`; it does not establish full-model benefit.
+  Stop after Phase 8.1. Phase 8.2 and NCU require explicit owner
+  authorization. Report:
+  `experiments/Phase8-rmsnorm-optimization/docs/phase8_1_cuda_rmsnorm_kernel_report.md`.
+  Evidence:
+  `experiments/Phase8-rmsnorm-optimization/artifacts/phase8_1_20260907T093447Z/`.
+
 ## Phase 8.0 RMSNorm Baseline Audit (2026-09-07)
 
 - Owner-authorized Phase 8.0 created

@@ -4,6 +4,22 @@
 
 ## [Unreleased]
 
+### Phase 8.1 CUDA RMSNorm Kernel Implementation (2026-09-07)
+
+- Added standalone CUDA RMSNorm V0/V1/V2 with an independent C++/CUDA
+  correctness and CUDA Event benchmark. No NCU, TensorRT Plugin, ONNX change,
+  engine rebuild, or real Qwen3 runtime replacement occurred.
+- Completed 12/12 FP16/BF16 prefill/decode correctness cases against an
+  explicit FP32 reduction reference under the preset relative-L2 `<= 0.005`
+  gate. A pilot BF16 dispatch error was fixed before the formal run.
+- Recorded stable CUDA Event means across warmup 50, 200 repetitions per
+  trial, and 5 trials. V1 improved over V0 and V2 improved over V1 on both
+  prefill and decode. The V1 gain is consistent with reduced synchronization
+  and shared-memory use; V2's exact causal decomposition is `INCONCLUSIVE`
+  without NCU.
+- Final gate is `PASS / BOUNDED`. This does not establish a full-model
+  optimization opportunity or authorize Phase 8.2.
+
 ### Phase 8.0 RMSNorm Baseline Audit (2026-09-07)
 
 - Added the owner-authorized Phase 8.0 environment/model audit and PyTorch
