@@ -1,0 +1,9 @@
+collected_at_utc=2026-09-07T09:15:24Z
+hostname=nvidia-desktop
+repo_dir=/home/nvidia/projects/jetson-qwen-inference-lab
+git_branch=phase/03e-tensorrt-kernel-attribution
+git_head=bf7abc67eb58662a68316045e166aa9f611330d7
+git_status_short_start=8
+script_sha256=fa78b5f740f2af6be1608a141b00a77c0728c4a7cd280b9903d2edd98a7474b6
+model_sha256=f47f71177f32bcd101b7573ec9171e6a57f4f4d31148d38e382306f42996874b
+model_config_sha256=660db3b73d788119c04535e48cf9be5f55bc3100841a718637ae695b442f27dd

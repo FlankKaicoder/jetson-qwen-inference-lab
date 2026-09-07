@@ -4,6 +4,20 @@
 
 ## [Unreleased]
 
+### Phase 8.0 RMSNorm Baseline Audit (2026-09-07)
+
+- Added the owner-authorized Phase 8.0 environment/model audit and PyTorch
+  RMSNorm baseline on Jetson. No CUDA kernel, TensorRT plugin, engine build or
+  execution, ONNX change, precision change, tactic forcing, NSYS, or NCU run
+  occurred.
+- Reconfirmed frozen Qwen3-0.6B identity, 28 layers, hidden 1024, BF16
+  checkpoint dtype, and 113 RMSNorm weight tensors. Inventoried the four
+  existing FP16/Mixed prefill/decode engines by SHA-256 only.
+- Completed finite PyTorch RMSNorm BF16/FP16 prefill/decode correctness and a
+  stable host-launch-dominated call baseline. Formal gate is `PASS / BOUNDED /
+  PHASE8_1_BASELINE_PREPARED`; kernel-only latency remains `UNKNOWN` and no
+  optimization opportunity is claimed.
+
 ### Phase 6-H Attention x V Feasibility Boundary (2026-09-06)
 
 - Added an offline feasibility-boundary synthesis using only frozen

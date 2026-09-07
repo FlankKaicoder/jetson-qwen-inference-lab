@@ -12,15 +12,57 @@
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 7 — Global Optimization Target Reassessment |
-| Current experiment | Phase 7 Global Optimization Target Reassessment |
-| Current branch | `phase/06h-attention-v-feasibility-boundary` |
+| Current phase | Phase 8.0 — RMSNorm Baseline Audit |
+| Current experiment | Phase 8.0 RMSNorm Baseline Audit |
+| Current branch | `phase/08-rmsnorm-optimization` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 7 — offline global optimization target reassessment |
-| Experiment status | Prior Phase 1-5 and Phase 6-A/B/C/D/E/F/G/H statuses are unchanged. Phase 7 is offline repository-only evidence synthesis. |
-| Current Gate | Phase 7 is `PASS / BOUNDED` with `NO_PROVEN_CUSTOM_KERNEL_OPTIMIZATION_TARGET`. Attention x V is the strongest active attribution surface but remains `NO_PROVEN_AV_OPTIMIZATION_OPPORTUNITY`. |
-| Readiness | Stop after Phase 7 and await owner review. No implementation or next phase is authorized. A narrowly bounded direct AV NCU ownership study remains a possible owner decision but is not authorized by Phase 7. |
+| Last completed experiment | Phase 8.0 — Jetson environment/model audit plus PyTorch RMSNorm baseline |
+| Experiment status | Prior Phase 1-7 statuses are unchanged. Phase 8.0 is a bounded audit and baseline-preparation experiment explicitly authorized after Phase 7. |
+| Current Gate | Phase 8.0 is `PASS / BOUNDED / PHASE8_1_BASELINE_PREPARED`. It does not claim RMSNorm is inefficient or that custom CUDA will improve Qwen3. |
+| Readiness | Stop after Phase 8.0 and await explicit owner authorization for Phase 8.1. No NCU profiling or TensorRT Plugin work is authorized in Phase 8.1. |
+
+## Phase 8.0 RMSNorm Baseline Audit Checkpoint (2026-09-07)
+
+- The owner explicitly authorized the narrow Phase 8.0 step after Phase 7:
+  environment/model audit plus PyTorch RMSNorm baseline preparation only. No
+  CUDA kernel, TensorRT plugin, ONNX change, engine rebuild/execution, runtime
+  redesign, precision change, tactic forcing, NSYS, or NCU run occurred.
+- Windows created `phase/08-rmsnorm-optimization` from
+  `phase/06h-attention-v-feasibility-boundary@ffe88c6e34d1b164522db5a85f2f3e16ecab153c`.
+  The Jetson checkout remained unchanged on
+  `phase/03e-tensorrt-kernel-attribution@bf7abc67eb58662a68316045e166aa9f611330d7`
+  with its preserved untracked paths.
+- Jetson audit: Orin SM87, L4T `R36.4.3`, CUDA `12.6.68`, TensorRT `10.3.0`,
+  NCU `2024.3.1.0`, NSYS `2024.5.4.34`, PyTorch
+  `2.5.0a0+872d972e41.nv24.08`. No package or device-state change occurred.
+- Qwen3 identity remains frozen:
+  `/home/nvidia/models/qwen3-0.6b-c1899de289a04d12100db370d81485cdf75e47ca`,
+  `model.safetensors` SHA256
+  `f47f71177f32bcd101b7573ec9171e6a57f4f4d31148d38e382306f42996874b`. It has
+  28 layers, hidden size 1024, epsilon `1e-6`, BF16 checkpoint dtype, and 113
+  RMSNorm weight tensors: 56 input/post attention `[1024]`, 56 Q/K norm
+  `[128]`, and 1 final norm `[1024]`.
+- Existing FP16 and Mixed prefill/decode engines were inventoried by SHA-256
+  only; they were not deserialized or executed. Mixed Decode remains
+  `445fc7d295c5bbb91e5392182347aa0e59612a031b5556a3461e09f30a59005c`.
+- The formal PyTorch baseline used `torch.nn.functional.rms_norm`, explicit
+  FP32 reduction as correctness reference, `model.norm.weight`, shapes
+  `[1,8,1024]` and `[1,1,1024]`, BF16/FP16, seed `20260907`, warmup 50,
+  200 repetitions per trial, and 5 trials. All cases were finite; relative-L2
+  was `0.0036257645` (BF16 prefill), `0.0003673395` (FP16 prefill),
+  `0.0032095013` (BF16 decode), and `0.0003589428` (FP16 decode).
+- Amortized CUDA Event means were stable at `0.192396866-0.198005791 ms`
+  with CV `0.002233256-0.008902449`, but they agree with host submit means
+  within about `0.002 ms`. Therefore the stable PyTorch baseline is
+  host-launch/operator-overhead dominated and
+  `PYTORCH_RMSNORM_KERNEL_ONLY_LATENCY` remains `UNKNOWN`.
+- Report:
+  `experiments/Phase8-rmsnorm-optimization/docs/phase8_0_baseline_audit_report.md`.
+  Formal evidence:
+  `experiments/Phase8-rmsnorm-optimization/artifacts/phase8_0_20260907T091524Z/`.
+  Pilot evidence is preserved at
+  `experiments/Phase8-rmsnorm-optimization/artifacts/phase8_0_20260907T091305Z/`.
 
 ## Confirmed Findings
 
@@ -125,15 +167,13 @@ No repository evidence records a formally `REJECT`-status experiment.
 
 ## Required Next Action
 
-Stop after Phase 7. Owner/ChatGPT review is required before any follow-up.
-The gate is `NO_PROVEN_CUSTOM_KERNEL_OPTIMIZATION_TARGET`. The strongest active
-candidate is Attention x V, but it remains
-`NO_PROVEN_AV_OPTIMIZATION_OPPORTUNITY` because direct AV efficiency, workload
-shape, tactic identity, backend identity, and headroom are `UNKNOWN`. Do not
-implement custom CUDA attention, FlashAttention, TensorRT Plugins, CUTLASS
-tuning, kernel replacement, engine rebuilds, ONNX changes, precision changes,
-tactic forcing, or runtime redesign. Do not run NCU without explicit
-authorization.
+Stop after Phase 8.0. The owner must explicitly authorize Phase 8.1.
+Phase 8.0 is `PASS / BOUNDED / PHASE8_1_BASELINE_PREPARED`, but it does not
+prove an RMSNorm optimization opportunity. When Phase 8.1 is authorized, the
+first step is CUDA RMSNorm V0/V1/V2 implementation and correctness/benchmark
+with the same per-call and amortized timing boundaries. Do not run NCU in
+Phase 8.1; do not modify TensorRT engines, ONNX, precision, tactics, or the
+real Qwen3 runtime before the Phase 8.3/8.4 authorization boundaries.
 
 ## Do-not-repeat Work
 

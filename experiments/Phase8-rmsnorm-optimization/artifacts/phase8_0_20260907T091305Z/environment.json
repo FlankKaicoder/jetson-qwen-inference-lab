@@ -1,0 +1,22 @@
+{
+  "collected_at_utc": "2026-09-07T09:13:04.819243+00:00",
+  "cuda_available": true,
+  "cuda_capability": [
+    8,
+    7
+  ],
+  "cuda_device": "Orin",
+  "cuda_free_bytes": 5957918720,
+  "cuda_total_bytes": 7989940224,
+  "host_meminfo": {
+    "MemAvailable": 5958115328,
+    "MemTotal": 7989940224,
+    "SwapFree": 3079188480,
+    "SwapTotal": 3994951680
+  },
+  "hostname": "nvidia-desktop",
+  "platform": "Linux-5.15.148-tegra-aarch64-with-glibc2.35",
+  "python": "3.10.12",
+  "torch": "2.5.0a0+872d972e41.nv24.08",
+  "torch_cuda": "12.6"
+}

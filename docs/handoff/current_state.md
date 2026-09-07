@@ -1,3 +1,29 @@
+## Phase 8.0 RMSNorm Baseline Audit (2026-09-07)
+
+- Owner-authorized Phase 8.0 created
+  `phase/08-rmsnorm-optimization` from
+  `phase/06h-attention-v-feasibility-boundary@ffe88c6e34d1b164522db5a85f2f3e16ecab153c`.
+  The Jetson checkout was not changed.
+- The run verified Jetson SM87, CUDA 12.6.68, TensorRT 10.3, NCU 2024.3.1,
+  NSYS 2024.5.4, and the frozen Qwen3-0.6B checkpoint. Qwen3 has 28 layers,
+  hidden 1024, RMSNorm epsilon 1e-6, BF16 checkpoint dtype, and 113 RMSNorm
+  weight tensors.
+- Existing FP16 and Mixed prefill/decode engines were inventoried by SHA-256
+  only; no engine was deserialized, executed, rebuilt, or modified. No CUDA
+  kernel, plugin, ONNX, precision, tactic, NSYS, or NCU work occurred.
+- Formal PyTorch RMSNorm baseline used `F.rms_norm`, explicit FP32 reduction
+  reference, `model.norm.weight`, BF16/FP16, prefill `[1,8,1024]`, decode
+  `[1,1,1024]`, seed 20260907, warmup 50, 200 reps, and 5 trials. All cases
+  were finite. Amortized CUDA Event means were 0.192396866-0.198005791 ms
+  with CV 0.002233256-0.008902449, but host submit agreed within about
+  0.002 ms, so `PYTORCH_RMSNORM_KERNEL_ONLY_LATENCY` is UNKNOWN.
+- Final gate is `PASS / BOUNDED / PHASE8_1_BASELINE_PREPARED`; it does not
+  prove an optimization opportunity. Stop and await explicit authorization
+  for Phase 8.1. Report:
+  `experiments/Phase8-rmsnorm-optimization/docs/phase8_0_baseline_audit_report.md`.
+  Formal evidence:
+  `experiments/Phase8-rmsnorm-optimization/artifacts/phase8_0_20260907T091524Z/`.
+
 ## Phase 7 Global Optimization Target Reassessment (2026-09-07)
 
 - Active branch is `phase/06h-attention-v-feasibility-boundary`, starting from
