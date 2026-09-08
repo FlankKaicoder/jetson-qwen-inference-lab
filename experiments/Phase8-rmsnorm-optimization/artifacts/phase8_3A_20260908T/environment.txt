@@ -1,0 +1,28 @@
+captured_utc=2026-09-08T09:26:09Z
+Linux nvidia-desktop 5.15.148-tegra #1 SMP PREEMPT Tue Jan 7 17:14:38 PST 2025 aarch64 aarch64 aarch64 GNU/Linux
+cuda_compiler=Build cuda_12.6.r12.6/compiler.34714021_0
+tensorrt_packages=
+libnvinfer10 10.3.0.30-1+cuda12.5
+libnvinfer-bin 10.3.0.30-1+cuda12.5
+libnvinfer-dev 10.3.0.30-1+cuda12.5
+libnvinfer-dev-cross-aarch64
+libnvinfer-dispatch10 10.3.0.30-1+cuda12.5
+libnvinfer-dispatch-dev 10.3.0.30-1+cuda12.5
+libnvinfer-dispatch-dev-cross-aarch64
+libnvinfer-doc
+libnvinfer-headers-dev 10.3.0.30-1+cuda12.5
+libnvinfer-headers-plugin-dev 10.3.0.30-1+cuda12.5
+libnvinfer-lean10 10.3.0.30-1+cuda12.5
+libnvinfer-lean-dev 10.3.0.30-1+cuda12.5
+libnvinfer-lean-dev-cross-aarch64
+libnvinfer-plugin10 10.3.0.30-1+cuda12.5
+libnvinfer-plugin-dev 10.3.0.30-1+cuda12.5
+libnvinfer-plugin-dev-cross-aarch64
+libnvinfer-samples 10.3.0.30-1+cuda12.5
+libnvinfer-vc-plugin10 10.3.0.30-1+cuda12.5
+libnvinfer-vc-plugin-dev 10.3.0.30-1+cuda12.5
+libnvinfer-vc-plugin-dev-cross-aarch64
+gpu=
+compute_capability=SM87 (verified Phase 8.0 audit)
+remote_checkout_branch=phase/03e-tensorrt-kernel-attribution
+remote_checkout_head=bf7abc67eb58662a68316045e166aa9f611330d7

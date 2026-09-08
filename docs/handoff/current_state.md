@@ -949,3 +949,17 @@ The next decision is `NEXT_TARGET_BOUNDED`, not an implementation target. Rank
 `61.815776 ms` all-trace mapped time; it needs operator attribution and
 feasibility recovery. `up_proj` is `CLOSED_FOR_NOW`. Evidence is under
 `results/phase5_closeout_and_target_reselection/20260905T115247Z/`.
+## Phase 8.3-A TensorRT RMSNorm Plugin Minimal Integration (2026-09-08)
+
+- Branch `phase/08-rmsnorm-optimization`, starting HEAD
+  `031c98cde416434bbed21ceb74c5a509d99c596b`; existing unrelated untracked
+  paths remain preserved.
+- Clean Jetson run is isolated under `/tmp/phase8_3a_20260908T144524Z/`; the
+  repository copy of compact evidence is
+  `experiments/Phase8-rmsnorm-optimization/artifacts/phase8_3A_20260908T/`.
+- TensorRT 10.3 `IPluginV3` synthetic FP16 `[1,8,1024]` plugin passed creator
+  registration, build, deserialization, inference, and FP16 output binding.
+  Relative-L2 `0.0002063558` <= `1e-3`; plugin mean `0.0146312000 ms`, PyTorch
+  control mean `0.1691536331 ms`, both `50 / 200 / 5`.
+- Gate `PASS / BOUNDED`. Stop here: no Qwen3, ONNX, engine replacement, or
+  follow-up experiment is authorized by this result.

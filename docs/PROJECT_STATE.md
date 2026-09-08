@@ -12,15 +12,15 @@
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 8.2-B — RMSNorm Nsight Compute Microarchitecture Analysis |
-| Current experiment | Phase 8.2-B RMSNorm Nsight Compute Microarchitecture Analysis |
+| Current phase | Phase 8.3-A — TensorRT RMSNorm Plugin Minimal Integration |
+| Current experiment | Phase 8.3-A TensorRT RMSNorm Plugin Minimal Integration |
 | Current branch | `phase/08-rmsnorm-optimization` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 8.2-B — root Nsight Compute profiles for standalone RMSNorm V0/V1/V2 |
-| Experiment status | Phase 8.2-B completed with six FP16 profiles at prefill/decode shapes. The Jetson checkout and system state remain unchanged. |
-| Current Gate | Phase 8.2-B is `PASS / BOUNDED`: NCU supports V1 reduction/synchronization and the combined V2 vectorized/thread-shape explanation. |
-| Readiness | Stop after Phase 8.2-B. No TensorRT Plugin, ONNX change, engine rebuild, or real-runtime replacement is authorized by this result. |
+| Last completed experiment | Phase 8.3-A — synthetic TensorRT 10.3 RMSNorm `IPluginV3` closure |
+| Experiment status | Phase 8.3-A completed with a clean synthetic TensorRT 10.3 `IPluginV3` build, deserialization, inference, and FP16 correctness run. The Jetson checkout and system state remain unchanged. |
+| Current Gate | Phase 8.3-A is `PASS / BOUNDED`: plugin registration, engine build, inference, and relative-L2 `0.0002063558` passed the `1e-3` gate. |
+| Readiness | Stop after Phase 8.3-A. No Qwen3/ONNX integration, engine replacement, or follow-up experiment is authorized by this bounded synthetic result. |
 
 ## Phase 8.0 RMSNorm Baseline Audit Checkpoint (2026-09-07)
 
@@ -136,6 +136,31 @@
 - Report and evidence:
   `experiments/Phase8-rmsnorm-optimization/docs/phase8_2_ncu_rmsnorm_microarchitecture_report.md`,
   `experiments/Phase8-rmsnorm-optimization/artifacts/phase8_2_20260908T/`.
+
+## Phase 8.3-A TensorRT RMSNorm Plugin Minimal Integration (2026-09-08)
+
+- Starting state was branch `phase/08-rmsnorm-optimization` at
+  `031c98cde416434bbed21ceb74c5a509d99c596b`, with the pre-existing unrelated
+  untracked directories preserved. The Jetson checkout stayed unchanged.
+- Added a bounded TensorRT 10.3 `IPluginV3` prototype under
+  `experiments/Phase8-rmsnorm-optimization/tensorrt-plugin/`. It uses Core,
+  Build, and Runtime V3 interfaces, accepts the generated deserialization layer
+  name, serializes one stable `epsilon` field, and calls the Phase 8.1 V2 CUDA
+  kernel without copying it.
+- Clean Jetson configuration, build, plugin demo, and PyTorch control all
+  returned exit code `0`. The synthetic network is FP16 `X [1,8,1024]`, FP16
+  `gamma [1024]`, and FP16 `Y [1,8,1024]`; the plugin output binding is verified
+  as `float16`.
+- Plugin relative-L2 is `0.0002063558` and max absolute error is `0.0019426346`.
+  Five-trial mean latency is `0.0146312000 ms` (stddev `0.0000246657 ms`);
+  PyTorch control mean is `0.1691536331 ms` (stddev `0.0025191004 ms`) under the
+  same `50 / 200 / 5` warmup/repetition/trial protocol.
+- Gate is `PASS / BOUNDED`. Evidence is under
+  `experiments/Phase8-rmsnorm-optimization/artifacts/phase8_3A_20260908T/` and
+  the report is
+  `experiments/Phase8-rmsnorm-optimization/docs/phase8_3A_tensorrt_plugin_design_report.md`.
+  Limitations are fixed shape, FP16-only, synthetic scope, and no Qwen3 or ONNX
+  integration.
 
 ## Confirmed Findings
 

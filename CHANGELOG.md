@@ -4,6 +4,17 @@
 
 ## [Unreleased]
 
+### Phase 8.3-A TensorRT RMSNorm Plugin Minimal Integration (2026-09-08)
+
+- Added a bounded TensorRT 10.3 `IPluginV3` RMSNorm prototype with Core,
+  Build, and Runtime interfaces, creator registration, stable epsilon
+  serialization, and generated-name deserialization support.
+- Reused the Phase 8.1 V2 CUDA kernel in a synthetic FP16 `[1,8,1024]` network.
+  Clean Jetson build, engine build/deserialization, inference, and FP16 output
+  binding passed; relative-L2 was `0.0002063558`.
+- Added compact raw evidence and the design report. Gate: `PASS / BOUNDED`.
+  Qwen3/ONNX integration remains out of scope.
+
 ### Phase 8.2-B RMSNorm NCU Microarchitecture Analysis (2026-09-08)
 
 - Completed the owner-authorized root Nsight Compute capture for standalone

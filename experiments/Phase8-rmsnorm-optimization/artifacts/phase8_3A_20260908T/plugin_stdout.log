@@ -1,0 +1,17 @@
+{
+  "tensorrt_version": "10.3.0",
+  "plugin_registered": true,
+  "engine_built": true,
+  "inference_ran": true,
+  "shape": [1, 8, 1024],
+  "dtype": "float16",
+  "epsilon": 0.0000010000,
+  "relative_l2_error": 0.0002063558,
+  "max_abs_error": 0.0019426346,
+  "warmup": 50,
+  "repetitions_per_trial": 200,
+  "trials": 5,
+  "trial_latency_ms": [0.0146763204, 0.0146220801, 0.0146288006, 0.0146011198, 0.0146276793],
+  "mean_latency_ms": 0.0146312000,
+  "stddev_latency_ms": 0.0000246657
+}

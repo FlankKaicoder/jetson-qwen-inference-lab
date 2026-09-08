@@ -1,0 +1,24 @@
+[ 28%] Building CXX object CMakeFiles/rmsnorm_trt_plugin.dir/rmsnorm_plugin.cpp.o
+[ 28%] Building CXX object CMakeFiles/rmsnorm_plugin_demo.dir/rmsnorm_plugin_demo.cpp.o
+[ 42%] Building CXX object CMakeFiles/rmsnorm_trt_plugin.dir/rmsnorm_plugin_creator.cpp.o
+[ 57%] Building CUDA object CMakeFiles/rmsnorm_trt_plugin.dir/rmsnorm_plugin_kernel.cu.o
+/tmp/phase8_3a_20260908T144524Z/tensorrt-plugin/rmsnorm_plugin_demo.cpp: In function ‘int main(int, char**)’:
+/tmp/phase8_3a_20260908T144524Z/tensorrt-plugin/rmsnorm_plugin_demo.cpp:132:54: warning: ‘nvinfer1::NetworkDefinitionCreationFlag::kEXPLICIT_BATCH’ is deprecated [-Wdeprecated-declarations]
+  132 |             nvinfer1::NetworkDefinitionCreationFlag::kEXPLICIT_BATCH);
+      |                                                      ^~~~~~~~~~~~~~~
+In file included from /tmp/phase8_3a_20260908T144524Z/tensorrt-plugin/rmsnorm_plugin_demo.cpp:1:
+/usr/include/aarch64-linux-gnu/NvInfer.h:9614:5: note: declared here
+ 9614 |     kEXPLICIT_BATCH TRT_DEPRECATED_ENUM = 0,
+      |     ^~~~~~~~~~~~~~~
+/tmp/phase8_3a_20260908T144524Z/tensorrt-plugin/rmsnorm_plugin_demo.cpp:132:54: warning: ‘nvinfer1::NetworkDefinitionCreationFlag::kEXPLICIT_BATCH’ is deprecated [-Wdeprecated-declarations]
+  132 |             nvinfer1::NetworkDefinitionCreationFlag::kEXPLICIT_BATCH);
+      |                                                      ^~~~~~~~~~~~~~~
+In file included from /tmp/phase8_3a_20260908T144524Z/tensorrt-plugin/rmsnorm_plugin_demo.cpp:1:
+/usr/include/aarch64-linux-gnu/NvInfer.h:9614:5: note: declared here
+ 9614 |     kEXPLICIT_BATCH TRT_DEPRECATED_ENUM = 0,
+      |     ^~~~~~~~~~~~~~~
+[ 71%] Linking CXX executable rmsnorm_plugin_demo
+[ 71%] Built target rmsnorm_plugin_demo
+[ 85%] Building CUDA object CMakeFiles/rmsnorm_trt_plugin.dir/tmp/phase8_3a_20260908T144524Z/cuda-kernel/rmsnorm/rmsnorm_v2.cu.o
+[100%] Linking CXX shared library librmsnorm_trt_plugin.so
+[100%] Built target rmsnorm_trt_plugin

@@ -1,0 +1,26 @@
+{
+  "cuda_version": "12.6",
+  "dtype": "float16",
+  "epsilon": 1e-06,
+  "max_abs_error": 0.004695892333984375,
+  "mean_latency_ms": 0.16915363311767578,
+  "relative_l2_error": 0.0003426335460972041,
+  "repetitions_per_trial": 200,
+  "seed": 20260908,
+  "shape": [
+    1,
+    8,
+    1024
+  ],
+  "stddev_latency_ms": 0.0025191003606045413,
+  "torch_version": "2.5.0a0+872d972e41.nv24.08",
+  "trial_latency_ms": [
+    0.17310752868652343,
+    0.17113199234008789,
+    0.1667870330810547,
+    0.16703584671020508,
+    0.1677057647705078
+  ],
+  "trials": 5,
+  "warmup": 50
+}
