@@ -1,0 +1,22 @@
+{
+  "baseline": {
+    "source": "/tmp/phase2_2b4_2_20260902T082326Z/decode_28layer.onnx",
+    "output": "baseline_decode.onnx",
+    "variant": "baseline",
+    "original_target_nodes": 12,
+    "final_node_count": 6146,
+    "plugin_nodes": 0,
+    "exposed_output": "/input_layernorm/Mul_1_output_0",
+    "bytes": 881548745
+  },
+  "plugin": {
+    "source": "/tmp/phase2_2b4_2_20260902T082326Z/decode_28layer.onnx",
+    "output": "plugin_decode.onnx",
+    "variant": "plugin",
+    "original_target_nodes": 12,
+    "final_node_count": 6135,
+    "plugin_nodes": 1,
+    "exposed_output": "/input_layernorm/Mul_1_output_0",
+    "bytes": 881547531
+  }
+}

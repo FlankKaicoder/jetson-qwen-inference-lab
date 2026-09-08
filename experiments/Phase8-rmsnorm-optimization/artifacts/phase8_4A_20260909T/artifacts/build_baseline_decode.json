@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "kind": "decode",
+  "onnx_bytes": 881548745,
+  "engine_bytes": 892739268,
+  "build_seconds": 113.96873188018799,
+  "parser_errors": []
+}

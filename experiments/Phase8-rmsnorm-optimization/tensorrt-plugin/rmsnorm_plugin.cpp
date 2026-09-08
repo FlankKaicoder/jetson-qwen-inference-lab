@@ -13,7 +13,7 @@ bool isHalfLinear(const nvinfer1::PluginTensorDesc& desc) noexcept {
 }
 
 bool isInputShape(const nvinfer1::Dims& dims) noexcept {
-    return dims.nbDims == 3 && dims.d[0] == 1 && dims.d[1] == kTokenCount &&
+    return dims.nbDims == 3 && dims.d[0] != 0 && dims.d[1] != 0 &&
            dims.d[2] == kHiddenSize;
 }
 
@@ -128,8 +128,13 @@ int32_t RMSNormPlugin::enqueue(const nvinfer1::PluginTensorDesc* inputDesc,
         outputs[0] == nullptr) {
         return 1;
     }
-    return launchRMSNormPluginKernel(inputs[0], outputs[0], inputs[1], kTokenCount,
-                                     mEpsilon, stream) == cudaSuccess
+    const int batch = inputDesc[0].dims.d[0];
+    const int sequence = inputDesc[0].dims.d[1];
+    if (batch <= 0 || sequence <= 0) {
+        return 1;
+    }
+    return launchRMSNormPluginKernel(inputs[0], outputs[0], inputs[1],
+                                     batch * sequence, mEpsilon, stream) == cudaSuccess
                ? 0
                : 1;
 }

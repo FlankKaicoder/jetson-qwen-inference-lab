@@ -989,3 +989,27 @@ feasibility recovery. `up_proj` is `CLOSED_FOR_NOW`. Evidence is under
   serialization, deserialization, inference, and node correctness evidence.
   Stop after this phase. Do not begin full-model replacement, multi-node
   replacement, or end-to-end performance work without explicit authorization.
+## Phase 8.4-A checkpoint (2026-09-09)
+
+Starting branch/HEAD was `phase/08-rmsnorm-optimization` at
+`ac06ecec4b67f78a16091a62e5a4ec7ac54b1b8c`. A controlled Jetson TensorRT 10.3
+experiment replaced only Qwen3 Layer 0 `input_layernorm` (1 of 113 RMSNorm
+nodes) in separate Prefill and Decode graphs; the original ONNX, checkpoint,
+and historical engines were preserved.
+
+All four baseline/plugin graphs parsed, built, serialized, deserialized, and
+executed. Layer 0 relative-L2 was `0.0006377380` Prefill and `0.0008134234`
+Decode, within the bounded `1e-3` node gate. Final `hidden_l27` relative-L2 was
+`0.0221897`/`0.0143852`, so full-model equivalence is `INCONCLUSIVE`.
+
+Baseline/plugin latency was `38.5183/39.6601 ms` Prefill and
+`41.7803/42.6711 ms` Decode, or `+2.96%`/`+2.13%` slower for the plugin.
+Process-end free-memory snapshots were similar but are not peak allocation
+measurements. Phase 8.4-A gate is `BOUNDED / NO_END_TO_END_SPEEDUP`.
+
+Report and compact evidence:
+`experiments/Phase8-rmsnorm-optimization/docs/phase8_4A_qwen3_end_to_end_plugin_impact_report.md`,
+`experiments/Phase8-rmsnorm-optimization/artifacts/phase8_4A_20260909T/`.
+
+No all-node replacement, engine overwrite, checkpoint change, or follow-up
+optimization experiment is authorized by this result.

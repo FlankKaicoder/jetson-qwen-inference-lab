@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "kind": "prefill",
+  "onnx_bytes": 881567467,
+  "engine_bytes": 887464492,
+  "build_seconds": 108.78022503852844,
+  "parser_errors": []
+}

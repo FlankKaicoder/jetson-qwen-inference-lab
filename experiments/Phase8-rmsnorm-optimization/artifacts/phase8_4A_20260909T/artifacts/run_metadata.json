@@ -1,0 +1,18 @@
+{
+  "experiment": "Phase 8.4-A Qwen3 end-to-end RMSNorm plugin impact",
+  "timestamp": "2026-09-09T01:00:00Z",
+  "jetson_hostname": "nvidia-desktop",
+  "source_onnx_prefill": "/tmp/phase2_2b4_2_20260902T082326Z/prefill_28layer.onnx",
+  "source_onnx_decode": "/tmp/phase2_2b4_2_20260902T082326Z/decode_28layer.onnx",
+  "replacement_scope": "Layer 0 input_layernorm only (1 of 113 RMSNorm nodes)",
+  "precision": "FP16",
+  "prefill_shape": "[1,8,1024]",
+  "decode_shape": "[1,1,1024], past KV length 8",
+  "warmup": 10,
+  "repetitions": 30,
+  "seed": 20260909,
+  "tensorrt": "10.3.0",
+  "cuda": "12.6.68",
+  "git_branch": "phase/08-rmsnorm-optimization",
+  "git_head": "ac06ecec4b67f78a16091a62e5a4ec7ac54b1b8c"
+}

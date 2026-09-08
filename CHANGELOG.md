@@ -4,6 +4,19 @@
 
 ## [Unreleased]
 
+### Phase 8.4-A Qwen3 TensorRT RMSNorm Plugin End-to-End Impact Evaluation (2026-09-09)
+
+- Added an isolated full 28-layer FP16 TensorRT comparison for Prefill and
+  Decode, replacing only Layer 0 `input_layernorm` in the experimental graph.
+- Baseline and plugin graphs/engines all parsed, built, serialized,
+  deserialized, and executed. Layer 0 relative-L2 stayed below `1e-3`, while
+  final hidden-state equivalence remained `INCONCLUSIVE`.
+- The plugin was slower by `+2.96%` Prefill and `+2.13%` Decode. Gate:
+  `BOUNDED / NO_END_TO_END_SPEEDUP`; no claim is made for replacing all 113
+  RMSNorm nodes.
+- Added the compact raw evidence and end-to-end impact report. Original ONNX,
+  checkpoint, and historical engines were preserved.
+
 ### Phase 8.3-B Qwen3 TensorRT RMSNorm Plugin Single-Node Integration (2026-09-08)
 
 - Added a real Qwen3 Layer 0 `input_layernorm` contract integration using the
