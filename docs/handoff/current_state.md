@@ -1,3 +1,21 @@
+## Phase 8.2-B RMSNorm NCU Microarchitecture Analysis (2026-09-08)
+
+- Owner-authorized root Nsight Compute profiling completed with
+  `--clock-control none`, with no system, clock, power, TensorRT, ONNX, or
+  Qwen3 runtime modification. All six FP16 V0/V1/V2 profiles at prefill and
+  decode succeeded.
+- Prefill profiler duration is V0/V1/V2 `25.664/22.656/20.448 us`. V1 lowers
+  shared load/store instructions from `840/552` to `264/264`; V2 lowers global
+  sectors from `2048` to `1536` and total instructions from `29520` to
+  `14672` versus V1. V2's 512-thread block is coupled to `half2` access, so
+  isolated vectorization attribution remains `INCONCLUSIVE`.
+- Gate: `PASS / BOUNDED`. DRAM bandwidth remains `N/A` because the integrated
+  platform's direct DRAM counter is not usable. Report/evidence:
+  `experiments/Phase8-rmsnorm-optimization/docs/phase8_2_ncu_rmsnorm_microarchitecture_report.md`,
+  `experiments/Phase8-rmsnorm-optimization/artifacts/phase8_2_20260908T/`.
+- Stop after Phase 8.2-B; no plugin, ONNX, engine, or runtime replacement is
+  authorized by this synthetic microbenchmark result.
+
 ## Phase 8.2-A NCU Permission Audit (2026-09-07)
 
 - Phase 8.2-A was a read-only permission audit only. The Jetson user is in

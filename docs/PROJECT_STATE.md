@@ -7,20 +7,20 @@
 | Field | Verified value |
 | --- | --- |
 | Project | `jetson-qwen-inference-lab` / Jetson Qwen Transformer AI Infra Optimization Lab |
-| Current date | `2026-09-07` UTC / `2026-09-07` Asia/Shanghai |
+| Current date | `2026-09-08` UTC / `2026-09-08` Asia/Shanghai |
 | Repository | `FlankKaicoder/jetson-qwen-inference-lab` |
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 8.1 — CUDA RMSNorm Kernel Implementation and Benchmark |
-| Current experiment | Phase 8.1 CUDA RMSNorm Kernel Implementation and Benchmark |
+| Current phase | Phase 8.2-B — RMSNorm Nsight Compute Microarchitecture Analysis |
+| Current experiment | Phase 8.2-B RMSNorm Nsight Compute Microarchitecture Analysis |
 | Current branch | `phase/08-rmsnorm-optimization` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 8.1 — standalone CUDA RMSNorm V0/V1/V2 correctness and CUDA Event benchmark |
-| Experiment status | Prior Phase 1-7 and Phase 8.0 statuses are unchanged. Phase 8.1 is a bounded synthetic CUDA kernel benchmark explicitly authorized by the owner. |
-| Current Gate | Phase 8.1 is `PASS / BOUNDED`. It does not claim full-model Qwen3 improvement or a proven microarchitectural cause. |
-| Readiness | Stop after Phase 8.1 and await explicit owner authorization for Phase 8.2. No NCU, TensorRT Plugin, ONNX change, engine rebuild, or real-runtime replacement is authorized by this result. |
+| Last completed experiment | Phase 8.2-B — root Nsight Compute profiles for standalone RMSNorm V0/V1/V2 |
+| Experiment status | Phase 8.2-B completed with six FP16 profiles at prefill/decode shapes. The Jetson checkout and system state remain unchanged. |
+| Current Gate | Phase 8.2-B is `PASS / BOUNDED`: NCU supports V1 reduction/synchronization and the combined V2 vectorized/thread-shape explanation. |
+| Readiness | Stop after Phase 8.2-B. No TensorRT Plugin, ONNX change, engine rebuild, or real-runtime replacement is authorized by this result. |
 
 ## Phase 8.0 RMSNorm Baseline Audit Checkpoint (2026-09-07)
 
@@ -114,6 +114,28 @@
 - Final gate is `BLOCKED`. No `sudo ncu`, permission change, or bypass was
   attempted. Report:
   `experiments/Phase8-rmsnorm-optimization/docs/phase8_2A_ncu_permission_audit_report.md`.
+
+## Phase 8.2-B RMSNorm NCU Microarchitecture Checkpoint (2026-09-08)
+
+- The owner-authorized root profiling step completed on Jetson Orin Nano Super
+  with NCU 2024.3.1.0 and `--clock-control none`. Six FP16 profiles covered
+  V0/V1/V2 at `[1,8,1024]` and `[1,1,1024]`; no system permission, clock,
+  power, TensorRT, ONNX, or Qwen3 runtime change occurred.
+- Prefill NCU durations were V0/V1/V2 `25.664/22.656/20.448 us`; achieved
+  active warp was `65.43/65.32/29.78%`. V1 reduced shared load/store
+  instructions from `840/552` to `264/264` while keeping scalar global
+  sectors at `2048`. V2 reduced global sectors to `1536` and total
+  instructions to `14,672`, consistent with `half2` access plus a 512-thread
+  block.
+- Global sector efficiency was 32 B/sector with zero excessive sectors in all
+  profiles. Direct DRAM read throughput was unusable/zero on this integrated
+  platform and remains `N/A`; no DRAM bandwidth was inferred.
+- Exact V2 isolated attribution remains `INCONCLUSIVE` because vectorization,
+  block shape, register count, and shared-memory shape change together. The
+  bounded gate is `PASS / BOUNDED`.
+- Report and evidence:
+  `experiments/Phase8-rmsnorm-optimization/docs/phase8_2_ncu_rmsnorm_microarchitecture_report.md`,
+  `experiments/Phase8-rmsnorm-optimization/artifacts/phase8_2_20260908T/`.
 
 ## Confirmed Findings
 

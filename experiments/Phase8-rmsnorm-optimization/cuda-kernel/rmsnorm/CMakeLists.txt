@@ -19,5 +19,14 @@ add_executable(rmsnorm_benchmark
     rmsnorm_v2.cu
 )
 
+add_executable(rmsnorm_ncu_target
+    ncu_target.cpp
+    rmsnorm_v0.cu
+    rmsnorm_v1.cu
+    rmsnorm_v2.cu
+)
+
 target_compile_options(rmsnorm_benchmark PRIVATE $<$<COMPILE_LANGUAGE:CUDA>:-O3>)
+target_compile_options(rmsnorm_ncu_target PRIVATE $<$<COMPILE_LANGUAGE:CUDA>:-O3>)
 target_link_libraries(rmsnorm_benchmark PRIVATE CUDA::cudart)
+target_link_libraries(rmsnorm_ncu_target PRIVATE CUDA::cudart)

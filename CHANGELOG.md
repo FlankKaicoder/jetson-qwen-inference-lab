@@ -4,6 +4,16 @@
 
 ## [Unreleased]
 
+### Phase 8.2-B RMSNorm NCU Microarchitecture Analysis (2026-09-08)
+
+- Completed the owner-authorized root Nsight Compute capture for standalone
+  FP16 RMSNorm V0/V1/V2 at `[1,8,1024]` and `[1,1,1024]`, with
+  `--clock-control none` and no system configuration change.
+- NCU supports V1's reduced shared-memory reduction work and the combined V2
+  `half2` vectorized-access/512-thread implementation. The isolated V2 cause
+  remains `INCONCLUSIVE`; direct DRAM throughput is `N/A` on this integrated
+  platform. Gate: `PASS / BOUNDED`.
+
 ### Phase 8.2-A NCU Permission Audit (2026-09-07)
 
 - Added a read-only NCU permission audit. The Jetson user is in `video` and
