@@ -1013,3 +1013,13 @@ Report and compact evidence:
 
 No all-node replacement, engine overwrite, checkpoint change, or follow-up
 optimization experiment is authorized by this result.
+
+The Phase 8.4-A implementation and compact evidence were committed as
+`5174a68ba4bddb031e2bb92843f00b3a465dae5a`; the experiment index and registry
+commit reference was corrected in `11f779e65764976cfba796a02152affd440214c5`.
+Both commits were pushed to `origin/phase/08-rmsnorm-optimization`. A read-only
+SSH check shows Jetson remains at the pre-experiment checkout
+`ac06ecec4b67f78a16091a62e5a4ec7ac54b1b8c` with its preserved untracked files;
+no Jetson synchronization was performed in this session. The next action is
+an explicitly authorized, non-destructive Jetson fast-forward and post-sync
+audit if three-side alignment is required.
