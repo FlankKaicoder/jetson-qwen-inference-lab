@@ -12,15 +12,15 @@
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 8.3-A — TensorRT RMSNorm Plugin Minimal Integration |
-| Current experiment | Phase 8.3-A TensorRT RMSNorm Plugin Minimal Integration |
+| Current phase | Phase 8.3-B — Qwen3 TensorRT RMSNorm Plugin Single-Node Integration |
+| Current experiment | Phase 8.3-B Qwen3 TensorRT RMSNorm Plugin Single-Node Integration |
 | Current branch | `phase/08-rmsnorm-optimization` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 8.3-A — synthetic TensorRT 10.3 RMSNorm `IPluginV3` closure |
-| Experiment status | Phase 8.3-A completed with a clean synthetic TensorRT 10.3 `IPluginV3` build, deserialization, inference, and FP16 correctness run. The Jetson checkout and system state remain unchanged. |
-| Current Gate | Phase 8.3-A is `PASS / BOUNDED`: plugin registration, engine build, inference, and relative-L2 `0.0002063558` passed the `1e-3` gate. |
-| Readiness | Stop after Phase 8.3-A. No Qwen3/ONNX integration, engine replacement, or follow-up experiment is authorized by this bounded synthetic result. |
+| Last completed experiment | Phase 8.3-B — real Qwen3 Layer 0 RMSNorm contract in a single-node TensorRT engine |
+| Experiment status | Phase 8.3-B completed a clean isolated reproduction of one Qwen3 Layer 0 RMSNorm plugin replacement. The Jetson checkout, checkpoint, full-model ONNX, and historical engines remained unchanged. |
+| Current Gate | Phase 8.3-B is `PASS / BOUNDED`: plugin registration, separate engine build, serialization, deserialization, inference, and relative-L2 `0.0003934488` passed the `1e-3` node gate. |
+| Readiness | Stop after Phase 8.3-B. The result proves only the isolated real-node contract; it does not authorize full-model graph rewriting, all-node replacement, or end-to-end Qwen3 performance claims. |
 
 ## Phase 8.0 RMSNorm Baseline Audit Checkpoint (2026-09-07)
 
@@ -161,6 +161,33 @@
   `experiments/Phase8-rmsnorm-optimization/docs/phase8_3A_tensorrt_plugin_design_report.md`.
   Limitations are fixed shape, FP16-only, synthetic scope, and no Qwen3 or ONNX
   integration.
+
+## Phase 8.3-B Qwen3 TensorRT RMSNorm Plugin Single-Node Integration (2026-09-08)
+
+- Starting branch and HEAD were `phase/08-rmsnorm-optimization` and
+  `f08ff5913149e7f48ccfe39e4612db88a20d67f1`. The retained initial collection
+  had a JSON/exit-code inconsistency, so a clean isolated Jetson reproduction
+  was required and is the final gate evidence.
+- The sole target was the real Qwen3 Layer 0
+  `model.layers.0.input_layernorm` contract, upstream of `q_proj`: real
+  checkpoint gamma, real Layer 0 handoff activation, FP16 `[1,8,1024]`, and
+  epsilon `1e-6`. No checkpoint, full ONNX, historical engine, or more than one
+  node was modified.
+- Two standalone TensorRT 10.3 engines were built: the original primitive
+  RMSNorm chain and a network with exactly one registered `RMSNormPlugin`.
+  Configuration, build, serialization, deserialization, and inference all
+  completed with exit `0` in the reproduction.
+- Original versus plugin relative-L2 was `0.0003934488` and max absolute error
+  `0.0009765625`, satisfying the declared `<= 1e-3` node gate. Under five
+  CUDA-Event trials after `50 / 200` warmup/repetitions, original was
+  `0.0131521601 ms` and plugin `0.0147100797 ms`; the plugin was slower by
+  `0.0015579196 ms` (11.84%). No speedup claim is supported.
+- The final gate is `PASS / BOUNDED`. Evidence:
+  `experiments/Phase8-rmsnorm-optimization/artifacts/phase8_3B_20260908T_repro/`;
+  report:
+  `experiments/Phase8-rmsnorm-optimization/docs/phase8_3B_qwen3_single_rmsnorm_integration_report.md`.
+  Stop here; full-model graph rewrite, end-to-end evaluation, and all-node
+  replacement were not performed.
 
 ## Confirmed Findings
 

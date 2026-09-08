@@ -1,0 +1,4 @@
+# R36 (release), REVISION: 4.3, GCID: 38968081, BOARD: generic, EABI: aarch64, DATE: Wed Jan  8 01:49:37 UTC 2025
+TensorRT=10.3.0
+PyTorch=2.5.0a0+872d972e41.nv24.08
+CUDA=12.6

@@ -963,3 +963,29 @@ feasibility recovery. `up_proj` is `CLOSED_FOR_NOW`. Evidence is under
   control mean `0.1691536331 ms`, both `50 / 200 / 5`.
 - Gate `PASS / BOUNDED`. Stop here: no Qwen3, ONNX, engine replacement, or
   follow-up experiment is authorized by this result.
+
+## Phase 8.3-B Qwen3 TensorRT RMSNorm Plugin Single-Node Integration (2026-09-08)
+
+- Starting branch/HEAD: `phase/08-rmsnorm-optimization` at
+  `f08ff5913149e7f48ccfe39e4612db88a20d67f1`. The target was only
+  `model.layers.0.input_layernorm`, the real Layer 0 RMSNorm directly upstream
+  of `q_proj`; input was the existing Layer 0 handoff and gamma was the frozen
+  checkpoint weight, both FP16 for the fixed `[1,8,1024]` TensorRT contract.
+- The source builds two isolated TensorRT 10.3 engines: the original primitive
+  RMSNorm chain and a second engine with exactly one `RMSNormPlugin`. It does
+  not parse or rewrite a full-model ONNX graph, and it does not modify the
+  checkpoint or the historical 28-layer FP16/Mixed engines.
+- The first captured collection is retained at
+  `artifacts/phase8_3B_20260908T/`, but its successful JSON conflicts with
+  `integration_exit_code.txt=1`. The clean reproduction at
+  `artifacts/phase8_3B_20260908T_repro/` resolves this: configure, build, and
+  integration exit codes are all `0`; source/input/generated-engine/plugin and
+  historical-engine SHA256 values are recorded.
+- Original vs plugin relative-L2 is `0.0003934488`, max absolute error is
+  `0.0009765625`, original node mean is `0.0131521601 ms`, and plugin mean is
+  `0.0147100797 ms` under `50 / 200 / 5` CUDA Event timing. The plugin is
+  slower by `0.0015579196 ms`; no speedup or end-to-end Qwen3 claim is valid.
+- Gate `PASS / BOUNDED`: the isolated real-node contract has plugin build,
+  serialization, deserialization, inference, and node correctness evidence.
+  Stop after this phase. Do not begin full-model replacement, multi-node
+  replacement, or end-to-end performance work without explicit authorization.

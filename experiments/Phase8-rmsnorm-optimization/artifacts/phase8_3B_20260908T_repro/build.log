@@ -1,0 +1,39 @@
+[ 28%] Building CXX object CMakeFiles/rmsnorm_qwen3_plugin.dir/tmp/phase8_3b_repro_20260908T/tensorrt-plugin/rmsnorm_plugin.cpp.o
+[ 28%] Building CXX object CMakeFiles/qwen3_rmsnorm_integration.dir/qwen3_rmsnorm_integration.cpp.o
+[ 42%] Building CXX object CMakeFiles/rmsnorm_qwen3_plugin.dir/tmp/phase8_3b_repro_20260908T/tensorrt-plugin/rmsnorm_plugin_creator.cpp.o
+[ 57%] Building CUDA object CMakeFiles/rmsnorm_qwen3_plugin.dir/tmp/phase8_3b_repro_20260908T/tensorrt-plugin/rmsnorm_plugin_kernel.cu.o
+/tmp/phase8_3b_repro_20260908T/tensorrt-plugin/qwen3_integration/qwen3_rmsnorm_integration.cpp: In function ‘{anonymous}::TrtPtr<nvinfer1::IHostMemory> {anonymous}::buildPrimitive({anonymous}::Logger&, nvinfer1::IBuilder&)’:
+/tmp/phase8_3b_repro_20260908T/tensorrt-plugin/qwen3_integration/qwen3_rmsnorm_integration.cpp:98:93: warning: ‘nvinfer1::NetworkDefinitionCreationFlag::kEXPLICIT_BATCH’ is deprecated [-Wdeprecated-declarations]
+   98 |     const auto flags = 1U << static_cast<uint32_t>(nvinfer1::NetworkDefinitionCreationFlag::kEXPLICIT_BATCH);
+      |                                                                                             ^~~~~~~~~~~~~~~
+In file included from /tmp/phase8_3b_repro_20260908T/tensorrt-plugin/qwen3_integration/qwen3_rmsnorm_integration.cpp:1:
+/usr/include/aarch64-linux-gnu/NvInfer.h:9614:5: note: declared here
+ 9614 |     kEXPLICIT_BATCH TRT_DEPRECATED_ENUM = 0,
+      |     ^~~~~~~~~~~~~~~
+/tmp/phase8_3b_repro_20260908T/tensorrt-plugin/qwen3_integration/qwen3_rmsnorm_integration.cpp:98:93: warning: ‘nvinfer1::NetworkDefinitionCreationFlag::kEXPLICIT_BATCH’ is deprecated [-Wdeprecated-declarations]
+   98 |     const auto flags = 1U << static_cast<uint32_t>(nvinfer1::NetworkDefinitionCreationFlag::kEXPLICIT_BATCH);
+      |                                                                                             ^~~~~~~~~~~~~~~
+In file included from /tmp/phase8_3b_repro_20260908T/tensorrt-plugin/qwen3_integration/qwen3_rmsnorm_integration.cpp:1:
+/usr/include/aarch64-linux-gnu/NvInfer.h:9614:5: note: declared here
+ 9614 |     kEXPLICIT_BATCH TRT_DEPRECATED_ENUM = 0,
+      |     ^~~~~~~~~~~~~~~
+/tmp/phase8_3b_repro_20260908T/tensorrt-plugin/qwen3_integration/qwen3_rmsnorm_integration.cpp: In function ‘{anonymous}::TrtPtr<nvinfer1::IHostMemory> {anonymous}::buildPlugin({anonymous}::Logger&, nvinfer1::IBuilder&, nvinfer1::IPluginCreatorV3One&)’:
+/tmp/phase8_3b_repro_20260908T/tensorrt-plugin/qwen3_integration/qwen3_rmsnorm_integration.cpp:136:93: warning: ‘nvinfer1::NetworkDefinitionCreationFlag::kEXPLICIT_BATCH’ is deprecated [-Wdeprecated-declarations]
+  136 |     const auto flags = 1U << static_cast<uint32_t>(nvinfer1::NetworkDefinitionCreationFlag::kEXPLICIT_BATCH);
+      |                                                                                             ^~~~~~~~~~~~~~~
+In file included from /tmp/phase8_3b_repro_20260908T/tensorrt-plugin/qwen3_integration/qwen3_rmsnorm_integration.cpp:1:
+/usr/include/aarch64-linux-gnu/NvInfer.h:9614:5: note: declared here
+ 9614 |     kEXPLICIT_BATCH TRT_DEPRECATED_ENUM = 0,
+      |     ^~~~~~~~~~~~~~~
+/tmp/phase8_3b_repro_20260908T/tensorrt-plugin/qwen3_integration/qwen3_rmsnorm_integration.cpp:136:93: warning: ‘nvinfer1::NetworkDefinitionCreationFlag::kEXPLICIT_BATCH’ is deprecated [-Wdeprecated-declarations]
+  136 |     const auto flags = 1U << static_cast<uint32_t>(nvinfer1::NetworkDefinitionCreationFlag::kEXPLICIT_BATCH);
+      |                                                                                             ^~~~~~~~~~~~~~~
+In file included from /tmp/phase8_3b_repro_20260908T/tensorrt-plugin/qwen3_integration/qwen3_rmsnorm_integration.cpp:1:
+/usr/include/aarch64-linux-gnu/NvInfer.h:9614:5: note: declared here
+ 9614 |     kEXPLICIT_BATCH TRT_DEPRECATED_ENUM = 0,
+      |     ^~~~~~~~~~~~~~~
+[ 71%] Linking CXX executable qwen3_rmsnorm_integration
+[ 71%] Built target qwen3_rmsnorm_integration
+[ 85%] Building CUDA object CMakeFiles/rmsnorm_qwen3_plugin.dir/tmp/phase8_3b_repro_20260908T/cuda-kernel/rmsnorm/rmsnorm_v2.cu.o
+[100%] Linking CXX shared library librmsnorm_qwen3_plugin.so
+[100%] Built target rmsnorm_qwen3_plugin

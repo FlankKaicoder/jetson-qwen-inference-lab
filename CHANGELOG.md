@@ -4,6 +4,19 @@
 
 ## [Unreleased]
 
+### Phase 8.3-B Qwen3 TensorRT RMSNorm Plugin Single-Node Integration (2026-09-08)
+
+- Added a real Qwen3 Layer 0 `input_layernorm` contract integration using the
+  frozen checkpoint gamma and Layer 0 handoff input. Two separate TensorRT 10.3
+  engines represent the original primitive path and exactly one custom plugin.
+- A clean isolated Jetson reproduction passed configuration, build,
+  serialization, deserialization, and inference. Original-vs-plugin relative
+  L2 was `0.0003934488` and the plugin was slower (`0.0147100797 ms` versus
+  `0.0131521601 ms`); no end-to-end claim is made. Gate: `PASS / BOUNDED`.
+- Preserved the initial inconsistent collection and added final reproducible
+  evidence, a build runner, integration map, and report. No checkpoint, ONNX,
+  or existing Qwen3 engine was modified.
+
 ### Phase 8.3-A TensorRT RMSNorm Plugin Minimal Integration (2026-09-08)
 
 - Added a bounded TensorRT 10.3 `IPluginV3` RMSNorm prototype with Core,

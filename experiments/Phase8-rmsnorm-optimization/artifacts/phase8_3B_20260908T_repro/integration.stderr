@@ -1,0 +1,3 @@
+TensorRT: Detected layernorm nodes in FP16.
+TensorRT: Running layernorm after self-attention with FP16 Reduce or Pow may cause overflow. Forcing Reduce or Pow Layers in FP32 precision, or exporting the model to use INormalizationLayer (available with ONNX opset >= 17) can help preserving accuracy.
+debug x0=-0.925781 gamma0=0.135742 original0=-0.129639 plugin0=-0.129639 oracle0=-0.129639

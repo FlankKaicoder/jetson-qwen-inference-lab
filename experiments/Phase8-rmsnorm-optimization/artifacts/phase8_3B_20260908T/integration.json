@@ -1,0 +1,22 @@
+{
+  "qwen3_node": "model.layers.0.input_layernorm",
+  "checkpoint_input": true,
+  "shape": [1, 8, 1024],
+  "epsilon": 0.000001,
+  "plugin_registered": true,
+  "original_engine_built": true,
+  "plugin_engine_built": true,
+  "serialization": true,
+  "deserialization": true,
+  "inference": true,
+  "relative_l2_error": 0.0003934488,
+  "max_abs_error": 0.0009765625,
+  "original_vs_reference_relative_l2": 0.0003932635,
+  "plugin_vs_reference_relative_l2": 0.0000165036,
+  "original_mean_latency_ms": 0.0132482877,
+  "plugin_mean_latency_ms": 0.0146541758,
+  "original_stddev_latency_ms": 0.0001505207,
+  "plugin_stddev_latency_ms": 0.0000406608,
+  "original_trial_latency_ms": [0.0133740790, 0.0131348800, 0.0131092798, 0.0134808002, 0.0131423995],
+  "plugin_trial_latency_ms": [0.0147124799, 0.0146894399, 0.0146444794, 0.0146097597, 0.0146147199]
+}
