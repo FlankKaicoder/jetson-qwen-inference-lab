@@ -12,15 +12,15 @@
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 9.1-A — Qwen3-VL PyTorch FP16 Inference Smoke Test |
-| Current experiment | Phase 9.1-A Qwen3-VL PyTorch FP16 Inference Smoke Test |
+| Current phase | Phase 9.1-B — Qwen3-VL PyTorch FP16 Baseline Benchmark |
+| Current experiment | Phase 9.1-B Qwen3-VL PyTorch FP16 Baseline Benchmark |
 | Current branch | `phase/09-qwen3vl-migration` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 9.1-A — Qwen3-VL PyTorch FP16 Inference Smoke Test |
-| Experiment status | Phase 9.1-A loaded the pinned Qwen3-VL checkpoint in FP16, verified processor/image tensors, and completed one four-token greedy generation with eager attention. |
-| Current Gate | Phase 9.1-A is `PASS / BOUNDED — DEFAULT_SDPA_INCOMPATIBLE`: default SDPA fails with `enable_gqa` on NVIDIA PyTorch 2.5.0a0; eager attention succeeds. This is smoke-test evidence only. |
-| Readiness | Phase 9.1-A is `PASS / BOUNDED` for a PyTorch FP16 smoke test. Do not start TensorRT, ONNX, quantization, benchmark sweeps, or optimization until a new explicit authorization. |
+| Last completed experiment | Phase 9.1-B — Qwen3-VL PyTorch FP16 Baseline Benchmark |
+| Experiment status | Phase 9.1-B completed the frozen 3-warmup/10-trial PyTorch FP16 benchmark on one fixed image/prompt workload, measuring preprocess, vision, projector, prefill, decode, tokens/s, memory, and board power. |
+| Current Gate | Phase 9.1-B is `PASS / BOUNDED — EAGER_ATTENTION_BASELINE`: mean prefill `420.607 ms`, mean subsequent decode `122.198 ms/token`, and mean end-to-end throughput `7.0999 tokens/s`. |
+| Readiness | Phase 9.1-B is `PASS / BOUNDED` as a bounded PyTorch baseline. Do not start TensorRT, ONNX, quantization, benchmark sweeps, or optimization until a new explicit authorization. |
 
 ## Phase 9.0 Qwen3-VL Migration Startup Checkpoint (2026-09-15)
 
@@ -119,6 +119,35 @@
   `experiments/Phase9-qwen3-vl-migration/docs/phase9_1A_pytorch_fp16_smoke_test_report.md`.
   Manifest:
   `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_1A_20260915T134400Z/run_manifest.json`.
+
+## Phase 9.1-B Qwen3-VL PyTorch FP16 Baseline Benchmark Checkpoint (2026-09-15)
+
+- The owner authorized a PyTorch FP16 baseline benchmark only. The protocol and
+  workload were frozen before measurement. No TensorRT, ONNX, quantization,
+  optimization, backend modification, benchmark sweep, or clock/power-mode
+  change occurred.
+- The frozen workload was deterministic RGB `448x448`, prompt
+  `"Describe the image."`, greedy sampling, exactly 16 output tokens, 3 warmup
+  trials, and 10 measured trials. Attention remained `eager` because the
+  Phase 9.1-A default SDPA path is incompatible with NVIDIA PyTorch
+  `2.5.0a0`.
+- Ten-trial means were preprocess `9.010 ms`, vision encoder `230.627 ms`,
+  projector `7.397 ms`, prefill `420.607 ms`, subsequent decode
+  `122.198 ms/token`, and end-to-end throughput `7.0999 tokens/s`.
+- CUDA peak allocation was `4,363,340,288` bytes and peak reservation was
+  `4,433,379,328` bytes. Host memory remained tight, but no OOM occurred.
+- `tegrastats` recorded 296 power samples. Mean board input power was
+  `12,359.895 mW`; maximum was `15,824 mW`.
+- The raw JSON's `prefill_logits_finite=false` is a known EOS-mask
+  instrumentation artifact; actual prefill logit finiteness is `INCONCLUSIVE`.
+  The benchmark is not a numerical correctness gate.
+- Gate is `PASS / BOUNDED — EAGER_ATTENTION_BASELINE`. This is not an
+  optimization or TensorRT readiness claim.
+- Report:
+  `experiments/Phase9-qwen3-vl-migration/docs/phase9_1B_pytorch_fp16_baseline_benchmark_report.md`.
+  Protocol and raw result:
+  `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_1B_20260915T234500Z/benchmark_protocol.json`,
+  `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_1B_20260915T234500Z/benchmark_result.json`.
 
 ## Phase 8.0 RMSNorm Baseline Audit Checkpoint (2026-09-07)
 

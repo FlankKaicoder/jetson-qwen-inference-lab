@@ -4,6 +4,20 @@
 
 ## [Unreleased]
 
+### Phase 9.1-B Qwen3-VL PyTorch FP16 Baseline Benchmark (2026-09-15)
+
+- Froze a one-workload benchmark protocol before measurement: deterministic
+  `448x448` image, fixed prompt, greedy decoding, 16 output tokens, 3 warmups,
+  and 10 measured trials with eager attention.
+- Measured ten-trial means of preprocess `9.010 ms`, vision encoder
+  `230.627 ms`, projector `7.397 ms`, prefill `420.607 ms`, subsequent decode
+  `122.198 ms/token`, and end-to-end throughput `7.0999 tokens/s`.
+- Recorded CUDA peak allocation `4,363,340,288` bytes, 296 board-power samples,
+  mean `VDD_IN` `12,359.895 mW`, and maximum `15,824 mW`.
+- Gate: `PASS / BOUNDED — EAGER_ATTENTION_BASELINE`. No TensorRT, ONNX,
+  quantization, optimization, backend modification, benchmark sweep, or
+  clock/power-mode change occurred.
+
 ### Phase 9.1-A Qwen3-VL PyTorch FP16 Inference Smoke Test (2026-09-15)
 
 - Loaded the pinned `Qwen/Qwen3-VL-2B-Instruct` checkpoint from its unchanged

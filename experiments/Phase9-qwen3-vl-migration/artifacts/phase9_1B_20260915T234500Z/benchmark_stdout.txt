@@ -1,0 +1,9 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+{
+  "success": true,
+  "measured_trials": 10,
+  "mean_prefill_ms": 420.6072509765625,
+  "mean_decode_seconds": 1.8329727562002518,
+  "mean_tokens_per_second": 7.099906171330442,
+  "power_sample_count": 296
+}

@@ -63,6 +63,26 @@
   `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_1A_20260915T134400Z/run_manifest.json`.
 - Stop after this smoke test and await ChatGPT Gate review before Phase 9.2.
 
+## Phase 9.1-B Qwen3-VL PyTorch FP16 Baseline Benchmark (2026-09-15)
+
+- After explicit authorization, the protocol and workload were frozen before
+  measurement. The benchmark used deterministic RGB `448x448`, prompt
+  `"Describe the image."`, greedy decoding, exactly 16 tokens, 3 warmups, and
+  10 measured trials. Attention remained `eager` for compatibility.
+- Ten-trial means: preprocess `9.010 ms`, vision encoder `230.627 ms`,
+  projector `7.397 ms`, prefill `420.607 ms`, subsequent decode
+  `122.198 ms/token`, and end-to-end throughput `7.0999 tokens/s`.
+- CUDA peak allocation was `4,363,340,288` bytes and peak reservation was
+  `4,433,379,328` bytes. No OOM occurred. `tegrastats` recorded 296 samples;
+  mean `VDD_IN` was `12,359.895 mW` and maximum was `15,824 mW`.
+- Gate: `PASS / BOUNDED — EAGER_ATTENTION_BASELINE` for this fixed workload only.
+  It is not an optimization, correctness, or TensorRT-readiness claim.
+- Report, protocol, and raw result:
+  `experiments/Phase9-qwen3-vl-migration/docs/phase9_1B_pytorch_fp16_baseline_benchmark_report.md`,
+  `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_1B_20260915T234500Z/benchmark_protocol.json`,
+  `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_1B_20260915T234500Z/benchmark_result.json`.
+- Stop after this benchmark and await ChatGPT Gate review before Phase 9.2.
+
 ## Phase 8.2-B RMSNorm NCU Microarchitecture Analysis (2026-09-08)
 
 - Owner-authorized root Nsight Compute profiling completed with
