@@ -4,6 +4,21 @@
 
 ## [Unreleased]
 
+### Phase 9.1-A Qwen3-VL PyTorch FP16 Inference Smoke Test (2026-09-15)
+
+- Loaded the pinned `Qwen/Qwen3-VL-2B-Instruct` checkpoint from its unchanged
+  Jetson path after reverifying the weight and config SHA-256 values.
+- Verified `Qwen3VLProcessor`, chat-template construction, and finite FP16
+  image tensors `[784,1536]`.
+- Loaded all `2,127,532,032` parameters in FP16 on `cuda:0` and completed one
+  greedy generation. It decoded `" red"` with finite scores.
+- Preserved the failed default-SDPA attempt: NVIDIA PyTorch 2.5.0a0 does not
+  accept Transformers' `enable_gqa` argument. The successful smoke test used
+  eager attention only.
+- Gate: `PASS / BOUNDED — DEFAULT_SDPA_INCOMPATIBLE`. No TensorRT, ONNX,
+  quantization, benchmark sweep, optimization, or environment modification
+  occurred.
+
 ### Phase 9.0-B Qwen3-VL Checkpoint Preparation (2026-09-15)
 
 - Downloaded `Qwen/Qwen3-VL-2B-Instruct` at pinned revision

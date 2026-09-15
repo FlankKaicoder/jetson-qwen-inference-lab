@@ -1,0 +1,49 @@
+{
+  "phase": "Phase 9.1-A",
+  "title": "Qwen3-VL PyTorch FP16 inference smoke test",
+  "date": "2026-09-15",
+  "authorization_boundary": {
+    "tensorrt": false,
+    "onnx": false,
+    "quantization": false,
+    "benchmark_sweep": false,
+    "optimization": false,
+    "jetson_repository_synchronization": false
+  },
+  "windows_repository": {
+    "branch": "phase/09-qwen3vl-migration",
+    "starting_head": "a559804f3069f1b37f9b7f11616c8ab59e1cff93",
+    "pre_existing_untracked_paths_preserved": true
+  },
+  "jetson": {
+    "hostname": "nvidia-desktop",
+    "repository_path": "/home/nvidia/projects/jetson-qwen-inference-lab",
+    "repository_branch": "phase/08-rmsnorm-optimization",
+    "repository_head": "6fb18773014a43f51c82b91338f2972131a4ce86",
+    "repository_state": "INTENTIONALLY_FROZEN",
+    "runtime_venv": "/home/nvidia/.venvs/jetson-qwen-phase1-hf"
+  },
+  "checkpoint": {
+    "repository_id": "Qwen/Qwen3-VL-2B-Instruct",
+    "revision": "89644892e4d85e24eaac8bacfd4f463576704203",
+    "local_path": "/home/nvidia/models/qwen3-vl-2b-instruct-89644892e4d85e24eaac8bacfd4f463576704203",
+    "model_safetensors_sha256": "7de1838c87a5349b016c26a1c3f7d2bc400a3d485f95ef39a7059ffd734977a0"
+  },
+  "run": {
+    "source": "experiments/Phase9-qwen3-vl-migration/src/phase9_1A/run_fp16_smoke.py",
+    "image": "deterministic RGB 448x448 white image with central red square",
+    "max_new_tokens": 4,
+    "seed": 20260915,
+    "sampling_rule": "greedy",
+    "attempt1_attention": "sdpa",
+    "attempt1_exit_code": 1,
+    "attempt2_attention": "eager",
+    "attempt2_exit_code": 0
+  },
+  "evidence": {
+    "attempt1": "attempt1_sdpa_failure/",
+    "attempt2": "attempt2_eager_success/",
+    "dependency_probe": "runtime_dependency_probe.json"
+  },
+  "next_action": "STOP; await ChatGPT Gate review before Phase 9.2"
+}

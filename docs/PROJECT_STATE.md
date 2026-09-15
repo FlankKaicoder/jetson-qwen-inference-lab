@@ -12,15 +12,15 @@
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 9.0-B — Qwen3-VL Checkpoint Preparation |
-| Current experiment | Phase 9.0-B Qwen3-VL Checkpoint Preparation |
+| Current phase | Phase 9.1-A — Qwen3-VL PyTorch FP16 Inference Smoke Test |
+| Current experiment | Phase 9.1-A Qwen3-VL PyTorch FP16 Inference Smoke Test |
 | Current branch | `phase/09-qwen3vl-migration` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 8.4-A — Qwen3 TensorRT RMSNorm Plugin End-to-End Impact Evaluation |
-| Experiment status | Phase 8.4-A completed a controlled full 28-layer FP16 Prefill/Decode comparison replacing only Layer 0 `input_layernorm`; original ONNX, checkpoint, and historical engines remained unchanged. |
-| Current Gate | Phase 8.4-A is `BOUNDED / NO_END_TO_END_SPEEDUP`: both baseline/plugin graphs built and ran; Layer 0 node relative-L2 passed `1e-3`, full-model equivalence is `INCONCLUSIVE`, and plugin latency was slower. |
-| Readiness | Phase 9.0-B is `PASS / BOUNDED` for checkpoint preparation. Do not convert, benchmark, build engines, or quantize until a new explicit authorization. |
+| Last completed experiment | Phase 9.1-A — Qwen3-VL PyTorch FP16 Inference Smoke Test |
+| Experiment status | Phase 9.1-A loaded the pinned Qwen3-VL checkpoint in FP16, verified processor/image tensors, and completed one four-token greedy generation with eager attention. |
+| Current Gate | Phase 9.1-A is `PASS / BOUNDED — DEFAULT_SDPA_INCOMPATIBLE`: default SDPA fails with `enable_gqa` on NVIDIA PyTorch 2.5.0a0; eager attention succeeds. This is smoke-test evidence only. |
+| Readiness | Phase 9.1-A is `PASS / BOUNDED` for a PyTorch FP16 smoke test. Do not start TensorRT, ONNX, quantization, benchmark sweeps, or optimization until a new explicit authorization. |
 
 ## Phase 9.0 Qwen3-VL Migration Startup Checkpoint (2026-09-15)
 
@@ -90,6 +90,35 @@
   `experiments/Phase9-qwen3-vl-migration/docs/phase9_0B_checkpoint_preparation_audit.md`.
   Manifest:
   `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_0B_20260915T132321Z/model_manifest.json`.
+
+## Phase 9.1-A Qwen3-VL PyTorch FP16 Inference Smoke Test Checkpoint (2026-09-15)
+
+- The owner authorized processor loading, image input verification, and one
+  PyTorch FP16 inference generation only. No TensorRT, ONNX, quantization,
+  benchmark sweep, optimization, package change, or Jetson repository sync
+  occurred.
+- The pinned checkpoint hashes remained
+  `7de1838c87a5349b016c26a1c3f7d2bc400a3d485f95ef39a7059ffd734977a0` for
+  `model.safetensors` and
+  `bec4b3d446efa05807365c9e1cec03ac590836879d02f3a6da879971154bdd3b` for
+  `config.json`.
+- Attempt 1 used the default SDPA path. Processor and FP16 model load succeeded,
+  but generation failed because Transformers passed `enable_gqa` to the NVIDIA
+  PyTorch 2.5.0a0 SDPA API, which does not accept it.
+- Attempt 2 selected eager attention only as a smoke-test compatibility path.
+  `Qwen3VLProcessor` produced finite `pixel_values` `[784,1536]` FP16 and
+  `Qwen3VLForConditionalGeneration` loaded all `2,127,532,032` parameters in
+  FP16 on `cuda:0`.
+- One greedy generation generated token IDs `[2518, 151645]`, decoded as
+  `" red"`, with all scores finite. CUDA peak allocation was
+  `4,366,713,344` bytes and peak reserved was `4,471,128,064` bytes; host
+  available memory fell to `320,823,296` bytes, but no OOM occurred.
+- Gate is `PASS / BOUNDED — DEFAULT_SDPA_INCOMPATIBLE` for the smoke test only.
+  It is not performance, optimization, or comprehensive correctness evidence.
+- Report:
+  `experiments/Phase9-qwen3-vl-migration/docs/phase9_1A_pytorch_fp16_smoke_test_report.md`.
+  Manifest:
+  `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_1A_20260915T134400Z/run_manifest.json`.
 
 ## Phase 8.0 RMSNorm Baseline Audit Checkpoint (2026-09-07)
 

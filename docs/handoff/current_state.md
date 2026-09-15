@@ -44,6 +44,25 @@
   `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_0B_20260915T132321Z/model_manifest.json`.
 - Stop after this audit and await ChatGPT Gate review before Phase 9.1.
 
+## Phase 9.1-A Qwen3-VL PyTorch FP16 Inference Smoke Test (2026-09-15)
+
+- After explicit authorization, the pinned checkpoint was loaded in FP16 from
+  its unchanged Jetson path using the existing Phase 1 HF venv.
+- Default SDPA generation failed because Transformers passed `enable_gqa` to
+  NVIDIA PyTorch `2.5.0a0+872d972e41.nv24.08`, which does not accept that
+  argument. The failed attempt is preserved.
+- Eager attention succeeded as the bounded smoke-test path: processor/image
+  tensors were finite, all `2,127,532,032` parameters loaded in FP16, and one
+  greedy generation decoded `" red"` with finite scores.
+- CUDA peak allocation was `4,366,713,344` bytes; peak reserved was
+  `4,471,128,064` bytes. Host available memory after generation was
+  `320,823,296` bytes, but no OOM occurred.
+- Gate: `PASS / BOUNDED — DEFAULT_SDPA_INCOMPATIBLE` for one smoke test only.
+- Report and manifest:
+  `experiments/Phase9-qwen3-vl-migration/docs/phase9_1A_pytorch_fp16_smoke_test_report.md`,
+  `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_1A_20260915T134400Z/run_manifest.json`.
+- Stop after this smoke test and await ChatGPT Gate review before Phase 9.2.
+
 ## Phase 8.2-B RMSNorm NCU Microarchitecture Analysis (2026-09-08)
 
 - Owner-authorized root Nsight Compute profiling completed with
