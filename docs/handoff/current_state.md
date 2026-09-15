@@ -1,3 +1,20 @@
+## Phase 9.0 Startup Plan (2026-09-15)
+
+- Branch `phase/09-qwen3vl-migration` was created from Phase 8 closeout
+  `b1dccad72f96578f5326099f1720e739f5c3279d`. This handoff record is auxiliary;
+  use `docs/PROJECT_STATE.md`, the experiment index, registry, and the Phase 9
+  plan as the primary recovery paths.
+- Live audit result: Windows and GitHub are at Phase 8 branch tip `b1dccad...`;
+  Jetson is on the same branch at `6fb1877...` and is one commit behind. No
+  Jetson synchronization was performed. Three-side consistency is
+  `NOT_CONSISTENT`.
+- Phase 8 is frozen as `BOUNDED / NO_END_TO_END_SPEEDUP`. Do not continue
+  RMSNorm optimization.
+- Phase 9 Qwen3-VL is `PLANNED / NOT_AUTHORIZED`. The plan is
+  `docs/handoff/phase9_qwen3vl_migration_plan.md`. Do not execute Phase 9.0,
+  download models, benchmark, build engines, or change dependencies until an
+  explicit ChatGPT Gate authorization.
+
 ## Phase 8.2-B RMSNorm NCU Microarchitecture Analysis (2026-09-08)
 
 - Owner-authorized root Nsight Compute profiling completed with

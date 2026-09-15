@@ -4,6 +4,19 @@
 
 ## [Unreleased]
 
+### Phase 9.0 Qwen3-VL Migration Startup Plan (2026-09-15)
+
+- Created `phase/09-qwen3vl-migration` from the Phase 8 closeout and added a
+  plan-only startup checkpoint.
+- Performed live Windows/Jetson/GitHub audits. Windows and GitHub match at
+  `b1dccad...`; Jetson is one commit behind at `6fb1877...`, so three-side
+  consistency is `NOT_CONSISTENT`. No Jetson synchronization was performed.
+- Confirmed the Phase 8 gate remains `BOUNDED / NO_END_TO_END_SPEEDUP`.
+- Added the Phase 9 Qwen3-VL migration plan with explicit phases for
+  model/environment audit, PyTorch FP16 baseline, TensorRT vision analysis,
+  TensorRT-LLM decoder analysis, and optional post-baseline quantization.
+  Phase 9 execution remains `NOT_AUTHORIZED`.
+
 ### Phase 8.4-A Qwen3 TensorRT RMSNorm Plugin End-to-End Impact Evaluation (2026-09-09)
 
 - Added an isolated full 28-layer FP16 TensorRT comparison for Prefill and
