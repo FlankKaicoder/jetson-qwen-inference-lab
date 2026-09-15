@@ -15,6 +15,20 @@
   download models, benchmark, build engines, or change dependencies until an
   explicit ChatGPT Gate authorization.
 
+## Phase 9.0 Model And Environment Audit (2026-09-15)
+
+- After explicit read-only authorization, the Jetson audit found no local
+  Qwen3-VL checkpoint and no Hugging Face cache directory. Gate:
+  `BLOCKED / NO_LOCAL_MODEL`.
+- Transformers 4.57.3 in `/home/nvidia/.venvs/jetson-qwen-phase1-hf` exposes
+  Qwen3-VL model and processor classes, but this is library support only; no
+  model-load evidence exists.
+- Report and manifest:
+  `experiments/Phase9-qwen3-vl-migration/docs/phase9_0_model_environment_audit.md`,
+  `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_0_20260915T125952Z/manifest.json`.
+- Stop after this audit. Do not download, convert, benchmark, build engines, or
+  change dependencies without a separate explicit authorization.
+
 ## Phase 8.2-B RMSNorm NCU Microarchitecture Analysis (2026-09-08)
 
 - Owner-authorized root Nsight Compute profiling completed with

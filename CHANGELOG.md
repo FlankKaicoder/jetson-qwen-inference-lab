@@ -4,6 +4,19 @@
 
 ## [Unreleased]
 
+### Phase 9.0 Qwen3-VL Model And Environment Audit (2026-09-15)
+
+- Performed the authorized read-only Jetson model/environment audit.
+- Established that `Qwen/Qwen3-VL-2B-Instruct` is not present locally: no
+  checkpoint, Hugging Face cache directory, or Qwen3-VL model file outside the
+  installed Transformers library was found.
+- Recorded that Transformers 4.57.3 exposes Qwen3-VL model and processor
+  classes, while PyTorch/CUDA/TensorRT versions remain unchanged. This is
+  library support only, not model-load evidence.
+- Gate: `BLOCKED / NO_LOCAL_MODEL`; all checkpoint-dependent model facts remain
+  `UNKNOWN`. No model download, conversion, benchmark, engine build, or
+  environment modification occurred.
+
 ### Phase 9.0 Qwen3-VL Migration Startup Plan (2026-09-15)
 
 - Created `phase/09-qwen3vl-migration` from the Phase 8 closeout and added a

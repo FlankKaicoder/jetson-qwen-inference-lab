@@ -12,15 +12,15 @@
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 9.0 — Qwen3-VL Migration Startup Plan |
-| Current experiment | Phase 9.0 Qwen3-VL Migration Startup Plan |
+| Current phase | Phase 9.0 — Qwen3-VL Model And Environment Audit |
+| Current experiment | Phase 9.0 Qwen3-VL Model And Environment Audit |
 | Current branch | `phase/09-qwen3vl-migration` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Phase 8.4-A — Qwen3 TensorRT RMSNorm Plugin End-to-End Impact Evaluation |
 | Experiment status | Phase 8.4-A completed a controlled full 28-layer FP16 Prefill/Decode comparison replacing only Layer 0 `input_layernorm`; original ONNX, checkpoint, and historical engines remained unchanged. |
 | Current Gate | Phase 8.4-A is `BOUNDED / NO_END_TO_END_SPEEDUP`: both baseline/plugin graphs built and ran; Layer 0 node relative-L2 passed `1e-3`, full-model equivalence is `INCONCLUSIVE`, and plugin latency was slower. |
-| Readiness | Phase 9 is `PLANNED / NOT_AUTHORIZED`. Do not execute Phase 9.0, download models, benchmark, build engines, or change dependencies until ChatGPT Gate authorization. |
+| Readiness | Phase 9.0 is `BLOCKED / NO_LOCAL_MODEL`. Do not download, convert, benchmark, build engines, or change dependencies without new explicit authorization. |
 
 ## Phase 9.0 Qwen3-VL Migration Startup Checkpoint (2026-09-15)
 
@@ -44,6 +44,28 @@
   `docs/handoff/phase9_qwen3vl_migration_plan.md`. No committed Qwen3-VL model
   manifest or runtime-support evidence exists, so all model/environment facts
   remain `UNKNOWN` until Phase 9.0 is explicitly authorized and audited.
+
+## Phase 9.0 Qwen3-VL Model And Environment Audit Checkpoint (2026-09-15)
+
+- The owner authorized a read-only model/environment audit only. No model
+  download, conversion, engine build, benchmark, profiling, or environment
+  modification occurred.
+- Jetson scan found no local Qwen3-VL checkpoint, no Hugging Face cache
+  directory, and no Qwen3-VL model file outside the installed Transformers
+  library. The selected candidate `Qwen/Qwen3-VL-2B-Instruct` is therefore
+  absent on device.
+- Gate is `BLOCKED / NO_LOCAL_MODEL`. Exact revision, hashes, tensor inventory,
+  parameter counts, vision/projector/decoder details, and input contract remain
+  `UNKNOWN`.
+- The Jetson environment has PyTorch `2.5.0a0+872d972e41.nv24.08`, CUDA `12.6`,
+  TensorRT `10.3.0`, and Transformers `4.57.3` in the Phase 1 HF venv.
+  Transformers exposes `Qwen3VLForConditionalGeneration`,
+  `Qwen3VLProcessor`, and `Qwen3VLVideoProcessor`. This is library support
+  only, not model-load evidence.
+- Report:
+  `experiments/Phase9-qwen3-vl-migration/docs/phase9_0_model_environment_audit.md`.
+  Manifest:
+  `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_0_20260915T125952Z/manifest.json`.
 
 ## Phase 8.0 RMSNorm Baseline Audit Checkpoint (2026-09-07)
 

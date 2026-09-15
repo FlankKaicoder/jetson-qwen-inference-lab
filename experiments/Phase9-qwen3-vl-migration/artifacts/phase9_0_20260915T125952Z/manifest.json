@@ -1,0 +1,80 @@
+{
+  "phase": "Phase 9.0",
+  "title": "Qwen3-VL model and environment audit",
+  "audit_timestamp_utc": "2026-09-15T12:59:52Z",
+  "local_timestamp": "2026-09-15T20:59:52+08:00",
+  "audit_mode": "READ_ONLY",
+  "gate": "BLOCKED / NO_LOCAL_MODEL",
+  "candidate_model": {
+    "repository_id": "Qwen/Qwen3-VL-2B-Instruct",
+    "local_path": "NOT_FOUND",
+    "revision": "UNKNOWN",
+    "weights_sha256": "UNKNOWN",
+    "config_sha256": "UNKNOWN",
+    "tokenizer_sha256": "UNKNOWN",
+    "safetensors_metadata": "UNKNOWN",
+    "tensor_inventory": "UNKNOWN",
+    "total_parameters": "UNKNOWN",
+    "per_module_parameters": "UNKNOWN",
+    "vision_encoder": "UNKNOWN",
+    "projector_interface": "UNKNOWN",
+    "decoder": "UNKNOWN",
+    "input_contract": "UNKNOWN"
+  },
+  "model_search": {
+    "checked_roots": [
+      "/home/nvidia/models",
+      "/home/nvidia/.cache/huggingface/hub",
+      "/home/nvidia"
+    ],
+    "hf_cache_directory": "NOT_FOUND",
+    "qwen3_vl_checkpoint_files": "NOT_FOUND",
+    "qwen3_0_6b_checkpoint_found": "/home/nvidia/models/qwen3-0.6b-c1899de289a04d12100db370d81485cdf75e47ca",
+    "other_engine_files": "PRIOR_DIAGNOSTIC_ONLY_NOT_DESERIALIZED"
+  },
+  "device": {
+    "name": "Orin (nvgpu)",
+    "compute_capability": [8, 7],
+    "kernel": "Linux 5.15.148-tegra aarch64",
+    "l4t": "R36 (release), REVISION: 4.3",
+    "driver": "540.4.0",
+    "cuda_version": "12.6",
+    "power_mode": "25W",
+    "root_filesystem_available": "184175888 KiB",
+    "memory_total_bytes": 7989903360,
+    "memory_available_bytes": 5166972928,
+    "sm_memory_clocks": "UNKNOWN",
+    "clocks_audit": "BLOCKED_NO_ROOT_ATTEMPT"
+  },
+  "runtime": {
+    "system_python": "3.10.12",
+    "torch": "2.5.0a0+872d972e41.nv24.08",
+    "torch_cuda": "12.6",
+    "torch_cuda_available": true,
+    "tensorrt": "10.3.0",
+    "cudnn_library_family": "9",
+    "tensorrt_llm": "NOT_INSTALLED",
+    "phase1_hf_venv": "/home/nvidia/.venvs/jetson-qwen-phase1-hf",
+    "transformers": "4.57.3",
+    "safetensors": "0.8.0",
+    "tokenizers": "0.22.2",
+    "numpy": "1.23.5",
+    "pillow": "11.3.0",
+    "pip_check": "PASS",
+    "qwen3_vl_module": true,
+    "qwen3_vl_config_mapping": true,
+    "qwen3_vl_for_conditional_generation": true,
+    "qwen3_vl_processor": true,
+    "qwen3_vl_video_processor": true,
+    "support_interpretation": "LIBRARY_SUPPORT_ONLY_NOT_MODEL_LOAD_EVIDENCE"
+  },
+  "prohibited_operations_performed": {
+    "model_download": false,
+    "model_conversion": false,
+    "engine_build": false,
+    "benchmark": false,
+    "profiling": false,
+    "environment_modification": false
+  },
+  "next_action": "STOP; require explicit download authorization or user-provided local checkpoint path"
+}
