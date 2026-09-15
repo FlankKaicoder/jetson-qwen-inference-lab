@@ -1,0 +1,42 @@
+{
+  "audit_mode": "FIXED_SINGLE_IMAGE_ONNX_EXPORT_ATTEMPT",
+  "elapsed_seconds": 13.175354,
+  "export_error": {
+    "message": "This export boundary only supports grid_thw=[1,28,28]",
+    "traceback": "Traceback (most recent call last):\n  File \"/tmp/phase9_2b1_20260915T164731Z/export_vision_onnx.py\", line 194, in main\n    wrapper = StaticQwen3VLVision(visual, grid_thw).to(device=device)\n  File \"/tmp/phase9_2b1_20260915T164731Z/export_vision_onnx.py\", line 39, in __init__\n    raise ValueError(\"This export boundary only supports grid_thw=[1,28,28]\")\nValueError: This export boundary only supports grid_thw=[1,28,28]\n",
+    "type": "ValueError"
+  },
+  "export_success": false,
+  "model_identity": {
+    "config_sha256": "bec4b3d446efa05807365c9e1cec03ac590836879d02f3a6da879971154bdd3b",
+    "local_path": "/home/nvidia/models/qwen3-vl-2b-instruct-89644892e4d85e24eaac8bacfd4f463576704203",
+    "weights_path": "/home/nvidia/models/qwen3-vl-2b-instruct-89644892e4d85e24eaac8bacfd4f463576704203/model.safetensors",
+    "weights_sha256": "7de1838c87a5349b016c26a1c3f7d2bc400a3d485f95ef39a7059ffd734977a0",
+    "weights_size_bytes": 4255140312
+  },
+  "onnx_file_written": false,
+  "phase": "Phase 9.2-B1",
+  "prohibited_operations_performed": {
+    "benchmark": false,
+    "cuda_modification": false,
+    "environment_modification": false,
+    "optimization": false,
+    "quantization": false,
+    "tensorrt_build": false
+  },
+  "runtime": {
+    "cuda": "12.6",
+    "cuda_capability": [
+      8,
+      7
+    ],
+    "device": "cuda:0",
+    "device_name": "Orin",
+    "dtype": "float16",
+    "opset_version": 17,
+    "python": "3.10.12",
+    "torch": "2.5.0a0+872d972e41.nv24.08",
+    "transformers": "4.57.3"
+  },
+  "scope": "Qwen3-VL vision encoder ONNX export feasibility only"
+}

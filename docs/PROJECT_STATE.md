@@ -12,19 +12,42 @@
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 9.2-A — Qwen3-VL Vision Encoder TensorRT Readiness Audit |
-| Current experiment | Phase 9.2-A Qwen3-VL Vision Encoder TensorRT Readiness Audit |
+| Current phase | Phase 9.2-B1 — Qwen3-VL Vision ONNX Export Feasibility |
+| Current experiment | Phase 9.2-B1 Qwen3-VL Vision ONNX Export Feasibility |
 | Current branch | `phase/09-qwen3vl-migration` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 9.2-A — Qwen3-VL Vision Encoder TensorRT Readiness Audit |
-| Experiment status | Phase 9.2-A inspected the installed Transformers vision source and pinned checkpoint metadata without model execution; it inventoried modules/operators and prepared a fixed single-image migration plan. |
-| Current Gate | Phase 9.2-A is `PASS / BOUNDED — MIGRATION_PLAN_ONLY`: architecture and plan are complete, but TensorRT export/parser/build compatibility remains `UNKNOWN`. |
-| Readiness | Phase 9.2-A is `PASS / BOUNDED` as an audit and plan only. Do not perform ONNX export, TensorRT parsing/build, benchmarking, quantization, optimization, or CUDA changes until a new explicit authorization. |
+| Last completed experiment | Phase 9.2-B1 — Qwen3-VL Vision ONNX Export Feasibility |
+| Experiment status | Phase 9.2-B1 exported the fixed single-image static vision graph to opset-17 ONNX and inspected it; the graph has 2,977 nodes, 314 FP16 initializers, one `[784,1536]` input, four `[196,2048]` outputs, and no dynamic shape indicators. |
+| Current Gate | Phase 9.2-B1 is `PASS / BOUNDED — ONNX_EXPORT_GRAPH_ONLY`: ONNX structural export succeeded, but numerical correctness and TensorRT parse/build/runtime compatibility remain `UNKNOWN`. |
+| Readiness | Phase 9.2-B1 is `PASS / BOUNDED` for ONNX graph feasibility only. Do not parse/build TensorRT, run correctness comparisons, benchmark, quantize, optimize, or modify CUDA/environment until a new explicit authorization. |
 
 ## Phase 9.0 Qwen3-VL Migration Startup Checkpoint (2026-09-15)
 
 ## Phase 9.2-A Vision Encoder TensorRT Readiness Audit Checkpoint (2026-09-16)
+
+## Phase 9.2-B1 Vision Encoder ONNX Export Feasibility Checkpoint (2026-09-16)
+
+- The owner authorized a fixed single-image ONNX export feasibility attempt
+  only. No TensorRT build, benchmark, quantization, optimization, CUDA
+  modification, or persistent environment modification occurred.
+- A per-process `PYTHONPATH` bridge let the existing Phase 1 HF venv use the
+  existing Phase 2 ONNX package without installing anything. The checkpoint
+  hashes remained unchanged.
+- The first invocation stopped on a script shape guard before model
+  preparation. The corrected static wrapper exported `Qwen3VLVisionModel` at
+  `grid_thw=[1,28,28]`, `pixel_values=[784,1536]`, opset 17, FP16, and emitted
+  final plus three deepstack outputs.
+- ONNX checker passed. Graph statistics are 2,977 nodes, 314 FP16 initializers,
+  one input `[784,1536]`, four outputs `[196,2048]`, and zero dynamic-shape
+  indicators. The 830,381,691-byte ONNX file remains Jetson-local and is not
+  committed.
+- Gate is `PASS / BOUNDED — ONNX_EXPORT_GRAPH_ONLY`. No numerical correctness
+  or TensorRT compatibility claim is made.
+- Report:
+  `experiments/Phase9-qwen3-vl-migration/docs/phase9_2B1_vision_onnx_export_feasibility.md`.
+  Evidence:
+  `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_2B1_20260915T164731Z/`.
 
 - The owner authorized only vision-encoder graph inspection, export-path
   identification, operator analysis, and migration planning. No model

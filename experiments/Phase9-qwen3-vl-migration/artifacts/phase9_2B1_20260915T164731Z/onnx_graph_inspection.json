@@ -1,0 +1,113 @@
+{
+  "audit_mode": "ONNX_GRAPH_INSPECTION_ONLY",
+  "checker": {
+    "error": null,
+    "result": "PASS"
+  },
+  "dynamic_shape_indicators": [],
+  "graph": {
+    "function_count": 0,
+    "initializer_count": 314,
+    "input_count": 1,
+    "node_count": 2977,
+    "output_count": 4,
+    "sparse_initializer_count": 0,
+    "value_info_count": 0
+  },
+  "initializer_dtype_counts": {
+    "10": 314
+  },
+  "inputs": [
+    {
+      "dtype": 10,
+      "name": "pixel_values",
+      "shape": [
+        784,
+        1536
+      ]
+    }
+  ],
+  "onnx_file": {
+    "path": "/tmp/phase9_2b1_20260915T164731Z/qwen3_vl_vision_fp16_opset17.onnx",
+    "sha256": "102143ffd1afa1ff798736fdbe274fd2cab98f9e7a97d690a27ebd73c404c4db",
+    "size_bytes": 830381691
+  },
+  "onnx_model": {
+    "ir_version": 8,
+    "onnx_version": "1.22.0",
+    "opset_import": [
+      {
+        "domain": "",
+        "version": 17
+      }
+    ],
+    "producer_name": "pytorch",
+    "producer_version": "2.5.0"
+  },
+  "operator_counts": {
+    "Add": 149,
+    "Cast": 145,
+    "Concat": 96,
+    "Constant": 1013,
+    "Conv": 1,
+    "Div": 4,
+    "Erf": 4,
+    "Gemm": 104,
+    "LayerNormalization": 52,
+    "MatMul": 48,
+    "Mul": 272,
+    "Neg": 48,
+    "Reshape": 57,
+    "Slice": 96,
+    "Softmax": 24,
+    "Split": 24,
+    "Squeeze": 72,
+    "Tanh": 24,
+    "Transpose": 144,
+    "Unsqueeze": 600
+  },
+  "outputs": [
+    {
+      "dtype": 10,
+      "name": "final_hidden",
+      "shape": [
+        196,
+        2048
+      ]
+    },
+    {
+      "dtype": 10,
+      "name": "deepstack_0",
+      "shape": [
+        196,
+        2048
+      ]
+    },
+    {
+      "dtype": 10,
+      "name": "deepstack_1",
+      "shape": [
+        196,
+        2048
+      ]
+    },
+    {
+      "dtype": 10,
+      "name": "deepstack_2",
+      "shape": [
+        196,
+        2048
+      ]
+    }
+  ],
+  "phase": "Phase 9.2-B1",
+  "prohibited_operations_performed": {
+    "benchmark": false,
+    "cuda_modification": false,
+    "environment_modification": false,
+    "optimization": false,
+    "quantization": false,
+    "tensorrt_build": false
+  },
+  "tensorrt_parser_attempted": false
+}

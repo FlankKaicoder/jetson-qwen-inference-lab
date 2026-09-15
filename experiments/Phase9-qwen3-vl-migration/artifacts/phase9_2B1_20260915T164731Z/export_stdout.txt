@@ -1,0 +1,107 @@
+{
+  "audit_mode": "FIXED_SINGLE_IMAGE_ONNX_EXPORT_ATTEMPT",
+  "boundary": {
+    "grid_thw": [
+      1,
+      28,
+      28
+    ],
+    "merged_sequence_length": 196,
+    "output_names": [
+      "final_hidden",
+      "deepstack_0",
+      "deepstack_1",
+      "deepstack_2"
+    ],
+    "pixel_values_dtype": "torch.float16",
+    "pixel_values_shape": [
+      784,
+      1536
+    ],
+    "pixel_values_values": "deterministic linspace [-1,1], not an image or correctness workload",
+    "sequence_length": 784
+  },
+  "elapsed_seconds": 30.258315,
+  "export_success": true,
+  "memory": {
+    "allocated_after_bytes": 826829824,
+    "allocated_before_bytes": 0,
+    "peak_allocated_bytes": 923724800,
+    "peak_reserved_bytes": 968884224,
+    "reserved_after_bytes": 968884224,
+    "reserved_before_bytes": 0
+  },
+  "model_identity": {
+    "config_sha256": "bec4b3d446efa05807365c9e1cec03ac590836879d02f3a6da879971154bdd3b",
+    "local_path": "/home/nvidia/models/qwen3-vl-2b-instruct-89644892e4d85e24eaac8bacfd4f463576704203",
+    "weights_path": "/home/nvidia/models/qwen3-vl-2b-instruct-89644892e4d85e24eaac8bacfd4f463576704203/model.safetensors",
+    "weights_sha256": "7de1838c87a5349b016c26a1c3f7d2bc400a3d485f95ef39a7059ffd734977a0",
+    "weights_size_bytes": 4255140312
+  },
+  "onnx_file_written": true,
+  "onnx_output": {
+    "path": "/tmp/phase9_2b1_20260915T164731Z/qwen3_vl_vision_fp16_opset17.onnx",
+    "sha256": "102143ffd1afa1ff798736fdbe274fd2cab98f9e7a97d690a27ebd73c404c4db",
+    "size_bytes": 830381691
+  },
+  "phase": "Phase 9.2-B1",
+  "prohibited_operations_performed": {
+    "benchmark": false,
+    "cuda_modification": false,
+    "environment_modification": false,
+    "optimization": false,
+    "quantization": false,
+    "tensorrt_build": false
+  },
+  "runtime": {
+    "cuda": "12.6",
+    "cuda_capability": [
+      8,
+      7
+    ],
+    "device": "cuda:0",
+    "device_name": "Orin",
+    "dtype": "float16",
+    "opset_version": 17,
+    "python": "3.10.12",
+    "torch": "2.5.0a0+872d972e41.nv24.08",
+    "transformers": "4.57.3"
+  },
+  "scope": "Qwen3-VL vision encoder ONNX export feasibility only",
+  "visual_module": {
+    "blocks": 24,
+    "class": "Qwen3VLVisionModel",
+    "deepstack_indexes": [
+      5,
+      11,
+      17
+    ],
+    "parameter_count": 406957056,
+    "state_dict_loaded": true,
+    "state_dict_missing_keys": [],
+    "state_dict_unexpected_keys": []
+  },
+  "wrapper_buffers": {
+    "cos_emb": {
+      "dtype": "torch.float16",
+      "shape": [
+        784,
+        64
+      ]
+    },
+    "pos_embeds": {
+      "dtype": "torch.float16",
+      "shape": [
+        784,
+        1024
+      ]
+    },
+    "sin_emb": {
+      "dtype": "torch.float16",
+      "shape": [
+        784,
+        64
+      ]
+    }
+  }
+}

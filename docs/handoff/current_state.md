@@ -1,3 +1,25 @@
+## Phase 9.2-B1 Vision Encoder ONNX Export Feasibility (2026-09-16)
+
+- After explicit authorization, the fixed single-image static wrapper exported
+  `Qwen3VLVisionModel` to FP16 opset-17 ONNX at `grid_thw=[1,28,28]`,
+  `pixel_values=[784,1536]`. Gate: `PASS / BOUNDED — ONNX_EXPORT_GRAPH_ONLY`.
+- The first invocation failed only on a script shape guard; the failed manifest
+  is preserved. The successful export used a per-process `PYTHONPATH` bridge
+  between the existing Phase 1 HF venv and Phase 2 ONNX package, with no
+  package installation.
+- ONNX checker passed. The graph has 2,977 nodes, 314 FP16 initializers, one
+  `[784,1536]` input, four `[196,2048]` outputs, and zero dynamic-shape
+  indicators. The 830,381,691-byte ONNX file remains Jetson-local and is not
+  committed.
+- No numerical comparison, ONNX Runtime execution, TensorRT parse/build,
+  benchmark, quantization, optimization, CUDA modification, or persistent
+  environment modification occurred.
+- Report and evidence:
+  `experiments/Phase9-qwen3-vl-migration/docs/phase9_2B1_vision_onnx_export_feasibility.md`,
+  `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_2B1_20260915T164731Z/`.
+- Stop after this export feasibility phase and await ChatGPT Gate review before
+  any correctness execution or TensorRT parse/build.
+
 ## Phase 9.2-A Vision Encoder TensorRT Readiness Audit (2026-09-16)
 
 - After explicit authorization, the audit inspected installed Transformers

@@ -1,0 +1,91 @@
+{
+  "phase": "Phase 9.2-B1",
+  "audit_timestamp_utc": "2026-09-15T16:47:31Z",
+  "local_timestamp": "2026-09-16 00:47:31 Asia/Shanghai",
+  "repository": {
+    "starting_head": "a69dd7e2771890d6543a368f534b7e5549038be4",
+    "branch": "phase/09-qwen3vl-migration"
+  },
+  "audit_mode": "FIXED_SINGLE_IMAGE_ONNX_EXPORT_ATTEMPT_AND_GRAPH_INSPECTION",
+  "environment_bridge": {
+    "exported_with_runtime_pythonpath": "/home/nvidia/.venvs/jetson-qwen-phase2-trt-tools/lib/python3.10/site-packages",
+    "note": "Per-process PYTHONPATH only; no package install or venv change occurred.",
+    "exporter_python": "/home/nvidia/.venvs/jetson-qwen-phase1-hf/bin/python",
+    "graph_inspector_python": "/home/nvidia/.venvs/jetson-qwen-phase2-trt-tools/bin/python",
+    "persistent_environment_modification": false,
+    "onnx_version": "1.22.0"
+  },
+  "source_scripts": {
+    "exporter_sha256": "6152943f20b7b576aa19150a1931ccf631e1b4ffcf25ce8a98188e8a20674640",
+    "graph_inspector_path": "experiments/Phase9-qwen3-vl-migration/src/phase9_2B1/inspect_onnx_graph.py",
+    "exporter_path": "experiments/Phase9-qwen3-vl-migration/src/phase9_2B1/export_vision_onnx.py",
+    "graph_inspector_sha256": "38479f88d238c00222bd195602342dcfa9d55cff14d01eee82943f3ed49bf1e6"
+  },
+  "onnx_file_not_committed": {
+    "size_bytes": 830381691,
+    "sha256": "102143ffd1afa1ff798736fdbe274fd2cab98f9e7a97d690a27ebd73c404c4db",
+    "remote_path": "/tmp/phase9_2b1_20260915T164731Z/qwen3_vl_vision_fp16_opset17.onnx"
+  },
+  "evidence_files": [
+    {
+      "path": "export_exit_code_attempt1.txt",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "export_exit_code.txt",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "export_result_attempt1_grid_shape_guard.json",
+      "bytes": 1793,
+      "sha256": "54dc1a5d664b779af2408e705e73289312d708d660fc80870712bf670a2f5e17"
+    },
+    {
+      "path": "export_result.json",
+      "bytes": 2745,
+      "sha256": "3c72a3712384ac8046349317d3d16f9cb4d2ab94e04ca1551f30b9de66b53bda"
+    },
+    {
+      "path": "export_stderr_attempt1.txt",
+      "bytes": 241,
+      "sha256": "46bcb9de68ac38322cd98c4102a5a35d343eeb2b7139970f652270fee8081993"
+    },
+    {
+      "path": "export_stderr.txt",
+      "bytes": 241,
+      "sha256": "46bcb9de68ac38322cd98c4102a5a35d343eeb2b7139970f652270fee8081993"
+    },
+    {
+      "path": "export_stdout_attempt1.txt",
+      "bytes": 1793,
+      "sha256": "54dc1a5d664b779af2408e705e73289312d708d660fc80870712bf670a2f5e17"
+    },
+    {
+      "path": "export_stdout.txt",
+      "bytes": 2745,
+      "sha256": "3c72a3712384ac8046349317d3d16f9cb4d2ab94e04ca1551f30b9de66b53bda"
+    },
+    {
+      "path": "inspect_exit_code.txt",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "inspect_stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "inspect_stdout.txt",
+      "bytes": 2113,
+      "sha256": "065b6ec07e5d1c82ed918a05dc1221c2b76f906606f0ae388381adade863992a"
+    },
+    {
+      "path": "onnx_graph_inspection.json",
+      "bytes": 2113,
+      "sha256": "065b6ec07e5d1c82ed918a05dc1221c2b76f906606f0ae388381adade863992a"
+    }
+  ]
+}
