@@ -1,0 +1,156 @@
+{
+  "phase": "Phase 9.2-A",
+  "audit_timestamp_utc": "2026-09-15T16:13:37Z",
+  "local_timestamp": "2026-09-16 00:13:37 Asia/Shanghai",
+  "audit_mode": "READ_ONLY_SOURCE_AND_CHECKPOINT_METADATA_INTROSPECTION",
+  "model_identity": {
+    "repository_id": "Qwen/Qwen3-VL-2B-Instruct",
+    "revision": "89644892e4d85e24eaac8bacfd4f463576704203",
+    "local_path": "/home/nvidia/models/qwen3-vl-2b-instruct-89644892e4d85e24eaac8bacfd4f463576704203",
+    "architecture": "Qwen3VLForConditionalGeneration",
+    "vision_attribute": "model.visual",
+    "model_safetensors_sha256": "7de1838c87a5349b016c26a1c3f7d2bc400a3d485f95ef39a7059ffd734977a0",
+    "config_sha256": "bec4b3d446efa05807365c9e1cec03ac590836879d02f3a6da879971154bdd3b"
+  },
+  "transformers_source": {
+    "module": "transformers.models.qwen3_vl.modeling_qwen3_vl",
+    "path": "/home/nvidia/.venvs/jetson-qwen-phase1-hf/lib/python3.10/site-packages/transformers/models/qwen3_vl/modeling_qwen3_vl.py",
+    "sha256": "685b10cbc48556343df4e159199c5884d02db9ad227640f0f4fbe75ddf0b2a99",
+    "bytes": 70883
+  },
+  "visual_checkpoint_metadata": {
+    "tensor_count": 315,
+    "parameter_count": 406957056,
+    "parameter_groups": {
+      "patch_embed.proj": 1573888,
+      "pos_embed": 2359296,
+      "all_blocks": 302309376,
+      "final_merger": 25174016,
+      "three_deepstack_mergers": 75540480
+    }
+  },
+  "modules": [
+    {
+      "path": "model.visual.patch_embed",
+      "class": "Qwen3VLVisionPatchEmbed",
+      "source_lines": [59, 76],
+      "structure": [
+        "nn.Conv3d(3, 1024, kernel=[2,16,16], stride=[2,16,16], bias=true)"
+      ],
+      "checkpoint_shapes": {
+        "proj.weight": [1024, 3, 2, 16, 16],
+        "proj.bias": [1024]
+      }
+    },
+    {
+      "path": "model.visual.pos_embed",
+      "class": "nn.Embedding",
+      "source_lines": [568, 601],
+      "structure": ["nn.Embedding(2304, 1024)"],
+      "checkpoint_shapes": {"weight": [2304, 1024]}
+    },
+    {
+      "path": "model.visual.rotary_pos_emb",
+      "class": "Qwen3VLVisionRotaryEmbedding",
+      "source_lines": [78, 90],
+      "structure": ["persistent=false inv_freq buffer; no checkpoint parameters"],
+      "checkpoint_shapes": {}
+    },
+    {
+      "path": "model.visual.blocks.0..23",
+      "class": "Qwen3VLVisionBlock",
+      "count": 24,
+      "source_lines": [251, 275],
+      "structure": [
+        "LayerNorm(1024, eps=1e-6)",
+        "Qwen3VLVisionAttention",
+        "residual add",
+        "LayerNorm(1024, eps=1e-6)",
+        "Qwen3VLVisionMLP",
+        "residual add"
+      ],
+      "checkpoint_shapes": {
+        "norm1.weight": [1024],
+        "norm1.bias": [1024],
+        "attn.qkv.weight": [3072, 1024],
+        "attn.qkv.bias": [3072],
+        "attn.proj.weight": [1024, 1024],
+        "attn.proj.bias": [1024],
+        "norm2.weight": [1024],
+        "norm2.bias": [1024],
+        "mlp.linear_fc1.weight": [4096, 1024],
+        "mlp.linear_fc1.bias": [4096],
+        "mlp.linear_fc2.weight": [1024, 4096],
+        "mlp.linear_fc2.bias": [1024]
+      }
+    },
+    {
+      "path": "model.visual.merger",
+      "class": "Qwen3VLVisionPatchMerger",
+      "source_lines": [93, 106],
+      "use_postshuffle_norm": false,
+      "structure": [
+        "LayerNorm(1024, eps=1e-6)",
+        "view to merged spatial sequence",
+        "Linear(4096, 4096)",
+        "GELU",
+        "Linear(4096, 2048)"
+      ],
+      "checkpoint_shapes": {
+        "norm.weight": [1024],
+        "norm.bias": [1024],
+        "linear_fc1.weight": [4096, 4096],
+        "linear_fc1.bias": [4096],
+        "linear_fc2.weight": [2048, 4096],
+        "linear_fc2.bias": [2048]
+      }
+    },
+    {
+      "path": "model.visual.deepstack_merger_list.0..2",
+      "class": "Qwen3VLVisionPatchMerger",
+      "count": 3,
+      "source_lines": [93, 106, 586, 599],
+      "use_postshuffle_norm": true,
+      "structure": [
+        "view to merged spatial sequence",
+        "LayerNorm(4096, eps=1e-6)",
+        "Linear(4096, 4096)",
+        "GELU",
+        "Linear(4096, 2048)"
+      ],
+      "checkpoint_shapes": {
+        "norm.weight": [4096],
+        "norm.bias": [4096],
+        "linear_fc1.weight": [4096, 4096],
+        "linear_fc1.bias": [4096],
+        "linear_fc2.weight": [2048, 4096],
+        "linear_fc2.bias": [2048]
+      }
+    }
+  ],
+  "model_forward_flow": {
+    "source_lines": [703, 753],
+    "steps": [
+      "patch_embed",
+      "fast_pos_embed_interpolate",
+      "residual add",
+      "rot_pos_emb",
+      "build cos/sin position embeddings",
+      "build cu_seqlens from grid_thw",
+      "24 blocks with deepstack taps after blocks 5, 11, and 17",
+      "final merger",
+      "return final output and three deepstack outputs"
+    ]
+  },
+  "prohibited_operations_performed": {
+    "model_instantiation": false,
+    "model_execution": false,
+    "onnx_conversion": false,
+    "tensorrt_build": false,
+    "benchmark": false,
+    "quantization": false,
+    "optimization": false,
+    "cuda_modification": false,
+    "environment_modification": false
+  }
+}

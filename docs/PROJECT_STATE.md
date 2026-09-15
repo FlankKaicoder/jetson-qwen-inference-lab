@@ -7,22 +7,47 @@
 | Field | Verified value |
 | --- | --- |
 | Project | `jetson-qwen-inference-lab` / Jetson Qwen Transformer AI Infra Optimization Lab |
-| Current date | `2026-09-15` UTC / `2026-09-15` Asia/Shanghai |
+| Current date | `2026-09-15` UTC / `2026-09-16` Asia/Shanghai |
 | Repository | `FlankKaicoder/jetson-qwen-inference-lab` |
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 9.1-B — Qwen3-VL PyTorch FP16 Baseline Benchmark |
-| Current experiment | Phase 9.1-B Qwen3-VL PyTorch FP16 Baseline Benchmark |
+| Current phase | Phase 9.2-A — Qwen3-VL Vision Encoder TensorRT Readiness Audit |
+| Current experiment | Phase 9.2-A Qwen3-VL Vision Encoder TensorRT Readiness Audit |
 | Current branch | `phase/09-qwen3vl-migration` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 9.1-B — Qwen3-VL PyTorch FP16 Baseline Benchmark |
-| Experiment status | Phase 9.1-B completed the frozen 3-warmup/10-trial PyTorch FP16 benchmark on one fixed image/prompt workload, measuring preprocess, vision, projector, prefill, decode, tokens/s, memory, and board power. |
-| Current Gate | Phase 9.1-B is `PASS / BOUNDED — EAGER_ATTENTION_BASELINE`: mean prefill `420.607 ms`, mean subsequent decode `122.198 ms/token`, and mean end-to-end throughput `7.0999 tokens/s`. |
-| Readiness | Phase 9.1-B is `PASS / BOUNDED` as a bounded PyTorch baseline. Do not start TensorRT, ONNX, quantization, benchmark sweeps, or optimization until a new explicit authorization. |
+| Last completed experiment | Phase 9.2-A — Qwen3-VL Vision Encoder TensorRT Readiness Audit |
+| Experiment status | Phase 9.2-A inspected the installed Transformers vision source and pinned checkpoint metadata without model execution; it inventoried modules/operators and prepared a fixed single-image migration plan. |
+| Current Gate | Phase 9.2-A is `PASS / BOUNDED — MIGRATION_PLAN_ONLY`: architecture and plan are complete, but TensorRT export/parser/build compatibility remains `UNKNOWN`. |
+| Readiness | Phase 9.2-A is `PASS / BOUNDED` as an audit and plan only. Do not perform ONNX export, TensorRT parsing/build, benchmarking, quantization, optimization, or CUDA changes until a new explicit authorization. |
 
 ## Phase 9.0 Qwen3-VL Migration Startup Checkpoint (2026-09-15)
+
+## Phase 9.2-A Vision Encoder TensorRT Readiness Audit Checkpoint (2026-09-16)
+
+- The owner authorized only vision-encoder graph inspection, export-path
+  identification, operator analysis, and migration planning. No model
+  instantiation/execution, ONNX conversion, TensorRT parse/build, benchmark,
+  quantization, optimization, CUDA modification, or environment change occurred.
+- Read-only safetensors metadata found `315` visual tensors and
+  `406,957,056` visual parameters. The graph is 24 blocks with Conv3D patch
+  embedding, interpolated absolute position embedding, vision RoPE, fused-QKV
+  attention, GELU MLP, final merger, and three deepstack merger taps after
+  blocks `5/11/17`.
+- Direct-export blockers are data-dependent `.item()`/`.tolist()` preparation,
+  dynamic `grid_thw`, dynamic `cu_seqlens`, variable-length attention splits,
+  Python dispatch/loops, and deepstack list outputs. No operator was proven
+  unsupported because no export/parser/build was authorized.
+- The recommended first boundary is fixed `grid_thw=[1,28,28]`,
+  `pixel_values=[784,1536]`, one 784-token attention chunk, precomputed
+  position/RoPE constants, decomposed attention, and four named outputs.
+- Gate is `PASS / BOUNDED — MIGRATION_PLAN_ONLY`; direct TensorRT compatibility
+  remains `UNKNOWN`.
+- Report:
+  `experiments/Phase9-qwen3-vl-migration/docs/phase9_2A_vision_encoder_trt_readiness_audit.md`.
+  Evidence:
+  `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_2A_20260915T161337Z/`.
 
 - The owner requested a startup-only task: three-side Git audit, Phase 8 freeze
   confirmation, and a Phase 9 Qwen3-VL migration plan. No model download,

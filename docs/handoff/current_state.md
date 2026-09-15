@@ -1,3 +1,22 @@
+## Phase 9.2-A Vision Encoder TensorRT Readiness Audit (2026-09-16)
+
+- After explicit authorization, the audit inspected installed Transformers
+  4.57.3 Qwen3-VL source and pinned checkpoint metadata without model
+  instantiation or execution. Gate: `PASS / BOUNDED — MIGRATION_PLAN_ONLY`.
+- Visual evidence records 315 tensors / 406,957,056 parameters, 24 blocks,
+  Conv3D patch embedding, interpolated positions, vision RoPE, fused QKV
+  attention, final merger, and deepstack taps after blocks `5/11/17`.
+- Recommended first export boundary is fixed `grid_thw=[1,28,28]`,
+  `pixel_values=[784,1536]`, one 784-token attention chunk, precomputed
+  position/RoPE constants, decomposed attention, and four named outputs.
+- No ONNX export, TensorRT parse/build, benchmark, quantization, optimization,
+  CUDA change, or environment change occurred. TensorRT compatibility is
+  `UNKNOWN` until a separately authorized graph/build phase.
+- Report and evidence:
+  `experiments/Phase9-qwen3-vl-migration/docs/phase9_2A_vision_encoder_trt_readiness_audit.md`,
+  `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_2A_20260915T161337Z/`.
+- Stop after this audit and await ChatGPT Gate review before Phase 9.3.
+
 ## Phase 9.0 Startup Plan (2026-09-15)
 
 - Branch `phase/09-qwen3vl-migration` was created from Phase 8 closeout

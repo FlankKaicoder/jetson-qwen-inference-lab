@@ -1,0 +1,141 @@
+{
+  "phase": "Phase 9.2-A",
+  "audit_timestamp_utc": "2026-09-15T16:13:37Z",
+  "local_timestamp": "2026-09-16 00:13:37 Asia/Shanghai",
+  "repository": {
+    "branch": "phase/09-qwen3vl-migration",
+    "starting_head": "e73cf0360a57f83e8faa2a84acfad2ce47bc2ddc"
+  },
+  "gate": "PASS / BOUNDED — MIGRATION_PLAN_ONLY",
+  "scope": [
+    "inspect vision encoder graph",
+    "identify export path",
+    "analyze operators",
+    "prepare TensorRT migration plan"
+  ],
+  "runtime_context_from_prior_evidence": {
+    "environment_and_tensorrt_source": "experiments/Phase9-qwen3-vl-migration/artifacts/phase9_0_20260915T125952Z/manifest.json",
+    "pytorch_and_transformers_probe": "experiments/Phase9-qwen3-vl-migration/artifacts/phase9_1A_20260915T134400Z/runtime_dependency_probe.json",
+    "python": "3.10.12",
+    "pytorch": "2.5.0a0+872d972e41.nv24.08",
+    "cuda": "12.6",
+    "tensorrt": "10.3.0",
+    "transformers": "4.57.3",
+    "attention_in_fp16_baseline": "eager"
+  },
+  "fixed_first_boundary": {
+    "grid_thw": [1, 28, 28],
+    "pixel_values_shape": [784, 1536],
+    "patch_token_sequence_length": 784,
+    "merged_sequence_length": 196,
+    "attention_context": "single chunk; no variable-length split for the first boundary",
+    "outputs": {
+      "final_merger": [196, 2048],
+      "deepstack_outputs": [[196, 2048], [196, 2048], [196, 2048]]
+    }
+  },
+  "operator_inventory": [
+    {
+      "module": "patch_embed",
+      "operators": ["view", "dtype cast", "Conv3D", "view"],
+      "tensorrt_mapping": "IConvolutionLayer; for T=2 image boundary, mathematically equivalent Conv2D with weight [1024,6,16,16] and input [784,6,16,16]",
+      "readiness": "TRANSFORMABLE; direct 3D support must be verified by export/build"
+    },
+    {
+      "module": "fast_pos_embed_interpolate",
+      "operators": ["linspace", "floor/int", "ceil", "clip", "subtraction", "multiplication", "addition", "embedding gather", "weighted sum", "split", "repeat", "view/permute/flatten", "concat", "host list construction"],
+      "tensorrt_mapping": "precompute all indices and interpolation weights as constants for fixed grid; Embedding gathers via IGatherLayer, weighted sum via MatMul/ElementWise",
+      "readiness": "TRANSFORMABLE_FOR_FIXED_GRID; dynamic grid path is not suitable for direct export"
+    },
+    {
+      "module": "rot_pos_emb",
+      "operators": ["max/item", "prod/sum/item", "arange", "outer", "host-loop coordinate construction", "stack", "indexing", "flatten"],
+      "tensorrt_mapping": "precompute position ids and cos/sin constants for fixed grid; remaining semantic operators are Gather/ElementWise",
+      "readiness": "TRANSFORMABLE_FOR_FIXED_GRID; contains graph-breaking host calls"
+    },
+    {
+      "module": "top_level",
+      "operators": ["add", "reshape", "concat", "cos", "sin", "repeat_interleave", "cumsum", "pad", "python loop", "conditional deepstack tap"],
+      "tensorrt_mapping": "ElementWise, IShuffleLayer, IConcatenationLayer, UnaryLayer; bake cumsum/repeat_interleave constants for fixed grid",
+      "readiness": "TRANSFORMABLE_FOR_FIXED_GRID; dynamic control flow is direct-export risk"
+    },
+    {
+      "module": "block norm1/norm2",
+      "operators": ["LayerNorm"],
+      "tensorrt_mapping": "INormalizationLayer or primitive Reduction/Mul/Add chain",
+      "readiness": "NATIVE_OR_STANDARD"
+    },
+    {
+      "module": "block attention QKV/proj",
+      "operators": ["Linear", "reshape", "permute", "unbind", "transpose", "unsqueeze", "contiguous"],
+      "tensorrt_mapping": "MatrixMultiplication plus weight/bias constants and IShuffleLayer",
+      "readiness": "NATIVE_OR_STANDARD"
+    },
+    {
+      "module": "apply_rotary_pos_emb_vision",
+      "operators": ["FP32 cast", "unsqueeze", "multiply", "rotate_half/negative", "concat", "add", "dtype cast back"],
+      "tensorrt_mapping": "UnaryLayer, ElementWise, IConcatenationLayer, IShuffleLayer; retain FP32 intermediate semantics if needed",
+      "readiness": "TRANSFORMABLE; numeric precision must be verified"
+    },
+    {
+      "module": "variable-length attention dispatch",
+      "operators": ["cu_seqlens subtraction", "lengths.tolist", "torch.split", "python zip/loop", "attention interface dispatch", "output concat"],
+      "tensorrt_mapping": "for fixed single-image boundary, remove split/loop and process all 784 tokens as one chunk; multi-image support would need bucketing or a variable-length plugin",
+      "readiness": "NOT_READY_FOR_DIRECT_DYNAMIC_EXPORT"
+    },
+    {
+      "module": "eager attention core",
+      "operators": ["MatMul QK^T", "scale multiply", "optional mask add", "Softmax FP32", "MatMul weights V", "transpose/contiguous"],
+      "tensorrt_mapping": "MatrixMultiplication, ElementWise scale/add, ISoftMaxLayer, MatrixMultiplication; no causal mask for vision attention",
+      "readiness": "TRANSFORMABLE; fusion is later optimization and out of scope"
+    },
+    {
+      "module": "MLP",
+      "operators": ["Linear", "gelu_pytorch_tanh", "Linear"],
+      "tensorrt_mapping": "MatrixMultiplication plus native GELU or explicit tanh-equivalent primitive chain",
+      "readiness": "TRANSFORMABLE; exact GELU approximation semantics require numerical comparison"
+    },
+    {
+      "module": "residuals and mergers",
+      "operators": ["add", "view", "LayerNorm", "Linear", "GELU", "Linear"],
+      "tensorrt_mapping": "ElementWise Add, IShuffleLayer, INormalizationLayer, MatrixMultiplication, activation",
+      "readiness": "NATIVE_OR_STANDARD"
+    },
+    {
+      "module": "deepstack taps",
+      "operators": ["layer index membership check", "module lookup", "module call", "list append", "multiple outputs"],
+      "tensorrt_mapping": "emit three additional named outputs; remove Python membership/index control in a static wrapper",
+      "readiness": "TRANSFORMABLE_FOR_FIXED_GRAPH"
+    }
+  ],
+  "direct_export_blockers": [
+    "rot_pos_emb calls .item() and constructs position ids with host-side data-dependent logic",
+    "fast_pos_embed_interpolate calls .tolist() and builds idx/weight tensors from host lists",
+    "cu_seqlens is computed from dynamic grid_thw and attention lengths are converted with .tolist()",
+    "attention uses Python dispatch, loops, splits, and concatenation for variable-length chunks",
+    "deepstack taps produce a Python list and multiple outputs",
+    "grid-dependent control flow and tensor construction prevent a clean fully dynamic graph"
+  ],
+  "unsupported_operator_determination": {
+    "proven_unsupported_by_this_audit": [],
+    "proven_unsupported_by_tensorrt_parser_or_build": [],
+    "reason": "No ONNX export, TensorRT parser, engine build, or execution was authorized; direct-export support is UNKNOWN until those steps run in a separate phase."
+  },
+  "recommended_export_path": [
+    "Start with fixed single-image grid_thw=[1,28,28] and pixel_values=[784,1536] FP16.",
+    "Create a static vision wrapper that removes grid_thw from runtime inputs and supplies precomputed position/RoPE/cu-sequence constants.",
+    "Decompose attention to QKV MatMul, scale, FP32 Softmax, V MatMul, and output projection for the 784-token single chunk.",
+    "Emit final merger plus three deepstack outputs as named graph outputs.",
+    "Export with an opset supported by TensorRT 10.3, initially opset 17, and preserve weight/bias and normalization constants.",
+    "Run a separately authorized correctness comparison of the static wrapper against the original PyTorch visual module before any engine build.",
+    "Only after graph and numerical gates pass, authorize TensorRT parse/build as a separate phase."
+  ],
+  "prohibited_operations_performed": {
+    "final_engine_build": false,
+    "benchmark": false,
+    "quantization": false,
+    "optimization": false,
+    "cuda_modification": false,
+    "environment_modification": false
+  }
+}

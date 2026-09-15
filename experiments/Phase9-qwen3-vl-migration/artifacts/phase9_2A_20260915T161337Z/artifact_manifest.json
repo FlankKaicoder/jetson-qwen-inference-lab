@@ -1,0 +1,27 @@
+{
+  "phase": "Phase 9.2-A",
+  "audit_timestamp_utc": "2026-09-15T16:13:37Z",
+  "local_timestamp": "2026-09-16 00:13:37 Asia/Shanghai",
+  "evidence_files": [
+    {
+      "path": "raw_introspection.json",
+      "bytes": 61671,
+      "sha256": "ad399e5f3c4c0eeb6fc30620253f50407714c4273a080614fe4b626d39617e12"
+    },
+    {
+      "path": "tensorrt_readiness_manifest.json",
+      "bytes": 7835,
+      "sha256": "e52ea5d0867cb6a69edf3fc96707d16a4d8eed1ed2b211e02d1013812cb8a96f"
+    },
+    {
+      "path": "vision_encoder_modules.json",
+      "bytes": 5011,
+      "sha256": "6a3b6c9af64894a90ea193f06c506d3606df7250e30432950f00859fca278887"
+    },
+    {
+      "path": "vision_transformers_source_snapshot.py",
+      "bytes": 70883,
+      "sha256": "685b10cbc48556343df4e159199c5884d02db9ad227640f0f4fbe75ddf0b2a99"
+    }
+  ]
+}
