@@ -29,6 +29,21 @@
 - Stop after this audit. Do not download, convert, benchmark, build engines, or
   change dependencies without a separate explicit authorization.
 
+## Phase 9.0-B Qwen3-VL Checkpoint Preparation (2026-09-15)
+
+- After explicit authorization, pinned checkpoint
+  `Qwen/Qwen3-VL-2B-Instruct@89644892e4d85e24eaac8bacfd4f463576704203` was
+  downloaded to Jetson through `https://hf-mirror.com`.
+- Model path:
+  `/home/nvidia/models/qwen3-vl-2b-instruct-89644892e4d85e24eaac8bacfd4f463576704203`.
+- Gate: `PASS / BOUNDED` for checkpoint identity, checksum, and config
+  architecture only. No ONNX conversion, TensorRT build, benchmark, profiling,
+  quantization, or environment modification occurred.
+- Report and manifest:
+  `experiments/Phase9-qwen3-vl-migration/docs/phase9_0B_checkpoint_preparation_audit.md`,
+  `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_0B_20260915T132321Z/model_manifest.json`.
+- Stop after this audit and await ChatGPT Gate review before Phase 9.1.
+
 ## Phase 8.2-B RMSNorm NCU Microarchitecture Analysis (2026-09-08)
 
 - Owner-authorized root Nsight Compute profiling completed with

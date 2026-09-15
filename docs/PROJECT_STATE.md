@@ -12,15 +12,15 @@
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 9.0 — Qwen3-VL Model And Environment Audit |
-| Current experiment | Phase 9.0 Qwen3-VL Model And Environment Audit |
+| Current phase | Phase 9.0-B — Qwen3-VL Checkpoint Preparation |
+| Current experiment | Phase 9.0-B Qwen3-VL Checkpoint Preparation |
 | Current branch | `phase/09-qwen3vl-migration` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Phase 8.4-A — Qwen3 TensorRT RMSNorm Plugin End-to-End Impact Evaluation |
 | Experiment status | Phase 8.4-A completed a controlled full 28-layer FP16 Prefill/Decode comparison replacing only Layer 0 `input_layernorm`; original ONNX, checkpoint, and historical engines remained unchanged. |
 | Current Gate | Phase 8.4-A is `BOUNDED / NO_END_TO_END_SPEEDUP`: both baseline/plugin graphs built and ran; Layer 0 node relative-L2 passed `1e-3`, full-model equivalence is `INCONCLUSIVE`, and plugin latency was slower. |
-| Readiness | Phase 9.0 is `BLOCKED / NO_LOCAL_MODEL`. Do not download, convert, benchmark, build engines, or change dependencies without new explicit authorization. |
+| Readiness | Phase 9.0-B is `PASS / BOUNDED` for checkpoint preparation. Do not convert, benchmark, build engines, or quantize until a new explicit authorization. |
 
 ## Phase 9.0 Qwen3-VL Migration Startup Checkpoint (2026-09-15)
 
@@ -66,6 +66,30 @@
   `experiments/Phase9-qwen3-vl-migration/docs/phase9_0_model_environment_audit.md`.
   Manifest:
   `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_0_20260915T125952Z/manifest.json`.
+
+## Phase 9.0-B Qwen3-VL Checkpoint Preparation Checkpoint (2026-09-15)
+
+- The owner authorized checkpoint download/locate, model identity, checksum, and
+  config architecture inspection only. No ONNX conversion, TensorRT build,
+  benchmark, quantization, or environment modification occurred.
+- The official Hugging Face endpoint was unreachable from Jetson. The same
+  repository and revision were downloaded through `https://hf-mirror.com` with
+  an explicit revision pin and no package/environment change.
+- Pinned model is `Qwen/Qwen3-VL-2B-Instruct` at
+  `89644892e4d85e24eaac8bacfd4f463576704203`, local path
+  `/home/nvidia/models/qwen3-vl-2b-instruct-89644892e4d85e24eaac8bacfd4f463576704203`.
+- Checkpoint has 12 files, directory size `4,266,666,579` bytes, and
+  `model.safetensors` SHA-256
+  `7de1838c87a5349b016c26a1c3f7d2bc400a3d485f95ef39a7059ffd734977a0`.
+- Read-only safetensors metadata records `625` tensors and `2,127,532,032`
+  BF16 parameters. Config architecture is vision depth 24/hidden 1024 and text
+  decoder 28 layers/hidden 2048/16 Q heads/8 KV heads/head dim 128/GQA.
+- Gate is `PASS / BOUNDED` for checkpoint preparation only. It is not model
+  execution, TensorRT, benchmark, or performance evidence.
+- Report:
+  `experiments/Phase9-qwen3-vl-migration/docs/phase9_0B_checkpoint_preparation_audit.md`.
+  Manifest:
+  `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_0B_20260915T132321Z/model_manifest.json`.
 
 ## Phase 8.0 RMSNorm Baseline Audit Checkpoint (2026-09-07)
 

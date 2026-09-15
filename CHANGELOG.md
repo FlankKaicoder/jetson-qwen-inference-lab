@@ -4,6 +4,19 @@
 
 ## [Unreleased]
 
+### Phase 9.0-B Qwen3-VL Checkpoint Preparation (2026-09-15)
+
+- Downloaded `Qwen/Qwen3-VL-2B-Instruct` at pinned revision
+  `89644892e4d85e24eaac8bacfd4f463576704203` to Jetson through the reachable
+  Hugging Face mirror after the official endpoint timed out.
+- Recorded 12 checkpoint files, directory size `4,266,666,579` bytes, and the
+  full SHA-256 manifest. `model.safetensors` is `4,255,140,312` bytes with
+  SHA-256 `7de1838c...`.
+- Inspected config and safetensors metadata: `2,127,532,032` BF16 parameters,
+  vision depth `24`, and a 28-layer/2048-hidden/16Q-8KV GQA decoder.
+- Gate: `PASS / BOUNDED` for checkpoint preparation only. No ONNX conversion,
+  TensorRT build, benchmark, quantization, or environment modification occurred.
+
 ### Phase 9.0 Qwen3-VL Model And Environment Audit (2026-09-15)
 
 - Performed the authorized read-only Jetson model/environment audit.

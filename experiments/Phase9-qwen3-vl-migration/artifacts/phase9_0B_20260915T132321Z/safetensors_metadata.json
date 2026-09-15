@@ -1,0 +1,22 @@
+{
+  "file": "model.safetensors",
+  "tensor_count": 625,
+  "total_parameters": 2127532032,
+  "dtype_counts": {
+    "BF16": 2127532032
+  },
+  "prefix_parameter_counts": {
+    "model.language_model.embed_tokens": 311164928,
+    "model.language_model.layers": 1409408000,
+    "model.language_model.norm": 2048,
+    "model.visual.blocks": 302309376,
+    "model.visual.deepstack_merger_list": 75540480,
+    "model.visual.merger": 25174016,
+    "model.visual.patch_embed": 1573888,
+    "model.visual.pos_embed": 2359296
+  },
+  "derived_layer_parameter_counts": {
+    "language_model_layers_per_layer": 50336000,
+    "visual_blocks_per_layer": 12596224
+  }
+}

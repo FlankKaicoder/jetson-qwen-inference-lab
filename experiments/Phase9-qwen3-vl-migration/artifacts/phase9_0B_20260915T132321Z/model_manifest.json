@@ -1,0 +1,80 @@
+{
+  "phase": "Phase 9.0-B",
+  "title": "Qwen3-VL checkpoint preparation",
+  "audit_timestamp_utc": "2026-09-15T13:23:21Z",
+  "local_timestamp": "2026-09-15T21:23:21+08:00",
+  "audit_mode": "CHECKPOINT_DOWNLOAD_AND_READ_ONLY_AUDIT",
+  "gate": "PASS / BOUNDED",
+  "model_identity": {
+    "repository_id": "Qwen/Qwen3-VL-2B-Instruct",
+    "revision": "89644892e4d85e24eaac8bacfd4f463576704203",
+    "license": "apache-2.0",
+    "local_path": "/home/nvidia/models/qwen3-vl-2b-instruct-89644892e4d85e24eaac8bacfd4f463576704203",
+    "model_type": "qwen3_vl",
+    "architecture": "Qwen3VLForConditionalGeneration",
+    "checkpoint_dtype": "BF16",
+    "total_parameters": 2127532032
+  },
+  "download": {
+    "official_huggingface_endpoint": "BLOCKED_CONNECTION_TIMEOUT",
+    "mirror_endpoint": "https://hf-mirror.com",
+    "tool": "huggingface-cli download",
+    "revision_pin": true,
+    "local_dir_symlinks": false,
+    "file_count": 12,
+    "directory_size_bytes": 4266666579
+  },
+  "checkpoint_files": {
+    "model_safetensors": "model.safetensors",
+    "model_safetensors_size_bytes": 4255140312,
+    "model_safetensors_sha256": "7de1838c87a5349b016c26a1c3f7d2bc400a3d485f95ef39a7059ffd734977a0",
+    "config_sha256": "bec4b3d446efa05807365c9e1cec03ac590836879d02f3a6da879971154bdd3b",
+    "all_file_checksums": "sha256sums.txt"
+  },
+  "architecture": {
+    "vision": {
+      "depth": 24,
+      "hidden_size": 1024,
+      "intermediate_size": 4096,
+      "num_heads": 16,
+      "patch_size": 16,
+      "spatial_merge_size": 2,
+      "temporal_patch_size": 2,
+      "out_hidden_size": 2048,
+      "deepstack_visual_indexes": [5, 11, 17]
+    },
+    "decoder": {
+      "num_hidden_layers": 28,
+      "hidden_size": 2048,
+      "intermediate_size": 6144,
+      "num_attention_heads": 16,
+      "num_key_value_heads": 8,
+      "head_dim": 128,
+      "gqa_repeat": 2,
+      "rms_norm_eps": 1e-06,
+      "rope_theta": 5000000,
+      "mrope_interleaved": true,
+      "mrope_section": [24, 20, 20],
+      "max_position_embeddings": 262144,
+      "vocab_size": 151936,
+      "tie_word_embeddings": true
+    },
+    "special_tokens": {
+      "image_token_id": 151655,
+      "video_token_id": 151656,
+      "vision_start_token_id": 151652,
+      "vision_end_token_id": 151653,
+      "bos_token_id": 151643,
+      "eos_token_id": 151645,
+      "pad_token_id": 151643
+    }
+  },
+  "prohibited_operations_performed": {
+    "onnx_conversion": false,
+    "tensorrt_build": false,
+    "benchmark": false,
+    "quantization": false,
+    "environment_modification": false
+  },
+  "next_action": "STOP; await ChatGPT Gate review before Phase 9.1"
+}
