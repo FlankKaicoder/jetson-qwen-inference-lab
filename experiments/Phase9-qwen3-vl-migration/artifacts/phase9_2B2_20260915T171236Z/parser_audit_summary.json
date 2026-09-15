@@ -1,0 +1,127 @@
+{
+  "audit_mode": "TENSORRT_ONNX_PARSER_INSPECTION_ONLY",
+  "hostname": "nvidia-desktop",
+  "network": {
+    "creation_flags": [
+      "EXPLICIT_BATCH"
+    ],
+    "inputs": [
+      {
+        "dtype": "HALF",
+        "name": "pixel_values",
+        "shape": [
+          784,
+          1536
+        ]
+      }
+    ],
+    "layer_type_counts": {
+      "ACTIVATION": 24,
+      "CAST": 337,
+      "CONCATENATION": 96,
+      "CONSTANT": 1684,
+      "CONVOLUTION": 1,
+      "ELEMENTWISE": 2353,
+      "GATHER": 96,
+      "MATRIX_MULTIPLY": 152,
+      "NORMALIZATION": 52,
+      "SHUFFLE": 1237,
+      "SLICE": 168,
+      "SOFTMAX": 24,
+      "UNARY": 52
+    },
+    "num_inputs": 1,
+    "num_layers": 6276,
+    "num_outputs": 4,
+    "outputs": [
+      {
+        "dtype": "HALF",
+        "name": "final_hidden",
+        "shape": [
+          196,
+          2048
+        ]
+      },
+      {
+        "dtype": "HALF",
+        "name": "deepstack_0",
+        "shape": [
+          196,
+          2048
+        ]
+      },
+      {
+        "dtype": "HALF",
+        "name": "deepstack_1",
+        "shape": [
+          196,
+          2048
+        ]
+      },
+      {
+        "dtype": "HALF",
+        "name": "deepstack_2",
+        "shape": [
+          196,
+          2048
+        ]
+      }
+    ]
+  },
+  "onnx_file": {
+    "path": "/tmp/phase9_2b1_20260915T164731Z/qwen3_vl_vision_fp16_opset17.onnx",
+    "sha256": "102143ffd1afa1ff798736fdbe274fd2cab98f9e7a97d690a27ebd73c404c4db",
+    "size_bytes": 830381691
+  },
+  "onnx_version": "1.22.0",
+  "parser": {
+    "errors": [],
+    "invocation_method": "OnnxParser.parse_from_file",
+    "invoked": true,
+    "num_errors": 0,
+    "parse_exception": null,
+    "parse_returned": true,
+    "success": true,
+    "unsupported_operator_count": 0,
+    "unsupported_operators": []
+  },
+  "parser_log": {
+    "error_count": 0,
+    "full_log_path": "/tmp/phase9_2b2_20260915T171236Z/parser_console.log",
+    "full_log_sha256": "a6d5de8d0dc6855e9589e575c71ea9c6461fa1ce0bc672c704ba1ecc1d0c67e4",
+    "full_log_size_bytes": 2066375,
+    "nonverbose_path": "/tmp/phase9_2b2_20260915T171236Z/parser_log_nonverbose.txt",
+    "nonverbose_sha256": "0b2fd90c14eec55cd7ea1215bb46be2f115076a9c6ceb60153bb33a3be2e58fe",
+    "nonverbose_size_bytes": 669,
+    "record_count": 26516,
+    "severity_counts": {
+      "INFO": 12,
+      "VERBOSE": 26504
+    },
+    "warning_count": 0
+  },
+  "parser_script": {
+    "path": "/tmp/phase9_2b2_20260915T171236Z/parse_vision_onnx.py",
+    "sha256": "c69e94aaa724f259556d3b5e69b4996085cbb4b1a4541fcb236ccea54d834513",
+    "size_bytes": 5800
+  },
+  "phase": "Phase 9.2-B2",
+  "prohibited_operations_performed": {
+    "benchmark_run": false,
+    "builder_config_created": false,
+    "cuda_kernel_modified": false,
+    "engine_build_called": false,
+    "engine_serialized": false,
+    "environment_modified": false,
+    "quantization_performed": false,
+    "tactic_selection_forced": false
+  },
+  "raw_parser_audit": {
+    "path": "/tmp/phase9_2b2_20260915T171236Z/parser_audit.json",
+    "retained_on": "Jetson only",
+    "sha256": "02760076b5052dbc3d7698f295cc44df3eda4af01ea5f3ec5b2852f4c6a3d7e2",
+    "size_bytes": 8349463
+  },
+  "started_utc": "2026-09-15T17:13:39.901716+00:00",
+  "tensorrt_version": "10.3.0"
+}

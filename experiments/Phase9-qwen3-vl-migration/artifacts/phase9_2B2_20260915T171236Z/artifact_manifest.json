@@ -1,0 +1,21 @@
+{
+  "phase": "Phase 9.2-B2",
+  "artifact_dir": "E:\\nvidia-qwen\\experiments\\Phase9-qwen3-vl-migration\\artifacts\\phase9_2B2_20260915T171236Z",
+  "files": [
+    {
+      "path": "parser_audit_summary.json",
+      "size_bytes": 3250,
+      "sha256": "708c42466572577a51a47d92aba9eee2e82065a4282c8c6e3380830f5ccd29be"
+    },
+    {
+      "path": "parser_log_nonverbose.txt",
+      "size_bytes": 669,
+      "sha256": "0b2fd90c14eec55cd7ea1215bb46be2f115076a9c6ceb60153bb33a3be2e58fe"
+    }
+  ],
+  "source_script": {
+    "path": "experiments/Phase9-qwen3-vl-migration/src/phase9_2B2/parse_vision_onnx.py",
+    "size_bytes": 5800,
+    "sha256": "c69e94aaa724f259556d3b5e69b4996085cbb4b1a4541fcb236ccea54d834513"
+  }
+}

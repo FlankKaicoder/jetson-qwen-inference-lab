@@ -1,0 +1,12 @@
+[TRT:INFO] [MemUsageChange] Init CUDA: CPU +13, GPU +0, now: CPU 35, GPU 2630 (MiB)
+[TRT:INFO] [MemUsageChange] Init builder kernel library: CPU +928, GPU +753, now: CPU 1006, GPU 3428 (MiB)
+[TRT:INFO] ----------------------------------------------------------------
+[TRT:INFO] Input filename:   /tmp/phase9_2b1_20260915T164731Z/qwen3_vl_vision_fp16_opset17.onnx
+[TRT:INFO] ONNX IR version:  0.0.8
+[TRT:INFO] Opset version:    17
+[TRT:INFO] Producer name:    pytorch
+[TRT:INFO] Producer version: 2.5.0
+[TRT:INFO] Domain:           
+[TRT:INFO] Model version:    0
+[TRT:INFO] Doc string:       
+[TRT:INFO] ----------------------------------------------------------------

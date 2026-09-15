@@ -4,6 +4,17 @@
 
 ## [Unreleased]
 
+### Phase 9.2-B2 Qwen3-VL Vision ONNX TensorRT Parser Audit (2026-09-16)
+
+- Parsed the unchanged Phase 9.2-B1 FP16 opset-17 static vision graph with
+  TensorRT 10.3.0 and ONNX 1.22.0.
+- Recorded parser success, 0 parser errors, 0 warnings, no unsupported operator
+  at the parser boundary, and an explicit-batch network of 6,276 layers with the
+  expected one `[784,1536]` input and four `[196,2048]` outputs.
+- Gate: `PASS / BOUNDED — TENSORRT_PARSE_ONLY`. No BuilderConfig, engine build,
+  correctness execution, benchmark, quantization, optimization, CUDA
+  modification, or environment modification occurred.
+
 ### Phase 9.1-B Qwen3-VL PyTorch FP16 Baseline Benchmark (2026-09-15)
 
 - Froze a one-workload benchmark protocol before measurement: deterministic

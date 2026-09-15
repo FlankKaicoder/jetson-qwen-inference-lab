@@ -1,3 +1,23 @@
+## Phase 9.2-B2 Vision ONNX TensorRT Parser Audit (2026-09-16)
+
+- After explicit authorization, TensorRT 10.3.0 parsed the unchanged Phase
+  9.2-B1 FP16 opset-17 static vision graph using `parse_from_file`. Gate:
+  `PASS / BOUNDED — TENSORRT_PARSE_ONLY`.
+- The ONNX file remained 830,381,691 bytes with SHA-256 `102143ff...`. Parser
+  returned success with 0 errors, 0 warnings, and no unsupported operator at the
+  parser boundary.
+- The explicit-batch network contains 6,276 layers, one
+  `pixel_values [784,1536] HALF` input, and four `[196,2048] HALF` outputs. No
+  BuilderConfig, engine build/serialization/deserialization, correctness
+  execution, benchmark, quantization, optimization, CUDA modification, or
+  persistent environment change occurred.
+- Report and evidence:
+  `experiments/Phase9-qwen3-vl-migration/docs/phase9_2B2_vision_onnx_tensorrt_parser_audit.md`,
+  `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_2B2_20260915T171236Z/`.
+- Stop after this parser-only audit and await ChatGPT Gate review before any
+  BuilderConfig, engine build, correctness comparison, benchmark, quantization,
+  or optimization.
+
 ## Phase 9.2-B1 Vision Encoder ONNX Export Feasibility (2026-09-16)
 
 - After explicit authorization, the fixed single-image static wrapper exported

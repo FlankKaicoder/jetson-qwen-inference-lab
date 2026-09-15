@@ -12,15 +12,38 @@
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 9.2-B1 — Qwen3-VL Vision ONNX Export Feasibility |
-| Current experiment | Phase 9.2-B1 Qwen3-VL Vision ONNX Export Feasibility |
+| Current phase | Phase 9.2-B2 — Qwen3-VL Vision ONNX TensorRT Parser Audit |
+| Current experiment | Phase 9.2-B2 Qwen3-VL Vision ONNX TensorRT Parser Audit |
 | Current branch | `phase/09-qwen3vl-migration` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 9.2-B1 — Qwen3-VL Vision ONNX Export Feasibility |
-| Experiment status | Phase 9.2-B1 exported the fixed single-image static vision graph to opset-17 ONNX and inspected it; the graph has 2,977 nodes, 314 FP16 initializers, one `[784,1536]` input, four `[196,2048]` outputs, and no dynamic shape indicators. |
-| Current Gate | Phase 9.2-B1 is `PASS / BOUNDED — ONNX_EXPORT_GRAPH_ONLY`: ONNX structural export succeeded, but numerical correctness and TensorRT parse/build/runtime compatibility remain `UNKNOWN`. |
-| Readiness | Phase 9.2-B1 is `PASS / BOUNDED` for ONNX graph feasibility only. Do not parse/build TensorRT, run correctness comparisons, benchmark, quantize, optimize, or modify CUDA/environment until a new explicit authorization. |
+| Last completed experiment | Phase 9.2-B2 — Qwen3-VL Vision ONNX TensorRT Parser Audit |
+| Experiment status | Phase 9.2-B2 parsed the unchanged Phase 9.2-B1 opset-17 FP16 vision graph with TensorRT 10.3.0; parser returned success, 0 errors, 0 warnings, and the network contains 6,276 layers, 1 input, and 4 outputs. |
+| Current Gate | Phase 9.2-B2 is `PASS / BOUNDED — TENSORRT_PARSE_ONLY`: parser compatibility succeeded, but numerical correctness, engine buildability, tactic availability, runtime performance, and dynamic workloads remain `UNKNOWN`. |
+| Readiness | Phase 9.2-B2 is `PASS / BOUNDED` for parser inspection only. Do not create a BuilderConfig, build/serialize/execute an engine, run correctness comparisons or benchmarks, quantize, optimize, or modify CUDA/environment until a new explicit authorization. |
+
+## Phase 9.2-B2 Vision ONNX TensorRT Parser Audit Checkpoint (2026-09-16)
+
+- The owner authorized TensorRT parser invocation and network inspection only.
+  No BuilderConfig, engine build/serialization/deserialization, benchmark,
+  tactic selection, quantization, optimization, CUDA modification, or persistent
+  environment modification occurred.
+- The input hash remained
+  `102143ffd1afa1ff798736fdbe274fd2cab98f9e7a97d690a27ebd73c404c4db` for the
+  830,381,691-byte B1 ONNX graph.
+- TensorRT `10.3.0` with ONNX `1.22.0` parsed the graph successfully using
+  `OnnxParser.parse_from_file`. Parser error count was `0`; no unsupported
+  operator was reported at the parser boundary.
+- The collected logger had 12 INFO, 26,504 VERBOSE, 0 WARNING, and 0 ERROR
+  messages. The parsed explicit-batch network has 6,276 layers, one
+  `pixel_values [784,1536] HALF` input, and four `[196,2048] HALF` outputs.
+- Gate is `PASS / BOUNDED — TENSORRT_PARSE_ONLY`. Numerical correctness, engine
+  buildability, tactic availability, runtime performance, and dynamic-workload
+  support remain `UNKNOWN`.
+- Report:
+  `experiments/Phase9-qwen3-vl-migration/docs/phase9_2B2_vision_onnx_tensorrt_parser_audit.md`.
+  Evidence:
+  `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_2B2_20260915T171236Z/`.
 
 ## Phase 9.0 Qwen3-VL Migration Startup Checkpoint (2026-09-15)
 
