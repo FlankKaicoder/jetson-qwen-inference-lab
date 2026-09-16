@@ -4,6 +4,21 @@
 
 ## [Unreleased]
 
+### Phase 9.2-C2 Qwen3-VL Vision FP16 Numerical Correctness (2026-09-16)
+
+- Compared the PyTorch FP16 `Qwen3VLVisionModel` against the Phase 9.2-C1
+  TensorRT FP16 engine once at the fixed `pixel_values=[784,1536]` /
+  `grid_thw=[1,28,28]` boundary.
+- Recorded matching `[196,2048]` shapes, but non-finite PyTorch and TensorRT
+  values for all four outputs. Max absolute error, mean absolute error, and
+  cosine similarity are therefore `NaN`.
+- Recorded CUDA peak allocation `921,025,536` bytes, peak reservation
+  `956,301,312` bytes, one TensorRT default-stream warning, and zero TensorRT
+  errors. Preserved a pre-execution invalid-device attempt.
+- Gate: `BLOCKED / NON_FINITE_FP16_FIXED_BOUNDARY`. Correctness is
+  `INCONCLUSIVE`; root cause is `UNKNOWN`. No benchmark, latency, optimization,
+  quantization, CUDA modification, or environment modification occurred.
+
 ### Phase 9.2-C1 Qwen3-VL Vision ONNX FP16 TensorRT Engine Build (2026-09-16)
 
 - Built and serialized the FP16 vision encoder plan with TensorRT 10.3.0 using

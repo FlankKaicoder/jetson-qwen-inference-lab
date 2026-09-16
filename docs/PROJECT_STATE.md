@@ -12,15 +12,39 @@
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 9.2-C1 — Qwen3-VL Vision ONNX FP16 TensorRT Engine Build |
-| Current experiment | Phase 9.2-C1 Qwen3-VL Vision ONNX FP16 TensorRT Engine Build |
+| Current phase | Phase 9.2-C2 — Qwen3-VL Vision FP16 Numerical Correctness |
+| Current experiment | Phase 9.2-C2 Qwen3-VL Vision FP16 Numerical Correctness |
 | Current branch | `phase/09-qwen3vl-migration` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 9.2-C1 — Qwen3-VL Vision ONNX FP16 TensorRT Engine Build |
-| Experiment status | Phase 9.2-C1 built and serialized an 818,910,588-byte FP16 engine from the unchanged Phase 9.2-B1 ONNX graph using TensorRT 10.3.0 with explicit 1 GiB workspace and tactic DRAM pools. |
-| Current Gate | Phase 9.2-C1 is `PASS / BOUNDED — TENSORRT_FP16_ENGINE_BUILD_ONLY`: build succeeded, but runtime correctness, performance, dynamic workloads, and deployment suitability remain `UNKNOWN`. |
-| Readiness | Phase 9.2-C1 is `PASS / BOUNDED` for build feasibility only. Do not create an execution context, execute or deserialize further, run correctness comparisons or benchmarks, quantize, optimize, or modify CUDA/environment until a new explicit authorization. |
+| Last completed experiment | Phase 9.2-C2 — Qwen3-VL Vision FP16 Numerical Correctness |
+| Experiment status | Phase 9.2-C2 executed one PyTorch FP16 pass and one TensorRT engine execution at the fixed boundary. All four PyTorch and TensorRT outputs were non-finite, so required error/cosine metrics are `NaN` and correctness is `INCONCLUSIVE`. |
+| Current Gate | Phase 9.2-C2 is `BLOCKED / NON_FINITE_FP16_FIXED_BOUNDARY`: execution completed, but non-finite outputs prevent a numerical correctness judgment. Non-finite root cause is `UNKNOWN`. |
+| Readiness | Phase 9.2-C2 is `BLOCKED / INCONCLUSIVE` for numerical correctness only. Do not rerun, change input, diagnose further, rebuild, optimize, benchmark, quantize, or modify CUDA/environment until a new explicit authorization. |
+
+## Phase 9.2-C2 Vision FP16 Correctness Checkpoint (2026-09-16)
+
+- The owner authorized numerical correctness validation only at
+  `pixel_values=[784,1536]` and `grid_thw=[1,28,28]`. No benchmark, latency
+  measurement, optimization, quantization, CUDA modification, conversion, or
+  persistent environment change occurred.
+- The pinned model hashes and C1 engine hash were unchanged. The visual state
+  dict loaded strictly with no missing or unexpected keys.
+- The first invocation stopped before model/engine execution on a Torch device
+  argument incompatibility; its script and console are preserved. The corrected
+  script completed one PyTorch pass and one TensorRT execution.
+- All four `final_hidden`, `deepstack_0`, `deepstack_1`, and `deepstack_2`
+  outputs had matching `[196,2048]` shapes but were non-finite on both sides.
+  Required max absolute error, mean absolute error, and cosine similarity are
+  therefore `NaN`.
+- CUDA peak allocation was `921,025,536` bytes and peak reservation was
+  `956,301,312` bytes. TensorRT logged one default-stream warning and zero
+  errors. The gate is `BLOCKED / NON_FINITE_FP16_FIXED_BOUNDARY`; non-finite
+  root cause remains `UNKNOWN`.
+- Report:
+  `experiments/Phase9-qwen3-vl-migration/docs/phase9_2C2_vision_fp16_correctness.md`.
+  Evidence:
+  `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_2C2_20260916T042306Z/`.
 
 ## Phase 9.2-C1 Vision ONNX FP16 TensorRT Engine Build Checkpoint (2026-09-16)
 

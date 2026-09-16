@@ -1,0 +1,262 @@
+{
+  "audit_mode": "PYTORCH_VS_TENSORRT_FP16_CORRECTNESS_ONLY",
+  "boundary": {
+    "grid_thw": [
+      1,
+      28,
+      28
+    ],
+    "output_names": [
+      "final_hidden",
+      "deepstack_0",
+      "deepstack_1",
+      "deepstack_2"
+    ],
+    "pixel_values_dtype": "torch.float16",
+    "pixel_values_shape": [
+      784,
+      1536
+    ],
+    "pixel_values_values": "deterministic linspace [-1,1]"
+  },
+  "comparison": {
+    "deepstack_0": {
+      "cosine_similarity": NaN,
+      "dtype_reference": "torch.float32",
+      "dtype_tensorrt": "torch.float32",
+      "max_absolute_error": NaN,
+      "mean_absolute_error": NaN,
+      "metrics_finite": false,
+      "reference_finite": false,
+      "shape_reference": [
+        196,
+        2048
+      ],
+      "shape_tensorrt": [
+        196,
+        2048
+      ],
+      "tensorrt_finite": false
+    },
+    "deepstack_1": {
+      "cosine_similarity": NaN,
+      "dtype_reference": "torch.float32",
+      "dtype_tensorrt": "torch.float32",
+      "max_absolute_error": NaN,
+      "mean_absolute_error": NaN,
+      "metrics_finite": false,
+      "reference_finite": false,
+      "shape_reference": [
+        196,
+        2048
+      ],
+      "shape_tensorrt": [
+        196,
+        2048
+      ],
+      "tensorrt_finite": false
+    },
+    "deepstack_2": {
+      "cosine_similarity": NaN,
+      "dtype_reference": "torch.float32",
+      "dtype_tensorrt": "torch.float32",
+      "max_absolute_error": NaN,
+      "mean_absolute_error": NaN,
+      "metrics_finite": false,
+      "reference_finite": false,
+      "shape_reference": [
+        196,
+        2048
+      ],
+      "shape_tensorrt": [
+        196,
+        2048
+      ],
+      "tensorrt_finite": false
+    },
+    "final_hidden": {
+      "cosine_similarity": NaN,
+      "dtype_reference": "torch.float32",
+      "dtype_tensorrt": "torch.float32",
+      "max_absolute_error": NaN,
+      "mean_absolute_error": NaN,
+      "metrics_finite": false,
+      "reference_finite": false,
+      "shape_reference": [
+        196,
+        2048
+      ],
+      "shape_tensorrt": [
+        196,
+        2048
+      ],
+      "tensorrt_finite": false
+    }
+  },
+  "comparison_summary": {
+    "all_metrics_finite": false,
+    "all_output_finite": false,
+    "all_reference_finite": false,
+    "all_shapes_match": true,
+    "max_absolute_error": NaN,
+    "max_mean_absolute_error": NaN,
+    "min_cosine_similarity": NaN
+  },
+  "cuda_capability": [
+    8,
+    7
+  ],
+  "cuda_version": "12.6",
+  "device": "cuda:0",
+  "device_name": "Orin",
+  "engine_file": {
+    "path": "/tmp/phase9_2c1_20260916T034956Z/engine/qwen3_vl_vision_fp16.trt",
+    "sha256": "aa5c200eb5dcbc5abaef55bc014b5210236fb9ca34394217a024d3796e44823c",
+    "size_bytes": 818910588
+  },
+  "finished_utc": "2026-09-16T04:26:09.101820+00:00",
+  "hostname": "nvidia-desktop",
+  "memory": {
+    "allocated_after_bytes": 17351168,
+    "allocated_before_bytes": 0,
+    "peak_allocated_bytes": 921025536,
+    "peak_reserved_bytes": 956301312,
+    "reserved_after_bytes": 48234496,
+    "reserved_before_bytes": 0
+  },
+  "model_identity": {
+    "config_sha256": "bec4b3d446efa05807365c9e1cec03ac590836879d02f3a6da879971154bdd3b",
+    "local_path": "/home/nvidia/models/qwen3-vl-2b-instruct-89644892e4d85e24eaac8bacfd4f463576704203",
+    "weights_path": "/home/nvidia/models/qwen3-vl-2b-instruct-89644892e4d85e24eaac8bacfd4f463576704203/model.safetensors",
+    "weights_sha256": "7de1838c87a5349b016c26a1c3f7d2bc400a3d485f95ef39a7059ffd734977a0",
+    "weights_size_bytes": 4255140312
+  },
+  "phase": "Phase 9.2-C2",
+  "prohibited_operations_performed": {
+    "benchmark_run": false,
+    "cuda_kernel_modified": false,
+    "environment_modified": false,
+    "latency_measured": false,
+    "optimization_performed": false,
+    "quantization_performed": false
+  },
+  "pytorch_reference": {
+    "all_finite": false,
+    "attention_implementation": "eager",
+    "blocks": 24,
+    "class": "Qwen3VLVisionModel",
+    "deepstack_indexes": [
+      5,
+      11,
+      17
+    ],
+    "missing_keys": [],
+    "output_shapes": {
+      "deepstack_0": {
+        "dtype": "torch.float32",
+        "shape": [
+          196,
+          2048
+        ]
+      },
+      "deepstack_1": {
+        "dtype": "torch.float32",
+        "shape": [
+          196,
+          2048
+        ]
+      },
+      "deepstack_2": {
+        "dtype": "torch.float32",
+        "shape": [
+          196,
+          2048
+        ]
+      },
+      "final_hidden": {
+        "dtype": "torch.float32",
+        "shape": [
+          196,
+          2048
+        ]
+      }
+    },
+    "parameter_count": 406957056,
+    "state_dict_loaded": true,
+    "unexpected_keys": []
+  },
+  "runtime_log": {
+    "error_count": 0,
+    "nonverbose_records": [
+      {
+        "message": "Loaded engine size: 780 MiB",
+        "severity": "INFO"
+      },
+      {
+        "message": "[MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +14, now: CPU 0, GPU 792 (MiB)",
+        "severity": "INFO"
+      },
+      {
+        "message": "Using default stream in enqueueV3() may lead to performance issues due to additional calls to cudaStreamSynchronize() by TensorRT to ensure correct synchronization. Please use non-default stream instead.",
+        "severity": "WARNING"
+      }
+    ],
+    "record_count": 9,
+    "severity_counts": {
+      "INFO": 2,
+      "VERBOSE": 6,
+      "WARNING": 1
+    },
+    "warning_count": 1
+  },
+  "started_utc": "2026-09-16T04:25:50.788836+00:00",
+  "tensorrt_runtime": {
+    "all_binding_shapes_specified": true,
+    "all_shape_inputs_specified": true,
+    "device_memory_size_v2": 14450688,
+    "engine_executed_once": true,
+    "engine_name": "Unnamed Network 0",
+    "engine_num_io_tensors": 5,
+    "engine_num_layers": 209,
+    "execute_async_v3_returned": true,
+    "execution_context_created": true,
+    "input_dtype": "torch.float16",
+    "input_shape": [
+      784,
+      1536
+    ],
+    "num_optimization_profiles": 1,
+    "output_shapes": {
+      "deepstack_0": {
+        "dtype": "torch.float32",
+        "shape": [
+          196,
+          2048
+        ]
+      },
+      "deepstack_1": {
+        "dtype": "torch.float32",
+        "shape": [
+          196,
+          2048
+        ]
+      },
+      "deepstack_2": {
+        "dtype": "torch.float32",
+        "shape": [
+          196,
+          2048
+        ]
+      },
+      "final_hidden": {
+        "dtype": "torch.float32",
+        "shape": [
+          196,
+          2048
+        ]
+      }
+    }
+  },
+  "tensorrt_version": "10.3.0",
+  "torch_version": "2.5.0a0+872d972e41.nv24.08"
+}

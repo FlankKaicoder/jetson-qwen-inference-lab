@@ -1,0 +1,37 @@
+{
+  "phase": "Phase 9.2-C2",
+  "artifact_dir": "experiments/Phase9-qwen3-vl-migration/artifacts/phase9_2C2_20260916T042306Z",
+  "run_directory": "/tmp/phase9_2c2_20260916T042306Z",
+  "artifacts": [
+    {
+      "path": "console.log",
+      "size_bytes": 7535,
+      "sha256": "50428a780a130a398df3ad0bc8ead900f57076a1d06b84f23c42d2eaecc4445c"
+    },
+    {
+      "path": "correctness_result.json",
+      "size_bytes": 6570,
+      "sha256": "178d9c0dbf450970f45c113943a375d6a94220c7e31b0af0455fb362e3d5215c"
+    },
+    {
+      "path": "failed_attempt1_invalid_device/console.log",
+      "size_bytes": 721,
+      "sha256": "b8b1b8ed6557af9dde2195d7c6c692df2645d53dfcccebe344eae8374861a56b"
+    },
+    {
+      "path": "failed_attempt1_invalid_device/run_vision_correctness.py",
+      "size_bytes": 12621,
+      "sha256": "2640e09fc79168361f9660171731538c5bc7f834145dcae4226c8310ba59e3bc"
+    },
+    {
+      "path": "command_log.md",
+      "size_bytes": 2498,
+      "sha256": "8aa863fd472e1ae8528e7e382ca538517f3de47fc48d50996c8ad877203b0ca1"
+    }
+  ],
+  "external_input_hashes": {
+    "model_config_sha256": "bec4b3d446efa05807365c9e1cec03ac590836879d02f3a6da879971154bdd3b",
+    "model_weights_sha256": "7de1838c87a5349b016c26a1c3f7d2bc400a3d485f95ef39a7059ffd734977a0",
+    "tensorrt_engine_sha256": "aa5c200eb5dcbc5abaef55bc014b5210236fb9ca34394217a024d3796e44823c"
+  }
+}

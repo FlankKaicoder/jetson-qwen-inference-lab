@@ -1,3 +1,28 @@
+## Phase 9.2-C2 Vision FP16 Numerical Correctness (2026-09-16)
+
+- After explicit authorization, one PyTorch FP16 pass and one TensorRT FP16
+  engine execution were compared at the fixed `pixel_values=[784,1536]`,
+  `grid_thw=[1,28,28]` boundary. Gate:
+  `BLOCKED / NON_FINITE_FP16_FIXED_BOUNDARY`.
+- The pinned model hashes and C1 engine hash were unchanged. Visual weights
+  loaded strictly. The engine deserialized, context creation succeeded, and
+  `execute_async_v3` returned true.
+- All four `final_hidden`, `deepstack_0`, `deepstack_1`, and `deepstack_2`
+  outputs were non-finite on both sides despite matching `[196,2048]` shapes.
+  Max absolute error, mean absolute error, and cosine similarity are therefore
+  `NaN`; correctness is `INCONCLUSIVE` and non-finite root cause is `UNKNOWN`.
+- CUDA peak allocation was `921,025,536` bytes and peak reservation was
+  `956,301,312` bytes. TensorRT logged one default-stream warning and zero
+  errors. The first invalid-device invocation is preserved before the corrected
+  execution. No benchmark, latency, optimization, quantization, CUDA change, or
+  persistent environment change occurred.
+- Report and evidence:
+  `experiments/Phase9-qwen3-vl-migration/docs/phase9_2C2_vision_fp16_correctness.md`,
+  `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_2C2_20260916T042306Z/`.
+- Stop after this blocked correctness result and await ChatGPT Gate review
+  before any rerun, input change, non-finite diagnosis, engine rebuild,
+  benchmark, quantization, or optimization.
+
 ## Phase 9.2-C1 Vision ONNX FP16 TensorRT Engine Build (2026-09-16)
 
 - After explicit authorization, TensorRT 10.3.0 built and serialized an FP16
