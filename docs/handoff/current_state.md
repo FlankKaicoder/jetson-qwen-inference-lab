@@ -1,3 +1,21 @@
+# Phase 9.4 Project Closure (2026-09-16)
+
+- The owner authorized documentation closure only. Gate: `PROJECT_COMPLETE`.
+  No experiment, benchmark, profiling, inference, optimization, quantization,
+  TensorRT-LLM migration, decoder change, FlashAttention work, CUDA kernel
+  work, engine rebuild, or environment change occurred.
+- Final report and status are `docs/PROJECT_FINAL_REPORT.md` and
+  `docs/FINAL_STATUS.md`. The detailed closure handoff is
+  `docs/handoff/phase9_4_project_closure.md`.
+- Phase 9.3-B2 remains the final experiment. Its gate and all historical
+  evidence are unchanged. The registry was verified rather than extended;
+  Phase 9.4 is not an experiment row.
+- Isolated TensorRT FP16 Vision latency remains bounded at
+  `82.9734232584635` ms versus PyTorch `225.396496582031` ms. No meaningful
+  end-to-end speedup is claimed. Exact attention share, DRAM counters,
+  achieved bandwidth, and power remain `UNKNOWN`.
+- Future directions are record-only and require a new explicit authorization.
+
 # Phase 9.3-B2 Decoder-Side Bottleneck Attribution (2026-09-16)
 
 - After explicit authorization, Phase 9.3-B2 profiled the decoder-side runtime

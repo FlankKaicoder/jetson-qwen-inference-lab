@@ -4,6 +4,20 @@
 
 ## [Unreleased]
 
+### Phase 9.4 Project Closure (2026-09-16)
+
+- Added the final project report, final status, and Phase 9.4 closure handoff.
+- Updated the README with the final results summary and repository
+  organization, and added a closure entry to the project state and auxiliary
+  handoff pointers.
+- Verified that `results/experiment_registry.csv` still has `Phase9.3-B2` as
+  its final experiment row. No experiment row was changed or added.
+- Final gate: `PROJECT_COMPLETE`. This documents closure completeness only and
+  does not claim an end-to-end optimization product.
+- No experiment, benchmark, profiling, inference, optimization, quantization,
+  TensorRT-LLM migration, decoder change, CUDA modification, engine rebuild,
+  or historical-artifact modification occurred.
+
 ### Phase 9.3-B2 Qwen3-VL Decoder-Side Runtime Bottleneck Attribution (2026-09-16)
 
 - Froze and executed a decoder-side profiling protocol using the same

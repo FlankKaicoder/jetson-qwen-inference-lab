@@ -7,6 +7,32 @@
 - 主实验平台：Jetson Orin Nano Super
 - 研究对象：Qwen3 系列模型
 
+## Final Results Summary
+
+项目已于 2026-09-16 进入 `PROJECT_COMPLETE` closure。最终实验为 Phase 9.3-B2
+Qwen3-VL decoder bottleneck attribution；最终报告见
+[docs/PROJECT_FINAL_REPORT.md](docs/PROJECT_FINAL_REPORT.md)，最终状态见
+[docs/FINAL_STATUS.md](docs/FINAL_STATUS.md)。
+
+最重要的 bounded 结论是：静态 Qwen3-VL Vision Encoder 的 TensorRT FP16 路径在
+固定隔离边界约 `2.7x` 快于 PyTorch FP16，但端到端生成没有可声称的有效加速。
+Phase 9.3-B2 记录 decode 占固定 workload 生成的 `87.17536311733093%`，decode
+kernel time 中 `78.3598%` 属于 GEMM-class；exact attention share、DRAM
+counters、achieved bandwidth 与 power 保持 `UNKNOWN`。TensorRT-LLM 是研究
+方向，不是已完成的成功迁移结果。
+
+## Repository Organization
+
+- [docs/PROJECT_FINAL_REPORT.md](docs/PROJECT_FINAL_REPORT.md): final project closeout.
+- [docs/FINAL_STATUS.md](docs/FINAL_STATUS.md): final gate and limitations.
+- [docs/PROJECT_STATE.md](docs/PROJECT_STATE.md): recovery-first project state.
+- [docs/experiment_index.md](docs/experiment_index.md): experiment report index.
+- [results/experiment_registry.csv](results/experiment_registry.csv): experiment registry.
+- `experiments/`: experiment reports, harnesses, and compact evidence.
+- `results/`: compact result artifacts and registries.
+- Large model weights, ONNX files, TensorRT engines, and raw profiler reports
+  remain Jetson-local and are not committed.
+
 ## 长期能力方向
 
 - CUDA Kernel

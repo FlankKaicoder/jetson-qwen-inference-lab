@@ -12,15 +12,37 @@
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 9.3-B2 — Decoder-Side Runtime Bottleneck Attribution |
-| Current experiment | Phase 9.3-B2 Qwen3-VL Decoder-Side Runtime Bottleneck Attribution |
+| Current phase | Phase 9.4 — Project Closure |
+| Current experiment | None — Phase 9.4 is documentation closure, not an experiment |
 | Current branch | `phase/09-qwen3vl-migration` |
-| Current HEAD | Verify with `git rev-parse HEAD` |
+| Current HEAD | Verify with `git rev-parse HEAD`; the closure commit changes HEAD |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
 | Last completed experiment | Phase 9.3-B2 — Qwen3-VL Decoder-Side Runtime Bottleneck Attribution |
-| Experiment status | Phase 9.3-B2 recorded clean fixed-workload latency, KV-cache growth, and Nsight CUDA kernel-family attribution after TensorRT Vision integration. Decode dominated generation; GEMM-class kernels dominated decode kernel time. |
-| Current Gate | Phase 9.3-B2 is `PASS / BOUNDED — DECODER_BOTTLENECK_ATTRIBUTION_RECORDED`. Exact attention share inside generic GEMM/softmax/elementwise kernels, DRAM counters, achieved bandwidth, and power are `UNKNOWN`. |
-| Readiness | Phase 9.3-B2 is bounded profiling and attribution evidence only. Do not optimize, migrate to TensorRT-LLM, quantize, modify decoder/CUDA, rebuild, rerun, sweep inputs, or benchmark further until a new explicit authorization. |
+| Experiment status | Phase 9.3-B2 remains the final experiment and its bounded attribution evidence is unchanged. |
+| Current Gate | Project closure is `PROJECT_COMPLETE`. This proves documentation/evidence closure, not an end-to-end optimized product. |
+| Readiness | Repository is closed for routine experiments. Any new work requires a fresh explicit authorization and must recover from Git, raw artifacts, experiment reports, and this state document. |
+
+## Phase 9.4 Project Closure Checkpoint (2026-09-16)
+
+- The owner authorized project closure only. No experiment, benchmark,
+  profiling, inference, optimization, quantization, TensorRT-LLM migration,
+  decoder change, FlashAttention work, CUDA kernel work, engine rebuild, or
+  environment change occurred.
+- Added `docs/PROJECT_FINAL_REPORT.md`, `docs/FINAL_STATUS.md`, and
+  `docs/handoff/phase9_4_project_closure.md`. Updated `README.md`,
+  `CHANGELOG.md`, this state page, and `docs/handoff/current_state.md` as
+  closure pointers.
+- `results/experiment_registry.csv` was verified with one header and 87
+  experiment rows. `Phase9.3-B2` remains the final experiment row; no registry
+  row was changed for cosmetic closure.
+- The final bounded result remains: isolated TensorRT FP16 Vision mean was
+  `82.9734232584635` ms versus PyTorch `225.396496582031` ms, about `2.7x`,
+  but end-to-end generation showed no meaningful speedup. Decode was
+  `87.17536311733093%` of the fixed Phase 9.3-B2 generation and its kernel time
+  was `78.3598%` GEMM-class. Exact attention share, DRAM counters, achieved
+  bandwidth, and power remain `UNKNOWN`.
+- Final gate is `PROJECT_COMPLETE`. Future directions are record-only in
+  `docs/FINAL_STATUS.md` and are not authorized work.
 
 ## Phase 9.3-B2 Decoder-Side Bottleneck Attribution Checkpoint (2026-09-16)
 
