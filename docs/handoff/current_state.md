@@ -1263,3 +1263,32 @@ SSH check shows Jetson remains at the pre-experiment checkout
 no Jetson synchronization was performed in this session. The next action is
 an explicitly authorized, non-destructive Jetson fast-forward and post-sync
 audit if three-side alignment is required.
+# Phase 9.2-D1 Isolated Vision Encoder Latency Benchmark (2026-09-16)
+
+- After explicit authorization, PyTorch FP16 `Qwen3VLVisionModel` and the
+  unchanged Phase 9.2-C1 TensorRT FP16 engine were benchmarked at
+  `pixel_values=[784,1536]`, `grid_thw=[1,28,28]`.
+  Gate: `PASS / BOUNDED — VISION_LATENCY_METRICS_RECORDED`.
+- The frozen protocol used direct CUDA FP32 `linspace` cast to FP16, 3 warmups,
+  30 measured trials per backend, CUDA events, PyTorch-then-TensorRT order, and
+  unchanged `25W` power mode/clocks.
+- PyTorch mean/median/std latency was
+  `225.396496582031 / 225.261184692383 / 1.37536503957161` ms. TensorRT was
+  `82.9734232584635 / 82.4378242492676 / 2.36526651267192` ms. Mean images/s
+  were `4.43678562153523` and `12.0604065547899`; mean vision tokens/s were
+  `869.609981820904` and `2363.83968473882`.
+- The input and all last-checked outputs had finite ratio `1.0`. The TensorRT
+  first measured sample was `95.1917724609375` ms and was retained. TensorRT
+  logged one default-stream warning and zero errors.
+- CUDA allocator peaks were PyTorch `925,023,232 / 960,495,616` bytes and
+  TensorRT PyTorch-allocator `19,359,744 / 44,040,192` bytes. These are not
+  TensorRT total GPU memory or DRAM counters. Mean `VDD_IN` was
+  `11077.9254658385` mW and `14440.3333333333` mW over backend
+  setup+warmup+measurement.
+- No optimization, engine rebuild, quantization, model change, CUDA change, or
+  persistent environment change occurred.
+- Report and evidence:
+  `experiments/Phase9-qwen3-vl-migration/docs/phase9_2D1_vision_latency_benchmark.md`,
+  `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_2D1_20260916T083418Z/`.
+- Stop and await Gate review before any input sweep, optimization, engine
+  rebuild, rerun, benchmark, quantization, or next migration step.

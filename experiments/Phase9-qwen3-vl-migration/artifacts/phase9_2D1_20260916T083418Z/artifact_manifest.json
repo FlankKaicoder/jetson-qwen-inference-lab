@@ -1,0 +1,46 @@
+{
+  "phase": "Phase 9.2-D1",
+  "artifact_directory": "experiments/Phase9-qwen3-vl-migration/artifacts/phase9_2D1_20260916T083418Z",
+  "created_utc": "2026-09-16T08:39:08Z",
+  "protocol_sha256": "e6a450e9dd8f538b0627aa19bb488300474e843869b55cb1ec3c3f62fb6cc545",
+  "files": [
+    {
+      "path": "benchmark_protocol.json",
+      "sha256": "e6a450e9dd8f538b0627aa19bb488300474e843869b55cb1ec3c3f62fb6cc545",
+      "size_bytes": 3280,
+      "tracked_in_git": true
+    },
+    {
+      "path": "benchmark_result.json",
+      "sha256": "fe90552caf0f40e0b955c50b6fc82de55257003eb85d370faaf8ed2b2eed2cac",
+      "size_bytes": 14919,
+      "tracked_in_git": true
+    },
+    {
+      "path": "tegrastats_pytorch.log",
+      "sha256": "4441a4732aa41a48cf9b3b77bbb41812ce44da478e7510e173f4cee4d3f13105",
+      "size_bytes": 46774,
+      "tracked_in_git": false,
+      "reason": "repository ignores *.log"
+    },
+    {
+      "path": "tegrastats_tensorrt.log",
+      "sha256": "944f2721b41f2ebf7a10dd587c903cffd84a1d766a64ba4efcbf6b5e9cc1",
+      "size_bytes": 12997,
+      "tracked_in_git": false,
+      "reason": "repository ignores *.log"
+    }
+  ],
+  "companion_repository_files": [
+    {
+      "path": "experiments/Phase9-qwen3-vl-migration/src/phase9_2D1/run_vision_latency_benchmark.py",
+      "sha256": "f9ca6ece5bb0fe0ff2393cad138c2e1a11c92ebef7dedc65afb697792d8db8db"
+    },
+    {
+      "path": "experiments/Phase9-qwen3-vl-migration/docs/phase9_2D1_vision_latency_benchmark.md"
+    },
+    {
+      "path": "experiments/Phase9-qwen3-vl-migration/artifacts/phase9_2D1_20260916T083418Z/command_log.md"
+    }
+  ]
+}

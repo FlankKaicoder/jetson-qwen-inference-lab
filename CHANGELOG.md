@@ -4,6 +4,22 @@
 
 ## [Unreleased]
 
+### Phase 9.2-D1 Isolated Qwen3-VL Vision Encoder Latency Benchmark (2026-09-16)
+
+- Froze and executed a fixed-boundary latency protocol for PyTorch FP16 versus
+  the unchanged Phase 9.2-C1 TensorRT FP16 Vision Encoder.
+- Used direct CUDA FP32 `linspace` cast to FP16, 3 warmups, and 30 measured
+  CUDA-event trials per backend with unchanged `25W` power mode and clocks.
+- PyTorch mean/median/std latency was
+  `225.396496582031 / 225.261184692383 / 1.37536503957161` ms. TensorRT was
+  `82.9734232584635 / 82.4378242492676 / 2.36526651267192` ms.
+- Recorded mean images/s of `4.43678562153523` and `12.0604065547899`, mean
+  vision tokens/s of `869.609981820904` and `2363.83968473882`, CUDA allocator
+  memory snapshots, and `tegrastats` board/rail power summaries.
+- Gate: `PASS / BOUNDED — VISION_LATENCY_METRICS_RECORDED`. No numerical
+  tolerance, optimization, engine rebuild, quantization, model change, CUDA
+  modification, or persistent environment modification occurred.
+
 ### Phase 9.2-C2-R2 TensorRT FP16 Vision Correctness With Finite Input (2026-09-16)
 
 - Reran PyTorch FP16 versus the unchanged C1 TensorRT FP16 vision engine using

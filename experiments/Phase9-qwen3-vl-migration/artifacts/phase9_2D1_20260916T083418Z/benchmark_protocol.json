@@ -1,0 +1,92 @@
+{
+  "phase": "Phase 9.2-D1",
+  "title": "Isolated Qwen3-VL Vision Encoder latency benchmark",
+  "protocol_state": "FROZEN_BEFORE_MEASUREMENT",
+  "frozen_at_utc": "2026-09-16T08:34:18Z",
+  "authorization": {
+    "benchmark": true,
+    "optimization": false,
+    "tensorrt_engine_rebuild": false,
+    "quantization": false,
+    "model_change": false,
+    "cuda_modification": false,
+    "environment_modification": false
+  },
+  "model": {
+    "identity": "Qwen/Qwen3-VL-2B-Instruct",
+    "revision": "89644892e4d85e24eaac8bacfd4f463576704203",
+    "local_path": "/home/nvidia/models/qwen3-vl-2b-instruct-89644892e4d85e24eaac8bacfd4f463576704203",
+    "expected_config_sha256": "bec4b3d446efa05807365c9e1cec03ac590836879d02f3a6da879971154bdd3b",
+    "expected_weights_sha256": "7de1838c87a5349b016c26a1c3f7d2bc400a3d485f95ef39a7059ffd734977a0",
+    "dtype": "torch.float16",
+    "attention_implementation": "eager"
+  },
+  "engine": {
+    "source_phase": "Phase 9.2-C1",
+    "path": "/tmp/phase9_2c1_20260916T034956Z/engine/qwen3_vl_vision_fp16.trt",
+    "expected_sha256": "aa5c200eb5dcbc5abaef55bc014b5210236fb9ca34394217a024d3796e44823c",
+    "modified": false,
+    "rebuilt": false
+  },
+  "workload": {
+    "pixel_values_shape": [784, 1536],
+    "grid_thw": [1, 28, 28],
+    "input_generation": "direct_cuda_fp32_linspace_then_fp16_cast",
+    "input_elements": 1204224,
+    "vision_tokens_per_image": 196,
+    "images_per_invocation": 1,
+    "output_names": [
+      "final_hidden",
+      "deepstack_0",
+      "deepstack_1",
+      "deepstack_2"
+    ],
+    "input_finite_validation": true,
+    "last_output_finite_validation": true
+  },
+  "timing": {
+    "method": "cuda_events",
+    "timing_scope": "vision_model_forward_or_tensorrt_execute_async_v3_only",
+    "timing_unit": "milliseconds",
+    "warmups_per_backend": 3,
+    "measured_trials_per_backend": 30,
+    "backend_order": ["pytorch_fp16", "tensorrt_fp16"],
+    "inter_trial_sleep_seconds": 0,
+    "cpu_monotonic_timing_in_measured_region": false,
+    "warmup_samples_retained": false
+  },
+  "throughput": {
+    "images_per_second": "1000 / latency_ms",
+    "vision_tokens_per_second": "196000 / latency_ms"
+  },
+  "memory": {
+    "method": "torch_cuda_allocator_snapshots",
+    "peak_reset_per_backend": true,
+    "record_before": true,
+    "record_after": true,
+    "record_peak_allocated": true,
+    "record_peak_reserved": true,
+    "interpretation": "allocator evidence, not a profiler DRAM counter"
+  },
+  "power": {
+    "method": "tegrastats",
+    "interval_ms": 100,
+    "power_mode": "25W",
+    "power_mode_changed": false,
+    "clocks_changed": false,
+    "scope": "backend_setup_warmup_and_measurement",
+    "interpretation": "board/rail power from tegrastats, not GPU-only power and not measurement-exclusive process power"
+  },
+  "repository_context": {
+    "windows_branch": "phase/09-qwen3vl-migration",
+    "windows_starting_head": "d0367668dc31f64d16b51829bd26d4922b70c19a",
+    "jetson_branch": "phase/08-rmsnorm-optimization",
+    "jetson_head": "6fb18773014a43f51c82b91338f2972131a4ce86",
+    "jetson_repo_synced": false
+  },
+  "acceptance": {
+    "speedup_or_deployment_gate": false,
+    "numerical_tolerance_gate": false,
+    "conclusion": "record measured bounded fixed-boundary latency only"
+  }
+}

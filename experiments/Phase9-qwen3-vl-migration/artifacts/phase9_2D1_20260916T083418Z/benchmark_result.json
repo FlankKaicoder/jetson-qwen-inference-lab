@@ -1,0 +1,516 @@
+{
+  "phase": "Phase 9.2-D1",
+  "title": "Isolated Qwen3-VL Vision Encoder latency benchmark",
+  "started_utc": "2026-09-16T08:38:36.089037+00:00",
+  "hostname": "nvidia-desktop",
+  "device": "cuda:0",
+  "device_name": "Orin",
+  "cuda_capability": [
+    8,
+    7
+  ],
+  "torch_version": "2.5.0a0+872d972e41.nv24.08",
+  "cuda_version": "12.6",
+  "protocol": {
+    "path": "/tmp/phase9_2d1_20260916T083418Z/results/benchmark_protocol.json",
+    "sha256": "e6a450e9dd8f538b0627aa19bb488300474e843869b55cb1ec3c3f62fb6cc545",
+    "frozen_at_utc": "2026-09-16T08:34:18Z",
+    "timing": {
+      "method": "cuda_events",
+      "timing_scope": "vision_model_forward_or_tensorrt_execute_async_v3_only",
+      "timing_unit": "milliseconds",
+      "warmups_per_backend": 3,
+      "measured_trials_per_backend": 30,
+      "backend_order": [
+        "pytorch_fp16",
+        "tensorrt_fp16"
+      ],
+      "inter_trial_sleep_seconds": 0,
+      "cpu_monotonic_timing_in_measured_region": false,
+      "warmup_samples_retained": false
+    },
+    "power": {
+      "method": "tegrastats",
+      "interval_ms": 100,
+      "power_mode": "25W",
+      "power_mode_changed": false,
+      "clocks_changed": false,
+      "scope": "backend_setup_warmup_and_measurement",
+      "interpretation": "board/rail power from tegrastats, not GPU-only power and not measurement-exclusive process power"
+    }
+  },
+  "model_identity": {
+    "identity": "Qwen/Qwen3-VL-2B-Instruct",
+    "revision": "89644892e4d85e24eaac8bacfd4f463576704203",
+    "local_path": "/home/nvidia/models/qwen3-vl-2b-instruct-89644892e4d85e24eaac8bacfd4f463576704203",
+    "config_sha256": "bec4b3d446efa05807365c9e1cec03ac590836879d02f3a6da879971154bdd3b",
+    "weights_sha256": "7de1838c87a5349b016c26a1c3f7d2bc400a3d485f95ef39a7059ffd734977a0",
+    "weights_size_bytes": 4255140312
+  },
+  "engine_file": {
+    "path": "/tmp/phase9_2c1_20260916T034956Z/engine/qwen3_vl_vision_fp16.trt",
+    "size_bytes": 818910588,
+    "sha256": "aa5c200eb5dcbc5abaef55bc014b5210236fb9ca34394217a024d3796e44823c"
+  },
+  "boundary": {
+    "pixel_values_shape": [
+      784,
+      1536
+    ],
+    "grid_thw": [
+      1,
+      28,
+      28
+    ],
+    "input_generation": "direct_cuda_fp32_linspace_then_fp16_cast",
+    "input_elements": 1204224,
+    "vision_tokens_per_image": 196,
+    "images_per_invocation": 1,
+    "output_names": [
+      "final_hidden",
+      "deepstack_0",
+      "deepstack_1",
+      "deepstack_2"
+    ],
+    "input_finite_validation": true,
+    "last_output_finite_validation": true
+  },
+  "prohibited_operations_performed": {
+    "optimization": false,
+    "tensorrt_engine_rebuild": false,
+    "quantization": false,
+    "model_change": false,
+    "cuda_modification": false,
+    "environment_modification": false
+  },
+  "backends": {
+    "pytorch_fp16": {
+      "backend": "pytorch_fp16",
+      "class": "Qwen3VLVisionModel",
+      "parameter_count": 406957056,
+      "attention_implementation": "eager",
+      "state_dict_loaded": true,
+      "missing_keys": [],
+      "unexpected_keys": [],
+      "blocks": 24,
+      "warmup_trials": 3,
+      "measured_trials": 30,
+      "latency_ms_samples": [
+        225.98150634765625,
+        226.17141723632812,
+        228.2639617919922,
+        227.30613708496094,
+        227.5511932373047,
+        225.83389282226562,
+        226.81295776367188,
+        224.53750610351562,
+        224.83164978027344,
+        225.25372314453125,
+        227.4435577392578,
+        225.26864624023438,
+        226.58963012695312,
+        224.732666015625,
+        224.03651428222656,
+        225.23997497558594,
+        223.58493041992188,
+        225.58892822265625,
+        223.76524353027344,
+        225.6912384033203,
+        223.8144073486328,
+        224.9102783203125,
+        224.41261291503906,
+        224.29299926757812,
+        226.03379821777344,
+        226.06617736816406,
+        223.1921844482422,
+        223.83946228027344,
+        227.30152893066406,
+        223.54617309570312
+      ],
+      "latency_ms": {
+        "sample_count": 30,
+        "mean_ms": 225.39649658203126,
+        "median_ms": 225.2611846923828,
+        "stddev_ms": 1.3753650395716066,
+        "min_ms": 223.1921844482422,
+        "max_ms": 228.2639617919922
+      },
+      "images_per_second": {
+        "sample_count": 30,
+        "unit": "images/s",
+        "mean": 4.4367856215352255,
+        "median": 4.439291227482447,
+        "stddev": 0.027029198463567335,
+        "min": 4.3808930334402065,
+        "max": 4.480443625174957
+      },
+      "vision_tokens_per_second": {
+        "sample_count": 30,
+        "unit": "vision_tokens/s",
+        "mean": 869.6099818209043,
+        "median": 870.1010805865596,
+        "stddev": 5.29772289885921,
+        "min": 858.6550345542804,
+        "max": 878.1669505342917
+      },
+      "last_output_finite": {
+        "final_hidden": {
+          "shape": [
+            196,
+            2048
+          ],
+          "element_count": 401408,
+          "finite_count": 401408,
+          "nonfinite_count": 0,
+          "finite_ratio": 1.0,
+          "nan_count": 0,
+          "positive_inf_count": 0,
+          "negative_inf_count": 0,
+          "all_finite": true
+        },
+        "deepstack_0": {
+          "shape": [
+            196,
+            2048
+          ],
+          "element_count": 401408,
+          "finite_count": 401408,
+          "nonfinite_count": 0,
+          "finite_ratio": 1.0,
+          "nan_count": 0,
+          "positive_inf_count": 0,
+          "negative_inf_count": 0,
+          "all_finite": true
+        },
+        "deepstack_1": {
+          "shape": [
+            196,
+            2048
+          ],
+          "element_count": 401408,
+          "finite_count": 401408,
+          "nonfinite_count": 0,
+          "finite_ratio": 1.0,
+          "nan_count": 0,
+          "positive_inf_count": 0,
+          "negative_inf_count": 0,
+          "all_finite": true
+        },
+        "deepstack_2": {
+          "shape": [
+            196,
+            2048
+          ],
+          "element_count": 401408,
+          "finite_count": 401408,
+          "nonfinite_count": 0,
+          "finite_ratio": 1.0,
+          "nan_count": 0,
+          "positive_inf_count": 0,
+          "negative_inf_count": 0,
+          "all_finite": true
+        }
+      },
+      "memory_before": {
+        "allocated_bytes": 2408960,
+        "reserved_bytes": 44040192,
+        "peak_allocated_bytes": 2408960,
+        "peak_reserved_bytes": 44040192
+      },
+      "memory_after": {
+        "allocated_bytes": 828693504,
+        "reserved_bytes": 960495616,
+        "peak_allocated_bytes": 925023232,
+        "peak_reserved_bytes": 960495616
+      },
+      "memory_after_cleanup": {
+        "allocated_bytes": 11731456,
+        "reserved_bytes": 41943040,
+        "peak_allocated_bytes": 925023232,
+        "peak_reserved_bytes": 960495616
+      },
+      "runtime_versions": {
+        "torch": "2.5.0a0+872d972e41.nv24.08",
+        "transformers": "4.57.3",
+        "safetensors": "0.8.0"
+      },
+      "power": {
+        "started_utc": "2026-09-16T08:38:46.214203+00:00",
+        "finished_utc": "2026-09-16T08:39:03.399172+00:00",
+        "scope": "backend_setup_warmup_and_measurement",
+        "summary": {
+          "status": "PASS",
+          "sample_count": 161,
+          "VDD_IN": {
+            "sample_count": 161,
+            "min_mw": 5475,
+            "mean_mw": 11077.925465838509,
+            "median_mw": 6140,
+            "max_mw": 18771,
+            "stddev_mw": 6115.212126893877
+          },
+          "VDD_CPU_GPU_CV": {
+            "sample_count": 161,
+            "min_mw": 950,
+            "mean_mw": 3918.664596273292,
+            "median_mw": 1305,
+            "max_mw": 7872,
+            "stddev_mw": 3144.14066150057
+          },
+          "VDD_SOC": {
+            "sample_count": 161,
+            "min_mw": 1545,
+            "mean_mw": 3059.111801242236,
+            "median_mw": 1740,
+            "max_mw": 5227,
+            "stddev_mw": 1683.7031359246084
+          }
+        }
+      }
+    },
+    "tensorrt_fp16": {
+      "backend": "tensorrt_fp16",
+      "engine_metadata": {
+        "name": "Unnamed Network 0",
+        "num_layers": 209,
+        "num_io_tensors": 5,
+        "num_optimization_profiles": 1,
+        "device_memory_size_v2": 14450688
+      },
+      "warmup_trials": 3,
+      "measured_trials": 30,
+      "latency_ms_samples": [
+        95.1917724609375,
+        83.59686279296875,
+        83.72966766357422,
+        82.41919708251953,
+        83.40032196044922,
+        82.44073486328125,
+        82.48226928710938,
+        81.89440155029297,
+        81.91007995605469,
+        82.24944305419922,
+        82.43920135498047,
+        81.81903839111328,
+        82.43804931640625,
+        82.36383819580078,
+        82.75520324707031,
+        82.8592300415039,
+        82.84233856201172,
+        82.42819213867188,
+        82.32931518554688,
+        81.9214096069336,
+        82.59849548339844,
+        82.4375991821289,
+        82.17798614501953,
+        82.38556671142578,
+        82.30828857421875,
+        82.24755096435547,
+        82.06038665771484,
+        82.73219299316406,
+        83.81929779052734,
+        82.92476654052734
+      ],
+      "latency_ms": {
+        "sample_count": 30,
+        "mean_ms": 82.97342325846354,
+        "median_ms": 82.43782424926758,
+        "stddev_ms": 2.365266512671921,
+        "min_ms": 81.81903839111328,
+        "max_ms": 95.1917724609375
+      },
+      "images_per_second": {
+        "sample_count": 30,
+        "unit": "images/s",
+        "mean": 12.06040655478991,
+        "median": 12.130354107645413,
+        "stddev": 0.30333426210260744,
+        "min": 10.505109571421793,
+        "max": 12.222094266370824
+      },
+      "vision_tokens_per_second": {
+        "sample_count": 30,
+        "unit": "vision_tokens/s",
+        "mean": 2363.839684738822,
+        "median": 2377.549405098501,
+        "stddev": 59.45351537211103,
+        "min": 2059.0014759986716,
+        "max": 2395.5304762086816
+      },
+      "last_output_finite": {
+        "final_hidden": {
+          "shape": [
+            196,
+            2048
+          ],
+          "element_count": 401408,
+          "finite_count": 401408,
+          "nonfinite_count": 0,
+          "finite_ratio": 1.0,
+          "nan_count": 0,
+          "positive_inf_count": 0,
+          "negative_inf_count": 0,
+          "all_finite": true
+        },
+        "deepstack_0": {
+          "shape": [
+            196,
+            2048
+          ],
+          "element_count": 401408,
+          "finite_count": 401408,
+          "nonfinite_count": 0,
+          "finite_ratio": 1.0,
+          "nan_count": 0,
+          "positive_inf_count": 0,
+          "negative_inf_count": 0,
+          "all_finite": true
+        },
+        "deepstack_1": {
+          "shape": [
+            196,
+            2048
+          ],
+          "element_count": 401408,
+          "finite_count": 401408,
+          "nonfinite_count": 0,
+          "finite_ratio": 1.0,
+          "nan_count": 0,
+          "positive_inf_count": 0,
+          "negative_inf_count": 0,
+          "all_finite": true
+        },
+        "deepstack_2": {
+          "shape": [
+            196,
+            2048
+          ],
+          "element_count": 401408,
+          "finite_count": 401408,
+          "nonfinite_count": 0,
+          "finite_ratio": 1.0,
+          "nan_count": 0,
+          "positive_inf_count": 0,
+          "negative_inf_count": 0,
+          "all_finite": true
+        }
+      },
+      "memory_before": {
+        "allocated_bytes": 10928640,
+        "reserved_bytes": 41943040,
+        "peak_allocated_bytes": 10928640,
+        "peak_reserved_bytes": 41943040
+      },
+      "memory_after": {
+        "allocated_bytes": 14139904,
+        "reserved_bytes": 44040192,
+        "peak_allocated_bytes": 19359744,
+        "peak_reserved_bytes": 44040192
+      },
+      "tensorrt_runtime_log": {
+        "record_count": 9,
+        "counts_by_severity": {
+          "INFO": 2,
+          "VERBOSE": 6,
+          "WARNING": 1
+        },
+        "error_count": 0
+      },
+      "memory_after_cleanup": {
+        "allocated_bytes": 14139904,
+        "reserved_bytes": 41943040,
+        "peak_allocated_bytes": 19359744,
+        "peak_reserved_bytes": 44040192
+      },
+      "runtime_versions": {
+        "tensorrt": "10.3.0"
+      },
+      "power": {
+        "started_utc": "2026-09-16T08:39:03.405023+00:00",
+        "finished_utc": "2026-09-16T08:39:08.273548+00:00",
+        "scope": "backend_setup_warmup_and_measurement",
+        "summary": {
+          "status": "PASS",
+          "sample_count": 45,
+          "VDD_IN": {
+            "sample_count": 45,
+            "min_mw": 6723,
+            "mean_mw": 14440.333333333334,
+            "median_mw": 15876,
+            "max_mw": 20371,
+            "stddev_mw": 5361.145404244745
+          },
+          "VDD_CPU_GPU_CV": {
+            "sample_count": 45,
+            "min_mw": 1303,
+            "mean_mw": 6111.155555555555,
+            "median_mw": 7148,
+            "max_mw": 9923,
+            "stddev_mw": 3542.825534895427
+          },
+          "VDD_SOC": {
+            "sample_count": 45,
+            "min_mw": 2132,
+            "mean_mw": 3774.6222222222223,
+            "median_mw": 3832,
+            "max_mw": 4909,
+            "stddev_mw": 994.394317454529
+          }
+        }
+      }
+    }
+  },
+  "runtime_dependency_status": {
+    "python": "3.10.12",
+    "platform": "Linux-5.15.148-tegra-aarch64-with-glibc2.35",
+    "torch": "2.5.0a0+872d972e41.nv24.08",
+    "cuda": "12.6",
+    "tensorrt": "10.3.0",
+    "transformers": "4.57.3",
+    "cuda_available": true,
+    "total_memory_bytes": 7989903360,
+    "allocated_before_bytes": 0,
+    "reserved_before_bytes": 0
+  },
+  "input": {
+    "fp32_source": {
+      "shape": [
+        784,
+        1536
+      ],
+      "element_count": 1204224,
+      "finite_count": 1204224,
+      "nonfinite_count": 0,
+      "finite_ratio": 1.0,
+      "nan_count": 0,
+      "positive_inf_count": 0,
+      "negative_inf_count": 0,
+      "all_finite": true,
+      "dtype": "torch.float32"
+    },
+    "fp16_model_input": {
+      "shape": [
+        784,
+        1536
+      ],
+      "element_count": 1204224,
+      "finite_count": 1204224,
+      "nonfinite_count": 0,
+      "finite_ratio": 1.0,
+      "nan_count": 0,
+      "positive_inf_count": 0,
+      "negative_inf_count": 0,
+      "all_finite": true,
+      "dtype": "torch.float16"
+    }
+  },
+  "comparison_summary": {
+    "mean_latency_delta_ms_tensorrt_minus_pytorch": -142.42307332356773,
+    "median_latency_delta_ms_tensorrt_minus_pytorch": -142.82336044311523,
+    "mean_latency_ratio_tensorrt_over_pytorch": 0.3681220627502789,
+    "median_latency_ratio_tensorrt_over_pytorch": 0.36596550960097657,
+    "interpretation": "descriptive fixed-boundary comparison only; no optimization claim"
+  },
+  "success": true,
+  "finished_utc": "2026-09-16T08:39:08.274869+00:00"
+}

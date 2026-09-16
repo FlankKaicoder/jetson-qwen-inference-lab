@@ -7,20 +7,53 @@
 | Field | Verified value |
 | --- | --- |
 | Project | `jetson-qwen-inference-lab` / Jetson Qwen Transformer AI Infra Optimization Lab |
-| Current date | `2026-09-15` UTC / `2026-09-16` Asia/Shanghai |
+| Current date | `2026-09-16` UTC / `2026-09-16` Asia/Shanghai |
 | Repository | `FlankKaicoder/jetson-qwen-inference-lab` |
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 9.2-C2-R2 — TensorRT FP16 Vision Correctness With Finite Input |
-| Current experiment | Phase 9.2-C2-R2 TensorRT FP16 Vision Correctness With Finite Input |
+| Current phase | Phase 9.2-D1 — Isolated Vision Encoder Latency Benchmark |
+| Current experiment | Phase 9.2-D1 Isolated Qwen3-VL Vision Encoder Latency Benchmark |
 | Current branch | `phase/09-qwen3vl-migration` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 9.2-C2-R2 — TensorRT FP16 Vision Correctness With Finite Input |
-| Experiment status | Phase 9.2-C2-R2 compared PyTorch FP16 against the unchanged C1 TensorRT FP16 engine using direct FP32 `linspace` cast to FP16. All four outputs were finite with ratio `1.0` and all requested comparison metrics were finite. |
-| Current Gate | Phase 9.2-C2-R2 is `PASS / BOUNDED — FINITE_INPUT_CORRECTNESS_METRICS_RECORDED`: minimum cosine `0.9805147647857666`, maximum mean absolute error `0.03959130868315697`, and maximum absolute error `4.001953125`. No numerical tolerance or deployment gate was applied. |
-| Readiness | Phase 9.2-C2-R2 is bounded metric evidence for the exact finite-input workload only. Do not rerun, sweep inputs, optimize, rebuild, benchmark, quantize, or modify CUDA/environment until a new explicit authorization. |
+| Last completed experiment | Phase 9.2-D1 — Isolated Qwen3-VL Vision Encoder Latency Benchmark |
+| Experiment status | Phase 9.2-D1 completed the frozen fixed-boundary benchmark with 3 warmups and 30 measured trials per backend. PyTorch FP16 mean was `225.396496582031` ms and unchanged TensorRT FP16 mean was `82.9734232584635` ms. |
+| Current Gate | Phase 9.2-D1 is `PASS / BOUNDED — VISION_LATENCY_METRICS_RECORDED`: descriptive fixed-boundary latency only, with no numerical tolerance, optimization, or deployment gate. |
+| Readiness | Phase 9.2-D1 evidence applies only to the deterministic `[784,1536]` / `[1,28,28]` workload. Do not sweep inputs, optimize, rebuild, rerun, benchmark, quantize, or modify CUDA/environment until a new explicit authorization. |
+
+## Phase 9.2-D1 Vision Encoder Latency Checkpoint (2026-09-16)
+
+- The owner authorized an isolated PyTorch FP16 versus unchanged TensorRT FP16
+  Vision Encoder latency benchmark. No optimization, engine rebuild,
+  quantization, model change, CUDA change, or persistent environment change
+  occurred.
+- The frozen protocol used direct FP32 `linspace` cast to FP16 at
+  `pixel_values=[784,1536]`, `grid_thw=[1,28,28]`, 3 warmups, 30 measured
+  trials per backend, CUDA events, PyTorch-then-TensorRT order, no inter-trial
+  sleep, unchanged `25W` power mode, and 100 ms `tegrastats`.
+- Model, config, and C1 engine hashes were unchanged. Input finite ratio was
+  `1.0`; all last-checked outputs had finite ratio `1.0` and shape
+  `[196,2048]`. TensorRT logged one default-stream warning and zero errors.
+- Measured means were PyTorch `225.396496582031` ms and TensorRT
+  `82.9734232584635` ms; medians were `225.261184692383` ms and
+  `82.4378242492676` ms; stddevs were `1.37536503957161` ms and
+  `2.36526651267192` ms. Mean images/s were `4.43678562153523` and
+  `12.0604065547899`; mean vision tokens/s were `869.609981820904` and
+  `2363.83968473882`.
+- PyTorch CUDA peak allocation/reservation was
+  `925,023,232 / 960,495,616` bytes; TensorRT PyTorch-allocator peak was
+  `19,359,744 / 44,040,192` bytes. These are allocator snapshots, not TensorRT
+  total GPU or profiler DRAM memory. Mean `VDD_IN` was `11077.9254658385` mW
+  for PyTorch and `14440.3333333333` mW for TensorRT over backend
+  setup+warmup+measurement, not GPU-only or measurement-exclusive power.
+- Gate is `PASS / BOUNDED — VISION_LATENCY_METRICS_RECORDED`. The TensorRT
+  first measured sample `95.1917724609375` ms was retained; no outlier
+  exclusion or rerun occurred.
+- Report:
+  `experiments/Phase9-qwen3-vl-migration/docs/phase9_2D1_vision_latency_benchmark.md`.
+  Evidence:
+  `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_2D1_20260916T083418Z/`.
 
 ## Phase 9.2-C2-R2 Finite-Input Correctness Checkpoint (2026-09-16)
 
