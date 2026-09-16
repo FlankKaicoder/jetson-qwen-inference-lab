@@ -1,0 +1,3912 @@
+{
+  "phase": "Phase 9.3-B2",
+  "title": "Nsight Systems decoder-side CUDA attribution",
+  "analysis_finished_utc": "2026-09-16T10:46:11.106436+00:00",
+  "input_artifacts": {
+    "sqlite": {
+      "path": "/tmp/phase9_3b2_20260916T102808Z/profile/phase9_3B2_profile.sqlite",
+      "size_bytes": 17006592,
+      "sha256": "a1a818412a313b79dbce85d845477bb28a0f846a4b3667013a2f2624c2aed4f7"
+    },
+    "nsys_report": {
+      "path": "/tmp/phase9_3b2_20260916T102808Z/profile/phase9_3B2_profile.nsys-rep",
+      "size_bytes": 4669588,
+      "sha256": "624f9d48680b8a01df8e2c68ec70d7b22fe9b844f977b556adbb1539717191b3"
+    },
+    "latency_result": {
+      "path": "/tmp/phase9_3b2_20260916T102808Z/results/phase9_3B2_latency_result.json",
+      "sha256": "7306aa4896de756162c7da874a23effc9635697f7de35db180cf32aa925a2229"
+    },
+    "profile_result": {
+      "path": "/tmp/phase9_3b2_20260916T102808Z/results/phase9_3B2_profile_result.json",
+      "sha256": "f6479d390afbc542006c799ad656088f61826398d83a3e2e0615fd6db2b28d15"
+    }
+  },
+  "range_validation": {
+    "profiled_generation_count": 1,
+    "prefill_range_count": 1,
+    "visual_range_count": 1,
+    "decode_range_count": 1,
+    "decode_step_range_count": 15,
+    "all_b2_nvtx_range_count": 20
+  },
+  "profiled_generation": {
+    "profile_result_summary": {
+      "profiled": true,
+      "generation_success_count": 1,
+      "sample_count": 1,
+      "all_token_sequences_equal": true,
+      "all_generated_texts_equal": true,
+      "preprocess_ms": {
+        "sample_count": 1,
+        "mean_ms": 32.12386398809031,
+        "median_ms": 32.12386398809031,
+        "stddev_ms": 0.0,
+        "min_ms": 32.12386398809031,
+        "max_ms": 32.12386398809031
+      },
+      "visual_total_ms": {
+        "sample_count": 1,
+        "mean_ms": 140.43431091308594,
+        "median_ms": 140.43431091308594,
+        "stddev_ms": 0.0,
+        "min_ms": 140.43431091308594,
+        "max_ms": 140.43431091308594
+      },
+      "prefill_ms": {
+        "sample_count": 1,
+        "mean_ms": 418.0461120605469,
+        "median_ms": 418.0461120605469,
+        "stddev_ms": 0.0,
+        "min_ms": 418.0461120605469,
+        "max_ms": 418.0461120605469
+      },
+      "decode_wall_ms": {
+        "sample_count": 1,
+        "mean_ms": 3290.4495889961254,
+        "median_ms": 3290.4495889961254,
+        "stddev_ms": 0.0,
+        "min_ms": 3290.4495889961254,
+        "max_ms": 3290.4495889961254
+      },
+      "decode_event_total_ms": null,
+      "decode_per_token_wall_ms": {
+        "sample_count": 1,
+        "mean_ms": 219.36330593307503,
+        "median_ms": 219.36330593307503,
+        "stddev_ms": 0.0,
+        "min_ms": 219.36330593307503,
+        "max_ms": 219.36330593307503
+      },
+      "generation_total_wall_ms": {
+        "sample_count": 1,
+        "mean_ms": 3708.4957010566723,
+        "median_ms": 3708.4957010566723,
+        "stddev_ms": 0.0,
+        "min_ms": 3708.4957010566723,
+        "max_ms": 3708.4957010566723
+      },
+      "generation_tokens_per_second": {
+        "sample_count": 1,
+        "mean": 4.3144178367096595,
+        "median": 4.3144178367096595,
+        "stddev": 0.0,
+        "min": 4.3144178367096595,
+        "max": 4.3144178367096595
+      }
+    },
+    "profile_result_stage_attribution": {
+      "prefill_share_of_generation": 0.11272660015257178,
+      "decode_share_of_generation": 0.8872733998474283,
+      "dominant_generation_stage": "decode"
+    },
+    "nvtx_ranges": [
+      {
+        "start": 32595402784,
+        "end": 32823230496,
+        "text": "B2_tensorrt_visual"
+      },
+      {
+        "start": 37477832544,
+        "end": 41292246944,
+        "text": "B2_profile_generation"
+      },
+      {
+        "start": 37511518080,
+        "end": 37929843392,
+        "text": "B2_profile_prefill"
+      },
+      {
+        "start": 37512601920,
+        "end": 37652563040,
+        "text": "B2_tensorrt_visual"
+      },
+      {
+        "start": 37963631360,
+        "end": 41253935904,
+        "text": "B2_profile_decode"
+      },
+      {
+        "start": 37964451904,
+        "end": 38176046528,
+        "text": "B2_profile_decode_step_01"
+      },
+      {
+        "start": 38177350688,
+        "end": 38393099552,
+        "text": "B2_profile_decode_step_02"
+      },
+      {
+        "start": 38394995936,
+        "end": 38608510816,
+        "text": "B2_profile_decode_step_03"
+      },
+      {
+        "start": 38609821280,
+        "end": 38826818720,
+        "text": "B2_profile_decode_step_04"
+      },
+      {
+        "start": 38828143520,
+        "end": 39045538848,
+        "text": "B2_profile_decode_step_05"
+      },
+      {
+        "start": 39047554240,
+        "end": 39270738144,
+        "text": "B2_profile_decode_step_06"
+      },
+      {
+        "start": 39272025312,
+        "end": 39490404864,
+        "text": "B2_profile_decode_step_07"
+      },
+      {
+        "start": 39491862784,
+        "end": 39709128640,
+        "text": "B2_profile_decode_step_08"
+      },
+      {
+        "start": 39710449376,
+        "end": 39940603648,
+        "text": "B2_profile_decode_step_09"
+      },
+      {
+        "start": 39941952544,
+        "end": 40160500544,
+        "text": "B2_profile_decode_step_10"
+      },
+      {
+        "start": 40161822240,
+        "end": 40378477024,
+        "text": "B2_profile_decode_step_11"
+      },
+      {
+        "start": 40379749472,
+        "end": 40596298688,
+        "text": "B2_profile_decode_step_12"
+      },
+      {
+        "start": 40597684128,
+        "end": 40820402048,
+        "text": "B2_profile_decode_step_13"
+      },
+      {
+        "start": 40821691424,
+        "end": 41037800160,
+        "text": "B2_profile_decode_step_14"
+      },
+      {
+        "start": 41039501856,
+        "end": 41253487360,
+        "text": "B2_profile_decode_step_15"
+      }
+    ],
+    "kernel_attribution": {
+      "kernel_count": 30803,
+      "total_kernel_duration_ms": 1991.283232,
+      "family_attribution": {
+        "gemm": {
+          "kernel_count": 3185,
+          "duration_ms": 1443.28208,
+          "share_of_total_kernel_time": 0.724799996708856,
+          "mean_per_launch_ms": 0.4531497896389325,
+          "median_per_launch_ms": 0.228864
+        },
+        "attention": {
+          "kernel_count": 0,
+          "duration_ms": 0.0,
+          "share_of_total_kernel_time": 0.0,
+          "mean_per_launch_ms": null,
+          "median_per_launch_ms": null
+        },
+        "memory_like": {
+          "kernel_count": 26502,
+          "duration_ms": 420.254496,
+          "share_of_total_kernel_time": 0.2110470721826477,
+          "mean_per_launch_ms": 0.015857463436721758,
+          "median_per_launch_ms": 0.01008
+        },
+        "other": {
+          "kernel_count": 1116,
+          "duration_ms": 127.746656,
+          "share_of_total_kernel_time": 0.06415293110849637,
+          "mean_per_launch_ms": 0.11446832974910394,
+          "median_per_launch_ms": 0.04136
+        }
+      },
+      "top_kernels": [
+        {
+          "kernel_name": "ampere_fp16_s16816gemm_fp16_64x64_sliced1x2_ldg8_f2f_stages_64x5_tn",
+          "family": "gemm",
+          "count": 1276,
+          "duration_ms": 1000.558656,
+          "share_of_total_kernel_time": 0.5024692820795068,
+          "mean_per_launch_ms": 0.7841368777429467
+        },
+        {
+          "kernel_name": "ampere_fp16_s16816gemm_fp16_128x64_ldg8_f2f_stages_32x6_tn",
+          "family": "gemm",
+          "count": 1736,
+          "duration_ms": 290.928192,
+          "share_of_total_kernel_time": 0.1461008596490808,
+          "mean_per_launch_ms": 0.16758536405529956
+        },
+        {
+          "kernel_name": "elementwise_kernel",
+          "family": "memory_like",
+          "count": 6959,
+          "duration_ms": 146.971648,
+          "share_of_total_kernel_time": 0.07380750545083684,
+          "mean_per_launch_ms": 0.021119650524500645
+        },
+        {
+          "kernel_name": "Kernel2",
+          "family": "other",
+          "count": 420,
+          "duration_ms": 92.094304,
+          "share_of_total_kernel_time": 0.04624872168862817,
+          "mean_per_launch_ms": 0.21927215238095238
+        },
+        {
+          "kernel_name": "vectorized_elementwise_kernel",
+          "family": "memory_like",
+          "count": 10025,
+          "duration_ms": 85.219616,
+          "share_of_total_kernel_time": 0.04279633084360748,
+          "mean_per_launch_ms": 0.008500709825436409
+        },
+        {
+          "kernel_name": "unrolled_elementwise_kernel",
+          "family": "memory_like",
+          "count": 4360,
+          "duration_ms": 73.381728,
+          "share_of_total_kernel_time": 0.036851476887241726,
+          "mean_per_launch_ms": 0.016830671559633026
+        },
+        {
+          "kernel_name": "trt_ampere_fp16_s16816gemm_fp16_256x128_ldg8_f2f_gelu_nn_v1",
+          "family": "gemm",
+          "count": 24,
+          "duration_ms": 47.090464,
+          "share_of_total_kernel_time": 0.023648300373977135,
+          "mean_per_launch_ms": 1.9621026666666666
+        },
+        {
+          "kernel_name": "CatArrayBatchedCopy_contig",
+          "family": "memory_like",
+          "count": 840,
+          "duration_ms": 43.736192,
+          "share_of_total_kernel_time": 0.021963822773755973,
+          "mean_per_launch_ms": 0.05206689523809524
+        },
+        {
+          "kernel_name": "reduce_kernel",
+          "family": "memory_like",
+          "count": 1945,
+          "duration_ms": 31.896448,
+          "share_of_total_kernel_time": 0.01601803675510486,
+          "mean_per_launch_ms": 0.01639920205655527
+        },
+        {
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize256x128x32_stage3_warpsize4x2x1_tensor16x8x16_execute_kernel_trt",
+          "family": "gemm",
+          "count": 24,
+          "duration_ms": 26.525664,
+          "share_of_total_kernel_time": 0.01332088955188872,
+          "mean_per_launch_ms": 1.1052359999999999
+        },
+        {
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize160x128x32_stage4_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "family": "gemm",
+          "count": 48,
+          "duration_ms": 26.136288,
+          "share_of_total_kernel_time": 0.01312534931243774,
+          "mean_per_launch_ms": 0.544506
+        },
+        {
+          "kernel_name": "ampere_fp16_s16816gemm_fp16_256x128_ldg8_f2f_stages_64x3_tn",
+          "family": "gemm",
+          "count": 28,
+          "duration_ms": 24.801536,
+          "share_of_total_kernel_time": 0.012455051898915402,
+          "mean_per_launch_ms": 0.8857691428571428
+        },
+        {
+          "kernel_name": "kernel",
+          "family": "other",
+          "count": 588,
+          "duration_ms": 23.570496,
+          "share_of_total_kernel_time": 0.01183683748309693,
+          "mean_per_launch_ms": 0.04008587755102041
+        },
+        {
+          "kernel_name": "CatArrayBatchedCopy",
+          "family": "memory_like",
+          "count": 953,
+          "duration_ms": 19.13744,
+          "share_of_total_kernel_time": 0.009610606714534922,
+          "mean_per_launch_ms": 0.020081259181532005
+        },
+        {
+          "kernel_name": "_gemm_mha_v2_0xbab5ab159f1658a2c45551d19d5f80fc",
+          "family": "gemm",
+          "count": 24,
+          "duration_ms": 17.064224,
+          "share_of_total_kernel_time": 0.008569461001718515,
+          "mean_per_launch_ms": 0.7110093333333333
+        },
+        {
+          "kernel_name": "splitKreduce_kernel",
+          "family": "memory_like",
+          "count": 840,
+          "duration_ms": 11.290592,
+          "share_of_total_kernel_time": 0.005670008072462893,
+          "mean_per_launch_ms": 0.013441180952380952
+        },
+        {
+          "kernel_name": "softmax_warp_forward",
+          "family": "memory_like",
+          "count": 448,
+          "duration_ms": 6.568832,
+          "share_of_total_kernel_time": 0.003298793408410522,
+          "mean_per_launch_ms": 0.014662571428571428
+        },
+        {
+          "kernel_name": "__myl_AddCasMeaSubMulMeaAddSqrDivMulCasMulAdd_0xddc752d5433c6098ff7ca40caf35224a",
+          "family": "other",
+          "count": 44,
+          "duration_ms": 5.535712,
+          "share_of_total_kernel_time": 0.002779972186297203,
+          "mean_per_launch_ms": 0.12581163636363638
+        },
+        {
+          "kernel_name": "__myl_TraSliSliResSliNegSliConSliResSliNegSliConMulMulAddTraResTraMulMulAddRes_0x9b77880ef8b66569e10147984be10f28",
+          "family": "other",
+          "count": 24,
+          "duration_ms": 4.786624,
+          "share_of_total_kernel_time": 0.0024037886339214653,
+          "mean_per_launch_ms": 0.19944266666666666
+        },
+        {
+          "kernel_name": "sm80_xmma_fprop_implicit_gemm_indexed_wo_smem_f16f16_f16f16_f16_nhwckrsc_nhwc_tilesize128x32x64_stage1_warpsize4x1x1_g1_tensor16x8x16_alignc8_execute_kernel_trt",
+          "family": "gemm",
+          "count": 1,
+          "duration_ms": 4.349984,
+          "share_of_total_kernel_time": 0.0021845129462728283,
+          "mean_per_launch_ms": 4.349984
+        },
+        {
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize256x128x32_stage3_warpsize4x2x1_tensor16x8x16_fused",
+          "family": "gemm",
+          "count": 4,
+          "duration_ms": 3.911552,
+          "share_of_total_kernel_time": 0.001964337336417645,
+          "mean_per_launch_ms": 0.977888
+        },
+        {
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x256x32_stage3_warpsize2x4x1_tensor16x8x16_execute_kernel_trt",
+          "family": "gemm",
+          "count": 4,
+          "duration_ms": 1.801632,
+          "share_of_total_kernel_time": 0.0009047592884064421,
+          "mean_per_launch_ms": 0.450408
+        },
+        {
+          "kernel_name": "index_elementwise_kernel",
+          "family": "memory_like",
+          "count": 26,
+          "duration_ms": 1.002976,
+          "share_of_total_kernel_time": 0.0005036832449960589,
+          "mean_per_launch_ms": 0.038576000000000006
+        },
+        {
+          "kernel_name": "__myl_AddResCasMeaSubMulMeaAddSqrDivMulCasMulAdd_0x7cfda9c28f7ad84bd3c0ae57d85f640c",
+          "family": "other",
+          "count": 3,
+          "duration_ms": 0.408768,
+          "share_of_total_kernel_time": 0.00020527868332896203,
+          "mean_per_launch_ms": 0.13625600000000002
+        },
+        {
+          "kernel_name": "__myl_Mov_0xd73bf7471c9b5f759210a9460d644cf8",
+          "family": "other",
+          "count": 1,
+          "duration_ms": 0.319744,
+          "share_of_total_kernel_time": 0.00016057183371089622,
+          "mean_per_launch_ms": 0.319744
+        },
+        {
+          "kernel_name": "CatArrayBatchedCopy_aligned16_contig",
+          "family": "memory_like",
+          "count": 30,
+          "duration_ms": 0.316864,
+          "share_of_total_kernel_time": 0.00015912553016466117,
+          "mean_per_launch_ms": 0.010562133333333333
+        },
+        {
+          "kernel_name": "write_indices",
+          "family": "other",
+          "count": 7,
+          "duration_ms": 0.256288,
+          "share_of_total_kernel_time": 0.0001287049455755172,
+          "mean_per_launch_ms": 0.03661257142857143
+        },
+        {
+          "kernel_name": "indexSelectLargeIndex",
+          "family": "memory_like",
+          "count": 1,
+          "duration_ms": 0.254944,
+          "share_of_total_kernel_time": 0.00012803000392060752,
+          "mean_per_launch_ms": 0.254944
+        },
+        {
+          "kernel_name": "__myl_CasMeaSubMulMeaAddSqrDivMulCasMulAdd_0x08a3aafb649d7daf7c8e8e0d7f97c89c",
+          "family": "other",
+          "count": 3,
+          "duration_ms": 0.239008,
+          "share_of_total_kernel_time": 0.00012002712429810688,
+          "mean_per_launch_ms": 0.07966933333333333
+        },
+        {
+          "kernel_name": "elementwise_kernel_with_index",
+          "family": "memory_like",
+          "count": 48,
+          "duration_ms": 0.227584,
+          "share_of_total_kernel_time": 0.0001142901202313745,
+          "mean_per_launch_ms": 0.0047413333333333335
+        }
+      ],
+      "memory_activity": {
+        "CUPTI_ACTIVITY_KIND_MEMCPY": {
+          "available": true,
+          "count": 238,
+          "total_bytes": 8899987,
+          "total_duration_ms": 1.291648
+        },
+        "CUPTI_ACTIVITY_KIND_MEMSET": {
+          "available": true,
+          "count": 1530,
+          "total_bytes": 6546692,
+          "total_duration_ms": 1.813984
+        }
+      }
+    },
+    "prefill_kernel_attribution": {
+      "kernel_count": 2109,
+      "total_kernel_duration_ms": 345.79168,
+      "family_attribution": {
+        "gemm": {
+          "kernel_count": 215,
+          "duration_ms": 173.381312,
+          "share_of_total_kernel_time": 0.5014039435535291,
+          "mean_per_launch_ms": 0.8064247069767442,
+          "median_per_launch_ms": 0.604608
+        },
+        "attention": {
+          "kernel_count": 0,
+          "duration_ms": 0.0,
+          "share_of_total_kernel_time": 0.0,
+          "mean_per_launch_ms": null,
+          "median_per_launch_ms": null
+        },
+        "memory_like": {
+          "kernel_count": 1619,
+          "duration_ms": 78.015968,
+          "share_of_total_kernel_time": 0.22561551509857034,
+          "mean_per_launch_ms": 0.04818775046324892,
+          "median_per_launch_ms": 0.046144
+        },
+        "other": {
+          "kernel_count": 275,
+          "duration_ms": 94.3944,
+          "share_of_total_kernel_time": 0.27298054134790056,
+          "mean_per_launch_ms": 0.34325236363636363,
+          "median_per_launch_ms": 0.156128
+        }
+      },
+      "top_kernels": [
+        {
+          "kernel_name": "Kernel2",
+          "family": "other",
+          "count": 168,
+          "duration_ms": 82.328128,
+          "share_of_total_kernel_time": 0.23808591346096009,
+          "mean_per_launch_ms": 0.490048380952381
+        },
+        {
+          "kernel_name": "trt_ampere_fp16_s16816gemm_fp16_256x128_ldg8_f2f_gelu_nn_v1",
+          "family": "gemm",
+          "count": 24,
+          "duration_ms": 47.090464,
+          "share_of_total_kernel_time": 0.13618159927965878,
+          "mean_per_launch_ms": 1.9621026666666666
+        },
+        {
+          "kernel_name": "elementwise_kernel",
+          "family": "memory_like",
+          "count": 569,
+          "duration_ms": 28.616352,
+          "share_of_total_kernel_time": 0.08275604548958494,
+          "mean_per_launch_ms": 0.050292358523725836
+        },
+        {
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize256x128x32_stage3_warpsize4x2x1_tensor16x8x16_execute_kernel_trt",
+          "family": "gemm",
+          "count": 24,
+          "duration_ms": 26.525664,
+          "share_of_total_kernel_time": 0.07670995438640976,
+          "mean_per_launch_ms": 1.1052359999999999
+        },
+        {
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize160x128x32_stage4_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "family": "gemm",
+          "count": 48,
+          "duration_ms": 26.136288,
+          "share_of_total_kernel_time": 0.07558391225607279,
+          "mean_per_launch_ms": 0.544506
+        },
+        {
+          "kernel_name": "ampere_fp16_s16816gemm_fp16_256x128_ldg8_f2f_stages_64x3_tn",
+          "family": "gemm",
+          "count": 28,
+          "duration_ms": 24.801536,
+          "share_of_total_kernel_time": 0.07172392349058254,
+          "mean_per_launch_ms": 0.8857691428571428
+        },
+        {
+          "kernel_name": "vectorized_elementwise_kernel",
+          "family": "memory_like",
+          "count": 503,
+          "duration_ms": 17.167552,
+          "share_of_total_kernel_time": 0.04964709388033859,
+          "mean_per_launch_ms": 0.034130322067594435
+        },
+        {
+          "kernel_name": "_gemm_mha_v2_0xbab5ab159f1658a2c45551d19d5f80fc",
+          "family": "gemm",
+          "count": 24,
+          "duration_ms": 17.064224,
+          "share_of_total_kernel_time": 0.04934827813092553,
+          "mean_per_launch_ms": 0.7110093333333333
+        },
+        {
+          "kernel_name": "unrolled_elementwise_kernel",
+          "family": "memory_like",
+          "count": 262,
+          "duration_ms": 16.842528,
+          "share_of_total_kernel_time": 0.04870715223686122,
+          "mean_per_launch_ms": 0.06428445801526718
+        },
+        {
+          "kernel_name": "ampere_fp16_s16816gemm_fp16_128x64_ldg8_f2f_stages_32x6_tn",
+          "family": "gemm",
+          "count": 56,
+          "duration_ms": 11.01872,
+          "share_of_total_kernel_time": 0.03186519698796686,
+          "mean_per_launch_ms": 0.19676285714285716
+        },
+        {
+          "kernel_name": "ampere_fp16_s16816gemm_fp16_64x64_sliced1x2_ldg8_f2f_stages_64x5_tn",
+          "family": "gemm",
+          "count": 1,
+          "duration_ms": 10.674848,
+          "share_of_total_kernel_time": 0.030870748538542048,
+          "mean_per_launch_ms": 10.674848
+        },
+        {
+          "kernel_name": "CatArrayBatchedCopy",
+          "family": "memory_like",
+          "count": 113,
+          "duration_ms": 7.207808,
+          "share_of_total_kernel_time": 0.02084436502347309,
+          "mean_per_launch_ms": 0.06378591150442478
+        },
+        {
+          "kernel_name": "__myl_AddCasMeaSubMulMeaAddSqrDivMulCasMulAdd_0xddc752d5433c6098ff7ca40caf35224a",
+          "family": "other",
+          "count": 44,
+          "duration_ms": 5.535712,
+          "share_of_total_kernel_time": 0.01600880622691674,
+          "mean_per_launch_ms": 0.12581163636363638
+        },
+        {
+          "kernel_name": "__myl_TraSliSliResSliNegSliConSliResSliNegSliConMulMulAddTraResTraMulMulAddRes_0x9b77880ef8b66569e10147984be10f28",
+          "family": "other",
+          "count": 24,
+          "duration_ms": 4.786624,
+          "share_of_total_kernel_time": 0.013842507720255155,
+          "mean_per_launch_ms": 0.19944266666666666
+        },
+        {
+          "kernel_name": "sm80_xmma_fprop_implicit_gemm_indexed_wo_smem_f16f16_f16f16_f16_nhwckrsc_nhwc_tilesize128x32x64_stage1_warpsize4x1x1_g1_tensor16x8x16_alignc8_execute_kernel_trt",
+          "family": "gemm",
+          "count": 1,
+          "duration_ms": 4.349984,
+          "share_of_total_kernel_time": 0.01257978213935049,
+          "mean_per_launch_ms": 4.349984
+        },
+        {
+          "kernel_name": "reduce_kernel",
+          "family": "memory_like",
+          "count": 117,
+          "duration_ms": 4.29936,
+          "share_of_total_kernel_time": 0.01243338185580405,
+          "mean_per_launch_ms": 0.03674666666666667
+        },
+        {
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize256x128x32_stage3_warpsize4x2x1_tensor16x8x16_fused",
+          "family": "gemm",
+          "count": 4,
+          "duration_ms": 3.911552,
+          "share_of_total_kernel_time": 0.011311874247523827,
+          "mean_per_launch_ms": 0.977888
+        },
+        {
+          "kernel_name": "softmax_warp_forward",
+          "family": "memory_like",
+          "count": 28,
+          "duration_ms": 2.748832,
+          "share_of_total_kernel_time": 0.007949387330545373,
+          "mean_per_launch_ms": 0.09817257142857143
+        },
+        {
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x256x32_stage3_warpsize2x4x1_tensor16x8x16_execute_kernel_trt",
+          "family": "gemm",
+          "count": 4,
+          "duration_ms": 1.801632,
+          "share_of_total_kernel_time": 0.00521016584320363,
+          "mean_per_launch_ms": 0.450408
+        },
+        {
+          "kernel_name": "index_elementwise_kernel",
+          "family": "memory_like",
+          "count": 11,
+          "duration_ms": 0.807904,
+          "share_of_total_kernel_time": 0.002336389354422871,
+          "mean_per_launch_ms": 0.07344581818181818
+        },
+        {
+          "kernel_name": "__myl_AddResCasMeaSubMulMeaAddSqrDivMulCasMulAdd_0x7cfda9c28f7ad84bd3c0ae57d85f640c",
+          "family": "other",
+          "count": 3,
+          "duration_ms": 0.408768,
+          "share_of_total_kernel_time": 0.0011821221378143048,
+          "mean_per_launch_ms": 0.13625600000000002
+        },
+        {
+          "kernel_name": "__myl_Mov_0xd73bf7471c9b5f759210a9460d644cf8",
+          "family": "other",
+          "count": 1,
+          "duration_ms": 0.319744,
+          "share_of_total_kernel_time": 0.0009246723345107667,
+          "mean_per_launch_ms": 0.319744
+        },
+        {
+          "kernel_name": "write_indices",
+          "family": "other",
+          "count": 7,
+          "duration_ms": 0.256288,
+          "share_of_total_kernel_time": 0.0007411630031121627,
+          "mean_per_launch_ms": 0.03661257142857143
+        },
+        {
+          "kernel_name": "indexSelectLargeIndex",
+          "family": "memory_like",
+          "count": 1,
+          "duration_ms": 0.254944,
+          "share_of_total_kernel_time": 0.0007372762699206644,
+          "mean_per_launch_ms": 0.254944
+        },
+        {
+          "kernel_name": "__myl_CasMeaSubMulMeaAddSqrDivMulCasMulAdd_0x08a3aafb649d7daf7c8e8e0d7f97c89c",
+          "family": "other",
+          "count": 3,
+          "duration_ms": 0.239008,
+          "share_of_total_kernel_time": 0.0006911907192214688,
+          "mean_per_launch_ms": 0.07966933333333333
+        },
+        {
+          "kernel_name": "__myl_AddCasMeaSubMulMeaAddSqrDivMulCasMulAdd_0x4e488be8cda3456b7f8fe5882165bb66",
+          "family": "other",
+          "count": 1,
+          "duration_ms": 0.205152,
+          "share_of_total_kernel_time": 0.0005932820593022944,
+          "mean_per_launch_ms": 0.205152
+        },
+        {
+          "kernel_name": "DeviceSelectSweepKernel",
+          "family": "other",
+          "count": 10,
+          "duration_ms": 0.117504,
+          "share_of_total_kernel_time": 0.0003398115304567189,
+          "mean_per_launch_ms": 0.0117504
+        },
+        {
+          "kernel_name": "DeviceScanKernel",
+          "family": "other",
+          "count": 1,
+          "duration_ms": 0.077952,
+          "share_of_total_kernel_time": 0.0002254305251069083,
+          "mean_per_launch_ms": 0.077952
+        },
+        {
+          "kernel_name": "__myl_AddCasMeaSubMulMeaAddSqrDivMulCasMulAdd_0xbde4d0f44249edc45a317525b133142a",
+          "family": "other",
+          "count": 1,
+          "duration_ms": 0.075712,
+          "share_of_total_kernel_time": 0.00021895263645441094,
+          "mean_per_launch_ms": 0.075712
+        },
+        {
+          "kernel_name": "DeviceReduceSingleTileKernel",
+          "family": "memory_like",
+          "count": 10,
+          "duration_ms": 0.05168,
+          "share_of_total_kernel_time": 0.00014945414533976064,
+          "mean_per_launch_ms": 0.005168
+        }
+      ]
+    },
+    "visual_kernel_attribution": {
+      "kernel_count": 206,
+      "total_kernel_duration_ms": 138.450528,
+      "family_attribution": {
+        "gemm": {
+          "kernel_count": 129,
+          "duration_ms": 126.879808,
+          "share_of_total_kernel_time": 0.9164270431673616,
+          "mean_per_launch_ms": 0.9835644031007752,
+          "median_per_launch_ms": 0.72256
+        },
+        "attention": {
+          "kernel_count": 0,
+          "duration_ms": 0.0,
+          "share_of_total_kernel_time": 0.0,
+          "mean_per_launch_ms": null,
+          "median_per_launch_ms": null
+        },
+        "memory_like": {
+          "kernel_count": 0,
+          "duration_ms": 0.0,
+          "share_of_total_kernel_time": 0.0,
+          "mean_per_launch_ms": null,
+          "median_per_launch_ms": null
+        },
+        "other": {
+          "kernel_count": 77,
+          "duration_ms": 11.57072,
+          "share_of_total_kernel_time": 0.08357295683263845,
+          "mean_per_launch_ms": 0.1502690909090909,
+          "median_per_launch_ms": 0.116864
+        }
+      },
+      "top_kernels": [
+        {
+          "kernel_name": "trt_ampere_fp16_s16816gemm_fp16_256x128_ldg8_f2f_gelu_nn_v1",
+          "family": "gemm",
+          "count": 24,
+          "duration_ms": 47.090464,
+          "share_of_total_kernel_time": 0.34012484228301393,
+          "mean_per_launch_ms": 1.9621026666666666
+        },
+        {
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize256x128x32_stage3_warpsize4x2x1_tensor16x8x16_execute_kernel_trt",
+          "family": "gemm",
+          "count": 24,
+          "duration_ms": 26.525664,
+          "share_of_total_kernel_time": 0.1915894751950675,
+          "mean_per_launch_ms": 1.1052359999999999
+        },
+        {
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize160x128x32_stage4_warpsize2x2x1_tensor16x8x16_execute_kernel_trt",
+          "family": "gemm",
+          "count": 48,
+          "duration_ms": 26.136288,
+          "share_of_total_kernel_time": 0.1887770915543204,
+          "mean_per_launch_ms": 0.544506
+        },
+        {
+          "kernel_name": "_gemm_mha_v2_0xbab5ab159f1658a2c45551d19d5f80fc",
+          "family": "gemm",
+          "count": 24,
+          "duration_ms": 17.064224,
+          "share_of_total_kernel_time": 0.12325141873059524,
+          "mean_per_launch_ms": 0.7110093333333333
+        },
+        {
+          "kernel_name": "__myl_AddCasMeaSubMulMeaAddSqrDivMulCasMulAdd_0xddc752d5433c6098ff7ca40caf35224a",
+          "family": "other",
+          "count": 44,
+          "duration_ms": 5.535712,
+          "share_of_total_kernel_time": 0.039983321695963484,
+          "mean_per_launch_ms": 0.12581163636363638
+        },
+        {
+          "kernel_name": "__myl_TraSliSliResSliNegSliConSliResSliNegSliConMulMulAddTraResTraMulMulAddRes_0x9b77880ef8b66569e10147984be10f28",
+          "family": "other",
+          "count": 24,
+          "duration_ms": 4.786624,
+          "share_of_total_kernel_time": 0.0345728114521889,
+          "mean_per_launch_ms": 0.19944266666666666
+        },
+        {
+          "kernel_name": "sm80_xmma_fprop_implicit_gemm_indexed_wo_smem_f16f16_f16f16_f16_nhwckrsc_nhwc_tilesize128x32x64_stage1_warpsize4x1x1_g1_tensor16x8x16_alignc8_execute_kernel_trt",
+          "family": "gemm",
+          "count": 1,
+          "duration_ms": 4.349984,
+          "share_of_total_kernel_time": 0.03141904955393164,
+          "mean_per_launch_ms": 4.349984
+        },
+        {
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize256x128x32_stage3_warpsize4x2x1_tensor16x8x16_fused",
+          "family": "gemm",
+          "count": 4,
+          "duration_ms": 3.911552,
+          "share_of_total_kernel_time": 0.0282523444042048,
+          "mean_per_launch_ms": 0.977888
+        },
+        {
+          "kernel_name": "sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x256x32_stage3_warpsize2x4x1_tensor16x8x16_execute_kernel_trt",
+          "family": "gemm",
+          "count": 4,
+          "duration_ms": 1.801632,
+          "share_of_total_kernel_time": 0.013012821446228071,
+          "mean_per_launch_ms": 0.450408
+        },
+        {
+          "kernel_name": "__myl_AddResCasMeaSubMulMeaAddSqrDivMulCasMulAdd_0x7cfda9c28f7ad84bd3c0ae57d85f640c",
+          "family": "other",
+          "count": 3,
+          "duration_ms": 0.408768,
+          "share_of_total_kernel_time": 0.0029524481120072003,
+          "mean_per_launch_ms": 0.13625600000000002
+        },
+        {
+          "kernel_name": "__myl_Mov_0xd73bf7471c9b5f759210a9460d644cf8",
+          "family": "other",
+          "count": 1,
+          "duration_ms": 0.319744,
+          "share_of_total_kernel_time": 0.0023094458693577536,
+          "mean_per_launch_ms": 0.319744
+        },
+        {
+          "kernel_name": "__myl_CasMeaSubMulMeaAddSqrDivMulCasMulAdd_0x08a3aafb649d7daf7c8e8e0d7f97c89c",
+          "family": "other",
+          "count": 3,
+          "duration_ms": 0.239008,
+          "share_of_total_kernel_time": 0.0017263061647551103,
+          "mean_per_launch_ms": 0.07966933333333333
+        },
+        {
+          "kernel_name": "__myl_AddCasMeaSubMulMeaAddSqrDivMulCasMulAdd_0x4e488be8cda3456b7f8fe5882165bb66",
+          "family": "other",
+          "count": 1,
+          "duration_ms": 0.205152,
+          "share_of_total_kernel_time": 0.0014817711637762768,
+          "mean_per_launch_ms": 0.205152
+        },
+        {
+          "kernel_name": "__myl_AddCasMeaSubMulMeaAddSqrDivMulCasMulAdd_0xbde4d0f44249edc45a317525b133142a",
+          "family": "other",
+          "count": 1,
+          "duration_ms": 0.075712,
+          "share_of_total_kernel_time": 0.0005468523745897162,
+          "mean_per_launch_ms": 0.075712
+        }
+      ]
+    },
+    "prefill_excluding_visual_kernel_attribution": {
+      "kernel_count": 1903,
+      "total_kernel_duration_ms": 207.341152,
+      "family_attribution": {
+        "gemm": {
+          "kernel_count": 86,
+          "duration_ms": 46.501504,
+          "share_of_total_kernel_time": 0.22427532379100507,
+          "mean_per_launch_ms": 0.5407151627906976,
+          "median_per_launch_ms": 0.2504
+        },
+        "attention": {
+          "kernel_count": 0,
+          "duration_ms": 0.0,
+          "share_of_total_kernel_time": 0.0,
+          "mean_per_launch_ms": null,
+          "median_per_launch_ms": null
+        },
+        "memory_like": {
+          "kernel_count": 1619,
+          "duration_ms": 78.015968,
+          "share_of_total_kernel_time": 0.3762686145391919,
+          "mean_per_launch_ms": 0.04818775046324892,
+          "median_per_launch_ms": 0.046144
+        },
+        "other": {
+          "kernel_count": 198,
+          "duration_ms": 82.82368,
+          "share_of_total_kernel_time": 0.399456061669803,
+          "mean_per_launch_ms": 0.41830141414141414,
+          "median_per_launch_ms": 0.258112
+        }
+      },
+      "top_kernels": [
+        {
+          "kernel_name": "Kernel2",
+          "family": "other",
+          "count": 168,
+          "duration_ms": 82.328128,
+          "share_of_total_kernel_time": 0.39706602961287685,
+          "mean_per_launch_ms": 0.490048380952381
+        },
+        {
+          "kernel_name": "elementwise_kernel",
+          "family": "memory_like",
+          "count": 569,
+          "duration_ms": 28.616352,
+          "share_of_total_kernel_time": 0.1380157856941009,
+          "mean_per_launch_ms": 0.050292358523725836
+        },
+        {
+          "kernel_name": "ampere_fp16_s16816gemm_fp16_256x128_ldg8_f2f_stages_64x3_tn",
+          "family": "gemm",
+          "count": 28,
+          "duration_ms": 24.801536,
+          "share_of_total_kernel_time": 0.11961704543823505,
+          "mean_per_launch_ms": 0.8857691428571428
+        },
+        {
+          "kernel_name": "vectorized_elementwise_kernel",
+          "family": "memory_like",
+          "count": 503,
+          "duration_ms": 17.167552,
+          "share_of_total_kernel_time": 0.08279857536433481,
+          "mean_per_launch_ms": 0.034130322067594435
+        },
+        {
+          "kernel_name": "unrolled_elementwise_kernel",
+          "family": "memory_like",
+          "count": 262,
+          "duration_ms": 16.842528,
+          "share_of_total_kernel_time": 0.0812309946073802,
+          "mean_per_launch_ms": 0.06428445801526718
+        },
+        {
+          "kernel_name": "ampere_fp16_s16816gemm_fp16_128x64_ldg8_f2f_stages_32x6_tn",
+          "family": "gemm",
+          "count": 56,
+          "duration_ms": 11.01872,
+          "share_of_total_kernel_time": 0.05314294771546364,
+          "mean_per_launch_ms": 0.19676285714285716
+        },
+        {
+          "kernel_name": "ampere_fp16_s16816gemm_fp16_64x64_sliced1x2_ldg8_f2f_stages_64x5_tn",
+          "family": "gemm",
+          "count": 1,
+          "duration_ms": 10.674848,
+          "share_of_total_kernel_time": 0.05148446363411736,
+          "mean_per_launch_ms": 10.674848
+        },
+        {
+          "kernel_name": "CatArrayBatchedCopy",
+          "family": "memory_like",
+          "count": 113,
+          "duration_ms": 7.207808,
+          "share_of_total_kernel_time": 0.034763036331543096,
+          "mean_per_launch_ms": 0.06378591150442478
+        },
+        {
+          "kernel_name": "reduce_kernel",
+          "family": "memory_like",
+          "count": 117,
+          "duration_ms": 4.29936,
+          "share_of_total_kernel_time": 0.020735681067306888,
+          "mean_per_launch_ms": 0.03674666666666667
+        },
+        {
+          "kernel_name": "softmax_warp_forward",
+          "family": "memory_like",
+          "count": 28,
+          "duration_ms": 2.748832,
+          "share_of_total_kernel_time": 0.01325753220470194,
+          "mean_per_launch_ms": 0.09817257142857143
+        },
+        {
+          "kernel_name": "index_elementwise_kernel",
+          "family": "memory_like",
+          "count": 11,
+          "duration_ms": 0.807904,
+          "share_of_total_kernel_time": 0.0038964961475664995,
+          "mean_per_launch_ms": 0.07344581818181818
+        },
+        {
+          "kernel_name": "write_indices",
+          "family": "other",
+          "count": 7,
+          "duration_ms": 0.256288,
+          "share_of_total_kernel_time": 0.0012360691427044834,
+          "mean_per_launch_ms": 0.03661257142857143
+        },
+        {
+          "kernel_name": "indexSelectLargeIndex",
+          "family": "memory_like",
+          "count": 1,
+          "duration_ms": 0.254944,
+          "share_of_total_kernel_time": 0.0012295870720347884,
+          "mean_per_launch_ms": 0.254944
+        },
+        {
+          "kernel_name": "DeviceSelectSweepKernel",
+          "family": "other",
+          "count": 10,
+          "duration_ms": 0.117504,
+          "share_of_total_kernel_time": 0.0005667181785504886,
+          "mean_per_launch_ms": 0.0117504
+        },
+        {
+          "kernel_name": "DeviceScanKernel",
+          "family": "other",
+          "count": 1,
+          "duration_ms": 0.077952,
+          "share_of_total_kernel_time": 0.00037596009884231763,
+          "mean_per_launch_ms": 0.077952
+        },
+        {
+          "kernel_name": "DeviceReduceSingleTileKernel",
+          "family": "memory_like",
+          "count": 10,
+          "duration_ms": 0.05168,
+          "share_of_total_kernel_time": 0.0002492510507513723,
+          "mean_per_launch_ms": 0.005168
+        },
+        {
+          "kernel_name": "DeviceCompactInitKernel",
+          "family": "other",
+          "count": 10,
+          "duration_ms": 0.031744,
+          "share_of_total_kernel_time": 0.00015310033581756119,
+          "mean_per_launch_ms": 0.0031744
+        },
+        {
+          "kernel_name": "reduction_prod_kernel",
+          "family": "other",
+          "count": 1,
+          "duration_ms": 0.00832,
+          "share_of_total_kernel_time": 4.012710414573176e-05,
+          "mean_per_launch_ms": 0.00832
+        },
+        {
+          "kernel_name": "DeviceReduceKernel",
+          "family": "memory_like",
+          "count": 1,
+          "duration_ms": 0.008064,
+          "share_of_total_kernel_time": 3.889242401817079e-05,
+          "mean_per_launch_ms": 0.008064
+        },
+        {
+          "kernel_name": "elementwise_kernel_with_index",
+          "family": "memory_like",
+          "count": 3,
+          "duration_ms": 0.007264,
+          "share_of_total_kernel_time": 3.5034048619542735e-05,
+          "mean_per_launch_ms": 0.002421333333333333
+        },
+        {
+          "kernel_name": "gemmk1_kernel",
+          "family": "gemm",
+          "count": 1,
+          "duration_ms": 0.0064,
+          "share_of_total_kernel_time": 3.086700318902444e-05,
+          "mean_per_launch_ms": 0.0064
+        },
+        {
+          "kernel_name": "DeviceScanInitKernel",
+          "family": "other",
+          "count": 1,
+          "duration_ms": 0.003744,
+          "share_of_total_kernel_time": 1.8057196865579296e-05,
+          "mean_per_launch_ms": 0.003744
+        },
+        {
+          "kernel_name": "masked_scatter_size_check",
+          "family": "memory_like",
+          "count": 1,
+          "duration_ms": 0.00368,
+          "share_of_total_kernel_time": 1.774852683368905e-05,
+          "mean_per_launch_ms": 0.00368
+        }
+      ]
+    },
+    "decode_kernel_attribution": {
+      "kernel_count": 27884,
+      "total_kernel_duration_ms": 1620.602368,
+      "family_attribution": {
+        "gemm": {
+          "kernel_count": 2970,
+          "duration_ms": 1269.900768,
+          "share_of_total_kernel_time": 0.7835979960754939,
+          "mean_per_launch_ms": 0.4275760161616161,
+          "median_per_launch_ms": 0.22864
+        },
+        "attention": {
+          "kernel_count": 0,
+          "duration_ms": 0.0,
+          "share_of_total_kernel_time": 0.0,
+          "mean_per_launch_ms": null,
+          "median_per_launch_ms": null
+        },
+        "memory_like": {
+          "kernel_count": 24074,
+          "duration_ms": 317.364928,
+          "share_of_total_kernel_time": 0.19583146012038902,
+          "mean_per_launch_ms": 0.013182891418127441,
+          "median_per_launch_ms": 0.0096
+        },
+        "other": {
+          "kernel_count": 840,
+          "duration_ms": 33.336672,
+          "share_of_total_kernel_time": 0.020570543804117162,
+          "mean_per_launch_ms": 0.039686514285714285,
+          "median_per_launch_ms": 0.039488
+        }
+      },
+      "top_kernels": [
+        {
+          "kernel_name": "ampere_fp16_s16816gemm_fp16_64x64_sliced1x2_ldg8_f2f_stages_64x5_tn",
+          "family": "gemm",
+          "count": 1275,
+          "duration_ms": 989.883808,
+          "share_of_total_kernel_time": 0.6108122680467415,
+          "mean_per_launch_ms": 0.776379457254902
+        },
+        {
+          "kernel_name": "ampere_fp16_s16816gemm_fp16_128x64_ldg8_f2f_stages_32x6_tn",
+          "family": "gemm",
+          "count": 1680,
+          "duration_ms": 279.909472,
+          "share_of_total_kernel_time": 0.1727194020735875,
+          "mean_per_launch_ms": 0.16661278095238094
+        },
+        {
+          "kernel_name": "elementwise_kernel",
+          "family": "memory_like",
+          "count": 6390,
+          "duration_ms": 118.355296,
+          "share_of_total_kernel_time": 0.07303166917253326,
+          "mean_per_launch_ms": 0.018521955555555556
+        },
+        {
+          "kernel_name": "vectorized_elementwise_kernel",
+          "family": "memory_like",
+          "count": 9060,
+          "duration_ms": 59.138464,
+          "share_of_total_kernel_time": 0.036491655922348994,
+          "mean_per_launch_ms": 0.006527424282560706
+        },
+        {
+          "kernel_name": "unrolled_elementwise_kernel",
+          "family": "memory_like",
+          "count": 3869,
+          "duration_ms": 45.634496,
+          "share_of_total_kernel_time": 0.02815897156581225,
+          "mean_per_launch_ms": 0.011794907211165676
+        },
+        {
+          "kernel_name": "CatArrayBatchedCopy_contig",
+          "family": "memory_like",
+          "count": 840,
+          "duration_ms": 43.736192,
+          "share_of_total_kernel_time": 0.026987614521367897,
+          "mean_per_launch_ms": 0.05206689523809524
+        },
+        {
+          "kernel_name": "kernel",
+          "family": "other",
+          "count": 588,
+          "duration_ms": 23.570496,
+          "share_of_total_kernel_time": 0.014544280858412272,
+          "mean_per_launch_ms": 0.04008587755102041
+        },
+        {
+          "kernel_name": "reduce_kernel",
+          "family": "memory_like",
+          "count": 1710,
+          "duration_ms": 22.541792,
+          "share_of_total_kernel_time": 0.013909514415815045,
+          "mean_per_launch_ms": 0.013182334502923977
+        },
+        {
+          "kernel_name": "CatArrayBatchedCopy",
+          "family": "memory_like",
+          "count": 840,
+          "duration_ms": 11.929632,
+          "share_of_total_kernel_time": 0.007361233227569861,
+          "mean_per_launch_ms": 0.014201942857142857
+        },
+        {
+          "kernel_name": "splitKreduce_kernel",
+          "family": "memory_like",
+          "count": 840,
+          "duration_ms": 11.290592,
+          "share_of_total_kernel_time": 0.006966910713535376,
+          "mean_per_launch_ms": 0.013441180952380952
+        },
+        {
+          "kernel_name": "Kernel2",
+          "family": "other",
+          "count": 252,
+          "duration_ms": 9.766176,
+          "share_of_total_kernel_time": 0.0060262629457048895,
+          "mean_per_launch_ms": 0.038754666666666666
+        },
+        {
+          "kernel_name": "softmax_warp_forward",
+          "family": "memory_like",
+          "count": 420,
+          "duration_ms": 3.82,
+          "share_of_total_kernel_time": 0.0023571482279853115,
+          "mean_per_launch_ms": 0.009095238095238095
+        },
+        {
+          "kernel_name": "CatArrayBatchedCopy_aligned16_contig",
+          "family": "memory_like",
+          "count": 30,
+          "duration_ms": 0.316864,
+          "share_of_total_kernel_time": 0.00019552236023883188,
+          "mean_per_launch_ms": 0.010562133333333333
+        },
+        {
+          "kernel_name": "elementwise_kernel_with_index",
+          "family": "memory_like",
+          "count": 45,
+          "duration_ms": 0.22032,
+          "share_of_total_kernel_time": 0.00013594944963081778,
+          "mean_per_launch_ms": 0.004895999999999999
+        },
+        {
+          "kernel_name": "index_elementwise_kernel",
+          "family": "memory_like",
+          "count": 15,
+          "duration_ms": 0.195072,
+          "share_of_total_kernel_time": 0.00012037005736375673,
+          "mean_per_launch_ms": 0.0130048
+        },
+        {
+          "kernel_name": "indexSelectSmallIndex",
+          "family": "memory_like",
+          "count": 15,
+          "duration_ms": 0.186208,
+          "share_of_total_kernel_time": 0.0001149004861876149,
+          "mean_per_launch_ms": 0.012413866666666667
+        },
+        {
+          "kernel_name": "gemmk1_kernel",
+          "family": "gemm",
+          "count": 15,
+          "duration_ms": 0.107488,
+          "share_of_total_kernel_time": 6.632595516483905e-05,
+          "mean_per_launch_ms": 0.007165866666666667
+        }
+      ]
+    },
+    "decode_step_kernel_attribution": [
+      {
+        "kernel_count": 1855,
+        "total_kernel_duration_ms": 74.771968,
+        "family_attribution": {
+          "gemm": {
+            "kernel_count": 198,
+            "duration_ms": 58.933216,
+            "share_of_total_kernel_time": 0.7881725943070002,
+            "mean_per_launch_ms": 0.29764250505050505,
+            "median_per_launch_ms": 0.156752
+          },
+          "attention": {
+            "kernel_count": 0,
+            "duration_ms": 0.0,
+            "share_of_total_kernel_time": 0.0,
+            "mean_per_launch_ms": null,
+            "median_per_launch_ms": null
+          },
+          "memory_like": {
+            "kernel_count": 1601,
+            "duration_ms": 14.274656,
+            "share_of_total_kernel_time": 0.1909091920651333,
+            "mean_per_launch_ms": 0.008916087445346658,
+            "median_per_launch_ms": 0.006688
+          },
+          "other": {
+            "kernel_count": 56,
+            "duration_ms": 1.564096,
+            "share_of_total_kernel_time": 0.020918213627866528,
+            "mean_per_launch_ms": 0.027930285714285713,
+            "median_per_launch_ms": 0.026
+          }
+        },
+        "top_kernels": [
+          {
+            "kernel_name": "ampere_fp16_s16816gemm_fp16_64x64_sliced1x2_ldg8_f2f_stages_64x5_tn",
+            "family": "gemm",
+            "count": 85,
+            "duration_ms": 46.011904,
+            "share_of_total_kernel_time": 0.6153630194674026,
+            "mean_per_launch_ms": 0.5413165176470588
+          },
+          {
+            "kernel_name": "ampere_fp16_s16816gemm_fp16_128x64_ldg8_f2f_stages_32x6_tn",
+            "family": "gemm",
+            "count": 112,
+            "duration_ms": 12.91744,
+            "share_of_total_kernel_time": 0.17275779072713454,
+            "mean_per_launch_ms": 0.11533428571428571
+          },
+          {
+            "kernel_name": "elementwise_kernel",
+            "family": "memory_like",
+            "count": 426,
+            "duration_ms": 5.284,
+            "share_of_total_kernel_time": 0.07066819479728018,
+            "mean_per_launch_ms": 0.0124037558685446
+          },
+          {
+            "kernel_name": "vectorized_elementwise_kernel",
+            "family": "memory_like",
+            "count": 603,
+            "duration_ms": 2.678752,
+            "share_of_total_kernel_time": 0.03582561849916803,
+            "mean_per_launch_ms": 0.00444237479270315
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy_contig",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 2.169344,
+            "share_of_total_kernel_time": 0.029012797951232204,
+            "mean_per_launch_ms": 0.03873828571428572
+          },
+          {
+            "kernel_name": "unrolled_elementwise_kernel",
+            "family": "memory_like",
+            "count": 257,
+            "duration_ms": 1.965824,
+            "share_of_total_kernel_time": 0.026290922287882004,
+            "mean_per_launch_ms": 0.007649120622568093
+          },
+          {
+            "kernel_name": "kernel",
+            "family": "other",
+            "count": 56,
+            "duration_ms": 1.564096,
+            "share_of_total_kernel_time": 0.020918213627866528,
+            "mean_per_launch_ms": 0.027930285714285713
+          },
+          {
+            "kernel_name": "reduce_kernel",
+            "family": "memory_like",
+            "count": 113,
+            "duration_ms": 0.943328,
+            "share_of_total_kernel_time": 0.01261606488677682,
+            "mean_per_launch_ms": 0.00834803539823009
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 0.525152,
+            "share_of_total_kernel_time": 0.00702338074076103,
+            "mean_per_launch_ms": 0.009377714285714284
+          },
+          {
+            "kernel_name": "splitKreduce_kernel",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 0.514368,
+            "share_of_total_kernel_time": 0.0068791555680331965,
+            "mean_per_launch_ms": 0.009185142857142859
+          },
+          {
+            "kernel_name": "softmax_warp_forward",
+            "family": "memory_like",
+            "count": 28,
+            "duration_ms": 0.16592,
+            "share_of_total_kernel_time": 0.0022190134142249674,
+            "mean_per_launch_ms": 0.005925714285714286
+          },
+          {
+            "kernel_name": "elementwise_kernel_with_index",
+            "family": "memory_like",
+            "count": 3,
+            "duration_ms": 0.007776,
+            "share_of_total_kernel_time": 0.00010399619279781428,
+            "mean_per_launch_ms": 0.002592
+          },
+          {
+            "kernel_name": "indexSelectSmallIndex",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.00752,
+            "share_of_total_kernel_time": 0.00010057244982504673,
+            "mean_per_launch_ms": 0.00752
+          },
+          {
+            "kernel_name": "index_elementwise_kernel",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.007424,
+            "share_of_total_kernel_time": 9.928854621025891e-05,
+            "mean_per_launch_ms": 0.007424
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy_aligned16_contig",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.005248,
+            "share_of_total_kernel_time": 7.018673094173475e-05,
+            "mean_per_launch_ms": 0.005248
+          },
+          {
+            "kernel_name": "gemmk1_kernel",
+            "family": "gemm",
+            "count": 1,
+            "duration_ms": 0.003872,
+            "share_of_total_kernel_time": 5.178411246310917e-05,
+            "mean_per_launch_ms": 0.003872
+          }
+        ],
+        "nvtx_text": "B2_profile_decode_step_01"
+      },
+      {
+        "kernel_count": 1855,
+        "total_kernel_duration_ms": 89.33648,
+        "family_attribution": {
+          "gemm": {
+            "kernel_count": 198,
+            "duration_ms": 70.043648,
+            "share_of_total_kernel_time": 0.7840430695277002,
+            "mean_per_launch_ms": 0.353755797979798,
+            "median_per_launch_ms": 0.184064
+          },
+          "attention": {
+            "kernel_count": 0,
+            "duration_ms": 0.0,
+            "share_of_total_kernel_time": 0.0,
+            "mean_per_launch_ms": null,
+            "median_per_launch_ms": null
+          },
+          "memory_like": {
+            "kernel_count": 1601,
+            "duration_ms": 17.547776,
+            "share_of_total_kernel_time": 0.19642340956348403,
+            "mean_per_launch_ms": 0.010960509681449094,
+            "median_per_launch_ms": 0.008288
+          },
+          "other": {
+            "kernel_count": 56,
+            "duration_ms": 1.745056,
+            "share_of_total_kernel_time": 0.01953352090881575,
+            "mean_per_launch_ms": 0.031161714285714286,
+            "median_per_launch_ms": 0.030432
+          }
+        },
+        "top_kernels": [
+          {
+            "kernel_name": "ampere_fp16_s16816gemm_fp16_64x64_sliced1x2_ldg8_f2f_stages_64x5_tn",
+            "family": "gemm",
+            "count": 85,
+            "duration_ms": 54.667648,
+            "share_of_total_kernel_time": 0.61192972904238,
+            "mean_per_launch_ms": 0.6431488
+          },
+          {
+            "kernel_name": "ampere_fp16_s16816gemm_fp16_128x64_ldg8_f2f_stages_32x6_tn",
+            "family": "gemm",
+            "count": 112,
+            "duration_ms": 15.37072,
+            "share_of_total_kernel_time": 0.172054238089524,
+            "mean_per_launch_ms": 0.13723857142857143
+          },
+          {
+            "kernel_name": "elementwise_kernel",
+            "family": "memory_like",
+            "count": 426,
+            "duration_ms": 6.491808,
+            "share_of_total_kernel_time": 0.0726669329259447,
+            "mean_per_launch_ms": 0.015238985915492958
+          },
+          {
+            "kernel_name": "vectorized_elementwise_kernel",
+            "family": "memory_like",
+            "count": 603,
+            "duration_ms": 3.295296,
+            "share_of_total_kernel_time": 0.03688634251092051,
+            "mean_per_launch_ms": 0.005464835820895522
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy_contig",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 2.518208,
+            "share_of_total_kernel_time": 0.02818790263507136,
+            "mean_per_launch_ms": 0.044968
+          },
+          {
+            "kernel_name": "unrolled_elementwise_kernel",
+            "family": "memory_like",
+            "count": 257,
+            "duration_ms": 2.498368,
+            "share_of_total_kernel_time": 0.027965820905412882,
+            "mean_per_launch_ms": 0.00972127626459144
+          },
+          {
+            "kernel_name": "reduce_kernel",
+            "family": "memory_like",
+            "count": 113,
+            "duration_ms": 1.212256,
+            "share_of_total_kernel_time": 0.013569551878471146,
+            "mean_per_launch_ms": 0.010727929203539823
+          },
+          {
+            "kernel_name": "Kernel2",
+            "family": "other",
+            "count": 28,
+            "duration_ms": 0.969408,
+            "share_of_total_kernel_time": 0.010851199868183748,
+            "mean_per_launch_ms": 0.03462171428571429
+          },
+          {
+            "kernel_name": "kernel",
+            "family": "other",
+            "count": 28,
+            "duration_ms": 0.775648,
+            "share_of_total_kernel_time": 0.008682321040632001,
+            "mean_per_launch_ms": 0.027701714285714284
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 0.658656,
+            "share_of_total_kernel_time": 0.007372755228323301,
+            "mean_per_launch_ms": 0.011761714285714287
+          },
+          {
+            "kernel_name": "splitKreduce_kernel",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 0.629888,
+            "share_of_total_kernel_time": 0.007050736720318508,
+            "mean_per_launch_ms": 0.011248
+          },
+          {
+            "kernel_name": "softmax_warp_forward",
+            "family": "memory_like",
+            "count": 28,
+            "duration_ms": 0.206208,
+            "share_of_total_kernel_time": 0.0023082172030955326,
+            "mean_per_launch_ms": 0.007364571428571429
+          },
+          {
+            "kernel_name": "elementwise_kernel_with_index",
+            "family": "memory_like",
+            "count": 3,
+            "duration_ms": 0.01088,
+            "share_of_total_kernel_time": 0.0001217867549740039,
+            "mean_per_launch_ms": 0.003626666666666667
+          },
+          {
+            "kernel_name": "indexSelectSmallIndex",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.009792,
+            "share_of_total_kernel_time": 0.0001096080794766035,
+            "mean_per_launch_ms": 0.009792
+          },
+          {
+            "kernel_name": "index_elementwise_kernel",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.009472,
+            "share_of_total_kernel_time": 0.00010602611609501516,
+            "mean_per_launch_ms": 0.009472
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy_aligned16_contig",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.006944,
+            "share_of_total_kernel_time": 7.772860538046719e-05,
+            "mean_per_launch_ms": 0.006944
+          },
+          {
+            "kernel_name": "gemmk1_kernel",
+            "family": "gemm",
+            "count": 1,
+            "duration_ms": 0.00528,
+            "share_of_total_kernel_time": 5.910239579620778e-05,
+            "mean_per_launch_ms": 0.00528
+          }
+        ],
+        "nvtx_text": "B2_profile_decode_step_02"
+      },
+      {
+        "kernel_count": 1855,
+        "total_kernel_duration_ms": 91.909856,
+        "family_attribution": {
+          "gemm": {
+            "kernel_count": 198,
+            "duration_ms": 71.865984,
+            "share_of_total_kernel_time": 0.7819181437951551,
+            "mean_per_launch_ms": 0.36295951515151514,
+            "median_per_launch_ms": 0.184128
+          },
+          "attention": {
+            "kernel_count": 0,
+            "duration_ms": 0.0,
+            "share_of_total_kernel_time": 0.0,
+            "mean_per_launch_ms": null,
+            "median_per_launch_ms": null
+          },
+          "memory_like": {
+            "kernel_count": 1601,
+            "duration_ms": 18.09472,
+            "share_of_total_kernel_time": 0.19687464204056634,
+            "mean_per_launch_ms": 0.011302136164896939,
+            "median_per_launch_ms": 0.00864
+          },
+          "other": {
+            "kernel_count": 56,
+            "duration_ms": 1.949152,
+            "share_of_total_kernel_time": 0.02120721416427853,
+            "mean_per_launch_ms": 0.03480628571428572,
+            "median_per_launch_ms": 0.034352
+          }
+        },
+        "top_kernels": [
+          {
+            "kernel_name": "ampere_fp16_s16816gemm_fp16_64x64_sliced1x2_ldg8_f2f_stages_64x5_tn",
+            "family": "gemm",
+            "count": 85,
+            "duration_ms": 55.96624,
+            "share_of_total_kernel_time": 0.6089253365819657,
+            "mean_per_launch_ms": 0.6584263529411765
+          },
+          {
+            "kernel_name": "ampere_fp16_s16816gemm_fp16_128x64_ldg8_f2f_stages_32x6_tn",
+            "family": "gemm",
+            "count": 112,
+            "duration_ms": 15.893472,
+            "share_of_total_kernel_time": 0.1729245664360523,
+            "mean_per_launch_ms": 0.141906
+          },
+          {
+            "kernel_name": "elementwise_kernel",
+            "family": "memory_like",
+            "count": 426,
+            "duration_ms": 6.663776,
+            "share_of_total_kernel_time": 0.07250338853756881,
+            "mean_per_launch_ms": 0.015642666666666666
+          },
+          {
+            "kernel_name": "vectorized_elementwise_kernel",
+            "family": "memory_like",
+            "count": 603,
+            "duration_ms": 3.419232,
+            "share_of_total_kernel_time": 0.037202016723864736,
+            "mean_per_launch_ms": 0.00567036815920398
+          },
+          {
+            "kernel_name": "unrolled_elementwise_kernel",
+            "family": "memory_like",
+            "count": 257,
+            "duration_ms": 2.591936,
+            "share_of_total_kernel_time": 0.028200849319141574,
+            "mean_per_launch_ms": 0.010085354085603113
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy_contig",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 2.568704,
+            "share_of_total_kernel_time": 0.02794807990995003,
+            "mean_per_launch_ms": 0.045869714285714284
+          },
+          {
+            "kernel_name": "kernel",
+            "family": "other",
+            "count": 56,
+            "duration_ms": 1.949152,
+            "share_of_total_kernel_time": 0.02120721416427853,
+            "mean_per_launch_ms": 0.03480628571428571
+          },
+          {
+            "kernel_name": "reduce_kernel",
+            "family": "memory_like",
+            "count": 113,
+            "duration_ms": 1.25904,
+            "share_of_total_kernel_time": 0.013698639675814528,
+            "mean_per_launch_ms": 0.011141946902654867
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 0.682432,
+            "share_of_total_kernel_time": 0.007425014353194068,
+            "mean_per_launch_ms": 0.012186285714285715
+          },
+          {
+            "kernel_name": "splitKreduce_kernel",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 0.653024,
+            "share_of_total_kernel_time": 0.007105048668556286,
+            "mean_per_launch_ms": 0.011661142857142858
+          },
+          {
+            "kernel_name": "softmax_warp_forward",
+            "family": "memory_like",
+            "count": 28,
+            "duration_ms": 0.213312,
+            "share_of_total_kernel_time": 0.00232088275712237,
+            "mean_per_launch_ms": 0.007618285714285715
+          },
+          {
+            "kernel_name": "elementwise_kernel_with_index",
+            "family": "memory_like",
+            "count": 3,
+            "duration_ms": 0.012928,
+            "share_of_total_kernel_time": 0.00014065956103771938,
+            "mean_per_launch_ms": 0.004309333333333333
+          },
+          {
+            "kernel_name": "indexSelectSmallIndex",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.011168,
+            "share_of_total_kernel_time": 0.00012151036337169324,
+            "mean_per_launch_ms": 0.011168
+          },
+          {
+            "kernel_name": "index_elementwise_kernel",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.011104,
+            "share_of_total_kernel_time": 0.00012081402891111047,
+            "mean_per_launch_ms": 0.011104
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy_aligned16_contig",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.008064,
+            "share_of_total_kernel_time": 8.773814203342893e-05,
+            "mean_per_launch_ms": 0.008064
+          },
+          {
+            "kernel_name": "gemmk1_kernel",
+            "family": "gemm",
+            "count": 1,
+            "duration_ms": 0.006272,
+            "share_of_total_kernel_time": 6.824077713711139e-05,
+            "mean_per_launch_ms": 0.006272
+          }
+        ],
+        "nvtx_text": "B2_profile_decode_step_03"
+      },
+      {
+        "kernel_count": 1855,
+        "total_kernel_duration_ms": 108.058912,
+        "family_attribution": {
+          "gemm": {
+            "kernel_count": 198,
+            "duration_ms": 85.124032,
+            "share_of_total_kernel_time": 0.7877557752941284,
+            "mean_per_launch_ms": 0.42991935353535354,
+            "median_per_launch_ms": 0.228848
+          },
+          "attention": {
+            "kernel_count": 0,
+            "duration_ms": 0.0,
+            "share_of_total_kernel_time": 0.0,
+            "mean_per_launch_ms": null,
+            "median_per_launch_ms": null
+          },
+          "memory_like": {
+            "kernel_count": 1601,
+            "duration_ms": 20.803232,
+            "share_of_total_kernel_time": 0.19251750378534258,
+            "mean_per_launch_ms": 0.012993898813241724,
+            "median_per_launch_ms": 0.009568
+          },
+          "other": {
+            "kernel_count": 56,
+            "duration_ms": 2.131648,
+            "share_of_total_kernel_time": 0.01972672092052898,
+            "mean_per_launch_ms": 0.03806514285714285,
+            "median_per_launch_ms": 0.03736
+          }
+        },
+        "top_kernels": [
+          {
+            "kernel_name": "ampere_fp16_s16816gemm_fp16_64x64_sliced1x2_ldg8_f2f_stages_64x5_tn",
+            "family": "gemm",
+            "count": 85,
+            "duration_ms": 66.595264,
+            "share_of_total_kernel_time": 0.6162866418643934,
+            "mean_per_launch_ms": 0.7834736941176471
+          },
+          {
+            "kernel_name": "ampere_fp16_s16816gemm_fp16_128x64_ldg8_f2f_stages_32x6_tn",
+            "family": "gemm",
+            "count": 112,
+            "duration_ms": 18.522528,
+            "share_of_total_kernel_time": 0.1714113871514827,
+            "mean_per_launch_ms": 0.1653797142857143
+          },
+          {
+            "kernel_name": "elementwise_kernel",
+            "family": "memory_like",
+            "count": 426,
+            "duration_ms": 7.72432,
+            "share_of_total_kernel_time": 0.07148248910742318,
+            "mean_per_launch_ms": 0.01813220657276995
+          },
+          {
+            "kernel_name": "vectorized_elementwise_kernel",
+            "family": "memory_like",
+            "count": 603,
+            "duration_ms": 3.908832,
+            "share_of_total_kernel_time": 0.03617315710156327,
+            "mean_per_launch_ms": 0.0064823084577114425
+          },
+          {
+            "kernel_name": "unrolled_elementwise_kernel",
+            "family": "memory_like",
+            "count": 257,
+            "duration_ms": 3.022208,
+            "share_of_total_kernel_time": 0.02796815129880264,
+            "mean_per_launch_ms": 0.01175956420233463
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy_contig",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 2.857824,
+            "share_of_total_kernel_time": 0.026446907035303113,
+            "mean_per_launch_ms": 0.05103257142857143
+          },
+          {
+            "kernel_name": "reduce_kernel",
+            "family": "memory_like",
+            "count": 113,
+            "duration_ms": 1.450208,
+            "share_of_total_kernel_time": 0.013420531200610274,
+            "mean_per_launch_ms": 0.012833699115044247
+          },
+          {
+            "kernel_name": "Kernel2",
+            "family": "other",
+            "count": 28,
+            "duration_ms": 1.14448,
+            "share_of_total_kernel_time": 0.010591259701004578,
+            "mean_per_launch_ms": 0.04087428571428571
+          },
+          {
+            "kernel_name": "kernel",
+            "family": "other",
+            "count": 28,
+            "duration_ms": 0.987168,
+            "share_of_total_kernel_time": 0.009135461219524401,
+            "mean_per_launch_ms": 0.035256
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 0.791616,
+            "share_of_total_kernel_time": 0.007325781699523312,
+            "mean_per_launch_ms": 0.014136
+          },
+          {
+            "kernel_name": "splitKreduce_kernel",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 0.752288,
+            "share_of_total_kernel_time": 0.0069618320791532675,
+            "mean_per_launch_ms": 0.013433714285714285
+          },
+          {
+            "kernel_name": "softmax_warp_forward",
+            "family": "memory_like",
+            "count": 28,
+            "duration_ms": 0.252608,
+            "share_of_total_kernel_time": 0.002337687797559909,
+            "mean_per_launch_ms": 0.009021714285714286
+          },
+          {
+            "kernel_name": "elementwise_kernel_with_index",
+            "family": "memory_like",
+            "count": 3,
+            "duration_ms": 0.012928,
+            "share_of_total_kernel_time": 0.00011963844314849293,
+            "mean_per_launch_ms": 0.004309333333333333
+          },
+          {
+            "kernel_name": "indexSelectSmallIndex",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.0112,
+            "share_of_total_kernel_time": 0.00010364716609399139,
+            "mean_per_launch_ms": 0.0112
+          },
+          {
+            "kernel_name": "index_elementwise_kernel",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.011104,
+            "share_of_total_kernel_time": 0.00010275876181318576,
+            "mean_per_launch_ms": 0.011104
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy_aligned16_contig",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.008096,
+            "share_of_total_kernel_time": 7.492209434794235e-05,
+            "mean_per_launch_ms": 0.008096
+          },
+          {
+            "kernel_name": "gemmk1_kernel",
+            "family": "gemm",
+            "count": 1,
+            "duration_ms": 0.00624,
+            "share_of_total_kernel_time": 5.7746278252366636e-05,
+            "mean_per_launch_ms": 0.00624
+          }
+        ],
+        "nvtx_text": "B2_profile_decode_step_04"
+      },
+      {
+        "kernel_count": 1855,
+        "total_kernel_duration_ms": 114.089632,
+        "family_attribution": {
+          "gemm": {
+            "kernel_count": 198,
+            "duration_ms": 89.433984,
+            "share_of_total_kernel_time": 0.7838922996964351,
+            "mean_per_launch_ms": 0.4516867878787879,
+            "median_per_launch_ms": 0.22888
+          },
+          "attention": {
+            "kernel_count": 0,
+            "duration_ms": 0.0,
+            "share_of_total_kernel_time": 0.0,
+            "mean_per_launch_ms": null,
+            "median_per_launch_ms": null
+          },
+          "memory_like": {
+            "kernel_count": 1601,
+            "duration_ms": 22.205152,
+            "share_of_total_kernel_time": 0.19462900888312096,
+            "mean_per_launch_ms": 0.013869551530293567,
+            "median_per_launch_ms": 0.010336
+          },
+          "other": {
+            "kernel_count": 56,
+            "duration_ms": 2.450496,
+            "share_of_total_kernel_time": 0.021478691420443886,
+            "mean_per_launch_ms": 0.04375885714285715,
+            "median_per_launch_ms": 0.045152
+          }
+        },
+        "top_kernels": [
+          {
+            "kernel_name": "ampere_fp16_s16816gemm_fp16_64x64_sliced1x2_ldg8_f2f_stages_64x5_tn",
+            "family": "gemm",
+            "count": 85,
+            "duration_ms": 69.675296,
+            "share_of_total_kernel_time": 0.6107066415991245,
+            "mean_per_launch_ms": 0.8197093647058824
+          },
+          {
+            "kernel_name": "ampere_fp16_s16816gemm_fp16_128x64_ldg8_f2f_stages_32x6_tn",
+            "family": "gemm",
+            "count": 112,
+            "duration_ms": 19.750784,
+            "share_of_total_kernel_time": 0.17311637923417966,
+            "mean_per_launch_ms": 0.1763462857142857
+          },
+          {
+            "kernel_name": "elementwise_kernel",
+            "family": "memory_like",
+            "count": 426,
+            "duration_ms": 8.318112,
+            "share_of_total_kernel_time": 0.07290857069290924,
+            "mean_per_launch_ms": 0.01952608450704225
+          },
+          {
+            "kernel_name": "vectorized_elementwise_kernel",
+            "family": "memory_like",
+            "count": 603,
+            "duration_ms": 4.162336,
+            "share_of_total_kernel_time": 0.036483034672247866,
+            "mean_per_launch_ms": 0.006902713101160862
+          },
+          {
+            "kernel_name": "unrolled_elementwise_kernel",
+            "family": "memory_like",
+            "count": 257,
+            "duration_ms": 3.224608,
+            "share_of_total_kernel_time": 0.028263812788878136,
+            "mean_per_launch_ms": 0.012547112840466926
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy_contig",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 2.998848,
+            "share_of_total_kernel_time": 0.02628501773062078,
+            "mean_per_launch_ms": 0.05355085714285714
+          },
+          {
+            "kernel_name": "kernel",
+            "family": "other",
+            "count": 56,
+            "duration_ms": 2.450496,
+            "share_of_total_kernel_time": 0.021478691420443886,
+            "mean_per_launch_ms": 0.04375885714285714
+          },
+          {
+            "kernel_name": "reduce_kernel",
+            "family": "memory_like",
+            "count": 113,
+            "duration_ms": 1.538656,
+            "share_of_total_kernel_time": 0.013486378849920386,
+            "mean_per_launch_ms": 0.013616424778761063
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 0.842752,
+            "share_of_total_kernel_time": 0.0073867536008881155,
+            "mean_per_launch_ms": 0.015049142857142856
+          },
+          {
+            "kernel_name": "splitKreduce_kernel",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 0.795904,
+            "share_of_total_kernel_time": 0.00697612908419233,
+            "mean_per_launch_ms": 0.014212571428571427
+          },
+          {
+            "kernel_name": "softmax_warp_forward",
+            "family": "memory_like",
+            "count": 28,
+            "duration_ms": 0.270112,
+            "share_of_total_kernel_time": 0.0023675420392275433,
+            "mean_per_launch_ms": 0.009646857142857143
+          },
+          {
+            "kernel_name": "elementwise_kernel_with_index",
+            "family": "memory_like",
+            "count": 3,
+            "duration_ms": 0.016512,
+            "share_of_total_kernel_time": 0.00014472831326162923,
+            "mean_per_launch_ms": 0.005503999999999999
+          },
+          {
+            "kernel_name": "index_elementwise_kernel",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.014144,
+            "share_of_total_kernel_time": 0.000123972702445039,
+            "mean_per_launch_ms": 0.014144
+          },
+          {
+            "kernel_name": "indexSelectSmallIndex",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.013216,
+            "share_of_total_kernel_time": 0.00011583874685475364,
+            "mean_per_launch_ms": 0.013216
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy_aligned16_contig",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.009952,
+            "share_of_total_kernel_time": 8.722966167512925e-05,
+            "mean_per_launch_ms": 0.009952
+          },
+          {
+            "kernel_name": "gemmk1_kernel",
+            "family": "gemm",
+            "count": 1,
+            "duration_ms": 0.007904,
+            "share_of_total_kernel_time": 6.92788631310512e-05,
+            "mean_per_launch_ms": 0.007904
+          }
+        ],
+        "nvtx_text": "B2_profile_decode_step_05"
+      },
+      {
+        "kernel_count": 1855,
+        "total_kernel_duration_ms": 113.688512,
+        "family_attribution": {
+          "gemm": {
+            "kernel_count": 198,
+            "duration_ms": 89.45088,
+            "share_of_total_kernel_time": 0.7868066740111789,
+            "mean_per_launch_ms": 0.45177212121212124,
+            "median_per_launch_ms": 0.228752
+          },
+          "attention": {
+            "kernel_count": 0,
+            "duration_ms": 0.0,
+            "share_of_total_kernel_time": 0.0,
+            "mean_per_launch_ms": null,
+            "median_per_launch_ms": null
+          },
+          "memory_like": {
+            "kernel_count": 1601,
+            "duration_ms": 22.174656,
+            "share_of_total_kernel_time": 0.19504746442630896,
+            "mean_per_launch_ms": 0.013850503435352905,
+            "median_per_launch_ms": 0.010368
+          },
+          "other": {
+            "kernel_count": 56,
+            "duration_ms": 2.062976,
+            "share_of_total_kernel_time": 0.018145861562512137,
+            "mean_per_launch_ms": 0.036838857142857145,
+            "median_per_launch_ms": 0.036576
+          }
+        },
+        "top_kernels": [
+          {
+            "kernel_name": "ampere_fp16_s16816gemm_fp16_64x64_sliced1x2_ldg8_f2f_stages_64x5_tn",
+            "family": "gemm",
+            "count": 85,
+            "duration_ms": 69.685856,
+            "share_of_total_kernel_time": 0.6129542446645797,
+            "mean_per_launch_ms": 0.8198336
+          },
+          {
+            "kernel_name": "ampere_fp16_s16816gemm_fp16_128x64_ldg8_f2f_stages_32x6_tn",
+            "family": "gemm",
+            "count": 112,
+            "duration_ms": 19.757216,
+            "share_of_total_kernel_time": 0.17378375046372319,
+            "mean_per_launch_ms": 0.17640371428571427
+          },
+          {
+            "kernel_name": "elementwise_kernel",
+            "family": "memory_like",
+            "count": 426,
+            "duration_ms": 8.280128,
+            "share_of_total_kernel_time": 0.07283170352339557,
+            "mean_per_launch_ms": 0.019436920187793427
+          },
+          {
+            "kernel_name": "vectorized_elementwise_kernel",
+            "family": "memory_like",
+            "count": 603,
+            "duration_ms": 4.1616,
+            "share_of_total_kernel_time": 0.03660528163126983,
+            "mean_per_launch_ms": 0.006901492537313433
+          },
+          {
+            "kernel_name": "unrolled_elementwise_kernel",
+            "family": "memory_like",
+            "count": 257,
+            "duration_ms": 3.220512,
+            "share_of_total_kernel_time": 0.02832750594888602,
+            "mean_per_launch_ms": 0.012531175097276264
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy_contig",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 3.015616,
+            "share_of_total_kernel_time": 0.026525248215052723,
+            "mean_per_launch_ms": 0.05385028571428572
+          },
+          {
+            "kernel_name": "Kernel2",
+            "family": "other",
+            "count": 56,
+            "duration_ms": 2.062976,
+            "share_of_total_kernel_time": 0.018145861562512137,
+            "mean_per_launch_ms": 0.03683885714285714
+          },
+          {
+            "kernel_name": "reduce_kernel",
+            "family": "memory_like",
+            "count": 113,
+            "duration_ms": 1.539296,
+            "share_of_total_kernel_time": 0.01353959140568222,
+            "mean_per_launch_ms": 0.01362208849557522
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 0.842976,
+            "share_of_total_kernel_time": 0.007414786113129883,
+            "mean_per_launch_ms": 0.015053142857142857
+          },
+          {
+            "kernel_name": "splitKreduce_kernel",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 0.79088,
+            "share_of_total_kernel_time": 0.006956551599514294,
+            "mean_per_launch_ms": 0.014122857142857144
+          },
+          {
+            "kernel_name": "softmax_warp_forward",
+            "family": "memory_like",
+            "count": 28,
+            "duration_ms": 0.270528,
+            "share_of_total_kernel_time": 0.0023795544091561338,
+            "mean_per_launch_ms": 0.009661714285714286
+          },
+          {
+            "kernel_name": "elementwise_kernel_with_index",
+            "family": "memory_like",
+            "count": 3,
+            "duration_ms": 0.015872,
+            "share_of_total_kernel_time": 0.00013960953240376654,
+            "mean_per_launch_ms": 0.005290666666666667
+          },
+          {
+            "kernel_name": "index_elementwise_kernel",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.014144,
+            "share_of_total_kernel_time": 0.00012441010750496937,
+            "mean_per_launch_ms": 0.014144
+          },
+          {
+            "kernel_name": "indexSelectSmallIndex",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.013216,
+            "share_of_total_kernel_time": 0.00011624745339265237,
+            "mean_per_launch_ms": 0.013216
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy_aligned16_contig",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.009888,
+            "share_of_total_kernel_time": 8.697448692089488e-05,
+            "mean_per_launch_ms": 0.009888
+          },
+          {
+            "kernel_name": "gemmk1_kernel",
+            "family": "gemm",
+            "count": 1,
+            "duration_ms": 0.007808,
+            "share_of_total_kernel_time": 6.867888287604644e-05,
+            "mean_per_launch_ms": 0.007808
+          }
+        ],
+        "nvtx_text": "B2_profile_decode_step_06"
+      },
+      {
+        "kernel_count": 1855,
+        "total_kernel_duration_ms": 114.115424,
+        "family_attribution": {
+          "gemm": {
+            "kernel_count": 198,
+            "duration_ms": 89.472256,
+            "share_of_total_kernel_time": 0.7840505066168794,
+            "mean_per_launch_ms": 0.4518800808080808,
+            "median_per_launch_ms": 0.228928
+          },
+          "attention": {
+            "kernel_count": 0,
+            "duration_ms": 0.0,
+            "share_of_total_kernel_time": 0.0,
+            "mean_per_launch_ms": null,
+            "median_per_launch_ms": null
+          },
+          "memory_like": {
+            "kernel_count": 1601,
+            "duration_ms": 22.188256,
+            "share_of_total_kernel_time": 0.19443695884615914,
+            "mean_per_launch_ms": 0.013858998126171144,
+            "median_per_launch_ms": 0.0104
+          },
+          "other": {
+            "kernel_count": 56,
+            "duration_ms": 2.454912,
+            "share_of_total_kernel_time": 0.021512534536961454,
+            "mean_per_launch_ms": 0.043837714285714285,
+            "median_per_launch_ms": 0.045072
+          }
+        },
+        "top_kernels": [
+          {
+            "kernel_name": "ampere_fp16_s16816gemm_fp16_64x64_sliced1x2_ldg8_f2f_stages_64x5_tn",
+            "family": "gemm",
+            "count": 85,
+            "duration_ms": 69.726112,
+            "share_of_total_kernel_time": 0.6110139151741661,
+            "mean_per_launch_ms": 0.8203072
+          },
+          {
+            "kernel_name": "ampere_fp16_s16816gemm_fp16_128x64_ldg8_f2f_stages_32x6_tn",
+            "family": "gemm",
+            "count": 112,
+            "duration_ms": 19.738336,
+            "share_of_total_kernel_time": 0.17296816949126878,
+            "mean_per_launch_ms": 0.17623514285714287
+          },
+          {
+            "kernel_name": "elementwise_kernel",
+            "family": "memory_like",
+            "count": 426,
+            "duration_ms": 8.280608,
+            "share_of_total_kernel_time": 0.07256344243176102,
+            "mean_per_launch_ms": 0.01943804694835681
+          },
+          {
+            "kernel_name": "vectorized_elementwise_kernel",
+            "family": "memory_like",
+            "count": 603,
+            "duration_ms": 4.173088,
+            "share_of_total_kernel_time": 0.0365690092865974,
+            "mean_per_launch_ms": 0.006920543946932006
+          },
+          {
+            "kernel_name": "unrolled_elementwise_kernel",
+            "family": "memory_like",
+            "count": 257,
+            "duration_ms": 3.223136,
+            "share_of_total_kernel_time": 0.028244525472735395,
+            "mean_per_launch_ms": 0.01254138521400778
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy_contig",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 3.017632,
+            "share_of_total_kernel_time": 0.02644368214414206,
+            "mean_per_launch_ms": 0.05388628571428571
+          },
+          {
+            "kernel_name": "kernel",
+            "family": "other",
+            "count": 56,
+            "duration_ms": 2.454912,
+            "share_of_total_kernel_time": 0.021512534536961454,
+            "mean_per_launch_ms": 0.04383771428571429
+          },
+          {
+            "kernel_name": "reduce_kernel",
+            "family": "memory_like",
+            "count": 113,
+            "duration_ms": 1.538368,
+            "share_of_total_kernel_time": 0.013480806941575225,
+            "mean_per_launch_ms": 0.01361387610619469
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 0.84304,
+            "share_of_total_kernel_time": 0.007387607831172761,
+            "mean_per_launch_ms": 0.015054285714285714
+          },
+          {
+            "kernel_name": "splitKreduce_kernel",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 0.789056,
+            "share_of_total_kernel_time": 0.006914542945570618,
+            "mean_per_launch_ms": 0.014090285714285713
+          },
+          {
+            "kernel_name": "softmax_warp_forward",
+            "family": "memory_like",
+            "count": 28,
+            "duration_ms": 0.270048,
+            "share_of_total_kernel_time": 0.002366446099345869,
+            "mean_per_launch_ms": 0.00964457142857143
+          },
+          {
+            "kernel_name": "elementwise_kernel_with_index",
+            "family": "memory_like",
+            "count": 3,
+            "duration_ms": 0.01584,
+            "share_of_total_kernel_time": 0.00013880682772558423,
+            "mean_per_launch_ms": 0.00528
+          },
+          {
+            "kernel_name": "index_elementwise_kernel",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.014272,
+            "share_of_total_kernel_time": 0.00012506635386992033,
+            "mean_per_launch_ms": 0.014272
+          },
+          {
+            "kernel_name": "indexSelectSmallIndex",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.01328,
+            "share_of_total_kernel_time": 0.00011637340102245951,
+            "mean_per_launch_ms": 0.01328
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy_aligned16_contig",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.009888,
+            "share_of_total_kernel_time": 8.664911064081925e-05,
+            "mean_per_launch_ms": 0.009888
+          },
+          {
+            "kernel_name": "gemmk1_kernel",
+            "family": "gemm",
+            "count": 1,
+            "duration_ms": 0.007808,
+            "share_of_total_kernel_time": 6.842195144453041e-05,
+            "mean_per_launch_ms": 0.007808
+          }
+        ],
+        "nvtx_text": "B2_profile_decode_step_07"
+      },
+      {
+        "kernel_count": 1855,
+        "total_kernel_duration_ms": 113.980352,
+        "family_attribution": {
+          "gemm": {
+            "kernel_count": 198,
+            "duration_ms": 89.406848,
+            "share_of_total_kernel_time": 0.7844057895171266,
+            "mean_per_launch_ms": 0.4515497373737374,
+            "median_per_launch_ms": 0.228816
+          },
+          "attention": {
+            "kernel_count": 0,
+            "duration_ms": 0.0,
+            "share_of_total_kernel_time": 0.0,
+            "mean_per_launch_ms": null,
+            "median_per_launch_ms": null
+          },
+          "memory_like": {
+            "kernel_count": 1601,
+            "duration_ms": 22.275872,
+            "share_of_total_kernel_time": 0.19543606954293316,
+            "mean_per_launch_ms": 0.013913723922548409,
+            "median_per_launch_ms": 0.0104
+          },
+          "other": {
+            "kernel_count": 56,
+            "duration_ms": 2.297632,
+            "share_of_total_kernel_time": 0.020158140939940245,
+            "mean_per_launch_ms": 0.041029142857142854,
+            "median_per_launch_ms": 0.04216
+          }
+        },
+        "top_kernels": [
+          {
+            "kernel_name": "ampere_fp16_s16816gemm_fp16_64x64_sliced1x2_ldg8_f2f_stages_64x5_tn",
+            "family": "gemm",
+            "count": 85,
+            "duration_ms": 69.652256,
+            "share_of_total_kernel_time": 0.611090023656007,
+            "mean_per_launch_ms": 0.8194383058823529
+          },
+          {
+            "kernel_name": "ampere_fp16_s16816gemm_fp16_128x64_ldg8_f2f_stages_32x6_tn",
+            "family": "gemm",
+            "count": 112,
+            "duration_ms": 19.746784,
+            "share_of_total_kernel_time": 0.17324726282649136,
+            "mean_per_launch_ms": 0.17631057142857146
+          },
+          {
+            "kernel_name": "elementwise_kernel",
+            "family": "memory_like",
+            "count": 426,
+            "duration_ms": 8.340576,
+            "share_of_total_kernel_time": 0.0731755592402452,
+            "mean_per_launch_ms": 0.01957881690140845
+          },
+          {
+            "kernel_name": "vectorized_elementwise_kernel",
+            "family": "memory_like",
+            "count": 603,
+            "duration_ms": 4.15792,
+            "share_of_total_kernel_time": 0.03647926969027083,
+            "mean_per_launch_ms": 0.006895389718076285
+          },
+          {
+            "kernel_name": "unrolled_elementwise_kernel",
+            "family": "memory_like",
+            "count": 257,
+            "duration_ms": 3.227296,
+            "share_of_total_kernel_time": 0.028314494062976748,
+            "mean_per_launch_ms": 0.012557571984435797
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy_contig",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 3.044736,
+            "share_of_total_kernel_time": 0.02671281450332773,
+            "mean_per_launch_ms": 0.05437028571428571
+          },
+          {
+            "kernel_name": "reduce_kernel",
+            "family": "memory_like",
+            "count": 113,
+            "duration_ms": 1.539488,
+            "share_of_total_kernel_time": 0.013506608577590637,
+            "mean_per_launch_ms": 0.013623787610619468
+          },
+          {
+            "kernel_name": "Kernel2",
+            "family": "other",
+            "count": 28,
+            "duration_ms": 1.238464,
+            "share_of_total_kernel_time": 0.010865591992556753,
+            "mean_per_launch_ms": 0.04423085714285714
+          },
+          {
+            "kernel_name": "kernel",
+            "family": "other",
+            "count": 28,
+            "duration_ms": 1.059168,
+            "share_of_total_kernel_time": 0.009292548947383492,
+            "mean_per_launch_ms": 0.037827428571428574
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 0.843552,
+            "share_of_total_kernel_time": 0.007400854491131945,
+            "mean_per_launch_ms": 0.015063428571428571
+          },
+          {
+            "kernel_name": "splitKreduce_kernel",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 0.79856,
+            "share_of_total_kernel_time": 0.0070061197915935545,
+            "mean_per_launch_ms": 0.01426
+          },
+          {
+            "kernel_name": "softmax_warp_forward",
+            "family": "memory_like",
+            "count": 28,
+            "duration_ms": 0.270368,
+            "share_of_total_kernel_time": 0.002372057949075293,
+            "mean_per_launch_ms": 0.009656
+          },
+          {
+            "kernel_name": "elementwise_kernel_with_index",
+            "family": "memory_like",
+            "count": 3,
+            "duration_ms": 0.015936,
+            "share_of_total_kernel_time": 0.00013981357067575998,
+            "mean_per_launch_ms": 0.005312
+          },
+          {
+            "kernel_name": "index_elementwise_kernel",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.014208,
+            "share_of_total_kernel_time": 0.00012465306301212337,
+            "mean_per_launch_ms": 0.014208
+          },
+          {
+            "kernel_name": "indexSelectSmallIndex",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.01328,
+            "share_of_total_kernel_time": 0.00011651130889646664,
+            "mean_per_launch_ms": 0.01328
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy_aligned16_contig",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.009952,
+            "share_of_total_kernel_time": 8.731329413687018e-05,
+            "mean_per_launch_ms": 0.009952
+          },
+          {
+            "kernel_name": "gemmk1_kernel",
+            "family": "gemm",
+            "count": 1,
+            "duration_ms": 0.007808,
+            "share_of_total_kernel_time": 6.850303462828401e-05,
+            "mean_per_launch_ms": 0.007808
+          }
+        ],
+        "nvtx_text": "B2_profile_decode_step_08"
+      },
+      {
+        "kernel_count": 1855,
+        "total_kernel_duration_ms": 114.271968,
+        "family_attribution": {
+          "gemm": {
+            "kernel_count": 198,
+            "duration_ms": 89.505696,
+            "share_of_total_kernel_time": 0.7832690516015266,
+            "mean_per_launch_ms": 0.4520489696969697,
+            "median_per_launch_ms": 0.228672
+          },
+          "attention": {
+            "kernel_count": 0,
+            "duration_ms": 0.0,
+            "share_of_total_kernel_time": 0.0,
+            "mean_per_launch_ms": null,
+            "median_per_launch_ms": null
+          },
+          "memory_like": {
+            "kernel_count": 1601,
+            "duration_ms": 22.241568,
+            "share_of_total_kernel_time": 0.19463713095411117,
+            "mean_per_launch_ms": 0.01389229731417864,
+            "median_per_launch_ms": 0.0104
+          },
+          "other": {
+            "kernel_count": 56,
+            "duration_ms": 2.524704,
+            "share_of_total_kernel_time": 0.02209381744436221,
+            "mean_per_launch_ms": 0.045084,
+            "median_per_launch_ms": 0.044448
+          }
+        },
+        "top_kernels": [
+          {
+            "kernel_name": "ampere_fp16_s16816gemm_fp16_64x64_sliced1x2_ldg8_f2f_stages_64x5_tn",
+            "family": "gemm",
+            "count": 85,
+            "duration_ms": 69.756256,
+            "share_of_total_kernel_time": 0.6104406638030422,
+            "mean_per_launch_ms": 0.8206618352941175
+          },
+          {
+            "kernel_name": "ampere_fp16_s16816gemm_fp16_128x64_ldg8_f2f_stages_32x6_tn",
+            "family": "gemm",
+            "count": 112,
+            "duration_ms": 19.741664,
+            "share_of_total_kernel_time": 0.17276033961364873,
+            "mean_per_launch_ms": 0.17626485714285714
+          },
+          {
+            "kernel_name": "elementwise_kernel",
+            "family": "memory_like",
+            "count": 426,
+            "duration_ms": 8.324384,
+            "share_of_total_kernel_time": 0.0728471220518404,
+            "mean_per_launch_ms": 0.01954080751173709
+          },
+          {
+            "kernel_name": "vectorized_elementwise_kernel",
+            "family": "memory_like",
+            "count": 603,
+            "duration_ms": 4.151264,
+            "share_of_total_kernel_time": 0.03632792952336307,
+            "mean_per_launch_ms": 0.006884351575456054
+          },
+          {
+            "kernel_name": "unrolled_elementwise_kernel",
+            "family": "memory_like",
+            "count": 257,
+            "duration_ms": 3.22432,
+            "share_of_total_kernel_time": 0.02821619384379553,
+            "mean_per_launch_ms": 0.012545992217898833
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy_contig",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 3.040992,
+            "share_of_total_kernel_time": 0.02661188087703189,
+            "mean_per_launch_ms": 0.05430342857142857
+          },
+          {
+            "kernel_name": "kernel",
+            "family": "other",
+            "count": 56,
+            "duration_ms": 2.524704,
+            "share_of_total_kernel_time": 0.02209381744436221,
+            "mean_per_launch_ms": 0.045084
+          },
+          {
+            "kernel_name": "reduce_kernel",
+            "family": "memory_like",
+            "count": 113,
+            "duration_ms": 1.540032,
+            "share_of_total_kernel_time": 0.013476901001652478,
+            "mean_per_launch_ms": 0.013628601769911505
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 0.842848,
+            "share_of_total_kernel_time": 0.007375807162085456,
+            "mean_per_launch_ms": 0.015050857142857144
+          },
+          {
+            "kernel_name": "splitKreduce_kernel",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 0.793856,
+            "share_of_total_kernel_time": 0.006947075594252477,
+            "mean_per_launch_ms": 0.014176
+          },
+          {
+            "kernel_name": "softmax_warp_forward",
+            "family": "memory_like",
+            "count": 28,
+            "duration_ms": 0.270144,
+            "share_of_total_kernel_time": 0.0023640443472540875,
+            "mean_per_launch_ms": 0.009648
+          },
+          {
+            "kernel_name": "elementwise_kernel_with_index",
+            "family": "memory_like",
+            "count": 3,
+            "duration_ms": 0.016576,
+            "share_of_total_kernel_time": 0.00014505744750978647,
+            "mean_per_launch_ms": 0.0055253333333333335
+          },
+          {
+            "kernel_name": "index_elementwise_kernel",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.014144,
+            "share_of_total_kernel_time": 0.00012377488764348576,
+            "mean_per_launch_ms": 0.014144
+          },
+          {
+            "kernel_name": "indexSelectSmallIndex",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.013248,
+            "share_of_total_kernel_time": 0.00011593394453484865,
+            "mean_per_launch_ms": 0.013248
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy_aligned16_contig",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.00976,
+            "share_of_total_kernel_time": 8.54102731476542e-05,
+            "mean_per_launch_ms": 0.00976
+          },
+          {
+            "kernel_name": "gemmk1_kernel",
+            "family": "gemm",
+            "count": 1,
+            "duration_ms": 0.007776,
+            "share_of_total_kernel_time": 6.804818483567203e-05,
+            "mean_per_launch_ms": 0.007776
+          }
+        ],
+        "nvtx_text": "B2_profile_decode_step_09"
+      },
+      {
+        "kernel_count": 1855,
+        "total_kernel_duration_ms": 114.081248,
+        "family_attribution": {
+          "gemm": {
+            "kernel_count": 198,
+            "duration_ms": 89.434464,
+            "share_of_total_kernel_time": 0.7839541166309821,
+            "mean_per_launch_ms": 0.4516892121212121,
+            "median_per_launch_ms": 0.22896
+          },
+          "attention": {
+            "kernel_count": 0,
+            "duration_ms": 0.0,
+            "share_of_total_kernel_time": 0.0,
+            "mean_per_launch_ms": null,
+            "median_per_launch_ms": null
+          },
+          "memory_like": {
+            "kernel_count": 1601,
+            "duration_ms": 22.306656,
+            "share_of_total_kernel_time": 0.1955330642946683,
+            "mean_per_launch_ms": 0.013932951905059337,
+            "median_per_launch_ms": 0.010304
+          },
+          "other": {
+            "kernel_count": 56,
+            "duration_ms": 2.340128,
+            "share_of_total_kernel_time": 0.02051281907434954,
+            "mean_per_launch_ms": 0.041788,
+            "median_per_launch_ms": 0.042
+          }
+        },
+        "top_kernels": [
+          {
+            "kernel_name": "ampere_fp16_s16816gemm_fp16_64x64_sliced1x2_ldg8_f2f_stages_64x5_tn",
+            "family": "gemm",
+            "count": 85,
+            "duration_ms": 69.681536,
+            "share_of_total_kernel_time": 0.6108062211942141,
+            "mean_per_launch_ms": 0.8197827764705882
+          },
+          {
+            "kernel_name": "ampere_fp16_s16816gemm_fp16_128x64_ldg8_f2f_stages_32x6_tn",
+            "family": "gemm",
+            "count": 112,
+            "duration_ms": 19.745152,
+            "share_of_total_kernel_time": 0.17307973348959155,
+            "mean_per_launch_ms": 0.176296
+          },
+          {
+            "kernel_name": "elementwise_kernel",
+            "family": "memory_like",
+            "count": 426,
+            "duration_ms": 8.361792,
+            "share_of_total_kernel_time": 0.07329681386374735,
+            "mean_per_launch_ms": 0.01962861971830986
+          },
+          {
+            "kernel_name": "vectorized_elementwise_kernel",
+            "family": "memory_like",
+            "count": 603,
+            "duration_ms": 4.159072,
+            "share_of_total_kernel_time": 0.03645710467683523,
+            "mean_per_launch_ms": 0.0068973001658374795
+          },
+          {
+            "kernel_name": "unrolled_elementwise_kernel",
+            "family": "memory_like",
+            "count": 257,
+            "duration_ms": 3.225888,
+            "share_of_total_kernel_time": 0.028277110011980234,
+            "mean_per_launch_ms": 0.012552093385214007
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy_contig",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 3.056768,
+            "share_of_total_kernel_time": 0.026794657786352406,
+            "mean_per_launch_ms": 0.05458514285714285
+          },
+          {
+            "kernel_name": "reduce_kernel",
+            "family": "memory_like",
+            "count": 113,
+            "duration_ms": 1.53856,
+            "share_of_total_kernel_time": 0.013486528478370082,
+            "mean_per_launch_ms": 0.013615575221238938
+          },
+          {
+            "kernel_name": "Kernel2",
+            "family": "other",
+            "count": 28,
+            "duration_ms": 1.226144,
+            "share_of_total_kernel_time": 0.010747989012181915,
+            "mean_per_launch_ms": 0.04379085714285714
+          },
+          {
+            "kernel_name": "kernel",
+            "family": "other",
+            "count": 28,
+            "duration_ms": 1.113984,
+            "share_of_total_kernel_time": 0.009764830062167622,
+            "mean_per_launch_ms": 0.03978514285714286
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 0.8432,
+            "share_of_total_kernel_time": 0.007391223490121707,
+            "mean_per_launch_ms": 0.015057142857142856
+          },
+          {
+            "kernel_name": "splitKreduce_kernel",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 0.797184,
+            "share_of_total_kernel_time": 0.0069878618438676265,
+            "mean_per_launch_ms": 0.01423542857142857
+          },
+          {
+            "kernel_name": "softmax_warp_forward",
+            "family": "memory_like",
+            "count": 28,
+            "duration_ms": 0.270752,
+            "share_of_total_kernel_time": 0.0023733260702056835,
+            "mean_per_launch_ms": 0.009669714285714285
+          },
+          {
+            "kernel_name": "elementwise_kernel_with_index",
+            "family": "memory_like",
+            "count": 3,
+            "duration_ms": 0.01584,
+            "share_of_total_kernel_time": 0.00013884841091499982,
+            "mean_per_launch_ms": 0.00528
+          },
+          {
+            "kernel_name": "index_elementwise_kernel",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.014144,
+            "share_of_total_kernel_time": 0.0001239818133826867,
+            "mean_per_launch_ms": 0.014144
+          },
+          {
+            "kernel_name": "indexSelectSmallIndex",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.013664,
+            "share_of_total_kernel_time": 0.00011977428577920185,
+            "mean_per_launch_ms": 0.013664
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy_aligned16_contig",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.009792,
+            "share_of_total_kernel_time": 8.583356311109079e-05,
+            "mean_per_launch_ms": 0.009792
+          },
+          {
+            "kernel_name": "gemmk1_kernel",
+            "family": "gemm",
+            "count": 1,
+            "duration_ms": 0.007776,
+            "share_of_total_kernel_time": 6.816194717645446e-05,
+            "mean_per_launch_ms": 0.007776
+          }
+        ],
+        "nvtx_text": "B2_profile_decode_step_10"
+      },
+      {
+        "kernel_count": 1855,
+        "total_kernel_duration_ms": 114.250272,
+        "family_attribution": {
+          "gemm": {
+            "kernel_count": 198,
+            "duration_ms": 89.42656,
+            "share_of_total_kernel_time": 0.7827251387200198,
+            "mean_per_launch_ms": 0.45164929292929296,
+            "median_per_launch_ms": 0.22888
+          },
+          "attention": {
+            "kernel_count": 0,
+            "duration_ms": 0.0,
+            "share_of_total_kernel_time": 0.0,
+            "mean_per_launch_ms": null,
+            "median_per_launch_ms": null
+          },
+          "memory_like": {
+            "kernel_count": 1601,
+            "duration_ms": 22.330656,
+            "share_of_total_kernel_time": 0.19545385414924876,
+            "mean_per_launch_ms": 0.013947942535915053,
+            "median_per_launch_ms": 0.010304
+          },
+          "other": {
+            "kernel_count": 56,
+            "duration_ms": 2.493056,
+            "share_of_total_kernel_time": 0.021821007130731384,
+            "mean_per_launch_ms": 0.044518857142857145,
+            "median_per_launch_ms": 0.045584
+          }
+        },
+        "top_kernels": [
+          {
+            "kernel_name": "ampere_fp16_s16816gemm_fp16_64x64_sliced1x2_ldg8_f2f_stages_64x5_tn",
+            "family": "gemm",
+            "count": 85,
+            "duration_ms": 69.67728,
+            "share_of_total_kernel_time": 0.6098653314365852,
+            "mean_per_launch_ms": 0.8197327058823529
+          },
+          {
+            "kernel_name": "ampere_fp16_s16816gemm_fp16_128x64_ldg8_f2f_stages_32x6_tn",
+            "family": "gemm",
+            "count": 112,
+            "duration_ms": 19.741472,
+            "share_of_total_kernel_time": 0.17279146608946366,
+            "mean_per_launch_ms": 0.17626314285714287
+          },
+          {
+            "kernel_name": "elementwise_kernel",
+            "family": "memory_like",
+            "count": 426,
+            "duration_ms": 8.379712,
+            "share_of_total_kernel_time": 0.07334522582143174,
+            "mean_per_launch_ms": 0.01967068544600939
+          },
+          {
+            "kernel_name": "vectorized_elementwise_kernel",
+            "family": "memory_like",
+            "count": 603,
+            "duration_ms": 4.169568,
+            "share_of_total_kernel_time": 0.036495037841135294,
+            "mean_per_launch_ms": 0.006914706467661691
+          },
+          {
+            "kernel_name": "unrolled_elementwise_kernel",
+            "family": "memory_like",
+            "count": 257,
+            "duration_ms": 3.220736,
+            "share_of_total_kernel_time": 0.02819018233934708,
+            "mean_per_launch_ms": 0.012532046692607005
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy_contig",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 3.058784,
+            "share_of_total_kernel_time": 0.026772662738168362,
+            "mean_per_launch_ms": 0.05462114285714286
+          },
+          {
+            "kernel_name": "kernel",
+            "family": "other",
+            "count": 56,
+            "duration_ms": 2.493056,
+            "share_of_total_kernel_time": 0.021821007130731384,
+            "mean_per_launch_ms": 0.044518857142857145
+          },
+          {
+            "kernel_name": "reduce_kernel",
+            "family": "memory_like",
+            "count": 113,
+            "duration_ms": 1.539616,
+            "share_of_total_kernel_time": 0.013475819121025813,
+            "mean_per_launch_ms": 0.013624920353982302
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 0.842944,
+            "share_of_total_kernel_time": 0.007378048080270654,
+            "mean_per_launch_ms": 0.015052571428571429
+          },
+          {
+            "kernel_name": "splitKreduce_kernel",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 0.795808,
+            "share_of_total_kernel_time": 0.006965480134699373,
+            "mean_per_launch_ms": 0.014210857142857141
+          },
+          {
+            "kernel_name": "softmax_warp_forward",
+            "family": "memory_like",
+            "count": 28,
+            "duration_ms": 0.270112,
+            "share_of_total_kernel_time": 0.002364213189794419,
+            "mean_per_launch_ms": 0.009646857142857143
+          },
+          {
+            "kernel_name": "elementwise_kernel_with_index",
+            "family": "memory_like",
+            "count": 3,
+            "duration_ms": 0.015936,
+            "share_of_total_kernel_time": 0.0001394832565475205,
+            "mean_per_launch_ms": 0.005312
+          },
+          {
+            "kernel_name": "index_elementwise_kernel",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.014208,
+            "share_of_total_kernel_time": 0.00012435856607851228,
+            "mean_per_launch_ms": 0.014208
+          },
+          {
+            "kernel_name": "indexSelectSmallIndex",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.013376,
+            "share_of_total_kernel_time": 0.00011707630770454533,
+            "mean_per_launch_ms": 0.013376
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy_aligned16_contig",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.009856,
+            "share_of_total_kernel_time": 8.626675304545446e-05,
+            "mean_per_launch_ms": 0.009856
+          },
+          {
+            "kernel_name": "gemmk1_kernel",
+            "family": "gemm",
+            "count": 1,
+            "duration_ms": 0.007808,
+            "share_of_total_kernel_time": 6.834119397107431e-05,
+            "mean_per_launch_ms": 0.007808
+          }
+        ],
+        "nvtx_text": "B2_profile_decode_step_11"
+      },
+      {
+        "kernel_count": 1855,
+        "total_kernel_duration_ms": 114.181856,
+        "family_attribution": {
+          "gemm": {
+            "kernel_count": 198,
+            "duration_ms": 89.466112,
+            "share_of_total_kernel_time": 0.7835405302923084,
+            "mean_per_launch_ms": 0.45184905050505053,
+            "median_per_launch_ms": 0.228816
+          },
+          "attention": {
+            "kernel_count": 0,
+            "duration_ms": 0.0,
+            "share_of_total_kernel_time": 0.0,
+            "mean_per_launch_ms": null,
+            "median_per_launch_ms": null
+          },
+          "memory_like": {
+            "kernel_count": 1601,
+            "duration_ms": 22.378144,
+            "share_of_total_kernel_time": 0.19598686502345872,
+            "mean_per_launch_ms": 0.01397760399750156,
+            "median_per_launch_ms": 0.010272
+          },
+          "other": {
+            "kernel_count": 56,
+            "duration_ms": 2.3376,
+            "share_of_total_kernel_time": 0.020472604684232842,
+            "mean_per_launch_ms": 0.041742857142857144,
+            "median_per_launch_ms": 0.042832
+          }
+        },
+        "top_kernels": [
+          {
+            "kernel_name": "ampere_fp16_s16816gemm_fp16_64x64_sliced1x2_ldg8_f2f_stages_64x5_tn",
+            "family": "gemm",
+            "count": 85,
+            "duration_ms": 69.706528,
+            "share_of_total_kernel_time": 0.6104869060807699,
+            "mean_per_launch_ms": 0.8200768
+          },
+          {
+            "kernel_name": "ampere_fp16_s16816gemm_fp16_128x64_ldg8_f2f_stages_32x6_tn",
+            "family": "gemm",
+            "count": 112,
+            "duration_ms": 19.751744,
+            "share_of_total_kernel_time": 0.172984961813898,
+            "mean_per_launch_ms": 0.17635485714285712
+          },
+          {
+            "kernel_name": "elementwise_kernel",
+            "family": "memory_like",
+            "count": 426,
+            "duration_ms": 8.411456,
+            "share_of_total_kernel_time": 0.07366718579176013,
+            "mean_per_launch_ms": 0.01974520187793427
+          },
+          {
+            "kernel_name": "vectorized_elementwise_kernel",
+            "family": "memory_like",
+            "count": 603,
+            "duration_ms": 4.154432,
+            "share_of_total_kernel_time": 0.03638434463703235,
+            "mean_per_launch_ms": 0.006889605306799337
+          },
+          {
+            "kernel_name": "unrolled_elementwise_kernel",
+            "family": "memory_like",
+            "count": 257,
+            "duration_ms": 3.22768,
+            "share_of_total_kernel_time": 0.028267888726559148,
+            "mean_per_launch_ms": 0.012559066147859921
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy_contig",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 3.085952,
+            "share_of_total_kernel_time": 0.027026640730029822,
+            "mean_per_launch_ms": 0.05510628571428571
+          },
+          {
+            "kernel_name": "reduce_kernel",
+            "family": "memory_like",
+            "count": 113,
+            "duration_ms": 1.5384,
+            "share_of_total_kernel_time": 0.01347324394516761,
+            "mean_per_launch_ms": 0.013614159292035398
+          },
+          {
+            "kernel_name": "Kernel2",
+            "family": "other",
+            "count": 28,
+            "duration_ms": 1.239456,
+            "share_of_total_kernel_time": 0.01085510468493348,
+            "mean_per_launch_ms": 0.04426628571428571
+          },
+          {
+            "kernel_name": "kernel",
+            "family": "other",
+            "count": 28,
+            "duration_ms": 1.098144,
+            "share_of_total_kernel_time": 0.009617499999299364,
+            "mean_per_launch_ms": 0.03921942857142857
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 0.842624,
+            "share_of_total_kernel_time": 0.007379666345588217,
+            "mean_per_launch_ms": 0.015046857142857143
+          },
+          {
+            "kernel_name": "splitKreduce_kernel",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 0.793536,
+            "share_of_total_kernel_time": 0.006949755659953539,
+            "mean_per_launch_ms": 0.014170285714285715
+          },
+          {
+            "kernel_name": "softmax_warp_forward",
+            "family": "memory_like",
+            "count": 28,
+            "duration_ms": 0.270976,
+            "share_of_total_kernel_time": 0.002373196666202378,
+            "mean_per_launch_ms": 0.009677714285714286
+          },
+          {
+            "kernel_name": "elementwise_kernel_with_index",
+            "family": "memory_like",
+            "count": 3,
+            "duration_ms": 0.015776,
+            "share_of_total_kernel_time": 0.0001381655593337001,
+            "mean_per_launch_ms": 0.005258666666666666
+          },
+          {
+            "kernel_name": "index_elementwise_kernel",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.014176,
+            "share_of_total_kernel_time": 0.0001241528251213573,
+            "mean_per_launch_ms": 0.014176
+          },
+          {
+            "kernel_name": "indexSelectSmallIndex",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.013248,
+            "share_of_total_kernel_time": 0.00011602543927819845,
+            "mean_per_launch_ms": 0.013248
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy_aligned16_contig",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.009888,
+            "share_of_total_kernel_time": 8.659869743227856e-05,
+            "mean_per_launch_ms": 0.009888
+          },
+          {
+            "kernel_name": "gemmk1_kernel",
+            "family": "gemm",
+            "count": 1,
+            "duration_ms": 0.00784,
+            "share_of_total_kernel_time": 6.866239764047976e-05,
+            "mean_per_launch_ms": 0.00784
+          }
+        ],
+        "nvtx_text": "B2_profile_decode_step_12"
+      },
+      {
+        "kernel_count": 1855,
+        "total_kernel_duration_ms": 114.450336,
+        "family_attribution": {
+          "gemm": {
+            "kernel_count": 198,
+            "duration_ms": 89.424672,
+            "share_of_total_kernel_time": 0.7813404060255446,
+            "mean_per_launch_ms": 0.4516397575757576,
+            "median_per_launch_ms": 0.22856
+          },
+          "attention": {
+            "kernel_count": 0,
+            "duration_ms": 0.0,
+            "share_of_total_kernel_time": 0.0,
+            "mean_per_launch_ms": null,
+            "median_per_launch_ms": null
+          },
+          "memory_like": {
+            "kernel_count": 1601,
+            "duration_ms": 22.4648,
+            "share_of_total_kernel_time": 0.19628426429433987,
+            "mean_per_launch_ms": 0.014031730168644597,
+            "median_per_launch_ms": 0.010368
+          },
+          "other": {
+            "kernel_count": 56,
+            "duration_ms": 2.560864,
+            "share_of_total_kernel_time": 0.022375329680115574,
+            "mean_per_launch_ms": 0.04572971428571428,
+            "median_per_launch_ms": 0.045712
+          }
+        },
+        "top_kernels": [
+          {
+            "kernel_name": "ampere_fp16_s16816gemm_fp16_64x64_sliced1x2_ldg8_f2f_stages_64x5_tn",
+            "family": "gemm",
+            "count": 85,
+            "duration_ms": 69.672096,
+            "share_of_total_kernel_time": 0.6087539664365861,
+            "mean_per_launch_ms": 0.8196717176470588
+          },
+          {
+            "kernel_name": "ampere_fp16_s16816gemm_fp16_128x64_ldg8_f2f_stages_32x6_tn",
+            "family": "gemm",
+            "count": 112,
+            "duration_ms": 19.7448,
+            "share_of_total_kernel_time": 0.17251849745552517,
+            "mean_per_launch_ms": 0.17629285714285717
+          },
+          {
+            "kernel_name": "elementwise_kernel",
+            "family": "memory_like",
+            "count": 426,
+            "duration_ms": 8.493504,
+            "share_of_total_kernel_time": 0.0742112631281397,
+            "mean_per_launch_ms": 0.01993780281690141
+          },
+          {
+            "kernel_name": "vectorized_elementwise_kernel",
+            "family": "memory_like",
+            "count": 603,
+            "duration_ms": 4.161376,
+            "share_of_total_kernel_time": 0.036359666082588,
+            "mean_per_launch_ms": 0.0069011210613598665
+          },
+          {
+            "kernel_name": "unrolled_elementwise_kernel",
+            "family": "memory_like",
+            "count": 257,
+            "duration_ms": 3.224128,
+            "share_of_total_kernel_time": 0.028170542024446306,
+            "mean_per_launch_ms": 0.01254524513618677
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy_contig",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 3.086912,
+            "share_of_total_kernel_time": 0.026971628986742338,
+            "mean_per_launch_ms": 0.055123428571428566
+          },
+          {
+            "kernel_name": "kernel",
+            "family": "other",
+            "count": 56,
+            "duration_ms": 2.560864,
+            "share_of_total_kernel_time": 0.022375329680115574,
+            "mean_per_launch_ms": 0.04572971428571428
+          },
+          {
+            "kernel_name": "reduce_kernel",
+            "family": "memory_like",
+            "count": 113,
+            "duration_ms": 1.539872,
+            "share_of_total_kernel_time": 0.013454499600595318,
+            "mean_per_launch_ms": 0.013627185840707963
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 0.842016,
+            "share_of_total_kernel_time": 0.007357042621526249,
+            "mean_per_launch_ms": 0.015035999999999999
+          },
+          {
+            "kernel_name": "splitKreduce_kernel",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 0.79264,
+            "share_of_total_kernel_time": 0.0069256240540875305,
+            "mean_per_launch_ms": 0.014154285714285715
+          },
+          {
+            "kernel_name": "softmax_warp_forward",
+            "family": "memory_like",
+            "count": 28,
+            "duration_ms": 0.270784,
+            "share_of_total_kernel_time": 0.002365951988118235,
+            "mean_per_launch_ms": 0.009670857142857144
+          },
+          {
+            "kernel_name": "elementwise_kernel_with_index",
+            "family": "memory_like",
+            "count": 3,
+            "duration_ms": 0.016032,
+            "share_of_total_kernel_time": 0.0001400782257205431,
+            "mean_per_launch_ms": 0.005344000000000001
+          },
+          {
+            "kernel_name": "index_elementwise_kernel",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.01424,
+            "share_of_total_kernel_time": 0.0001244207793326181,
+            "mean_per_launch_ms": 0.01424
+          },
+          {
+            "kernel_name": "indexSelectSmallIndex",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.013344,
+            "share_of_total_kernel_time": 0.00011659205613865564,
+            "mean_per_launch_ms": 0.013344
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy_aligned16_contig",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.009952,
+            "share_of_total_kernel_time": 8.695474690436908e-05,
+            "mean_per_launch_ms": 0.009952
+          },
+          {
+            "kernel_name": "gemmk1_kernel",
+            "family": "gemm",
+            "count": 1,
+            "duration_ms": 0.007776,
+            "share_of_total_kernel_time": 6.794213343331731e-05,
+            "mean_per_launch_ms": 0.007776
+          }
+        ],
+        "nvtx_text": "B2_profile_decode_step_13"
+      },
+      {
+        "kernel_count": 1855,
+        "total_kernel_duration_ms": 113.868512,
+        "family_attribution": {
+          "gemm": {
+            "kernel_count": 198,
+            "duration_ms": 89.494208,
+            "share_of_total_kernel_time": 0.7859434221815421,
+            "mean_per_launch_ms": 0.4519909494949495,
+            "median_per_launch_ms": 0.228832
+          },
+          "attention": {
+            "kernel_count": 0,
+            "duration_ms": 0.0,
+            "share_of_total_kernel_time": 0.0,
+            "mean_per_launch_ms": null,
+            "median_per_launch_ms": null
+          },
+          "memory_like": {
+            "kernel_count": 1601,
+            "duration_ms": 22.489056,
+            "share_of_total_kernel_time": 0.19750021849762997,
+            "mean_per_launch_ms": 0.014046880699562773,
+            "median_per_launch_ms": 0.010368
+          },
+          "other": {
+            "kernel_count": 56,
+            "duration_ms": 1.885248,
+            "share_of_total_kernel_time": 0.016556359320827867,
+            "mean_per_launch_ms": 0.03366514285714285,
+            "median_per_launch_ms": 0.033616
+          }
+        },
+        "top_kernels": [
+          {
+            "kernel_name": "ampere_fp16_s16816gemm_fp16_64x64_sliced1x2_ldg8_f2f_stages_64x5_tn",
+            "family": "gemm",
+            "count": 85,
+            "duration_ms": 69.740448,
+            "share_of_total_kernel_time": 0.612464734763549,
+            "mean_per_launch_ms": 0.8204758588235295
+          },
+          {
+            "kernel_name": "ampere_fp16_s16816gemm_fp16_128x64_ldg8_f2f_stages_32x6_tn",
+            "family": "gemm",
+            "count": 112,
+            "duration_ms": 19.745984,
+            "share_of_total_kernel_time": 0.173410398126569,
+            "mean_per_launch_ms": 0.17630342857142858
+          },
+          {
+            "kernel_name": "elementwise_kernel",
+            "family": "memory_like",
+            "count": 426,
+            "duration_ms": 8.516352,
+            "share_of_total_kernel_time": 0.07479110642984428,
+            "mean_per_launch_ms": 0.01999143661971831
+          },
+          {
+            "kernel_name": "vectorized_elementwise_kernel",
+            "family": "memory_like",
+            "count": 603,
+            "duration_ms": 4.145376,
+            "share_of_total_kernel_time": 0.036404936950436305,
+            "mean_per_launch_ms": 0.006874587064676616
+          },
+          {
+            "kernel_name": "unrolled_elementwise_kernel",
+            "family": "memory_like",
+            "count": 257,
+            "duration_ms": 3.222656,
+            "share_of_total_kernel_time": 0.028301555393996893,
+            "mean_per_launch_ms": 0.012539517509727626
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy_contig",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 3.105408,
+            "share_of_total_kernel_time": 0.027271876530712898,
+            "mean_per_launch_ms": 0.05545371428571429
+          },
+          {
+            "kernel_name": "Kernel2",
+            "family": "other",
+            "count": 56,
+            "duration_ms": 1.885248,
+            "share_of_total_kernel_time": 0.016556359320827867,
+            "mean_per_launch_ms": 0.03366514285714286
+          },
+          {
+            "kernel_name": "reduce_kernel",
+            "family": "memory_like",
+            "count": 113,
+            "duration_ms": 1.536896,
+            "share_of_total_kernel_time": 0.013497111475383116,
+            "mean_per_launch_ms": 0.013600849557522124
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 0.843232,
+            "share_of_total_kernel_time": 0.007405313244103866,
+            "mean_per_launch_ms": 0.015057714285714285
+          },
+          {
+            "kernel_name": "splitKreduce_kernel",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 0.796064,
+            "share_of_total_kernel_time": 0.00699108108130894,
+            "mean_per_launch_ms": 0.014215428571428572
+          },
+          {
+            "kernel_name": "softmax_warp_forward",
+            "family": "memory_like",
+            "count": 28,
+            "duration_ms": 0.27024,
+            "share_of_total_kernel_time": 0.0023732636464064796,
+            "mean_per_launch_ms": 0.009651428571428571
+          },
+          {
+            "kernel_name": "elementwise_kernel_with_index",
+            "family": "memory_like",
+            "count": 3,
+            "duration_ms": 0.015744,
+            "share_of_total_kernel_time": 0.0001382647381920649,
+            "mean_per_launch_ms": 0.005248
+          },
+          {
+            "kernel_name": "index_elementwise_kernel",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.014112,
+            "share_of_total_kernel_time": 0.0001239324177697167,
+            "mean_per_launch_ms": 0.014112
+          },
+          {
+            "kernel_name": "indexSelectSmallIndex",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.013184,
+            "share_of_total_kernel_time": 0.00011578266694132264,
+            "mean_per_launch_ms": 0.013184
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy_aligned16_contig",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.009792,
+            "share_of_total_kernel_time": 8.599392253408915e-05,
+            "mean_per_launch_ms": 0.009792
+          },
+          {
+            "kernel_name": "gemmk1_kernel",
+            "family": "gemm",
+            "count": 1,
+            "duration_ms": 0.007776,
+            "share_of_total_kernel_time": 6.828929142412962e-05,
+            "mean_per_launch_ms": 0.007776
+          }
+        ],
+        "nvtx_text": "B2_profile_decode_step_14"
+      },
+      {
+        "kernel_count": 1855,
+        "total_kernel_duration_ms": 114.456576,
+        "family_attribution": {
+          "gemm": {
+            "kernel_count": 198,
+            "duration_ms": 89.418208,
+            "share_of_total_kernel_time": 0.7812413329575751,
+            "mean_per_launch_ms": 0.4516071111111111,
+            "median_per_launch_ms": 0.228848
+          },
+          "attention": {
+            "kernel_count": 0,
+            "duration_ms": 0.0,
+            "share_of_total_kernel_time": 0.0,
+            "mean_per_launch_ms": null,
+            "median_per_launch_ms": null
+          },
+          "memory_like": {
+            "kernel_count": 1601,
+            "duration_ms": 22.499264,
+            "share_of_total_kernel_time": 0.19657467300087678,
+            "mean_per_launch_ms": 0.014053256714553404,
+            "median_per_launch_ms": 0.010368
+          },
+          "other": {
+            "kernel_count": 56,
+            "duration_ms": 2.539104,
+            "share_of_total_kernel_time": 0.022183994041548125,
+            "mean_per_launch_ms": 0.04534114285714286,
+            "median_per_launch_ms": 0.045648
+          }
+        },
+        "top_kernels": [
+          {
+            "kernel_name": "ampere_fp16_s16816gemm_fp16_64x64_sliced1x2_ldg8_f2f_stages_64x5_tn",
+            "family": "gemm",
+            "count": 85,
+            "duration_ms": 69.669088,
+            "share_of_total_kernel_time": 0.608694497378639,
+            "mean_per_launch_ms": 0.8196363294117648
+          },
+          {
+            "kernel_name": "ampere_fp16_s16816gemm_fp16_128x64_ldg8_f2f_stages_32x6_tn",
+            "family": "gemm",
+            "count": 112,
+            "duration_ms": 19.741376,
+            "share_of_total_kernel_time": 0.17247917673161917,
+            "mean_per_launch_ms": 0.1762622857142857
+          },
+          {
+            "kernel_name": "elementwise_kernel",
+            "family": "memory_like",
+            "count": 426,
+            "duration_ms": 8.484768,
+            "share_of_total_kernel_time": 0.07413089135219282,
+            "mean_per_launch_ms": 0.01991729577464789
+          },
+          {
+            "kernel_name": "vectorized_elementwise_kernel",
+            "family": "memory_like",
+            "count": 603,
+            "duration_ms": 4.165696,
+            "share_of_total_kernel_time": 0.03639542738024943,
+            "mean_per_launch_ms": 0.006908285240464345
+          },
+          {
+            "kernel_name": "unrolled_elementwise_kernel",
+            "family": "memory_like",
+            "count": 257,
+            "duration_ms": 3.22656,
+            "share_of_total_kernel_time": 0.028190254441999033,
+            "mean_per_launch_ms": 0.012554708171206226
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy_contig",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 3.110464,
+            "share_of_total_kernel_time": 0.027175930896272835,
+            "mean_per_launch_ms": 0.055543999999999996
+          },
+          {
+            "kernel_name": "kernel",
+            "family": "other",
+            "count": 56,
+            "duration_ms": 2.539104,
+            "share_of_total_kernel_time": 0.022183994041548125,
+            "mean_per_launch_ms": 0.04534114285714286
+          },
+          {
+            "kernel_name": "reduce_kernel",
+            "family": "memory_like",
+            "count": 113,
+            "duration_ms": 1.540512,
+            "share_of_total_kernel_time": 0.013459357721831553,
+            "mean_per_launch_ms": 0.013632849557522125
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 0.842592,
+            "share_of_total_kernel_time": 0.007361674002898706,
+            "mean_per_launch_ms": 0.015046285714285715
+          },
+          {
+            "kernel_name": "splitKreduce_kernel",
+            "family": "memory_like",
+            "count": 56,
+            "duration_ms": 0.797536,
+            "share_of_total_kernel_time": 0.006968022527600337,
+            "mean_per_launch_ms": 0.014241714285714286
+          },
+          {
+            "kernel_name": "softmax_warp_forward",
+            "family": "memory_like",
+            "count": 28,
+            "duration_ms": 0.277888,
+            "share_of_total_kernel_time": 0.0024278902070248897,
+            "mean_per_launch_ms": 0.00992457142857143
+          },
+          {
+            "kernel_name": "elementwise_kernel_with_index",
+            "family": "memory_like",
+            "count": 3,
+            "duration_ms": 0.015744,
+            "share_of_total_kernel_time": 0.00013755435074346448,
+            "mean_per_launch_ms": 0.005248
+          },
+          {
+            "kernel_name": "index_elementwise_kernel",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.014176,
+            "share_of_total_kernel_time": 0.0001238548320718593,
+            "mean_per_launch_ms": 0.014176
+          },
+          {
+            "kernel_name": "indexSelectSmallIndex",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.013472,
+            "share_of_total_kernel_time": 0.00011770402777032225,
+            "mean_per_launch_ms": 0.013472
+          },
+          {
+            "kernel_name": "CatArrayBatchedCopy_aligned16_contig",
+            "family": "memory_like",
+            "count": 1,
+            "duration_ms": 0.009856,
+            "share_of_total_kernel_time": 8.611126022151842e-05,
+            "mean_per_launch_ms": 0.009856
+          },
+          {
+            "kernel_name": "gemmk1_kernel",
+            "family": "gemm",
+            "count": 1,
+            "duration_ms": 0.007744,
+            "share_of_total_kernel_time": 6.765884731690733e-05,
+            "mean_per_launch_ms": 0.007744
+          }
+        ],
+        "nvtx_text": "B2_profile_decode_step_15"
+      }
+    ]
+  },
+  "latency_run_summary": {
+    "profiled": false,
+    "generation_success_count": 3,
+    "sample_count": 3,
+    "all_token_sequences_equal": true,
+    "all_generated_texts_equal": true,
+    "preprocess_ms": {
+      "sample_count": 3,
+      "mean_ms": 12.367943660744155,
+      "median_ms": 11.992116997134872,
+      "stddev_ms": 3.8535127530245847,
+      "min_ms": 8.716113996342756,
+      "max_ms": 16.39559998875484
+    },
+    "visual_total_ms": {
+      "sample_count": 3,
+      "mean_ms": 98.074462890625,
+      "median_ms": 97.51526641845703,
+      "stddev_ms": 2.4047404275524915,
+      "min_ms": 95.99858856201172,
+      "max_ms": 100.70953369140625
+    },
+    "prefill_ms": {
+      "sample_count": 3,
+      "mean_ms": 275.9990743001302,
+      "median_ms": 276.380126953125,
+      "stddev_ms": 3.350261319824786,
+      "min_ms": 272.4745788574219,
+      "max_ms": 279.14251708984375
+    },
+    "decode_wall_ms": {
+      "sample_count": 3,
+      "mean_ms": 1876.101424335502,
+      "median_ms": 1877.879337000195,
+      "stddev_ms": 5.685701946894933,
+      "min_ms": 1869.739216999733,
+      "max_ms": 1880.6857190065784
+    },
+    "decode_event_total_ms": {
+      "sample_count": 3,
+      "mean_ms": 1865.9511973063152,
+      "median_ms": 1868.1852340698242,
+      "stddev_ms": 5.348423246562001,
+      "min_ms": 1859.8479537963867,
+      "max_ms": 1869.8204040527344
+    },
+    "decode_per_token_wall_ms": {
+      "sample_count": 3,
+      "mean_ms": 125.07342828903347,
+      "median_ms": 125.19195580001299,
+      "stddev_ms": 0.3790467964596633,
+      "min_ms": 124.64928113331553,
+      "max_ms": 125.3790479337719
+    },
+    "generation_total_wall_ms": {
+      "sample_count": 3,
+      "mean_ms": 2152.1004986356324,
+      "median_ms": 2150.353915857617,
+      "stddev_ms": 4.362663787874652,
+      "min_ms": 2148.8817340895766,
+      "max_ms": 2157.0658459597034
+    },
+    "generation_tokens_per_second": {
+      "sample_count": 3,
+      "mean": 7.434617388506059,
+      "median": 7.4406356470017565,
+      "stddev": 0.015055816223512675,
+      "min": 7.417483351270353,
+      "max": 7.445733167246066
+    }
+  },
+  "latency_run_stage_attribution": {
+    "prefill_share_of_generation": 0.12824636882669066,
+    "decode_share_of_generation": 0.8717536311733093,
+    "dominant_generation_stage": "decode"
+  },
+  "attribution_caveats": {
+    "kernel_family_method": "kernel-name heuristic",
+    "memory_contribution": "memory-like kernel duration and memcpy/memset activity only",
+    "dram_counters": "UNKNOWN",
+    "achieved_bandwidth": "UNKNOWN",
+    "host_launch_gaps": "not attributed to kernels"
+  }
+}

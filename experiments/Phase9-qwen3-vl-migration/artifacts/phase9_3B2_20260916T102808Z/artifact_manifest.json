@@ -1,0 +1,118 @@
+{
+  "phase": "Phase 9.3-B2",
+  "created_utc": "2026-09-16T11:20:00Z",
+  "repository": {
+    "branch": "phase/09-qwen3vl-migration",
+    "starting_head": "e2d109c25202c58b93255b23afffaa0b3892a8b9",
+    "protocol_sha256": "69d72349a65f62c5eaa760a8e89f396b9e12dd738859fdaaf77fd27a10091c12"
+  },
+  "remote_runtime": {
+    "host_alias": "jetson",
+    "host_directory": "/tmp/phase9_3b2_20260916T102808Z",
+    "model_path": "/home/nvidia/models/qwen3-vl-2b-instruct-89644892e4d85e24eaac8bacfd4f463576704203",
+    "engine_path": "/tmp/phase9_2c1_20260916T034956Z/engine/qwen3_vl_vision_fp16.trt",
+    "nsys_report_path": "/tmp/phase9_3b2_20260916T102808Z/profile/phase9_3B2_profile.nsys-rep",
+    "sqlite_path": "/tmp/phase9_3b2_20260916T102808Z/profile/phase9_3B2_profile.sqlite",
+    "nsys_report_sha256": "624f9d48680b8a01df8e2c68ec70d7b22fe9b844f977b556adbb1539717191b3",
+    "sqlite_sha256": "a1a818412a313b79dbce85d845477bb28a0f846a4b3667013a2f2624c2aed4f7"
+  },
+  "local_artifacts": [
+    {
+      "path": "protocol.json",
+      "role": "frozen protocol",
+      "size_bytes": 4477,
+      "sha256": "69d72349a65f62c5eaa760a8e89f396b9e12dd738859fdaaf77fd27a10091c12"
+    },
+    {
+      "path": "phase9_3B2_latency_result.json",
+      "role": "clean latency raw result",
+      "size_bytes": 135927,
+      "sha256": "7306aa4896de756162c7da874a23effc9635697f7de35db180cf32aa925a2229"
+    },
+    {
+      "path": "latency_console.log",
+      "role": "clean latency console",
+      "size_bytes": 3387,
+      "sha256": "4acc295c55979ca23a7bbff7a3d1e21a73ed21444b6842b078fdff82cc45cc8e"
+    },
+    {
+      "path": "latency_exit_code.txt",
+      "role": "clean latency exit code",
+      "size_bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "phase9_3B2_profile_result.json",
+      "role": "final profile raw result",
+      "size_bytes": 82594,
+      "sha256": "f6479d390afbc542006c799ad656088f61826398d83a3e2e0615fd6db2b28d15"
+    },
+    {
+      "path": "phase9_3B2_profile_analysis.json",
+      "role": "final Nsight SQLite attribution",
+      "size_bytes": 139567,
+      "sha256": "7de4f037c5e7c75f9c3bfec750cdad39799574a7c2fa45823f81cb6e56e6976d"
+    },
+    {
+      "path": "profile_console.log",
+      "role": "final profile console",
+      "size_bytes": 5046,
+      "sha256": "dd84c3351d1397cca67f1cc52d0d77b2f6fce9ab20998bbfb1b406571317045f"
+    },
+    {
+      "path": "profile_exit_code.txt",
+      "role": "final profile exit code",
+      "size_bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "sqlite_export.log",
+      "role": "final SQLite export console",
+      "size_bytes": 8101,
+      "sha256": "575fdfc9d9a38048a2c285f4a35133a98ae50b654eea930630795c6caaca8497"
+    },
+    {
+      "path": "parser.log",
+      "role": "final parser console",
+      "size_bytes": 1004,
+      "sha256": "48b95215e456832216f567c074218f65ccd7e9fb1dbe8c626abed0d050a86bbd"
+    },
+    {
+      "path": "failed_attempt1_nvtx_api_mismatch/phase9_3B2_latency_result.json",
+      "role": "preserved failed attempt 1 result",
+      "size_bytes": 8836,
+      "sha256": "4db99dfa0da31e6604fdf1888df517296965bce741714daed9e02e05cbd5d45e"
+    },
+    {
+      "path": "failed_attempt1_nvtx_api_mismatch/console.log",
+      "role": "preserved failed attempt 1 console",
+      "size_bytes": 3399,
+      "sha256": "dfd8ea12b436086e4f47580682e910e909df5eecf8c2d86ce3adb3581694e5d2"
+    },
+    {
+      "path": "failed_attempt1_nvtx_api_mismatch/exit_code.txt",
+      "role": "preserved failed attempt 1 exit code",
+      "size_bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "attempt2_visual_nvtx_range_async/phase9_3B2_profile_result.json",
+      "role": "preserved attempt 2 profile result",
+      "size_bytes": 82583,
+      "sha256": "2ad1b3bbf2add53adc8872eee1fd1c9cbf85fb598b2a7122a748f06e07661c54"
+    },
+    {
+      "path": "attempt2_visual_nvtx_range_async/phase9_3B2_profile_analysis.json",
+      "role": "preserved attempt 2 partial visual correlation",
+      "size_bytes": 138612,
+      "sha256": "5217ef4ec8aa493291edbfb9983494217f303c1eab3c40690885fee3db1d923e"
+    },
+    {
+      "path": "attempt2_visual_nvtx_range_async/console.log",
+      "role": "preserved attempt 2 console",
+      "size_bytes": 5094,
+      "sha256": "f7293f4e83e4a53f7411e5bd03f09b7193da968ac73c87f64bafe1e2476992ae"
+    }
+  ],
+  "notes": "Large Nsight Systems report and SQLite export remain Jetson-local by repository policy and are identified above by path, size, and SHA-256."
+}

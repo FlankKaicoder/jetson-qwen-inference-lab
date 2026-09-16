@@ -4,6 +4,25 @@
 
 ## [Unreleased]
 
+### Phase 9.3-B2 Qwen3-VL Decoder-Side Runtime Bottleneck Attribution (2026-09-16)
+
+- Froze and executed a decoder-side profiling protocol using the same
+  deterministic image, prompt, 16-token greedy workload, unchanged C1 TensorRT
+  FP16 Vision engine, and unchanged eager PyTorch FP16 decoder.
+- Recorded clean means of `12.367943660744155` ms preprocess,
+  `98.074462890625` ms TensorRT visual adapter, `275.9990743001302` ms prefill,
+  `125.07342828903347` ms decode/token, and `7.434617388506059` tokens/s.
+- Decode was `87.17536311733093%` of mean generation wall time.
+- Recorded 28-layer FP16 DynamicCache behavior growing from `24,084,480` to
+  `25,804,800` logical bytes over 15 decode tokens, or `114,688` bytes/token.
+- Nsight Systems attribution showed decode kernel time was `78.3598%`
+  GEMM-class, `19.5831%` memory-like, and `2.0571%` other. No dedicated
+  attention-named kernel was observed; exact attention share inside generic
+  kernels remains `UNKNOWN`.
+- Gate: `PASS / BOUNDED — DECODER_BOTTLENECK_ATTRIBUTION_RECORDED`. No
+  optimization, TensorRT-LLM migration, quantization, decoder modification,
+  engine rebuild, CUDA modification, or environment modification occurred.
+
 ### Phase 9.3-B1 Qwen3-VL End-to-End Stage Latency Breakdown (2026-09-16)
 
 - Froze and executed an end-to-end stage latency protocol using the same

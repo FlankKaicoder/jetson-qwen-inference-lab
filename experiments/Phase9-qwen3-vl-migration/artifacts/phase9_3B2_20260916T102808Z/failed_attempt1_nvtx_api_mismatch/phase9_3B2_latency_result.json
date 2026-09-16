@@ -1,0 +1,177 @@
+{
+  "phase": "Phase 9.3-B2",
+  "title": "Qwen3-VL decoder-side runtime bottleneck attribution",
+  "run_mode": "latency",
+  "started_utc": "2026-09-16T10:34:29.704180+00:00",
+  "hostname": "nvidia-desktop",
+  "device": "cuda:0",
+  "device_name": "Orin",
+  "cuda_capability": [
+    8,
+    7
+  ],
+  "torch_version": "2.5.0a0+872d972e41.nv24.08",
+  "cuda_version": "12.6",
+  "tensorrt_version": "10.3.0",
+  "protocol": {
+    "path": "/tmp/phase9_3b2_20260916T102808Z/config/protocol.json",
+    "sha256": "69d72349a65f62c5eaa760a8e89f396b9e12dd738859fdaaf77fd27a10091c12",
+    "frozen_at_utc": "2026-09-16T10:28:08Z",
+    "workload": {
+      "image_mode": "RGB",
+      "image_width": 448,
+      "image_height": 448,
+      "image_description": "deterministic white background with a filled red square at [112,112,335,335]",
+      "prompt": "Describe the image.",
+      "sampling_rule": "greedy",
+      "max_new_tokens": 16,
+      "minimum_new_tokens": 16,
+      "eos_masking": "EOS is masked before argmax for decode steps 1 through 14; step 15 may emit EOS",
+      "vision_boundary": {
+        "pixel_values_shape": [
+          784,
+          1536
+        ],
+        "image_grid_thw": [
+          [
+            1,
+            28,
+            28
+          ]
+        ]
+      },
+      "power_mode": "25W unchanged"
+    },
+    "run": {
+      "profiled": false,
+      "warmup_generations": 1,
+      "measured_generations": 3,
+      "inter_trial_sleep_seconds": 0,
+      "timing_method": "host_wall_clock_and_cuda_events",
+      "kv_cache_introspection": "after prefill and after the complete decode loop; no per-step introspection inside the timed decode loop"
+    },
+    "attribution_boundary": {
+      "visual_backend": "unchanged Phase 9.2-C1 TensorRT FP16 adapter",
+      "decoder": "unchanged Qwen3-VL eager PyTorch FP16 language decoder",
+      "prefill": "CUDA-event duration around the complete image-plus-text forward",
+      "decode": "latency run: host wall clock around 15 subsequent decode calls; profile run: per-step CUDA events",
+      "prefill_includes": "TensorRT visual adapter, projector, embedding, language decoder, final norm, and LM head",
+      "kv_cache_bytes": "logical key/value tensor payload estimated from shape and dtype; not CUDA allocator or profiler DRAM attribution",
+      "kernel_classification": "Nsight SQLite kernel-name heuristic for GEMM, attention, memory-like, and other families; not DRAM counters or achieved bandwidth",
+      "correctness_gate": false,
+      "optimization_gate": false,
+      "deployment_gate": false
+    }
+  },
+  "model_identity": {
+    "identity": "Qwen/Qwen3-VL-2B-Instruct",
+    "revision": "89644892e4d85e24eaac8bacfd4f463576704203",
+    "local_path": "/home/nvidia/models/qwen3-vl-2b-instruct-89644892e4d85e24eaac8bacfd4f463576704203",
+    "config_sha256": "bec4b3d446efa05807365c9e1cec03ac590836879d02f3a6da879971154bdd3b",
+    "weights_sha256": "7de1838c87a5349b016c26a1c3f7d2bc400a3d485f95ef39a7059ffd734977a0",
+    "weights_size_bytes": 4255140312
+  },
+  "engine_file": {
+    "path": "/tmp/phase9_2c1_20260916T034956Z/engine/qwen3_vl_vision_fp16.trt",
+    "size_bytes": 818910588,
+    "sha256_before": "aa5c200eb5dcbc5abaef55bc014b5210236fb9ca34394217a024d3796e44823c",
+    "sha256_after": null
+  },
+  "authorization_boundary": {
+    "decoder_runtime_profiling_and_attribution": true,
+    "prefill_latency_measurement": true,
+    "decode_latency_measurement": true,
+    "kv_cache_introspection": true,
+    "nsys_cuda_nvtx_profiling": true,
+    "tensorrt_llm_migration": false,
+    "optimization": false,
+    "quantization": false,
+    "decoder_modification": false,
+    "cuda_modification": false,
+    "tensorrt_engine_rebuild": false,
+    "environment_modification": false,
+    "benchmark_sweep": false
+  },
+  "runtime_dependency_status": {
+    "python": "3.10.12",
+    "platform": "Linux-5.15.148-tegra-aarch64-with-glibc2.35",
+    "torch": "2.5.0a0+872d972e41.nv24.08",
+    "cuda": "12.6",
+    "tensorrt": "10.3.0",
+    "transformers": "4.57.3",
+    "cuda_available": true,
+    "total_memory_bytes": 7989903360,
+    "allocated_before_bytes": 0,
+    "reserved_before_bytes": 0,
+    "host_mem_available_bytes": 6255702016
+  },
+  "model_evidence": {
+    "load_success": true,
+    "model_class": "Qwen3VLForConditionalGeneration",
+    "base_model_class": "Qwen3VLModel",
+    "language_model_class": "Qwen3VLTextModel",
+    "visual_backend_class_before_injection": "Qwen3VLVisionModel",
+    "model_dtype": "torch.float16",
+    "attention_implementation": "eager",
+    "total_parameter_count": 2127532032,
+    "language_model_parameter_count": 1720574976,
+    "tokenizer_class": "Qwen2TokenizerFast",
+    "visual_backend_class_after_injection": "TensorRTVisionAdapter",
+    "language_model_parameter_count_after_injection": 1720574976,
+    "tensorrt_adapter_metadata": {
+      "engine_name": "Unnamed Network 0",
+      "num_layers": 209,
+      "num_io_tensors": 5,
+      "num_optimization_profiles": 1,
+      "device_memory_size_v2": 14450688,
+      "log_counts_by_severity": {
+        "INFO": 2,
+        "VERBOSE": 6
+      },
+      "error_count": 0
+    }
+  },
+  "memory": {
+    "after_model_load": {
+      "allocated_bytes": 4255079424,
+      "reserved_bytes": 4324327424,
+      "peak_allocated_bytes": 4263985152,
+      "peak_reserved_bytes": 4324327424,
+      "host_mem_available_bytes": 1783934976
+    },
+    "after_tensorrt_injection": {
+      "allocated_bytes": 3441164800,
+      "reserved_bytes": 4257218560,
+      "peak_allocated_bytes": 4263985152,
+      "peak_reserved_bytes": 4324327424,
+      "host_mem_available_bytes": 1027887104
+    }
+  },
+  "trials": {
+    "warmup": [],
+    "measured": []
+  },
+  "summary": {},
+  "stage_attribution": {},
+  "profile_capture": {
+    "intended_nsys_report_path": null,
+    "report_present_after_process_exit": null
+  },
+  "prohibited_operations_performed": {
+    "tensorrt_llm_migration": false,
+    "optimization": false,
+    "quantization": false,
+    "decoder_modification": false,
+    "cuda_modification": false,
+    "tensorrt_engine_rebuild": false,
+    "environment_modification": false,
+    "benchmark_sweep": false
+  },
+  "success": false,
+  "failure": {
+    "type": "AttributeError",
+    "message": "module 'torch.cuda.nvtx' has no attribute 'is_active'",
+    "traceback": "Traceback (most recent call last):\n  File \"/tmp/phase9_3b2_20260916T102808Z/src/run_decoder_bottleneck_profile.py\", line 742, in main\n    warmup_trial = run_trial(\n  File \"/tmp/phase9_3b2_20260916T102808Z/src/run_decoder_bottleneck_profile.py\", line 366, in run_trial\n    prefill_output = model(\n  File \"/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py\", line 1714, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py\", line 1725, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/home/nvidia/.venvs/jetson-qwen-phase1-hf/lib/python3.10/site-packages/transformers/utils/generic.py\", line 1072, in wrapper\n    outputs = func(self, *args, **kwargs)\n  File \"/home/nvidia/.venvs/jetson-qwen-phase1-hf/lib/python3.10/site-packages/transformers/models/qwen3_vl/modeling_qwen3_vl.py\", line 1344, in forward\n    outputs = self.model(\n  File \"/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py\", line 1714, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py\", line 1725, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/home/nvidia/.venvs/jetson-qwen-phase1-hf/lib/python3.10/site-packages/transformers/utils/generic.py\", line 1072, in wrapper\n    outputs = func(self, *args, **kwargs)\n  File \"/home/nvidia/.venvs/jetson-qwen-phase1-hf/lib/python3.10/site-packages/transformers/models/qwen3_vl/modeling_qwen3_vl.py\", line 1138, in forward\n    image_embeds, deepstack_image_embeds = self.get_image_features(pixel_values, image_grid_thw)\n  File \"/home/nvidia/.venvs/jetson-qwen-phase1-hf/lib/python3.10/site-packages/transformers/models/qwen3_vl/modeling_qwen3_vl.py\", line 1061, in get_image_features\n    image_embeds, deepstack_image_embeds = self.visual(pixel_values, grid_thw=image_grid_thw)\n  File \"/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py\", line 1714, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py\", line 1766, in _call_impl\n    result = forward_call(*args, **kwargs)\n  File \"/tmp/phase9_3b2_20260916T102808Z/src/run_decoder_bottleneck_profile.py\", line 184, in forward\n    if nvtx.is_active():\nAttributeError: module 'torch.cuda.nvtx' has no attribute 'is_active'\n"
+  },
+  "finished_utc": "2026-09-16T10:34:56.795911+00:00"
+}

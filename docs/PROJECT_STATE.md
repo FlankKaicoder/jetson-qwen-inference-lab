@@ -12,15 +12,48 @@
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 9.3-B1 — End-to-End Stage Latency Breakdown |
-| Current experiment | Phase 9.3-B1 Qwen3-VL End-to-End Stage Latency Breakdown |
+| Current phase | Phase 9.3-B2 — Decoder-Side Runtime Bottleneck Attribution |
+| Current experiment | Phase 9.3-B2 Qwen3-VL Decoder-Side Runtime Bottleneck Attribution |
 | Current branch | `phase/09-qwen3vl-migration` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 9.3-B1 — Qwen3-VL End-to-End Stage Latency Breakdown |
-| Experiment status | Phase 9.3-B1 recorded the frozen end-to-end stage latency breakdown. One warmup and three measured 16-token generations per backend completed; decode dominated generation on both backends. |
-| Current Gate | Phase 9.3-B1 is `PASS / BOUNDED — STAGE_LATENCY_ATTRIBUTION_RECORDED`. TensorRT internal encoder/projector timings and power are `UNKNOWN`. The backends diverged at token index 8 and the cause remains `UNKNOWN`; no correctness gate was applied. |
-| Readiness | Phase 9.3-B1 is bounded fixed-workload attribution evidence only. Do not diagnose the token divergence, sweep inputs, optimize, rebuild, rerun, benchmark, quantize, or modify CUDA/environment until a new explicit authorization. |
+| Last completed experiment | Phase 9.3-B2 — Qwen3-VL Decoder-Side Runtime Bottleneck Attribution |
+| Experiment status | Phase 9.3-B2 recorded clean fixed-workload latency, KV-cache growth, and Nsight CUDA kernel-family attribution after TensorRT Vision integration. Decode dominated generation; GEMM-class kernels dominated decode kernel time. |
+| Current Gate | Phase 9.3-B2 is `PASS / BOUNDED — DECODER_BOTTLENECK_ATTRIBUTION_RECORDED`. Exact attention share inside generic GEMM/softmax/elementwise kernels, DRAM counters, achieved bandwidth, and power are `UNKNOWN`. |
+| Readiness | Phase 9.3-B2 is bounded profiling and attribution evidence only. Do not optimize, migrate to TensorRT-LLM, quantize, modify decoder/CUDA, rebuild, rerun, sweep inputs, or benchmark further until a new explicit authorization. |
+
+## Phase 9.3-B2 Decoder-Side Bottleneck Attribution Checkpoint (2026-09-16)
+
+- The owner authorized decoder-side runtime profiling and attribution only. No
+  TensorRT-LLM migration, optimization, quantization, decoder modification,
+  TensorRT rebuild, CUDA change, or persistent environment change occurred.
+- The frozen protocol reused the Phase 9.3-B1 deterministic red-square image,
+  prompt, and 16-token greedy workload. The clean run used one warmup and three
+  measured generations. The Nsight run used one warmup and one diagnostic
+  profiled generation.
+- Clean means were preprocess `12.367943660744155` ms, TensorRT visual adapter
+  `98.074462890625` ms, prefill `275.9990743001302` ms, derived language-decoder
+  prefill `177.92461140950522` ms, decode/token `125.07342828903347` ms, and
+  throughput `7.434617388506059` tokens/s. Decode was
+  `87.17536311733093%` of generation.
+- KV cache was `DynamicCache` with 28 FP16 layers of `[1,8,seq,128]`. It grew
+  from `24,084,480` logical bytes after the 210-token prefill to
+  `25,804,800` bytes after 15 decode tokens, `114,688` bytes/token, with finite
+  ratio `1.0` after prefill and final decode.
+- In the profiled generation, decode kernel time was `1620.602368` ms across
+  `27,884` kernels: `78.3598%` GEMM-class, `19.5831%` memory-like, `2.0571%`
+  other, and `0%` dedicated attention-named kernels. Eager attention work is
+  embedded in generic kernels, so its exact share is `UNKNOWN`.
+- The corrected TensorRT visual NVTX range captured `138.450528` ms of kernels,
+  consistent with its diagnostic CUDA-event boundary `140.43431091308594` ms.
+  Prefill excluding the visual boundary had `207.341152` ms kernel time.
+- Failed attempt 1 (`torch.cuda.nvtx.is_active` unavailable) and attempt 2
+  (visual NVTX range closed before async kernels finished) are preserved. The
+  frozen protocol was not changed.
+- Report:
+  `experiments/Phase9-qwen3-vl-migration/docs/phase9_3B2_decoder_runtime_bottleneck_attribution.md`.
+  Evidence:
+  `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_3B2_20260916T102808Z/`.
 
 ## Phase 9.3-B1 End-to-End Stage Latency Checkpoint (2026-09-16)
 

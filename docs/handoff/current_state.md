@@ -1,3 +1,29 @@
+# Phase 9.3-B2 Decoder-Side Bottleneck Attribution (2026-09-16)
+
+- After explicit authorization, Phase 9.3-B2 profiled the decoder-side runtime
+  after TensorRT Vision integration. Gate:
+  `PASS / BOUNDED — DECODER_BOTTLENECK_ATTRIBUTION_RECORDED`.
+- The clean run used one warmup and three measured 16-token greedy generations
+  with the unchanged C1 TensorRT FP16 visual adapter and eager PyTorch FP16
+  decoder. Mean prefill was `275.9990743001302` ms and mean decode was
+  `125.07342828903347` ms/token. Decode was `87.17536311733093%` of generation.
+- DynamicCache had 28 FP16 `[1,8,seq,128]` layers. Logical KV payload grew from
+  `24,084,480` bytes after prefill to `25,804,800` bytes after 15 decodes,
+  `114,688` bytes/token, with finite ratio `1.0` after prefill and final decode.
+- Nsight Systems attribution found decode kernel time of `1620.602368` ms:
+  `78.3598%` GEMM-class, `19.5831%` memory-like, `2.0571%` other, and `0%`
+  dedicated attention-named kernels. Exact attention share inside generic
+  kernels, DRAM counters, and power are `UNKNOWN`.
+- The corrected TensorRT visual NVTX range captured `138.450528` ms of kernels,
+  consistent with its diagnostic CUDA-event boundary. Prefill excluding visual
+  had `207.341152` ms kernel time.
+- Report and evidence:
+  `experiments/Phase9-qwen3-vl-migration/docs/phase9_3B2_decoder_runtime_bottleneck_attribution.md`,
+  `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_3B2_20260916T102808Z/`.
+- Stop after this bounded attribution result and await Gate review before any
+  optimization, TensorRT-LLM migration, decoder change, rerun, input sweep,
+  benchmark sweep, quantization, rebuild, or CUDA/environment change.
+
 ## Phase 9.2-C2-R2 Finite-Input TensorRT Correctness (2026-09-16)
 
 - After explicit authorization, PyTorch FP16 and the unchanged C1 TensorRT FP16

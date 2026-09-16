@@ -1,0 +1,105 @@
+{
+  "phase": "Phase 9.3-B2",
+  "title": "Qwen3-VL decoder-side runtime bottleneck attribution",
+  "protocol_state": "FROZEN_BEFORE_MEASUREMENT",
+  "frozen_at_utc": "2026-09-16T10:28:08Z",
+  "authorization": {
+    "decoder_runtime_profiling_and_attribution": true,
+    "prefill_latency_measurement": true,
+    "decode_latency_measurement": true,
+    "kv_cache_introspection": true,
+    "nsys_cuda_nvtx_profiling": true,
+    "tensorrt_llm_migration": false,
+    "optimization": false,
+    "quantization": false,
+    "decoder_modification": false,
+    "cuda_modification": false,
+    "tensorrt_engine_rebuild": false,
+    "environment_modification": false,
+    "benchmark_sweep": false
+  },
+  "model": {
+    "identity": "Qwen/Qwen3-VL-2B-Instruct",
+    "revision": "89644892e4d85e24eaac8bacfd4f463576704203",
+    "local_path": "/home/nvidia/models/qwen3-vl-2b-instruct-89644892e4d85e24eaac8bacfd4f463576704203",
+    "expected_config_sha256": "bec4b3d446efa05807365c9e1cec03ac590836879d02f3a6da879971154bdd3b",
+    "expected_weights_sha256": "7de1838c87a5349b016c26a1c3f7d2bc400a3d485f95ef39a7059ffd734977a0",
+    "dtype": "torch.float16",
+    "attention_implementation": "eager",
+    "device": "cuda:0"
+  },
+  "engine": {
+    "source_phase": "Phase 9.2-C1",
+    "validation_phase": "Phase 9.2-C2-R2",
+    "integration_phase": "Phase 9.3-A",
+    "path": "/tmp/phase9_2c1_20260916T034956Z/engine/qwen3_vl_vision_fp16.trt",
+    "expected_sha256": "aa5c200eb5dcbc5abaef55bc014b5210236fb9ca34394217a024d3796e44823c",
+    "modified": false,
+    "rebuilt": false
+  },
+  "workload": {
+    "image_mode": "RGB",
+    "image_width": 448,
+    "image_height": 448,
+    "image_description": "deterministic white background with a filled red square at [112,112,335,335]",
+    "prompt": "Describe the image.",
+    "sampling_rule": "greedy",
+    "max_new_tokens": 16,
+    "minimum_new_tokens": 16,
+    "eos_masking": "EOS is masked before argmax for decode steps 1 through 14; step 15 may emit EOS",
+    "vision_boundary": {
+      "pixel_values_shape": [784, 1536],
+      "image_grid_thw": [[1, 28, 28]]
+    },
+    "power_mode": "25W unchanged"
+  },
+  "runs": {
+    "latency": {
+      "profiled": false,
+      "warmup_generations": 1,
+      "measured_generations": 3,
+      "inter_trial_sleep_seconds": 0,
+      "timing_method": "host_wall_clock_and_cuda_events",
+      "kv_cache_introspection": "after prefill and after the complete decode loop; no per-step introspection inside the timed decode loop"
+    },
+    "profile": {
+      "profiled": true,
+      "warmup_generations": 1,
+      "measured_generations": 1,
+      "inter_trial_sleep_seconds": 0,
+      "timing_method": "cuda_events_with_synchronize_per_decode_step",
+      "timing_usability": "diagnostic only; per-step synchronization and cache introspection alter inter-step spacing",
+      "kv_cache_introspection": "after prefill and after every synchronized decode step",
+      "nvtx": {
+        "measured_generation": "B2_profile_generation",
+        "prefill": "B2_profile_prefill",
+        "decode_loop": "B2_profile_decode",
+        "decode_step_prefix": "B2_profile_decode_step_",
+        "tensorrt_visual": "B2_tensorrt_visual"
+      },
+      "nsys": {
+        "version": "2024.5.4",
+        "trace": ["cuda", "nvtx"],
+        "capture_mode": "full process",
+        "privilege": "temporary sudo for Nsight CUPTI capture only",
+        "export_format": "sqlite",
+        "output_format": "nsys-rep"
+      }
+    }
+  },
+  "attribution_boundary": {
+    "visual_backend": "unchanged Phase 9.2-C1 TensorRT FP16 adapter",
+    "decoder": "unchanged Qwen3-VL eager PyTorch FP16 language decoder",
+    "prefill": "CUDA-event duration around the complete image-plus-text forward",
+    "decode": "latency run: host wall clock around 15 subsequent decode calls; profile run: per-step CUDA events",
+    "prefill_includes": "TensorRT visual adapter, projector, embedding, language decoder, final norm, and LM head",
+    "kv_cache_bytes": "logical key/value tensor payload estimated from shape and dtype; not CUDA allocator or profiler DRAM attribution",
+    "kernel_classification": "Nsight SQLite kernel-name heuristic for GEMM, attention, memory-like, and other families; not DRAM counters or achieved bandwidth",
+    "correctness_gate": false,
+    "optimization_gate": false,
+    "deployment_gate": false
+  },
+  "acceptance": {
+    "conclusion": "record bounded decoder-side latency, KV cache, and CUDA kernel-family attribution only"
+  }
+}
