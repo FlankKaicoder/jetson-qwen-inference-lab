@@ -4,6 +4,21 @@
 
 ## [Unreleased]
 
+### Phase 9.2-C2-R2 TensorRT FP16 Vision Correctness With Finite Input (2026-09-16)
+
+- Reran PyTorch FP16 versus the unchanged C1 TensorRT FP16 vision engine using
+  direct CUDA FP32 `linspace` cast to FP16 at the fixed `[784,1536]` /
+  `[1,28,28]` boundary.
+- Recorded finite ratio `1.0` for both the input and all four reference/TensorRT
+  outputs, with matching `[196,2048]` shapes.
+- Across outputs, maximum absolute error was `4.001953125`, maximum mean
+  absolute error was `0.03959130868315697`, and minimum cosine similarity was
+  `0.9805147647857666`.
+- Gate: `PASS / BOUNDED — FINITE_INPUT_CORRECTNESS_METRICS_RECORDED`. No
+  numerical tolerance or deployment gate was applied. No benchmark, latency,
+  optimization, quantization, engine rebuild, CUDA modification, or environment
+  modification occurred.
+
 ### Phase 9.2-C2-R1 Non-Finite Output Diagnosis (2026-09-16)
 
 - Diagnosed the Phase 9.2-C2 non-finite workload using PyTorch FP32 and FP16

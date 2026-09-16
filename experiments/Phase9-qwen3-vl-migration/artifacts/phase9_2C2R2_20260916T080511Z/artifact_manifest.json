@@ -1,0 +1,24 @@
+{
+  "phase": "Phase 9.2-C2-R2",
+  "artifact_dir": "experiments/Phase9-qwen3-vl-migration/artifacts/phase9_2C2R2_20260916T080511Z",
+  "run_directory": "/tmp/phase9_2c2r2_20260916T080511Z",
+  "artifacts": [
+    {
+      "path": "console.log",
+      "size_bytes": 12638,
+      "sha256": "b86d09a162d1a245875a6e982156316c3ff850e3b92826a4b89e5464f04a8398",
+      "git_tracked": false,
+      "reason": "existing repository *.log ignore rule"
+    },
+    {
+      "path": "correctness_result.json",
+      "size_bytes": 11673,
+      "sha256": "db7d345c4b5873b54b797aa650157a7d3fa7c2adde77355169c8cd2dfb6726d5"
+    }
+  ],
+  "external_input_hashes": {
+    "model_config_sha256": "bec4b3d446efa05807365c9e1cec03ac590836879d02f3a6da879971154bdd3b",
+    "model_weights_sha256": "7de1838c87a5349b016c26a1c3f7d2bc400a3d485f95ef39a7059ffd734977a0",
+    "tensorrt_engine_sha256": "aa5c200eb5dcbc5abaef55bc014b5210236fb9ca34394217a024d3796e44823c"
+  }
+}

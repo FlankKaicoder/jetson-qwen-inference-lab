@@ -12,15 +12,41 @@
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 9.2-C2-R1 — Non-Finite Output Diagnosis |
-| Current experiment | Phase 9.2-C2-R1 Non-Finite Output Diagnosis |
+| Current phase | Phase 9.2-C2-R2 — TensorRT FP16 Vision Correctness With Finite Input |
+| Current experiment | Phase 9.2-C2-R2 TensorRT FP16 Vision Correctness With Finite Input |
 | Current branch | `phase/09-qwen3vl-migration` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 9.2-C2-R1 — Non-Finite Output Diagnosis |
-| Experiment status | Phase 9.2-C2-R1 identified the C2 non-finite workload as direct CUDA FP16 `torch.linspace` input generation: only `10.881696428571429%` of elements were finite. A direct FP32 input and FP32-cast FP16 input produced fully finite outputs in both passes. |
-| Current Gate | Phase 9.2-C2-R1 is `PASS / BOUNDED — C2_INPUT_GENERATION_NONFINITE`: input/boundary mismatch is supported; FP16 instability and submodule instability were not reproduced. The internal CUDA `linspace` reason remains `UNKNOWN`. |
-| Readiness | Phase 9.2-C2-R1 is diagnostic evidence only. Do not rerun TensorRT, rebuild, replace input, repair a submodule, optimize, benchmark, quantize, or modify CUDA/environment until a new explicit authorization. |
+| Last completed experiment | Phase 9.2-C2-R2 — TensorRT FP16 Vision Correctness With Finite Input |
+| Experiment status | Phase 9.2-C2-R2 compared PyTorch FP16 against the unchanged C1 TensorRT FP16 engine using direct FP32 `linspace` cast to FP16. All four outputs were finite with ratio `1.0` and all requested comparison metrics were finite. |
+| Current Gate | Phase 9.2-C2-R2 is `PASS / BOUNDED — FINITE_INPUT_CORRECTNESS_METRICS_RECORDED`: minimum cosine `0.9805147647857666`, maximum mean absolute error `0.03959130868315697`, and maximum absolute error `4.001953125`. No numerical tolerance or deployment gate was applied. |
+| Readiness | Phase 9.2-C2-R2 is bounded metric evidence for the exact finite-input workload only. Do not rerun, sweep inputs, optimize, rebuild, benchmark, quantize, or modify CUDA/environment until a new explicit authorization. |
+
+## Phase 9.2-C2-R2 Finite-Input Correctness Checkpoint (2026-09-16)
+
+- The owner authorized rerunning PyTorch FP16 versus TensorRT FP16 correctness
+  with direct FP32 input generation and optional FP32-to-FP16 cast. No
+  benchmark, latency, optimization, quantization, engine rebuild, CUDA change,
+  or persistent environment change occurred.
+- The model, config, and C1 engine hashes were unchanged. The visual state dict
+  loaded strictly, and the engine deserialized, created context, and executed
+  once successfully.
+- The input had finite ratio `1.0` in both FP32 source and FP16 cast form. All
+  four outputs had reference and TensorRT finite ratio `1.0` and matching
+  `[196,2048]` shapes.
+- Recorded metrics are: `final_hidden` max/mean/cosine
+  `4.001953125 / 0.03959130868315697 / 0.9805147647857666`; `deepstack_0`
+  `0.09375 / 0.004188189283013344 / 0.9998924732208252`; `deepstack_1`
+  `0.64532470703125 / 0.016078025102615356 / 0.9988695383071899`; and
+  `deepstack_2` `2.30859375 / 0.027240395545959473 / 0.9978001117706299`.
+- CUDA peak allocation was `926,235,648` bytes and peak reservation was
+  `956,301,312` bytes. TensorRT logged one default-stream warning and zero
+  errors. Gate is `PASS / BOUNDED — FINITE_INPUT_CORRECTNESS_METRICS_RECORDED`
+  with no tolerance applied.
+- Report:
+  `experiments/Phase9-qwen3-vl-migration/docs/phase9_2C2R2_finite_input_correctness.md`.
+  Evidence:
+  `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_2C2R2_20260916T080511Z/`.
 
 ## Phase 9.2-C2-R1 Non-Finite Diagnosis Checkpoint (2026-09-16)
 

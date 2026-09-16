@@ -1,3 +1,28 @@
+## Phase 9.2-C2-R2 Finite-Input TensorRT Correctness (2026-09-16)
+
+- After explicit authorization, PyTorch FP16 and the unchanged C1 TensorRT FP16
+  engine were compared once using direct CUDA FP32 `linspace` cast to FP16.
+  Gate: `PASS / BOUNDED — FINITE_INPUT_CORRECTNESS_METRICS_RECORDED`.
+- The FP32 source and FP16 input both had finite ratio `1.0`. Model, config,
+  and engine hashes were unchanged. The visual state dict loaded strictly, and
+  the engine deserialized, created context, and executed once.
+- All four outputs had reference and TensorRT finite ratio `1.0` and matching
+  `[196,2048]` shapes. Across outputs, maximum absolute error was
+  `4.001953125`, maximum mean absolute error was `0.03959130868315697`, and
+  minimum cosine similarity was `0.9805147647857666`.
+- Per-output max/mean/cosine values are recorded in the report. CUDA peak
+  allocation was `926,235,648` bytes and peak reservation was `956,301,312`
+  bytes. TensorRT logged one default-stream warning and zero errors.
+- No numerical tolerance, acceptance threshold, or deployment gate was applied.
+  No benchmark, latency, optimization, quantization, engine rebuild, CUDA
+  change, or persistent environment change occurred.
+- Report and evidence:
+  `experiments/Phase9-qwen3-vl-migration/docs/phase9_2C2R2_finite_input_correctness.md`,
+  `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_2C2R2_20260916T080511Z/`.
+- Stop after this bounded correctness result and await ChatGPT Gate review
+  before any input sweep, tolerance decision, optimization, engine rebuild,
+  benchmark, quantization, or next migration step.
+
 ## Phase 9.2-C2-R1 Non-Finite Diagnosis (2026-09-16)
 
 - After explicit authorization, FP32 and FP16 PyTorch-only diagnostics compared
