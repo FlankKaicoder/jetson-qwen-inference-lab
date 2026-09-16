@@ -1,3 +1,28 @@
+## Phase 9.2-C2-R1 Non-Finite Diagnosis (2026-09-16)
+
+- After explicit authorization, FP32 and FP16 PyTorch-only diagnostics compared
+  the fixed `pixel_values=[784,1536]`, `grid_thw=[1,28,28]` boundary. Gate:
+  `PASS / BOUNDED — C2_INPUT_GENERATION_NONFINITE`.
+- The exact C2 direct CUDA FP16 `torch.linspace` workload was only
+  `10.881696428571429%` finite: `1,073,184` of `1,204,224` elements were NaN.
+- A rejected first diagnostic inherited that non-finite input through a cast to
+  FP32 and is preserved. The corrected diagnostic used direct FP32 `linspace`
+  and finite FP32-to-FP16 cast input.
+- With finite input, FP32 and FP16 passes produced all four outputs with finite
+  ratio `1.0`; 266 runtime hooks were registered and removed, and no module
+  output was non-finite. CUDA peak allocation was `1,754,426,880` bytes for
+  FP32 and `940,955,648` bytes for FP16.
+- Root-cause classification: input/boundary mismatch `SUPPORTED /
+  C2_CUDA_FP16_LINSPACE_NONFINITE`; FP16 instability `NOT_REPRODUCED`; specific
+  submodule instability `NOT_OBSERVED`. The internal CUDA `linspace` reason is
+  `UNKNOWN`.
+- Report and evidence:
+  `experiments/Phase9-qwen3-vl-migration/docs/phase9_2C2R1_nonfinite_diagnosis.md`,
+  `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_2C2R1_20260916T071026Z/`.
+- Stop after this diagnosis and await ChatGPT Gate review before any TensorRT
+  rerun, input replacement, engine rebuild, submodule repair, benchmark,
+  quantization, or optimization.
+
 ## Phase 9.2-C2 Vision FP16 Numerical Correctness (2026-09-16)
 
 - After explicit authorization, one PyTorch FP16 pass and one TensorRT FP16

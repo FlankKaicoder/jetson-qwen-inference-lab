@@ -1,0 +1,44 @@
+{
+  "phase": "Phase 9.2-C2-R1",
+  "artifact_dir": "experiments/Phase9-qwen3-vl-migration/artifacts/phase9_2C2R1_20260916T071026Z",
+  "run_directory": "/tmp/phase9_2c2r1_20260916T071026Z",
+  "attempts": {
+    "attempt1": "failed_attempt1_inherited_nan_input",
+    "attempt2_final": "nonfinite_diagnosis_attempt2.json"
+  },
+  "artifacts": [
+    {
+      "path": "console_attempt2.log",
+      "size_bytes": 403185,
+      "sha256": "fdbf3b24f889dc092fd8a2b73987c0c18d293315e425204419730297577ac344",
+      "git_tracked": false,
+      "reason": "existing repository *.log ignore rule"
+    },
+    {
+      "path": "nonfinite_diagnosis_attempt2.json",
+      "size_bytes": 403185,
+      "sha256": "fdbf3b24f889dc092fd8a2b73987c0c18d293315e425204419730297577ac344"
+    },
+    {
+      "path": "failed_attempt1_inherited_nan_input/console.log",
+      "size_bytes": 378875,
+      "sha256": "ee11633ea95414fde5d1314f0bb4a78a774d60253e38831652cf4e22952bfa1c",
+      "git_tracked": false,
+      "reason": "existing repository *.log ignore rule"
+    },
+    {
+      "path": "failed_attempt1_inherited_nan_input/nonfinite_diagnosis.json",
+      "size_bytes": 378875,
+      "sha256": "ee11633ea95414fde5d1314f0bb4a78a774d60253e38831652cf4e22952bfa1c"
+    },
+    {
+      "path": "failed_attempt1_inherited_nan_input/run_vision_nonfinite_diagnosis.py",
+      "size_bytes": 12069,
+      "sha256": "839f015b472e682c4ec79e0b092d9c916cc2c6f96995129b4c485212e422cc59"
+    }
+  ],
+  "external_input_hashes": {
+    "model_config_sha256": "bec4b3d446efa05807365c9e1cec03ac590836879d02f3a6da879971154bdd3b",
+    "model_weights_sha256": "7de1838c87a5349b016c26a1c3f7d2bc400a3d485f95ef39a7059ffd734977a0"
+  }
+}

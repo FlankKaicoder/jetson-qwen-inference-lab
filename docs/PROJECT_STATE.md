@@ -12,15 +12,41 @@
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 9.2-C2 — Qwen3-VL Vision FP16 Numerical Correctness |
-| Current experiment | Phase 9.2-C2 Qwen3-VL Vision FP16 Numerical Correctness |
+| Current phase | Phase 9.2-C2-R1 — Non-Finite Output Diagnosis |
+| Current experiment | Phase 9.2-C2-R1 Non-Finite Output Diagnosis |
 | Current branch | `phase/09-qwen3vl-migration` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 9.2-C2 — Qwen3-VL Vision FP16 Numerical Correctness |
-| Experiment status | Phase 9.2-C2 executed one PyTorch FP16 pass and one TensorRT engine execution at the fixed boundary. All four PyTorch and TensorRT outputs were non-finite, so required error/cosine metrics are `NaN` and correctness is `INCONCLUSIVE`. |
-| Current Gate | Phase 9.2-C2 is `BLOCKED / NON_FINITE_FP16_FIXED_BOUNDARY`: execution completed, but non-finite outputs prevent a numerical correctness judgment. Non-finite root cause is `UNKNOWN`. |
-| Readiness | Phase 9.2-C2 is `BLOCKED / INCONCLUSIVE` for numerical correctness only. Do not rerun, change input, diagnose further, rebuild, optimize, benchmark, quantize, or modify CUDA/environment until a new explicit authorization. |
+| Last completed experiment | Phase 9.2-C2-R1 — Non-Finite Output Diagnosis |
+| Experiment status | Phase 9.2-C2-R1 identified the C2 non-finite workload as direct CUDA FP16 `torch.linspace` input generation: only `10.881696428571429%` of elements were finite. A direct FP32 input and FP32-cast FP16 input produced fully finite outputs in both passes. |
+| Current Gate | Phase 9.2-C2-R1 is `PASS / BOUNDED — C2_INPUT_GENERATION_NONFINITE`: input/boundary mismatch is supported; FP16 instability and submodule instability were not reproduced. The internal CUDA `linspace` reason remains `UNKNOWN`. |
+| Readiness | Phase 9.2-C2-R1 is diagnostic evidence only. Do not rerun TensorRT, rebuild, replace input, repair a submodule, optimize, benchmark, quantize, or modify CUDA/environment until a new explicit authorization. |
+
+## Phase 9.2-C2-R1 Non-Finite Diagnosis Checkpoint (2026-09-16)
+
+- The owner authorized FP32 reference inference, FP16/FP32 finite-statistics
+  comparison, temporary hooks, and intermediate finite-status inspection only.
+  No TensorRT rebuild/execution, benchmark, optimization, quantization, model
+  modification, CUDA change, or persistent environment change occurred.
+- A rejected first diagnostic reconstructed direct CUDA FP16 `linspace` and
+  cast it to FP32, so the FP32 run inherited non-finite input. Its evidence is
+  preserved. Attempt 2 used direct FP32 `linspace` and a finite FP32-to-FP16
+  cast.
+- The exact C2 direct CUDA FP16 input had `1,073,184` NaNs out of
+  `1,204,224` elements (`finite_ratio=0.10881696428571429`). The first module
+  hook in the rejected attempt was `patch_embed.proj`, but its input was already
+  non-finite.
+- Attempt 2 registered and removed 266 hooks. With finite input, FP32 and FP16
+  passes produced all four outputs with finite ratio `1.0`; no submodule
+  instability was observed.
+- Root cause classification: input/boundary mismatch `SUPPORTED /
+  C2_CUDA_FP16_LINSPACE_NONFINITE`; FP16 instability `NOT_REPRODUCED`; specific
+  submodule instability `NOT_OBSERVED`. The internal `linspace` cause is
+  `UNKNOWN`.
+- Report:
+  `experiments/Phase9-qwen3-vl-migration/docs/phase9_2C2R1_nonfinite_diagnosis.md`.
+  Evidence:
+  `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_2C2R1_20260916T071026Z/`.
 
 ## Phase 9.2-C2 Vision FP16 Correctness Checkpoint (2026-09-16)
 

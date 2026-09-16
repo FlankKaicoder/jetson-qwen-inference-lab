@@ -4,6 +4,24 @@
 
 ## [Unreleased]
 
+### Phase 9.2-C2-R1 Non-Finite Output Diagnosis (2026-09-16)
+
+- Diagnosed the Phase 9.2-C2 non-finite workload using PyTorch FP32 and FP16
+  passes plus 266 removable module-output hooks at the same fixed shape
+  boundary.
+- Reproduced the C2 input issue: direct CUDA FP16 `torch.linspace` produced
+  `1,073,184` NaNs out of `1,204,224` elements, leaving only
+  `10.881696428571429%` finite.
+- With a direct FP32 reference and finite FP32-to-FP16 cast input, both FP32
+  and FP16 passes produced all four outputs with finite ratio `1.0`; no module
+  output was non-finite.
+- Classified input/boundary mismatch as `SUPPORTED /
+  C2_CUDA_FP16_LINSPACE_NONFINITE`, FP16 instability as `NOT_REPRODUCED`, and
+  specific submodule instability as `NOT_OBSERVED`.
+- Gate: `PASS / BOUNDED — C2_INPUT_GENERATION_NONFINITE`. No TensorRT
+  execution/rebuild, benchmark, optimization, quantization, model modification,
+  CUDA modification, or environment modification occurred.
+
 ### Phase 9.2-C2 Qwen3-VL Vision FP16 Numerical Correctness (2026-09-16)
 
 - Compared the PyTorch FP16 `Qwen3VLVisionModel` against the Phase 9.2-C1
