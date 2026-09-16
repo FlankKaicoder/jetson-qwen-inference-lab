@@ -1,0 +1,125 @@
+{
+  "audit_mode": "TENSORRT_FP16_ENGINE_BUILD_ONLY",
+  "build_log": {
+    "error_count": 0,
+    "full_log_path": "/tmp/phase9_2c1_20260916T034956Z/build_console.log",
+    "full_log_sha256": "c8bc9b34eeab9132a26c214269c7d2df987569b8a0d4ae899f67b52d9b6973df",
+    "full_log_size_bytes": 2065893,
+    "selected_log_path": "/tmp/phase9_2c1_20260916T034956Z/build_log_selected.jsonl",
+    "selected_log_sha256": "0ca1585fdcf355d4755a5c10c53b12b6686da56a8a0fa6aa762e1593b444af21",
+    "selected_log_size_bytes": 957,
+    "selected_record_count": 12,
+    "severity_counts": {
+      "INFO": 12,
+      "VERBOSE": 26504
+    },
+    "tactic_message_count": 0,
+    "warning_count": 0
+  },
+  "failure": {
+    "message": "'pybind11_type' object is not iterable",
+    "type": "TypeError"
+  },
+  "finished_utc": "2026-09-16T03:53:53.039432+00:00",
+  "hostname": "nvidia-desktop",
+  "network": {
+    "creation_flags": [
+      "EXPLICIT_BATCH"
+    ],
+    "inputs": [
+      {
+        "dtype": "HALF",
+        "name": "pixel_values",
+        "shape": [
+          784,
+          1536
+        ]
+      }
+    ],
+    "layer_type_counts": {
+      "ACTIVATION": 24,
+      "CAST": 337,
+      "CONCATENATION": 96,
+      "CONSTANT": 1684,
+      "CONVOLUTION": 1,
+      "ELEMENTWISE": 2353,
+      "GATHER": 96,
+      "MATRIX_MULTIPLY": 152,
+      "NORMALIZATION": 52,
+      "SHUFFLE": 1237,
+      "SLICE": 168,
+      "SOFTMAX": 24,
+      "UNARY": 52
+    },
+    "num_inputs": 1,
+    "num_layers": 6276,
+    "num_outputs": 4,
+    "outputs": [
+      {
+        "dtype": "HALF",
+        "name": "final_hidden",
+        "shape": [
+          196,
+          2048
+        ]
+      },
+      {
+        "dtype": "HALF",
+        "name": "deepstack_0",
+        "shape": [
+          196,
+          2048
+        ]
+      },
+      {
+        "dtype": "HALF",
+        "name": "deepstack_1",
+        "shape": [
+          196,
+          2048
+        ]
+      },
+      {
+        "dtype": "HALF",
+        "name": "deepstack_2",
+        "shape": [
+          196,
+          2048
+        ]
+      }
+    ]
+  },
+  "onnx_file": {
+    "path": "/tmp/phase9_2b1_20260915T164731Z/qwen3_vl_vision_fp16_opset17.onnx",
+    "sha256": "102143ffd1afa1ff798736fdbe274fd2cab98f9e7a97d690a27ebd73c404c4db",
+    "size_bytes": 830381691
+  },
+  "parser": {
+    "errors": [],
+    "invocation_method": "OnnxParser.parse_from_file",
+    "invoked": true,
+    "num_errors": 0,
+    "parse_returned": true,
+    "success": true
+  },
+  "phase": "Phase 9.2-C1",
+  "prohibited_operations_performed": {
+    "benchmark_run": false,
+    "correctness_comparison_run": false,
+    "cuda_kernel_modified": false,
+    "engine_executed": false,
+    "environment_modified": false,
+    "execution_context_created": false,
+    "optimization_performed": false,
+    "quantization_performed": false,
+    "runtime_created": false,
+    "tactic_selection_forced": false,
+    "timing_cache_used": false
+  },
+  "runtime": {
+    "execution_context_created": false,
+    "runtime_created": false
+  },
+  "started_utc": "2026-09-16T03:53:46.431499+00:00",
+  "tensorrt_version": "10.3.0"
+}

@@ -4,6 +4,18 @@
 
 ## [Unreleased]
 
+### Phase 9.2-C1 Qwen3-VL Vision ONNX FP16 TensorRT Engine Build (2026-09-16)
+
+- Built and serialized the FP16 vision encoder plan with TensorRT 10.3.0 using
+  explicit 1 GiB workspace and tactic DRAM pools.
+- Recorded an 818,910,588-byte engine, 209 engine layers, 5 IO tensors, 1
+  optimization profile, and the expected one FP16 input plus four FP16 outputs.
+- Preserved four pre-success API-mismatch attempts. Final build logs contained
+  0 warnings and 0 errors.
+- Gate: `PASS / BOUNDED — TENSORRT_FP16_ENGINE_BUILD_ONLY`. No execution
+  context, engine execution, correctness comparison, benchmark, quantization,
+  optimization, CUDA modification, or environment modification occurred.
+
 ### Phase 9.2-B2 Qwen3-VL Vision ONNX TensorRT Parser Audit (2026-09-16)
 
 - Parsed the unchanged Phase 9.2-B1 FP16 opset-17 static vision graph with

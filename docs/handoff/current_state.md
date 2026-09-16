@@ -1,3 +1,22 @@
+## Phase 9.2-C1 Vision ONNX FP16 TensorRT Engine Build (2026-09-16)
+
+- After explicit authorization, TensorRT 10.3.0 built and serialized an FP16
+  engine from the unchanged Phase 9.2-B1 ONNX graph. Gate:
+  `PASS / BOUNDED — TENSORRT_FP16_ENGINE_BUILD_ONLY`.
+- The engine is 818,910,588 bytes with SHA-256 `aa5c200e...44823c` and remains
+  Jetson-local. Metadata records 209 layers, 5 IO tensors, 1 optimization
+  profile, and the expected one FP16 input plus four FP16 outputs.
+- Four pre-success invocations failed on script/API mismatches and are preserved.
+  Build logs contained 0 warnings and 0 errors. No execution context, engine
+  execution, correctness comparison, benchmark, quantization, optimization, CUDA
+  modification, or persistent environment change occurred.
+- Report and evidence:
+  `experiments/Phase9-qwen3-vl-migration/docs/phase9_2C1_vision_onnx_fp16_engine_build.md`,
+  `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_2C1_20260916T034956Z/`.
+- Stop after this build-feasibility phase and await ChatGPT Gate review before
+  any execution context, runtime execution, correctness comparison, benchmark,
+  quantization, or optimization.
+
 ## Phase 9.2-B2 Vision ONNX TensorRT Parser Audit (2026-09-16)
 
 - After explicit authorization, TensorRT 10.3.0 parsed the unchanged Phase

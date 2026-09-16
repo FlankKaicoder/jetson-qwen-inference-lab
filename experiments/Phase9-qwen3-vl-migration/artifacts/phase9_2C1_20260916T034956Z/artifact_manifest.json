@@ -1,0 +1,54 @@
+{
+  "phase": "Phase 9.2-C1",
+  "artifact_dir": "E:\\nvidia-qwen\\experiments\\Phase9-qwen3-vl-migration\\artifacts\\phase9_2C1_20260916T034956Z",
+  "files": [
+    {
+      "path": "build_log_selected.jsonl",
+      "size_bytes": 272997,
+      "sha256": "5a6de41c243f54deb4ac455e28f57538bdf79d8bb08dc6b0fe864d7b6ada423e"
+    },
+    {
+      "path": "build_result_attempt1_script_flag_iteration.json",
+      "size_bytes": 3072,
+      "sha256": "783ad203944919116736cc660a8a6640b116a57fa43e855438a3887f74f0ddc2"
+    },
+    {
+      "path": "build_result_attempt2_script_flag_bitmask.json",
+      "size_bytes": 3110,
+      "sha256": "5936db2cf4afe37c581d4370e1e45565cfc3e7c9d35475bec9b69e8b20a78581"
+    },
+    {
+      "path": "build_result_attempt3_no_build_engine_api.json",
+      "size_bytes": 4529,
+      "sha256": "476a3bd11cd0a194b3b98d6f968a268b1d2f8f30965fbdaa940655f5daed1d89"
+    },
+    {
+      "path": "build_result_attempt4_ihostmemory_write.json",
+      "size_bytes": 4531,
+      "sha256": "d25321f97e5738bbbc62fd1013705264a26a5f046ee5c91ec36792d580a35a48"
+    },
+    {
+      "path": "build_result.json",
+      "size_bytes": 11165,
+      "sha256": "38f23bcd6dac81dbfdca3f874a3074970246616c15b17556928f4b9bc964d926"
+    },
+    {
+      "path": "engine_layer_information.jsonl",
+      "size_bytes": 231150,
+      "sha256": "67a43214239d1acd5914dd9e6bf110743b33d437b6237ddd48d3c382f69069c3"
+    }
+  ],
+  "source_script": {
+    "path": "experiments/Phase9-qwen3-vl-migration/src/phase9_2C1/build_vision_onnx_fp16.py",
+    "size_bytes": 17252,
+    "sha256": "ba0fe4feadde9b893f4bdc68a31d90c5790d2e9cbae0b9004dfbdce40f94a2d7"
+  },
+  "jetson_only_artifacts": {
+    "engine_path": "/tmp/phase9_2c1_20260916T034956Z/engine/qwen3_vl_vision_fp16.trt",
+    "engine_size_bytes": 818910588,
+    "engine_sha256": "aa5c200eb5dcbc5abaef55bc014b5210236fb9ca34394217a024d3796e44823c",
+    "full_build_log_path": "/tmp/phase9_2c1_20260916T034956Z/build_console.log",
+    "full_build_log_size_bytes": 2576908,
+    "full_build_log_sha256": "b6cbd007ae826585235d2fda60fd37fa3ef75a9e2064e5158a31ba715f654c96"
+  }
+}

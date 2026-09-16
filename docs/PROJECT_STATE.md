@@ -12,15 +12,42 @@
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 9.2-B2 — Qwen3-VL Vision ONNX TensorRT Parser Audit |
-| Current experiment | Phase 9.2-B2 Qwen3-VL Vision ONNX TensorRT Parser Audit |
+| Current phase | Phase 9.2-C1 — Qwen3-VL Vision ONNX FP16 TensorRT Engine Build |
+| Current experiment | Phase 9.2-C1 Qwen3-VL Vision ONNX FP16 TensorRT Engine Build |
 | Current branch | `phase/09-qwen3vl-migration` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 9.2-B2 — Qwen3-VL Vision ONNX TensorRT Parser Audit |
-| Experiment status | Phase 9.2-B2 parsed the unchanged Phase 9.2-B1 opset-17 FP16 vision graph with TensorRT 10.3.0; parser returned success, 0 errors, 0 warnings, and the network contains 6,276 layers, 1 input, and 4 outputs. |
-| Current Gate | Phase 9.2-B2 is `PASS / BOUNDED — TENSORRT_PARSE_ONLY`: parser compatibility succeeded, but numerical correctness, engine buildability, tactic availability, runtime performance, and dynamic workloads remain `UNKNOWN`. |
-| Readiness | Phase 9.2-B2 is `PASS / BOUNDED` for parser inspection only. Do not create a BuilderConfig, build/serialize/execute an engine, run correctness comparisons or benchmarks, quantize, optimize, or modify CUDA/environment until a new explicit authorization. |
+| Last completed experiment | Phase 9.2-C1 — Qwen3-VL Vision ONNX FP16 TensorRT Engine Build |
+| Experiment status | Phase 9.2-C1 built and serialized an 818,910,588-byte FP16 engine from the unchanged Phase 9.2-B1 ONNX graph using TensorRT 10.3.0 with explicit 1 GiB workspace and tactic DRAM pools. |
+| Current Gate | Phase 9.2-C1 is `PASS / BOUNDED — TENSORRT_FP16_ENGINE_BUILD_ONLY`: build succeeded, but runtime correctness, performance, dynamic workloads, and deployment suitability remain `UNKNOWN`. |
+| Readiness | Phase 9.2-C1 is `PASS / BOUNDED` for build feasibility only. Do not create an execution context, execute or deserialize further, run correctness comparisons or benchmarks, quantize, optimize, or modify CUDA/environment until a new explicit authorization. |
+
+## Phase 9.2-C1 Vision ONNX FP16 TensorRT Engine Build Checkpoint (2026-09-16)
+
+- The owner authorized FP16 engine build feasibility only. No execution
+  context, engine execution, benchmark, correctness comparison, quantization,
+  optimization, CUDA modification, or persistent environment modification
+  occurred.
+- The input ONNX hash remained
+  `102143ffd1afa1ff798736fdbe274fd2cab98f9e7a97d690a27ebd73c404c4db` for the
+  830,381,691-byte B1 graph.
+- Four pre-success invocations failed on script/API mismatches; their manifests
+  are preserved. The final invocation used
+  `Builder.build_serialized_network` and succeeded in `168.94034890400508`
+  seconds.
+- The engine is 818,910,588 bytes with SHA-256
+  `aa5c200eb5dcbc5abaef55bc014b5210236fb9ca34394217a024d3796e44823c`. It remains
+  Jetson-local. It was deserialized once for metadata inspection only.
+- The engine metadata records 209 layers, 5 IO tensors, 1 optimization profile,
+  and `14,450,688` bytes device memory size. The expected one FP16 input and
+  four FP16 outputs were preserved.
+- Build logs contained 25 INFO, 30,980 VERBOSE, 0 WARNING, and 0 ERROR messages.
+  Gate is `PASS / BOUNDED — TENSORRT_FP16_ENGINE_BUILD_ONLY`; runtime behavior
+  and performance remain `UNKNOWN`.
+- Report:
+  `experiments/Phase9-qwen3-vl-migration/docs/phase9_2C1_vision_onnx_fp16_engine_build.md`.
+  Evidence:
+  `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_2C1_20260916T034956Z/`.
 
 ## Phase 9.2-B2 Vision ONNX TensorRT Parser Audit Checkpoint (2026-09-16)
 

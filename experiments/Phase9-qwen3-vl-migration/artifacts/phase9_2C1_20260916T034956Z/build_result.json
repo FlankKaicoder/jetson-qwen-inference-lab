@@ -1,0 +1,397 @@
+{
+  "audit_mode": "TENSORRT_FP16_ENGINE_BUILD_ONLY",
+  "build_log": {
+    "error_count": 0,
+    "full_log_path": "/tmp/phase9_2c1_20260916T034956Z/build_console.log",
+    "full_log_sha256": "b6cbd007ae826585235d2fda60fd37fa3ef75a9e2064e5158a31ba715f654c96",
+    "full_log_size_bytes": 2576908,
+    "selected_log_path": "/tmp/phase9_2c1_20260916T034956Z/build_log_selected.jsonl",
+    "selected_log_sha256": "5a6de41c243f54deb4ac455e28f57538bdf79d8bb08dc6b0fe864d7b6ada423e",
+    "selected_log_size_bytes": 272997,
+    "selected_record_count": 597,
+    "severity_counts": {
+      "INFO": 25,
+      "VERBOSE": 30980
+    },
+    "tactic_message_count": 572,
+    "warning_count": 0
+  },
+  "builder_config": {
+    "algorithm_selector_used": false,
+    "avg_timing_iterations": 1,
+    "builder_optimization_level": 3,
+    "created": true,
+    "flags_after": [
+      "BF16",
+      "DIRECT_IO",
+      "DISABLE_TIMING_CACHE",
+      "FP8",
+      "GPU_FALLBACK",
+      "INT8",
+      "OBEY_PRECISION_CONSTRAINTS",
+      "REFIT_INDIVIDUAL",
+      "SPARSE_WEIGHTS",
+      "STRIP_PLAN",
+      "VERSION_COMPATIBLE",
+      "WEIGHTLESS",
+      "WEIGHT_STREAMING"
+    ],
+    "flags_before": [
+      "BF16",
+      "DIRECT_IO",
+      "DISABLE_TIMING_CACHE",
+      "FP8",
+      "GPU_FALLBACK",
+      "INT8",
+      "OBEY_PRECISION_CONSTRAINTS",
+      "REFIT_INDIVIDUAL",
+      "SPARSE_WEIGHTS",
+      "STRIP_PLAN",
+      "VERSION_COMPATIBLE",
+      "WEIGHTLESS",
+      "WEIGHT_STREAMING"
+    ],
+    "fp16_flag_set": true,
+    "memory_pool_limits_after": {
+      "TACTIC_DRAM": 1073741824,
+      "TACTIC_SHARED_MEMORY": 1073741824,
+      "WORKSPACE": 1073741824
+    },
+    "memory_pool_limits_before": {
+      "TACTIC_DRAM": 7208960000,
+      "TACTIC_SHARED_MEMORY": 1073741824,
+      "WORKSPACE": 7989903360
+    },
+    "num_optimization_profiles": 0,
+    "profiling_verbosity": "DETAILED",
+    "timing_cache_used": false
+  },
+  "engine_build": {
+    "build_elapsed_seconds": 168.94034890400508,
+    "build_exception": null,
+    "invoked": true,
+    "method": "Builder.build_serialized_network",
+    "serialized_network_returned": true,
+    "success": true
+  },
+  "engine_deserialization": {
+    "exception": null,
+    "success": true
+  },
+  "engine_file": {
+    "path": "/tmp/phase9_2c1_20260916T034956Z/engine/qwen3_vl_vision_fp16.trt",
+    "sha256": "aa5c200eb5dcbc5abaef55bc014b5210236fb9ca34394217a024d3796e44823c",
+    "size_bytes": 818910588
+  },
+  "engine_layer_information": {
+    "path": "/tmp/phase9_2c1_20260916T034956Z/engine_layer_information.jsonl",
+    "sha256": "67a43214239d1acd5914dd9e6bf110743b33d437b6237ddd48d3c382f69069c3",
+    "size_bytes": 231150
+  },
+  "engine_layer_summary": {
+    "layer_type_counts": {
+      "CaskConvolution": 1,
+      "NoOp": 2,
+      "fusion": 4,
+      "gemm": 100,
+      "kgen": 101,
+      "shape_call": 1
+    },
+    "parse_failures": [],
+    "samples": [
+      {
+        "index": 0,
+        "information": {
+          "Inputs": [
+            {
+              "Dimensions": [
+                784,
+                1536
+              ],
+              "Format/Datatype": "Row major linear FP16 format",
+              "Location": "Device",
+              "Name": "pixel_values"
+            }
+          ],
+          "LayerType": "NoOp",
+          "Metadata": "[ONNX Layer: /patch_embed/Reshape]",
+          "Name": "/patch_embed/Reshape",
+          "Outputs": [
+            {
+              "Dimensions": [
+                784,
+                3,
+                2,
+                16,
+                16
+              ],
+              "Format/Datatype": "Row major linear FP16 format",
+              "Location": "Device",
+              "Name": "/patch_embed/Reshape_output_0"
+            }
+          ],
+          "StreamId": 0,
+          "TacticValue": "0x0000000000000000"
+        }
+      },
+      {
+        "index": 208,
+        "information": {
+          "Inputs": [
+            {
+              "Dimensions": [
+                196,
+                4096
+              ],
+              "Format/Datatype": "Half",
+              "Name": "final_hidden'.1_300"
+            },
+            {
+              "Dimensions": [
+                4096,
+                2048
+              ],
+              "Format/Datatype": "Half",
+              "Name": "__mye356375dconst"
+            },
+            {
+              "Dimensions": [
+                1
+              ],
+              "Format/Datatype": "Float",
+              "Name": "__mye351900/merger/linear_fc2/Gemm_alpha"
+            },
+            {
+              "Dimensions": [
+                1
+              ],
+              "Format/Datatype": "Float",
+              "Name": "__mye351901/merger/linear_fc2/Gemm_beta"
+            },
+            {
+              "Dimensions": [
+                1,
+                2048
+              ],
+              "Format/Datatype": "Half",
+              "Name": "visual_merger_linear_fc2_bias _ ONNXTRT_Broadcast_5781_constantHalf"
+            }
+          ],
+          "LayerType": "gemm",
+          "Metadata": "[ONNX Layer: /merger/linear_fc2/Gemm]",
+          "Name": "/merger/linear_fc2/Gemm_myl4_204",
+          "Outputs": [
+            {
+              "Dimensions": [
+                196,
+                2048
+              ],
+              "Format/Datatype": "Half",
+              "Name": "final_hidden"
+            }
+          ],
+          "StreamId": 0,
+          "TacticName": "sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x256x32_stage3_warpsize2x4x1_tensor16x8x16"
+        }
+      }
+    ],
+    "tactic_name_counts": {
+      "": 1,
+      "__myl_AddCasMeaSubMulMeaAddSqrDivMulCasMulAdd_0x4e488be8cda3456b7f8fe5882165bb66": 1,
+      "__myl_AddCasMeaSubMulMeaAddSqrDivMulCasMulAdd_0xbde4d0f44249edc45a317525b133142a": 1,
+      "__myl_AddCasMeaSubMulMeaAddSqrDivMulCasMulAdd_0xddc752d5433c6098ff7ca40caf35224a": 44,
+      "__myl_AddResCasMeaSubMulMeaAddSqrDivMulCasMulAdd_0x7cfda9c28f7ad84bd3c0ae57d85f640c": 3,
+      "__myl_CasMeaSubMulMeaAddSqrDivMulCasMulAdd_0x08a3aafb649d7daf7c8e8e0d7f97c89c": 3,
+      "__myl_Mov_0xd73bf7471c9b5f759210a9460d644cf8": 1,
+      "__myl_TraSliSliResSliNegSliConSliResSliNegSliConMulMulAddTraResTraMulMulAddRes_0x9b77880ef8b66569e10147984be10f28": 24,
+      "_gemm_mha_v2_0xbab5ab159f1658a2c45551d19d5f80fc": 24,
+      "ampere_fp16_s16816gemm_fp16_256x128_ldg8_f2f_gelu_nn_v1": 24,
+      "sm80_xmma_fprop_implicit_gemm_indexed_wo_smem_f16f16_f16f16_f16_nhwckrsc_nhwc_tilesize128x32x64_stage1_warpsize4x1x1_g1_tensor16x8x16_alignc8": 1,
+      "sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x256x32_stage3_warpsize2x4x1_tensor16x8x16": 4,
+      "sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize256x128x32_stage3_warpsize4x2x1_tensor16x8x16": 24,
+      "sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize256x128x32_stage3_warpsize4x2x1_tensor16x8x16_by_cask_result": 4,
+      "sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize160x128x32_stage4_warpsize2x2x1_tensor16x8x16": 48
+    },
+    "tactic_summary_available": true,
+    "tactic_value_counts": {
+      "0x0000000000000000": 2,
+      "0x1bf48a356bd0c083": 1
+    }
+  },
+  "engine_metadata": {
+    "device_memory_size": 14450688,
+    "device_memory_size_v2": 14450688,
+    "engine_capability": "STANDARD",
+    "hardware_compatibility_level": "NONE",
+    "io_tensors": [
+      {
+        "dtype": "HALF",
+        "format": "Row major linear FP16 format (kLINEAR)",
+        "location": "DEVICE",
+        "mode": "INPUT",
+        "name": "pixel_values",
+        "shape": [
+          784,
+          1536
+        ]
+      },
+      {
+        "dtype": "HALF",
+        "format": "Row major linear FP16 format (kLINEAR)",
+        "location": "DEVICE",
+        "mode": "OUTPUT",
+        "name": "final_hidden",
+        "shape": [
+          196,
+          2048
+        ]
+      },
+      {
+        "dtype": "HALF",
+        "format": "Row major linear FP16 format (kLINEAR)",
+        "location": "DEVICE",
+        "mode": "OUTPUT",
+        "name": "deepstack_0",
+        "shape": [
+          196,
+          2048
+        ]
+      },
+      {
+        "dtype": "HALF",
+        "format": "Row major linear FP16 format (kLINEAR)",
+        "location": "DEVICE",
+        "mode": "OUTPUT",
+        "name": "deepstack_1",
+        "shape": [
+          196,
+          2048
+        ]
+      },
+      {
+        "dtype": "HALF",
+        "format": "Row major linear FP16 format (kLINEAR)",
+        "location": "DEVICE",
+        "mode": "OUTPUT",
+        "name": "deepstack_2",
+        "shape": [
+          196,
+          2048
+        ]
+      }
+    ],
+    "name": "Unnamed Network 0",
+    "num_aux_streams": 0,
+    "num_io_tensors": 5,
+    "num_layers": 209,
+    "num_optimization_profiles": 1,
+    "profiling_verbosity": "DETAILED",
+    "refittable": false,
+    "streamable_weights_size": 0,
+    "tactic_sources": "8"
+  },
+  "finished_utc": "2026-09-16T04:07:00.839828+00:00",
+  "hostname": "nvidia-desktop",
+  "network": {
+    "creation_flags": [
+      "EXPLICIT_BATCH"
+    ],
+    "inputs": [
+      {
+        "dtype": "HALF",
+        "name": "pixel_values",
+        "shape": [
+          784,
+          1536
+        ]
+      }
+    ],
+    "layer_type_counts": {
+      "ACTIVATION": 24,
+      "CAST": 337,
+      "CONCATENATION": 96,
+      "CONSTANT": 1684,
+      "CONVOLUTION": 1,
+      "ELEMENTWISE": 2353,
+      "GATHER": 96,
+      "MATRIX_MULTIPLY": 152,
+      "NORMALIZATION": 52,
+      "SHUFFLE": 1237,
+      "SLICE": 168,
+      "SOFTMAX": 24,
+      "UNARY": 52
+    },
+    "num_inputs": 1,
+    "num_layers": 6276,
+    "num_outputs": 4,
+    "outputs": [
+      {
+        "dtype": "HALF",
+        "name": "final_hidden",
+        "shape": [
+          196,
+          2048
+        ]
+      },
+      {
+        "dtype": "HALF",
+        "name": "deepstack_0",
+        "shape": [
+          196,
+          2048
+        ]
+      },
+      {
+        "dtype": "HALF",
+        "name": "deepstack_1",
+        "shape": [
+          196,
+          2048
+        ]
+      },
+      {
+        "dtype": "HALF",
+        "name": "deepstack_2",
+        "shape": [
+          196,
+          2048
+        ]
+      }
+    ]
+  },
+  "onnx_file": {
+    "path": "/tmp/phase9_2b1_20260915T164731Z/qwen3_vl_vision_fp16_opset17.onnx",
+    "sha256": "102143ffd1afa1ff798736fdbe274fd2cab98f9e7a97d690a27ebd73c404c4db",
+    "size_bytes": 830381691
+  },
+  "parser": {
+    "errors": [],
+    "invocation_method": "OnnxParser.parse_from_file",
+    "invoked": true,
+    "num_errors": 0,
+    "parse_returned": true,
+    "success": true
+  },
+  "phase": "Phase 9.2-C1",
+  "prohibited_operations_performed": {
+    "benchmark_run": false,
+    "correctness_comparison_run": false,
+    "cuda_kernel_modified": false,
+    "engine_executed": false,
+    "environment_modified": false,
+    "execution_context_created": false,
+    "optimization_performed": false,
+    "quantization_performed": false,
+    "tactic_selection_forced": false,
+    "timing_cache_used": false
+  },
+  "runtime": {
+    "engine_deserialized_for_metadata_only": true,
+    "engine_executed": false,
+    "execution_context_created": false,
+    "runtime_created": true,
+    "runtime_created_for_metadata_only": true
+  },
+  "started_utc": "2026-09-16T04:03:33.367411+00:00",
+  "tensorrt_version": "10.3.0"
+}

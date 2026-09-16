@@ -1,0 +1,182 @@
+{
+  "audit_mode": "TENSORRT_FP16_ENGINE_BUILD_ONLY",
+  "build_log": {
+    "error_count": 0,
+    "full_log_path": "/tmp/phase9_2c1_20260916T034956Z/build_console.log",
+    "full_log_sha256": "60456842177f4aeea7e47ee50933e2851e94e45bcb7bc976724cff10257976a3",
+    "full_log_size_bytes": 2576097,
+    "selected_log_path": "/tmp/phase9_2c1_20260916T034956Z/build_log_selected.jsonl",
+    "selected_log_sha256": "9ed9253cb1feb6a5e32844eda843698c31318860d6139d6f6dd33e32a2496540",
+    "selected_log_size_bytes": 272219,
+    "selected_record_count": 596,
+    "severity_counts": {
+      "INFO": 24,
+      "VERBOSE": 30979
+    },
+    "tactic_message_count": 572,
+    "warning_count": 0
+  },
+  "builder_config": {
+    "algorithm_selector_used": false,
+    "avg_timing_iterations": 1,
+    "builder_optimization_level": 3,
+    "created": true,
+    "flags_after": [
+      "BF16",
+      "DIRECT_IO",
+      "DISABLE_TIMING_CACHE",
+      "FP8",
+      "GPU_FALLBACK",
+      "INT8",
+      "OBEY_PRECISION_CONSTRAINTS",
+      "REFIT_INDIVIDUAL",
+      "SPARSE_WEIGHTS",
+      "STRIP_PLAN",
+      "VERSION_COMPATIBLE",
+      "WEIGHTLESS",
+      "WEIGHT_STREAMING"
+    ],
+    "flags_before": [
+      "BF16",
+      "DIRECT_IO",
+      "DISABLE_TIMING_CACHE",
+      "FP8",
+      "GPU_FALLBACK",
+      "INT8",
+      "OBEY_PRECISION_CONSTRAINTS",
+      "REFIT_INDIVIDUAL",
+      "SPARSE_WEIGHTS",
+      "STRIP_PLAN",
+      "VERSION_COMPATIBLE",
+      "WEIGHTLESS",
+      "WEIGHT_STREAMING"
+    ],
+    "fp16_flag_set": true,
+    "memory_pool_limits_after": {
+      "TACTIC_DRAM": 1073741824,
+      "TACTIC_SHARED_MEMORY": 1073741824,
+      "WORKSPACE": 1073741824
+    },
+    "memory_pool_limits_before": {
+      "TACTIC_DRAM": 7208960000,
+      "TACTIC_SHARED_MEMORY": 1073741824,
+      "WORKSPACE": 7989903360
+    },
+    "num_optimization_profiles": 0,
+    "profiling_verbosity": "DETAILED",
+    "timing_cache_used": false
+  },
+  "engine_build": {
+    "build_elapsed_seconds": 163.07877823600575,
+    "build_exception": null,
+    "invoked": true,
+    "method": "Builder.build_serialized_network",
+    "serialized_network_returned": true,
+    "success": true
+  },
+  "failure": {
+    "message": "'tensorrt.tensorrt.IHostMemory' object has no attribute 'ptr'",
+    "type": "AttributeError"
+  },
+  "finished_utc": "2026-09-16T04:01:52.203435+00:00",
+  "hostname": "nvidia-desktop",
+  "network": {
+    "creation_flags": [
+      "EXPLICIT_BATCH"
+    ],
+    "inputs": [
+      {
+        "dtype": "HALF",
+        "name": "pixel_values",
+        "shape": [
+          784,
+          1536
+        ]
+      }
+    ],
+    "layer_type_counts": {
+      "ACTIVATION": 24,
+      "CAST": 337,
+      "CONCATENATION": 96,
+      "CONSTANT": 1684,
+      "CONVOLUTION": 1,
+      "ELEMENTWISE": 2353,
+      "GATHER": 96,
+      "MATRIX_MULTIPLY": 152,
+      "NORMALIZATION": 52,
+      "SHUFFLE": 1237,
+      "SLICE": 168,
+      "SOFTMAX": 24,
+      "UNARY": 52
+    },
+    "num_inputs": 1,
+    "num_layers": 6276,
+    "num_outputs": 4,
+    "outputs": [
+      {
+        "dtype": "HALF",
+        "name": "final_hidden",
+        "shape": [
+          196,
+          2048
+        ]
+      },
+      {
+        "dtype": "HALF",
+        "name": "deepstack_0",
+        "shape": [
+          196,
+          2048
+        ]
+      },
+      {
+        "dtype": "HALF",
+        "name": "deepstack_1",
+        "shape": [
+          196,
+          2048
+        ]
+      },
+      {
+        "dtype": "HALF",
+        "name": "deepstack_2",
+        "shape": [
+          196,
+          2048
+        ]
+      }
+    ]
+  },
+  "onnx_file": {
+    "path": "/tmp/phase9_2b1_20260915T164731Z/qwen3_vl_vision_fp16_opset17.onnx",
+    "sha256": "102143ffd1afa1ff798736fdbe274fd2cab98f9e7a97d690a27ebd73c404c4db",
+    "size_bytes": 830381691
+  },
+  "parser": {
+    "errors": [],
+    "invocation_method": "OnnxParser.parse_from_file",
+    "invoked": true,
+    "num_errors": 0,
+    "parse_returned": true,
+    "success": true
+  },
+  "phase": "Phase 9.2-C1",
+  "prohibited_operations_performed": {
+    "benchmark_run": false,
+    "correctness_comparison_run": false,
+    "cuda_kernel_modified": false,
+    "engine_executed": false,
+    "environment_modified": false,
+    "execution_context_created": false,
+    "optimization_performed": false,
+    "quantization_performed": false,
+    "tactic_selection_forced": false,
+    "timing_cache_used": false
+  },
+  "runtime": {
+    "execution_context_created": false,
+    "runtime_created": false
+  },
+  "started_utc": "2026-09-16T03:59:02.815733+00:00",
+  "tensorrt_version": "10.3.0"
+}
