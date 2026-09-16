@@ -12,15 +12,51 @@
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 9.2-D1 — Isolated Vision Encoder Latency Benchmark |
-| Current experiment | Phase 9.2-D1 Isolated Qwen3-VL Vision Encoder Latency Benchmark |
+| Current phase | Phase 9.3-A — End-to-End TensorRT Vision Integration Harness |
+| Current experiment | Phase 9.3-A Qwen3-VL End-to-End TensorRT Vision Integration Harness |
 | Current branch | `phase/09-qwen3vl-migration` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 9.2-D1 — Isolated Qwen3-VL Vision Encoder Latency Benchmark |
-| Experiment status | Phase 9.2-D1 completed the frozen fixed-boundary benchmark with 3 warmups and 30 measured trials per backend. PyTorch FP16 mean was `225.396496582031` ms and unchanged TensorRT FP16 mean was `82.9734232584635` ms. |
-| Current Gate | Phase 9.2-D1 is `PASS / BOUNDED — VISION_LATENCY_METRICS_RECORDED`: descriptive fixed-boundary latency only, with no numerical tolerance, optimization, or deployment gate. |
-| Readiness | Phase 9.2-D1 evidence applies only to the deterministic `[784,1536]` / `[1,28,28]` workload. Do not sweep inputs, optimize, rebuild, rerun, benchmark, quantize, or modify CUDA/environment until a new explicit authorization. |
+| Last completed experiment | Phase 9.3-A — Qwen3-VL End-to-End TensorRT Vision Integration Harness |
+| Experiment status | Phase 9.3-A established the controlled end-to-end harness. One PyTorch/TensorRT visual check, one warmup generation, and three measured generations per backend completed; both backends generated the same 16-token sequence. |
+| Current Gate | Phase 9.3-A is `PASS / BOUNDED — END_TO_END_HARNESS_FUNCTIONAL`. Direct visual outputs were finite with matching shapes, and cross-backend first-token top-1 agreement was true in all three measured trials. Full-vocabulary logit error metrics are `UNKNOWN` because both backends had one negative-infinity logit. |
+| Readiness | Phase 9.3-A is functional harness evidence for one deterministic 16-token workload with three trials per backend. Do not sweep inputs, diagnose the negative-infinity logit, optimize, rebuild, rerun, benchmark, quantize, or modify CUDA/environment until a new explicit authorization. |
+
+## Phase 9.3-A End-to-End Vision Integration Checkpoint (2026-09-16)
+
+- The owner authorized first-stage establishment of an end-to-end harness
+  integrating the unchanged C1 TensorRT FP16 Vision Encoder into Qwen3-VL. No
+  optimization, quantization, rebuild, decoder modification, CUDA change, or
+  persistent environment change occurred.
+- The frozen protocol used a runtime `nn.Module` adapter assigned to
+  `model.model.visual`, leaving `Qwen3VLModel` language model and generation
+  unchanged. The language model remained `Qwen3VLTextModel` with
+  `1,720,574,976` parameters after injection.
+- A direct PyTorch-versus-TensorRT visual check on the processor output found
+  all four outputs finite with matching `[196,2048]` shapes. Across outputs,
+  minimum cosine was `0.9991330504417419`, maximum mean absolute error was
+  `0.012291578575968742`, and maximum absolute error was `1.51953125`.
+- With one warmup and three measured generations per backend, mean first-token
+  latency was `263.0651092529297` ms for PyTorch and `260.0856526692708` ms for
+  TensorRT. Mean total latency was `2129.2288411458335` ms and
+  `2122.2044270833335` ms; mean tokens/s were `7.514606813851262` and
+  `7.539411177985605`.
+- Both backends produced the same 16-token sequence and decoded text. Top-1
+  token `1986` agreed in all three cross-backend comparisons. Full-vocabulary
+  first-token logits had finite ratio `151935 / 151936` on both backends, each
+  with one negative infinity; the cause/index remains `UNKNOWN` and no
+  tolerance was applied.
+- PyTorch allocator peak usage was `4,363,708,928` allocated and
+  `4,433,379,328` reserved bytes. These are allocator snapshots, not TensorRT
+  total GPU or profiler DRAM memory.
+- A first execution failed only during final JSON serialization because raw
+  trial tensors remained in the result object; this failed attempt is preserved.
+  The corrected run completed successfully with protocol hash
+  `4f1f83c68e0d6d1edcf389e586e13dd7243989396157a3dcfc5caf7f78dc94b8`.
+- Report:
+  `experiments/Phase9-qwen3-vl-migration/docs/phase9_3A_end_to_end_vision_integration_harness.md`.
+  Evidence:
+  `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_3A_20260916T085442Z/`.
 
 ## Phase 9.2-D1 Vision Encoder Latency Checkpoint (2026-09-16)
 

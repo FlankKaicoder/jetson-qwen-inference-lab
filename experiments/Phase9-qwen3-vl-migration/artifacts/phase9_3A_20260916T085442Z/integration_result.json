@@ -1,0 +1,1360 @@
+{
+  "phase": "Phase 9.3-A",
+  "title": "Qwen3-VL end-to-end TensorRT vision integration harness",
+  "started_utc": "2026-09-16T09:03:50.340196+00:00",
+  "hostname": "nvidia-desktop",
+  "device": "cuda:0",
+  "device_name": "Orin",
+  "cuda_capability": [
+    8,
+    7
+  ],
+  "torch_version": "2.5.0a0+872d972e41.nv24.08",
+  "cuda_version": "12.6",
+  "tensorrt_version": "10.3.0",
+  "protocol": {
+    "path": "/tmp/phase9_3a_20260916T085442Z/results/harness_protocol.json",
+    "sha256": "4f1f83c68e0d6d1edcf389e586e13dd7243989396157a3dcfc5caf7f78dc94b8",
+    "frozen_at_utc": "2026-09-16T08:54:42Z",
+    "timing": {
+      "method": "cuda_events",
+      "first_token_latency": "CUDA event duration around the complete prefill forward after preprocessing",
+      "total_latency": "CUDA event duration from immediately before prefill through the final fixed-token decode call",
+      "tokens_per_second": "max_new_tokens / total_latency_seconds",
+      "event_synchronization": "synchronize before timing start, after prefill event pair, and after total event",
+      "preprocess_included": false
+    },
+    "workload": {
+      "image_mode": "RGB",
+      "image_width": 448,
+      "image_height": 448,
+      "image_description": "deterministic white background with a filled red square at [112,112,335,335]",
+      "prompt": "Describe the image.",
+      "sampling_rule": "greedy",
+      "max_new_tokens": 16,
+      "minimum_new_tokens": 16,
+      "eos_masking": "EOS is masked before argmax for decode steps 1 through 14; step 15 may emit EOS",
+      "warmup_generations_per_backend": 1,
+      "measured_generations_per_backend": 3,
+      "inter_trial_sleep_seconds": 0,
+      "backend_order": [
+        "pytorch_fp16",
+        "tensorrt_fp16"
+      ]
+    },
+    "correctness": {
+      "vision_output_finite_checks": true,
+      "vision_output_shape_checks": true,
+      "first_token_logits_finite_checks": true,
+      "first_token_logits_comparison": "max absolute error, mean absolute error, cosine similarity, and top-1 agreement against baseline trial 1 for cross-backend integration evidence",
+      "first_token_logits_cross_backend_comparison": true,
+      "generated_token_id_comparison": true,
+      "generated_text_comparison": true,
+      "deployment_correctness_gate": false
+    }
+  },
+  "model_identity": {
+    "identity": "Qwen/Qwen3-VL-2B-Instruct",
+    "revision": "89644892e4d85e24eaac8bacfd4f463576704203",
+    "local_path": "/home/nvidia/models/qwen3-vl-2b-instruct-89644892e4d85e24eaac8bacfd4f463576704203",
+    "config_sha256": "bec4b3d446efa05807365c9e1cec03ac590836879d02f3a6da879971154bdd3b",
+    "weights_sha256": "7de1838c87a5349b016c26a1c3f7d2bc400a3d485f95ef39a7059ffd734977a0",
+    "weights_size_bytes": 4255140312
+  },
+  "engine_file": {
+    "path": "/tmp/phase9_2c1_20260916T034956Z/engine/qwen3_vl_vision_fp16.trt",
+    "size_bytes": 818910588,
+    "sha256_before": "aa5c200eb5dcbc5abaef55bc014b5210236fb9ca34394217a024d3796e44823c",
+    "sha256_after": "aa5c200eb5dcbc5abaef55bc014b5210236fb9ca34394217a024d3796e44823c"
+  },
+  "authorization_boundary": {
+    "integration_harness": true,
+    "controlled_comparison": true,
+    "optimization": false,
+    "quantization": false,
+    "tensorrt_engine_rebuild": false,
+    "decoder_modification": false,
+    "cuda_modification": false,
+    "environment_modification": false,
+    "benchmark_sweep": false
+  },
+  "input": {
+    "input_ids": {
+      "shape": [
+        1,
+        210
+      ],
+      "element_count": 210,
+      "finite_count": 210,
+      "nonfinite_count": 0,
+      "finite_ratio": 1.0,
+      "nan_count": 0,
+      "positive_inf_count": 0,
+      "negative_inf_count": 0,
+      "all_finite": true,
+      "dtype": "torch.float32"
+    },
+    "attention_mask": {
+      "shape": [
+        1,
+        210
+      ],
+      "element_count": 210,
+      "finite_count": 210,
+      "nonfinite_count": 0,
+      "finite_ratio": 1.0,
+      "nan_count": 0,
+      "positive_inf_count": 0,
+      "negative_inf_count": 0,
+      "all_finite": true,
+      "dtype": "torch.float32"
+    },
+    "pixel_values": {
+      "shape": [
+        784,
+        1536
+      ],
+      "element_count": 1204224,
+      "finite_count": 1204224,
+      "nonfinite_count": 0,
+      "finite_ratio": 1.0,
+      "nan_count": 0,
+      "positive_inf_count": 0,
+      "negative_inf_count": 0,
+      "all_finite": true,
+      "dtype": "torch.float32"
+    },
+    "image_grid_thw": {
+      "shape": [
+        1,
+        3
+      ],
+      "element_count": 3,
+      "finite_count": 3,
+      "nonfinite_count": 0,
+      "finite_ratio": 1.0,
+      "nan_count": 0,
+      "positive_inf_count": 0,
+      "negative_inf_count": 0,
+      "all_finite": true,
+      "dtype": "torch.float32"
+    },
+    "prompt": "<|im_start|>user\n<|vision_start|><|image_pad|><|vision_end|>Describe the image.<|im_end|>\n<|im_start|>assistant\n"
+  },
+  "integration_check": {
+    "input_generation": "processor_output_fp16_fixed_boundary",
+    "all_shapes_match": true,
+    "all_outputs_finite": true,
+    "adapter_metadata": {
+      "engine_name": "Unnamed Network 0",
+      "num_layers": 209,
+      "num_io_tensors": 5,
+      "num_optimization_profiles": 1,
+      "device_memory_size_v2": 14450688,
+      "log_counts_by_severity": {
+        "INFO": 2,
+        "VERBOSE": 6,
+        "WARNING": 1
+      },
+      "error_count": 0
+    },
+    "output_metrics": {
+      "final_hidden": {
+        "shape_reference": [
+          196,
+          2048
+        ],
+        "shape_actual": [
+          196,
+          2048
+        ],
+        "dtype_reference": "torch.float16",
+        "dtype_actual": "torch.float16",
+        "reference": {
+          "shape": [
+            196,
+            2048
+          ],
+          "element_count": 401408,
+          "finite_count": 401408,
+          "nonfinite_count": 0,
+          "finite_ratio": 1.0,
+          "nan_count": 0,
+          "positive_inf_count": 0,
+          "negative_inf_count": 0,
+          "all_finite": true,
+          "dtype": "torch.float32"
+        },
+        "actual": {
+          "shape": [
+            196,
+            2048
+          ],
+          "element_count": 401408,
+          "finite_count": 401408,
+          "nonfinite_count": 0,
+          "finite_ratio": 1.0,
+          "nan_count": 0,
+          "positive_inf_count": 0,
+          "negative_inf_count": 0,
+          "all_finite": true,
+          "dtype": "torch.float32"
+        },
+        "max_absolute_error": 0.982421875,
+        "mean_absolute_error": 0.009175275452435017,
+        "cosine_similarity": 0.9991949200630188,
+        "metrics_finite": true
+      },
+      "deepstack_0": {
+        "shape_reference": [
+          196,
+          2048
+        ],
+        "shape_actual": [
+          196,
+          2048
+        ],
+        "dtype_reference": "torch.float16",
+        "dtype_actual": "torch.float16",
+        "reference": {
+          "shape": [
+            196,
+            2048
+          ],
+          "element_count": 401408,
+          "finite_count": 401408,
+          "nonfinite_count": 0,
+          "finite_ratio": 1.0,
+          "nan_count": 0,
+          "positive_inf_count": 0,
+          "negative_inf_count": 0,
+          "all_finite": true,
+          "dtype": "torch.float32"
+        },
+        "actual": {
+          "shape": [
+            196,
+            2048
+          ],
+          "element_count": 401408,
+          "finite_count": 401408,
+          "nonfinite_count": 0,
+          "finite_ratio": 1.0,
+          "nan_count": 0,
+          "positive_inf_count": 0,
+          "negative_inf_count": 0,
+          "all_finite": true,
+          "dtype": "torch.float32"
+        },
+        "max_absolute_error": 0.046875,
+        "mean_absolute_error": 0.0026899827644228935,
+        "cosine_similarity": 0.9999522566795349,
+        "metrics_finite": true
+      },
+      "deepstack_1": {
+        "shape_reference": [
+          196,
+          2048
+        ],
+        "shape_actual": [
+          196,
+          2048
+        ],
+        "dtype_reference": "torch.float16",
+        "dtype_actual": "torch.float16",
+        "reference": {
+          "shape": [
+            196,
+            2048
+          ],
+          "element_count": 401408,
+          "finite_count": 401408,
+          "nonfinite_count": 0,
+          "finite_ratio": 1.0,
+          "nan_count": 0,
+          "positive_inf_count": 0,
+          "negative_inf_count": 0,
+          "all_finite": true,
+          "dtype": "torch.float32"
+        },
+        "actual": {
+          "shape": [
+            196,
+            2048
+          ],
+          "element_count": 401408,
+          "finite_count": 401408,
+          "nonfinite_count": 0,
+          "finite_ratio": 1.0,
+          "nan_count": 0,
+          "positive_inf_count": 0,
+          "negative_inf_count": 0,
+          "all_finite": true,
+          "dtype": "torch.float32"
+        },
+        "max_absolute_error": 1.405029296875,
+        "mean_absolute_error": 0.008119885809719563,
+        "cosine_similarity": 0.9993446469306946,
+        "metrics_finite": true
+      },
+      "deepstack_2": {
+        "shape_reference": [
+          196,
+          2048
+        ],
+        "shape_actual": [
+          196,
+          2048
+        ],
+        "dtype_reference": "torch.float16",
+        "dtype_actual": "torch.float16",
+        "reference": {
+          "shape": [
+            196,
+            2048
+          ],
+          "element_count": 401408,
+          "finite_count": 401408,
+          "nonfinite_count": 0,
+          "finite_ratio": 1.0,
+          "nan_count": 0,
+          "positive_inf_count": 0,
+          "negative_inf_count": 0,
+          "all_finite": true,
+          "dtype": "torch.float32"
+        },
+        "actual": {
+          "shape": [
+            196,
+            2048
+          ],
+          "element_count": 401408,
+          "finite_count": 401408,
+          "nonfinite_count": 0,
+          "finite_ratio": 1.0,
+          "nan_count": 0,
+          "positive_inf_count": 0,
+          "negative_inf_count": 0,
+          "all_finite": true,
+          "dtype": "torch.float32"
+        },
+        "max_absolute_error": 1.51953125,
+        "mean_absolute_error": 0.012291578575968742,
+        "cosine_similarity": 0.9991330504417419,
+        "metrics_finite": true
+      }
+    },
+    "numerical_tolerance_applied": false,
+    "cross_backend_first_token_logits": {
+      "reference": "pytorch_fp16_measured_trial_1",
+      "comparison_trials": [
+        {
+          "shape_reference": [
+            1,
+            151936
+          ],
+          "shape_actual": [
+            1,
+            151936
+          ],
+          "dtype_reference": "torch.float32",
+          "dtype_actual": "torch.float32",
+          "reference": {
+            "shape": [
+              1,
+              151936
+            ],
+            "element_count": 151936,
+            "finite_count": 151935,
+            "nonfinite_count": 1,
+            "finite_ratio": 0.9999934182813817,
+            "nan_count": 0,
+            "positive_inf_count": 0,
+            "negative_inf_count": 1,
+            "all_finite": false,
+            "dtype": "torch.float32"
+          },
+          "actual": {
+            "shape": [
+              1,
+              151936
+            ],
+            "element_count": 151936,
+            "finite_count": 151935,
+            "nonfinite_count": 1,
+            "finite_ratio": 0.9999934182813817,
+            "nan_count": 0,
+            "positive_inf_count": 0,
+            "negative_inf_count": 1,
+            "all_finite": false,
+            "dtype": "torch.float32"
+          },
+          "max_absolute_error": null,
+          "mean_absolute_error": null,
+          "cosine_similarity": null,
+          "metrics_finite": false,
+          "baseline_top1_token": 1986,
+          "actual_top1_token": 1986,
+          "top1_agreement": true
+        },
+        {
+          "shape_reference": [
+            1,
+            151936
+          ],
+          "shape_actual": [
+            1,
+            151936
+          ],
+          "dtype_reference": "torch.float32",
+          "dtype_actual": "torch.float32",
+          "reference": {
+            "shape": [
+              1,
+              151936
+            ],
+            "element_count": 151936,
+            "finite_count": 151935,
+            "nonfinite_count": 1,
+            "finite_ratio": 0.9999934182813817,
+            "nan_count": 0,
+            "positive_inf_count": 0,
+            "negative_inf_count": 1,
+            "all_finite": false,
+            "dtype": "torch.float32"
+          },
+          "actual": {
+            "shape": [
+              1,
+              151936
+            ],
+            "element_count": 151936,
+            "finite_count": 151935,
+            "nonfinite_count": 1,
+            "finite_ratio": 0.9999934182813817,
+            "nan_count": 0,
+            "positive_inf_count": 0,
+            "negative_inf_count": 1,
+            "all_finite": false,
+            "dtype": "torch.float32"
+          },
+          "max_absolute_error": null,
+          "mean_absolute_error": null,
+          "cosine_similarity": null,
+          "metrics_finite": false,
+          "baseline_top1_token": 1986,
+          "actual_top1_token": 1986,
+          "top1_agreement": true
+        },
+        {
+          "shape_reference": [
+            1,
+            151936
+          ],
+          "shape_actual": [
+            1,
+            151936
+          ],
+          "dtype_reference": "torch.float32",
+          "dtype_actual": "torch.float32",
+          "reference": {
+            "shape": [
+              1,
+              151936
+            ],
+            "element_count": 151936,
+            "finite_count": 151935,
+            "nonfinite_count": 1,
+            "finite_ratio": 0.9999934182813817,
+            "nan_count": 0,
+            "positive_inf_count": 0,
+            "negative_inf_count": 1,
+            "all_finite": false,
+            "dtype": "torch.float32"
+          },
+          "actual": {
+            "shape": [
+              1,
+              151936
+            ],
+            "element_count": 151936,
+            "finite_count": 151935,
+            "nonfinite_count": 1,
+            "finite_ratio": 0.9999934182813817,
+            "nan_count": 0,
+            "positive_inf_count": 0,
+            "negative_inf_count": 1,
+            "all_finite": false,
+            "dtype": "torch.float32"
+          },
+          "max_absolute_error": null,
+          "mean_absolute_error": null,
+          "cosine_similarity": null,
+          "metrics_finite": false,
+          "baseline_top1_token": 1986,
+          "actual_top1_token": 1986,
+          "top1_agreement": true
+        }
+      ],
+      "all_top1_agree": true,
+      "numerical_tolerance_applied": false
+    }
+  },
+  "decoder_unchanged_evidence": {
+    "decoder_path": "model.model.language_model and model.lm_head unchanged",
+    "language_model_class": "Qwen3VLTextModel",
+    "language_model_parameter_count_after_injection": 1720574976,
+    "language_model_parameter_count_unchanged": true,
+    "visual_backend_class_after_injection": "TensorRTVisionAdapter",
+    "original_visual_reference_released": true
+  },
+  "memory": {
+    "after_model_load": {
+      "allocated_bytes": 4255079424,
+      "reserved_bytes": 4324327424,
+      "peak_allocated_bytes": 4263985152,
+      "peak_reserved_bytes": 4324327424,
+      "host_mem_available_bytes": 1854193664
+    },
+    "after_pytorch_vision_reference": {
+      "allocated_bytes": 4269960704,
+      "reserved_bytes": 4431282176,
+      "peak_allocated_bytes": 4363708928,
+      "peak_reserved_bytes": 4431282176
+    },
+    "after_tensorrt_injection_and_cleanup": {
+      "allocated_bytes": 3456848896,
+      "reserved_bytes": 4263510016,
+      "peak_allocated_bytes": 4363708928,
+      "peak_reserved_bytes": 4433379328,
+      "host_mem_available_bytes": 637104128
+    },
+    "after_pytorch_fp16": {
+      "allocated_bytes": 3456851456,
+      "reserved_bytes": 4299161600,
+      "peak_allocated_bytes": 4363708928,
+      "peak_reserved_bytes": 4433379328
+    },
+    "after_tensorrt_fp16": {
+      "allocated_bytes": 3456852992,
+      "reserved_bytes": 4299161600,
+      "peak_allocated_bytes": 4363708928,
+      "peak_reserved_bytes": 4433379328
+    }
+  },
+  "backends": {
+    "pytorch_fp16": {
+      "warmup_trials": [
+        {
+          "generation_success": true,
+          "generated_tokens": 16,
+          "generated_token_ids": [
+            1986,
+            1986,
+            374,
+            264,
+            4285,
+            11,
+            52484,
+            2168,
+            16445,
+            264,
+            6437,
+            2518,
+            9334,
+            30188,
+            389,
+            264
+          ],
+          "first_token_latency_ms": 651.5941772460938,
+          "total_latency_ms": 2663.998779296875,
+          "tokens_per_second": 6.006008758090713,
+          "prefill_logits_finite": false,
+          "final_decode_logits_finite": true
+        }
+      ],
+      "measured_trials": [
+        {
+          "generation_success": true,
+          "generated_tokens": 16,
+          "generated_token_ids": [
+            1986,
+            1986,
+            374,
+            264,
+            4285,
+            11,
+            52484,
+            2168,
+            16445,
+            264,
+            6437,
+            2518,
+            9334,
+            30188,
+            389,
+            264
+          ],
+          "first_token_latency_ms": 266.63592529296875,
+          "total_latency_ms": 2139.00830078125,
+          "tokens_per_second": 7.480101874385513,
+          "prefill_logits_finite": false,
+          "final_decode_logits_finite": true
+        },
+        {
+          "generation_success": true,
+          "generated_tokens": 16,
+          "generated_token_ids": [
+            1986,
+            1986,
+            374,
+            264,
+            4285,
+            11,
+            52484,
+            2168,
+            16445,
+            264,
+            6437,
+            2518,
+            9334,
+            30188,
+            389,
+            264
+          ],
+          "first_token_latency_ms": 251.95606994628906,
+          "total_latency_ms": 2116.40380859375,
+          "tokens_per_second": 7.559993955327098,
+          "prefill_logits_finite": false,
+          "final_decode_logits_finite": true
+        },
+        {
+          "generation_success": true,
+          "generated_tokens": 16,
+          "generated_token_ids": [
+            1986,
+            1986,
+            374,
+            264,
+            4285,
+            11,
+            52484,
+            2168,
+            16445,
+            264,
+            6437,
+            2518,
+            9334,
+            30188,
+            389,
+            264
+          ],
+          "first_token_latency_ms": 270.60333251953125,
+          "total_latency_ms": 2132.2744140625,
+          "tokens_per_second": 7.503724611841174,
+          "prefill_logits_finite": false,
+          "final_decode_logits_finite": true
+        }
+      ],
+      "summary": {
+        "generation_success_count": 3,
+        "sample_count": 3,
+        "first_token_latency_ms": {
+          "sample_count": 3,
+          "mean_ms": 263.0651092529297,
+          "median_ms": 266.63592529296875,
+          "stddev_ms": 9.823092474506687,
+          "min_ms": 251.95606994628906,
+          "max_ms": 270.60333251953125
+        },
+        "total_latency_ms": {
+          "sample_count": 3,
+          "mean_ms": 2129.2288411458335,
+          "median_ms": 2132.2744140625,
+          "stddev_ms": 11.605921012859655,
+          "min_ms": 2116.40380859375,
+          "max_ms": 2139.00830078125
+        },
+        "tokens_per_second": {
+          "sample_count": 3,
+          "unit": "tokens/s",
+          "mean": 7.514606813851262,
+          "median": 7.503724611841174,
+          "stddev": 0.04104269593649346,
+          "min": 7.480101874385513,
+          "max": 7.559993955327098
+        },
+        "unique_token_id_sequences": [
+          [
+            1986,
+            1986,
+            374,
+            264,
+            4285,
+            11,
+            52484,
+            2168,
+            16445,
+            264,
+            6437,
+            2518,
+            9334,
+            30188,
+            389,
+            264
+          ],
+          [
+            1986,
+            1986,
+            374,
+            264,
+            4285,
+            11,
+            52484,
+            2168,
+            16445,
+            264,
+            6437,
+            2518,
+            9334,
+            30188,
+            389,
+            264
+          ],
+          [
+            1986,
+            1986,
+            374,
+            264,
+            4285,
+            11,
+            52484,
+            2168,
+            16445,
+            264,
+            6437,
+            2518,
+            9334,
+            30188,
+            389,
+            264
+          ]
+        ],
+        "all_token_sequences_equal": true
+      },
+      "first_token_logits_self_comparison": [
+        {
+          "shape_reference": [
+            1,
+            151936
+          ],
+          "shape_actual": [
+            1,
+            151936
+          ],
+          "dtype_reference": "torch.float32",
+          "dtype_actual": "torch.float32",
+          "reference": {
+            "shape": [
+              1,
+              151936
+            ],
+            "element_count": 151936,
+            "finite_count": 151935,
+            "nonfinite_count": 1,
+            "finite_ratio": 0.9999934182813817,
+            "nan_count": 0,
+            "positive_inf_count": 0,
+            "negative_inf_count": 1,
+            "all_finite": false,
+            "dtype": "torch.float32"
+          },
+          "actual": {
+            "shape": [
+              1,
+              151936
+            ],
+            "element_count": 151936,
+            "finite_count": 151935,
+            "nonfinite_count": 1,
+            "finite_ratio": 0.9999934182813817,
+            "nan_count": 0,
+            "positive_inf_count": 0,
+            "negative_inf_count": 1,
+            "all_finite": false,
+            "dtype": "torch.float32"
+          },
+          "max_absolute_error": null,
+          "mean_absolute_error": null,
+          "cosine_similarity": null,
+          "metrics_finite": false,
+          "baseline_top1_token": 1986,
+          "actual_top1_token": 1986,
+          "top1_agreement": true
+        },
+        {
+          "shape_reference": [
+            1,
+            151936
+          ],
+          "shape_actual": [
+            1,
+            151936
+          ],
+          "dtype_reference": "torch.float32",
+          "dtype_actual": "torch.float32",
+          "reference": {
+            "shape": [
+              1,
+              151936
+            ],
+            "element_count": 151936,
+            "finite_count": 151935,
+            "nonfinite_count": 1,
+            "finite_ratio": 0.9999934182813817,
+            "nan_count": 0,
+            "positive_inf_count": 0,
+            "negative_inf_count": 1,
+            "all_finite": false,
+            "dtype": "torch.float32"
+          },
+          "actual": {
+            "shape": [
+              1,
+              151936
+            ],
+            "element_count": 151936,
+            "finite_count": 151935,
+            "nonfinite_count": 1,
+            "finite_ratio": 0.9999934182813817,
+            "nan_count": 0,
+            "positive_inf_count": 0,
+            "negative_inf_count": 1,
+            "all_finite": false,
+            "dtype": "torch.float32"
+          },
+          "max_absolute_error": null,
+          "mean_absolute_error": null,
+          "cosine_similarity": null,
+          "metrics_finite": false,
+          "baseline_top1_token": 1986,
+          "actual_top1_token": 1986,
+          "top1_agreement": true
+        },
+        {
+          "shape_reference": [
+            1,
+            151936
+          ],
+          "shape_actual": [
+            1,
+            151936
+          ],
+          "dtype_reference": "torch.float32",
+          "dtype_actual": "torch.float32",
+          "reference": {
+            "shape": [
+              1,
+              151936
+            ],
+            "element_count": 151936,
+            "finite_count": 151935,
+            "nonfinite_count": 1,
+            "finite_ratio": 0.9999934182813817,
+            "nan_count": 0,
+            "positive_inf_count": 0,
+            "negative_inf_count": 1,
+            "all_finite": false,
+            "dtype": "torch.float32"
+          },
+          "actual": {
+            "shape": [
+              1,
+              151936
+            ],
+            "element_count": 151936,
+            "finite_count": 151935,
+            "nonfinite_count": 1,
+            "finite_ratio": 0.9999934182813817,
+            "nan_count": 0,
+            "positive_inf_count": 0,
+            "negative_inf_count": 1,
+            "all_finite": false,
+            "dtype": "torch.float32"
+          },
+          "max_absolute_error": null,
+          "mean_absolute_error": null,
+          "cosine_similarity": null,
+          "metrics_finite": false,
+          "baseline_top1_token": 1986,
+          "actual_top1_token": 1986,
+          "top1_agreement": true
+        }
+      ],
+      "decoded_texts": [
+        "ThisThis is a simple, geometric image featuring a solid red square centered on a",
+        "ThisThis is a simple, geometric image featuring a solid red square centered on a",
+        "ThisThis is a simple, geometric image featuring a solid red square centered on a"
+      ],
+      "unique_decoded_texts": [
+        "ThisThis is a simple, geometric image featuring a solid red square centered on a"
+      ],
+      "memory_after_backend": {
+        "allocated_bytes": 3456851456,
+        "reserved_bytes": 4299161600,
+        "peak_allocated_bytes": 4363708928,
+        "peak_reserved_bytes": 4433379328
+      }
+    },
+    "tensorrt_fp16": {
+      "warmup_trials": [
+        {
+          "generation_success": true,
+          "generated_tokens": 16,
+          "generated_token_ids": [
+            1986,
+            1986,
+            374,
+            264,
+            4285,
+            11,
+            52484,
+            2168,
+            16445,
+            264,
+            6437,
+            2518,
+            9334,
+            30188,
+            389,
+            264
+          ],
+          "first_token_latency_ms": 280.00408935546875,
+          "total_latency_ms": 2147.31982421875,
+          "tokens_per_second": 7.451149018205152,
+          "prefill_logits_finite": false,
+          "final_decode_logits_finite": true
+        }
+      ],
+      "measured_trials": [
+        {
+          "generation_success": true,
+          "generated_tokens": 16,
+          "generated_token_ids": [
+            1986,
+            1986,
+            374,
+            264,
+            4285,
+            11,
+            52484,
+            2168,
+            16445,
+            264,
+            6437,
+            2518,
+            9334,
+            30188,
+            389,
+            264
+          ],
+          "first_token_latency_ms": 265.07305908203125,
+          "total_latency_ms": 2132.049560546875,
+          "tokens_per_second": 7.504515981277644,
+          "prefill_logits_finite": false,
+          "final_decode_logits_finite": true
+        },
+        {
+          "generation_success": true,
+          "generated_tokens": 16,
+          "generated_token_ids": [
+            1986,
+            1986,
+            374,
+            264,
+            4285,
+            11,
+            52484,
+            2168,
+            16445,
+            264,
+            6437,
+            2518,
+            9334,
+            30188,
+            389,
+            264
+          ],
+          "first_token_latency_ms": 259.72393798828125,
+          "total_latency_ms": 2117.330322265625,
+          "tokens_per_second": 7.556685809363645,
+          "prefill_logits_finite": false,
+          "final_decode_logits_finite": true
+        },
+        {
+          "generation_success": true,
+          "generated_tokens": 16,
+          "generated_token_ids": [
+            1986,
+            1986,
+            374,
+            264,
+            4285,
+            11,
+            52484,
+            2168,
+            16445,
+            264,
+            6437,
+            2518,
+            9334,
+            30188,
+            389,
+            264
+          ],
+          "first_token_latency_ms": 255.4599609375,
+          "total_latency_ms": 2117.2333984375,
+          "tokens_per_second": 7.557031743315528,
+          "prefill_logits_finite": false,
+          "final_decode_logits_finite": true
+        }
+      ],
+      "summary": {
+        "generation_success_count": 3,
+        "sample_count": 3,
+        "first_token_latency_ms": {
+          "sample_count": 3,
+          "mean_ms": 260.0856526692708,
+          "median_ms": 259.72393798828125,
+          "stddev_ms": 4.816746009177781,
+          "min_ms": 255.4599609375,
+          "max_ms": 265.07305908203125
+        },
+        "total_latency_ms": {
+          "sample_count": 3,
+          "mean_ms": 2122.2044270833335,
+          "median_ms": 2117.330322265625,
+          "stddev_ms": 8.526273408900606,
+          "min_ms": 2117.2333984375,
+          "max_ms": 2132.049560546875
+        },
+        "tokens_per_second": {
+          "sample_count": 3,
+          "unit": "tokens/s",
+          "mean": 7.539411177985605,
+          "median": 7.556685809363645,
+          "stddev": 0.03022062180929244,
+          "min": 7.504515981277644,
+          "max": 7.557031743315528
+        },
+        "unique_token_id_sequences": [
+          [
+            1986,
+            1986,
+            374,
+            264,
+            4285,
+            11,
+            52484,
+            2168,
+            16445,
+            264,
+            6437,
+            2518,
+            9334,
+            30188,
+            389,
+            264
+          ],
+          [
+            1986,
+            1986,
+            374,
+            264,
+            4285,
+            11,
+            52484,
+            2168,
+            16445,
+            264,
+            6437,
+            2518,
+            9334,
+            30188,
+            389,
+            264
+          ],
+          [
+            1986,
+            1986,
+            374,
+            264,
+            4285,
+            11,
+            52484,
+            2168,
+            16445,
+            264,
+            6437,
+            2518,
+            9334,
+            30188,
+            389,
+            264
+          ]
+        ],
+        "all_token_sequences_equal": true
+      },
+      "first_token_logits_self_comparison": [
+        {
+          "shape_reference": [
+            1,
+            151936
+          ],
+          "shape_actual": [
+            1,
+            151936
+          ],
+          "dtype_reference": "torch.float32",
+          "dtype_actual": "torch.float32",
+          "reference": {
+            "shape": [
+              1,
+              151936
+            ],
+            "element_count": 151936,
+            "finite_count": 151935,
+            "nonfinite_count": 1,
+            "finite_ratio": 0.9999934182813817,
+            "nan_count": 0,
+            "positive_inf_count": 0,
+            "negative_inf_count": 1,
+            "all_finite": false,
+            "dtype": "torch.float32"
+          },
+          "actual": {
+            "shape": [
+              1,
+              151936
+            ],
+            "element_count": 151936,
+            "finite_count": 151935,
+            "nonfinite_count": 1,
+            "finite_ratio": 0.9999934182813817,
+            "nan_count": 0,
+            "positive_inf_count": 0,
+            "negative_inf_count": 1,
+            "all_finite": false,
+            "dtype": "torch.float32"
+          },
+          "max_absolute_error": null,
+          "mean_absolute_error": null,
+          "cosine_similarity": null,
+          "metrics_finite": false,
+          "baseline_top1_token": 1986,
+          "actual_top1_token": 1986,
+          "top1_agreement": true
+        },
+        {
+          "shape_reference": [
+            1,
+            151936
+          ],
+          "shape_actual": [
+            1,
+            151936
+          ],
+          "dtype_reference": "torch.float32",
+          "dtype_actual": "torch.float32",
+          "reference": {
+            "shape": [
+              1,
+              151936
+            ],
+            "element_count": 151936,
+            "finite_count": 151935,
+            "nonfinite_count": 1,
+            "finite_ratio": 0.9999934182813817,
+            "nan_count": 0,
+            "positive_inf_count": 0,
+            "negative_inf_count": 1,
+            "all_finite": false,
+            "dtype": "torch.float32"
+          },
+          "actual": {
+            "shape": [
+              1,
+              151936
+            ],
+            "element_count": 151936,
+            "finite_count": 151935,
+            "nonfinite_count": 1,
+            "finite_ratio": 0.9999934182813817,
+            "nan_count": 0,
+            "positive_inf_count": 0,
+            "negative_inf_count": 1,
+            "all_finite": false,
+            "dtype": "torch.float32"
+          },
+          "max_absolute_error": null,
+          "mean_absolute_error": null,
+          "cosine_similarity": null,
+          "metrics_finite": false,
+          "baseline_top1_token": 1986,
+          "actual_top1_token": 1986,
+          "top1_agreement": true
+        },
+        {
+          "shape_reference": [
+            1,
+            151936
+          ],
+          "shape_actual": [
+            1,
+            151936
+          ],
+          "dtype_reference": "torch.float32",
+          "dtype_actual": "torch.float32",
+          "reference": {
+            "shape": [
+              1,
+              151936
+            ],
+            "element_count": 151936,
+            "finite_count": 151935,
+            "nonfinite_count": 1,
+            "finite_ratio": 0.9999934182813817,
+            "nan_count": 0,
+            "positive_inf_count": 0,
+            "negative_inf_count": 1,
+            "all_finite": false,
+            "dtype": "torch.float32"
+          },
+          "actual": {
+            "shape": [
+              1,
+              151936
+            ],
+            "element_count": 151936,
+            "finite_count": 151935,
+            "nonfinite_count": 1,
+            "finite_ratio": 0.9999934182813817,
+            "nan_count": 0,
+            "positive_inf_count": 0,
+            "negative_inf_count": 1,
+            "all_finite": false,
+            "dtype": "torch.float32"
+          },
+          "max_absolute_error": null,
+          "mean_absolute_error": null,
+          "cosine_similarity": null,
+          "metrics_finite": false,
+          "baseline_top1_token": 1986,
+          "actual_top1_token": 1986,
+          "top1_agreement": true
+        }
+      ],
+      "decoded_texts": [
+        "ThisThis is a simple, geometric image featuring a solid red square centered on a",
+        "ThisThis is a simple, geometric image featuring a solid red square centered on a",
+        "ThisThis is a simple, geometric image featuring a solid red square centered on a"
+      ],
+      "unique_decoded_texts": [
+        "ThisThis is a simple, geometric image featuring a solid red square centered on a"
+      ],
+      "memory_after_backend": {
+        "allocated_bytes": 3456852992,
+        "reserved_bytes": 4299161600,
+        "peak_allocated_bytes": 4363708928,
+        "peak_reserved_bytes": 4433379328
+      }
+    }
+  },
+  "comparison_summary": {
+    "generated_token_sequences_equal": true,
+    "baseline_token_ids": [
+      1986,
+      1986,
+      374,
+      264,
+      4285,
+      11,
+      52484,
+      2168,
+      16445,
+      264,
+      6437,
+      2518,
+      9334,
+      30188,
+      389,
+      264
+    ],
+    "tensorrt_token_ids": [
+      1986,
+      1986,
+      374,
+      264,
+      4285,
+      11,
+      52484,
+      2168,
+      16445,
+      264,
+      6437,
+      2518,
+      9334,
+      30188,
+      389,
+      264
+    ],
+    "baseline_decoded_text": "ThisThis is a simple, geometric image featuring a solid red square centered on a",
+    "tensorrt_decoded_text": "ThisThis is a simple, geometric image featuring a solid red square centered on a",
+    "baseline_mean_first_token_latency_ms": 263.0651092529297,
+    "tensorrt_mean_first_token_latency_ms": 260.0856526692708,
+    "first_token_latency_delta_ms_tensorrt_minus_pytorch": -2.979456583658873,
+    "baseline_mean_total_latency_ms": 2129.2288411458335,
+    "tensorrt_mean_total_latency_ms": 2122.2044270833335,
+    "total_latency_delta_ms_tensorrt_minus_pytorch": -7.0244140625,
+    "total_latency_ratio_tensorrt_over_pytorch": 0.9967009586162097,
+    "baseline_mean_tokens_per_second": 7.514606813851262,
+    "tensorrt_mean_tokens_per_second": 7.539411177985605,
+    "interpretation": "descriptive fixed-workload comparison only; no optimization claim"
+  },
+  "prohibited_operations_performed": {
+    "optimization": false,
+    "quantization": false,
+    "tensorrt_engine_rebuild": false,
+    "decoder_modification": false,
+    "cuda_modification": false,
+    "environment_modification": false,
+    "benchmark_sweep": false
+  },
+  "runtime_dependency_status": {
+    "python": "3.10.12",
+    "platform": "Linux-5.15.148-tegra-aarch64-with-glibc2.35",
+    "torch": "2.5.0a0+872d972e41.nv24.08",
+    "cuda": "12.6",
+    "tensorrt": "10.3.0",
+    "transformers": "4.57.3",
+    "cuda_available": true,
+    "total_memory_bytes": 7989903360,
+    "allocated_before_bytes": 0,
+    "reserved_before_bytes": 0,
+    "host_mem_available_bytes": 6232952832
+  },
+  "model_evidence": {
+    "load_success": true,
+    "model_class": "Qwen3VLForConditionalGeneration",
+    "base_model_class": "Qwen3VLModel",
+    "language_model_class": "Qwen3VLTextModel",
+    "original_visual_class": "Qwen3VLVisionModel",
+    "model_dtype": "torch.float16",
+    "attention_implementation": "eager",
+    "total_parameter_count_before_injection": 2127532032,
+    "language_model_parameter_count": 1720574976,
+    "tokenizer_class": "Qwen2TokenizerFast"
+  },
+  "success": true,
+  "finished_utc": "2026-09-16T09:04:42.414417+00:00"
+}

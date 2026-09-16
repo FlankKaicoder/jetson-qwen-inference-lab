@@ -1,0 +1,100 @@
+{
+  "phase": "Phase 9.3-A",
+  "title": "Qwen3-VL end-to-end TensorRT vision integration functional harness",
+  "protocol_state": "FROZEN_BEFORE_MEASUREMENT",
+  "frozen_at_utc": "2026-09-16T08:54:42Z",
+  "authorization": {
+    "integration_harness": true,
+    "controlled_comparison": true,
+    "optimization": false,
+    "quantization": false,
+    "tensorrt_engine_rebuild": false,
+    "decoder_modification": false,
+    "cuda_modification": false,
+    "environment_modification": false,
+    "benchmark_sweep": false
+  },
+  "model": {
+    "identity": "Qwen/Qwen3-VL-2B-Instruct",
+    "revision": "89644892e4d85e24eaac8bacfd4f463576704203",
+    "local_path": "/home/nvidia/models/qwen3-vl-2b-instruct-89644892e4d85e24eaac8bacfd4f463576704203",
+    "expected_config_sha256": "bec4b3d446efa05807365c9e1cec03ac590836879d02f3a6da879971154bdd3b",
+    "expected_weights_sha256": "7de1838c87a5349b016c26a1c3f7d2bc400a3d485f95ef39a7059ffd734977a0",
+    "dtype": "torch.float16",
+    "attention_implementation": "eager",
+    "device": "cuda:0"
+  },
+  "engine": {
+    "source_phase": "Phase 9.2-C1",
+    "validation_phase": "Phase 9.2-C2-R2",
+    "path": "/tmp/phase9_2c1_20260916T034956Z/engine/qwen3_vl_vision_fp16.trt",
+    "expected_sha256": "aa5c200eb5dcbc5abaef55bc014b5210236fb9ca34394217a024d3796e44823c",
+    "modified": false,
+    "rebuilt": false
+  },
+  "integration_boundary": {
+    "visual_adapter": "nn.Module adapter assigned to model.model.visual at runtime",
+    "decoder_path": "unchanged Qwen3VLModel language_model and Qwen3VLForConditionalGeneration lm_head",
+    "decoder_weights_modified": false,
+    "generation_rule_modified": false,
+    "input_shape": [784, 1536],
+    "grid_thw": [1, 28, 28],
+    "vision_output_names": [
+      "final_hidden",
+      "deepstack_0",
+      "deepstack_1",
+      "deepstack_2"
+    ],
+    "integration_check": "one PyTorch visual pass versus one TensorRT visual pass before generation",
+    "numerical_tolerance": false
+  },
+  "workload": {
+    "image_mode": "RGB",
+    "image_width": 448,
+    "image_height": 448,
+    "image_description": "deterministic white background with a filled red square at [112,112,335,335]",
+    "prompt": "Describe the image.",
+    "sampling_rule": "greedy",
+    "max_new_tokens": 16,
+    "minimum_new_tokens": 16,
+    "eos_masking": "EOS is masked before argmax for decode steps 1 through 14; step 15 may emit EOS",
+    "warmup_generations_per_backend": 1,
+    "measured_generations_per_backend": 3,
+    "inter_trial_sleep_seconds": 0,
+    "backend_order": ["pytorch_fp16", "tensorrt_fp16"]
+  },
+  "timing": {
+    "method": "cuda_events",
+    "first_token_latency": "CUDA event duration around the complete prefill forward after preprocessing",
+    "total_latency": "CUDA event duration from immediately before prefill through the final fixed-token decode call",
+    "tokens_per_second": "max_new_tokens / total_latency_seconds",
+    "event_synchronization": "synchronize before timing start, after prefill event pair, and after total event",
+    "preprocess_included": false
+  },
+  "correctness": {
+    "vision_output_finite_checks": true,
+    "vision_output_shape_checks": true,
+    "first_token_logits_finite_checks": true,
+    "first_token_logits_comparison": "max absolute error, mean absolute error, cosine similarity, and top-1 agreement against baseline trial 1 for cross-backend integration evidence",
+    "first_token_logits_cross_backend_comparison": true,
+    "generated_token_id_comparison": true,
+    "generated_text_comparison": true,
+    "deployment_correctness_gate": false
+  },
+  "memory": {
+    "method": "torch_cuda_allocator_snapshots",
+    "note": "allocator snapshots, not TensorRT total-process GPU memory or profiler DRAM counters"
+  },
+  "repository_context": {
+    "windows_branch": "phase/09-qwen3vl-migration",
+    "windows_starting_head": "0dd70f788c118e759ffbd0050111c20ceba4c856",
+    "jetson_branch": "phase/08-rmsnorm-optimization",
+    "jetson_head": "6fb18773014a43f51c82b91338f2972131a4ce86",
+    "jetson_repo_synced": false
+  },
+  "acceptance": {
+    "deployment_speedup_gate": false,
+    "numerical_tolerance_gate": false,
+    "conclusion": "establish functional integration harness and record bounded evidence only"
+  }
+}

@@ -4,6 +4,26 @@
 
 ## [Unreleased]
 
+### Phase 9.3-A Qwen3-VL End-to-End TensorRT Vision Integration Harness (2026-09-16)
+
+- Established the first controlled end-to-end harness using a runtime
+  `model.model.visual` TensorRT FP16 adapter and the unchanged decoder path.
+- Compared one PyTorch FP16 visual pass against one TensorRT FP16 visual pass,
+  then ran one warmup and three measured 16-token greedy generations per
+  backend on a deterministic red-square image and prompt.
+- Direct visual outputs had matching `[196,2048]` shapes, finite ratio `1.0`,
+  minimum cosine `0.9991330504417419`, and maximum absolute error
+  `1.51953125`.
+- Mean first-token latency was `263.0651092529297` ms for PyTorch and
+  `260.0856526692708` ms for TensorRT. Total latency was
+  `2129.2288411458335` ms and `2122.2044270833335` ms; mean tokens/s were
+  `7.514606813851262` and `7.539411177985605`.
+- Both backends produced the same generated token sequence and decoded text.
+- Gate: `PASS / BOUNDED — END_TO_END_HARNESS_FUNCTIONAL`. Full-vocabulary logit
+  error metrics are `UNKNOWN` because both backends had one negative-infinity
+  logit. No optimization, quantization, engine rebuild, decoder modification,
+  CUDA modification, or environment modification occurred.
+
 ### Phase 9.2-D1 Isolated Qwen3-VL Vision Encoder Latency Benchmark (2026-09-16)
 
 - Froze and executed a fixed-boundary latency protocol for PyTorch FP16 versus

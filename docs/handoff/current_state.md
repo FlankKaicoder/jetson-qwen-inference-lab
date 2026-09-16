@@ -1292,3 +1292,37 @@ audit if three-side alignment is required.
   `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_2D1_20260916T083418Z/`.
 - Stop and await Gate review before any input sweep, optimization, engine
   rebuild, rerun, benchmark, quantization, or next migration step.
+# Phase 9.3-A End-to-End TensorRT Vision Integration Harness (2026-09-16)
+
+- After explicit authorization, the unchanged Phase 9.2-C1 TensorRT FP16
+  Vision Encoder was integrated at runtime into Qwen3-VL through an
+  `nn.Module` adapter assigned to `model.model.visual`. The language model,
+  decoder weights, and generation rule were unchanged.
+  Gate: `PASS / BOUNDED — END_TO_END_HARNESS_FUNCTIONAL`.
+- A direct PyTorch-versus-TensorRT visual check found all four outputs finite
+  with matching `[196,2048]` shapes. Minimum cosine was
+  `0.9991330504417419`, maximum mean absolute error was
+  `0.012291578575968742`, and maximum absolute error was `1.51953125`.
+- The frozen workload used the deterministic red-square image, fixed prompt,
+  16-token greedy decoding, one warmup per backend, and three measured
+  generations per backend. Preprocessing was excluded from timing.
+- Mean first-token latency was `263.0651092529297` ms for PyTorch and
+  `260.0856526692708` ms for TensorRT. Mean total latency was
+  `2129.2288411458335` ms and `2122.2044270833335` ms; mean tokens/s were
+  `7.514606813851262` and `7.539411177985605`.
+- Both backends generated the same 16-token sequence and decoded text. First
+  token `1986` agreed in all three cross-backend comparisons. Full-vocabulary
+  first-token logits had one negative infinity on each backend, so logit
+  error/cosine are `UNKNOWN`; no diagnosis was authorized.
+- PyTorch allocator peak usage was `4,363,708,928` allocated and
+  `4,433,379,328` reserved bytes. These are not TensorRT total GPU memory or
+  DRAM counters.
+- A first execution failed during final JSON serialization because raw trial
+  tensors were retained in the result; the corrected run completed. No
+  optimization, rebuild, quantization, decoder change, CUDA change, or
+  environment change occurred.
+- Report and evidence:
+  `experiments/Phase9-qwen3-vl-migration/docs/phase9_3A_end_to_end_vision_integration_harness.md`,
+  `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_3A_20260916T085442Z/`.
+- Stop and await Gate review before any logit diagnosis, input sweep,
+  optimization, rebuild, benchmark sweep, quantization, or next migration step.

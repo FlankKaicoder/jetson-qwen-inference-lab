@@ -1,0 +1,41 @@
+{
+  "phase": "Phase 9.3-A",
+  "artifact_directory": "experiments/Phase9-qwen3-vl-migration/artifacts/phase9_3A_20260916T085442Z",
+  "created_utc": "2026-09-16T09:04:42Z",
+  "protocol_sha256": "4f1f83c68e0d6d1edcf389e586e13dd7243989396157a3dcfc5caf7f78dc94b8",
+  "files": [
+    {
+      "path": "harness_protocol.json",
+      "sha256": "4f1f83c68e0d6d1edcf389e586e13dd7243989396157a3dcfc5caf7f78dc94b8",
+      "size_bytes": 4236,
+      "tracked_in_git": true
+    },
+    {
+      "path": "integration_result.json",
+      "sha256": "990f0d204f2a0424e9c92deed023bc29d3d43e8a41373b79d292d3145cc95cad",
+      "size_bytes": 38052,
+      "tracked_in_git": true
+    },
+    {
+      "path": "command_log.md",
+      "sha256": "992e1785445fd96f24933675f9661d5695c614b73b70240b7ef4d720e7acc2d0",
+      "size_bytes": 2568,
+      "tracked_in_git": true
+    },
+    {
+      "path": "failed_attempt1_serialization_failure.md",
+      "sha256": "738e76c9d6dba7d200902dbb8d451a48e8a30e4d3b0cbb37914c4bb6022e3db2",
+      "size_bytes": 1115,
+      "tracked_in_git": true
+    }
+  ],
+  "companion_repository_files": [
+    {
+      "path": "experiments/Phase9-qwen3-vl-migration/src/phase9_3A/run_end_to_end_vision_integration.py",
+      "sha256": "9d775fcef2f60e814e84a748540b7a0dc25f636d47915b6d7e9a4c033e813887"
+    },
+    {
+      "path": "experiments/Phase9-qwen3-vl-migration/docs/phase9_3A_end_to_end_vision_integration_harness.md"
+    }
+  ]
+}
