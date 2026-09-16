@@ -12,15 +12,46 @@
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 9.3-A — End-to-End TensorRT Vision Integration Harness |
-| Current experiment | Phase 9.3-A Qwen3-VL End-to-End TensorRT Vision Integration Harness |
+| Current phase | Phase 9.3-B1 — End-to-End Stage Latency Breakdown |
+| Current experiment | Phase 9.3-B1 Qwen3-VL End-to-End Stage Latency Breakdown |
 | Current branch | `phase/09-qwen3vl-migration` |
 | Current HEAD | Verify with `git rev-parse HEAD` |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 9.3-A — Qwen3-VL End-to-End TensorRT Vision Integration Harness |
-| Experiment status | Phase 9.3-A established the controlled end-to-end harness. One PyTorch/TensorRT visual check, one warmup generation, and three measured generations per backend completed; both backends generated the same 16-token sequence. |
-| Current Gate | Phase 9.3-A is `PASS / BOUNDED — END_TO_END_HARNESS_FUNCTIONAL`. Direct visual outputs were finite with matching shapes, and cross-backend first-token top-1 agreement was true in all three measured trials. Full-vocabulary logit error metrics are `UNKNOWN` because both backends had one negative-infinity logit. |
-| Readiness | Phase 9.3-A is functional harness evidence for one deterministic 16-token workload with three trials per backend. Do not sweep inputs, diagnose the negative-infinity logit, optimize, rebuild, rerun, benchmark, quantize, or modify CUDA/environment until a new explicit authorization. |
+| Last completed experiment | Phase 9.3-B1 — Qwen3-VL End-to-End Stage Latency Breakdown |
+| Experiment status | Phase 9.3-B1 recorded the frozen end-to-end stage latency breakdown. One warmup and three measured 16-token generations per backend completed; decode dominated generation on both backends. |
+| Current Gate | Phase 9.3-B1 is `PASS / BOUNDED — STAGE_LATENCY_ATTRIBUTION_RECORDED`. TensorRT internal encoder/projector timings and power are `UNKNOWN`. The backends diverged at token index 8 and the cause remains `UNKNOWN`; no correctness gate was applied. |
+| Readiness | Phase 9.3-B1 is bounded fixed-workload attribution evidence only. Do not diagnose the token divergence, sweep inputs, optimize, rebuild, rerun, benchmark, quantize, or modify CUDA/environment until a new explicit authorization. |
+
+## Phase 9.3-B1 End-to-End Stage Latency Checkpoint (2026-09-16)
+
+- The owner authorized only an end-to-end stage latency breakdown using the
+  same deterministic image, prompt, and generation settings. No optimization,
+  quantization, decoder modification, TensorRT rebuild, CUDA change, or
+  persistent environment change occurred.
+- The frozen protocol used one warmup and three measured 16-token greedy
+  generations per backend, backend order PyTorch FP16 then TensorRT FP16, and
+  no inter-trial sleep.
+- PyTorch FP16 means were preprocess `12.423090331139974` ms, vision encoder
+  `230.17195530732474` ms, projector `7.5359253485997515` ms, prefill
+  `424.7467854817708` ms, and decode/token `135.6161869997676` ms.
+- TensorRT FP16 means were preprocess `10.465708997799084` ms, combined visual
+  adapter `100.83846537272136` ms, prefill `283.19141642252606` ms, and
+  decode/token `135.5895632664518` ms. Internal encoder/projector timings are
+  `UNKNOWN` because the unchanged C1 engine exposes only the combined boundary.
+- Decode was the dominant generation stage: `82.72677578113881%` for PyTorch and
+  `87.7778526059737%` for TensorRT. This is descriptive fixed-workload
+  attribution, not an optimization or deployment conclusion.
+- Each backend was internally deterministic across its warmup and three
+  measured trials, but the backends diverged at token index 8. The cause is
+  `UNKNOWN`; no diagnosis or correctness gate was authorized.
+- A first run failed before TensorRT backend trials because the runtime adapter
+  omitted `spatial_merge_size`; its evidence is preserved. The only correction
+  retained that original visual-model attribute. The frozen protocol was not
+  changed.
+- Report:
+  `experiments/Phase9-qwen3-vl-migration/docs/phase9_3B1_end_to_end_stage_latency_breakdown.md`.
+  Evidence:
+  `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_3B1_20260916T094011Z/`.
 
 ## Phase 9.3-A End-to-End Vision Integration Checkpoint (2026-09-16)
 

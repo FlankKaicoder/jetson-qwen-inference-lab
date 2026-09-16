@@ -1,0 +1,187 @@
+/usr/lib/python3/dist-packages/scipy/__init__.py:146: UserWarning: A NumPy version >=1.17.3 and <1.25.0 is required for this version of SciPy (detected version 1.26.4
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion}"
+`torch_dtype` is deprecated! Use `dtype` instead!
+[TRT:INFO] Loaded engine size: 780 MiB
+[TRT:VERBOSE] Deserialization required 6236810 microseconds.
+[TRT:VERBOSE] Total per-runner device persistent memory is 0
+[TRT:VERBOSE] Total per-runner host persistent memory is 5584
+[TRT:VERBOSE] Allocated device scratch memory of size 14450688
+[TRT:VERBOSE] - Runner scratch: 14450688 bytes
+[TRT:INFO] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +14, now: CPU 0, GPU 792 (MiB)
+[TRT:VERBOSE] CUDA lazy loading is enabled.
+[TRT:WARNING] Using default stream in enqueueV3() may lead to performance issues due to additional calls to cudaStreamSynchronize() by TensorRT to ensure correct synchronization. Please use non-default stream instead.
+{
+  "success": true,
+  "phase": "Phase 9.3-B1",
+  "backends": [
+    "pytorch_fp16",
+    "tensorrt_fp16"
+  ],
+  "pytorch_summary": {
+    "generation_success_count": 3,
+    "sample_count": 3,
+    "all_token_sequences_equal": true,
+    "all_generated_texts_equal": true,
+    "preprocess_ms": {
+      "sample_count": 3,
+      "mean_ms": 12.423090331139974,
+      "median_ms": 13.521749002393335,
+      "stddev_ms": 3.1316847784775166,
+      "min_ms": 8.890111988876015,
+      "max_ms": 14.857410002150573
+    },
+    "visual_total_ms": {
+      "sample_count": 3,
+      "mean_ms": 237.70788065592447,
+      "median_ms": 238.83139038085938,
+      "stddev_ms": 2.5955027432383475,
+      "min_ms": 234.73989868164062,
+      "max_ms": 239.55235290527344
+    },
+    "vision_encoder_ms": {
+      "sample_count": 3,
+      "mean_ms": 230.17195530732474,
+      "median_ms": 231.47750234603882,
+      "stddev_ms": 2.6268925985810276,
+      "min_ms": 227.1480586528778,
+      "max_ms": 231.89030492305756
+    },
+    "projector_ms": {
+      "sample_count": 3,
+      "mean_ms": 7.5359253485997515,
+      "median_ms": 7.591840028762817,
+      "stddev_ms": 0.16150999005626793,
+      "min_ms": 7.353888034820557,
+      "max_ms": 7.662047982215881
+    },
+    "vision_projector_combined_ms": null,
+    "prefill_ms": {
+      "sample_count": 3,
+      "mean_ms": 424.7467854817708,
+      "median_ms": 426.558349609375,
+      "stddev_ms": 3.2815795740491596,
+      "min_ms": 420.958740234375,
+      "max_ms": 426.7232666015625
+    },
+    "derived_language_decoder_prefill_ms": {
+      "sample_count": 3,
+      "mean_ms": 187.03890482584634,
+      "median_ms": 187.00599670410156,
+      "stddev_ms": 0.8370026633254544,
+      "min_ms": 186.21884155273438,
+      "max_ms": 187.89187622070312
+    },
+    "decode_ms": {
+      "sample_count": 3,
+      "mean_ms": 2034.242804996514,
+      "median_ms": 2032.8578019980341,
+      "stddev_ms": 8.180145322645732,
+      "min_ms": 2026.8435759935528,
+      "max_ms": 2043.0270369979553
+    },
+    "decode_per_token_ms": {
+      "sample_count": 3,
+      "mean_ms": 135.6161869997676,
+      "median_ms": 135.5238534665356,
+      "stddev_ms": 0.5453430215097163,
+      "min_ms": 135.12290506623685,
+      "max_ms": 136.20180246653035
+    },
+    "generation_total_ms": {
+      "sample_count": 3,
+      "mean_ms": 2458.9895904782848,
+      "median_ms": 2459.5810685995966,
+      "stddev_ms": 10.90357388953243,
+      "min_ms": 2447.802316227928,
+      "max_ms": 2469.5853866073303
+    },
+    "generation_tokens_per_second": {
+      "sample_count": 3,
+      "mean": 6.506822911297302,
+      "median": 6.50517285413563,
+      "stddev": 0.02886300967920807,
+      "min": 6.478820326184589,
+      "max": 6.5364755535716865
+    }
+  },
+  "tensorrt_summary": {
+    "generation_success_count": 3,
+    "sample_count": 3,
+    "all_token_sequences_equal": true,
+    "all_generated_texts_equal": true,
+    "preprocess_ms": {
+      "sample_count": 3,
+      "mean_ms": 10.465708997799084,
+      "median_ms": 10.63284499105066,
+      "stddev_ms": 0.8977059439823972,
+      "min_ms": 9.496180995483883,
+      "max_ms": 11.268101006862707
+    },
+    "visual_total_ms": {
+      "sample_count": 3,
+      "mean_ms": 100.83846537272136,
+      "median_ms": 99.62620544433594,
+      "stddev_ms": 7.772144720546054,
+      "min_ms": 93.74368286132812,
+      "max_ms": 109.1455078125
+    },
+    "vision_encoder_ms": null,
+    "projector_ms": null,
+    "vision_projector_combined_ms": {
+      "sample_count": 3,
+      "mean_ms": 100.83846537272136,
+      "median_ms": 99.62620544433594,
+      "stddev_ms": 7.772144720546054,
+      "min_ms": 93.74368286132812,
+      "max_ms": 109.1455078125
+    },
+    "prefill_ms": {
+      "sample_count": 3,
+      "mean_ms": 283.19141642252606,
+      "median_ms": 280.9220275878906,
+      "stddev_ms": 14.841942437828124,
+      "min_ms": 269.6148681640625,
+      "max_ms": 299.037353515625
+    },
+    "derived_language_decoder_prefill_ms": {
+      "sample_count": 3,
+      "mean_ms": 182.3529510498047,
+      "median_ms": 181.2958221435547,
+      "stddev_ms": 7.069856480798775,
+      "min_ms": 175.87118530273438,
+      "max_ms": 189.891845703125
+    },
+    "decode_ms": {
+      "sample_count": 3,
+      "mean_ms": 2033.8434489967767,
+      "median_ms": 2033.0353979952633,
+      "stddev_ms": 2.776861646560205,
+      "min_ms": 2031.560235991492,
+      "max_ms": 2036.9347130035749
+    },
+    "decode_per_token_ms": {
+      "sample_count": 3,
+      "mean_ms": 135.5895632664518,
+      "median_ms": 135.53569319968423,
+      "stddev_ms": 0.18512410977068036,
+      "min_ms": 135.43734906609947,
+      "max_ms": 135.79564753357167
+    },
+    "generation_total_ms": {
+      "sample_count": 3,
+      "mean_ms": 2317.0348654193026,
+      "median_ms": 2312.4822635793826,
+      "stddev_ms": 17.121046476207546,
+      "min_ms": 2302.650266159326,
+      "max_ms": 2335.9720665192
+    },
+    "generation_tokens_per_second": {
+      "sample_count": 3,
+      "mean": 6.905627998580208,
+      "median": 6.9189719860745456,
+      "stddev": 0.05088854683085398,
+      "min": 6.849396972388194,
+      "max": 6.948515037277884
+    }
+  }
+}

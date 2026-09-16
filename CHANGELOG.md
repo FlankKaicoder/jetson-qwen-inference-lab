@@ -4,6 +4,27 @@
 
 ## [Unreleased]
 
+### Phase 9.3-B1 Qwen3-VL End-to-End Stage Latency Breakdown (2026-09-16)
+
+- Froze and executed an end-to-end stage latency protocol using the same
+  deterministic image, prompt, 16-token greedy setting, one warmup, and three
+  measured generations per backend.
+- Recorded PyTorch FP16 means of `12.423090331139974` ms preprocess,
+  `230.17195530732474` ms vision encoder, `7.5359253485997515` ms projector,
+  `424.7467854817708` ms prefill, and `135.6161869997676` ms decode/token.
+- Recorded TensorRT FP16 means of `10.465708997799084` ms preprocess,
+  `100.83846537272136` ms combined visual adapter, `283.19141642252606` ms
+  prefill, and `135.5895632664518` ms decode/token. Internal encoder/projector
+  timings remain `UNKNOWN`.
+- Decode dominated generation on both backends:
+  `82.72677578113881%` PyTorch and `87.7778526059737%` TensorRT.
+- Each backend was internally deterministic, but cross-backend token sequences
+  diverged at index 8; the cause remains `UNKNOWN` and no correctness gate was
+  applied.
+- Gate: `PASS / BOUNDED — STAGE_LATENCY_ATTRIBUTION_RECORDED`. No optimization,
+  quantization, engine rebuild, decoder modification, CUDA modification, or
+  environment modification occurred.
+
 ### Phase 9.3-A Qwen3-VL End-to-End TensorRT Vision Integration Harness (2026-09-16)
 
 - Established the first controlled end-to-end harness using a runtime

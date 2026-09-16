@@ -1,0 +1,506 @@
+{
+  "phase": "Phase 9.3-B1",
+  "title": "Qwen3-VL end-to-end stage latency breakdown",
+  "started_utc": "2026-09-16T09:46:42.095340+00:00",
+  "hostname": "nvidia-desktop",
+  "device": "cuda:0",
+  "device_name": "Orin",
+  "cuda_capability": [
+    8,
+    7
+  ],
+  "torch_version": "2.5.0a0+872d972e41.nv24.08",
+  "cuda_version": "12.6",
+  "tensorrt_version": "10.3.0",
+  "protocol": {
+    "path": "/tmp/phase9_3b1_20260916T094011Z/config/protocol.json",
+    "sha256": "b85ee2e8fa29c25c424c573ddaefd85fe97eae0dbf0ffa145612463a4e2821db",
+    "frozen_at_utc": "2026-09-16T09:40:11Z",
+    "workload": {
+      "image_mode": "RGB",
+      "image_width": 448,
+      "image_height": 448,
+      "image_description": "deterministic white background with a filled red square at [112,112,335,335]",
+      "prompt": "Describe the image.",
+      "sampling_rule": "greedy",
+      "max_new_tokens": 16,
+      "minimum_new_tokens": 16,
+      "eos_masking": "EOS is masked before argmax for decode steps 1 through 14; step 15 may emit EOS",
+      "warmup_generations_per_backend": 1,
+      "measured_generations_per_backend": 3,
+      "inter_trial_sleep_seconds": 0,
+      "backend_order": [
+        "pytorch_fp16",
+        "tensorrt_fp16"
+      ],
+      "power_mode": "25W unchanged"
+    },
+    "timing": {
+      "method": "cuda_events_and_host_wall_clock",
+      "preprocess": "host monotonic wall clock from chat template and processor call through CUDA transfer, FP16 pixel-values cast, and synchronize",
+      "vision_encoder": "PyTorch: CUDA event duration around model.model.visual minus measured projector module durations. TensorRT: UNKNOWN because the frozen engine does not expose an internal boundary",
+      "projector": "PyTorch: sum of CUDA event durations around visual.merger and the three visual.deepstack_merger_list modules. TensorRT: UNKNOWN because the frozen engine does not expose an internal boundary",
+      "visual_projector_combined": "TensorRT: CUDA event duration around the unchanged visual adapter",
+      "llm_prefill": "CUDA event duration around the complete model forward on the full image-plus-text input",
+      "decode": "host monotonic wall clock around the 15 subsequent cached decode calls after synchronize",
+      "decode_per_token": "decode wall-clock latency divided by 15 subsequent decode calls",
+      "event_synchronization": "synchronize before prefill, after prefill, and after the decode loop",
+      "hook_attribution": "PyTorch visual and projector durations are measured by temporary forward hooks; hooks are removed before TensorRT backend runs"
+    },
+    "attribution_boundary": {
+      "prefill_includes": "vision backend, projector, embedding, language decoder, final norm, and LM head",
+      "derived_language_decoder_prefill": "llm_prefill minus visual_total; derived, not independently isolated",
+      "generation_total": "llm_prefill plus subsequent decode",
+      "correctness_gate": false,
+      "optimization_gate": false,
+      "deployment_gate": false
+    }
+  },
+  "model_identity": {
+    "identity": "Qwen/Qwen3-VL-2B-Instruct",
+    "revision": "89644892e4d85e24eaac8bacfd4f463576704203",
+    "local_path": "/home/nvidia/models/qwen3-vl-2b-instruct-89644892e4d85e24eaac8bacfd4f463576704203",
+    "config_sha256": "bec4b3d446efa05807365c9e1cec03ac590836879d02f3a6da879971154bdd3b",
+    "weights_sha256": "7de1838c87a5349b016c26a1c3f7d2bc400a3d485f95ef39a7059ffd734977a0",
+    "weights_size_bytes": 4255140312
+  },
+  "engine_file": {
+    "path": "/tmp/phase9_2c1_20260916T034956Z/engine/qwen3_vl_vision_fp16.trt",
+    "size_bytes": 818910588,
+    "sha256_before": "aa5c200eb5dcbc5abaef55bc014b5210236fb9ca34394217a024d3796e44823c",
+    "sha256_after": null
+  },
+  "authorization_boundary": {
+    "stage_latency_breakdown": true,
+    "controlled_parity_backends": true,
+    "optimization": false,
+    "quantization": false,
+    "decoder_modification": false,
+    "tensorrt_engine_rebuild": false,
+    "cuda_modification": false,
+    "environment_modification": false,
+    "benchmark_sweep": false
+  },
+  "runtime_dependency_status": {
+    "python": "3.10.12",
+    "platform": "Linux-5.15.148-tegra-aarch64-with-glibc2.35",
+    "torch": "2.5.0a0+872d972e41.nv24.08",
+    "cuda": "12.6",
+    "tensorrt": "10.3.0",
+    "transformers": "4.57.3",
+    "cuda_available": true,
+    "total_memory_bytes": 7989903360,
+    "allocated_before_bytes": 0,
+    "reserved_before_bytes": 0,
+    "host_mem_available_bytes": 6312824832
+  },
+  "model_evidence": {
+    "load_success": true,
+    "model_class": "Qwen3VLForConditionalGeneration",
+    "base_model_class": "Qwen3VLModel",
+    "language_model_class": "Qwen3VLTextModel",
+    "visual_backend_class": "Qwen3VLVisionModel",
+    "model_dtype": "torch.float16",
+    "attention_implementation": "eager",
+    "total_parameter_count": 2127532032,
+    "language_model_parameter_count": 1720574976,
+    "tokenizer_class": "Qwen2TokenizerFast",
+    "visual_backend_class_after_injection": "TensorRTVisionAdapter",
+    "language_model_parameter_count_after_injection": 1720574976,
+    "tensorrt_adapter_metadata": {
+      "engine_name": "Unnamed Network 0",
+      "num_layers": 209,
+      "num_io_tensors": 5,
+      "num_optimization_profiles": 1,
+      "device_memory_size_v2": 14450688,
+      "log_counts_by_severity": {
+        "INFO": 2,
+        "VERBOSE": 6
+      },
+      "error_count": 0
+    }
+  },
+  "memory": {
+    "after_model_load": {
+      "allocated_bytes": 4255079424,
+      "reserved_bytes": 4324327424,
+      "peak_allocated_bytes": 4263985152,
+      "peak_reserved_bytes": 4324327424,
+      "host_mem_available_bytes": 1865375744
+    },
+    "after_pytorch_fp16": {
+      "allocated_bytes": 4263599616,
+      "reserved_bytes": 4466933760,
+      "peak_allocated_bytes": 4364569600,
+      "peak_reserved_bytes": 4466933760,
+      "host_mem_available_bytes": 1064714240
+    },
+    "after_tensorrt_injection": {
+      "allocated_bytes": 3500045312,
+      "reserved_bytes": 4290772992,
+      "peak_allocated_bytes": 4364569600,
+      "peak_reserved_bytes": 4466933760,
+      "host_mem_available_bytes": 754184192
+    }
+  },
+  "backends": {
+    "pytorch_fp16": {
+      "warmup_trials": [
+        {
+          "backend": "pytorch_fp16",
+          "generation_success": true,
+          "generated_tokens": 16,
+          "generated_token_ids": [
+            1986,
+            1986,
+            374,
+            264,
+            4285,
+            11,
+            52484,
+            2168,
+            315,
+            264,
+            2518,
+            9334,
+            13,
+            576,
+            9334,
+            374
+          ],
+          "generated_text": "ThisThis is a simple, geometric image of a red square. The square is",
+          "preprocess_ms": 102.96407499117777,
+          "visual_total_ms": 1072.5458984375,
+          "vision_encoder_ms": 1065.5521385669708,
+          "projector_ms": 6.993759870529175,
+          "vision_projector_combined_ms": null,
+          "prefill_ms": 1604.8814697265625,
+          "derived_language_decoder_prefill_ms": 532.3355712890625,
+          "decode_ms": 2151.3277199992444,
+          "decode_per_token_ms": 143.42184799994962,
+          "generation_total_ms": 3756.209189725807,
+          "generation_tokens_per_second": 4.259613666822416,
+          "input_ids": {
+            "dtype": "torch.int64",
+            "shape": [
+              1,
+              210
+            ],
+            "is_finite": true
+          },
+          "pixel_values": {
+            "dtype": "torch.float16",
+            "shape": [
+              784,
+              1536
+            ],
+            "is_finite": true
+          },
+          "image_grid_thw": {
+            "dtype": "torch.int64",
+            "shape": [
+              1,
+              3
+            ],
+            "is_finite": true
+          },
+          "prompt": "<|im_start|>user\n<|vision_start|><|image_pad|><|vision_end|>Describe the image.<|im_end|>\n<|im_start|>assistant\n"
+        }
+      ],
+      "measured_trials": [
+        {
+          "backend": "pytorch_fp16",
+          "generation_success": true,
+          "generated_tokens": 16,
+          "generated_token_ids": [
+            1986,
+            1986,
+            374,
+            264,
+            4285,
+            11,
+            52484,
+            2168,
+            315,
+            264,
+            2518,
+            9334,
+            13,
+            576,
+            9334,
+            374
+          ],
+          "generated_text": "ThisThis is a simple, geometric image of a red square. The square is",
+          "preprocess_ms": 13.060737008345313,
+          "visual_total_ms": 242.54092407226562,
+          "vision_encoder_ms": 234.84834802150726,
+          "projector_ms": 7.692576050758362,
+          "vision_projector_combined_ms": null,
+          "prefill_ms": 433.4249267578125,
+          "derived_language_decoder_prefill_ms": 190.88400268554688,
+          "decode_ms": 2039.199794002343,
+          "decode_per_token_ms": 135.94665293348953,
+          "generation_total_ms": 2472.6247207601555,
+          "generation_tokens_per_second": 6.4708566025665,
+          "input_ids": {
+            "dtype": "torch.int64",
+            "shape": [
+              1,
+              210
+            ],
+            "is_finite": true
+          },
+          "pixel_values": {
+            "dtype": "torch.float16",
+            "shape": [
+              784,
+              1536
+            ],
+            "is_finite": true
+          },
+          "image_grid_thw": {
+            "dtype": "torch.int64",
+            "shape": [
+              1,
+              3
+            ],
+            "is_finite": true
+          },
+          "prompt": "<|im_start|>user\n<|vision_start|><|image_pad|><|vision_end|>Describe the image.<|im_end|>\n<|im_start|>assistant\n"
+        },
+        {
+          "backend": "pytorch_fp16",
+          "generation_success": true,
+          "generated_tokens": 16,
+          "generated_token_ids": [
+            1986,
+            1986,
+            374,
+            264,
+            4285,
+            11,
+            52484,
+            2168,
+            315,
+            264,
+            2518,
+            9334,
+            13,
+            576,
+            9334,
+            374
+          ],
+          "generated_text": "ThisThis is a simple, geometric image of a red square. The square is",
+          "preprocess_ms": 9.763286987436004,
+          "visual_total_ms": 236.3666229248047,
+          "vision_encoder_ms": 229.41001498699188,
+          "projector_ms": 6.956607937812805,
+          "vision_projector_combined_ms": null,
+          "prefill_ms": 423.5692138671875,
+          "derived_language_decoder_prefill_ms": 187.2025909423828,
+          "decode_ms": 2036.313419986982,
+          "decode_per_token_ms": 135.75422799913213,
+          "generation_total_ms": 2459.8826338541694,
+          "generation_tokens_per_second": 6.504375363198135,
+          "input_ids": {
+            "dtype": "torch.int64",
+            "shape": [
+              1,
+              210
+            ],
+            "is_finite": true
+          },
+          "pixel_values": {
+            "dtype": "torch.float16",
+            "shape": [
+              784,
+              1536
+            ],
+            "is_finite": true
+          },
+          "image_grid_thw": {
+            "dtype": "torch.int64",
+            "shape": [
+              1,
+              3
+            ],
+            "is_finite": true
+          },
+          "prompt": "<|im_start|>user\n<|vision_start|><|image_pad|><|vision_end|>Describe the image.<|im_end|>\n<|im_start|>assistant\n"
+        },
+        {
+          "backend": "pytorch_fp16",
+          "generation_success": true,
+          "generated_tokens": 16,
+          "generated_token_ids": [
+            1986,
+            1986,
+            374,
+            264,
+            4285,
+            11,
+            52484,
+            2168,
+            315,
+            264,
+            2518,
+            9334,
+            13,
+            576,
+            9334,
+            374
+          ],
+          "generated_text": "ThisThis is a simple, geometric image of a red square. The square is",
+          "preprocess_ms": 8.547379009542055,
+          "visual_total_ms": 236.1096649169922,
+          "vision_encoder_ms": 228.73155295848846,
+          "projector_ms": 7.378111958503723,
+          "vision_projector_combined_ms": null,
+          "prefill_ms": 422.7989807128906,
+          "derived_language_decoder_prefill_ms": 186.68931579589844,
+          "decode_ms": 2035.207758002798,
+          "decode_per_token_ms": 135.68051720018653,
+          "generation_total_ms": 2458.0067387156887,
+          "generation_tokens_per_second": 6.5093393553347285,
+          "input_ids": {
+            "dtype": "torch.int64",
+            "shape": [
+              1,
+              210
+            ],
+            "is_finite": true
+          },
+          "pixel_values": {
+            "dtype": "torch.float16",
+            "shape": [
+              784,
+              1536
+            ],
+            "is_finite": true
+          },
+          "image_grid_thw": {
+            "dtype": "torch.int64",
+            "shape": [
+              1,
+              3
+            ],
+            "is_finite": true
+          },
+          "prompt": "<|im_start|>user\n<|vision_start|><|image_pad|><|vision_end|>Describe the image.<|im_end|>\n<|im_start|>assistant\n"
+        }
+      ],
+      "summary": {
+        "generation_success_count": 3,
+        "sample_count": 3,
+        "all_token_sequences_equal": true,
+        "all_generated_texts_equal": true,
+        "preprocess_ms": {
+          "sample_count": 3,
+          "mean_ms": 10.45713433510779,
+          "median_ms": 9.763286987436004,
+          "stddev_ms": 2.335309018683334,
+          "min_ms": 8.547379009542055,
+          "max_ms": 13.060737008345313
+        },
+        "visual_total_ms": {
+          "sample_count": 3,
+          "mean_ms": 238.33907063802084,
+          "median_ms": 236.3666229248047,
+          "stddev_ms": 3.641179213743922,
+          "min_ms": 236.1096649169922,
+          "max_ms": 242.54092407226562
+        },
+        "vision_encoder_ms": {
+          "sample_count": 3,
+          "mean_ms": 230.99663865566254,
+          "median_ms": 229.41001498699188,
+          "stddev_ms": 3.3528833054898035,
+          "min_ms": 228.73155295848846,
+          "max_ms": 234.84834802150726
+        },
+        "projector_ms": {
+          "sample_count": 3,
+          "mean_ms": 7.342431982358296,
+          "median_ms": 7.378111958503723,
+          "stddev_ms": 0.36927911035078137,
+          "min_ms": 6.956607937812805,
+          "max_ms": 7.692576050758362
+        },
+        "vision_projector_combined_ms": null,
+        "prefill_ms": {
+          "sample_count": 3,
+          "mean_ms": 426.5977071126302,
+          "median_ms": 423.5692138671875,
+          "stddev_ms": 5.925074754015074,
+          "min_ms": 422.7989807128906,
+          "max_ms": 433.4249267578125
+        },
+        "derived_language_decoder_prefill_ms": {
+          "sample_count": 3,
+          "mean_ms": 188.25863647460938,
+          "median_ms": 187.2025909423828,
+          "stddev_ms": 2.2880720377970802,
+          "min_ms": 186.68931579589844,
+          "max_ms": 190.88400268554688
+        },
+        "decode_ms": {
+          "sample_count": 3,
+          "mean_ms": 2036.906990664041,
+          "median_ms": 2036.313419986982,
+          "stddev_ms": 2.0611483369505184,
+          "min_ms": 2035.207758002798,
+          "max_ms": 2039.199794002343
+        },
+        "decode_per_token_ms": {
+          "sample_count": 3,
+          "mean_ms": 135.79379937760274,
+          "median_ms": 135.75422799913213,
+          "stddev_ms": 0.13740988913003846,
+          "min_ms": 135.68051720018653,
+          "max_ms": 135.94665293348953
+        },
+        "generation_total_ms": {
+          "sample_count": 3,
+          "mean_ms": 2463.504697776671,
+          "median_ms": 2459.8826338541694,
+          "stddev_ms": 7.953669596928516,
+          "min_ms": 2458.0067387156887,
+          "max_ms": 2472.6247207601555
+        },
+        "generation_tokens_per_second": {
+          "sample_count": 3,
+          "mean": 6.494857107033122,
+          "median": 6.504375363198135,
+          "stddev": 0.020932712807284783,
+          "min": 6.4708566025665,
+          "max": 6.5093393553347285
+        }
+      },
+      "memory_after_backend": {
+        "allocated_bytes": 4263599616,
+        "reserved_bytes": 4466933760,
+        "peak_allocated_bytes": 4364569600,
+        "peak_reserved_bytes": 4466933760,
+        "host_mem_available_bytes": 1064714240
+      }
+    }
+  },
+  "stage_attribution": {},
+  "comparison_summary": {},
+  "prohibited_operations_performed": {
+    "optimization": false,
+    "quantization": false,
+    "decoder_modification": false,
+    "tensorrt_engine_rebuild": false,
+    "cuda_modification": false,
+    "environment_modification": false,
+    "benchmark_sweep": false
+  },
+  "success": false,
+  "failure": {
+    "type": "AttributeError",
+    "message": "'TensorRTVisionAdapter' object has no attribute 'spatial_merge_size'",
+    "traceback": "Traceback (most recent call last):\n  File \"/tmp/phase9_3b1_20260916T094011Z/src/run_end_to_end_stage_breakdown.py\", line 702, in main\n    run_trial(\n  File \"/tmp/phase9_3b1_20260916T094011Z/src/run_end_to_end_stage_breakdown.py\", line 273, in run_trial\n    text, inputs, preprocess_ms = preprocess(\n  File \"/tmp/phase9_3b1_20260916T094011Z/src/run_end_to_end_stage_breakdown.py\", line 250, in preprocess\n    // model.model.visual.spatial_merge_size**2\n  File \"/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py\", line 1893, in __getattr__\n    raise AttributeError(\nAttributeError: 'TensorRTVisionAdapter' object has no attribute 'spatial_merge_size'\n"
+  },
+  "finished_utc": "2026-09-16T09:47:25.265734+00:00"
+}

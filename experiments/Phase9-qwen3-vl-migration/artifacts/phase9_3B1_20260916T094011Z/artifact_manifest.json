@@ -1,0 +1,66 @@
+{
+  "phase": "Phase 9.3-B1",
+  "artifact_directory": "experiments/Phase9-qwen3-vl-migration/artifacts/phase9_3B1_20260916T094011Z",
+  "created_utc": "2026-09-16T09:55:35Z",
+  "protocol_sha256": "b85ee2e8fa29c25c424c573ddaefd85fe97eae0dbf0ffa145612463a4e2821db",
+  "files": [
+    {
+      "path": "protocol.json",
+      "sha256": "b85ee2e8fa29c25c424c573ddaefd85fe97eae0dbf0ffa145612463a4e2821db",
+      "size_bytes": 3804,
+      "tracked_in_git": true
+    },
+    {
+      "path": "phase9_3B1_result.json",
+      "sha256": "d0c3a2e897637b9a88a5fc8791d2397cc3f61ae8c4cefa5b9a6a613300aa7b3d",
+      "size_bytes": 31273,
+      "tracked_in_git": true
+    },
+    {
+      "path": "console.log",
+      "sha256": "5e72b84cce95a0a301fa25f675b1ee37f00e1e52a06408d4c8ba6ecb50c79680",
+      "size_bytes": 6155,
+      "tracked_in_git": true
+    },
+    {
+      "path": "exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "size_bytes": 2,
+      "tracked_in_git": true
+    },
+    {
+      "path": "command_log.md",
+      "sha256": "256691091b170beb7f33c9fe594d5c9e36aabbd0274e061f406ff75023363d70",
+      "size_bytes": 3276,
+      "tracked_in_git": true
+    },
+    {
+      "path": "failed_attempt1_adapter_contract_failure/phase9_3B1_result.json",
+      "sha256": "cb8729149854cf494ac1f81e3398c6d1b887fd781937b74baf1ab1c452e4eea1",
+      "size_bytes": 17864,
+      "tracked_in_git": true
+    },
+    {
+      "path": "failed_attempt1_adapter_contract_failure/console.log",
+      "sha256": "72c6d0ae73e3a5085f02e09332c6b07f795df2e54af0b18abb35cd47d1d3aebb",
+      "size_bytes": 1617,
+      "tracked_in_git": true
+    },
+    {
+      "path": "failed_attempt1_adapter_contract_failure/exit_code.txt",
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "size_bytes": 2,
+      "tracked_in_git": true
+    }
+  ],
+  "companion_repository_files": [
+    {
+      "path": "experiments/Phase9-qwen3-vl-migration/src/phase9_3B1/run_end_to_end_stage_breakdown.py",
+      "sha256": "aed4b2eb15771d30e8b0505b65452ebbb876596927fe5678b49898a20aa4cdb8"
+    },
+    {
+      "path": "experiments/Phase9-qwen3-vl-migration/docs/phase9_3B1_end_to_end_stage_latency_breakdown.md",
+      "sha256": "170be4b335bdc784164381b3ad114784a1309252c280c6b517bd6e7dbe8e9afb"
+    }
+  ]
+}

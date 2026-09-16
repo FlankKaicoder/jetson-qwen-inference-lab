@@ -1326,3 +1326,32 @@ audit if three-side alignment is required.
   `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_3A_20260916T085442Z/`.
 - Stop and await Gate review before any logit diagnosis, input sweep,
   optimization, rebuild, benchmark sweep, quantization, or next migration step.
+# Phase 9.3-B1 End-to-End Stage Latency Breakdown (2026-09-16)
+
+- After explicit authorization, the frozen end-to-end workload measured
+  preprocess, visual, prefill, and decode stages for PyTorch FP16 and the
+  unchanged C1 TensorRT FP16 visual adapter.
+  Gate: `PASS / BOUNDED — STAGE_LATENCY_ATTRIBUTION_RECORDED`.
+- The protocol used one warmup and three measured 16-token greedy generations
+  per backend. PyTorch means were preprocess `12.423090331139974` ms, vision
+  encoder `230.17195530732474` ms, projector `7.5359253485997515` ms, prefill
+  `424.7467854817708` ms, and decode/token `135.6161869997676` ms.
+- TensorRT means were preprocess `10.465708997799084` ms, combined visual
+  adapter `100.83846537272136` ms, prefill `283.19141642252606` ms, and
+  decode/token `135.5895632664518` ms. Internal encoder/projector split and
+  power are `UNKNOWN`.
+- Decode dominated generation at `82.72677578113881%` for PyTorch and
+  `87.7778526059737%` for TensorRT. This is fixed-workload attribution only,
+  not an optimization claim.
+- Each backend was internally deterministic, but the cross-backend sequences
+  diverged at token index 8. The cause is `UNKNOWN`; no diagnosis was authorized.
+- A first run failed because the TensorRT adapter omitted
+  `spatial_merge_size`; the failed evidence was preserved. The only correction
+  retained that original visual-model attribute, and the unchanged frozen
+  protocol was rerun.
+- Report and evidence:
+  `experiments/Phase9-qwen3-vl-migration/docs/phase9_3B1_end_to_end_stage_latency_breakdown.md`,
+  `experiments/Phase9-qwen3-vl-migration/artifacts/phase9_3B1_20260916T094011Z/`.
+- Stop and await Gate review before any diagnosis, input sweep, optimization,
+  rebuild, rerun, benchmark, quantization, decoder change, CUDA change, or
+  environment change.

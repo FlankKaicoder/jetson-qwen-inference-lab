@@ -1,0 +1,16 @@
+/usr/lib/python3/dist-packages/scipy/__init__.py:146: UserWarning: A NumPy version >=1.17.3 and <1.25.0 is required for this version of SciPy (detected version 1.26.4
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion}"
+`torch_dtype` is deprecated! Use `dtype` instead!
+[TRT:INFO] Loaded engine size: 780 MiB
+[TRT:VERBOSE] Deserialization required 5934081 microseconds.
+[TRT:VERBOSE] Total per-runner device persistent memory is 0
+[TRT:VERBOSE] Total per-runner host persistent memory is 5584
+[TRT:VERBOSE] Allocated device scratch memory of size 14450688
+[TRT:VERBOSE] - Runner scratch: 14450688 bytes
+[TRT:INFO] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +14, now: CPU 0, GPU 792 (MiB)
+[TRT:VERBOSE] CUDA lazy loading is enabled.
+{
+  "type": "AttributeError",
+  "message": "'TensorRTVisionAdapter' object has no attribute 'spatial_merge_size'",
+  "traceback": "Traceback (most recent call last):\n  File \"/tmp/phase9_3b1_20260916T094011Z/src/run_end_to_end_stage_breakdown.py\", line 702, in main\n    run_trial(\n  File \"/tmp/phase9_3b1_20260916T094011Z/src/run_end_to_end_stage_breakdown.py\", line 273, in run_trial\n    text, inputs, preprocess_ms = preprocess(\n  File \"/tmp/phase9_3b1_20260916T094011Z/src/run_end_to_end_stage_breakdown.py\", line 250, in preprocess\n    // model.model.visual.spatial_merge_size**2\n  File \"/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py\", line 1893, in __getattr__\n    raise AttributeError(\nAttributeError: 'TensorRTVisionAdapter' object has no attribute 'spatial_merge_size'\n"
+}
