@@ -1,0 +1,22 @@
+Time (%),Total Time (ns),Instances,Avg (ns),Med (ns),Min (ns),Max (ns),StdDev (ns),Name
+29.2,135571584,728,186224.7,158320.0,77248,231232,39603.8,trt_ampere_h16816gemm_128x64_ldg8_stages_32x6_nn_v1
+25.0,115949184,520,222979.2,231200.0,104640,236704,30551.0,trt_ampere_h16816gemm_128x64_ldg8_stages_32x6_tn_v1
+17.2,79987936,260,307645.9,317984.0,148768,324512,39743.4,trt_ampere_h16816gemm_256x64_ldg8_nn_v1
+15.4,71716480,273,262697.7,241824.0,235264,311712,31305.4,trt_ampere_h16816gemm_128x64_ldg8_stages_64x3_tn_v1
+2.2,10028896,39,257151.2,236000.0,233952,301600,31068.5,trt_ampere_h16816gemm_256x64_ldg8_tn_v1
+1.7,7887648,364,21669.4,21664.0,10144,24064,2096.5,_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff
+1.2,5642880,364,15502.4,15632.0,8512,17632,1332.7,__myl_AddMulMeaAddSqrDivMulMul_0x326d1c0ad6315f778a7881847969df6d_com_vec
+1.2,5544192,364,15231.3,15520.0,8064,16800,1389.4,__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec
+1.2,5508288,364,15132.7,15232.0,7744,17184,1568.1,__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com
+1.0,4857216,273,17792.0,18432.0,9184,19008,1861.8,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x592a3b44c339e3f5576808c1fe9f02d3_com
+0.9,4175328,364,11470.7,11328.0,6048,13696,1150.9,__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec
+0.9,4158848,364,11425.4,12160.0,6304,12800,1361.9,__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec
+0.9,4047168,260,15566.0,16224.0,8512,16640,1514.2,__myl_AddMulMeaAddSqrDivMulMul_0x4f9e2fb0db84d20355980bd379c430dd_com_vec
+0.8,3826784,273,14017.5,14400.0,6816,15168,1487.7,__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com
+0.3,1601120,104,15395.4,15040.0,14144,18912,1228.1,"void <unnamed>::rmsnorm_v2_kernel<__half>(const T1 *, T1 *, const T1 *, int, float)"
+0.3,1504384,78,19287.0,19200.0,18624,20576,437.1,__myl_MovMovAddSqrAddSqrDivMulDivMulMulTraSliSliNegConMulMulAddResSliRepResTraMulTraSliSliNegConEtc_0xdfb594b87722df4dea7feeb555a838a5_com
+0.3,1334336,104,12830.2,12832.0,7616,13888,1049.6,__myl_Add_0x90a7f9d340301c033e6dc1c93736fee8_com
+0.1,684736,104,6584.0,6144.0,6016,9696,1039.6,__myl_RepIotIotRepCasAddCasEqlLtOrSel_0xeed00a2999d9a920ce4be4d44852c879_com
+0.1,378528,13,29117.5,29088.0,28896,29696,230.6,__myl_CasResMulConSinResCasCosResCasAddSqrAddSqrDivMulDivMulMulTraSliSliNegConMulMulAddResSliRepEtc_0xf3af2e09139f8079a11eb602fd70dfc0_com
+0.0,22304,1,22304.0,22304.0,22304,22304,0.0,"void at::native::<unnamed>::distribution_elementwise_grid_stride_kernel<float, (int)4, void at::native::templates::cuda::normal_and_transform<c10::Half, float, (unsigned long)4, at::CUDAGeneratorImpl *, void at::native::templates::cuda::normal_kernel<at::CUDAGeneratorImpl *>(const at::TensorBase &, double, double, T1)::[lambda() (instance 1)]::operator ()() const::[lambda() (instance 3)]::operator ()() const::[lambda(float) (instance 1)]>(at::TensorIteratorBase &, T4, T5)::[lambda(curandStatePhilox4_32_10 *) (instance 2)], void at::native::<unnamed>::distribution_nullary_kernel<c10::Half, float, (int)4, at::CUDAGeneratorImpl *, void at::native::templates::cuda::normal_and_transform<c10::Half, float, (unsigned long)4, at::CUDAGeneratorImpl *, void at::native::templates::cuda::normal_kernel<at::CUDAGeneratorImpl *>(const at::TensorBase &, double, double, T1)::[lambda() (instance 1)]::operator ()() const::[lambda() (instance 3)]::operator ()() const::[lambda(float) (instance 1)]>(at::TensorIteratorBase &, T4, T5)::[lambda(curandStatePhilox4_32_10 *) (instance 2)], void at::native::templates::cuda::normal_kernel<at::CUDAGeneratorImpl *>(const at::TensorBase &, double, double, T1)::[lambda() (instance 1)]::operator ()() const::[lambda() (instance 3)]::operator ()() const::[lambda(float) (instance 1)]>(at::TensorIteratorBase &, T4, const T5 &, T6)::[lambda(int, float) (instance 1)]>(int, at::PhiloxCudaState, T3, T4)"
+0.0,9568,1,9568.0,9568.0,9568,9568,0.0,"void <unnamed>::elementwise_kernel_with_index<int, at::native::arange_cuda_out(const c10::Scalar &, const c10::Scalar &, const c10::Scalar &, at::Tensor &)::[lambda() (instance 1)]::operator ()() const::[lambda() (instance 4)]::operator ()() const::[lambda(long) (instance 1)]>(T1, T2, function_traits<T2>::result_type *)"

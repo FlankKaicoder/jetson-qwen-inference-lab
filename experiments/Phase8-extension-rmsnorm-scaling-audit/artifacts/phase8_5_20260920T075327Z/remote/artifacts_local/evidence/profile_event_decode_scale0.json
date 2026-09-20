@@ -1,0 +1,14 @@
+{
+  "engine": "engines/decode_baseline.engine",
+  "kind": "decode",
+  "scale": 0,
+  "warmup": 10,
+  "profile_runs": 3,
+  "samples_ms": [
+    2129.150634765625,
+    2129.275146484375,
+    2120.600341796875
+  ],
+  "mean_ms": 2126.342041015625,
+  "mode": "profile"
+}

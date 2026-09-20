@@ -1,0 +1,234 @@
+{
+  "common_output_count": 92,
+  "all_outputs_finite": true,
+  "hidden_metrics": {
+    "hidden_l0": {
+      "relative_l2": 0.0007241349667310715,
+      "max_abs": 0.00390625,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l1": {
+      "relative_l2": 0.001832854119129479,
+      "max_abs": 0.0107421875,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l10": {
+      "relative_l2": 0.0060796914622187614,
+      "max_abs": 0.1171875,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l11": {
+      "relative_l2": 0.006145600229501724,
+      "max_abs": 0.125,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l12": {
+      "relative_l2": 0.006512138061225414,
+      "max_abs": 0.1328125,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l13": {
+      "relative_l2": 0.006636367179453373,
+      "max_abs": 0.140625,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l14": {
+      "relative_l2": 0.006990636698901653,
+      "max_abs": 0.150390625,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l15": {
+      "relative_l2": 0.007057891692966223,
+      "max_abs": 0.16796875,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l16": {
+      "relative_l2": 0.0071253590285778046,
+      "max_abs": 0.15625,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l17": {
+      "relative_l2": 0.007820528000593185,
+      "max_abs": 0.1884765625,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l18": {
+      "relative_l2": 0.008293470367789268,
+      "max_abs": 0.2421875,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l19": {
+      "relative_l2": 0.00891413539648056,
+      "max_abs": 0.2421875,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l2": {
+      "relative_l2": 0.0026553142815828323,
+      "max_abs": 0.015625,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l20": {
+      "relative_l2": 0.00910460390150547,
+      "max_abs": 0.328125,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l21": {
+      "relative_l2": 0.00984230451285839,
+      "max_abs": 0.40625,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l22": {
+      "relative_l2": 0.010751808993518353,
+      "max_abs": 0.494140625,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l23": {
+      "relative_l2": 0.011790408752858639,
+      "max_abs": 0.5390625,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l24": {
+      "relative_l2": 0.01331990398466587,
+      "max_abs": 0.83203125,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l25": {
+      "relative_l2": 0.013719731010496616,
+      "max_abs": 1.03125,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l26": {
+      "relative_l2": 0.014484073966741562,
+      "max_abs": 1.2890625,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l27": {
+      "relative_l2": 0.015418361872434616,
+      "max_abs": 1.46875,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l3": {
+      "relative_l2": 0.0033106033224612474,
+      "max_abs": 0.02734375,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l4": {
+      "relative_l2": 0.0038243611343204975,
+      "max_abs": 0.041015625,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l5": {
+      "relative_l2": 0.004306654445827007,
+      "max_abs": 0.052734375,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l6": {
+      "relative_l2": 0.00473423907533288,
+      "max_abs": 0.068359375,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l7": {
+      "relative_l2": 0.005315639078617096,
+      "max_abs": 0.0859375,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l8": {
+      "relative_l2": 0.005525198299437761,
+      "max_abs": 0.09375,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l9": {
+      "relative_l2": 0.005935730878263712,
+      "max_abs": 0.109375,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    }
+  },
+  "replaced_norm_metrics": {
+    "/input_layernorm/Mul_1_output_0": {
+      "relative_l2": 0.0005001226672902703,
+      "max_abs": 0.0009765625,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "/input_layernorm_1/Mul_1_output_0": {
+      "relative_l2": 0.0008833447354845703,
+      "max_abs": 0.0008544921875,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "/input_layernorm_2/Mul_1_output_0": {
+      "relative_l2": 0.0018369832541793585,
+      "max_abs": 0.001953125,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "/input_layernorm_3/Mul_1_output_0": {
+      "relative_l2": 0.002641726052388549,
+      "max_abs": 0.006103515625,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "/input_layernorm_4/Mul_1_output_0": {
+      "relative_l2": 0.00330621306784451,
+      "max_abs": 0.005859375,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "/input_layernorm_5/Mul_1_output_0": {
+      "relative_l2": 0.0038359297905117273,
+      "max_abs": 0.01025390625,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "/input_layernorm_6/Mul_1_output_0": {
+      "relative_l2": 0.004299856722354889,
+      "max_abs": 0.0087890625,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "/input_layernorm_7/Mul_1_output_0": {
+      "relative_l2": 0.0046953181736171246,
+      "max_abs": 0.01513671875,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    }
+  },
+  "kv_summary": {
+    "finite_ratio": 1.0,
+    "shape_mismatches": []
+  },
+  "replaced_norm_max_relative_l2": 0.0046953181736171246,
+  "gate_hidden_l27_pass": true,
+  "gate_replaced_norm_pass": false,
+  "mode": "compare",
+  "kind": "decode",
+  "scale": 8
+}

@@ -1,3 +1,21 @@
+# Phase 8.5 RMSNorm Scaling Audit (2026-09-20)
+
+- The owner authorized Phase 8.5 only. Starting branch/HEAD was
+  `phase/08-extension-fusion-analysis` at
+  `c4c702cc8accd10010133c9439c67f354d7d51e0`.
+- Report:
+  `experiments/Phase8-extension-rmsnorm-scaling-audit/docs/phase8_5_rmsnorm_scaling_audit_report.md`.
+  Evidence:
+  `experiments/Phase8-extension-rmsnorm-scaling-audit/artifacts/phase8_5_20260920T075327Z/`.
+- Gate:
+  `PASS / BOUNDED / NO_PROVEN_SCALABLE_PLUGIN_PATH`. All outputs were finite
+  and final hidden rel-L2 stayed below `0.05`, but the replaced RMSNorm gate
+  failed from scale 4 and generation consistency failed earlier in prefill.
+- Decode scale 56 uses a separately marked `opt1` engine after two OOM-killed
+  retries; the failed attempts and the original `opt0` evidence are preserved.
+- Stop here. Further scaling, fusion, optimization, deployment, or a changed
+  numerical gate requires fresh authorization.
+
 # Phase 8.7 TensorRT Fusion Boundary Analysis (2026-09-20)
 
 - The owner authorized only the Phase 8.7 TensorRT fusion-boundary extension.

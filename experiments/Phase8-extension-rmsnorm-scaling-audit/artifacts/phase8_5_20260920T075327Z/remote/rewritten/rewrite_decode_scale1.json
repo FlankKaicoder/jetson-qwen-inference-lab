@@ -1,0 +1,40 @@
+{
+  "baseline": {
+    "source": "work/decode_28layer.onnx",
+    "output": "rewritten/decode_baseline_scale1.onnx",
+    "kind": "decode",
+    "expose_only": true,
+    "gamma_count": 1,
+    "plugin_nodes": 0,
+    "removed_nodes": 0,
+    "final_node_count": 6146,
+    "bytes": 881548745,
+    "replacements": [
+      {
+        "gamma": "stack.layers.0.input_layernorm.weight",
+        "target_output": "/input_layernorm/Mul_1_output_0"
+      }
+    ]
+  },
+  "plugin": {
+    "source": "work/decode_28layer.onnx",
+    "output": "rewritten/decode_plugin_scale1.onnx",
+    "kind": "decode",
+    "expose_only": false,
+    "gamma_count": 1,
+    "plugin_nodes": 1,
+    "removed_nodes": 12,
+    "final_node_count": 6135,
+    "bytes": 881547553,
+    "replacements": [
+      {
+        "gamma": "stack.layers.0.input_layernorm.weight",
+        "target_output": "/input_layernorm/Mul_1_output_0",
+        "hidden_input": "hidden_states",
+        "target_nodes": 12,
+        "removed_nodes": 12,
+        "plugin_name": "/stack.layers.0.input_layernorm.weight/RMSNormPlugin"
+      }
+    ]
+  }
+}

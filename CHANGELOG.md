@@ -4,6 +4,19 @@
 
 ## [Unreleased]
 
+### Phase 8.5 RMSNorm Scaling and Numerical Stability Audit (2026-09-20)
+
+- Added a bounded multi-node RMSNorm plugin audit for scales
+  `0/1/4/8/28/56` on reconstructed FP16 28-layer Qwen3 prefill and decode
+  graphs.
+- Recorded per-layer hidden errors, replaced-RMSNorm errors, deterministic
+  graph generation consistency, CUDA-event latency, kernel counts, CUDA launch
+  counts, and Nsight Systems GPU kernel time.
+- Preserved OOM-killed decode scale-56 build attempts and a separately marked
+  `opt1` engine rather than overwriting failed evidence.
+- Gate: `PASS / BOUNDED / NO_PROVEN_SCALABLE_PLUGIN_PATH`. The replaced-RMSNorm
+  tolerance and generation consistency failed as replacement scope grew.
+
 ### Phase 8.7 TensorRT Fusion Boundary Analysis (2026-09-20)
 
 - Added a repository-only TensorRT fusion-boundary audit under

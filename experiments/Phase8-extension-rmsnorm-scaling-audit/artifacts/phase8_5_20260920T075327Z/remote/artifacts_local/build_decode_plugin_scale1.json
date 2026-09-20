@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "kind": "decode",
+  "onnx": "rewritten/decode_plugin_scale1.onnx",
+  "engine": "engines/decode_plugin_scale1.engine",
+  "onnx_bytes": 881547553,
+  "engine_bytes": 892742900,
+  "build_seconds": 110.66534733772278,
+  "parser_errors": [],
+  "plugin_creator_check": true
+}

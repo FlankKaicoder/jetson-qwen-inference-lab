@@ -1,0 +1,14 @@
+{
+  "engine": "engines/prefill_plugin_scale28.engine",
+  "kind": "prefill",
+  "scale": 28,
+  "warmup": 10,
+  "profile_runs": 3,
+  "samples_ms": [
+    2311.855712890625,
+    2306.33837890625,
+    2308.050537109375
+  ],
+  "mean_ms": 2308.7482096354165,
+  "mode": "profile"
+}

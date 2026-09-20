@@ -1,0 +1,13 @@
+kind,scale,engine_build,common_output_count,all_outputs_finite,replaced_norm_count,replaced_norm_max_relative_l2,hidden_l27_relative_l2,hidden_l27_max_abs,gate_replaced_norm_pass,gate_hidden_l27_pass
+prefill,0,default,140,True,0,0.0,0.0,0.0,True,True
+prefill,1,default,85,True,1,0.0005070584593340755,0.025054555386304855,5.6875,True,True
+prefill,4,default,88,True,4,0.003160873893648386,0.025609489530324936,7.9375,False,True
+prefill,8,default,92,True,8,0.0072243474423885345,0.025012079626321793,6.375,False,True
+prefill,28,default,112,True,28,0.022170977666974068,0.02551531419157982,7.5625,False,True
+prefill,56,default,140,True,56,0.023261521011590958,0.02675018087029457,6.375,False,True
+decode,0,default,140,True,0,0.0,0.0,0.0,True,True
+decode,1,default,85,True,1,0.0005001226672902703,0.01641695387661457,1.59375,True,True
+decode,4,default,88,True,4,0.002641726052388549,0.015188823454082012,1.4326171875,False,True
+decode,8,default,92,True,8,0.0046953181736171246,0.015418361872434616,1.46875,False,True
+decode,28,default,112,True,28,0.01382557675242424,0.015323476865887642,1.21875,False,True
+decode,56,opt1,140,True,56,0.014819555915892124,0.01719328947365284,1.4375,False,True

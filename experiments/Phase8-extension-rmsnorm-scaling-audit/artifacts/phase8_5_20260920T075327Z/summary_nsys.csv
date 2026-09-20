@@ -1,0 +1,13 @@
+kind,scale,engine_build,gpu_kernel_count,gpu_kernel_total_time_ns,gpu_kernel_distinct_names,cuda_launch_count
+prefill,0,default,5111.0,468322432.0,17,1822.0
+prefill,1,default,5111.0,473817248.0,17,1835.0
+prefill,4,default,5111.0,475804576.0,18,1146.0
+prefill,8,default,5215.0,464437408.0,21,1926.0
+prefill,28,default,5098.0,470656576.0,15,1458.0
+prefill,56,default,5098.0,494151168.0,14,1822.0
+decode,0,default,5504.0,501425120.0,18,70.0
+decode,1,default,5504.0,496061600.0,18,83.0
+decode,4,default,5478.0,503310272.0,20,200.0
+decode,8,default,5426.0,493824448.0,21,356.0
+decode,28,default,5153.0,490380160.0,19,1136.0
+decode,56,opt1,5517.0,496992736.0,16,1864.0

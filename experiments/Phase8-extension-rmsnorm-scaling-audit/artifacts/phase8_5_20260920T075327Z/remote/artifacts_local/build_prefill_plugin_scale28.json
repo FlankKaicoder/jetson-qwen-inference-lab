@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "kind": "prefill",
+  "onnx": "rewritten/prefill_plugin_scale28.onnx",
+  "engine": "engines/prefill_plugin_scale28.engine",
+  "onnx_bytes": 881532876,
+  "engine_bytes": 893949916,
+  "build_seconds": 193.5155975818634,
+  "parser_errors": [],
+  "plugin_creator_check": true
+}

@@ -1,0 +1,11 @@
+{
+  "report_directory": "artifacts_local/nsys_csv/profile_prefill_scale8_cuda_api_sum.csv",
+  "gpu_kernel_count": 0.0,
+  "gpu_kernel_total_time": 0.0,
+  "gpu_kernel_time_unit": "UNKNOWN",
+  "gpu_kernel_distinct_names": 0,
+  "cuda_launch_count": 0,
+  "cuda_launch_rows": [],
+  "gpu_reports": [],
+  "api_reports": []
+}

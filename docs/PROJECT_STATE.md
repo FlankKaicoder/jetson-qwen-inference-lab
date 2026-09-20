@@ -12,15 +12,41 @@
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 8.7 — TensorRT Fusion Boundary Analysis Extension |
-| Current experiment | Phase 8.7 — TensorRT Fusion Boundary Analysis |
+| Current phase | Phase 8.5 — RMSNorm Scaling and Numerical Stability Audit |
+| Current experiment | Phase 8.5 — RMSNorm Scaling and Numerical Stability Audit |
 | Current branch | `phase/08-extension-fusion-analysis` |
 | Current HEAD | Verify with `git rev-parse HEAD`; the closeout commit changes HEAD |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 8.7 — TensorRT Fusion Boundary Analysis |
-| Experiment status | Phase 8.7 completed a repository-only evidence audit; Phase 9.3-B2 remains the latest profiling experiment and all historical evidence is unchanged. |
-| Current Gate | `PASS / BOUNDED / NO_PROVEN_FUSION_OPTIMIZATION_TARGET`; plugin fusion loss is `INCONCLUSIVE`. |
-| Readiness | Stop after Phase 8.7. Phase 8.5 and any plugin-Inspector/Nsight follow-up require a fresh explicit authorization. |
+| Last completed experiment | Phase 8.5 — RMSNorm Scaling and Numerical Stability Audit |
+| Experiment status | Phase 8.5 completed a bounded Jetson multi-node plugin audit; Phase 8.7 remains the latest prior fusion audit. |
+| Current Gate | `PASS / BOUNDED / NO_PROVEN_SCALABLE_PLUGIN_PATH`; final-hidden tolerance passed, but the replaced-RMSNorm and generation gates failed at scale. |
+| Readiness | Stop after Phase 8.5. Further scaling, fusion, optimization, or deployment work requires a fresh explicit authorization. |
+
+## Phase 8.5 RMSNorm Scaling Audit Checkpoint (2026-09-20)
+
+- The owner authorized Phase 8.5 only. Starting branch/HEAD was
+  `phase/08-extension-fusion-analysis` at
+  `c4c702cc8accd10010133c9439c67f354d7d51e0`.
+- The unchanged Phase 8.4-A RMSNorm plugin was audited on a reconstructed
+  isolated FP16 28-layer Qwen3 graph for scales 0/1/4/8/28/56. No fusion,
+  optimization, plugin modification, or existing Phase 8 artifact change
+  occurred.
+- All outputs were finite and `hidden_l27` relative-L2 stayed below `0.05`.
+  Replaced RMSNorm relative-L2 was within `1e-3` at scale 1, but rose to
+  `0.0031608739`/`0.0026417261` at prefill/decode scale 4 and
+  `0.0232615210`/`0.0148195559` at scale 56.
+- Generation consistency passed only for decode scale 1 within nonzero plugin
+  scales; prefill scale 1 and all scale 4/8/28/56 cases failed. The predeclared
+  numerical and generation conditions therefore failed.
+- CUDA-event means ranged from 1244.775277 to 2231.409619 ms for prefill and
+  2007.754590 to 2058.818229 ms for decode. Kernel count stayed around 5.1k
+  prefill and 5.4-5.5k decode. Decode scale 56 used a separately preserved
+  `opt1` build after two OOM-killed default builds; this is explicitly marked.
+- Report:
+  `experiments/Phase8-extension-rmsnorm-scaling-audit/docs/phase8_5_rmsnorm_scaling_audit_report.md`.
+  Evidence:
+  `experiments/Phase8-extension-rmsnorm-scaling-audit/artifacts/phase8_5_20260920T075327Z/`.
+  Gate: `PASS / BOUNDED / NO_PROVEN_SCALABLE_PLUGIN_PATH`. Stop.
 
 ## Phase 8.7 TensorRT Fusion Boundary Analysis Checkpoint (2026-09-20)
 

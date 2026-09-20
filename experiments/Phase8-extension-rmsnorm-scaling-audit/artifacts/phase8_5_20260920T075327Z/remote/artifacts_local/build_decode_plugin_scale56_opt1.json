@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "kind": "decode",
+  "onnx": "rewritten/decode_plugin_scale56.onnx",
+  "engine": "engines/decode_plugin_scale56_opt1.engine",
+  "onnx_bytes": 881471246,
+  "engine_bytes": 890007588,
+  "build_seconds": 77.73652529716492,
+  "parser_errors": [],
+  "plugin_creator_check": true,
+  "workspace_bytes": 1073741824,
+  "tactic_dram_bytes": 1073741824,
+  "builder_optimization_level": 1
+}

@@ -1,0 +1,21 @@
+Time (%),Total Time (ns),Instances,Avg (ns),Med (ns),Min (ns),Max (ns),StdDev (ns),Name
+35.8,180321056,676,266747.1,246336.0,111904,313088,39269.5,sm80_xmma_gemm_f16f16_f16f32_f32_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+29.3,147316992,676,217924.5,251072.0,81920,264416,43115.8,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_fused
+16.3,82166400,364,225731.9,230032.0,108192,233024,21368.9,sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize64x64x64_stage4_warpsize2x2x1_tensor16x8x16_fused
+3.6,17905888,364,49192.0,49824.0,24992,50912,3859.6,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize64x128x32_stage5_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+2.3,11651968,39,298768.4,298400.0,296544,302624,1264.5,trt_ampere_h16816gemm_128x64_ldg8_stages_32x6_tn_v1
+2.2,11281728,364,30993.8,31584.0,13856,32384,2706.3,sm80_xmma_gemm_f16f16_f16f32_f32_nn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_aligna2_alignc2_execute_kernel_trt
+1.7,8376960,676,12392.0,12480.0,6656,14240,931.6,__myl_MulMeaAddSqrDivMulMul_0x8548fa9a57c713be1fdaa27c95458b99
+1.6,8232352,52,158314.5,158384.0,156576,160320,667.4,trt_ampere_h16816gemm_64x64_ldg8_relu_stages_64x5_nn_v1
+1.4,7007008,325,21560.0,21728.0,10400,22944,1868.3,__myl_AddSqrDivMulMulResSliSliNegConMulMulAddConResRepResTra_0x5aea462b6a819ceadd3ebb32874c078f_com
+1.3,6416320,364,17627.3,17792.0,8672,20000,1478.6,__myl_MovResConResRep_0xeb90291bbf009f8413c8500b92afa70a_com
+1.0,4841344,364,13300.4,13664.0,6912,14880,1127.0,__myl_MovResMulMea_0x8729692710be644f17c7f997918851be
+0.9,4507904,364,12384.4,12448.0,5760,13984,1088.2,__myl_MulMaxSubExpSumDivMul_0x1108f5a078d6e65507c06537b9b2e43f_com
+0.8,3988960,13,306843.1,306592.0,304416,311040,2121.6,sm80_xmma_gemm_f16f16_f16f16_f16_tn_n_tilesize32x32x64_stage6_warpsize2x2x1_tensor16x8x16_execute_kernel_trt
+0.8,3890304,364,10687.6,11040.0,4736,13088,1090.3,__myl_MovResMulMea_0x61ec5b9962acde3fddf5628b2e6fd459
+0.6,3160160,325,9723.6,9856.0,4640,11712,892.2,__myl_AddSqrDivMulMulResSliSliNegConMulMulAdd_0xf1ba08cc3beaba8ee91b0504be9c2cf4
+0.2,820384,52,15776.6,14816.0,14208,19360,1858.6,"void <unnamed>::rmsnorm_v2_kernel<__half>(const T1 *, T1 *, const T1 *, int, float)"
+0.1,626304,26,24088.6,24128.0,23584,24544,230.1,__myl_MovMovAddSqrAddSqrDivMulDivMulMulResSliSliNegConMulMulAddConResRepResTraMulResSliSliNegConEtc_0x8077729fc1f126a5a7cdc90727d471cc_com
+0.1,422656,56,7547.4,7264.0,7168,11968,728.6,"void at::native::vectorized_elementwise_kernel<(int)4, at::native::FillFunctor<c10::Half>, at::detail::Array<char *, (int)1>>(int, T2, T3)"
+0.1,362592,13,27891.7,27744.0,27456,28960,522.5,__myl_CasResMulConSinResCasCosResCasAddSqrAddSqrDivMulDivMulMulResSliSliNegConMulMulAddConResRepEtc_0xb977a9f3a28b53059fd736d84e653f20_com
+0.0,12992,1,12992.0,12992.0,12992,12992,0.0,"void at::native::<unnamed>::distribution_elementwise_grid_stride_kernel<float, (int)4, void at::native::templates::cuda::normal_and_transform<c10::Half, float, (unsigned long)4, at::CUDAGeneratorImpl *, void at::native::templates::cuda::normal_kernel<at::CUDAGeneratorImpl *>(const at::TensorBase &, double, double, T1)::[lambda() (instance 1)]::operator ()() const::[lambda() (instance 3)]::operator ()() const::[lambda(float) (instance 1)]>(at::TensorIteratorBase &, T4, T5)::[lambda(curandStatePhilox4_32_10 *) (instance 2)], void at::native::<unnamed>::distribution_nullary_kernel<c10::Half, float, (int)4, at::CUDAGeneratorImpl *, void at::native::templates::cuda::normal_and_transform<c10::Half, float, (unsigned long)4, at::CUDAGeneratorImpl *, void at::native::templates::cuda::normal_kernel<at::CUDAGeneratorImpl *>(const at::TensorBase &, double, double, T1)::[lambda() (instance 1)]::operator ()() const::[lambda() (instance 3)]::operator ()() const::[lambda(float) (instance 1)]>(at::TensorIteratorBase &, T4, T5)::[lambda(curandStatePhilox4_32_10 *) (instance 2)], void at::native::templates::cuda::normal_kernel<at::CUDAGeneratorImpl *>(const at::TensorBase &, double, double, T1)::[lambda() (instance 1)]::operator ()() const::[lambda() (instance 3)]::operator ()() const::[lambda(float) (instance 1)]>(at::TensorIteratorBase &, T4, const T5 &, T6)::[lambda(int, float) (instance 1)]>(int, at::PhiloxCudaState, T3, T4)"

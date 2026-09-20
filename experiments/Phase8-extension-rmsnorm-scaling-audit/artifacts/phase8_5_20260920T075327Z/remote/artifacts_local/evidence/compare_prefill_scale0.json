@@ -1,0 +1,185 @@
+{
+  "common_output_count": 140,
+  "all_outputs_finite": true,
+  "hidden_metrics": {
+    "hidden_l0": {
+      "relative_l2": 0.0,
+      "max_abs": 0.0,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l1": {
+      "relative_l2": 0.0,
+      "max_abs": 0.0,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l10": {
+      "relative_l2": 0.0,
+      "max_abs": 0.0,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l11": {
+      "relative_l2": 0.0,
+      "max_abs": 0.0,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l12": {
+      "relative_l2": 0.0,
+      "max_abs": 0.0,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l13": {
+      "relative_l2": 0.0,
+      "max_abs": 0.0,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l14": {
+      "relative_l2": 0.0,
+      "max_abs": 0.0,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l15": {
+      "relative_l2": 0.0,
+      "max_abs": 0.0,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l16": {
+      "relative_l2": 0.0,
+      "max_abs": 0.0,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l17": {
+      "relative_l2": 0.0,
+      "max_abs": 0.0,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l18": {
+      "relative_l2": 0.0,
+      "max_abs": 0.0,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l19": {
+      "relative_l2": 0.0,
+      "max_abs": 0.0,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l2": {
+      "relative_l2": 0.0,
+      "max_abs": 0.0,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l20": {
+      "relative_l2": 0.0,
+      "max_abs": 0.0,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l21": {
+      "relative_l2": 0.0,
+      "max_abs": 0.0,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l22": {
+      "relative_l2": 0.0,
+      "max_abs": 0.0,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l23": {
+      "relative_l2": 0.0,
+      "max_abs": 0.0,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l24": {
+      "relative_l2": 0.0,
+      "max_abs": 0.0,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l25": {
+      "relative_l2": 0.0,
+      "max_abs": 0.0,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l26": {
+      "relative_l2": 0.0,
+      "max_abs": 0.0,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l27": {
+      "relative_l2": 0.0,
+      "max_abs": 0.0,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l3": {
+      "relative_l2": 0.0,
+      "max_abs": 0.0,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l4": {
+      "relative_l2": 0.0,
+      "max_abs": 0.0,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l5": {
+      "relative_l2": 0.0,
+      "max_abs": 0.0,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l6": {
+      "relative_l2": 0.0,
+      "max_abs": 0.0,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l7": {
+      "relative_l2": 0.0,
+      "max_abs": 0.0,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l8": {
+      "relative_l2": 0.0,
+      "max_abs": 0.0,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l9": {
+      "relative_l2": 0.0,
+      "max_abs": 0.0,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    }
+  },
+  "replaced_norm_metrics": {},
+  "kv_summary": {
+    "finite_ratio": 1.0,
+    "shape_mismatches": []
+  },
+  "replaced_norm_max_relative_l2": 0.0,
+  "gate_hidden_l27_pass": true,
+  "gate_replaced_norm_pass": true,
+  "mode": "compare",
+  "kind": "prefill",
+  "scale": 0
+}

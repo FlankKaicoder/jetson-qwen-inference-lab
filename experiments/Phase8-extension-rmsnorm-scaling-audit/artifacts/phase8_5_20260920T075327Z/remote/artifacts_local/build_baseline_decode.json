@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "kind": "decode",
+  "onnx": "rewritten/decode_baseline_scale56.onnx",
+  "engine": "engines/decode_baseline.engine",
+  "onnx_bytes": 881552661,
+  "engine_bytes": 892572932,
+  "build_seconds": 109.42997455596924,
+  "parser_errors": []
+}

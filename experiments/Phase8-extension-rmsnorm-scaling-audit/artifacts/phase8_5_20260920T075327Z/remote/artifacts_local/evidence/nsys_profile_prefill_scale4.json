@@ -1,0 +1,228 @@
+{
+  "report_directory": "artifacts_local/nsys_csv/profile_prefill_scale4",
+  "gpu_kernel_count": 5111.0,
+  "gpu_kernel_total_time": 475804576.0,
+  "gpu_kernel_time_unit": "ns",
+  "gpu_kernel_distinct_names": 18,
+  "cuda_launch_count": 1146.0,
+  "cuda_launch_rows": [
+    {
+      "name": "cudaLaunchKernel",
+      "calls": 1146.0,
+      "total_time": 28693600.0,
+      "time_unit": "ns"
+    }
+  ],
+  "gpu_reports": [
+    {
+      "file": "artifacts_local/nsys_csv/profile_prefill_scale4/profile_prefill_scale4_cuda_gpu_kern_sum.csv",
+      "rows": 18,
+      "instance_count": 5111.0,
+      "total_time": 475804576.0,
+      "time_unit": "ns",
+      "distinct_names": 18,
+      "by_name": {
+        "trt_ampere_h16816gemm_256x64_ldg8_tn_v1": {
+          "instances": 1014.0,
+          "total_time_ns": 257782400.0
+        },
+        "sm80_xmma_gemm_f16f16_f16f16_f16_nn_n_tilesize128x64x64_stage3_warpsize2x2x1_tensor16x8x16_fused": {
+          "instances": 728.0,
+          "total_time_ns": 147765184.0
+        },
+        "trt_ampere_h16816gemm_128x64_ldg8_stages_64x3_tn_v1": {
+          "instances": 78.0,
+          "total_time_ns": 20466432.0
+        },
+        "_gemm_mha_v2_0xb1de950b39aeff343f8e5a6b250b0cff": {
+          "instances": 364.0,
+          "total_time_ns": 8017248.0
+        },
+        "__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddResSliRepResTraRes_0x592a3b44c339e3f5576808c1fe9f02d3_com": {
+          "instances": 325.0,
+          "total_time_ns": 5926368.0
+        },
+        "__myl_NegExpAddDivMulMul_0x35e9fa130a3939e5b59c6ddbd0568b35_com_vec": {
+          "instances": 364.0,
+          "total_time_ns": 5511104.0
+        },
+        "__myl_ResTraResSliRepRes_0xc9f73409107decab95699693f5f53538_com": {
+          "instances": 364.0,
+          "total_time_ns": 5443072.0
+        },
+        "__myl_MulMeaAddSqrDivMulMul_0xecca72c958a3414a0b497095c432af2e_com_vec": {
+          "instances": 364.0,
+          "total_time_ns": 5132320.0
+        },
+        "__myl_AddSqrDivMulMulTraSliSliNegConMulMulAddRes_0x6acc4948abd0f5b32a0e9f68913929b0_com": {
+          "instances": 325.0,
+          "total_time_ns": 4601536.0
+        },
+        "__myl_ResMulMea_0xae152563f1149376365003f94aabf3c4_com_vec": {
+          "instances": 364.0,
+          "total_time_ns": 4386528.0
+        },
+        "__myl_MulMeaAddSqrDivMulMul_0x7950617bc96f544a93cba59dd9f0896c_com_vec": {
+          "instances": 312.0,
+          "total_time_ns": 4376800.0
+        },
+        "__myl_ResMulMea_0xa004b8b1aee1c828801c9405f41c9d8a_com_vec": {
+          "instances": 364.0,
+          "total_time_ns": 4148480.0
+        },
+        "void <unnamed>::rmsnorm_v2_kernel<__half>(const T1 *, T1 *, const T1 *, int, float)": {
+          "instances": 52.0,
+          "total_time_ns": 886496.0
+        },
+        "__myl_MovMovAddSqrAddSqrDivMulDivMulMulTraSliSliNegConMulMulAddResSliRepResTraMulTraSliSliNegConEtc_0xdfb594b87722df4dea7feeb555a838a5_com": {
+          "instances": 26.0,
+          "total_time_ns": 502592.0
+        },
+        "__myl_RepIotIotRepCasAddCasEqlLtOrSel_0xeed00a2999d9a920ce4be4d44852c879_com": {
+          "instances": 52.0,
+          "total_time_ns": 443712.0
+        },
+        "__myl_CasResMulConSinResCasCosResCasAddSqrAddSqrDivMulDivMulMulTraSliSliNegConMulMulAddResSliRepEtc_0xf3af2e09139f8079a11eb602fd70dfc0_com": {
+          "instances": 13.0,
+          "total_time_ns": 382560.0
+        },
+        "void at::native::<unnamed>::distribution_elementwise_grid_stride_kernel<float, (int)4, void at::native::templates::cuda::normal_and_transform<c10::Half, float, (unsigned long)4, at::CUDAGeneratorImpl *, void at::native::templates::cuda::normal_kernel<at::CUDAGeneratorImpl *>(const at::TensorBase &, double, double, T1)::[lambda() (instance 1)]::operator ()() const::[lambda() (instance 3)]::operator ()() const::[lambda(float) (instance 1)]>(at::TensorIteratorBase &, T4, T5)::[lambda(curandStatePhilox4_32_10 *) (instance 2)], void at::native::<unnamed>::distribution_nullary_kernel<c10::Half, float, (int)4, at::CUDAGeneratorImpl *, void at::native::templates::cuda::normal_and_transform<c10::Half, float, (unsigned long)4, at::CUDAGeneratorImpl *, void at::native::templates::cuda::normal_kernel<at::CUDAGeneratorImpl *>(const at::TensorBase &, double, double, T1)::[lambda() (instance 1)]::operator ()() const::[lambda() (instance 3)]::operator ()() const::[lambda(float) (instance 1)]>(at::TensorIteratorBase &, T4, T5)::[lambda(curandStatePhilox4_32_10 *) (instance 2)], void at::native::templates::cuda::normal_kernel<at::CUDAGeneratorImpl *>(const at::TensorBase &, double, double, T1)::[lambda() (instance 1)]::operator ()() const::[lambda() (instance 3)]::operator ()() const::[lambda(float) (instance 1)]>(at::TensorIteratorBase &, T4, const T5 &, T6)::[lambda(int, float) (instance 1)]>(int, at::PhiloxCudaState, T3, T4)": {
+          "instances": 1.0,
+          "total_time_ns": 22176.0
+        },
+        "void <unnamed>::elementwise_kernel_with_index<int, at::native::arange_cuda_out(const c10::Scalar &, const c10::Scalar &, const c10::Scalar &, at::Tensor &)::[lambda() (instance 1)]::operator ()() const::[lambda() (instance 4)]::operator ()() const::[lambda(long) (instance 1)]>(T1, T2, function_traits<T2>::result_type *)": {
+          "instances": 1.0,
+          "total_time_ns": 9568.0
+        }
+      }
+    }
+  ],
+  "api_reports": [
+    {
+      "file": "artifacts_local/nsys_csv/profile_prefill_scale4/profile_prefill_scale4_cuda_api_sum.csv",
+      "rows": 29,
+      "instance_count": 52016.0,
+      "total_time": 5054553440.0,
+      "time_unit": "ns",
+      "distinct_names": 29,
+      "by_name": {
+        "cuModuleLoadData": {
+          "instances": 3965.0,
+          "total_time_ns": 2558143136.0
+        },
+        "cuModuleUnload": {
+          "instances": 3965.0,
+          "total_time_ns": 1496615744.0
+        },
+        "cudaStreamSynchronize": {
+          "instances": 41.0,
+          "total_time_ns": 260578336.0
+        },
+        "cudaMalloc": {
+          "instances": 29.0,
+          "total_time_ns": 233590560.0
+        },
+        "cudaMemcpyAsync": {
+          "instances": 2.0,
+          "total_time_ns": 208135904.0
+        },
+        "cudaFree": {
+          "instances": 43.0,
+          "total_time_ns": 119335552.0
+        },
+        "cuLaunchKernel": {
+          "instances": 3237.0,
+          "total_time_ns": 41893344.0
+        },
+        "cuMemcpyDtoH_v2": {
+          "instances": 728.0,
+          "total_time_ns": 39122624.0
+        },
+        "cudaLaunchKernel": {
+          "instances": 1146.0,
+          "total_time_ns": 28693600.0
+        },
+        "cudaEventCreateWithFlags": {
+          "instances": 15862.0,
+          "total_time_ns": 19336608.0
+        },
+        "cudaEventDestroy": {
+          "instances": 15862.0,
+          "total_time_ns": 17103232.0
+        },
+        "cuLaunchKernelEx": {
+          "instances": 728.0,
+          "total_time_ns": 13922144.0
+        },
+        "cuEventRecord": {
+          "instances": 1352.0,
+          "total_time_ns": 3689408.0
+        },
+        "cuStreamWaitEvent": {
+          "instances": 1352.0,
+          "total_time_ns": 3063392.0
+        },
+        "cuStreamCreate": {
+          "instances": 104.0,
+          "total_time_ns": 2409632.0
+        },
+        "cudaEventSynchronize": {
+          "instances": 3.0,
+          "total_time_ns": 1771936.0
+        },
+        "cudaMemsetAsync": {
+          "instances": 28.0,
+          "total_time_ns": 1615424.0
+        },
+        "cuEventCreate": {
+          "instances": 1404.0,
+          "total_time_ns": 1325568.0
+        },
+        "cuStreamDestroy_v2": {
+          "instances": 104.0,
+          "total_time_ns": 920608.0
+        },
+        "cuEventDestroy_v2": {
+          "instances": 1404.0,
+          "total_time_ns": 786496.0
+        },
+        "cudaStreamDestroy": {
+          "instances": 28.0,
+          "total_time_ns": 775392.0
+        },
+        "cudaStreamCreate": {
+          "instances": 28.0,
+          "total_time_ns": 687616.0
+        },
+        "cudaStreamIsCapturing_v10000": {
+          "instances": 60.0,
+          "total_time_ns": 285536.0
+        },
+        "cuCtxSetCurrent": {
+          "instances": 104.0,
+          "total_time_ns": 272064.0
+        },
+        "cudaEventRecord": {
+          "instances": 6.0,
+          "total_time_ns": 241856.0
+        },
+        "cuGetProcAddress_v2": {
+          "instances": 413.0,
+          "total_time_ns": 173472.0
+        },
+        "cudaDeviceSynchronize": {
+          "instances": 2.0,
+          "total_time_ns": 36608.0
+        },
+        "cuModuleGetLoadingMode": {
+          "instances": 15.0,
+          "total_time_ns": 17504.0
+        },
+        "cuInit": {
+          "instances": 1.0,
+          "total_time_ns": 10144.0
+        }
+      }
+    }
+  ]
+}

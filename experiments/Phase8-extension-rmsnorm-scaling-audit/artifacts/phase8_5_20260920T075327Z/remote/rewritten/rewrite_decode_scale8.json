@@ -1,0 +1,124 @@
+{
+  "baseline": {
+    "source": "work/decode_28layer.onnx",
+    "output": "rewritten/decode_baseline_scale8.onnx",
+    "kind": "decode",
+    "expose_only": true,
+    "gamma_count": 8,
+    "plugin_nodes": 0,
+    "removed_nodes": 0,
+    "final_node_count": 6146,
+    "bytes": 881549207,
+    "replacements": [
+      {
+        "gamma": "stack.layers.0.input_layernorm.weight",
+        "target_output": "/input_layernorm/Mul_1_output_0"
+      },
+      {
+        "gamma": "stack.layers.1.input_layernorm.weight",
+        "target_output": "/input_layernorm_1/Mul_1_output_0"
+      },
+      {
+        "gamma": "stack.layers.2.input_layernorm.weight",
+        "target_output": "/input_layernorm_2/Mul_1_output_0"
+      },
+      {
+        "gamma": "stack.layers.3.input_layernorm.weight",
+        "target_output": "/input_layernorm_3/Mul_1_output_0"
+      },
+      {
+        "gamma": "stack.layers.4.input_layernorm.weight",
+        "target_output": "/input_layernorm_4/Mul_1_output_0"
+      },
+      {
+        "gamma": "stack.layers.5.input_layernorm.weight",
+        "target_output": "/input_layernorm_5/Mul_1_output_0"
+      },
+      {
+        "gamma": "stack.layers.6.input_layernorm.weight",
+        "target_output": "/input_layernorm_6/Mul_1_output_0"
+      },
+      {
+        "gamma": "stack.layers.7.input_layernorm.weight",
+        "target_output": "/input_layernorm_7/Mul_1_output_0"
+      }
+    ]
+  },
+  "plugin": {
+    "source": "work/decode_28layer.onnx",
+    "output": "rewritten/decode_plugin_scale8.onnx",
+    "kind": "decode",
+    "expose_only": false,
+    "gamma_count": 8,
+    "plugin_nodes": 8,
+    "removed_nodes": 96,
+    "final_node_count": 6058,
+    "bytes": 881539048,
+    "replacements": [
+      {
+        "gamma": "stack.layers.0.input_layernorm.weight",
+        "target_output": "/input_layernorm/Mul_1_output_0",
+        "hidden_input": "hidden_states",
+        "target_nodes": 12,
+        "removed_nodes": 12,
+        "plugin_name": "/stack.layers.0.input_layernorm.weight/RMSNormPlugin"
+      },
+      {
+        "gamma": "stack.layers.1.input_layernorm.weight",
+        "target_output": "/input_layernorm_1/Mul_1_output_0",
+        "hidden_input": "hidden_l0",
+        "target_nodes": 12,
+        "removed_nodes": 12,
+        "plugin_name": "/stack.layers.1.input_layernorm.weight/RMSNormPlugin"
+      },
+      {
+        "gamma": "stack.layers.2.input_layernorm.weight",
+        "target_output": "/input_layernorm_2/Mul_1_output_0",
+        "hidden_input": "hidden_l1",
+        "target_nodes": 12,
+        "removed_nodes": 12,
+        "plugin_name": "/stack.layers.2.input_layernorm.weight/RMSNormPlugin"
+      },
+      {
+        "gamma": "stack.layers.3.input_layernorm.weight",
+        "target_output": "/input_layernorm_3/Mul_1_output_0",
+        "hidden_input": "hidden_l2",
+        "target_nodes": 12,
+        "removed_nodes": 12,
+        "plugin_name": "/stack.layers.3.input_layernorm.weight/RMSNormPlugin"
+      },
+      {
+        "gamma": "stack.layers.4.input_layernorm.weight",
+        "target_output": "/input_layernorm_4/Mul_1_output_0",
+        "hidden_input": "hidden_l3",
+        "target_nodes": 12,
+        "removed_nodes": 12,
+        "plugin_name": "/stack.layers.4.input_layernorm.weight/RMSNormPlugin"
+      },
+      {
+        "gamma": "stack.layers.5.input_layernorm.weight",
+        "target_output": "/input_layernorm_5/Mul_1_output_0",
+        "hidden_input": "hidden_l4",
+        "target_nodes": 12,
+        "removed_nodes": 12,
+        "plugin_name": "/stack.layers.5.input_layernorm.weight/RMSNormPlugin"
+      },
+      {
+        "gamma": "stack.layers.6.input_layernorm.weight",
+        "target_output": "/input_layernorm_6/Mul_1_output_0",
+        "hidden_input": "hidden_l5",
+        "target_nodes": 12,
+        "removed_nodes": 12,
+        "plugin_name": "/stack.layers.6.input_layernorm.weight/RMSNormPlugin"
+      },
+      {
+        "gamma": "stack.layers.7.input_layernorm.weight",
+        "target_output": "/input_layernorm_7/Mul_1_output_0",
+        "hidden_input": "hidden_l6",
+        "target_nodes": 12,
+        "removed_nodes": 12,
+        "plugin_name": "/stack.layers.7.input_layernorm.weight/RMSNormPlugin"
+      }
+    ]
+  }
+}

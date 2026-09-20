@@ -1,0 +1,234 @@
+{
+  "common_output_count": 92,
+  "all_outputs_finite": true,
+  "hidden_metrics": {
+    "hidden_l0": {
+      "relative_l2": 0.000938780780415982,
+      "max_abs": 0.0048828125,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l1": {
+      "relative_l2": 0.002452648477628827,
+      "max_abs": 0.0166015625,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l10": {
+      "relative_l2": 0.00921840313822031,
+      "max_abs": 0.25,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l11": {
+      "relative_l2": 0.009659772738814354,
+      "max_abs": 0.296875,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l12": {
+      "relative_l2": 0.01016346737742424,
+      "max_abs": 0.328125,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l13": {
+      "relative_l2": 0.01058971881866455,
+      "max_abs": 0.34765625,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l14": {
+      "relative_l2": 0.010952743701636791,
+      "max_abs": 0.3359375,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l15": {
+      "relative_l2": 0.011332004331052303,
+      "max_abs": 0.310546875,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l16": {
+      "relative_l2": 0.011839211918413639,
+      "max_abs": 0.35546875,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l17": {
+      "relative_l2": 0.012757607735693455,
+      "max_abs": 0.4609375,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l18": {
+      "relative_l2": 0.013055671937763691,
+      "max_abs": 0.48828125,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l19": {
+      "relative_l2": 0.013570348732173443,
+      "max_abs": 0.48046875,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l2": {
+      "relative_l2": 0.0032355685252696276,
+      "max_abs": 0.03125,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l20": {
+      "relative_l2": 0.014326623640954494,
+      "max_abs": 0.625,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l21": {
+      "relative_l2": 0.01545548252761364,
+      "max_abs": 0.953125,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l22": {
+      "relative_l2": 0.01685033179819584,
+      "max_abs": 1.84375,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l23": {
+      "relative_l2": 0.018492627888917923,
+      "max_abs": 2.71875,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l24": {
+      "relative_l2": 0.01969972625374794,
+      "max_abs": 2.5625,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l25": {
+      "relative_l2": 0.020872171968221664,
+      "max_abs": 2.875,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l26": {
+      "relative_l2": 0.022503364831209183,
+      "max_abs": 3.96875,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l27": {
+      "relative_l2": 0.025012079626321793,
+      "max_abs": 6.375,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l3": {
+      "relative_l2": 0.004527372308075428,
+      "max_abs": 0.046875,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l4": {
+      "relative_l2": 0.005552008282393217,
+      "max_abs": 0.072265625,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l5": {
+      "relative_l2": 0.006310383323580027,
+      "max_abs": 0.1015625,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l6": {
+      "relative_l2": 0.007070871535688639,
+      "max_abs": 0.140625,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l7": {
+      "relative_l2": 0.007598311174660921,
+      "max_abs": 0.1494140625,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l8": {
+      "relative_l2": 0.00824782159179449,
+      "max_abs": 0.19921875,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "hidden_l9": {
+      "relative_l2": 0.008756415918469429,
+      "max_abs": 0.2421875,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    }
+  },
+  "replaced_norm_metrics": {
+    "/input_layernorm/Mul_1_output_0": {
+      "relative_l2": 0.0005070584593340755,
+      "max_abs": 0.0009765625,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "/input_layernorm_1/Mul_1_output_0": {
+      "relative_l2": 0.0010521430522203445,
+      "max_abs": 0.001953125,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "/input_layernorm_2/Mul_1_output_0": {
+      "relative_l2": 0.0023931581526994705,
+      "max_abs": 0.0035400390625,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "/input_layernorm_3/Mul_1_output_0": {
+      "relative_l2": 0.003160873893648386,
+      "max_abs": 0.0107421875,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "/input_layernorm_4/Mul_1_output_0": {
+      "relative_l2": 0.004546460695564747,
+      "max_abs": 0.0126953125,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "/input_layernorm_5/Mul_1_output_0": {
+      "relative_l2": 0.005629915744066238,
+      "max_abs": 0.017578125,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "/input_layernorm_6/Mul_1_output_0": {
+      "relative_l2": 0.006495603825896978,
+      "max_abs": 0.0242919921875,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    },
+    "/input_layernorm_7/Mul_1_output_0": {
+      "relative_l2": 0.0072243474423885345,
+      "max_abs": 0.033203125,
+      "finite_ratio": 1.0,
+      "shape_equal": true
+    }
+  },
+  "kv_summary": {
+    "finite_ratio": 1.0,
+    "shape_mismatches": []
+  },
+  "replaced_norm_max_relative_l2": 0.0072243474423885345,
+  "gate_hidden_l27_pass": true,
+  "gate_replaced_norm_pass": false,
+  "mode": "compare",
+  "kind": "prefill",
+  "scale": 8
+}

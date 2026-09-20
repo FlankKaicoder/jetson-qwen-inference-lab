@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "kind": "prefill",
+  "onnx": "rewritten/prefill_baseline_scale56.onnx",
+  "engine": "engines/prefill_baseline.engine",
+  "onnx_bytes": 881571383,
+  "engine_bytes": 887528556,
+  "build_seconds": 102.42023205757141,
+  "parser_errors": []
+}

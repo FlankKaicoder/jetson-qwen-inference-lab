@@ -1,0 +1,14 @@
+{
+  "engine": "engines/decode_plugin_scale4.engine",
+  "kind": "decode",
+  "scale": 4,
+  "warmup": 10,
+  "profile_runs": 3,
+  "samples_ms": [
+    2097.651611328125,
+    2101.36962890625,
+    2096.581298828125
+  ],
+  "mean_ms": 2098.5341796875,
+  "mode": "profile"
+}

@@ -1,0 +1,39 @@
+{
+  "prompt_token_ids": [
+    785,
+    3974,
+    13876,
+    38835,
+    34208,
+    916,
+    279,
+    15678
+  ],
+  "generated_tokens": 8,
+  "baseline_tokens": [
+    434,
+    386,
+    386,
+    386,
+    386,
+    386,
+    386,
+    386,
+    386
+  ],
+  "candidate_tokens": [
+    3801,
+    3801,
+    3801,
+    3801,
+    3801,
+    3801,
+    3801,
+    3801,
+    3801
+  ],
+  "match": false,
+  "mode": "generation",
+  "kind": "decode",
+  "scale": 4
+}
