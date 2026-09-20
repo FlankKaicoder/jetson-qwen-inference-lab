@@ -7,7 +7,7 @@ Date: 2026-09-20
 | Branch | `phase/08-extension-fusion-analysis` |
 | Starting HEAD | `b1cc044b372e95a3e531e77adf57cb1634c7e748` |
 | Closeout commit | `55f370a` (`phase8-ext: add final closeout report`) |
-| Push status | `NOT PUSHED` at session start; origin was already unreachable on `github.com:443` |
+| Push status | `NOT PUSHED`; `git push origin phase/08-extension-fusion-analysis` failed with `OpenSSL SSL_read: Connection was reset, errno 10054` while accessing GitHub HTTPS |
 | Final closeout report | `docs/phase8_extension_final_closeout.md` |
 | Next recommended action | Human review of the consolidated closeout; do not start another Phase 8 experiment without fresh authorization |
 
@@ -49,5 +49,6 @@ the owner must issue a new explicit authorization and define a new gate.
 
 This closeout must be committed as a documentation-only change. Existing
 untracked audit and artifact paths are unrelated and must remain unstaged. The
-last known push failure was a TCP timeout to `github.com:443`; no network
-configuration was changed.
+the closeout push was attempted after commit `f5691c2` and failed with an
+OpenSSL connection reset (`errno 10054`) while accessing GitHub HTTPS. No
+network configuration was changed.
