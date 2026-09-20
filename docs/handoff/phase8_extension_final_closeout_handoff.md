@@ -6,7 +6,7 @@ Date: 2026-09-20
 | --- | --- |
 | Branch | `phase/08-extension-fusion-analysis` |
 | Starting HEAD | `b1cc044b372e95a3e531e77adf57cb1634c7e748` |
-| Closeout commit | To be recorded after this document is committed |
+| Closeout commit | `55f370a` (`phase8-ext: add final closeout report`) |
 | Push status | `NOT PUSHED` at session start; origin was already unreachable on `github.com:443` |
 | Final closeout report | `docs/phase8_extension_final_closeout.md` |
 | Next recommended action | Human review of the consolidated closeout; do not start another Phase 8 experiment without fresh authorization |
