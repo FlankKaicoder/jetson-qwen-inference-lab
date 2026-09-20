@@ -1,0 +1,9 @@
+check,result,criterion
+correctness,PASS,all three correctness rows PASS
+kernel_count_reduced,PASS,fusion count < baseline count
+event_mean_at_least_5pct_lower,PASS,CUDA Event mean reduction >= 5%
+event_median_at_least_5pct_lower,FAIL,CUDA Event median reduction >= 5%
+global_load_sectors_reduced,FAIL,NCU L1 global-load sectors reduced
+global_store_sectors_reduced,FAIL,NCU L1 global-store sectors reduced
+nsys_gpu_time_at_least_5pct_lower,PASS,NSYS GPU kernel time reduction >= 5%
+overall,NO_PROVEN_FUSION_BENEFIT,all predeclared checks PASS

@@ -1,0 +1,8 @@
+metric,baseline,fusion,reduction_pct,evidence
+kernel_count,2,1,50.0,NSYS
+cuda_event_mean_ms,0.105861938477,0.0991771965027,6.314584892805784,CUDA Event
+cuda_event_median_ms,0.109221374512,0.107377086639,1.6885777909683444,CUDA Event
+global_load_sectors,199872.0,202752.0,-1.440922190201729,NCU L1 global sectors
+global_store_sectors,256.0,3072.0,-1100.0,NCU L1 global sectors
+nsys_gpu_time_ms,0.256064,0.241824,5.561109722569359,NSYS
+ncu_gpu_duration_ms,0.174688,0.253504,-45.118153507968486,NCU diagnostic

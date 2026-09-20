@@ -1,0 +1,45 @@
+{
+  "checks": [
+    {
+      "check": "correctness",
+      "result": "PASS",
+      "criterion": "all three correctness rows PASS"
+    },
+    {
+      "check": "kernel_count_reduced",
+      "result": "PASS",
+      "criterion": "fusion count < baseline count"
+    },
+    {
+      "check": "event_mean_at_least_5pct_lower",
+      "result": "PASS",
+      "criterion": "CUDA Event mean reduction >= 5%"
+    },
+    {
+      "check": "event_median_at_least_5pct_lower",
+      "result": "FAIL",
+      "criterion": "CUDA Event median reduction >= 5%"
+    },
+    {
+      "check": "global_load_sectors_reduced",
+      "result": "FAIL",
+      "criterion": "NCU L1 global-load sectors reduced"
+    },
+    {
+      "check": "global_store_sectors_reduced",
+      "result": "FAIL",
+      "criterion": "NCU L1 global-store sectors reduced"
+    },
+    {
+      "check": "nsys_gpu_time_at_least_5pct_lower",
+      "result": "PASS",
+      "criterion": "NSYS GPU kernel time reduction >= 5%"
+    },
+    {
+      "check": "overall",
+      "result": "NO_PROVEN_FUSION_BENEFIT",
+      "criterion": "all predeclared checks PASS"
+    }
+  ],
+  "overall": "NO_PROVEN_FUSION_BENEFIT"
+}

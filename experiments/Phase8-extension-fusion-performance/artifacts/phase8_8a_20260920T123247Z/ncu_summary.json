@@ -1,0 +1,60 @@
+{
+  "kernels": [
+    {
+      "mode": "baseline",
+      "kernel": "<unnamed>::rmsnorm_fp16_kernel(const __half *, const __half *, __half *)",
+      "duration_ns": 24800.0,
+      "global_load_sectors": 192.0,
+      "global_store_sectors": 64.0,
+      "global_load_bytes_l1_sector_basis": 6144.0,
+      "global_store_bytes_l1_sector_basis": 2048.0,
+      "achieved_active_warps_pct": 16.55,
+      "block_size": "(256, 1, 1)",
+      "grid_size": "(1, 1, 1)"
+    },
+    {
+      "mode": "baseline",
+      "kernel": "ampere_fp16_s16816gemm_fp16_64x64_ldg8_f2f_stages_64x5_tn",
+      "duration_ns": 149888.0,
+      "global_load_sectors": 199680.0,
+      "global_store_sectors": 192.0,
+      "global_load_bytes_l1_sector_basis": 6389760.0,
+      "global_store_bytes_l1_sector_basis": 6144.0,
+      "achieved_active_warps_pct": 16.48,
+      "block_size": "(128, 1, 1)",
+      "grid_size": "(48, 1, 1)"
+    },
+    {
+      "mode": "fusion",
+      "kernel": "<unnamed>::fused_rmsnorm_linear_fp16_kernel(const __half *, const __half *, const __half *, __half *)",
+      "duration_ns": 253504.0,
+      "global_load_sectors": 202752.0,
+      "global_store_sectors": 3072.0,
+      "global_load_bytes_l1_sector_basis": 6488064.0,
+      "global_store_bytes_l1_sector_basis": 98304.0,
+      "achieved_active_warps_pct": 65.59,
+      "block_size": "(256, 1, 1)",
+      "grid_size": "(32, 1, 1)"
+    }
+  ],
+  "aggregate": [
+    {
+      "mode": "baseline",
+      "kernel_count": 2,
+      "gpu_time_ns": 174688.0,
+      "global_load_sectors": 199872.0,
+      "global_store_sectors": 256.0,
+      "global_load_bytes_l1_sector_basis": 6395904.0,
+      "global_store_bytes_l1_sector_basis": 8192.0
+    },
+    {
+      "mode": "fusion",
+      "kernel_count": 1,
+      "gpu_time_ns": 253504.0,
+      "global_load_sectors": 202752.0,
+      "global_store_sectors": 3072.0,
+      "global_load_bytes_l1_sector_basis": 6488064.0,
+      "global_store_bytes_l1_sector_basis": 98304.0
+    }
+  ]
+}
