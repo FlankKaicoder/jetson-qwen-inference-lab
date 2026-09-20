@@ -1,3 +1,27 @@
+# Phase 8.7 TensorRT Fusion Boundary Analysis (2026-09-20)
+
+- The owner authorized only the Phase 8.7 TensorRT fusion-boundary extension.
+  Starting branch/HEAD was `phase/08-extension-fusion-analysis` at
+  `12c6e56fbdda6eb74d8261f769a5a88b2363ae05`; Gate 0 was `PASS`.
+- The evidence/report commit is `abaf06e11c124c7eb02565e3a336b429fb11c800`.
+  This handoff is auxiliary and is committed afterward; recover the primary
+  state from Git, the report, and timestamped artifacts.
+- Report:
+  `experiments/Phase8-extension-fusion-analysis/docs/phase8_7_tensorRT_fusion_boundary_report.md`.
+  Evidence:
+  `experiments/Phase8-extension-fusion-analysis/artifacts/phase8_7_20260920T071013Z/`.
+- Gate:
+  `PASS / BOUNDED / NO_PROVEN_FUSION_OPTIMIZATION_TARGET`. The plugin-specific
+  fusion-loss question is `INCONCLUSIVE`.
+- Main findings: the compact FP16 EngineInspector does not expose exact FP16
+  fusion boundaries. Detailed Mixed/INT8 reference evidence proves broad
+  RMSNorm/quantization, projection/residual, and gate/SwiGLU fusion. The
+  Phase 8.4-A plugin was slower in fixed CUDA-event timing, but no plugin
+  Inspector or plugin Nsight artifact exists, so which fusion disappeared is
+  `UNKNOWN`.
+- Stop here. Do not start Phase 8.5, a plugin Inspector run, or a matched
+  baseline/plugin Nsight run without fresh explicit authorization.
+
 # Phase 9.4 Project Closure (2026-09-16)
 
 - The owner authorized documentation closure only. Gate: `PROJECT_COMPLETE`.
