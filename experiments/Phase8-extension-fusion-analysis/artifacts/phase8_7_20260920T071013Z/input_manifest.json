@@ -1,0 +1,90 @@
+{
+  "inputs": {
+    "experiments\\Phase8-rmsnorm-optimization\\artifacts\\phase8_4A_20260909T\\artifacts\\build_baseline_decode.json": {
+      "bytes": 161,
+      "sha256": "1da612ab7a63d450791345b4db2e2997439f9dca3946f837358bdb53659fdc28"
+    },
+    "experiments\\Phase8-rmsnorm-optimization\\artifacts\\phase8_4A_20260909T\\artifacts\\build_baseline_prefill.json": {
+      "bytes": 162,
+      "sha256": "3968dcb1a138f9a3750823d5e68ff355ad58c5aae0c1c5ebab2297add941a6e7"
+    },
+    "experiments\\Phase8-rmsnorm-optimization\\artifacts\\phase8_4A_20260909T\\artifacts\\build_plugin_decode.json": {
+      "bytes": 161,
+      "sha256": "bacefe035573864e30372595d4f78ddfe094ecf9ffb90727ac63f88e83d6ec70"
+    },
+    "experiments\\Phase8-rmsnorm-optimization\\artifacts\\phase8_4A_20260909T\\artifacts\\build_plugin_prefill.json": {
+      "bytes": 162,
+      "sha256": "c0bb51262197c395149fc643ec25eb0552b9e2dabed62be6174e2e4f1f03ce9a"
+    },
+    "experiments\\Phase8-rmsnorm-optimization\\artifacts\\phase8_4A_20260909T\\artifacts\\compare_decode.json": {
+      "bytes": 10080,
+      "sha256": "32fb861f10e45db9cd946002260a1bbc09fc1b650fefff8ec0be6c4e3bb72dfa"
+    },
+    "experiments\\Phase8-rmsnorm-optimization\\artifacts\\phase8_4A_20260909T\\artifacts\\compare_prefill.json": {
+      "bytes": 10016,
+      "sha256": "8de2d2ed957d8cbf6ccb6e6731705f2c32e06725b86f316400ae46004e9f9a51"
+    },
+    "experiments\\Phase8-rmsnorm-optimization\\artifacts\\phase8_4A_20260909T\\artifacts\\measure_baseline_decode.json": {
+      "bytes": 2060,
+      "sha256": "89beb1f1c026d3988bf872e1454abf116f4ceef2749ab2aaeae8f168c48f471c"
+    },
+    "experiments\\Phase8-rmsnorm-optimization\\artifacts\\phase8_4A_20260909T\\artifacts\\measure_baseline_prefill.json": {
+      "bytes": 2061,
+      "sha256": "24be8a437c28a0558d2d1636df401670bd65c08976c1e4b6da16de6d8c9d0869"
+    },
+    "experiments\\Phase8-rmsnorm-optimization\\artifacts\\phase8_4A_20260909T\\artifacts\\measure_plugin_decode.json": {
+      "bytes": 2058,
+      "sha256": "47001210033fc222a6ed9e66e73111eb4b06208e4442b10e72166bf32d80d9b7"
+    },
+    "experiments\\Phase8-rmsnorm-optimization\\artifacts\\phase8_4A_20260909T\\artifacts\\measure_plugin_prefill.json": {
+      "bytes": 2061,
+      "sha256": "dcf960504ed6fb36334a731842f8a03a8c55f2089330cf5d3971541f3de16b1c"
+    },
+    "experiments\\Phase8-rmsnorm-optimization\\artifacts\\phase8_4A_20260909T\\artifacts\\rewrite_decode.json": {
+      "bytes": 645,
+      "sha256": "7c8a0af90ef88af9d6b70262405755ad09bdef445847a6b870226b0a41a0ad0e"
+    },
+    "experiments\\Phase8-rmsnorm-optimization\\artifacts\\phase8_4A_20260909T\\artifacts\\rewrite_prefill.json": {
+      "bytes": 649,
+      "sha256": "69c3b4409f1fc2377257e2610c1ecabad1230469c873a391ef6df1bd7a158bff"
+    },
+    "experiments\\Phase8-rmsnorm-optimization\\artifacts\\phase8_4A_20260909T\\artifacts\\run_metadata.json": {
+      "bytes": 712,
+      "sha256": "d65491a3413b32ca505b091b6658964ad16e2b096ea26a50fb7677b06bb7a7c0"
+    },
+    "results\\phase3a_runtime_attribution\\20260904T063649Z_nsys\\analysis\\a2_range_summary.csv": {
+      "bytes": 785,
+      "sha256": "fae8c2730f4b908746e10de19c2028945f533653af6874315a36813f66074d62"
+    },
+    "results\\phase3a_runtime_attribution\\20260904T063649Z_nsys\\analysis\\a3_kernel_attribution.csv": {
+      "bytes": 1522,
+      "sha256": "bb27007f6e34e5ed7457a15d0fac21344c2d40501990ea3dd78c43417034282a"
+    },
+    "results\\phase3c_residual_runtime\\20260904T093500Z_nsys\\stats\\fp16_persistent_cuda_gpu_kern_sum.csv": {
+      "bytes": 5491,
+      "sha256": "deb3b42aa6ba43ab34549372d1b48e42d39193cf5a048a95060aabff14dc7dc8"
+    },
+    "results\\phase3c_residual_runtime\\20260904T093500Z_nsys\\stats\\mixed_persistent_cuda_gpu_kern_sum.csv": {
+      "bytes": 17274,
+      "sha256": "b85bb79c9b6bf8f77485991cad4e6fe194b50fb048409911086f4af705c5fee1"
+    },
+    "results\\phase3e_kernel_attribution\\20260904T121007Z\\inspector_v2\\inspector_summary.json": {
+      "bytes": 2119,
+      "sha256": "b4f84dc20ef9d71c62d7b3b2016d267372fc049e4db27046aae7fdaf22187a73"
+    },
+    "results\\phase3e_kernel_attribution\\20260904T121007Z\\inspector_v2\\layer_inventory.csv": {
+      "bytes": 537208,
+      "sha256": "45b65ce17785c8aa42097e5778af2b0fbbf93487e184c78c2aa5953fd8a557f3"
+    }
+  },
+  "method": "repository-only existing-artifact analysis; no engine build, execution, or profiling",
+  "outputs": [
+    "fusion_pattern_summary.csv",
+    "norm_fusion_summary.csv",
+    "fusion_pattern_examples.csv",
+    "inspector_analysis.json",
+    "nsys_summary.json",
+    "plugin_boundary_summary.json"
+  ],
+  "phase": "Phase 8.7 TensorRT Fusion Boundary Analysis"
+}

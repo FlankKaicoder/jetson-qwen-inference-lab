@@ -1,0 +1,1389 @@
+{
+  "interpretation": {
+    "runtime_delta": "PARTIALLY SUPPORTED / one-node fixed-shape slowdown",
+    "whether_plugin_bypasses_or_breaks_fusion": "INCONCLUSIVE",
+    "which_fusion_disappeared": "UNKNOWN"
+  },
+  "missing_plugin_boundary_evidence": {
+    "baseline_vs_plugin_kernel_count": "UNKNOWN",
+    "baseline_vs_plugin_kernel_launch_count": "UNKNOWN",
+    "baseline_vs_plugin_layer_type_delta": "UNKNOWN",
+    "plugin_engine_fusion_pattern_inventory": "UNKNOWN",
+    "plugin_engine_inspector_layer_count": "UNKNOWN",
+    "plugin_specific_nsight_timeline": "UNKNOWN"
+  },
+  "phase8_4a_evidence": {
+    "build_baseline_decode": {
+      "build_seconds": 113.96873188018799,
+      "engine_bytes": 892739268,
+      "kind": "decode",
+      "onnx_bytes": 881548745,
+      "parser_errors": [],
+      "status": "PASS"
+    },
+    "build_baseline_prefill": {
+      "build_seconds": 108.78022503852844,
+      "engine_bytes": 887464492,
+      "kind": "prefill",
+      "onnx_bytes": 881567467,
+      "parser_errors": [],
+      "status": "PASS"
+    },
+    "build_plugin_decode": {
+      "build_seconds": 127.92961001396179,
+      "engine_bytes": 892527348,
+      "kind": "decode",
+      "onnx_bytes": 881547531,
+      "parser_errors": [],
+      "status": "PASS"
+    },
+    "build_plugin_prefill": {
+      "build_seconds": 104.79050350189209,
+      "engine_bytes": 887446972,
+      "kind": "prefill",
+      "onnx_bytes": 881566253,
+      "parser_errors": [],
+      "status": "PASS"
+    },
+    "compare_decode": {
+      "baseline": "baseline_decode.engine",
+      "common_outputs": [
+        "/input_layernorm/Mul_1_output_0",
+        "hidden_l0",
+        "hidden_l1",
+        "hidden_l10",
+        "hidden_l11",
+        "hidden_l12",
+        "hidden_l13",
+        "hidden_l14",
+        "hidden_l15",
+        "hidden_l16",
+        "hidden_l17",
+        "hidden_l18",
+        "hidden_l19",
+        "hidden_l2",
+        "hidden_l20",
+        "hidden_l21",
+        "hidden_l22",
+        "hidden_l23",
+        "hidden_l24",
+        "hidden_l25",
+        "hidden_l26",
+        "hidden_l27",
+        "hidden_l3",
+        "hidden_l4",
+        "hidden_l5",
+        "hidden_l6",
+        "hidden_l7",
+        "hidden_l8",
+        "hidden_l9",
+        "present_k0",
+        "present_k1",
+        "present_k10",
+        "present_k11",
+        "present_k12",
+        "present_k13",
+        "present_k14",
+        "present_k15",
+        "present_k16",
+        "present_k17",
+        "present_k18",
+        "present_k19",
+        "present_k2",
+        "present_k20",
+        "present_k21",
+        "present_k22",
+        "present_k23",
+        "present_k24",
+        "present_k25",
+        "present_k26",
+        "present_k27",
+        "present_k3",
+        "present_k4",
+        "present_k5",
+        "present_k6",
+        "present_k7",
+        "present_k8",
+        "present_k9",
+        "present_v0",
+        "present_v1",
+        "present_v10",
+        "present_v11",
+        "present_v12",
+        "present_v13",
+        "present_v14",
+        "present_v15",
+        "present_v16",
+        "present_v17",
+        "present_v18",
+        "present_v19",
+        "present_v2",
+        "present_v20",
+        "present_v21",
+        "present_v22",
+        "present_v23",
+        "present_v24",
+        "present_v25",
+        "present_v26",
+        "present_v27",
+        "present_v3",
+        "present_v4",
+        "present_v5",
+        "present_v6",
+        "present_v7",
+        "present_v8",
+        "present_v9"
+      ],
+      "kind": "decode",
+      "metrics": {
+        "/input_layernorm/Mul_1_output_0": {
+          "max_abs": 0.001953125,
+          "relative_l2": 0.0008134234230965376
+        },
+        "hidden_l0": {
+          "max_abs": 0.00390625,
+          "relative_l2": 0.000801358197350055
+        },
+        "hidden_l1": {
+          "max_abs": 0.0126953125,
+          "relative_l2": 0.0019920924678444862
+        },
+        "hidden_l10": {
+          "max_abs": 0.1171875,
+          "relative_l2": 0.005982637871056795
+        },
+        "hidden_l11": {
+          "max_abs": 0.1484375,
+          "relative_l2": 0.006233858410269022
+        },
+        "hidden_l12": {
+          "max_abs": 0.1171875,
+          "relative_l2": 0.006495009642094374
+        },
+        "hidden_l13": {
+          "max_abs": 0.15625,
+          "relative_l2": 0.007074655964970589
+        },
+        "hidden_l14": {
+          "max_abs": 0.1484375,
+          "relative_l2": 0.007491359021514654
+        },
+        "hidden_l15": {
+          "max_abs": 0.1484375,
+          "relative_l2": 0.008012587204575539
+        },
+        "hidden_l16": {
+          "max_abs": 0.1572265625,
+          "relative_l2": 0.008431361988186836
+        },
+        "hidden_l17": {
+          "max_abs": 0.171875,
+          "relative_l2": 0.009171190671622753
+        },
+        "hidden_l18": {
+          "max_abs": 0.21484375,
+          "relative_l2": 0.009938012808561325
+        },
+        "hidden_l19": {
+          "max_abs": 0.265625,
+          "relative_l2": 0.010368653573095798
+        },
+        "hidden_l2": {
+          "max_abs": 0.0185546875,
+          "relative_l2": 0.002615133300423622
+        },
+        "hidden_l20": {
+          "max_abs": 0.34375,
+          "relative_l2": 0.01034746877849102
+        },
+        "hidden_l21": {
+          "max_abs": 0.40625,
+          "relative_l2": 0.010491891764104366
+        },
+        "hidden_l22": {
+          "max_abs": 0.421875,
+          "relative_l2": 0.011478067375719547
+        },
+        "hidden_l23": {
+          "max_abs": 0.546875,
+          "relative_l2": 0.012564306147396564
+        },
+        "hidden_l24": {
+          "max_abs": 0.703125,
+          "relative_l2": 0.013461564667522907
+        },
+        "hidden_l25": {
+          "max_abs": 0.9765625,
+          "relative_l2": 0.01375248096883297
+        },
+        "hidden_l26": {
+          "max_abs": 1.078125,
+          "relative_l2": 0.014453066512942314
+        },
+        "hidden_l27": {
+          "max_abs": 2.25,
+          "relative_l2": 0.014385158196091652
+        },
+        "hidden_l3": {
+          "max_abs": 0.0234375,
+          "relative_l2": 0.003351858351379633
+        },
+        "hidden_l4": {
+          "max_abs": 0.03125,
+          "relative_l2": 0.0038558810483664274
+        },
+        "hidden_l5": {
+          "max_abs": 0.04150390625,
+          "relative_l2": 0.0042796265333890915
+        },
+        "hidden_l6": {
+          "max_abs": 0.0615234375,
+          "relative_l2": 0.004728205036371946
+        },
+        "hidden_l7": {
+          "max_abs": 0.0703125,
+          "relative_l2": 0.005302616860717535
+        },
+        "hidden_l8": {
+          "max_abs": 0.09765625,
+          "relative_l2": 0.00576820271089673
+        },
+        "hidden_l9": {
+          "max_abs": 0.1171875,
+          "relative_l2": 0.006048453971743584
+        },
+        "present_k0": {
+          "max_abs": 0.1875,
+          "relative_l2": 0.0026153617072850466
+        },
+        "present_k1": {
+          "max_abs": 0.03125,
+          "relative_l2": 0.0008440722594968975
+        },
+        "present_k10": {
+          "max_abs": 0.1015625,
+          "relative_l2": 0.006250078324228525
+        },
+        "present_k11": {
+          "max_abs": 0.095703125,
+          "relative_l2": 0.006855144631117582
+        },
+        "present_k12": {
+          "max_abs": 0.13671875,
+          "relative_l2": 0.006154349539428949
+        },
+        "present_k13": {
+          "max_abs": 0.0732421875,
+          "relative_l2": 0.006601241417229176
+        },
+        "present_k14": {
+          "max_abs": 0.1328125,
+          "relative_l2": 0.007147188764065504
+        },
+        "present_k15": {
+          "max_abs": 0.171875,
+          "relative_l2": 0.005368814337998629
+        },
+        "present_k16": {
+          "max_abs": 0.10546875,
+          "relative_l2": 0.008245273493230343
+        },
+        "present_k17": {
+          "max_abs": 0.0859375,
+          "relative_l2": 0.005882196594029665
+        },
+        "present_k18": {
+          "max_abs": 0.119140625,
+          "relative_l2": 0.008854552172124386
+        },
+        "present_k19": {
+          "max_abs": 0.09375,
+          "relative_l2": 0.007821634411811829
+        },
+        "present_k2": {
+          "max_abs": 0.2265625,
+          "relative_l2": 0.0035386614035815
+        },
+        "present_k20": {
+          "max_abs": 0.10546875,
+          "relative_l2": 0.008863677270710468
+        },
+        "present_k21": {
+          "max_abs": 0.13671875,
+          "relative_l2": 0.007858567871153355
+        },
+        "present_k22": {
+          "max_abs": 0.12890625,
+          "relative_l2": 0.008752132765948772
+        },
+        "present_k23": {
+          "max_abs": 0.1875,
+          "relative_l2": 0.009423980489373207
+        },
+        "present_k24": {
+          "max_abs": 0.25,
+          "relative_l2": 0.01005462370812893
+        },
+        "present_k25": {
+          "max_abs": 0.1796875,
+          "relative_l2": 0.009292670525610447
+        },
+        "present_k26": {
+          "max_abs": 0.126953125,
+          "relative_l2": 0.010718215256929398
+        },
+        "present_k27": {
+          "max_abs": 0.1484375,
+          "relative_l2": 0.012540909461677074
+        },
+        "present_k3": {
+          "max_abs": 0.046875,
+          "relative_l2": 0.0025733704678714275
+        },
+        "present_k4": {
+          "max_abs": 0.125,
+          "relative_l2": 0.0031887292861938477
+        },
+        "present_k5": {
+          "max_abs": 0.1966552734375,
+          "relative_l2": 0.004624365828931332
+        },
+        "present_k6": {
+          "max_abs": 0.375,
+          "relative_l2": 0.005972049664705992
+        },
+        "present_k7": {
+          "max_abs": 0.109375,
+          "relative_l2": 0.0051995208486914635
+        },
+        "present_k8": {
+          "max_abs": 0.0546875,
+          "relative_l2": 0.005343477241694927
+        },
+        "present_k9": {
+          "max_abs": 0.1328125,
+          "relative_l2": 0.007183336652815342
+        },
+        "present_v0": {
+          "max_abs": 0.00146484375,
+          "relative_l2": 0.00169749662745744
+        },
+        "present_v1": {
+          "max_abs": 0.00048828125,
+          "relative_l2": 0.0007888805703260005
+        },
+        "present_v10": {
+          "max_abs": 0.025390625,
+          "relative_l2": 0.006324649788439274
+        },
+        "present_v11": {
+          "max_abs": 0.0244140625,
+          "relative_l2": 0.0065489839762449265
+        },
+        "present_v12": {
+          "max_abs": 0.0400390625,
+          "relative_l2": 0.007009829860180616
+        },
+        "present_v13": {
+          "max_abs": 0.04296875,
+          "relative_l2": 0.007161122281104326
+        },
+        "present_v14": {
+          "max_abs": 0.0419921875,
+          "relative_l2": 0.007562677375972271
+        },
+        "present_v15": {
+          "max_abs": 0.0654296875,
+          "relative_l2": 0.00860687531530857
+        },
+        "present_v16": {
+          "max_abs": 0.0546875,
+          "relative_l2": 0.00882562156766653
+        },
+        "present_v17": {
+          "max_abs": 0.1015625,
+          "relative_l2": 0.00857135746628046
+        },
+        "present_v18": {
+          "max_abs": 0.1015625,
+          "relative_l2": 0.009423213079571724
+        },
+        "present_v19": {
+          "max_abs": 0.12890625,
+          "relative_l2": 0.010315371677279472
+        },
+        "present_v2": {
+          "max_abs": 0.00140380859375,
+          "relative_l2": 0.0018951287493109703
+        },
+        "present_v20": {
+          "max_abs": 0.1328125,
+          "relative_l2": 0.010457266122102737
+        },
+        "present_v21": {
+          "max_abs": 0.1796875,
+          "relative_l2": 0.010025231167674065
+        },
+        "present_v22": {
+          "max_abs": 0.203125,
+          "relative_l2": 0.010588403791189194
+        },
+        "present_v23": {
+          "max_abs": 0.23028564453125,
+          "relative_l2": 0.012125375680625439
+        },
+        "present_v24": {
+          "max_abs": 0.3984375,
+          "relative_l2": 0.012477642856538296
+        },
+        "present_v25": {
+          "max_abs": 0.51171875,
+          "relative_l2": 0.013114660046994686
+        },
+        "present_v26": {
+          "max_abs": 0.51171875,
+          "relative_l2": 0.014383114874362946
+        },
+        "present_v27": {
+          "max_abs": 0.6328125,
+          "relative_l2": 0.01420478243380785
+        },
+        "present_v3": {
+          "max_abs": 0.0052490234375,
+          "relative_l2": 0.0024683144874870777
+        },
+        "present_v4": {
+          "max_abs": 0.00634765625,
+          "relative_l2": 0.0032689315266907215
+        },
+        "present_v5": {
+          "max_abs": 0.00927734375,
+          "relative_l2": 0.0037957322783768177
+        },
+        "present_v6": {
+          "max_abs": 0.008056640625,
+          "relative_l2": 0.00451719481498003
+        },
+        "present_v7": {
+          "max_abs": 0.01611328125,
+          "relative_l2": 0.004813458304852247
+        },
+        "present_v8": {
+          "max_abs": 0.013671875,
+          "relative_l2": 0.0053659179247915745
+        },
+        "present_v9": {
+          "max_abs": 0.0244140625,
+          "relative_l2": 0.006154175847768784
+        }
+      },
+      "plugin": "plugin_decode.engine"
+    },
+    "compare_prefill": {
+      "baseline": "baseline_prefill.engine",
+      "common_outputs": [
+        "/input_layernorm/Mul_1_output_0",
+        "hidden_l0",
+        "hidden_l1",
+        "hidden_l10",
+        "hidden_l11",
+        "hidden_l12",
+        "hidden_l13",
+        "hidden_l14",
+        "hidden_l15",
+        "hidden_l16",
+        "hidden_l17",
+        "hidden_l18",
+        "hidden_l19",
+        "hidden_l2",
+        "hidden_l20",
+        "hidden_l21",
+        "hidden_l22",
+        "hidden_l23",
+        "hidden_l24",
+        "hidden_l25",
+        "hidden_l26",
+        "hidden_l27",
+        "hidden_l3",
+        "hidden_l4",
+        "hidden_l5",
+        "hidden_l6",
+        "hidden_l7",
+        "hidden_l8",
+        "hidden_l9",
+        "present_k0",
+        "present_k1",
+        "present_k10",
+        "present_k11",
+        "present_k12",
+        "present_k13",
+        "present_k14",
+        "present_k15",
+        "present_k16",
+        "present_k17",
+        "present_k18",
+        "present_k19",
+        "present_k2",
+        "present_k20",
+        "present_k21",
+        "present_k22",
+        "present_k23",
+        "present_k24",
+        "present_k25",
+        "present_k26",
+        "present_k27",
+        "present_k3",
+        "present_k4",
+        "present_k5",
+        "present_k6",
+        "present_k7",
+        "present_k8",
+        "present_k9",
+        "present_v0",
+        "present_v1",
+        "present_v10",
+        "present_v11",
+        "present_v12",
+        "present_v13",
+        "present_v14",
+        "present_v15",
+        "present_v16",
+        "present_v17",
+        "present_v18",
+        "present_v19",
+        "present_v2",
+        "present_v20",
+        "present_v21",
+        "present_v22",
+        "present_v23",
+        "present_v24",
+        "present_v25",
+        "present_v26",
+        "present_v27",
+        "present_v3",
+        "present_v4",
+        "present_v5",
+        "present_v6",
+        "present_v7",
+        "present_v8",
+        "present_v9"
+      ],
+      "kind": "prefill",
+      "metrics": {
+        "/input_layernorm/Mul_1_output_0": {
+          "max_abs": 0.001953125,
+          "relative_l2": 0.0006377380341291428
+        },
+        "hidden_l0": {
+          "max_abs": 0.0078125,
+          "relative_l2": 0.0009295770432800055
+        },
+        "hidden_l1": {
+          "max_abs": 0.015625,
+          "relative_l2": 0.0022336109541356564
+        },
+        "hidden_l10": {
+          "max_abs": 0.25,
+          "relative_l2": 0.008019872009754181
+        },
+        "hidden_l11": {
+          "max_abs": 0.2578125,
+          "relative_l2": 0.008503339253365993
+        },
+        "hidden_l12": {
+          "max_abs": 0.34375,
+          "relative_l2": 0.009094728156924248
+        },
+        "hidden_l13": {
+          "max_abs": 0.34375,
+          "relative_l2": 0.009653271175920963
+        },
+        "hidden_l14": {
+          "max_abs": 0.40625,
+          "relative_l2": 0.010257839225232601
+        },
+        "hidden_l15": {
+          "max_abs": 0.359375,
+          "relative_l2": 0.010850992985069752
+        },
+        "hidden_l16": {
+          "max_abs": 0.34375,
+          "relative_l2": 0.011342429555952549
+        },
+        "hidden_l17": {
+          "max_abs": 0.4453125,
+          "relative_l2": 0.012535765767097473
+        },
+        "hidden_l18": {
+          "max_abs": 0.48046875,
+          "relative_l2": 0.013003396801650524
+        },
+        "hidden_l19": {
+          "max_abs": 0.51171875,
+          "relative_l2": 0.013889964669942856
+        },
+        "hidden_l2": {
+          "max_abs": 0.09375,
+          "relative_l2": 0.0030786278657615185
+        },
+        "hidden_l20": {
+          "max_abs": 0.57421875,
+          "relative_l2": 0.014779709279537201
+        },
+        "hidden_l21": {
+          "max_abs": 0.890625,
+          "relative_l2": 0.01548029575496912
+        },
+        "hidden_l22": {
+          "max_abs": 1.25,
+          "relative_l2": 0.015881063416600227
+        },
+        "hidden_l23": {
+          "max_abs": 1.15625,
+          "relative_l2": 0.016651839017868042
+        },
+        "hidden_l24": {
+          "max_abs": 1.296875,
+          "relative_l2": 0.018237587064504623
+        },
+        "hidden_l25": {
+          "max_abs": 1.796875,
+          "relative_l2": 0.018711930140852928
+        },
+        "hidden_l26": {
+          "max_abs": 2.1953125,
+          "relative_l2": 0.02000570297241211
+        },
+        "hidden_l27": {
+          "max_abs": 5.125,
+          "relative_l2": 0.022189708426594734
+        },
+        "hidden_l3": {
+          "max_abs": 0.09375,
+          "relative_l2": 0.004131045192480087
+        },
+        "hidden_l4": {
+          "max_abs": 0.078125,
+          "relative_l2": 0.004902196116745472
+        },
+        "hidden_l5": {
+          "max_abs": 0.09375,
+          "relative_l2": 0.005470216274261475
+        },
+        "hidden_l6": {
+          "max_abs": 0.140625,
+          "relative_l2": 0.005971160717308521
+        },
+        "hidden_l7": {
+          "max_abs": 0.140625,
+          "relative_l2": 0.006528760306537151
+        },
+        "hidden_l8": {
+          "max_abs": 0.1875,
+          "relative_l2": 0.0071741733700037
+        },
+        "hidden_l9": {
+          "max_abs": 0.296875,
+          "relative_l2": 0.00768604502081871
+        },
+        "present_k0": {
+          "max_abs": 0.625,
+          "relative_l2": 0.0014573896769434214
+        },
+        "present_k1": {
+          "max_abs": 0.203125,
+          "relative_l2": 0.0018308126600459218
+        },
+        "present_k10": {
+          "max_abs": 0.265625,
+          "relative_l2": 0.007534184958785772
+        },
+        "present_k11": {
+          "max_abs": 0.1328125,
+          "relative_l2": 0.008124805055558681
+        },
+        "present_k12": {
+          "max_abs": 0.203125,
+          "relative_l2": 0.007037310861051083
+        },
+        "present_k13": {
+          "max_abs": 0.1328125,
+          "relative_l2": 0.00942741148173809
+        },
+        "present_k14": {
+          "max_abs": 0.2109375,
+          "relative_l2": 0.009412403218448162
+        },
+        "present_k15": {
+          "max_abs": 0.3359375,
+          "relative_l2": 0.008195847272872925
+        },
+        "present_k16": {
+          "max_abs": 0.201171875,
+          "relative_l2": 0.011117104440927505
+        },
+        "present_k17": {
+          "max_abs": 0.5,
+          "relative_l2": 0.01064958143979311
+        },
+        "present_k18": {
+          "max_abs": 0.2265625,
+          "relative_l2": 0.011740479618310928
+        },
+        "present_k19": {
+          "max_abs": 0.2109375,
+          "relative_l2": 0.011333851143717766
+        },
+        "present_k2": {
+          "max_abs": 0.375,
+          "relative_l2": 0.0030320403166115284
+        },
+        "present_k20": {
+          "max_abs": 0.248046875,
+          "relative_l2": 0.01267974078655243
+        },
+        "present_k21": {
+          "max_abs": 0.25,
+          "relative_l2": 0.011549009941518307
+        },
+        "present_k22": {
+          "max_abs": 0.158203125,
+          "relative_l2": 0.012601425871253014
+        },
+        "present_k23": {
+          "max_abs": 0.4013671875,
+          "relative_l2": 0.012870429083704948
+        },
+        "present_k24": {
+          "max_abs": 0.453125,
+          "relative_l2": 0.013011419214308262
+        },
+        "present_k25": {
+          "max_abs": 0.44140625,
+          "relative_l2": 0.014319420792162418
+        },
+        "present_k26": {
+          "max_abs": 0.2958984375,
+          "relative_l2": 0.01551026850938797
+        },
+        "present_k27": {
+          "max_abs": 0.3671875,
+          "relative_l2": 0.015301267616450787
+        },
+        "present_k3": {
+          "max_abs": 0.1640625,
+          "relative_l2": 0.003787994384765625
+        },
+        "present_k4": {
+          "max_abs": 0.78125,
+          "relative_l2": 0.005130532197654247
+        },
+        "present_k5": {
+          "max_abs": 0.34375,
+          "relative_l2": 0.005524577107280493
+        },
+        "present_k6": {
+          "max_abs": 0.265625,
+          "relative_l2": 0.006513350643217564
+        },
+        "present_k7": {
+          "max_abs": 0.20703125,
+          "relative_l2": 0.0065197693184018135
+        },
+        "present_k8": {
+          "max_abs": 0.09375,
+          "relative_l2": 0.006695976480841637
+        },
+        "present_k9": {
+          "max_abs": 0.171875,
+          "relative_l2": 0.006720478180795908
+        },
+        "present_v0": {
+          "max_abs": 0.0015869140625,
+          "relative_l2": 0.0015131598338484764
+        },
+        "present_v1": {
+          "max_abs": 0.001708984375,
+          "relative_l2": 0.001870076055638492
+        },
+        "present_v10": {
+          "max_abs": 0.041015625,
+          "relative_l2": 0.008084069006145
+        },
+        "present_v11": {
+          "max_abs": 0.046875,
+          "relative_l2": 0.008365405723452568
+        },
+        "present_v12": {
+          "max_abs": 0.060546875,
+          "relative_l2": 0.009103507734835148
+        },
+        "present_v13": {
+          "max_abs": 0.0733642578125,
+          "relative_l2": 0.009796343743801117
+        },
+        "present_v14": {
+          "max_abs": 0.08203125,
+          "relative_l2": 0.01054379902780056
+        },
+        "present_v15": {
+          "max_abs": 0.12890625,
+          "relative_l2": 0.011470227502286434
+        },
+        "present_v16": {
+          "max_abs": 0.1015625,
+          "relative_l2": 0.012028109282255173
+        },
+        "present_v17": {
+          "max_abs": 0.1953125,
+          "relative_l2": 0.011876825243234634
+        },
+        "present_v18": {
+          "max_abs": 0.20703125,
+          "relative_l2": 0.01350956130772829
+        },
+        "present_v19": {
+          "max_abs": 0.216796875,
+          "relative_l2": 0.01397256925702095
+        },
+        "present_v2": {
+          "max_abs": 0.003173828125,
+          "relative_l2": 0.003006651531904936
+        },
+        "present_v20": {
+          "max_abs": 0.25,
+          "relative_l2": 0.014092715457081795
+        },
+        "present_v21": {
+          "max_abs": 0.4404296875,
+          "relative_l2": 0.015385360457003117
+        },
+        "present_v22": {
+          "max_abs": 0.4345703125,
+          "relative_l2": 0.016242625191807747
+        },
+        "present_v23": {
+          "max_abs": 0.436767578125,
+          "relative_l2": 0.01694844290614128
+        },
+        "present_v24": {
+          "max_abs": 0.5966796875,
+          "relative_l2": 0.018505996093153954
+        },
+        "present_v25": {
+          "max_abs": 0.93359375,
+          "relative_l2": 0.020081542432308197
+        },
+        "present_v26": {
+          "max_abs": 0.91015625,
+          "relative_l2": 0.02060980163514614
+        },
+        "present_v27": {
+          "max_abs": 1.2109375,
+          "relative_l2": 0.02134106494486332
+        },
+        "present_v3": {
+          "max_abs": 0.0087890625,
+          "relative_l2": 0.0035562359262257814
+        },
+        "present_v4": {
+          "max_abs": 0.01025390625,
+          "relative_l2": 0.004638283047825098
+        },
+        "present_v5": {
+          "max_abs": 0.01318359375,
+          "relative_l2": 0.005261830519884825
+        },
+        "present_v6": {
+          "max_abs": 0.01611328125,
+          "relative_l2": 0.0057691545225679874
+        },
+        "present_v7": {
+          "max_abs": 0.02099609375,
+          "relative_l2": 0.006421356461942196
+        },
+        "present_v8": {
+          "max_abs": 0.03125,
+          "relative_l2": 0.0068878126330673695
+        },
+        "present_v9": {
+          "max_abs": 0.04296875,
+          "relative_l2": 0.0074571361765265465
+        }
+      },
+      "plugin": "plugin_prefill.engine"
+    },
+    "measure_baseline_decode": {
+      "engine": "baseline_decode.engine",
+      "kind": "decode",
+      "max_ms": 42.52230453491211,
+      "mean_ms": 41.78028170267741,
+      "memory": {
+        "cuda_free_bytes": 4643606528,
+        "cuda_total_bytes": 7989940224,
+        "maxrss_kb": 1392408,
+        "stage": "after_decode",
+        "torch_allocated_bytes": 2011648,
+        "torch_reserved_bytes": 2097152
+      },
+      "min_ms": 37.74371337890625,
+      "output_names": [
+        "/input_layernorm/Mul_1_output_0",
+        "hidden_l0",
+        "hidden_l1",
+        "hidden_l10",
+        "hidden_l11",
+        "hidden_l12",
+        "hidden_l13",
+        "hidden_l14",
+        "hidden_l15",
+        "hidden_l16",
+        "hidden_l17",
+        "hidden_l18",
+        "hidden_l19",
+        "hidden_l2",
+        "hidden_l20",
+        "hidden_l21",
+        "hidden_l22",
+        "hidden_l23",
+        "hidden_l24",
+        "hidden_l25",
+        "hidden_l26",
+        "hidden_l27",
+        "hidden_l3",
+        "hidden_l4",
+        "hidden_l5",
+        "hidden_l6",
+        "hidden_l7",
+        "hidden_l8",
+        "hidden_l9",
+        "present_k0",
+        "present_k1",
+        "present_k10",
+        "present_k11",
+        "present_k12",
+        "present_k13",
+        "present_k14",
+        "present_k15",
+        "present_k16",
+        "present_k17",
+        "present_k18",
+        "present_k19",
+        "present_k2",
+        "present_k20",
+        "present_k21",
+        "present_k22",
+        "present_k23",
+        "present_k24",
+        "present_k25",
+        "present_k26",
+        "present_k27",
+        "present_k3",
+        "present_k4",
+        "present_k5",
+        "present_k6",
+        "present_k7",
+        "present_k8",
+        "present_k9",
+        "present_v0",
+        "present_v1",
+        "present_v10",
+        "present_v11",
+        "present_v12",
+        "present_v13",
+        "present_v14",
+        "present_v15",
+        "present_v16",
+        "present_v17",
+        "present_v18",
+        "present_v19",
+        "present_v2",
+        "present_v20",
+        "present_v21",
+        "present_v22",
+        "present_v23",
+        "present_v24",
+        "present_v25",
+        "present_v26",
+        "present_v27",
+        "present_v3",
+        "present_v4",
+        "present_v5",
+        "present_v6",
+        "present_v7",
+        "present_v8",
+        "present_v9"
+      ],
+      "repetitions": 30,
+      "throughput_items_per_s": 23.934735699398527,
+      "warmup": 10
+    },
+    "measure_baseline_prefill": {
+      "engine": "baseline_prefill.engine",
+      "kind": "prefill",
+      "max_ms": 39.2250862121582,
+      "mean_ms": 38.51829986572265,
+      "memory": {
+        "cuda_free_bytes": 4777168896,
+        "cuda_total_bytes": 7989940224,
+        "maxrss_kb": 1380560,
+        "stage": "after_prefill",
+        "torch_allocated_bytes": 1409536,
+        "torch_reserved_bytes": 2097152
+      },
+      "min_ms": 35.961727142333984,
+      "output_names": [
+        "/input_layernorm/Mul_1_output_0",
+        "hidden_l0",
+        "hidden_l1",
+        "hidden_l10",
+        "hidden_l11",
+        "hidden_l12",
+        "hidden_l13",
+        "hidden_l14",
+        "hidden_l15",
+        "hidden_l16",
+        "hidden_l17",
+        "hidden_l18",
+        "hidden_l19",
+        "hidden_l2",
+        "hidden_l20",
+        "hidden_l21",
+        "hidden_l22",
+        "hidden_l23",
+        "hidden_l24",
+        "hidden_l25",
+        "hidden_l26",
+        "hidden_l27",
+        "hidden_l3",
+        "hidden_l4",
+        "hidden_l5",
+        "hidden_l6",
+        "hidden_l7",
+        "hidden_l8",
+        "hidden_l9",
+        "present_k0",
+        "present_k1",
+        "present_k10",
+        "present_k11",
+        "present_k12",
+        "present_k13",
+        "present_k14",
+        "present_k15",
+        "present_k16",
+        "present_k17",
+        "present_k18",
+        "present_k19",
+        "present_k2",
+        "present_k20",
+        "present_k21",
+        "present_k22",
+        "present_k23",
+        "present_k24",
+        "present_k25",
+        "present_k26",
+        "present_k27",
+        "present_k3",
+        "present_k4",
+        "present_k5",
+        "present_k6",
+        "present_k7",
+        "present_k8",
+        "present_k9",
+        "present_v0",
+        "present_v1",
+        "present_v10",
+        "present_v11",
+        "present_v12",
+        "present_v13",
+        "present_v14",
+        "present_v15",
+        "present_v16",
+        "present_v17",
+        "present_v18",
+        "present_v19",
+        "present_v2",
+        "present_v20",
+        "present_v21",
+        "present_v22",
+        "present_v23",
+        "present_v24",
+        "present_v25",
+        "present_v26",
+        "present_v27",
+        "present_v3",
+        "present_v4",
+        "present_v5",
+        "present_v6",
+        "present_v7",
+        "present_v8",
+        "present_v9"
+      ],
+      "repetitions": 30,
+      "throughput_items_per_s": 25.9616858346829,
+      "warmup": 10
+    },
+    "measure_plugin_decode": {
+      "engine": "plugin_decode.engine",
+      "kind": "decode",
+      "max_ms": 44.0250244140625,
+      "mean_ms": 42.67111434936523,
+      "memory": {
+        "cuda_free_bytes": 4669673472,
+        "cuda_total_bytes": 7989940224,
+        "maxrss_kb": 1387400,
+        "stage": "after_decode",
+        "torch_allocated_bytes": 2011648,
+        "torch_reserved_bytes": 2097152
+      },
+      "min_ms": 38.182369232177734,
+      "output_names": [
+        "/input_layernorm/Mul_1_output_0",
+        "hidden_l0",
+        "hidden_l1",
+        "hidden_l10",
+        "hidden_l11",
+        "hidden_l12",
+        "hidden_l13",
+        "hidden_l14",
+        "hidden_l15",
+        "hidden_l16",
+        "hidden_l17",
+        "hidden_l18",
+        "hidden_l19",
+        "hidden_l2",
+        "hidden_l20",
+        "hidden_l21",
+        "hidden_l22",
+        "hidden_l23",
+        "hidden_l24",
+        "hidden_l25",
+        "hidden_l26",
+        "hidden_l27",
+        "hidden_l3",
+        "hidden_l4",
+        "hidden_l5",
+        "hidden_l6",
+        "hidden_l7",
+        "hidden_l8",
+        "hidden_l9",
+        "present_k0",
+        "present_k1",
+        "present_k10",
+        "present_k11",
+        "present_k12",
+        "present_k13",
+        "present_k14",
+        "present_k15",
+        "present_k16",
+        "present_k17",
+        "present_k18",
+        "present_k19",
+        "present_k2",
+        "present_k20",
+        "present_k21",
+        "present_k22",
+        "present_k23",
+        "present_k24",
+        "present_k25",
+        "present_k26",
+        "present_k27",
+        "present_k3",
+        "present_k4",
+        "present_k5",
+        "present_k6",
+        "present_k7",
+        "present_k8",
+        "present_k9",
+        "present_v0",
+        "present_v1",
+        "present_v10",
+        "present_v11",
+        "present_v12",
+        "present_v13",
+        "present_v14",
+        "present_v15",
+        "present_v16",
+        "present_v17",
+        "present_v18",
+        "present_v19",
+        "present_v2",
+        "present_v20",
+        "present_v21",
+        "present_v22",
+        "present_v23",
+        "present_v24",
+        "present_v25",
+        "present_v26",
+        "present_v27",
+        "present_v3",
+        "present_v4",
+        "present_v5",
+        "present_v6",
+        "present_v7",
+        "present_v8",
+        "present_v9"
+      ],
+      "repetitions": 30,
+      "throughput_items_per_s": 23.435057069581212,
+      "warmup": 10
+    },
+    "measure_plugin_prefill": {
+      "engine": "plugin_prefill.engine",
+      "kind": "prefill",
+      "max_ms": 40.29600143432617,
+      "mean_ms": 39.66013272603353,
+      "memory": {
+        "cuda_free_bytes": 4766650368,
+        "cuda_total_bytes": 7989940224,
+        "maxrss_kb": 1378640,
+        "stage": "after_prefill",
+        "torch_allocated_bytes": 1409536,
+        "torch_reserved_bytes": 2097152
+      },
+      "min_ms": 36.24995040893555,
+      "output_names": [
+        "/input_layernorm/Mul_1_output_0",
+        "hidden_l0",
+        "hidden_l1",
+        "hidden_l10",
+        "hidden_l11",
+        "hidden_l12",
+        "hidden_l13",
+        "hidden_l14",
+        "hidden_l15",
+        "hidden_l16",
+        "hidden_l17",
+        "hidden_l18",
+        "hidden_l19",
+        "hidden_l2",
+        "hidden_l20",
+        "hidden_l21",
+        "hidden_l22",
+        "hidden_l23",
+        "hidden_l24",
+        "hidden_l25",
+        "hidden_l26",
+        "hidden_l27",
+        "hidden_l3",
+        "hidden_l4",
+        "hidden_l5",
+        "hidden_l6",
+        "hidden_l7",
+        "hidden_l8",
+        "hidden_l9",
+        "present_k0",
+        "present_k1",
+        "present_k10",
+        "present_k11",
+        "present_k12",
+        "present_k13",
+        "present_k14",
+        "present_k15",
+        "present_k16",
+        "present_k17",
+        "present_k18",
+        "present_k19",
+        "present_k2",
+        "present_k20",
+        "present_k21",
+        "present_k22",
+        "present_k23",
+        "present_k24",
+        "present_k25",
+        "present_k26",
+        "present_k27",
+        "present_k3",
+        "present_k4",
+        "present_k5",
+        "present_k6",
+        "present_k7",
+        "present_k8",
+        "present_k9",
+        "present_v0",
+        "present_v1",
+        "present_v10",
+        "present_v11",
+        "present_v12",
+        "present_v13",
+        "present_v14",
+        "present_v15",
+        "present_v16",
+        "present_v17",
+        "present_v18",
+        "present_v19",
+        "present_v2",
+        "present_v20",
+        "present_v21",
+        "present_v22",
+        "present_v23",
+        "present_v24",
+        "present_v25",
+        "present_v26",
+        "present_v27",
+        "present_v3",
+        "present_v4",
+        "present_v5",
+        "present_v6",
+        "present_v7",
+        "present_v8",
+        "present_v9"
+      ],
+      "repetitions": 30,
+      "throughput_items_per_s": 25.214237352856472,
+      "warmup": 10
+    },
+    "rewrite_decode": {
+      "baseline": {
+        "bytes": 881548745,
+        "exposed_output": "/input_layernorm/Mul_1_output_0",
+        "final_node_count": 6146,
+        "original_target_nodes": 12,
+        "output": "baseline_decode.onnx",
+        "plugin_nodes": 0,
+        "source": "/tmp/phase2_2b4_2_20260902T082326Z/decode_28layer.onnx",
+        "variant": "baseline"
+      },
+      "plugin": {
+        "bytes": 881547531,
+        "exposed_output": "/input_layernorm/Mul_1_output_0",
+        "final_node_count": 6135,
+        "original_target_nodes": 12,
+        "output": "plugin_decode.onnx",
+        "plugin_nodes": 1,
+        "source": "/tmp/phase2_2b4_2_20260902T082326Z/decode_28layer.onnx",
+        "variant": "plugin"
+      }
+    },
+    "rewrite_prefill": {
+      "baseline": {
+        "bytes": 881567467,
+        "exposed_output": "/input_layernorm/Mul_1_output_0",
+        "final_node_count": 6371,
+        "original_target_nodes": 13,
+        "output": "baseline_prefill.onnx",
+        "plugin_nodes": 0,
+        "source": "/tmp/phase2_2b4_2_20260902T082326Z/prefill_28layer.onnx",
+        "variant": "baseline"
+      },
+      "plugin": {
+        "bytes": 881566253,
+        "exposed_output": "/input_layernorm/Mul_1_output_0",
+        "final_node_count": 6360,
+        "original_target_nodes": 13,
+        "output": "plugin_prefill.onnx",
+        "plugin_nodes": 1,
+        "source": "/tmp/phase2_2b4_2_20260902T082326Z/prefill_28layer.onnx",
+        "variant": "plugin"
+      }
+    }
+  },
+  "plugin_boundary": {
+    "baseline_vs_plugin_engine_bytes_decode": 211920,
+    "baseline_vs_plugin_engine_bytes_prefill": 17520,
+    "baseline_vs_plugin_onnx_bytes_prefill": 1214,
+    "decode_latency_delta_percent": 2.1321843950868797,
+    "prefill_latency_delta_percent": 2.964390599510837,
+    "replacement_scope": "Layer 0 input_layernorm only"
+  }
+}

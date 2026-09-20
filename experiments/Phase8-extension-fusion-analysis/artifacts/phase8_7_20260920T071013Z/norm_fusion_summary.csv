@@ -1,0 +1,13 @@
+engine,norm_family,projection_state,trt_layer_type,layer_count
+mixed_decode,input_layernorm,NO_PROJECTION,kgen,1
+mixed_decode,input_layernorm,QUANT_GEMM,kgen,27
+mixed_decode,k_norm,NO_PROJECTION,kgen,56
+mixed_decode,post_attention_layernorm,NO_PROJECTION,kgen,1
+mixed_decode,post_attention_layernorm,QUANT_GEMM,kgen,27
+mixed_decode,q_norm,NO_PROJECTION,kgen,56
+mixed_prefill,input_layernorm,NO_PROJECTION,kgen,1
+mixed_prefill,input_layernorm,QUANT_GEMM,kgen,27
+mixed_prefill,k_norm,NO_PROJECTION,kgen,56
+mixed_prefill,post_attention_layernorm,NO_PROJECTION,kgen,1
+mixed_prefill,post_attention_layernorm,QUANT_GEMM,kgen,27
+mixed_prefill,q_norm,NO_PROJECTION,kgen,56

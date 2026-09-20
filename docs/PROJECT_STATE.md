@@ -7,20 +7,53 @@
 | Field | Verified value |
 | --- | --- |
 | Project | `jetson-qwen-inference-lab` / Jetson Qwen Transformer AI Infra Optimization Lab |
-| Current date | `2026-09-16` UTC / `2026-09-16` Asia/Shanghai |
+| Current date | `2026-09-20` UTC / `2026-09-20` Asia/Shanghai |
 | Repository | `FlankKaicoder/jetson-qwen-inference-lab` |
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 9.4 — Project Closure |
-| Current experiment | None — Phase 9.4 is documentation closure, not an experiment |
-| Current branch | `phase/09-qwen3vl-migration` |
-| Current HEAD | Verify with `git rev-parse HEAD`; the closure commit changes HEAD |
+| Current phase | Phase 8.7 — TensorRT Fusion Boundary Analysis Extension |
+| Current experiment | Phase 8.7 — TensorRT Fusion Boundary Analysis |
+| Current branch | `phase/08-extension-fusion-analysis` |
+| Current HEAD | Verify with `git rev-parse HEAD`; the closeout commit changes HEAD |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 9.3-B2 — Qwen3-VL Decoder-Side Runtime Bottleneck Attribution |
-| Experiment status | Phase 9.3-B2 remains the final experiment and its bounded attribution evidence is unchanged. |
-| Current Gate | Project closure is `PROJECT_COMPLETE`. This proves documentation/evidence closure, not an end-to-end optimized product. |
-| Readiness | Repository is closed for routine experiments. Any new work requires a fresh explicit authorization and must recover from Git, raw artifacts, experiment reports, and this state document. |
+| Last completed experiment | Phase 8.7 — TensorRT Fusion Boundary Analysis |
+| Experiment status | Phase 8.7 completed a repository-only evidence audit; Phase 9.3-B2 remains the latest profiling experiment and all historical evidence is unchanged. |
+| Current Gate | `PASS / BOUNDED / NO_PROVEN_FUSION_OPTIMIZATION_TARGET`; plugin fusion loss is `INCONCLUSIVE`. |
+| Readiness | Stop after Phase 8.7. Phase 8.5 and any plugin-Inspector/Nsight follow-up require a fresh explicit authorization. |
+
+## Phase 8.7 TensorRT Fusion Boundary Analysis Checkpoint (2026-09-20)
+
+- Starting branch/HEAD was `phase/08-extension-fusion-analysis` at
+  `12c6e56fbdda6eb74d8261f769a5a88b2363ae05`; Gate 0 was `PASS`. The owner
+  authorized TensorRT fusion-boundary analysis only.
+- The phase was repository-only existing-evidence analysis. No kernel was
+  implemented, plugin modified, Phase 8 file rewritten, engine built/executed,
+  or new Nsight profile collected.
+- The analyzer and compact evidence are
+  `experiments/Phase8-extension-fusion-analysis/scripts/analyze_existing_fusion_evidence.py`
+  and
+  `experiments/Phase8-extension-fusion-analysis/artifacts/phase8_7_20260920T071013Z/`.
+- FP16 EngineInspector evidence is compact: Prefill has 613 layers with 84 GEMM
+  and 529 `UNKNOWN`; Decode has 420 layers with 84 GEMM and 336 `UNKNOWN`.
+  Specific FP16 fusion patterns therefore remain `UNKNOWN`.
+- Detailed Mixed/INT8 Inspector evidence, used only as a precision-bounded
+  reference, records `input_layernorm` fused with QKV quantization in 27/28
+  instances, `post_attention_layernorm` fused with gate quantization in 27/28,
+  `o_proj`/`down_proj` with residual in 28/28, and gate projection with SwiGLU
+  in 28/28 decode and 27/28 prefill.
+- Existing Nsight Systems evidence is FP16 versus Mixed, not plugin-specific:
+  fixed prefill ranges have 396 FP16 and 448 Mixed kernels; fixed decode ranges
+  have 422 FP16 and 501 Mixed kernels. CUDA API time is aggregate, not
+  isolated launch overhead.
+- Phase 8.4-A plugin evidence records Prefill 38.5183 -> 39.6601 ms
+  (`+2.96%`) and Decode 41.7803 -> 42.6711 ms (`+2.13%`), but has no plugin
+  Engine Inspector or plugin Nsight artifact. Which fusion disappeared and
+  whether the plugin bypasses/breaks fusion are `UNKNOWN` / `INCONCLUSIVE`.
+- Report:
+  `experiments/Phase8-extension-fusion-analysis/docs/phase8_7_tensorRT_fusion_boundary_report.md`.
+  Gate: `PASS / BOUNDED / NO_PROVEN_FUSION_OPTIMIZATION_TARGET`. Stop; do not
+  start Phase 8.5 or any follow-up without explicit authorization.
 
 ## Phase 9.4 Project Closure Checkpoint (2026-09-16)
 

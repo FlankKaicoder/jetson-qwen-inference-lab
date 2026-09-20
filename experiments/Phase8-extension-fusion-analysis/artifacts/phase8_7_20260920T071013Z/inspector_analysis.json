@@ -1,0 +1,79 @@
+{
+  "engines": {
+    "fp16_decode": {
+      "category_counts": {
+        "GEMM": 84,
+        "UNKNOWN": 336
+      },
+      "engine_bytes": 890363012,
+      "engine_sha256": "16377216614750dfb126e384f9cc26613c558a528e6dd83ee112c25e1f91e60b",
+      "inspector_layer_count": 420,
+      "layer_type_counts": {
+        "COMPACT_NO_TYPE": 420
+      }
+    },
+    "fp16_prefill": {
+      "category_counts": {
+        "GEMM": 84,
+        "UNKNOWN": 529
+      },
+      "engine_bytes": 892483860,
+      "engine_sha256": "c31f161396c2dc211c418640bce241d3b612e88be0c2da285ec088639ffe960b",
+      "inspector_layer_count": 613,
+      "layer_type_counts": {
+        "COMPACT_NO_TYPE": 613
+      }
+    },
+    "mixed_decode": {
+      "category_counts": {
+        "GEMM": 250,
+        "NO_KERNEL": 201,
+        "TENSORRT_INTERNAL": 248
+      },
+      "engine_bytes": 650285868,
+      "engine_sha256": "445fc7d295c5bbb91e5392182347aa0e59612a031b5556a3461e09f30a59005c",
+      "inspector_layer_count": 699,
+      "layer_type_counts": {
+        "fusion": 165,
+        "gemm": 85,
+        "kgen": 248,
+        "shape_call": 1,
+        "signal": 86,
+        "wait": 114
+      }
+    },
+    "mixed_prefill": {
+      "category_counts": {
+        "ATTENTION_GEMM": 28,
+        "GEMM": 194,
+        "NO_KERNEL": 205,
+        "TENSORRT_INTERNAL": 222
+      },
+      "engine_bytes": 651671676,
+      "engine_sha256": "3258b0a82fd4884a291e2bf0e3dded179434a9d1a5d034c4fc4e9f772c8964ec",
+      "inspector_layer_count": 649,
+      "layer_type_counts": {
+        "fusion": 164,
+        "gemm": 30,
+        "kgen": 250,
+        "shape_call": 1,
+        "signal": 88,
+        "wait": 116
+      }
+    }
+  },
+  "evidence_boundary": {
+    "fp16_inspector": "COMPACT layer strings; ONNX metadata and tactic/shape unavailable",
+    "mixed_inspector": "DETAILED metadata; used to identify exact ONNX-node fusion patterns",
+    "mixed_is_int8": true,
+    "mixed_used_as_boundary_example_only": true
+  },
+  "host": "nvidia-desktop",
+  "limitations": [
+    "Runtime kernel time is not attributable to individual inspector layers from this artifact alone.",
+    "Operator identity uses Inspector ONNX metadata; absent metadata remains UNKNOWN.",
+    "Dynamic dimensions are labeled UNKNOWN unless a benchmark M is explicitly supplied."
+  ],
+  "method": "read-only extraction of existing TensorRT EngineInspector layer inventory",
+  "tensorrt": "10.3.0"
+}

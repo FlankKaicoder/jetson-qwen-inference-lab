@@ -4,6 +4,19 @@
 
 ## [Unreleased]
 
+### Phase 8.7 TensorRT Fusion Boundary Analysis (2026-09-20)
+
+- Added a repository-only TensorRT fusion-boundary audit under
+  `experiments/Phase8-extension-fusion-analysis/`.
+- Recorded the compact FP16 EngineInspector limitation and the detailed
+  Mixed/INT8 fusion-pattern reference without treating INT8 evidence as FP16
+  proof.
+- Recorded that no plugin Engine Inspector or plugin-specific Nsight artifact
+  exists, so the Phase 8.4-A plugin fusion-loss question remains
+  `INCONCLUSIVE`.
+- Gate: `PASS / BOUNDED / NO_PROVEN_FUSION_OPTIMIZATION_TARGET`. No kernel,
+  plugin modification, engine build/execution, or new profile was performed.
+
 ### Phase 9.4 Project Closure (2026-09-16)
 
 - Added the final project report, final status, and Phase 9.4 closure handoff.
