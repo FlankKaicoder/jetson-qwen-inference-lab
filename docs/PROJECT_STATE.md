@@ -12,15 +12,43 @@
 | Windows path | `E:\nvidia-qwen` |
 | Jetson path | `/home/nvidia/projects/jetson-qwen-inference-lab` |
 | GitHub | `https://github.com/FlankKaicoder/jetson-qwen-inference-lab` |
-| Current phase | Phase 8.5 — RMSNorm Scaling and Numerical Stability Audit |
-| Current experiment | Phase 8.5 — RMSNorm Scaling and Numerical Stability Audit |
+| Current phase | Phase 8.8-A — CUDA Fusion Microbenchmark |
+| Current experiment | Phase 8.8-A — RMSNorm + Linear CUDA Fusion Microbenchmark |
 | Current branch | `phase/08-extension-fusion-analysis` |
 | Current HEAD | Verify with `git rev-parse HEAD`; the closeout commit changes HEAD |
 | Main HEAD | `d42ab4aeabc751723a4a2c1036b93a5ed16d3d01` |
-| Last completed experiment | Phase 8.5 — RMSNorm Scaling and Numerical Stability Audit |
-| Experiment status | Phase 8.5 completed a bounded Jetson multi-node plugin audit; Phase 8.7 remains the latest prior fusion audit. |
-| Current Gate | `PASS / BOUNDED / NO_PROVEN_SCALABLE_PLUGIN_PATH`; final-hidden tolerance passed, but the replaced-RMSNorm and generation gates failed at scale. |
-| Readiness | Stop after Phase 8.5. Further scaling, fusion, optimization, or deployment work requires a fresh explicit authorization. |
+| Last completed experiment | Phase 8.8-A — CUDA Fusion Microbenchmark |
+| Experiment status | Phase 8.8-A completed a bounded Jetson FP16 RMSNorm + Linear prototype evaluation. Phase 8.8-B/C were not run. |
+| Current Gate | `PASS / BOUNDED / NO_PROVEN_FUSION_BENEFIT`; launch count fell, but the median-latency and global-traffic conditions failed. |
+| Readiness | Stop after Phase 8.8-A. The conditional Phase 8.8-B TensorRT plugin is not authorized by this gate. |
+
+## Phase 8.8-A CUDA Fusion Microbenchmark Checkpoint (2026-09-20)
+
+- The owner authorized Phase 8.8-A only. Starting branch/HEAD was
+  `phase/08-extension-fusion-analysis` at
+  `f83f3e8e6b46a839a24ba40e3a202eaea5be0177`; the evidence commit is
+  `b7eb3f09dafbce838441280c52be67a6fae2879a`.
+- A standalone FP16 `M=1/K=1024/N=3072` microbenchmark compared one RMSNorm
+  kernel plus `cublasGemmEx` against one simple fused RMSNorm + Linear kernel.
+  No existing Phase 8 file, TensorRT graph/plugin, or Qwen3 model was changed.
+- Correctness passed against the FP32-accumulation reference and in the direct
+  cross-comparison; fusion versus baseline relative-L2 was
+  `1.1058699708e-05`.
+- NSYS kernel count fell from 2 to 1. Ten-trial CUDA Event mean fell from
+  `0.105861938477` to `0.0991771965027` ms (`6.3146%`), but median fell only
+  `1.6886%`, below the predeclared 5% condition.
+- NCU L1 global-load sectors increased from `199872` to `202752` (`1.4409%`)
+  and global-store sectors increased from `256` to `3072` (`12x`). These are
+  L1 global access sectors, not DRAM bytes. DRAM traffic remains `UNKNOWN`.
+- NSYS single-capture GPU time fell `5.5611%`, while NCU diagnostic duration
+  increased `45.1182%`; profiler-duration attribution is bounded and the
+  conflicting ordering is retained.
+- Report:
+  `experiments/Phase8-extension-fusion-performance/docs/phase8_8a_cuda_fusion_report.md`.
+  Evidence:
+  `experiments/Phase8-extension-fusion-performance/artifacts/phase8_8a_20260920T123247Z/`.
+  Gate: `PASS / BOUNDED / NO_PROVEN_FUSION_BENEFIT`. Stop; Phase 8.8-B/C were
+  not run and require a fresh owner decision.
 
 ## Phase 8.5 RMSNorm Scaling Audit Checkpoint (2026-09-20)
 

@@ -1,3 +1,20 @@
+# Phase 8.8-A CUDA Fusion Microbenchmark (2026-09-20)
+
+- The owner authorized Phase 8.8-A only. Starting branch/HEAD was
+  `phase/08-extension-fusion-analysis` at
+  `f83f3e8e6b46a839a24ba40e3a202eaea5be0177`.
+- Evidence commit:
+  `b7eb3f09dafbce838441280c52be67a6fae2879a`.
+- Report:
+  `experiments/Phase8-extension-fusion-performance/docs/phase8_8a_cuda_fusion_report.md`.
+  Evidence:
+  `experiments/Phase8-extension-fusion-performance/artifacts/phase8_8a_20260920T123247Z/`.
+- Gate: `PASS / BOUNDED / NO_PROVEN_FUSION_BENEFIT`. Kernel count fell 2 -> 1
+  and CUDA Event mean fell `6.3146%`, but the median-latency condition failed;
+  NCU L1 global-load sectors increased `1.4409%` and stores increased `12x`.
+- Phase 8.8-B TensorRT plugin and Phase 8.8-C Qwen3 single-layer validation
+  were not run. Stop unless the owner explicitly changes the dependency gate.
+
 # Phase 8.5 RMSNorm Scaling Audit (2026-09-20)
 
 - The owner authorized Phase 8.5 only. Starting branch/HEAD was

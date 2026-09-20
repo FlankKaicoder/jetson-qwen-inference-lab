@@ -4,6 +4,18 @@
 
 ## [Unreleased]
 
+### Phase 8.8-A CUDA Fusion Microbenchmark (2026-09-20)
+
+- Added a standalone FP16 RMSNorm + Linear fusion prototype for the Qwen3-like
+  decode shape `M=1/K=1024/N=3072` without modifying TensorRT or Qwen3.
+- Recorded correctness, alternating-order CUDA Event trials, NSYS launch/GPU
+  time, and NCU L1 global-sector and achieved-active-warps evidence.
+- Fusion reduced kernel count from two to one and mean CUDA Event latency by
+  `6.3146%`, but median improved only `1.6886%`; global-load sectors increased
+  `1.4409%` and stores increased `12x`.
+- Gate: `PASS / BOUNDED / NO_PROVEN_FUSION_BENEFIT`. Phase 8.8-B/C were not
+  run.
+
 ### Phase 8.5 RMSNorm Scaling and Numerical Stability Audit (2026-09-20)
 
 - Added a bounded multi-node RMSNorm plugin audit for scales
