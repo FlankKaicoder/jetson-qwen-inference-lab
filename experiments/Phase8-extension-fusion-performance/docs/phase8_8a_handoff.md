@@ -10,7 +10,7 @@ Date: 2026-09-20
 | Closeout commit | Current HEAD after this handoff commit; verify with Git |
 | Artifact | `experiments/Phase8-extension-fusion-performance/artifacts/phase8_8a_20260920T123247Z/` |
 | Gate | `PASS / BOUNDED / NO_PROVEN_FUSION_BENEFIT` |
-| Push status | `PENDING` until the closeout commit is created and pushed |
+| Push status | `NOT PUSHED`; two attempts timed out connecting to `github.com:443` |
 
 ## Benchmark result
 
